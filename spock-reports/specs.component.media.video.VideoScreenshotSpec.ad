@@ -1,0 +1,493 @@
+= Report for specs.component.media.video.VideoScreenshotSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 06:02:15 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|6|100.0% |23.957 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Appearance of Component Variant: Default in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.191 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Media" > "Video"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#video1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 320 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
+designRef(selectorContainer)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XS-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XS-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XS-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XS-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Appearance of Component Variant: Default in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.431 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Media" > "Video"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#video1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 640 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
+designRef(selectorContainer)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-SM-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-SM-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-SM-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-SM-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Appearance of Component Variant: Default in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.698 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Media" > "Video"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#video1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1024 and height: 768 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
+designRef(selectorContainer)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-MD-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-MD-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-MD-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-MD-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Appearance of Component Variant: Default in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.572 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Media" > "Video"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#video1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1366 and height: 1024 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
+designRef(selectorContainer)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-LG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-LG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-LG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-LG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Appearance of Component Variant: Default in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.863 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Media" > "Video"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#video1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1920 and height: 1280 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
+designRef(selectorContainer)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XLG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Appearance of Component Variant: Default in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 5.136 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Media" > "Video"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#video1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 2560 and height: 1440 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
+designRef(selectorContainer)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XXLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XXLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XXLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/media/video/jcr-content/article/par/contentblock1/par/video-contentblock1-.contents-XXLG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+

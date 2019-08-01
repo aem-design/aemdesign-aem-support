@@ -1,0 +1,913 @@
+= Report for specs.component.lists.searchlist.SearchListScreenshotSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 04:37:12 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|12|100.0% |52.510 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Appearance of Search List Component Default without Query in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.422 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 320 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector,"blank")
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XS-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XS-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XS-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XS-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Appearance of Search List Component Default without Query in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.581 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 640 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector,"blank")
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-SM-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-SM-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-SM-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-SM-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Appearance of Search List Component Default without Query in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.903 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1024 and height: 768 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector,"blank")
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-MD-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-MD-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-MD-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-MD-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Appearance of Search List Component Default without Query in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.312 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1366 and height: 1024 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector,"blank")
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-LG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-LG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-LG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-LG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Appearance of Search List Component Default without Query in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.517 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1920 and height: 1280 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector,"blank")
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XLG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Appearance of Search List Component Default without Query in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.725 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 2560 and height: 1440 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector,"blank")
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XXLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XXLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XXLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-blank-searchlist1-XXLG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Appearance of Search List Component Default with Query in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.151 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+def query_string = "q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page with Query Specified
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPageWithQuery(language, query_string)
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 320 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XS-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XS-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XS-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XS-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Appearance of Search List Component Default with Query in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.080 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+def query_string = "q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page with Query Specified
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPageWithQuery(language, query_string)
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 640 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-SM-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-SM-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-SM-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-SM-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Appearance of Search List Component Default with Query in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.951 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+def query_string = "q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page with Query Specified
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPageWithQuery(language, query_string)
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1024 and height: 768 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-MD-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-MD-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-MD-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-MD-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Appearance of Search List Component Default with Query in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.115 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+def query_string = "q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page with Query Specified
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPageWithQuery(language, query_string)
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1366 and height: 1024 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-LG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-LG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-LG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-LG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Appearance of Search List Component Default with Query in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.473 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+def query_string = "q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page with Query Specified
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPageWithQuery(language, query_string)
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1920 and height: 1280 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XLG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Appearance of Search List Component Default with Query in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 5.192 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#searchlist1"
+def query_string = "q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page with Query Specified
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPageWithQuery(language, query_string)
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 2560 and height: 1440 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XXLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XXLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XXLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/lists/search-list/jcr-content/article/par/contentblock2/par/searchlist-searchlist1-XXLG-0.diff.png"]
+
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+

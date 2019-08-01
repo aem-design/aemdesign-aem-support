@@ -1,0 +1,463 @@
+= Report for specs.component.details.locationdetails.LocationDetailsScreenshotSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:17:30 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|6|100.0% |20.707 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Appearance of Component Variant: Default in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.871 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 320 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XS-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XS-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XS-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XS-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.587 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 640 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-SM-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-SM-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-SM-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-SM-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.248 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1024 and height: 768 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-MD-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-MD-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-MD-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-MD-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.170 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1366 and height: 1024 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-LG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-LG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-LG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-LG-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.166 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1920 and height: 1280 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XLG-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.598 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 2560 and height: 1440 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XXLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XXLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XXLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/details/location-details/jcr-content/article/par/contentblock1/par/locationdetails-location-details1-XXLG-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+

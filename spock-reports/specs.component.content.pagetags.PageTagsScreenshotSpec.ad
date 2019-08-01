@@ -1,0 +1,463 @@
+= Report for specs.component.content.pagetags.PageTagsScreenshotSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:26:01 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|6|100.0% |16.192 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Appearance of Component Variant: Default in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.327 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#pagetags1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 320 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XS-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XS-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XS-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XS-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XS-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.221 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#pagetags1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 640 and height: 480 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-SM-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-SM-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-SM-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-SM-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-SM-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.398 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#pagetags1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1024 and height: 768 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-MD-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-MD-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-MD-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-MD-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-MD-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.448 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#pagetags1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1366 and height: 1024 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-LG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-LG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-LG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-LG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-LG-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.773 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#pagetags1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 1920 and height: 1280 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XLG-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Appearance of Component Variant: Default in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.991 seconds
+
+* **Given:** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#pagetags1"
+----
+
+| 
+|====
+
+* **When** I am in the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should appear on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **Then** It should match the 2560 and height: 1440 reference image.
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+designRef(selector)
+----
+
+a|  .Source
+image:../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../src/test/screenshots/remote-seleniumhub-chrome/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XXLG-0.png"]
+ a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XXLG-0.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XXLG-0.png"]
+ a| .Diff
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XXLG-0.diff.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/content/aemdesign-showcase/au/en/component/content/pagetags/jcr-content/article/par/contentblock1/par/pagetags-pagetags1-XXLG-0.diff.png"]
+
+|====
+
+* **Where:** 
+
+=====
+

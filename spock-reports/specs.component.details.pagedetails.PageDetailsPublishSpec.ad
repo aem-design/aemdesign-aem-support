@@ -1,0 +1,4855 @@
+= Report for specs.component.details.pagedetails.PageDetailsPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:21:13 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|37|100.0% |1 minutes, 26.718 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component with Excluded Components in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.277 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Excluded Components in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.895 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Excluded Components in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.083 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Excluded Components in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.843 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Excluded Components in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.232 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Excluded Components in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.323 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Excluded-Components-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Included Components in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.260 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/007-001-Functionality%20of%20Component%20with%20Background%20and%20Included%20Components%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/007-001-Functionality of Component with Background and Included Components in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/007-001-Functionality of Component with Background and Included Components in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Parsys has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Included Components in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.402 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/008-001-Functionality%20of%20Component%20with%20Background%20and%20Included%20Components%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/008-001-Functionality of Component with Background and Included Components in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/008-001-Functionality of Component with Background and Included Components in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Parsys has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Included Components in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.839 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/009-001-Functionality%20of%20Component%20with%20Background%20and%20Included%20Components%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/009-001-Functionality of Component with Background and Included Components in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/009-001-Functionality of Component with Background and Included Components in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Parsys has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Included Components in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.873 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/010-001-Functionality%20of%20Component%20with%20Background%20and%20Included%20Components%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/010-001-Functionality of Component with Background and Included Components in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/010-001-Functionality of Component with Background and Included Components in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Parsys has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Included Components in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.011 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/011-001-Functionality%20of%20Component%20with%20Background%20and%20Included%20Components%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/011-001-Functionality of Component with Background and Included Components in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/011-001-Functionality of Component with Background and Included Components in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Parsys has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Included Components in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.705 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/012-001-Functionality%20of%20Component%20with%20Background%20and%20Included%20Components%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/012-001-Functionality of Component with Background and Included Components in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/012-001-Functionality of Component with Background and Included Components in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Included-Components-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Parsys has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Hidden Variant in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.334 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details3"
+def selectorContainer = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Hidden Variant in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.529 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details3"
+def selectorContainer = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Hidden Variant in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.693 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details3"
+def selectorContainer = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Hidden Variant in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.862 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details3"
+def selectorContainer = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Hidden Variant in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.749 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details3"
+def selectorContainer = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Hidden Variant in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.965 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details3"
+def selectorContainer = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Inherited Toolbar in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.116 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details4"
+def selectorContainer = "#contentblock4 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/019-001-Functionality%20of%20Component%20with%20Background%20and%20Inherited%20Toolbar%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/019-001-Functionality of Component with Background and Inherited Toolbar in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/019-001-Functionality of Component with Background and Inherited Toolbar in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parent_toolbar").text().trim() == "Text in Parent Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Custom Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **And** Has Custom Description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} header h1").text().trim() == "Page Title 4"
+assert $("${selector} header .description").text().trim() == "Custom Description"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Inherited Toolbar in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.221 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details4"
+def selectorContainer = "#contentblock4 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/020-001-Functionality%20of%20Component%20with%20Background%20and%20Inherited%20Toolbar%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/020-001-Functionality of Component with Background and Inherited Toolbar in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/020-001-Functionality of Component with Background and Inherited Toolbar in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parent_toolbar").text().trim() == "Text in Parent Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Custom Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **And** Has Custom Description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} header h1").text().trim() == "Page Title 4"
+assert $("${selector} header .description").text().trim() == "Custom Description"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Inherited Toolbar in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.625 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details4"
+def selectorContainer = "#contentblock4 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/021-001-Functionality%20of%20Component%20with%20Background%20and%20Inherited%20Toolbar%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/021-001-Functionality of Component with Background and Inherited Toolbar in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/021-001-Functionality of Component with Background and Inherited Toolbar in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parent_toolbar").text().trim() == "Text in Parent Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Custom Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **And** Has Custom Description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} header h1").text().trim() == "Page Title 4"
+assert $("${selector} header .description").text().trim() == "Custom Description"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Inherited Toolbar in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.165 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details4"
+def selectorContainer = "#contentblock4 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/022-001-Functionality%20of%20Component%20with%20Background%20and%20Inherited%20Toolbar%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/022-001-Functionality of Component with Background and Inherited Toolbar in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/022-001-Functionality of Component with Background and Inherited Toolbar in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parent_toolbar").text().trim() == "Text in Parent Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Custom Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **And** Has Custom Description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} header h1").text().trim() == "Page Title 4"
+assert $("${selector} header .description").text().trim() == "Custom Description"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Inherited Toolbar in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.992 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details4"
+def selectorContainer = "#contentblock4 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/023-001-Functionality%20of%20Component%20with%20Background%20and%20Inherited%20Toolbar%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/023-001-Functionality of Component with Background and Inherited Toolbar in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/023-001-Functionality of Component with Background and Inherited Toolbar in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parent_toolbar").text().trim() == "Text in Parent Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Custom Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **And** Has Custom Description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} header h1").text().trim() == "Page Title 4"
+assert $("${selector} header .description").text().trim() == "Custom Description"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component with Background and Inherited Toolbar in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.816 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details4"
+def selectorContainer = "#contentblock4 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/024-001-Functionality%20of%20Component%20with%20Background%20and%20Inherited%20Toolbar%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/024-001-Functionality of Component with Background and Inherited Toolbar in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/details/pagedetails/PageDetailsPublishSpec/024-001-Functionality of Component with Background and Inherited Toolbar in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Functionality-of-Component-with-Background-and-Inherited-Toolbar-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
+----
+
+| 
+|====
+
+* **And** Has Breadcrumb visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
+----
+
+| 
+|====
+
+* **And** Has Toolbar visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Toolbar has sample content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parent_toolbar").text().trim() == "Text in Parent Toolbar"
+----
+
+| 
+|====
+
+* **And** Has Parsys visible
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has Custom Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
+----
+
+| 
+|====
+
+* **And** Has Custom Description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} header h1").text().trim() == "Page Title 4"
+assert $("${selector} header .description").text().trim() == "Custom Description"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Description in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.703 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details5"
+def selectorContainer = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Description in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.005 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details5"
+def selectorContainer = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Description in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.178 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details5"
+def selectorContainer = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Description in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.600 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details5"
+def selectorContainer = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Description in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.919 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details5"
+def selectorContainer = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Description in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.236 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details5"
+def selectorContainer = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Description-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Title and Description in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.770 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details6"
+def selectorContainer = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Title and Description in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.952 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details6"
+def selectorContainer = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Title and Description in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.911 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details6"
+def selectorContainer = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Title and Description in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.915 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details6"
+def selectorContainer = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Title and Description in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.164 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details6"
+def selectorContainer = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default without included components and hidden Title and Description in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.597 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details6"
+def selectorContainer = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/pagedetails/PageDetailsPublishSpec/Page-Details-Default-without-included-components-and-hidden-Title-and-Description-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} nav.breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Description hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .description").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Title showing
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} h1").isEmpty() == true
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Page Details: Default metadata added to page **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.774 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Page Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#page-details"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Page has metadata field og:title from Details component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("meta[property='og:title']").attr("content").equals("Page Title")
+----
+
+| 
+|====
+
+* **And** Page has metadata field og:type
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("meta[property='og:type']").attr("content").equals("article")
+----
+
+| 
+|====
+
+* **And** Page has metadata field og:image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("meta[property='og:image']").attr("content").contains("page-details.thumb.")
+----
+
+| 
+|====
+
+* **And** Page has metadata field og:url
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("meta[property='og:url']").attr("content").contains("details/page-details.html")
+----
+
+| 
+|====
+
+* **And** Page has canonical link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("link[rel='canonical']").attr("href").contains("details/page-details.html")
+----
+
+| 
+|====
+
+=====
+

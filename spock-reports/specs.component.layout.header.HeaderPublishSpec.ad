@@ -1,0 +1,973 @@
+= Report for specs.component.layout.header.HeaderPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:16:32 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|12|100.0% |20.716 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.199 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainheader"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content"
+report("Should have sample rich text")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/001-001-Functionality%20of%20Component%20in%20XS-Should%20have%20sample%20rich%20text.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/001-001-Functionality of Component in XS-Should have sample rich text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/001-001-Functionality of Component in XS-Should have sample rich text.png"]
+
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.539 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainheader"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content"
+report("Should have sample rich text")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/002-001-Functionality%20of%20Component%20in%20SM-Should%20have%20sample%20rich%20text.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/002-001-Functionality of Component in SM-Should have sample rich text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/002-001-Functionality of Component in SM-Should have sample rich text.png"]
+
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.596 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainheader"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content"
+report("Should have sample rich text")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/003-001-Functionality%20of%20Component%20in%20MD-Should%20have%20sample%20rich%20text.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/003-001-Functionality of Component in MD-Should have sample rich text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/003-001-Functionality of Component in MD-Should have sample rich text.png"]
+
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.513 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainheader"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content"
+report("Should have sample rich text")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/004-001-Functionality%20of%20Component%20in%20LG-Should%20have%20sample%20rich%20text.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/004-001-Functionality of Component in LG-Should have sample rich text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/004-001-Functionality of Component in LG-Should have sample rich text.png"]
+
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.847 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainheader"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content"
+report("Should have sample rich text")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/005-001-Functionality%20of%20Component%20in%20XLG-Should%20have%20sample%20rich%20text.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/005-001-Functionality of Component in XLG-Should have sample rich text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/005-001-Functionality of Component in XLG-Should have sample rich text.png"]
+
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.881 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainheader"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content"
+report("Should have sample rich text")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/006-001-Functionality%20of%20Component%20in%20XXLG-Should%20have%20sample%20rich%20text.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/006-001-Functionality of Component in XXLG-Should have sample rich text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/006-001-Functionality of Component in XXLG-Should have sample rich text.png"]
+
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Background in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.501 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#headerwithbackground"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/007-001-Functionality%20of%20Component%20with%20Background%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/007-001-Functionality of Component with Background in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/007-001-Functionality of Component with Background in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Background in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.495 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#headerwithbackground"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/008-001-Functionality%20of%20Component%20with%20Background%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/008-001-Functionality of Component with Background in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/008-001-Functionality of Component with Background in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Background in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.860 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#headerwithbackground"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/009-001-Functionality%20of%20Component%20with%20Background%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/009-001-Functionality of Component with Background in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/009-001-Functionality of Component with Background in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Background in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.510 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#headerwithbackground"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/010-001-Functionality%20of%20Component%20with%20Background%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/010-001-Functionality of Component with Background in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/010-001-Functionality of Component with Background in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Background in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.676 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#headerwithbackground"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/011-001-Functionality%20of%20Component%20with%20Background%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/011-001-Functionality of Component with Background in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/011-001-Functionality of Component with Background in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Background in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.918 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Header"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#headerwithbackground"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/012-001-Functionality%20of%20Component%20with%20Background%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/012-001-Functionality of Component with Background in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/header/HeaderPublishSpec/012-001-Functionality of Component with Background in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Header Content with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+

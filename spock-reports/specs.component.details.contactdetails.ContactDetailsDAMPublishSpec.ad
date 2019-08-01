@@ -1,0 +1,1165 @@
+= Report for specs.component.details.contactdetails.ContactDetailsDAMPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:18:21 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|6|100.0% |16.228 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component variant Default using DAM Asset as Page Image in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.033 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Contact Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contact-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Image with Alt Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("alt").trim() == "97236996"
+----
+
+| 
+|====
+
+* **And** Has Image with Page Image as Thumbnail from Asset Image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("/content/dam/aemdesign-showcase/en/common/images/abstract.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png")
+----
+
+| 
+|====
+
+* **And** Has Title line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+----
+
+| 
+|====
+
+* **And** Has Description line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **And** Has Description has field jobTitle
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+----
+
+| 
+|====
+
+* **And** Has Description has field employee
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+----
+
+| 
+|====
+
+* **And** Has Description has field email
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component variant Default using DAM Asset as Page Image in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.129 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Contact Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contact-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Image with Alt Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("alt").trim() == "97236996"
+----
+
+| 
+|====
+
+* **And** Has Image with Page Image as Thumbnail from Asset Image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("/content/dam/aemdesign-showcase/en/common/images/abstract.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png")
+----
+
+| 
+|====
+
+* **And** Has Title line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+----
+
+| 
+|====
+
+* **And** Has Description line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **And** Has Description has field jobTitle
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+----
+
+| 
+|====
+
+* **And** Has Description has field employee
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+----
+
+| 
+|====
+
+* **And** Has Description has field email
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component variant Default using DAM Asset as Page Image in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.499 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Contact Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contact-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Image with Alt Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("alt").trim() == "97236996"
+----
+
+| 
+|====
+
+* **And** Has Image with Page Image as Thumbnail from Asset Image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("/content/dam/aemdesign-showcase/en/common/images/abstract.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png")
+----
+
+| 
+|====
+
+* **And** Has Title line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+----
+
+| 
+|====
+
+* **And** Has Description line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **And** Has Description has field jobTitle
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+----
+
+| 
+|====
+
+* **And** Has Description has field employee
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+----
+
+| 
+|====
+
+* **And** Has Description has field email
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component variant Default using DAM Asset as Page Image in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.365 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Contact Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contact-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Image with Alt Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("alt").trim() == "97236996"
+----
+
+| 
+|====
+
+* **And** Has Image with Page Image as Thumbnail from Asset Image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("/content/dam/aemdesign-showcase/en/common/images/abstract.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png")
+----
+
+| 
+|====
+
+* **And** Has Title line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+----
+
+| 
+|====
+
+* **And** Has Description line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **And** Has Description has field jobTitle
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+----
+
+| 
+|====
+
+* **And** Has Description has field employee
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+----
+
+| 
+|====
+
+* **And** Has Description has field email
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component variant Default using DAM Asset as Page Image in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.936 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Contact Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contact-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Image with Alt Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("alt").trim() == "97236996"
+----
+
+| 
+|====
+
+* **And** Has Image with Page Image as Thumbnail from Asset Image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("/content/dam/aemdesign-showcase/en/common/images/abstract.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png")
+----
+
+| 
+|====
+
+* **And** Has Title line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+----
+
+| 
+|====
+
+* **And** Has Description line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **And** Has Description has field jobTitle
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+----
+
+| 
+|====
+
+* **And** Has Description has field employee
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+----
+
+| 
+|====
+
+* **And** Has Description has field email
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component variant Default using DAM Asset as Page Image in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.986 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Contact Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contact-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/contactdetails/ContactDetailsDAMPublishSpec/Functionality-of-Component-variant-Default-using-DAM-Asset-as-Page-Image-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has Breadcrumb hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .breadcrumb").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Toolbar hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .navbar").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Parsys hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .text").isEmpty() == true
+----
+
+| 
+|====
+
+* **And** Has Image with Alt Title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("alt").trim() == "97236996"
+----
+
+| 
+|====
+
+* **And** Has Image with Page Image as Thumbnail from Asset Image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("/content/dam/aemdesign-showcase/en/common/images/abstract.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png")
+----
+
+| 
+|====
+
+* **And** Has Title line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+----
+
+| 
+|====
+
+* **And** Has Description line with content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **And** Has Description has field jobTitle
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+----
+
+| 
+|====
+
+* **And** Has Description has field employee
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+----
+
+| 
+|====
+
+* **And** Has Description has field email
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+

@@ -1,0 +1,1123 @@
+= Report for specs.component.details.locationdetails.LocationDetailsPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:17:54 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|12|100.0% |23.920 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component Variant: Default in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.629 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have sample heading
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector h1").text().trim().toLowerCase().contains("Location Detail 1".toLowerCase())
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-latitude") == "10.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-longitude") == "12.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-pages") != ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.703 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have sample heading
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector h1").text().trim().toLowerCase().contains("Location Detail 1".toLowerCase())
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-latitude") == "10.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-longitude") == "12.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-pages") != ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.526 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have sample heading
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector h1").text().trim().toLowerCase().contains("Location Detail 1".toLowerCase())
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-latitude") == "10.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-longitude") == "12.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-pages") != ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.955 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have sample heading
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector h1").text().trim().toLowerCase().contains("Location Detail 1".toLowerCase())
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-latitude") == "10.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-longitude") == "12.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-pages") != ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.844 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have sample heading
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector h1").text().trim().toLowerCase().contains("Location Detail 1".toLowerCase())
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-latitude") == "10.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-longitude") == "12.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-pages") != ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.128 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/details/locationdetails/LocationDetailsPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have sample heading
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector h1").text().trim().toLowerCase().contains("Location Detail 1".toLowerCase())
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-latitude") == "10.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-longitude") == "12.0"
+----
+
+| 
+|====
+
+* **And** Should have data attribute latitude
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-pages") != ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Hidden in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.217 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Component should be hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector}[hidden]").size() == 1
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Hidden in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.364 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Component should be hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector}[hidden]").size() == 1
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Hidden in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.468 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Component should be hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector}[hidden]").size() == 1
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Hidden in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.280 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Component should be hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector}[hidden]").size() == 1
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Hidden in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.516 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Component should be hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector}[hidden]").size() == 1
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Hidden in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.589 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Details" > "Location Details"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#location-details2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Component should be hidden
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector}[hidden]").size() == 1
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+

@@ -1,0 +1,2689 @@
+= Report for specs.component.widgets.sharebutton.ShareButtonPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:58:32 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|36|100.0% |1 minutes, 9.106 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component Variant: Default loads non-inline elements in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.528 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#sharebutton1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Add this modules have been loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor(15, 0.1) { js.exec("return window.addthis?true:false;") }
+----
+
+| 
+|====
+
+* **And** Should have add this loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec("return window.addthis?true:false;")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default loads non-inline elements in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.630 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#sharebutton1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Add this modules have been loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor(15, 0.1) { js.exec("return window.addthis?true:false;") }
+----
+
+| 
+|====
+
+* **And** Should have add this loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec("return window.addthis?true:false;")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default loads non-inline elements in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.265 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#sharebutton1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Add this modules have been loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor(15, 0.1) { js.exec("return window.addthis?true:false;") }
+----
+
+| 
+|====
+
+* **And** Should have add this loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec("return window.addthis?true:false;")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default loads non-inline elements in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.382 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#sharebutton1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Add this modules have been loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor(15, 0.1) { js.exec("return window.addthis?true:false;") }
+----
+
+| 
+|====
+
+* **And** Should have add this loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec("return window.addthis?true:false;")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default loads non-inline elements in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.463 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#sharebutton1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Add this modules have been loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor(15, 0.1) { js.exec("return window.addthis?true:false;") }
+----
+
+| 
+|====
+
+* **And** Should have add this loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec("return window.addthis?true:false;")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default loads non-inline elements in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.276 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#sharebutton1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Add this modules have been loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor(15, 0.1) { js.exec("return window.addthis?true:false;") }
+----
+
+| 
+|====
+
+* **And** Should have add this loaded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert js.exec("return window.addthis?true:false;")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Share Tool Box in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.890 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atstbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-XS-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-XS-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Share Tool Box in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.842 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atstbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-SM-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-SM-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Share Tool Box in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.966 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atstbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-MD-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-MD-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Share Tool Box in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.815 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atstbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-LG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-LG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Share Tool Box in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.192 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atstbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-XLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-XLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Share Tool Box in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.231 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atstbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-XXLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Share-Tool-Box-in-XXLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Follow Tool Box in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.786 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atftbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-XS-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-XS-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Follow Tool Box in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.973 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atftbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-SM-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-SM-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Follow Tool Box in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.017 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atftbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-MD-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-MD-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Follow Tool Box in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.958 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atftbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-LG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-LG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Follow Tool Box in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.137 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atftbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-XLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-XLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Follow Tool Box in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.273 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#atftbx"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-XXLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Follow-Tool-Box-in-XXLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Tip Jar in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.430 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#attj"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-XS-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-XS-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Tip Jar in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.999 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#attj"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-SM-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-SM-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Tip Jar in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.887 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#attj"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-MD-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-MD-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Tip Jar in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.019 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#attj"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-LG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-LG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Tip Jar in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.150 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#attj"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-XLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-XLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Tip Jar in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.242 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#attj"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-XXLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Inline-with-Tip-Jar-in-XXLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Related Posts in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.563 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = ".at4-recommendedbox-outer-container"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Related Posts in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.637 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = ".at4-recommendedbox-outer-container"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Related Posts in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.946 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = ".at4-recommendedbox-outer-container"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Related Posts in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.789 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = ".at4-recommendedbox-outer-container"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Related Posts in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.922 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = ".at4-recommendedbox-outer-container"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Inline with Related Posts in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.857 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = ".at4-recommendedbox-outer-container"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.535 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#image6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-XS-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-XS-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.859 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#image6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-SM-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-SM-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.342 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#image6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-MD-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-MD-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.757 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#image6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-LG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-LG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.350 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#image6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.167 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#image6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have embeded component
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).size() > 0
+takeScreenshot($(selector).firstElement(), "Should have embeded component")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-Should-have-embeded-component.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/widgets/sharebutton/ShareButtonPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-Should-have-embeded-component.png"]
+
+|====
+
+* **Where:** 
+
+=====
+

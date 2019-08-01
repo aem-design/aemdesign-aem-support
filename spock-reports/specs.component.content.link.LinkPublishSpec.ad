@@ -1,0 +1,1360 @@
+= Report for specs.component.content.link.LinkPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:27:50 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|6|100.0% |11.409 seconds |0 |0 |8
+|====
+
+== Features
+
+=== Functionality of Component Variant: Default **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link: Default"
+report("Should have sample component text")
+----
+
+| 
+|====
+
+* **And** Should have video-play module tag
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-modules") == "play-video"
+report("Should have sample component text")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Button **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link: Button"
+report("Should have sample component text")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default no Label **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default with Analytics in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.677 seconds
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+a| link:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/001-001-Functionality%20of%20Component%20Variant_%20Default%20with%20Analytics%20in%20XS-Should%20have%20sample%20component%20text.html[source html]
+image:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/001-001-Functionality of Component Variant_ Default with Analytics in XS-Should have sample component text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/content/link/LinkPublishSpec/001-001-Functionality of Component Variant_ Default with Analytics in XS-Should have sample component text.png"]
+
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "link description"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == "link page"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default with Analytics in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.581 seconds
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+a| link:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/002-001-Functionality%20of%20Component%20Variant_%20Default%20with%20Analytics%20in%20SM-Should%20have%20sample%20component%20text.html[source html]
+image:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/002-001-Functionality of Component Variant_ Default with Analytics in SM-Should have sample component text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/content/link/LinkPublishSpec/002-001-Functionality of Component Variant_ Default with Analytics in SM-Should have sample component text.png"]
+
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "link description"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == "link page"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default with Analytics in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.605 seconds
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+a| link:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/003-001-Functionality%20of%20Component%20Variant_%20Default%20with%20Analytics%20in%20MD-Should%20have%20sample%20component%20text.html[source html]
+image:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/003-001-Functionality of Component Variant_ Default with Analytics in MD-Should have sample component text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/content/link/LinkPublishSpec/003-001-Functionality of Component Variant_ Default with Analytics in MD-Should have sample component text.png"]
+
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "link description"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == "link page"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default with Analytics in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.634 seconds
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+a| link:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/004-001-Functionality%20of%20Component%20Variant_%20Default%20with%20Analytics%20in%20LG-Should%20have%20sample%20component%20text.html[source html]
+image:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/004-001-Functionality of Component Variant_ Default with Analytics in LG-Should have sample component text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/content/link/LinkPublishSpec/004-001-Functionality of Component Variant_ Default with Analytics in LG-Should have sample component text.png"]
+
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "link description"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == "link page"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default with Analytics in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.867 seconds
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+a| link:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/005-001-Functionality%20of%20Component%20Variant_%20Default%20with%20Analytics%20in%20XLG-Should%20have%20sample%20component%20text.html[source html]
+image:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/005-001-Functionality of Component Variant_ Default with Analytics in XLG-Should have sample component text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/content/link/LinkPublishSpec/005-001-Functionality of Component Variant_ Default with Analytics in XLG-Should have sample component text.png"]
+
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "link description"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == "link page"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default with Analytics in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.979 seconds
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+a| link:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/006-001-Functionality%20of%20Component%20Variant_%20Default%20with%20Analytics%20in%20XXLG-Should%20have%20sample%20component%20text.html[source html]
+image:../../test-reports/geb/specs/component/content/link/LinkPublishSpec/006-001-Functionality of Component Variant_ Default with Analytics in XXLG-Should have sample component text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/content/link/LinkPublishSpec/006-001-Functionality of Component Variant_ Default with Analytics in XXLG-Should have sample component text.png"]
+
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "link description"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == "link page"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Button with Analytics **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "link description"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location")  == "link page"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default with Analytics Track Only **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link12"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "Link"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Button with Analytics Track Only **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link13"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+report("Should have sample component text")
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-track
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-track") == "true"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-label
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-label") == "Link"
+----
+
+| 
+|====
+
+* **And** Should have analytics attribute: data-layer-location
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).attr("data-layer-location") == ""
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Button Button with Icon Left **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link14"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+takeScreenshot($(selector).firstElement(), "Should have sample component text")
+----
+
+| 
+|====
+
+* **And** Should have left icon first
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector > *").firstElement().getAttribute("class").contains("icon")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Button Button with Icon Right **IGNORED** [big]#icon:eye-slash[role="gray"]#
+
+=====
+
+
+
+Result: **IGNORED** [big]#icon:eye-slash[role="gray"]#
+Time: 0
+
+* **Given:** The page hierarchy is created as "Components" > "Content" > "Link"
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#link15"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample component text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).text().trim() == "Link"
+takeScreenshot($(selector).firstElement(), "Should have sample component text")
+----
+
+| 
+|====
+
+* **And** Should have right icon last
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector > *").lastElement().getAttribute("class").contains("icon")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+

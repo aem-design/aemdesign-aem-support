@@ -1,0 +1,5785 @@
+= Report for specs.component.layout.contentblock.ContentBlockPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:04:47 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|72|100.0% |2 minutes, 50.771 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component Variant: Default in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.794 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-XS-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-XS-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Default in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.836 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-SM-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-SM-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Default in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.425 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-MD-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-MD-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component Variant: Default in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.910 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-LG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-LG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component Variant: Default in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.608 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component Variant: Default in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.498 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component Variant: Default Container in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.314 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/007-001-Functionality%20of%20Component%20Variant_%20Default%20Container%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/007-001-Functionality of Component Variant_ Default Container in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/007-001-Functionality of Component Variant_ Default Container in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default Container"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Default Container in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.934 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/008-001-Functionality%20of%20Component%20Variant_%20Default%20Container%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/008-001-Functionality of Component Variant_ Default Container in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/008-001-Functionality of Component Variant_ Default Container in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default Container"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Default Container in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.403 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/009-001-Functionality%20of%20Component%20Variant_%20Default%20Container%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/009-001-Functionality of Component Variant_ Default Container in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/009-001-Functionality of Component Variant_ Default Container in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default Container"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component Variant: Default Container in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.108 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/010-001-Functionality%20of%20Component%20Variant_%20Default%20Container%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/010-001-Functionality of Component Variant_ Default Container in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/010-001-Functionality of Component Variant_ Default Container in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default Container"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component Variant: Default Container in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.704 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/011-001-Functionality%20of%20Component%20Variant_%20Default%20Container%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/011-001-Functionality of Component Variant_ Default Container in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/011-001-Functionality of Component Variant_ Default Container in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default Container"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component Variant: Default Container in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.431 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/012-001-Functionality%20of%20Component%20Variant_%20Default%20Container%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/012-001-Functionality of Component Variant_ Default Container in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/012-001-Functionality of Component Variant_ Default Container in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Default Container"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component Variant: Float Section in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.250 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/013-001-Functionality%20of%20Component%20Variant_%20Float%20Section%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/013-001-Functionality of Component Variant_ Float Section in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/013-001-Functionality of Component Variant_ Float Section in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Float Section in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.727 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/014-001-Functionality%20of%20Component%20Variant_%20Float%20Section%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/014-001-Functionality of Component Variant_ Float Section in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/014-001-Functionality of Component Variant_ Float Section in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Float Section in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.456 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/015-001-Functionality%20of%20Component%20Variant_%20Float%20Section%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/015-001-Functionality of Component Variant_ Float Section in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/015-001-Functionality of Component Variant_ Float Section in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component Variant: Float Section in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.954 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/016-001-Functionality%20of%20Component%20Variant_%20Float%20Section%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/016-001-Functionality of Component Variant_ Float Section in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/016-001-Functionality of Component Variant_ Float Section in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component Variant: Float Section in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.602 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/017-001-Functionality%20of%20Component%20Variant_%20Float%20Section%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/017-001-Functionality of Component Variant_ Float Section in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/017-001-Functionality of Component Variant_ Float Section in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component Variant: Float Section in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.516 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/018-001-Functionality%20of%20Component%20Variant_%20Float%20Section%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/018-001-Functionality of Component Variant_ Float Section in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/018-001-Functionality of Component Variant_ Float Section in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component Variant: Description List Section in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.888 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/019-001-Functionality%20of%20Component%20Variant_%20Description%20List%20Section%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/019-001-Functionality of Component Variant_ Description List Section in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/019-001-Functionality of Component Variant_ Description List Section in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Description List Section in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.730 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/020-001-Functionality%20of%20Component%20Variant_%20Description%20List%20Section%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/020-001-Functionality of Component Variant_ Description List Section in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/020-001-Functionality of Component Variant_ Description List Section in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component Variant: Description List Section in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.292 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/021-001-Functionality%20of%20Component%20Variant_%20Description%20List%20Section%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/021-001-Functionality of Component Variant_ Description List Section in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/021-001-Functionality of Component Variant_ Description List Section in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component Variant: Description List Section in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.006 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/022-001-Functionality%20of%20Component%20Variant_%20Description%20List%20Section%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/022-001-Functionality of Component Variant_ Description List Section in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/022-001-Functionality of Component Variant_ Description List Section in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component Variant: Description List Section in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.527 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/023-001-Functionality%20of%20Component%20Variant_%20Description%20List%20Section%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/023-001-Functionality of Component Variant_ Description List Section in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/023-001-Functionality of Component Variant_ Description List Section in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component Variant: Description List Section in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.431 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/024-001-Functionality%20of%20Component%20Variant_%20Description%20List%20Section%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/024-001-Functionality of Component Variant_ Description List Section in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/024-001-Functionality of Component Variant_ Description List Section in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component Variant: Field Set Section in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.891 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/025-001-Functionality%20of%20Component%20Variant_%20Field%20Set%20Section%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/025-001-Functionality of Component Variant_ Field Set Section in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/025-001-Functionality of Component Variant_ Field Set Section in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample title text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .legend").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Field Set Section in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.718 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/026-001-Functionality%20of%20Component%20Variant_%20Field%20Set%20Section%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/026-001-Functionality of Component Variant_ Field Set Section in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/026-001-Functionality of Component Variant_ Field Set Section in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample title text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .legend").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Field Set Section in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.122 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/027-001-Functionality%20of%20Component%20Variant_%20Field%20Set%20Section%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/027-001-Functionality of Component Variant_ Field Set Section in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/027-001-Functionality of Component Variant_ Field Set Section in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample title text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .legend").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Field Set Section in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.118 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/028-001-Functionality%20of%20Component%20Variant_%20Field%20Set%20Section%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/028-001-Functionality of Component Variant_ Field Set Section in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/028-001-Functionality of Component Variant_ Field Set Section in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample title text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .legend").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Field Set Section in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.577 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/029-001-Functionality%20of%20Component%20Variant_%20Field%20Set%20Section%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/029-001-Functionality of Component Variant_ Field Set Section in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/029-001-Functionality of Component Variant_ Field Set Section in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample title text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .legend").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Field Set Section in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.465 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/030-001-Functionality%20of%20Component%20Variant_%20Field%20Set%20Section%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/030-001-Functionality of Component Variant_ Field Set Section in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/030-001-Functionality of Component Variant_ Field Set Section in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample title text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .legend").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Plain Section in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.878 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/031-001-Functionality%20of%20Component%20Variant_%20Advanced%20Plain%20Section%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/031-001-Functionality of Component Variant_ Advanced Plain Section in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/031-001-Functionality of Component Variant_ Advanced Plain Section in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Plain Section in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.195 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/032-001-Functionality%20of%20Component%20Variant_%20Advanced%20Plain%20Section%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/032-001-Functionality of Component Variant_ Advanced Plain Section in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/032-001-Functionality of Component Variant_ Advanced Plain Section in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Plain Section in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.173 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/033-001-Functionality%20of%20Component%20Variant_%20Advanced%20Plain%20Section%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/033-001-Functionality of Component Variant_ Advanced Plain Section in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/033-001-Functionality of Component Variant_ Advanced Plain Section in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Plain Section in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.963 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/034-001-Functionality%20of%20Component%20Variant_%20Advanced%20Plain%20Section%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/034-001-Functionality of Component Variant_ Advanced Plain Section in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/034-001-Functionality of Component Variant_ Advanced Plain Section in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Plain Section in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.713 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/035-001-Functionality%20of%20Component%20Variant_%20Advanced%20Plain%20Section%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/035-001-Functionality of Component Variant_ Advanced Plain Section in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/035-001-Functionality of Component Variant_ Advanced Plain Section in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Plain Section in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.390 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/036-001-Functionality%20of%20Component%20Variant_%20Advanced%20Plain%20Section%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/036-001-Functionality of Component Variant_ Advanced Plain Section in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/036-001-Functionality of Component Variant_ Advanced Plain Section in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Section with Links in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.883 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/037-001-Functionality%20of%20Component%20Variant_%20Advanced%20Section%20with%20Links%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/037-001-Functionality of Component Variant_ Advanced Section with Links in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/037-001-Functionality of Component Variant_ Advanced Section with Links in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Section with Links in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.770 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/038-001-Functionality%20of%20Component%20Variant_%20Advanced%20Section%20with%20Links%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/038-001-Functionality of Component Variant_ Advanced Section with Links in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/038-001-Functionality of Component Variant_ Advanced Section with Links in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Section with Links in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.211 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/039-001-Functionality%20of%20Component%20Variant_%20Advanced%20Section%20with%20Links%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/039-001-Functionality of Component Variant_ Advanced Section with Links in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/039-001-Functionality of Component Variant_ Advanced Section with Links in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Section with Links in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.980 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/040-001-Functionality%20of%20Component%20Variant_%20Advanced%20Section%20with%20Links%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/040-001-Functionality of Component Variant_ Advanced Section with Links in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/040-001-Functionality of Component Variant_ Advanced Section with Links in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Section with Links in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.953 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/041-001-Functionality%20of%20Component%20Variant_%20Advanced%20Section%20with%20Links%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/041-001-Functionality of Component Variant_ Advanced Section with Links in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/041-001-Functionality of Component Variant_ Advanced Section with Links in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Advanced Section with Links in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.636 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/042-001-Functionality%20of%20Component%20Variant_%20Advanced%20Section%20with%20Links%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/042-001-Functionality of Component Variant_ Advanced Section with Links in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/042-001-Functionality of Component Variant_ Advanced Section with Links in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.198 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock8"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/043-001-Functionality%20of%20Component%20Variant_%20Section%20with%20Background%20in%20XS-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/043-001-Functionality of Component Variant_ Section with Background in XS-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/043-001-Functionality of Component Variant_ Section with Background in XS-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Section with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.840 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock8"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/044-001-Functionality%20of%20Component%20Variant_%20Section%20with%20Background%20in%20SM-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/044-001-Functionality of Component Variant_ Section with Background in SM-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/044-001-Functionality of Component Variant_ Section with Background in SM-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Section with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.287 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock8"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/045-001-Functionality%20of%20Component%20Variant_%20Section%20with%20Background%20in%20MD-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/045-001-Functionality of Component Variant_ Section with Background in MD-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/045-001-Functionality of Component Variant_ Section with Background in MD-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Section with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.998 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock8"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/046-001-Functionality%20of%20Component%20Variant_%20Section%20with%20Background%20in%20LG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/046-001-Functionality of Component Variant_ Section with Background in LG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/046-001-Functionality of Component Variant_ Section with Background in LG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Section with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.546 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock8"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/047-001-Functionality%20of%20Component%20Variant_%20Section%20with%20Background%20in%20XLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/047-001-Functionality of Component Variant_ Section with Background in XLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/047-001-Functionality of Component Variant_ Section with Background in XLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Section with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.493 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock8"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+report("I am on the component showcase page")
+----
+
+a| link:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/048-001-Functionality%20of%20Component%20Variant_%20Section%20with%20Background%20in%20XXLG-I%20am%20on%20the%20component%20showcase%20page.html[source html]
+image:../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/048-001-Functionality of Component Variant_ Section with Background in XXLG-I am on the component showcase page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../test-reports/geb/specs/component/layout/contentblock/ContentBlockPublishSpec/048-001-Functionality of Component Variant_ Section with Background in XXLG-I am on the component showcase page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Section with Background"
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background Video in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.154 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock9"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-XS-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-XS-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").size() > 0
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **And** Section should have video tag with video rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background Video in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.108 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock9"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-SM-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-SM-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").size() > 0
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **And** Section should have video tag with video rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background Video in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.454 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock9"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-MD-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-MD-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").size() > 0
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **And** Section should have video tag with video rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background Video in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.066 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock9"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-LG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-LG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").size() > 0
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **And** Section should have video tag with video rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background Video in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.699 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock9"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-XLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-XLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").size() > 0
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **And** Section should have video tag with video rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background Video in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.237 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock9"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-XXLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-Video-in-XXLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").size() > 0
+----
+
+| 
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **And** Section should have video tag with video rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Parsys in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.175 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock10"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-XS-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-XS-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Parsys in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.729 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock10"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-SM-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-SM-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Parsys in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.175 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock10"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-MD-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-MD-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Parsys in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.912 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock10"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-LG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-LG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Parsys in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.379 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock10"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-XLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-XLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Parsys in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.116 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock10"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-XXLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Parsys-in-XXLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Variant: Parsys"
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Child Section in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.862 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock11"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XS-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XS-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample child sections
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .childsection").size() == 3
+----
+
+| 
+|====
+
+* **When** I click first child section button
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+scrollIntoView($("#contentblock11a-heading button").firstElement())
+clickOnElement($("#contentblock11a-heading button").firstElement())
+takeScreenshot($(selector).firstElement(), "I click first child section button")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XS-I-click-first-child-section-button.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XS-I-click-first-child-section-button.png"]
+
+|====
+
+* **Then** Fist child section content should be expanded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor (3, 0.1) { $("#contentblock11a-content [component].text").isDisplayed() }
+takeScreenshot($(selector).firstElement(), "Fist child section content should be expanded")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XS-Fist-child-section-content-should-be-expanded.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XS-Fist-child-section-content-should-be-expanded.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Child Section in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.604 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock11"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-SM-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-SM-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample child sections
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .childsection").size() == 3
+----
+
+| 
+|====
+
+* **When** I click first child section button
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+scrollIntoView($("#contentblock11a-heading button").firstElement())
+clickOnElement($("#contentblock11a-heading button").firstElement())
+takeScreenshot($(selector).firstElement(), "I click first child section button")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-SM-I-click-first-child-section-button.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-SM-I-click-first-child-section-button.png"]
+
+|====
+
+* **Then** Fist child section content should be expanded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor (3, 0.1) { $("#contentblock11a-content [component].text").isDisplayed() }
+takeScreenshot($(selector).firstElement(), "Fist child section content should be expanded")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-SM-Fist-child-section-content-should-be-expanded.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-SM-Fist-child-section-content-should-be-expanded.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Child Section in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.040 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock11"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-MD-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-MD-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample child sections
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .childsection").size() == 3
+----
+
+| 
+|====
+
+* **When** I click first child section button
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+scrollIntoView($("#contentblock11a-heading button").firstElement())
+clickOnElement($("#contentblock11a-heading button").firstElement())
+takeScreenshot($(selector).firstElement(), "I click first child section button")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-MD-I-click-first-child-section-button.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-MD-I-click-first-child-section-button.png"]
+
+|====
+
+* **Then** Fist child section content should be expanded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor (3, 0.1) { $("#contentblock11a-content [component].text").isDisplayed() }
+takeScreenshot($(selector).firstElement(), "Fist child section content should be expanded")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-MD-Fist-child-section-content-should-be-expanded.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-MD-Fist-child-section-content-should-be-expanded.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Child Section in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.946 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock11"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-LG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-LG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample child sections
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .childsection").size() == 3
+----
+
+| 
+|====
+
+* **When** I click first child section button
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+scrollIntoView($("#contentblock11a-heading button").firstElement())
+clickOnElement($("#contentblock11a-heading button").firstElement())
+takeScreenshot($(selector).firstElement(), "I click first child section button")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-LG-I-click-first-child-section-button.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-LG-I-click-first-child-section-button.png"]
+
+|====
+
+* **Then** Fist child section content should be expanded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor (3, 0.1) { $("#contentblock11a-content [component].text").isDisplayed() }
+takeScreenshot($(selector).firstElement(), "Fist child section content should be expanded")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-LG-Fist-child-section-content-should-be-expanded.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-LG-Fist-child-section-content-should-be-expanded.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Child Section in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.564 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock11"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample child sections
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .childsection").size() == 3
+----
+
+| 
+|====
+
+* **When** I click first child section button
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+scrollIntoView($("#contentblock11a-heading button").firstElement())
+clickOnElement($("#contentblock11a-heading button").firstElement())
+takeScreenshot($(selector).firstElement(), "I click first child section button")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XLG-I-click-first-child-section-button.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XLG-I-click-first-child-section-button.png"]
+
+|====
+
+* **Then** Fist child section content should be expanded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor (3, 0.1) { $("#contentblock11a-content [component].text").isDisplayed() }
+takeScreenshot($(selector).firstElement(), "Fist child section content should be expanded")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XLG-Fist-child-section-content-should-be-expanded.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XLG-Fist-child-section-content-should-be-expanded.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Child Section in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.471 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock11"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XXLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XXLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample child sections
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .childsection").size() == 3
+----
+
+| 
+|====
+
+* **When** I click first child section button
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+scrollIntoView($("#contentblock11a-heading button").firstElement())
+clickOnElement($("#contentblock11a-heading button").firstElement())
+takeScreenshot($(selector).firstElement(), "I click first child section button")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XXLG-I-click-first-child-section-button.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XXLG-I-click-first-child-section-button.png"]
+
+|====
+
+* **Then** Fist child section content should be expanded
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+waitFor (3, 0.1) { $("#contentblock11a-content [component].text").isDisplayed() }
+takeScreenshot($(selector).firstElement(), "Fist child section content should be expanded")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XXLG-Fist-child-section-content-should-be-expanded.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Child-Section-in-XXLG-Fist-child-section-content-should-be-expanded.png"]
+
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background using Image Option using Manual MediaQuery with Rendition in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.362 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock12"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-XS-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-XS-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Style element should use custom rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("#background-contentblock12").getAttribute("innerHTML").indexOf("aem-design-logo.png") > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background using Image Option using Manual MediaQuery with Rendition in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.229 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock12"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-SM-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-SM-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Style element should use custom rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("#background-contentblock12").getAttribute("innerHTML").indexOf("aem-design-logo.png") > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background using Image Option using Manual MediaQuery with Rendition in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.121 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock12"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-MD-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-MD-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Style element should use custom rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("#background-contentblock12").getAttribute("innerHTML").indexOf("aem-design-logo.png") > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background using Image Option using Manual MediaQuery with Rendition in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.882 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock12"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-LG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-LG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Style element should use custom rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("#background-contentblock12").getAttribute("innerHTML").indexOf("aem-design-logo.png") > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background using Image Option using Manual MediaQuery with Rendition in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.228 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock12"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-XLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-XLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Style element should use custom rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("#background-contentblock12").getAttribute("innerHTML").indexOf("aem-design-logo.png") > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Section with Background using Image Option using Manual MediaQuery with Rendition in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.157 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "ContentBlock"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contentblock12"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-XXLG-I-am-on-the-component-showcase-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/contentblock/ContentBlockPublishSpec/Functionality-of-Component-Variant-Section-with-Background-using-Image-Option-using-Manual-MediaQuery-with-Rendition-in-XXLG-I-am-on-the-component-showcase-page.png"]
+
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Style element should use custom rendition
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("#background-contentblock12").getAttribute("innerHTML").indexOf("aem-design-logo.png") > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+

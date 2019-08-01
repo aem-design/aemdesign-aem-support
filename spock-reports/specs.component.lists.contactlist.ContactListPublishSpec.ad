@@ -1,0 +1,3901 @@
+= Report for specs.component.lists.contactlist.ContactListPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 04:43:59 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|36|100.0% |1 minutes, 37.315 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component with Default variant using Default badge in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.194 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has five list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 6
+----
+
+| 
+|====
+
+* **And** Has first item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.first").text().trim() == "Contact1"
+----
+
+| 
+|====
+
+* **And** Has last item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.last").text().trim() == "Contact6"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant using Default badge in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.456 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has five list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 6
+----
+
+| 
+|====
+
+* **And** Has first item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.first").text().trim() == "Contact1"
+----
+
+| 
+|====
+
+* **And** Has last item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.last").text().trim() == "Contact6"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant using Default badge in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.480 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has five list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 6
+----
+
+| 
+|====
+
+* **And** Has first item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.first").text().trim() == "Contact1"
+----
+
+| 
+|====
+
+* **And** Has last item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.last").text().trim() == "Contact6"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant using Default badge in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.787 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has five list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 6
+----
+
+| 
+|====
+
+* **And** Has first item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.first").text().trim() == "Contact1"
+----
+
+| 
+|====
+
+* **And** Has last item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.last").text().trim() == "Contact6"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant using Default badge in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.384 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has five list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 6
+----
+
+| 
+|====
+
+* **And** Has first item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.first").text().trim() == "Contact1"
+----
+
+| 
+|====
+
+* **And** Has last item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.last").text().trim() == "Contact6"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant using Default badge in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.545 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Default-variant-using-Default-badge-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has five list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 6
+----
+
+| 
+|====
+
+* **And** Has first item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.first").text().trim() == "Contact1"
+----
+
+| 
+|====
+
+* **And** Has last item
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} li.last").text().trim() == "Contact6"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Card Action with Icon, Title, Category and Description in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.058 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Card Action with Icon, Title, Category and Description in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.182 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Card Action with Icon, Title, Category and Description in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.376 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Card Action with Icon, Title, Category and Description in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.968 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Card Action with Icon, Title, Category and Description in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.425 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Card Action with Icon, Title, Category and Description in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.087 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Icon-Title-Category-and-Description-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Card Action with Image, Title, Category and Description in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.909 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Card Action with Image, Title, Category and Description in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.990 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Card Action with Image, Title, Category and Description in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.169 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Card Action with Image, Title, Category and Description in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.286 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Card Action with Image, Title, Category and Description in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.446 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Card Action with Image, Title, Category and Description in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.665 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-Action-with-Image-Title-Category-and-Description-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Card with Icon, Title, Category, Description and Action in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.036 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Card with Icon, Title, Category, Description and Action in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.079 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Card with Icon, Title, Category, Description and Action in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.105 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Card with Icon, Title, Category, Description and Action in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.155 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Card with Icon, Title, Category, Description and Action in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.118 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Card with Icon, Title, Category, Description and Action in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.519 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Icon-Title-Category-Description-and-Action-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Action in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.024 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Action in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.620 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Action in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.603 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Action in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.621 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Action in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.367 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Action in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.692 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Action-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has two list items
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} ul.list > li").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card has image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card title
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-title").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card tags
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-category").size() == 2
+----
+
+| 
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-text").size() == 2
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Email Action Format in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.137 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-link").getAt(0).getAttribute("href").contains("mailto:")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Email Action Format in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.064 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-link").getAt(0).getAttribute("href").contains("mailto:")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Email Action Format in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.628 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-link").getAt(0).getAttribute("href").contains("mailto:")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Email Action Format in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.333 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-link").getAt(0).getAttribute("href").contains("mailto:")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Email Action Format in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.807 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-link").getAt(0).getAttribute("href").contains("mailto:")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Card with Image, Title, Category, Description and Email Action Format in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.680 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Contact List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#contactlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/contactlist/ContactListPublishSpec/Functionality-of-Component-with-Card-with-Image-Title-Category-Description-and-Email-Action-Format-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Has card description
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} .card-link").getAt(0).getAttribute("href").contains("mailto:")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+

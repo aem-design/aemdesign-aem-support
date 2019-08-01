@@ -1,0 +1,3787 @@
+= Report for specs.component.lists.assetlist.AssetListPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 04:07:24 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|42|100.0% |1 minutes, 39.309 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component with Default variant and Static List in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 5.427 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.927 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.872 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant and Static List in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.071 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant and Static List in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.936 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant and Static List in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.083 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist1"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Rendition in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.792 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have only img
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Rendition in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.693 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have only img
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Rendition in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.618 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have only img
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Rendition in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.527 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have only img
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Rendition in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.837 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have only img
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Rendition in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.003 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist2"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Rendition-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have only img
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using renditions
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains("_jcr_content")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Adaptive in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.484 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using img selector
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains(".img.")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Adaptive in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.381 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using img selector
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains(".img.")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Adaptive in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.696 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using img selector
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains(".img.")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Adaptive in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.681 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using img selector
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains(".img.")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Adaptive in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.851 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using img selector
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains(".img.")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Image Option Adaptive in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.050 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist3"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Image-Option-Adaptive-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have one img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 1
+----
+
+| 
+|====
+
+* **And** Should have data-href attribute
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("data-href") == "/content/dam/aemdesign-showcase/en/common/aem-design.png"
+----
+
+| 
+|====
+
+* **And** Should have src using img selector
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} img").attr("src").contains(".img.")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Images in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.685 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Images in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.347 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Images in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.949 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Images in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.353 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Images in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.203 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Images in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.857 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist4"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Images-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Default variant and Child List in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.461 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Child List in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.806 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Child List in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.807 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant and Child List in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.909 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant and Child List in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.504 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant and Child List in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.792 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist5"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Child-List-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Default variant and Descendants List in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.498 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Descendants List in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.555 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Descendants List in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.444 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant and Descendants List in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.869 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant and Descendants List in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.582 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant and Descendants List in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 4.127 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist6"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Descendants-List-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have three img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 3
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Asset Types in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.345 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-XS-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-XS-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **And** Should have one audio
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} audio source").getAttribute("type") == "audio/mpeg"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Asset Types in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.441 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-SM-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-SM-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **And** Should have one audio
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} audio source").getAttribute("type") == "audio/mpeg"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Asset Types in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.689 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-MD-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-MD-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **And** Should have one audio
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} audio source").getAttribute("type") == "audio/mpeg"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Asset Types in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.885 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-LG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-LG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **And** Should have one audio
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} audio source").getAttribute("type") == "audio/mpeg"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Asset Types in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.154 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-XLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-XLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **And** Should have one audio
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} audio source").getAttribute("type") == "audio/mpeg"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Default variant and Static List with Multiple Asset Types in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.487 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Lists" > "Asset List"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#assetlist7"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-XXLG-The-component-should-be-on-the-page.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/lists/assetlist/AssetListPublishSpec/Functionality-of-Component-with-Default-variant-and-Static-List-with-Multiple-Asset-Types-in-XXLG-The-component-should-be-on-the-page.png"]
+
+|====
+
+* **And** Should have four img in picture elements
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} picture img").size() == 4
+----
+
+| 
+|====
+
+* **And** Should have one video
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} video source").getAttribute("type") == "video/mp4"
+----
+
+| 
+|====
+
+* **And** Should have one audio
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} audio source").getAttribute("type") == "audio/mpeg"
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+

@@ -1,0 +1,985 @@
+= Report for specs.component.layout.navbar.NavbarPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 04:59:19 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|12|100.0% |22.276 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.494 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainnavbar"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-XS-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-XS-Should-have-sample-rich-text.png"]
+
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.459 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainnavbar"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-SM-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-SM-Should-have-sample-rich-text.png"]
+
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.528 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainnavbar"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-MD-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-MD-Should-have-sample-rich-text.png"]
+
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.788 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainnavbar"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-LG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-LG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.906 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainnavbar"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-XLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-XLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.079 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#plainnavbar"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-XXLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-in-XXLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+
+=== Functionality of Component with Background in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.520 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#navbarwithbackground"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content with Background"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-XS-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-XS-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 320 and height: 480
+
+=====
+
+=== Functionality of Component with Background in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.664 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#navbarwithbackground"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content with Background"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-SM-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-SM-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 640 and height: 480
+
+=====
+
+=== Functionality of Component with Background in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.589 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#navbarwithbackground"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content with Background"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-MD-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-MD-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1024 and height: 768
+
+=====
+
+=== Functionality of Component with Background in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 1.789 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#navbarwithbackground"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content with Background"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-LG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-LG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1366 and height: 1024
+
+=====
+
+=== Functionality of Component with Background in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.088 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#navbarwithbackground"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content with Background"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-XLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-XLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 1920 and height: 1280
+
+=====
+
+=== Functionality of Component with Background in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.210 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Layout" > "Navbar"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#navbarwithbackground"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector + " .text[component]").text().trim() == "Navbar Content with Background"
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-XXLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/layout/navbar/NavbarPublishSpec/Functionality-of-Component-with-Background-in-XXLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Section should have a background image
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).css("background-image").contains(".png")
+----
+
+| 
+|====
+
+* **Where:** Browser size width: 2560 and height: 1440
+
+=====
+

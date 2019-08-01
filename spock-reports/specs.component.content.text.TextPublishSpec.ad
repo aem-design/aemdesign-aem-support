@@ -1,0 +1,1297 @@
+= Report for specs.component.content.text.TextPublishSpec
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on Tue Jul 23 05:48:56 UTC 2019 by root#
+
+
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|12|100.0% |39.711 seconds |0 |0 |0
+|====
+
+== Features
+
+=== Functionality of Component Variant: Default in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.056 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-XS-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-XS-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Should have simple BR element
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector div br").size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.878 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-SM-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-SM-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Should have simple BR element
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector div br").size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.936 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-MD-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-MD-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Should have simple BR element
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector div br").size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.022 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-LG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-LG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Should have simple BR element
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector div br").size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.463 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-XLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Should have simple BR element
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector div br").size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Default in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.803 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text1"
+def selectorContainer = "#contentblock1 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Default-in-XXLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Should have simple BR element
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("$selector div br").size() > 0
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Simple in XS **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.585 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-XS-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-XS-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Simple in SM **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.651 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-SM-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-SM-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Simple in MD **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 2.817 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-MD-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-MD-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Simple in LG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.009 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-LG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-LG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Simple in XLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.661 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-XLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-XLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
+=== Functionality of Component Variant: Simple in XXLG **PASS** [big]#icon:check-circle[role="green"]#
+
+=====
+
+
+
+Result: **PASS** [big]#icon:check-circle[role="green"]#
+Time: 3.417 seconds
+
+* **Given:** >the page hierarchy is created as "Components" > "Content" > "Text"
+
+* **And** >I am in the component showcase page
+
+* **And** >the component is on the showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def selector = "#text2"
+def selectorContainer = "#contentblock2 .contents"
+----
+
+| 
+|====
+
+* **When** I am on the component showcase page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+setWindowSize(viewport)
+waitForAuthorPreviewPage()
+----
+
+| 
+|====
+
+* **Then** The component should be on the page
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+def component = waitForComponent(selector)
+----
+
+| 
+|====
+
+* **And** Should have sample rich text
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $(selector).children().size() == 28
+takeScreenshot($(selector).firstElement(), "Should have sample rich text")
+----
+
+a|  .Current
+image:../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-XXLG-Should-have-sample-rich-text.png[width="95%",pdfwidth="100%",scaledwidth="95%",link="../../../remote-seleniumhub-chrome/test-screenshots/RemoteWebDriver/specs/component/content/text/TextPublishSpec/Functionality-of-Component-Variant-Simple-in-XXLG-Should-have-sample-rich-text.png"]
+
+|====
+
+* **And** Has sample table content
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} table").isEmpty() == false
+----
+
+| 
+|====
+
+* **And** Has sample link
+
+[cols="2,1"]
+|====
+
+a|[source,groovy,linenums]
+----
+assert $("${selector} a").isEmpty() == false
+----
+
+| 
+|====
+
+* **Where:** 
+
+=====
+
