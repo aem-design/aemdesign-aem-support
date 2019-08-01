@@ -20,10 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 github_username:  aem-design
 show_downloads: true
-analytics:
-  provider               : google-universal # false (default), "google", "google-universal", "custom"
-  google:
-    tracking_id          : UA-90746663-2
+google_analytics: UA-90746663-2
 
 
 # Build settings
