@@ -17,7 +17,7 @@ title: AEM Design Functional Tests
 email: devops@aem.design
 description: >- # this means to ignore newlines until "baseurl:"
   This is a functional suite for AEM Design components
-baseurl: "aemdesign-aem-support" # the subpath of your site, e.g. /blog
+baseurl: "/aemdesign-aem-support" # the subpath of your site, e.g. /blog
 github_username:  aem-design
 
 
