@@ -19,7 +19,6 @@ description: >- # this means to ignore newlines until "baseurl:"
   This is a functional suite for AEM Design components
 baseurl: "" # the subpath of your site, e.g. /blog
 github_username:  aem-design
-show_downloads: true
 google_analytics: UA-90746663-2
 
 
