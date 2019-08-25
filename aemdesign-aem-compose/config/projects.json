@@ -1,0 +1,44 @@
+{
+  "core": {
+    "outputName": "app",
+
+    "hmr": {
+      "footer": {
+        "mapToOutput": [],
+        "outputName": "clientlibs-footer"
+      },
+
+      "header": {
+        "mapToOutput": ["vendors"],
+        "outputName": "clientlibs-header"
+      }
+    },
+
+    "entryFile": {
+      "js": "app.ts",
+      "sass": "app.scss"
+    },
+
+    "additionalEntries": {
+      "vendors": [
+        "es6-promise/dist/es6-promise.auto.min",
+        "classlist.js/classList.min",
+        "picturefill/dist/picturefill.min",
+        "bootstrap/js/dist/util",
+        "bootstrap/js/dist/collapse",
+        "bootstrap/js/dist/dropdown"
+      ]
+    }
+  },
+
+  "styleguide": {
+    "outputName": "styleguide",
+
+    "entryFile": {
+      "js": "styleguide.ts",
+      "sass": "styleguide.scss"
+    },
+
+    "additionalEntries": {}
+  }
+}

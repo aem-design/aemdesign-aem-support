@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2019-03-27T00:30:43.094+11:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Search List"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <contentblockmenu1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                    componentId="contentblockmenu1"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Variant: Quick with Feeds specified to enable Quick Search"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <search
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/widgets/search"
+                            componentId="search1"
+                            componentModules="[aemdesign-showcase:component-style-module/widgets/search/quicksearch]"
+                            feedUrl="[/content/aemdesign-showcase/au/en/component/lists/page-list/_jcr_content/article/par/contentblock9/par/pagelist.rss,/content/aemdesign-showcase/au/en/component/lists/page-list/_jcr_content/article/par/contentblock10/par/pagelist.feed]"
+                            formAction="/content/aemdesign-showcase/au/en/component/lists/search-list.html"
+                            variant="quick"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Variant: Default"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <searchlist
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/searchlist"
+                            componentId="searchlist1"/>
+                        <text_info
+                            jcr:lastModified="{Date}2019-03-27T00:30:43.087+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text2"
+                            text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>To see the search list component in action, copy and paste the following piece as an attribute into your browser's address bar&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;&lt;a title=&quot;sample query&quot; href=&quot;?q=fulltext%3Dcity%0Agroup.p.or%3Dtrue%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fau%2Fen%2Fcomponent%2Flists%2Fsearch-list%0Agroup.1_group.type%3Dcq%3APage%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0Agroup.1_group.property.operation%3Dexists%0Agroup.1_group.property.value%3Dfalse%0Agroup.2_group.path%3D%2Fcontent%2Fdam%2Faemdesign-showcase%2F%0Agroup.2_group.type%3Ddam%3AAsset%0Aorderby%3Dpath&amp;amp;wcmmode=disabled&quot;>q=fulltext%3Dcity%0Agroup.p.or%3Dtrue%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fau%2Fen%2Fcomponent%2Flists%2Fsearch-list%0Agroup.1_group.type%3Dcq%3APage%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0Agroup.1_group.property.operation%3Dexists%0Agroup.1_group.property.value%3Dfalse%0Agroup.2_group.path%3D%2Fcontent%2Fdam%2Faemdesign-showcase%2F%0Agroup.2_group.type%3Ddam%3AAsset%2F%0Aorderby%3Dpath&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock2>
+            </par>
+        </article>
+    </jcr:content>
+    <child-page-1/>
+    <child-page-2/>
+    <child-page-3/>
+</jcr:root>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+		onTime="{Date}2019-05-30T11:57:35.140+10:00"
+        cq:tags="[aemdesign-showcase:content-type/page]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:description="Page Description"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page Details"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <pagedetails
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page-details"
+                    description="Custom Description"
+                    pageMetaProperty="og:type"
+                    pageMetaPropertyContent="article"
+                    showBreadcrumb="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    title="Page Title"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Details: Default without included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page-details1"
+                            description="Custom Description"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Page Title"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Details: Default with included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page-details2"
+                            description="Custom Description"
+                            showBreadcrumb="true"
+                            showParsys="true"
+                            showToolbar="true"
+                            title="Page Title 2">
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                cancelInheritParent="true"
+                                componentId="toolbar2">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_toolbar"
+                                        text="Text in Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            <secondaryImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parsys"
+                                    text="Text in Parsys"
+                                    textIsRich="true"/>
+                            </par>
+                        </pagedetails>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Details: Hidden Variant"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page-details3"
+                            description="Hidden Description"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Hidden Title"
+                            variant="hidden"/>
+                    </par>
+                </contentblock3>
+                <contentblock4
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock4"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Details: Default with Inherited Toolbar"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page-details4"
+                            description="Custom Description"
+                            showBreadcrumb="true"
+                            showParsys="true"
+                            showToolbar="true"
+                            title="Page Title 4">
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                componentId="toolbar4">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_toolbar"
+                                        text="Text in Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            <secondaryImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parsys"
+                                    text="Text in Parsys"
+                                    textIsRich="true"/>
+                            </par>
+                        </pagedetails>
+                    </par>
+                </contentblock4>
+                <contentblock5
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock5"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Details: Default without included components and hidden Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page-details5"
+                            description="Custom Description"
+                            hideDescription="true"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Page Title"/>
+                    </par>
+                </contentblock5>
+                <contentblock6
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock6"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Details: Default without included components and hidden Title and Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page-details6"
+                            description="Custom Description"
+                            hideDescription="true"
+                            hideTitle="true"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Page Title"/>
+                    </par>
+                </contentblock6>
+            </par>
+        </article>
+    </jcr:content>
+    <page-details-override/>
+    <page-details-default/>
+    <page-with-thumbnail/>
+    <page-with-thumbnail-override/>
+    <page-with-thumbnail-override-secondaryimage/>
+</jcr:root>

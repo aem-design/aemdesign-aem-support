@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+
+    <!--TODO: This needs to be in Services repo -->
+    <!--&lt;!&ndash; api &ndash;&gt;-->
+    <!--<filter root="/content/api"/>-->
+
+    <!-- configs -->
+    <filter root="/apps/aemdesign/config" mode="update"/>
+    <filter root="/apps/aemdesign/config.author" mode="update"/>
+    <filter root="/apps/aemdesign/config.publish" mode="update"/>
+    <filter root="/apps/aemdesign/config.ldap" mode="update"/>
+    <filter root="/apps/aemdesign/config.dev" mode="update"/>
+    <filter root="/apps/aemdesign/config.author.localdev" mode="update"/>
+    <filter root="/apps/aemdesign/config.publish.localdev" mode="update"/>
+
+
+    <!-- cloud services -->
+    <filter root="/etc/cloudservices/addthisconnect" mode="update"/>
+    <filter root="/etc/cloudservices/googleanalytics" mode="update"/>
+
+    <!-- dam config -->
+    <filter root="/etc/dam/dynamicmediaconfig" mode="update"/>
+
+    <!-- langiage config -->
+    <filter root="/etc/languages" mode="update"/>
+
+    <!-- maping rules -->
+    <filter root="/etc/map/http/aemdesign" mode="update"/>
+    <filter root="/etc/map/https/aemdesign" mode="update"/>
+
+    <filter root="/etc/tenants/aemdesign" mode="update"/>
+
+    <filter root="/conf/aemdesign/settings/cloudconfigs" mode="update"/>
+
+    <filter root="/apps/granite/operations/config/maintenance">
+        <include pattern="/apps/granite/operations/config/maintenance/aemdesign-.*"/>
+    </filter>
+
+</workspaceFilter>

@@ -1,0 +1,110 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+
+.accordion .accordion-toggle {
+  $grid-gutter: $grid-gutter-width / 2;
+
+  appearance: unset;
+  background-color: color('charcoal');
+  background-image: none;
+  border: unset;
+  border-radius: 0;
+  color: $white;
+  display: block;
+  // stylelint-disable-next-line
+  height: auto !important;
+  margin-bottom: $grid-gutter;
+  padding: 13px $grid-gutter;
+  text-align: left;
+  width: 100%;
+
+  > .svg-inline--fa {
+    color: $white;
+    font-size: icon-size(small);
+    position: absolute;
+    right: $grid-gutter;
+    top: 50%;
+    // stylelint-disable-next-line
+    transform: translateY(-50%) !important;
+
+    @include media-breakpoint-up(md) {
+      font-size: icon-size(regular);
+      right: 20px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: icon-size(large);
+      right: 26px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      right: $grid-gutter-width;
+    }
+  }
+
+  .icon-expanded {
+    display: block;
+  }
+
+  .icon-collapsed {
+    display: none;
+  }
+
+  &.collapsed {
+    background-color: color('grey-5');
+    color: $black;
+
+    > .svg-inline--fa {
+      color: color('red');
+    }
+
+    .icon-expanded {
+      display: none;
+    }
+
+    .icon-collapsed {
+      display: block;
+    }
+
+    @include hover-focus {
+      color: $black;
+    }
+  }
+
+  @include hover-focus {
+    color: $white;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 16px;
+    padding-top: 16px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 20px $grid-gutter-width;
+  }
+}
+
+.accordion-title {
+  margin-bottom: 0;
+}
+
+.accordion-subtitle {
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    color: #808285;
+    display: block;
+    font-size: 14px;
+    line-height: 30px;
+  }
+}
+
+.accordion-body {
+  @extend .container-text;
+
+  padding-top: 5px;
+}

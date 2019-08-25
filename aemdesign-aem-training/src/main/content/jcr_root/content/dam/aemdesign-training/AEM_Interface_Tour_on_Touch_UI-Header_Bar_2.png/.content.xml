@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="7832778c-1d84-4150-98b0-4c395f35c3c9">
+    <jcr:content
+        cq:name="AEM_Interface_Tour_on_Touch_UI-Header_Bar_2.png"
+        cq:parentPath="/content/dam/aemdesign-training"
+        dam:assetState="processed"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-07-12T16:34:59.208+10:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}32"
+            dam:extracted="{Date}2019-07-12T16:34:30.546+10:00"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}72"
+            dam:Physicalheightininches="{Decimal}0.5138246417045593"
+            dam:Physicalwidthindpi="{Long}72"
+            dam:Physicalwidthininches="{Decimal}8.387840270996094"
+            dam:Progressive="no"
+            dam:sha1="1fbd4bbe076033aaf2e77df9ef8091e4c80d11c0"
+            dam:size="{Long}10722"
+            dc:format="image/png"
+            dc:modified="{Date}2016-02-03T10:16:40.693+08:00"
+            jcr:lastModified="{Date}2019-07-12T16:34:59.012+10:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}37"
+            tiff:ImageWidth="{Long}604"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

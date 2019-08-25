@@ -1,0 +1,28 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+
+
+source "../scripts/functions.sh"
+
+SCRIPT_PARAMS="$@"
+
+set_term_title "Turn-off Workflows"
+echo "- Workflows Turn-off"
+doWorkflowsTurnOff
+
+
+set_term_title "Deploying Monolith Package: mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage "$@""
+echo "- Deploy"
+mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage "$@"
+set_term_title "Deployed"
+
+
+set_term_title "Turn-on Workflows"
+echo "- Workflows Turn-on "
+doWorkflowsTurnOn
+
+
+set_term_title "Deployed"
+echo "- Deployed"
+

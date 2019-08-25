@@ -1,0 +1,24 @@
+&__actions {
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: $actions-margin;
+  position: relative;
+  width: auto;
+
+  @include media-breakpoint-down(md) {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  a.btn {
+    min-width: 113px;
+    z-index: 2;
+
+    @include media-breakpoint-up(lg) {
+      min-width: 140px;
+    }
+  }
+}

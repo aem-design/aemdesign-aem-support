@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="6838b8b0-467c-4dad-a7bd-fba379fd01b8">
+    <jcr:content
+        cq:name="golfcourse.jpg"
+        cq:parentPath="/content/dam/aemdesign-showcase/en/common/images"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/common/images/golfcourse.jpg"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-07-12T16:33:43.042+10:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2019-07-12T16:33:30.409+10:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}400"
+            dam:Physicalheightininches="{Decimal}11.364999771118164"
+            dam:Physicalwidthindpi="{Long}400"
+            dam:Physicalwidthininches="{Decimal}17.02750015258789"
+            dam:Progressive="no"
+            dam:sha1="a0c7fda72855a0354c81c6961bebf530eebef317"
+            dam:size="{Long}1832806"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2019-03-05T00:41:16.502+11:00"
+            dc:subject="[andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships]"
+            dc:subject_xmpArrayType="rdf:Bag"
+            jcr:lastModified="{Date}2019-07-12T16:33:29.585+10:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}4546"
+            tiff:ImageWidth="{Long}6811"
+            tiff:ResolutionUnit="{Long}2"
+            tiff:XResolution="400/1"
+            tiff:YResolution="400/1"
+            xmp:MetadataDate="{Date}2015-04-09T14:01:00.000+01:00"
+            xmpMM:DocumentID="xmp.did:bd29de80-5ef9-424b-bb87-9e521f11f584"
+            xmpMM:InstanceID="xmp.iid:bd29de80-5ef9-424b-bb87-9e521f11f584"
+            xmpMM:OriginalDocumentID="C791E67CDC52534F8C97539BAC6831A7"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

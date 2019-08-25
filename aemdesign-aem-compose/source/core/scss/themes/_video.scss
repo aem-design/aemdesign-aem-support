@@ -1,0 +1,23 @@
+&--video {
+  &-background .video {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+
+    video {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    &:not(.playing) {
+      @include not-aem-author {
+        display: none;
+      }
+    }
+  }
+}

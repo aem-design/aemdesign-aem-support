@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Associating Resources with your Project"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/basic-user/creating-a-project"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text_366997897
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;div>As projects enable you to group resources into one entity, you want to associate resources to your project. These resources are called &lt;b style=&quot;font-size: 12px;&quot;>Tiles&lt;/b>. The types of resources you can add are described in Project Tiles.&lt;/div>&#xa;&lt;p>To associate resources with your project:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Open your project from the &lt;b>Projects&lt;/b> console.&lt;b>&lt;/b>&lt;/li>&#xa;&lt;li>Tap/click&amp;nbsp;&lt;b>Add Tile&lt;/b>&amp;nbsp;and select the tile that you want to link to your project. You can select multiple types of tiles.&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_1233722215
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Creating_a_Project-Add_Tiles.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_1355968648
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Tap/click &lt;b>Create&lt;/b>. Your resource is linked to your project and from now on you can access it from your project.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p style=&quot;margin-left: 40px;&quot;>The confirmation asks whether you want to return to your project or the console.&lt;/p>&#xa;&lt;h2>&lt;b>Deleting a Project or Resource Link&lt;/b>&lt;/h2>&#xa;&lt;p>The same method is used to delete a project from the console or a linked resource from your project:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Navigate to the appropriate location:&lt;ul>&#xa;&lt;li>To delete a project to go to the top level of the &lt;b>Projects&lt;/b> console&lt;/li>&#xa;&lt;li>To delete a resource link within a project, open your project in the &lt;b>Projects&lt;/b> console&lt;/li>&#xa;&lt;/ul>&#xa;&lt;/li>&#xa;&lt;li>Enter selection mode by clicking&amp;nbsp;&lt;b>Select&lt;/b>&amp;nbsp;and selecting your project or resource link.&lt;/li>&#xa;&lt;li>Tap/click&amp;nbsp;&lt;b>Delete&lt;/b> icon&lt;img src=&quot;/content/dam/aemdesign-training/Managing_Tags-Delete_Tag_Button.png&quot;>.&lt;/li>&#xa;&lt;li>You need to confirm the deletion in a dialog. If confirmed, the project or resource link is deleted. Tap/click&amp;nbsp;&lt;b>Deselect&lt;/b>&amp;nbsp;to exit selection mode.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

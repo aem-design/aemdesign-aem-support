@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="c2892d0b-582c-46d6-ab84-2fc85acf3006">
+    <jcr:content
+        cq:name="Moving_or_Renaming_a_Page-Move.png"
+        cq:parentPath="/content/dam/aemdesign-training"
+        dam:assetState="processed"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-07-12T16:35:42.410+10:00"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:Comments="Software: paint.net 4.0.6&#xa;"
+            dam:extracted="{Date}2019-07-12T16:35:15.813+10:00"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}1"
+            dam:Physicalheightindpi="{Long}96"
+            dam:Physicalheightininches="{Decimal}0.1979442983865738"
+            dam:Physicalwidthindpi="{Long}96"
+            dam:Physicalwidthininches="{Decimal}0.2604530155658722"
+            dam:Progressive="no"
+            dam:sha1="e747ee09b3cc549a56221cd55d0123e168c1dded"
+            dam:size="{Long}458"
+            dc:format="image/png"
+            dc:modified="{Date}2016-02-03T10:16:42.564+08:00"
+            jcr:lastModified="{Date}2019-07-12T16:35:42.296+10:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}19"
+            tiff:ImageWidth="{Long}25"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

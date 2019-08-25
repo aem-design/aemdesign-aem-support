@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Managing Languages"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/advanced-user/managing-languages"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>AEM provides several tools for managing web sites that you create in multiple languages. To manage multilingual web sites, create language copies of your site and then translate the content.&amp;nbsp;A language copy is a copy of an existing site that is to be translated to another language. The pages of the language copy use a specific naming convention to indicate the language of the content.&amp;nbsp;Language copies are comprised of branches (trees) of pages, just like the originating site.&lt;/p>&#xa;&lt;p>Your website must use the following structure:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>The web site has a single page as the root.&lt;/li>&#xa;&lt;li>Each child page is the root page of a language copy.&lt;/li>&#xa;&lt;li>The name of the child page is the language code.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+    <creating-a-language-copy/>
+    <side-by-side-authoring1/>
+    <side-by-side-authoring/>
+    <side-by-side-authoring2/>
+</jcr:root>

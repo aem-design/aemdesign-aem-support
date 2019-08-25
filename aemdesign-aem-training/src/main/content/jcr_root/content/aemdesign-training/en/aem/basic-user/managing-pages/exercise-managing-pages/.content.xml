@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Exercise - Managing Pages"
+        sling:resourceType="aemdesign/components/template/base"
+        hideInNav="true">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&lt;b>Objective:&lt;/b> Learn how to manage a page by doing different operations&lt;/p>&#xa;&lt;p>&lt;b>&lt;u>Create a Page&lt;/u>&lt;/b>&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>On the new site you created on the last topic, create a new page.&lt;/li>&#xa;&lt;li>Go to the site &lt;b>AEM Training by [Your Name] &amp;gt; English&lt;/b>&lt;/li>&#xa;&lt;li>Create a new page&lt;/li>&#xa;&lt;li>Select &lt;b>&amp;quot;Geometrixx Content Page&amp;quot;&lt;/b>&amp;nbsp;as your template.&lt;/li>&#xa;&lt;li>Set Title: Vehicles&lt;/li>&#xa;&lt;li>Create the page.&lt;/li>&#xa;&lt;li>Go to the site&amp;nbsp;&lt;b>AEM Training by [Your Name] &amp;gt; English &amp;gt; Vechicles&lt;/b>&lt;/li>&#xa;&lt;li>Select&amp;nbsp;&amp;nbsp;&lt;b>&amp;quot;Geometrixx Content Page&amp;quot;&lt;/b>&amp;nbsp;as your template.&lt;br>&#xa;&lt;/li>&#xa;&lt;li>Set Title: Car&lt;/li>&#xa;&lt;li>Create the page.&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>&lt;u>Move a Page&lt;/u>&lt;/b>&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Move the new page, &amp;quot;Car&amp;quot;, from the original level to &lt;b>AEM Training by [Your Name] &amp;gt; English&lt;/b>&lt;br>&#xa;&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>&lt;u>Copy and Paste a Page&lt;/u>&lt;/b>&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Copy the page, &amp;quot;Car&amp;quot;, from &lt;b>AEM Training by [Your Name] &amp;gt; English&lt;/b>&lt;/li>&#xa;&lt;li>Paste the page into &lt;b>Vehicles&lt;/b>.&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>&lt;u>Delete a Page&lt;/u>&lt;/b>&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Delete the page, &amp;quot;Car&amp;quot;, from&amp;nbsp;&lt;b>AEM Training by [Your Name] &amp;gt; English&lt;/b>&lt;br>&#xa;&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>&lt;u>Rename a Page&lt;/u>&lt;/b>&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Rename the page, &amp;quot;Car&amp;quot;, from Car to Ship. (Hint: Procedure is similar to Move a Page)&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>

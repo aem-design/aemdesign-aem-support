@@ -1,0 +1,105 @@
+// stylelint-disable selector-max-compound-selectors
+
+&__admin {
+  background-color: color('charcoal');
+  display: flex;
+  font-size: 10px;
+  height: 30px;
+  padding: 0 $spacing-md;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    background-color: color('charcoal');
+  }
+
+  @include media-breakpoint-up(xl) {
+    height: 34px;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-right: 0;
+
+    .text {
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  a {
+    color: $white;
+    font-weight: 400;
+  }
+
+  > .contentblock {
+    display: inline-flex;
+    height: 100%;
+
+    a {
+      font-weight: 400;
+      margin-right: $spacing-sm;
+    }
+
+    @include media-breakpoint-down(md) {
+      display: block;
+      margin-bottom: 16px;
+
+      .link {
+        border-bottom: 0;
+        font-size: 12px;
+        font-weight: 700;
+        height: 47px;
+        line-height: 16px;
+        margin-right: 0;
+
+        > * {
+          display: inline-block;
+        }
+
+        span {
+          width: auto;
+        }
+
+        @include yellow-link;
+      }
+    }
+
+    @include media-breakpoint-between(md, md) {
+      .link {
+        height: 57px;
+      }
+    }
+  }
+
+  .pagelist {
+    display: inline-flex;
+    margin-left: auto;
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+
+    > .content > ul > li.last {
+      margin-right: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      > .content > ul {
+        height: 100%;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      display: block;
+      margin-left: 0;
+
+      > .content > ul {
+        flex-direction: column;
+        margin: 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+}

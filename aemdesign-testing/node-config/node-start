@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+NODE_TYPE=${1:-chrome}
+
+SELENIUM_VERSION="3.141"
+SELENIUM_JAR="selenium-server-standalone-3.141.59.jar"
+SELENIUM_HOST="http://selenium-release.storage.googleapis.com"
+SELENIUM_URL="$SELENIUM_HOST/$SELENIUM_VERSION/$SELENIUM_JAR"
+
+if [ ! -f $SELENIUM_JAR ]; then
+    echo DWONLADING SELENIUM: $SELENIUM_URL
+    curl $SELENIUM_URL --output $SELENIUM_JAR
+fi
+
+java -jar $SELENIUM_JAR -role node -nodeConfig $NODE_TYPE.json

@@ -1,0 +1,195 @@
+= Report for ${data?.info?.description?.className}
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+[small]#created on ${new Date()} by ${System.properties['user.name']}#
+
+<%
+    //println "REPORT: entering spec-template"
+    def fmt, stats, gebReport
+
+    String gebEnvReportsDir = System.getProperty("geb.build.reportsDir")
+    def reportImagePath = "../../test-reports/geb/"
+    def rootPath = "../"
+    def srcRelativeToHtmlPath = "../../"
+    def linkPathPrefix = ""
+    def imagePathPrefix = ""
+    def removePathStart = "./"
+
+    def pathCheckStartSource = "./src/"
+    def pathCheckStartSpec = "./specs/"
+    def pathCheckEndDiff = ".diff.png"
+    def pathCheckEndImage = ".png"
+    def pathCheckEndHtml = ".html"
+
+    def codeCheckFileGen = /[ ]*(report|designRef|takeScreenshot).*/
+
+    def blockNameTranslations = ['Given:':'Given:','When:':'When','And:':'And','Then:':'Then']
+
+    //we need the JsonReport converted before the template is executed
+    //since Spock-Reports first executes the spec-templates, we
+    //have to transform the JsonReport in here...
+//    println "REPORT: SPEC TEMPLATE"
+
+    def jsonFile = support.ReportConverter.convertJsonReport()
+
+//    println "REPORT: jsonFile: ${jsonFile}"
+
+    fmt = new com.athaydes.spockframework.report.internal.StringFormatHelper()
+    stats = com.athaydes.spockframework.report.util.Utils.stats( data )
+    gebReport = (new groovy.json.JsonSlurper()).parseText(new File(jsonFile).text)
+//    println "REPORT: parsed gebReport: ${gebReport}"
+//    println "REPORT: data for ${data}"
+
+    def gebTestResults
+    gebTestResults = gebReport.specs.find {it?.class==data.info.description.className}?.tests
+//    println "REPORT: gebTestResults: ${gebTestResults}"
+//    println "REPORT: classname for ${data.info.description.className}"
+%>
+
+== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate                           |Total time                        |Failures          |Errors          |Skipped
+|${stats.totalRuns}|${fmt.toPercentage(stats.successRate)} |${fmt.toTimeDuration(stats.time)} |${stats.failures} |${stats.errors} |${stats.skipped}
+|====
+
+== Features
+<%
+    features.eachFeature { name, result, blocks, iterations, params ->
+%>
+=== $name **$result** [big]#<% if (result=="PASS") { %>icon:check-circle[role="green"]<% } else if (result=="IGNORED") { %>icon:eye-slash[role="gray"]<% } else { %>icon:exclamation-triangle[role="red"]<% } %>#
+
+=====
+
+<%
+//        println "REPORT: iteration for [${name}]"
+        def gebArtefacts = gebTestResults?.find {it?.label==name}?.reports
+//        println "REPORT: iteration artefacts: ${gebArtefacts}"
+//        println "REPORT: features - \n\tname: ${name},\n\tresult: ${result},\n\tblocks: ${blocks},\n\titerations: ${iterations},\n\tparms: ${params}"
+        def iterationTimes = iterations.collect { it.time ?: 0L }
+        def totalTime = fmt.toTimeDuration( iterationTimes.sum() )
+%>
+
+Result: **$result** [big]#<% if (result=="PASS") { %>icon:check-circle[role="green"]<% } else if (result=="IGNORED") { %>icon:eye-slash[role="gray"]<% } else { %>icon:exclamation-triangle[role="red"]<% } %>#
+Time: $totalTime
+<%
+        def num = 0
+        for ( block in blocks ) {
+//            println "REPORT: feature block: ${block.text}"
+%>
+* **${blockNameTranslations[block.kind]?:block.kind}** ${block.text}
+<%
+            //fetch screenshots
+            def numCols = 0
+            def screenshots = []
+            gebArtefacts.each {
+                String blockScreenshots = ""
+
+                it.files.each { afile ->
+                    String filePathUrl = afile
+                    String filePathUrlEnc = afile
+                    String filePathFull = afile
+
+                    filePathUrl = filePathFull.startsWith('./') ? filePathUrl.substring(2) : filePathUrl
+                    filePathUrl = filePathFull.startsWith(pathCheckStartSpec) ? reportImagePath+filePathUrl : rootPath+filePathUrl
+                    filePathUrlEnc = filePathUrl.replaceAll(' ','%20')
+
+//                    println "REPORT: gebTestResults - iteration block file: ${afile}"
+
+                    if (filePathFull.endsWith(pathCheckEndImage)) {
+                        //screenshot detection
+                        if (filePathFull.startsWith(pathCheckStartSource)) {
+                            blockScreenshots = blockScreenshots << """ .Source\n"""
+                            imagePathPrefix=srcRelativeToHtmlPath
+                            linkPathPrefix=srcRelativeToHtmlPath
+                        } else if (filePathFull.endsWith(pathCheckEndDiff)) {
+                            blockScreenshots = blockScreenshots << """ a| .Diff\n"""
+                            imagePathPrefix=srcRelativeToHtmlPath
+                            linkPathPrefix=srcRelativeToHtmlPath
+                        } else if (!filePathFull.startsWith(pathCheckStartSpec)) {
+                            if (it.files.size() > 1) {
+                                blockScreenshots = blockScreenshots << """ a| """
+                            }
+                            blockScreenshots = blockScreenshots << """ .Current\n"""
+                            imagePathPrefix=srcRelativeToHtmlPath
+                            linkPathPrefix=srcRelativeToHtmlPath
+                        }
+                        blockScreenshots = blockScreenshots << """image:${imagePathPrefix}${filePathUrl}[width="95%",pdfwidth="100%",scaledwidth="95%",link="${linkPathPrefix}${filePathUrl}"]\n"""
+                    }
+                    if (filePathFull.endsWith(pathCheckEndHtml)) {
+                        blockScreenshots = blockScreenshots << """link:${linkPathPrefix}${filePathUrlEnc}[source html]\n"""
+                    }
+                    imagePathPrefix=""
+                    linkPathPrefix=""
+                }
+                numCols++
+                screenshots << """${blockScreenshots}"""
+            }
+
+            //output testcode along with screenshots
+            def needsScreenshot = false
+            if ( block.sourceCode ) {
+                out << "\n[cols=\"2,1\"]\n|====\n"
+                out << "\na|[source,groovy,linenums]\n----\n"
+                block.sourceCode.each { codeLine ->
+                    out << codeLine
+                    out << "\n"
+
+                    def m = codeLine =~ codeCheckFileGen
+
+                    if (0..<m.count) {
+                        needsScreenshot = true
+                    }
+                }
+                out << "----\n\n"
+                if (needsScreenshot && screenshots[num] != null) {
+                    out << "a| " << screenshots[num++] <<"\n"
+                } else {
+                    out << "| \n"
+                }
+                out << "|====\n"
+            }
+        } //for ( block in blocks ) {
+
+        def executedIterations = iterations.findAll { it.dataValues || it.errors }
+        if ( params && executedIterations && executedIterations.size() > 1 ) {
+ %>
+
+[options="header"]
+|====
+| ${params.join( ' | ' )} | Result
+<%
+            for ( iteration in executedIterations ) {
+%>| ${iteration.dataValues.join( ' | ' )} | ${iteration.errors ? 'icon:exclamation-triangle[role="red"]FAIL' : 'icon:check-circle[role="green"]PASS'}
+<%          }
+%>|====
+<%      }
+
+        def problems = executedIterations.findAll { it.errors }
+        if ( problems ) {
+            out << """
+[WARNING]
+.The following problems occurred:
+====
+"""
+            for ( badIteration in problems ) {
+                if ( badIteration.dataValues ) {
+                    out << '* ' << badIteration.dataValues << '\n'
+                }
+                for ( error in badIteration.errors ) {
+                    out << '----\n' << error << '\n----\n'
+                }
+            }
+            out << """
+====
+"""
+        }
+
+out << """
+=====
+"""
+    } //features.eachFeature
+ %>

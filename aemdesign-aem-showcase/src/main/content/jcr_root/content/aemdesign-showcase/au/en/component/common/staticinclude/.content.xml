@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2019-03-18T00:59:05.991+11:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Static Include"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page-details"
+                    description="Page with Licensed Page Image, with non-Licensed Secondary Image and with Background non-Licensed Image"
+                    showBreadcrumb="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    title="Page1"/>
+                <staticinclude
+                    jcr:lastModified="{Date}2019-03-18T00:59:05.983+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/common/staticinclude"
+                    cancelInheritParent="true"
+                    componentId="staticinclude"
+                    includePaths="/content/dam/aemdesign-showcase/en/components/common/staticinclude/staticinclude.html"
+                    showContent="true"
+                    showContentPreview="true"/>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

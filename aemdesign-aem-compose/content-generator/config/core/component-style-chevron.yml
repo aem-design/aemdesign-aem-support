@@ -1,0 +1,25 @@
+
+
+# Chevron
+content/_cq_tags/aemdesign/component-style-chevron: &component-style-chevron
+  chevron:
+    prefixes:
+      - circle-down
+      - circle-up
+      - circle-right
+      - circle-left
+      - down
+      - up
+      - right
+      - left
+    valueFormat: fa fa-chevron-%%prefix%%
+    title: '%%prefix_normalised%%'
+
+
+
+
+# Showcase Copy
+content/_cq_tags/aemdesign-showcase/component-style-chevron: *component-style-chevron
+
+# Training Copy
+content/_cq_tags/aemdesign-training/component-style-chevron: *component-style-chevron

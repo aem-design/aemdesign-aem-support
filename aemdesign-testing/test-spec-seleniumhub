@@ -1,0 +1,226 @@
+#!/bin/bash
+
+#################################
+# DECLARATION
+#################################
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+
+SCRIPT_PARAMS="$@"
+
+source "../scripts/functions.sh"
+
+export EXEC_SKIP_CONVERT="true"
+
+EXEC_AEM_HOST="${1:-$AEM_HOST}"
+EXEC_AEM_PORT="${2:-$AEM_PORT}"
+HUB_URL="${3:-$SELENIUMHUB_SCHEME://$SELENIUMHUB_HOST:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE}"
+DEFAULT_PARAMS=""${@:4}""
+AEM_URL="$AEM_SCHEMA://$EXEC_AEM_HOST:$EXEC_AEM_PORT"
+
+
+DEFAULT_IMAGE="aemdesign/centos-java-buildpack"
+DEFAULT_COMMAND="cd aemdesign-aem-support/aemdesign-testing && ./test-spec"
+DEFAULT_REPORT_PATH="generated-docs/summary.html"
+DEFAULT_OPEN_REPORT="true"
+DEFAULT_DRIVERS_EXEC="remote-seleniumhub-chrome"
+
+echo ""
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "Usage:"
+echo ""
+echo " ./test-spec-seleniumhub <1.EXEC_AEM_HOST> <2.EXEC_AEM_PORT> <3.HUB_URL> <4.DEFAULT_PARAMS>"
+echo ""
+echo "ARGUMENTS:"
+echo "  1.EXEC_AEM_HOST: $EXEC_AEM_HOST"
+echo "  2.EXEC_AEM_PORT: $EXEC_AEM_PORT"
+echo "  3.HUB_URL: $HUB_URL"
+echo "  4.DEFAULT_PARAMS: $DEFAULT_PARAMS"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo ""
+
+#################################
+# FUNCTIONS
+#################################
+
+function convertReports() {
+
+    ./asciidoctor-convert-reports -pdf -html -root $DEFAULT_DRIVERS_EXEC
+
+	if [[ "$DEFAULT_OPEN_REPORT" == "true" ]]; then
+		#walk thought reports and see if the reports are ready to open
+		for (( i=1; i<${OPEN_REPORTS_LENGTH}+1; i++ ));
+		do
+			ITEM_VALUE=${OPEN_REPORTS[$i-1]}
+			echo "CHECKING REPORT: [$i/${OPEN_REPORTS_LENGTH}] $ITEM_VALUE"
+#			if [[ -e "$ITEM_VALUE/$DEFAULT_REPORT_PATH" ]]; then
+				echo "OPENING REPORT: $ITEM_VALUE/$DEFAULT_REPORT_PATH"
+				OPEN_REPORT=$(groovy -Dproject.buildDirectory=$ITEM_VALUE openReport.groovy)
+#			fi
+		done
+	fi
+
+	echo "REPORTS CONVERTED"
+
+}
+
+function runTest() {
+    local DRIVER=$1
+    local COMMAND="$DEFAULT_COMMAND $EXEC_AEM_HOST $EXEC_AEM_PORT $DRIVER $HUB_URL $DEFAULT_PARAMS"
+    echo "COMMAND: $COMMAND"
+
+    local CONTAINER_EXIST=$($DOCKER ps -q -f name=$DRIVER)
+
+    #check if container exist
+    if [ ! "$($DOCKER ps -q -f name=$DRIVER)" ]; then
+        if [ "$($DOCKER ps -aq -f status=exited -f name=$DRIVER)" ]; then
+            # cleanup
+            echo " - CONTAINER FINISHED REMOVING: $DRIVER"
+            $DOCKER rm $DRIVER
+        fi
+        echo " - RUNNING CONTAINER: $DRIVER"
+
+		local PROJECT_ROOT_DIR="$(pwd)/../.."
+		local MAVEN_DIR="$(realpath ~/.m2)"
+
+		PROJECT_ROOT_DIR="$(realpath $PROJECT_ROOT_DIR)"
+
+		if [[ "$OS" == "windows" ]]; then
+
+			PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
+			MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
+
+        elif [[ "$OS" == "windowsbash" ]]; then
+            MAVEN_DIR="/mnt/c/Users/$USER/.m2"
+
+			PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
+			MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
+		fi
+
+        echo PROJECT_ROOT_DIR: $PROJECT_ROOT_DIR
+        echo MAVEN_DIR: $MAVEN_DIR
+
+		echo $DOCKER run -d --name $DRIVER -e EXEC_SKIP_CONVERT=$EXEC_SKIP_CONVERT -v $PROJECT_ROOT_DIR:/build -v $MAVEN_DIR:/root/.m2 $DEFAULT_IMAGE /bin/sh -c "$COMMAND"
+
+		#exit 1
+
+        START=$($DOCKER run -d --name $DRIVER -e EXEC_SKIP_CONVERT=$EXEC_SKIP_CONVERT -v $PROJECT_ROOT_DIR:/build -v $MAVEN_DIR:/root/.m2 $DEFAULT_IMAGE /bin/sh -c "$COMMAND")
+    else
+        echo " - CONTAINER ALREADY RUNNING: $DRIVER"
+    fi
+
+}
+
+
+function runTests() {
+    declare -a DRIVERS_EXEC=($@)
+
+    DRIVERS_EXEC_LENGTH=${#DRIVERS_EXEC[@]}
+
+    for (( i=1; i<${DRIVERS_EXEC_LENGTH}+1; i++ ));
+    do
+        ITEM_VALUE=${DRIVERS_EXEC[$i-1]}
+        echo "STARTING CONTAINER: [$i/${DRIVERS_EXEC_LENGTH}] $ITEM_VALUE"
+        runTest "$ITEM_VALUE"
+    done
+}
+
+function monitorTests() {
+
+    declare -a OPEN_REPORTS=($@)
+
+    OPEN_REPORTS_LENGTH=${#OPEN_REPORTS[@]}
+
+
+    echo ""
+    echo "-----------------------------------------------------------------"
+    echo ""
+    echo "MONITORING CONTAINERS"
+    echo " - AUTO OPEN RESULTS: $DEFAULT_OPEN_REPORT"
+    echo ""
+    echo "================================================================="
+    echo ""
+
+    $DOCKER logs -f $@ > dockerlogs/docker-log-stdout-$(date +%s).log &
+    $DOCKER logs -f $@
+    echo Stopping: $@
+    $DOCKER stop $@
+    echo Removing: $@
+    $DOCKER rm $@
+
+	convertReports
+
+
+#    while true; do
+#        COMMAND=$(docker inspect --format='{{.Name}}: {{.State.Status}} started @ {{.State.StartedAt}}' $@ 2>&1) #Save command result in a var.
+#        echo "$COMMAND" #Print command result, including new lines.
+#
+#        sleep 3 #Keep above's output on screen during 3 seconds before clearing it
+#
+#        #exit if all containers closed
+#        if [[ ! "$COMMAND" == *"started"* ]]; then
+#
+#            convertReports
+#
+#            if [[ "$DEFAULT_OPEN_REPORT" == "true" ]]; then
+#                #walk thought reports and see if the reports are ready to open
+#                for (( i=1; i<${OPEN_REPORTS_LENGTH}+1; i++ ));
+#                do
+#                    ITEM_VALUE=${OPEN_REPORTS[$i-1]}
+#                    echo "CHECKING REPORT: [$i/${OPEN_REPORTS_LENGTH}] $ITEM_VALUE"
+#                    if [[ -e "$ITEM_VALUE/$DEFAULT_REPORT_PATH" ]]; then
+#                        echo "OPENING REPORT: $ITEM_VALUE/$DEFAULT_REPORT_PATH"
+#                        OPEN_REPORT=$(groovy -Dproject.buildDirectory=$ITEM_VALUE openReport.groovy)
+#                    fi
+#                done
+#            fi
+#
+#            echo "ALL DONE"
+#            break
+#        fi
+#
+#        #Following code clears previously printed lines
+#        LINES=$(echo "$COMMAND" | wc -l) #Calculate number of lines for the output previously printed
+#        for (( i=1; i <= $(($LINES)); i++ ));do #For each line printed as a result of "$COMMAND"
+#            tput cuu1 #Move cursor up by one line
+#            tput el #Clear the line
+#        done
+#
+#        #Allow for the spurious \n when using --format with inspect
+#        if [[ -z "${COMMAND##\n*}" ]]; then
+#            tput cuu1 #Move cursor up by one line
+#            tput el #Clear the line
+#        fi
+#
+#    done
+}
+
+
+#################################
+# MAIN LOGIC
+#################################
+
+DEFAULT_HUB_AVAIABLE=$(testServer $HUB_URL)
+AEM_AVAILABLE=$(testServer $AEM_URL)
+
+if [[ "true" == "$AEM_AVAILABLE" ]]; then
+    echo "AEM IS AVAILABLE at $AEM_URL"
+else
+    echo "AEM IS NOT AVAILABLE at $AEM_URL"
+    exit 1 #indicate error with non zero return
+fi
+
+if [[ "true" == "$DEFAULT_HUB_AVAIABLE" ]]; then
+    echo "SELENIUM HUB IS AVAILABLE at $HUB_URL"
+else
+    echo "SELENIUM HUB AND/OR AEM NOT AVAILABLE at $HUB_URL"
+    exit 1 #indicate error with non zero return
+fi
+
+if [[ "true" == "$DEFAULT_HUB_AVAIABLE" && "true" == "$AEM_AVAILABLE" ]]; then
+    runTests $DEFAULT_DRIVERS_EXEC
+    #runTest "remote-seleniumhub-chrome"
+    #runTest "remote-seleniumhub-firefox"
+
+    monitorTests $DEFAULT_DRIVERS_EXEC
+fi

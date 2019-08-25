@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Child Page 2"
+        sling:resourceType="aemdesign/components/template/base">
+        <header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/header"
+            componentId="header">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </header>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    title="Day Time in the City"
+                    variant="advsection">
+                    <bgimage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"
+                        fileReference="/content/dam/aemdesign-showcase/en/common/images/room.jpg"/>
+                    <bgvideo
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text1"
+                            text="&lt;p>A&amp;nbsp;&lt;b>day&lt;/b>, a unit of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Time&quot; title=&quot;Time&quot;>time&lt;/a>, is approximately the period of time during which the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Earth%27s_rotation&quot; title=&quot;Earth's rotation&quot;>Earth completes one rotation&lt;/a>&amp;nbsp;with respect to the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Sun&quot; title=&quot;Sun&quot;>Sun&lt;/a>&amp;nbsp;(&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Solar_time&quot; title=&quot;Solar time&quot;>solar day&lt;/a>&lt;/i>).&lt;sup>&lt;a href=&quot;https://en.wikipedia.org/wiki/Day#cite_note-1&quot;>[1]&lt;/a>&lt;a href=&quot;https://en.wikipedia.org/wiki/Day#cite_note-2&quot;>[2]&lt;/a>&lt;/sup>&amp;nbsp;In 1960, the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Second&quot; title=&quot;Second&quot;>second&lt;/a>&amp;nbsp;was redefined in terms of the orbital motion of the Earth in year 1900, and was designated the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/SI_base_unit&quot; title=&quot;SI base unit&quot;>SI base unit&lt;/a>&amp;nbsp;of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Time&quot; title=&quot;Time&quot;>time&lt;/a>. The&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Units_of_measurement&quot; title=&quot;Units of measurement&quot;>unit of measurement&lt;/a>&amp;nbsp;&amp;quot;day&amp;quot;, was redefined as 86 400 SI seconds and symbolized&amp;nbsp;&lt;i>d&lt;/i>. In 1967, the second and so the day were redefined by&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Atomic_electron_transition&quot; title=&quot;Atomic electron transition&quot;>atomic electron transition&lt;/a>.&lt;sup>&lt;a href=&quot;https://en.wikipedia.org/wiki/Day#cite_note-Second-3&quot;>[3]&lt;/a>&lt;/sup>&amp;nbsp;A&amp;nbsp;&lt;b>civil day&lt;/b>&amp;nbsp;is usually 86 400 seconds, plus or minus a possible&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Leap_second&quot; title=&quot;Leap second&quot;>leap second&lt;/a>&amp;nbsp;in&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/UTC&quot; title=&quot;UTC&quot;>Coordinated Universal Time (UTC)&lt;/a>, and occasionally plus or minus an hour in those locations that change from or to&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Daylight_saving_time&quot; title=&quot;Daylight saving time&quot;>daylight saving time&lt;/a>.&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock1>
+            </par>
+        </article>
+        <footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/footer"
+            componentId="footer">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </footer>
+    </jcr:content>
+</jcr:root>

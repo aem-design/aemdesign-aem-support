@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="dce725d7-4e8a-4cc3-971d-0879fb69a2ff">
+    <jcr:content
+        cq:name="Using_Annotations-Notfificaiton.png"
+        cq:parentPath="/content/dam/aemdesign-training"
+        dam:assetState="processed"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-07-12T16:34:46.955+10:00"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:Comments="Software: paint.net 4.0.6&#xa;XML:com.adobe.xmp: &lt;?xpacket begin=&quot;﻿&quot; id=&quot;W5M0MpCehiHzreSzNTczkc9d&quot;?>&#xa;&lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        &quot;>&#xa; &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;>&#xa;  &lt;rdf:Description rdf:about=&quot;&quot;&#xa;    xmlns:ns1=&quot;http://www.day.com/dam/1.0&quot;&#xa;    xmlns:tiff=&quot;http://ns.adobe.com/tiff/1.0/&quot;&#xa;    xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;&#xa;   ns1:Physicalheightininches=&quot;0.15281258523464203&quot;&#xa;   ns1:Physicalwidthininches=&quot;0.21532683074474335&quot;&#xa;   ns1:Fileformat=&quot;PNG&quot;&#xa;   ns1:Progressive=&quot;no&quot;&#xa;   ns1:extracted=&quot;2015-12-24T19:19:56.527+08:00&quot;&#xa;   ns1:Bitsperpixel=&quot;24&quot;&#xa;   ns1:MIMEtype=&quot;image/png&quot;&#xa;   ns1:Comments=&quot;Software: paint.net 4.0.6&amp;#xA;&quot;&#xa;   ns1:Physicalwidthindpi=&quot;144&quot;&#xa;   ns1:Physicalheightindpi=&quot;144&quot;&#xa;   ns1:Numberofimages=&quot;1&quot;&#xa;   ns1:Numberoftextualcomments=&quot;1&quot;&#xa;   ns1:sha1=&quot;a9dbd5548fb4707a055f56d98c9f0b16d9a831f7&quot;&#xa;   ns1:size=&quot;421&quot;&#xa;   tiff:ImageLength=&quot;22&quot;&#xa;   tiff:ImageWidth=&quot;31&quot;&#xa;   dc:format=&quot;image/png&quot;&#xa;   dc:modified=&quot;2016-02-03T10:16:43.243+08:00&quot;/>&#xa; &lt;/rdf:RDF>&#xa;&lt;/x:xmpmeta>&#xa;&lt;?xpacket end=&quot;r&quot;?>&#xa;"
+            dam:extracted="{Date}2019-07-12T16:34:45.544+10:00"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}2"
+            dam:Physicalheightindpi="{Long}144"
+            dam:Physicalheightininches="{Decimal}0.15281258523464203"
+            dam:Physicalwidthindpi="{Long}144"
+            dam:Physicalwidthininches="{Decimal}0.21532683074474335"
+            dam:Progressive="no"
+            dam:sha1="a44bd51a513ae343ba95eaa0bddabb1aa2010e80"
+            dam:size="{Long}1524"
+            dc:format="image/png"
+            dc:modified="{Date}2016-02-03T10:16:43.243+08:00"
+            jcr:lastModified="{Date}2019-07-12T16:34:38.734+10:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}22"
+            tiff:ImageWidth="{Long}31"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

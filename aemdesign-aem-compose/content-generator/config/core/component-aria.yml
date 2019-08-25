@@ -1,0 +1,24 @@
+content/_cq_tags/aemdesign/component-aria: &component-aria
+  live:
+    prefixes:
+      - assertive
+      - off
+      - polite
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  role:
+    prefixes:
+      - article
+      - banner
+      - complementary
+      - contentinfo
+      - navigation
+      - toolbar
+      - tooltip
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+# Extends to
+content/_cq_tags/aemdesign-showcase/component-aria: *component-aria
+content/_cq_tags/aemdesign-training/component-aria: *component-aria

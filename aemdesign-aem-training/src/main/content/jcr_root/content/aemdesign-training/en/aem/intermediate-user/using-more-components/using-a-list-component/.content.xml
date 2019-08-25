@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Using a List Component"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/intermediate-user/using-more-components"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>The List component allows you to configure search criteria for displaying a list.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Using_List_Component-Insert_Component.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_756962224
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Click the component to enter the edit mode and then click on &lt;b>Configure&lt;/b> to show the edit dialog box.&lt;br>&#xa;&lt;img src=&quot;/content/dam/aemdesign-training/Using_Image_Component-Edit_Button.png&quot;>&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_924774995
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Using_List_Component-Edit_Dialog.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="400"/>
+                        <text_1423476735
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>Here you specify where the list will retrieve its content. There are several methods:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>&lt;b>Child pages&lt;/b> – All child pages of the current page will then be listed. If you leave this empty the current page will be used as the root.&lt;/li>&#xa;&lt;li>&lt;b>Fixed list&lt;/b> – Here you can specify pages to be listed. Use the various buttons to add, remove and position these pages.&lt;/li>&#xa;&lt;li>&lt;b>Search&lt;/b> – Here you specify the search query and the page to start the query in.&lt;b> Start in&lt;/b>&amp;nbsp;specifies the path the search is to occur in. You can either type the complete path directly or type several characters, then use the auto-suggestion provided.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>&lt;b>Other Properties:&lt;/b>&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>&lt;b>Display as&lt;/b> – How you want the items to be listed; includes Links, Teasers and News.&lt;/li>&#xa;&lt;li>&lt;b>Order by&lt;/b> – Whether the list is to be ordered, and if so, the criteria to use for sorting. You can enter a criteria or select one from the drop down list provided.&lt;/li>&#xa;&lt;li>&lt;b>Limit&lt;/b> – Specify the maximum number of items that you want displayed in the list.&lt;/li>&#xa;&lt;li>&lt;b>Enable Feed&lt;/b> – Indicates whether an RSS feed should be activated for the list.&lt;/li>&#xa;&lt;li>&lt;b>Paginate after&lt;/b> – Here you can specify the number of list items to display at once. A list with more items than specified will use pagination to display the list in several portions.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>For instance, with Child Pages selected in the Build list using dropdown and set 3 as the pagination setting, the page structure with&lt;/p>&#xa;&lt;p>Parent-&amp;gt;Community-&amp;gt;Company-&amp;gt;Events-&amp;gt;Products&lt;/p>&#xa;&lt;p>will be listed as the following. As shown, Next&amp;gt;&amp;gt; is pagination button for navigating to the rest of the list.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                        <image_2050897209
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Using_List_Component-List.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="350"/>
+                        <text_2130332645
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            text="&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

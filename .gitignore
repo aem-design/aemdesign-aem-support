@@ -1,0 +1,65 @@
+# Ignore VLT files
+.vlt
+.vlt-*
+
+# Ignore Quickstart launches in the source tree
+license.properties
+crx-quickstart
+
+# Ignore compilation results
+target
+
+# Ignore IDE and Operating System artifacts
+.idea
+.classpath
+.metadata
+.project
+.settings
+maven-eclipse.xml
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Node
+content/node_modules
+node/
+node_modules/
+npm-debug.log
+
+# Velocity
+bundle/velocity.log.*
+bundle/velocity.log
+velocity.log*
+
+#Packer.io
+packer_cache
+builds
+
+#deploy
+*.pyc
+jenkins.properties
+deploy/lib/python-packages
+
+#logs
+logs/
+*.log
+
+#junk
+devops___*
+
+#ssh keys
+.ssh/
+.ssh/*
+
+#stats files
+.stats
+.stats/*
+
+#ignore testing remote driver exec files and restuls
+aemdesign-testing/remote-*
+aemdesign-testing/local-*
+
+
+#ignore bash things
+.bash_history

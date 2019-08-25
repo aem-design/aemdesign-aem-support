@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Downloading Assets"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/basic-user/managing-digital-assets"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text_781243009
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;div>You can download assets including static and dynamic renditions or you can email assets directly from Assets. Downloaded assets are bundled in a ZIP file.&lt;/div>&#xa;&lt;table cellpadding=&quot;1&quot; cellspacing=&quot;0&quot; border=&quot;1&quot;>&#xa;&lt;tbody>&lt;tr>&lt;td>&lt;b>Assets&lt;/b>&lt;/td>&#xa;&lt;td>Select this to download the asset in its original form without any renditions.&lt;/td>&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;b>Renditions&lt;/b>&lt;/td>&#xa;&lt;td>&lt;p>A rendition is the binary representation of an asset. Assets always have a primary representation - that of the uploaded file. They can have any number of additional representations.&lt;/p>&#xa;&lt;p>When you select this, you have the option to select which renditions you want downloaded as well. The renditions available depend on the asset selected.&lt;/p>&#xa;&lt;/td>&#xa;&lt;/tr>&lt;tr>&lt;td>&lt;b>Email&lt;/b>&lt;/td>&#xa;&lt;td>An email is sent to the user you select from the drop-down menu with the selected asset. You can select multiple emails.&lt;/td>&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xa;"
+                            textIsRich="true"/>
+                        <image_214685632
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Managing_Assets-Download.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_1821146571
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Select the download option and click &lt;b>Download&lt;/b>.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

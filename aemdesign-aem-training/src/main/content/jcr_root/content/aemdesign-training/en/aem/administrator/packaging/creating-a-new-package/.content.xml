@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Creating a New Package"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/administrator/packaging"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text_1907134826
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>To create a new package definition:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>On the AEM Welcome screen, click &lt;b>Packages&lt;/b> (or from the &lt;b>Tools&lt;/b> console double-click on &lt;b>Packages&lt;/b>).&lt;/li>&#xa;&lt;li>Then select &lt;b>Package Manager&lt;/b>.&lt;/li>&#xa;&lt;li>Click &lt;b>Create Package&lt;/b>.&lt;/li>&#xa;&lt;li>In the dialog:&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_1586087139
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Packaging-New_Package_Dialog.png"
+                            imageOption="asIs"
+                            imageRotate="0"
+                            width="500"/>
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;div>Enter the:&lt;/div>&#xa;&lt;ul>&#xa;&lt;li>&lt;i>&lt;b>Group Name&lt;/b> – The target group (or folder) name.&amp;nbsp; Groups are intended to be used to help you organize your packages. A folder will be created for the group if it does not already exist. If you leave the group name blank, it will create the package in the main package list (Home &amp;gt; Packages).&lt;/i>&lt;/li>&#xa;&lt;li>&lt;i>&lt;b>Package Name &lt;/b>– The name of your new package. Select a descriptive name to help you (and others) easily identify the contents of the package.&lt;/i>&lt;/li>&#xa;&lt;li>&lt;i>&lt;b>Version&lt;/b> – A textual field for you to indicate a version. This will be appended to the package name to form the name of the zip file.&lt;/i>&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <text_1244994373
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Click &lt;b>OK&lt;/b> to create the package.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p style=&quot;margin-left: 40px;&quot;>AEM lists the new package in the appropriate group folder.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                        <image_517437687
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Packaging-Package_List.png"
+                            imageOption="asIs"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_1655197924
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;div style=&quot;margin-left: 40px;&quot;>Click on the icon or package name to open.&lt;/div>&#xa;"
+                            textIsRich="true"/>
+                        <image_10054758
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Packaging-Package_List_Expanded.png"
+                            imageOption="asIs"
+                            imageRotate="0"
+                            width="500"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

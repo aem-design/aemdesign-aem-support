@@ -1,0 +1,41 @@
+&--column,
+.cards-column & {
+  @include media-breakpoint-up(md) {
+    .card-img-top {
+      @include aspect-ratio(410, 135);
+    }
+    .card-body {
+      .card-text {
+        margin-bottom: 25px;
+      }
+      .card-link {
+        min-width: 175px;
+      }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    max-height: 500px;
+    flex-direction: row;
+    .card-img-top {
+      @include aspect-ratio(415, 375);
+    }
+    .card-body {
+      padding: 40px;
+      .card-title {
+        margin-bottom: 30px;
+        &::after {
+          display: block;
+        }
+      }
+    }
+    .card-img-top,
+    .card-body {
+      width: 50%;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .card-body {
+      padding: 50px;
+    }
+  }
+}

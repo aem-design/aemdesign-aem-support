@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+
+SCRIPT_PARAMS="$@"
+
+source "../scripts/functions.sh"
+
+set_term_title "Deploying Package: mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage,deploymentpackage "$@""
+echo "- Deploy"
+mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage,deploymentpackage,buildCore,buildStyleguide "$@"
+set_term_title "Deployed"
+echo "- Deployed"

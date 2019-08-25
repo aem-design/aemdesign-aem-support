@@ -1,0 +1,37 @@
+.cards-columns & {
+  @include media-breakpoint-up(lg) {
+    .card-img-top {
+      @include aspect-ratio(260, 155);
+    }
+    .card-body {
+      padding: 30px;
+      .card-title {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .card-img-top {
+      @include aspect-ratio(352, 210);
+    }
+    .card-body {
+      padding: 35px;
+    }
+  }
+}
+
+.cards-columns.theme--lists-equal & {
+  @include media-breakpoint-up(lg) {
+    .card-img-top {
+      @include aspect-ratio(400, 160);
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .card-img-top {
+      @include aspect-ratio(540, 220);
+    }
+    .card-body {
+      padding: 40px;
+    }
+  }
+}

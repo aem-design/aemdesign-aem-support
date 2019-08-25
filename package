@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SCRIPT_PARAMS="$@"
+
+source "./scripts/functions.sh"
+
+
+set_term_title "Packaging Monolith Package: mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage clean package"
+echo "- Package"
+mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage,buildCore,buildStyleguide,installdeploymentpackage clean package "$@"
+set_term_title "Packaged"

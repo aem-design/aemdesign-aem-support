@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="c674f90b-d5e5-464d-bf19-3c3b920e78ac">
+    <jcr:content
+        cq:name="solarpanles.jpg"
+        cq:parentPath="/content/dam/aemdesign-showcase/en/common/images"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/common/images/solarpanles.jpg"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-03-05T00:40:54.709+11:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2018-01-31T02:36:38.505+11:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}300"
+            dam:Physicalheightininches="{Decimal}16.536666870117188"
+            dam:Physicalwidthindpi="{Long}300"
+            dam:Physicalwidthininches="{Decimal}11.576666831970215"
+            dam:Progressive="no"
+            dam:sha1="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            dam:size="{Long}7230027"
+            dam:SpecialInstructions="NR"
+            dc:creator="[Westend61]"
+            dc:creator_xmpArrayType="rdf:Seq"
+            dc:description="Germany, Bavaria, View of solar panels in field"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2019-03-05T00:40:54.709+11:00"
+            dc:subject="[Alternative Energy,Bavaria,Central Europe,Color Image,Day,Environment,Environmental Conservation,Environmental Issues,Field,Fuel and Power Generation,Germany,Grass,Lens Flare,Nature,No People,Number of People,Order,Outdoors,Photography,Renewable Energy,Science and Technology,Sky,Solar Energy,Solar Equipment,Solar Panel,Sun,Sunlight,Technology,Vertical,Objects,places]"
+            dc:subject_xmpArrayType="rdf:Bag"
+            dc:title="112231050"
+            jcr:lastModified="{Date}2019-03-05T00:40:54.709+11:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="112231050"
+            photoshop:Credit="Getty Images/Westend61"
+            photoshop:Instructions="NR"
+            photoshop:Source="Westend61"
+            tiff:ImageLength="{Long}4961"
+            tiff:ImageWidth="{Long}3473"
+            xmpRights:WebStatement="http://www.gettyimages.com"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

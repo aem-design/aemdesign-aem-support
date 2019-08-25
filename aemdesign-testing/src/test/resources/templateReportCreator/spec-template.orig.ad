@@ -1,0 +1,51 @@
+<%  def fmt = new com.athaydes.spockframework.report.internal.StringFormatHelper()
+    def stats = com.athaydes.spockframework.report.util.Utils.stats( data )
+ %>== Report for ${data.info.description.className}
+
+=== Summary
+
+[options="header",cols="asciidoc,asciidoc"]
+|====
+|Total Runs        |Success Rate 													 |Total time												|Failures					 |Errors					|Skipped
+|${stats.totalRuns}|${fmt.toPercentage(stats.successRate)} |${fmt.toTimeDuration(stats.time)} |${stats.failures} |${stats.errors} |${stats.skipped}
+|====
+
+=== Features
+<%
+    features.eachFeature { name, result, blocks, iterations, params ->
+%>
+==== $name
+
+Result: **$result**
+<%
+        for ( block in blocks ) {
+ %>
+* ${block.kind} ${block.text}
+<%
+        }
+        def executedIterations = iterations.findAll { it.dataValues || it.errors }
+        if ( params && executedIterations ) {
+ %>
+[options="header"]
+|====
+| ${params.join( ' | ' )} |
+<%
+            for ( iteration in executedIterations ) {
+%>| ${iteration.dataValues.join( ' | ' )} | ${iteration.errors ? '(FAIL)' : '(PASS)'}
+<%          }
+%>|====
+<%      }
+        def problems = executedIterations.findAll { it.errors }
+        if ( problems ) {
+            out << "\nThe following problems occurred:\n\n"
+            for ( badIteration in problems ) {
+                if ( badIteration.dataValues ) {
+                    out << '* ' << badIteration.dataValues << '\n'
+                }
+                for ( error in badIteration.errors ) {
+                    out << '----\n' << error << '\n----\n'
+                }
+            }
+        }
+    }
+ %>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Moving and Renaming a Page"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/basic-user/managing-pages"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Navigate to the location of the page you want to move.&lt;/li>&#xa;&lt;li>Select your page and then the&amp;nbsp;&lt;b>Move&lt;/b>&amp;nbsp;page icon:&lt;img src=&quot;/content/dam/aemdesign-training/Managing_Tags-Move_Tag_Button.png&quot;>&lt;br>&#xa;This will open the move page wizard.&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <text_756962224
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>From the&amp;nbsp;&lt;b>Rename&lt;/b>&amp;nbsp;stage of the wizard you can either:&lt;ul>&#xa;&lt;li>Specify the name you want the page to have after it is moved, then click/tap &lt;b>Next&lt;/b> to proceed.&lt;/li>&#xa;&lt;li>&lt;b>Cancel&lt;/b> to abort the process.&lt;/li>&#xa;&lt;li>The page name:&lt;ul>&#xa;&lt;li>can remain the same if there is no page with that name at the new location.&lt;/li>&#xa;&lt;li>should be new if you move the page to a location where a page with the same name as the original already exists (if you use the same name, the system will automatically generate a variation of the name; e.g. square will become square1).&lt;/li>&#xa;&lt;/ul>&#xa;&lt;/li>&#xa;&lt;/ul>&#xa;&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_1238899400
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Moving_or_Renaming_a_Page-Rename.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_1970415078
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>From the&amp;nbsp;&lt;b>Select Destination&lt;/b>&amp;nbsp;stage of the wizard you can either:&lt;br>&#xa;&lt;ul>&#xa;&lt;li>Navigate to the new location for the page, then click/tap&amp;nbsp;&lt;b>Next&lt;/b>&amp;nbsp;to proceed&lt;/li>&#xa;&lt;li>Use&amp;nbsp;&lt;b>Back&lt;/b>&amp;nbsp;to return to page name specification.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_924774995
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Moving_or_Renaming_a_Page-Select_Destination.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_1423476735
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>If the page is linked to, or referenced, then these will be listed. You can indicate which should be adjusted and republished (as appropriate):&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_621206162
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Moving_or_Renaming_a_Page-Republish.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_191966439
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Selecting &lt;b>Move&lt;/b> will complete the process and move or rename your page.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p style=&quot;margin-left: 40px;&quot;>You will see two messages boxes, one to show progress then one to confirm that the move action has completed.&lt;/p>&#xa;&lt;p style=&quot;margin-left: 40px;&quot;>&amp;nbsp;&lt;/p>&#xa;&lt;p style=&quot;margin-left: 40px;&quot;>&amp;nbsp;&lt;/p>&#xa;&lt;p style=&quot;margin-left: 40px;&quot;>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page2"
+        sling:resourceType="aemdesign/components/template/base"
+        subtitle="Page Sub-Title 2">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_YX9QYFFZN">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    cardStyle="[aemdesign-showcase:component-style-modifier/background/bg-c2,aemdesign-showcase:component-style-modifier/card/coloured]"
+                    componentId="page-details_3YQHMFVOG"
+                    description="Page without Page Image and with non-Licensed Secondary Image"
+                    showBreadcrumb="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    title="Page2">
+                    <secondaryImage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"
+                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                </page-details>
+            </par>
+        </article>
+    </jcr:content>
+    <page1/>
+    <page2/>
+</jcr:root>

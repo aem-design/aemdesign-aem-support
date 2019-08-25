@@ -1,0 +1,22 @@
+// stylelint-disable declaration-no-important
+
+@each $direction, $config in $spacing-modifiers {
+  @each $level, $breakpoint-map in $config {
+    @each $breakpoint in map-keys($breakpoint-map) {
+      @include media-breakpoint-up($breakpoint) {
+        $space: map-get($breakpoint-map, $breakpoint);
+
+        .spacing-#{$direction}-#{$level} {
+          @if $direction == 'vertical' {
+            padding-bottom: $space !important;
+            padding-top: $space !important;
+          }
+          @else {
+            padding-left: $space !important;
+            padding-right: $space !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+
+SCRIPT_PARAMS="$@"
+
+source "../scripts/functions.sh"
+
+EXEC_AEM_HOST="${1:-$AEM_HOST}"
+EXEC_AEM_PORT="${2:-$AEM_PORT}"
+EXEC_ENV="${3:-remote-seleniumhub-chrome}" #localremote - seleniumhub - local-phantomjs
+HUB_URL="${4:-$SELENIUMHUB_SCHEME://$SELENIUMHUB_HOST:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE}"
+AEM_URL="$AEM_SCHEMA://$EXEC_AEM_HOST:$EXEC_AEM_PORT"
+
+
+if [ "$EXEC_ENV" == "" ]; then
+    echo "Please specify driver name ex remote-seleniumhub-chrome"
+    exit 1
+fi
+
+#test if servers are available
+AEM_AVAILABLE=$(testServer $AEM_URL)
+
+if [[ "true" == "$AEM_AVAILABLE" ]]; then
+    echo "AEM IS AVAILABLE at $AEM_URL"
+else
+    echo "AEM IS NOT AVAILABLE at $AEM_URL"
+    exit 1 #indicate error with non zero return
+fi
+
+if [[ "$EXEC_ENV" == *"remote"* ]]; then
+
+    DEFAULT_HUB_AVAIABLE=$(testServer $HUB_URL)
+    if [[ "true" == "$DEFAULT_HUB_AVAIABLE" ]]; then
+        echo "SELENIUM HUB IS AVAILABLE at $HUB_URL"
+    else
+        echo "SELENIUM HUB AND/OR AEM NOT AVAILABLE at $HUB_URL"
+        exit 1 #indicate error with non zero return
+    fi
+fi
+
+#THIS WILL RUN ALL WORKING TESTS
+EXEC_TEST="${5:-Download*,Aside*,Article*,Link*,Table*,Text*,Footer*,Header*,RedirectNotification*,ContentBlockA*,ContentBlockP*,ContentBlockS*,ContentBlockM*,PageList*,PageDetails*,Columns*,Breadcrumb*,Image*,Video*,ContactDetails*,EmbedSource*,Navbar*,NavList*,PageTitle*,PageTags*,PageDate*,PageDescription*,DataLayer*,External*,PageAuthor*,EventDetails*,OnlineMedia*,Reference*,List*,SearchList*,Audio*,Tooltip*,NewsDetails*,LocationDetails*,NewsList*,ContactList*,ShareButton*,LocationList*,ContentTabs*,Timing*,StaticInclude*,TagList*,LangNav*,AssetList*,ListNav*,ContentBlockC*}"
+
+#THIS WILL RUN ONLY ONE TEST YOU CAN USE THIS IN DEV
+#EXEC_TEST="${5:-AssetListS*,PageListS*,SearchListPub*,TooltipS*,PageTitleS*,LinkS*,DownloadS*,ExternalS*,VideoS*,ImageS*}"
+
+EXEC_TEST_EXCLUDE="${6:-}"
+EXEC_PARAMS=" ${*:7}"
+
+#if skip is not specified run profile to convert using results
+if [[ -z $EXEC_SKIP_CONVERT || "$EXEC_SKIP_CONVERT" == "false" ]]; then
+    EXEC_EXTRAS="-P compile-reports-ruby"
+fi
+
+echo EXEC_EXTRAS: $EXEC_EXTRAS
+
+set_term_title "Testing In-Progress"
+
+echo "RUNNING ENV: $EXEC_ENV"
+echo "RUNNING TESTS: $EXEC_TEST"
+echo "EXCLUDING TESTS: $EXEC_TEST_EXCLUDE"
+echo "WITH PARAMETERS: $EXEC_PARAMS"
+echo mvn clean test $EXEC_EXTRAS -Dgeb.env="$EXEC_ENV" -Dproject.buildDirectory="$EXEC_ENV" -Dcrx.host="$EXEC_AEM_HOST" -Dcrx.port="$EXEC_AEM_PORT" -Dtest="$EXEC_TEST,$EXEC_TEST_EXCLUDE""$EXEC_PARAMS" -Dselenumhuburl="$HUB_URL"
+
+mvn clean test $EXEC_EXTRAS -Dgeb.env="$EXEC_ENV" -Dproject.buildDirectory="$EXEC_ENV" -Dcrx.host="$EXEC_AEM_HOST" -Dcrx.port="$EXEC_AEM_PORT" -Dtest="$EXEC_TEST,$EXEC_TEST_EXCLUDE""$EXEC_PARAMS" -Dselenumhuburl="$HUB_URL"
+
+set_term_title "Testing Finished"
+
+#open report when finished if LOCAL
+#if [[ -z "${EXEC_ENV##local-*}" ]]; then
+#    if [[ -e "$EXEC_ENV/$DEFAULT_REPORT_PATH" ]]; then
+#        echo "OPENING REPORT: $EXEC_ENV/$DEFAULT_REPORT_PATH"
+#        OPEN_REPORT=$(groovy -Dproject.buildDirectory=$EXEC_ENV openReport.groovy)
+#    fi
+#fi

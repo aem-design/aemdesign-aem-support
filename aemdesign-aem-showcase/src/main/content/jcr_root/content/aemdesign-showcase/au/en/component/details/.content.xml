@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <event-details/>
+    <contact-details/>
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Details"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    text="&lt;p>This section is dedicated to components that describe diffrent Content Types, as all content accessible by users is a Page special components are designated to allow Metadata to be added to pages for presentation and other usage.&lt;/p>"
+                    textIsRich="true"/>
+                <list
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/list"
+                    imageRotate="0"
+                    listFrom="children"
+                    listItemShowLink="false"
+                    listLinkTitle="More Items"
+                    listType="list"
+                    parentPage="/content/aemdesign-showcase/au/en/component/details"
+                    showTitle="true"
+                    tagsMatch="any"
+                    title="List of Components"/>
+                <contentblock4
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock4"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Details: For Inheriting by Page Details Toolbar"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page-details4"
+                            description="Custom Description"
+                            showBreadcrumb="true"
+                            showParsys="true"
+                            showToolbar="true"
+                            title="Page Title 4">
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                cancelInheritParent="true"
+                                componentId="toolbar_N74VSQQQX">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_parent_toolbar"
+                                        text="Text in Parent Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                            <secondaryImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parent_parsys"
+                                    text="Text in Parent Parsys"
+                                    textIsRich="true"/>
+                            </par>
+                        </pagedetails>
+                    </par>
+                </contentblock4>
+            </par>
+        </article>
+    </jcr:content>
+    <page-details/>
+    <news-details/>
+    <location-details/>
+</jcr:root>

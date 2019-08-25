@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Contact Details"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <contentblockmenu1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                    componentId="contentblockmenu1"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Contact Details: Default without included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contactdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/contact-details"
+                            componentId="contact-details1"
+                            description="Custom Description"
+                            descriptionFormat="aemdesign-showcase:component-style-theme/details/contact-details/format/description/jobTitleAtEmployeeWithEmail"
+                            email="max.barrass@isobar.com"
+                            employee="Isobar"
+                            familyName="Barrass"
+                            givenName="Max"
+                            honorificPrefix="aemdesign-showcase:component-dialog/honorific/prefix/mr"
+                            jobTitle="Adobe Practice lead"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Page Title"
+                            titleFormat="aemdesign-showcase:component-style-theme/details/contact-details/format/title/author"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Contact Details: Default Blank without included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contactdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/contact-details"
+                            componentId="contact-details2"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Contact Details: Hidden Variant"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contactdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/contact-details"
+                            componentId="contact-details3"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            variant="hidden"/>
+                    </par>
+                </contentblock3>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/media/image"
+            fileReference="/content/dam/aemdesign-showcase/en/common/images/abstract.jpg"/>
+    </jcr:content>
+</jcr:root>

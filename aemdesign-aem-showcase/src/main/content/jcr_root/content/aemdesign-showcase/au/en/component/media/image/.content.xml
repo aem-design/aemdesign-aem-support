@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Image"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <contentblockmenu1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                    componentId="contentblockmenu1"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Default"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image1"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Only"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image2"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            variant="imageOnly"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Card"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image3"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/size/w-25]"
+                            componentTheme="[aemdesign-showcase:component-style-modifier/card]"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            variant="card"/>
+                    </par>
+                </contentblock3>
+                <contentblock4
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock4"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Title and Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image4"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            variant="imageTitleDescription"/>
+                    </par>
+                </contentblock4>
+                <contentblock5
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock5"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Default with Licensed Image"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can't override Licensed Image Description"
+                            dc:title="Can't override Licensed Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can't override Licensed Image Credit Line"
+                            photoshop:Headline="Can't override Licensed Image Headline"
+                            photoshop:Source="Can't override Licensed Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image5"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"
+                            sourceAsset="Can't override Licensed Image Asset URL"/>
+                    </par>
+                </contentblock5>
+                <contentblock6
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock6"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Only with Licensed Image"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can't override Licensed Image Description"
+                            dc:title="Can't override Licensed Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can't override Licensed Image Credit Line"
+                            photoshop:Headline="Can't override Licensed Image Headline"
+                            photoshop:Source="Can't override Licensed Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image6"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"
+                            sourceAsset="Can't override Licensed Image Asset URL"
+                            variant="imageOnly"/>
+                    </par>
+                </contentblock6>
+                <contentblock7
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock7"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Card with Licensed Image"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can't override Licensed Image Description"
+                            dc:title="Can't override Licensed Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can't override Licensed Image Credit Line"
+                            photoshop:Headline="Can't override Licensed Image Headline"
+                            photoshop:Source="Can't override Licensed Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image7"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/size/w-25]"
+                            componentTheme="[aemdesign-showcase:component-style-modifier/card]"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"
+                            sourceAsset="Can't override Licensed Image Asset URL"
+                            variant="card"/>
+                    </par>
+                </contentblock7>
+                <contentblock8
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock8"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Title and Description with Licensed Image"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can't override Licensed Image Description"
+                            dc:title="Can't override Licensed Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can't override Licensed Image Credit Line"
+                            photoshop:Headline="Can't override Licensed Image Headline"
+                            photoshop:Source="Can't override Licensed Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image8"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"
+                            sourceAsset="Can't override Licensed Image Asset URL"
+                            variant="imageTitleDescription"/>
+                    </par>
+                </contentblock8>
+                <contentblock9
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock9"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Empty"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image9"/>
+                    </par>
+                </contentblock9>
+                <contentblock10
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock10"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Default with Overrides"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can override Image Description"
+                            dc:title="Can override Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can override Image Credit Line"
+                            photoshop:Headline="Can override Image Headline"
+                            photoshop:Source="Can override Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image10"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"
+                            sourceAsset="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"/>
+                    </par>
+                </contentblock10>
+                <contentblock11
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock11"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Only with Overrides"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can override Image Description"
+                            dc:title="Can override Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can override Image Credit Line"
+                            photoshop:Headline="Can override Image Headline"
+                            photoshop:Source="Can override Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image11"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"
+                            sourceAsset="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"
+                            variant="imageOnly"/>
+                    </par>
+                </contentblock11>
+                <contentblock12
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock12"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Card with Overrides"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can override Image Description"
+                            dc:title="Can override Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can override Image Credit Line"
+                            photoshop:Headline="Can override Image Headline"
+                            photoshop:Source="Can override Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image12"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/size/w-25]"
+                            componentTheme="[aemdesign-showcase:component-style-modifier/card]"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"
+                            sourceAsset="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"
+                            variant="card"/>
+                    </par>
+                </contentblock12>
+                <contentblock13
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock13"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Title and Description with Overrides"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            dc:description="Can override Image Description"
+                            dc:title="Can override Image Title"
+                            jcr:primaryType="nt:unstructured"
+                            photoshop:Credit="Can override Image Credit Line"
+                            photoshop:Headline="Can override Image Headline"
+                            photoshop:Source="Can override Image Source"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image13"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"
+                            sourceAsset="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"
+                            variant="imageTitleDescription"/>
+                    </par>
+                </contentblock13>
+                <contentblock14
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock14"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Only Empty"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image14"
+                            variant="imageOnly"/>
+                    </par>
+                </contentblock14>
+                <contentblock15
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock15"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Card Empty"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image15"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/size/w-25]"
+                            componentTheme="[aemdesign-showcase:component-style-modifier/card]"
+                            variant="card"/>
+                    </par>
+                </contentblock15>
+                <contentblock16
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock16"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Title and Description Empty"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image16"
+                            variant="imageTitleDescription"/>
+                    </par>
+                </contentblock16>
+                <contentblock17
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock17"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Default with Image Option set to Rendition"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image17"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            imageOption="rendition"
+                            width="319"/>
+                    </par>
+                </contentblock17>
+                <contentblock18
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock18"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Title and Description with Asset Metadata"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image18"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"
+                            variant="imageTitleDescription"/>
+                    </par>
+                </contentblock18>
+                <contentblock19
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock19"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image Title and Description with Asset Metadata and Adaptive Image"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image19"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"
+                            imageOption="adaptive"
+                            variant="imageTitleDescription"/>
+                    </par>
+                </contentblock19>
+                <contentblock20
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock20"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Default with Generated Image"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image20"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            imageOption="generated"
+                            imageRotate="90"/>
+                    </par>
+                </contentblock20>
+                <contentblock21
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock21"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image and Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image21"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            variant="imageDescription"/>
+                    </par>
+                </contentblock21>
+                <contentblock22
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock22"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image and Description floating on left"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image22"
+                            componentTheme="[aemdesign-showcase:component-style-theme/media/image/floating/left,aemdesign-showcase:component-style-theme/media/image/caption,aemdesign-showcase:component-style-modifier/background/bg-c3,aemdesign-showcase:component-style-modifier/margin/mb-15,aemdesign-showcase:component-style-modifier/margin/mr-15]"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            variant="imageDescription"/>
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text_DP8S4I7CX"
+                            text="&lt;p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nesciunt unde non cupiditate earum, sed neque. Nobis necessitatibus cumque sapiente nesciunt facilis modi, hic asperiores neque non, rerum, qui rem!&lt;/p>&#xd;&#xa;&lt;p>Libero quam sequi error itaque illo dicta dolor ad dolores unde nulla facere tempore voluptatum, ex architecto ab nesciunt voluptatibus est id reiciendis repellendus. Temporibus, reiciendis. Iste maxime sed iusto?&lt;/p>&#xd;&#xa;&lt;p>Minima voluptatibus expedita eaque iste sit, reiciendis vel rerum suscipit ratione veniam qui mollitia omnis quam ullam reprehenderit sint laudantium harum adipisci necessitatibus quos! Neque quos accusantium aliquam excepturi iure!&lt;/p>&#xd;&#xa;&lt;p>Molestias neque quisquam libero vero voluptate dolor nostrum error molestiae itaque cupiditate repudiandae corporis illo eligendi beatae esse modi harum eaque a, iste ullam exercitationem maxime! Commodi sequi harum in!&lt;/p>&#xd;&#xa;&lt;p>Architecto corporis blanditiis dicta soluta officiis aperiam, aliquid a, adipisci numquam aut natus unde reiciendis sit quam voluptate maxime. Nihil accusamus molestias voluptatem temporibus labore tenetur nemo optio consequatur debitis?&lt;/p>"
+                            textIsRich="true"
+                            variant="simple"/>
+                    </par>
+                </contentblock22>
+                <contentblock23
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock23"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Image and Description floating on right"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            componentId="image23"
+                            componentTheme="[aemdesign-showcase:component-style-theme/media/image/floating/right,aemdesign-showcase:component-style-theme/media/image/caption,aemdesign-showcase:component-style-modifier/background/bg-c3,aemdesign-showcase:component-style-modifier/margin/mb-15,aemdesign-showcase:component-style-modifier/margin/ml-15,aemdesign-showcase:component-style-modifier/margin/mt-15]"
+                            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"
+                            variant="imageDescription"/>
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text_ULV7EO7KK"
+                            text="&lt;p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nesciunt unde non cupiditate earum, sed neque. Nobis necessitatibus cumque sapiente nesciunt facilis modi, hic asperiores neque non, rerum, qui rem!&lt;/p>&#xd;&#xa;&lt;p>Libero quam sequi error itaque illo dicta dolor ad dolores unde nulla facere tempore voluptatum, ex architecto ab nesciunt voluptatibus est id reiciendis repellendus. Temporibus, reiciendis. Iste maxime sed iusto?&lt;/p>&#xd;&#xa;&lt;p>Minima voluptatibus expedita eaque iste sit, reiciendis vel rerum suscipit ratione veniam qui mollitia omnis quam ullam reprehenderit sint laudantium harum adipisci necessitatibus quos! Neque quos accusantium aliquam excepturi iure!&lt;/p>&#xd;&#xa;&lt;p>Molestias neque quisquam libero vero voluptate dolor nostrum error molestiae itaque cupiditate repudiandae corporis illo eligendi beatae esse modi harum eaque a, iste ullam exercitationem maxime! Commodi sequi harum in!&lt;/p>&#xd;&#xa;&lt;p>Architecto corporis blanditiis dicta soluta officiis aperiam, aliquid a, adipisci numquam aut natus unde reiciendis sit quam voluptate maxime. Nihil accusamus molestias voluptatem temporibus labore tenetur nemo optio consequatur debitis?&lt;/p>"
+                            textIsRich="true"
+                            variant="simple"/>
+                    </par>
+                </contentblock23>
+                <contentblock24
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock24"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Image: Default with Image Option - Manual MediaQuery with Rendition"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            assetMediaQuery="[aemdesign-showcase:component-dialog/css/mediaquery/medium,aemdesign-showcase:component-dialog/css/mediaquery/landscape-large]"
+                            assetMediaQueryRendition="[aem-design-logo.png,cq5dam.web.1280.1280.png]"
+                            componentId="image24"
+                            fileReference="/content/dam/aemdesign-showcase/en/common/aem-design.png"
+                            imageOption="mediaqueryrendition"/>
+                    </par>
+                </contentblock24>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

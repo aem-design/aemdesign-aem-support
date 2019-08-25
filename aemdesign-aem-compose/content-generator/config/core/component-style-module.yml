@@ -1,0 +1,68 @@
+content/_cq_tags/aemdesign/component-style-module: &component-style-module
+  # Generic
+  generic/hide-on-search:
+    flat: true
+    prefix: hide-on-search
+    title: 'Hide On Page Search'
+
+  media/video/background:
+    flat: true
+    prefix: play-video
+    title: 'Play Background Video'
+
+  media/video/popup:
+    flat: true
+    prefix: play-video
+    title: 'Play Popup Video'
+
+  layout/contentblock/parallaximage:
+    flat: true
+    prefix: parallaximage
+    title: 'Parallax Image'
+
+  layout/button/navtoggler:
+    flat: true
+    prefix: navtoggler
+    title: 'Nav Toggler (button)'
+
+  # Search widget
+  widgets/search/global-search:
+    flat: true
+    prefix: global-search
+    title: 'Global Search'
+
+  widgets/search/quicksearch:
+    flat: true
+    prefix: search
+    title: 'Quick Search'
+
+  widgets/search/header-search:
+    flat: true
+    prefix: header-search
+    title: 'Header Search'
+
+  # Carousel
+  lists/carousel:
+    flat: true
+    prefix: carousel
+    title: 'Carousel'
+
+  # Load More
+  lists/pagination/loadmore:
+    flat: true
+    prefix: loadmore
+    title: 'Load More'
+
+  lists/locationlist/map:
+    flat: true
+    prefix: map
+    title: 'Map'
+
+
+
+
+# Showcase Copy
+content/_cq_tags/aemdesign-showcase/component-style-module: *component-style-module
+
+# Training Copy
+content/_cq_tags/aemdesign-training/component-style-module: *component-style-module

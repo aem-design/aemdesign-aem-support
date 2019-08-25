@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template"
+    ranking="{Long}130">
+    <jcr:content
+        cq:lastModified="{Date}2019-08-19T18:16:57.708+10:00"
+        cq:lastModifiedBy="admin"
+        cq:templateType="/conf/aemdesign-showcase/settings/wcm/template-types/styleguide"
+        jcr:description="AEM.Design Styleguide"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="AEM.Design Styleguide"
+        status="enabled"/>
+</jcr:root>

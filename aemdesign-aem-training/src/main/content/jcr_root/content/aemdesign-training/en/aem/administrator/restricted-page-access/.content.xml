@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Restricted Page Access"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/administrator"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text_1907134826
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>Closed User Groups (CUGs) are used to limit access to specific pages that reside within a published internet site. Such pages require the assigned members to login and provide security credentials.&lt;/p>&#xa;&lt;p>In order to limit the group of users to access the restricted page, a Closed User Group needs to be created in advance. See Configure User and Group in Administrator section.&lt;/p>&#xa;&lt;p>To apply the Closed User Group to a page:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Navigate to the root page of the restricted section you want to assign to your CUG.&lt;/li>&#xa;&lt;li>Open the &lt;b>Page Properties&lt;/b> (from the &lt;b>Page&lt;/b> tab in the Sidekick).&lt;/li>&#xa;&lt;li>Open the &lt;b>Advanced&lt;/b> tab.&lt;/li>&#xa;&lt;li>Expand the &lt;b>Closed User Group&lt;/b> pane.&lt;/li>&#xa;&lt;li>Click &lt;b>Enabled&lt;/b> to define that this page (and any child pages) belong to a CUG.&lt;/li>&#xa;&lt;li>Specify the &lt;b>Login Page&lt;/b> that members of the group will use. This is optional, if left blank the standard login page will be used.&lt;/li>&#xa;&lt;li>Add the &lt;b>Admitted Groups&lt;/b>. Use + to add groups or - to remove. Only members of these groups will be allowed to log in and access the pages.&lt;/li>&#xa;&lt;li>Assign a &lt;b>Realm&lt;/b> (a name for the groups of pages) if required. Leave empty to use the page title.&lt;/li>&#xa;&lt;li>Click &lt;b>OK&lt;/b> to save the specification.&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_1586087139
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Page_Administration-Closed_User_Group.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

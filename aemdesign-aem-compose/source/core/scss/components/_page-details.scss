@@ -1,0 +1,92 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+
+.page-details {
+  align-items: center;
+  display: flex;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  z-index: 1;
+
+  header {
+    > {
+      @extend %headings-underlined;
+
+      :only-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &,
+    + .responsivegrid {
+      width: 100%;
+    }
+
+    // Space the additional parsys away from the sibling element
+    + .responsivegrid > .#{$aem-prefix}:not(.no-content) {
+      padding-top: 30px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      &,
+      + .responsivegrid {
+        max-width: 790px;
+      }
+    }
+
+    .subtitle {
+      display: block;
+      margin-top: 20px;
+
+      @include media-breakpoint-up(lg) {
+        margin-top: 30px;
+      }
+      &.h1 {
+        margin-top: 30px;
+
+        @include media-breakpoint-up(lg) {
+          margin-top: 40px;
+        }
+      }
+      &.h4 {
+        @include media-breakpoint-up(lg) {
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+
+  &.bg-charcoal-pattern,
+  &.bg-red-pattern,
+  &.bg-yellow-pattern {
+    header {
+      .title::after {
+        background-color: currentColor;
+      }
+
+      > * {
+        color: $white;
+      }
+    }
+  }
+
+  &.bg-yellow-pattern header > * {
+    color: color('charcoal');
+  }
+
+  &.bg-charcoal-pattern header > .title::after {
+    background-color: color('yellow');
+  }
+
+  @include media-breakpoint-up(md) {
+    min-height: 200px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-height: 280px;
+  }
+}

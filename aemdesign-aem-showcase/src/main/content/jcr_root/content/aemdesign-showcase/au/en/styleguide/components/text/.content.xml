@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Text"
+        sling:resourceType="aemdesign/components/template/styleguide">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"
+                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
+                    editable="{Boolean}false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock"
+                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contentblock_1227356683
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    text="&lt;h1>Heading 1&lt;/h1>&#xd;&#xa;&lt;h2>Heading 2&lt;/h2>&#xd;&#xa;&lt;h3>Heading 3&lt;/h3>&#xd;&#xa;&lt;h4>Heading 4&lt;/h4>&#xd;&#xa;&lt;h5>Heading 5&lt;/h5>&#xd;&#xa;&lt;p>&lt;small>Small&lt;/small>&lt;/p>&#xd;&#xa;&lt;p>&lt;i>&lt;small>Emphasis&lt;/small>&lt;/i>&lt;/p>&#xd;&#xa;&lt;p>Paragraph&lt;/p>&#xd;&#xa;&lt;blockquote>Blockquote&lt;/blockquote>&#xd;&#xa;&lt;p>&lt;b>Bold&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b>&lt;i>Italic&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/i>&lt;u>Underline&lt;/u>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;sub>Subscript&amp;nbsp; &amp;nbsp; &lt;/sub>&lt;sup>Superscript&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/sup>&lt;a href=&quot;http://www.google.com.au&quot; target=&quot;_blank&quot;>Link&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>Special characters :&amp;nbsp;÷&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c4&quot;>Style Green&lt;/span>&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c1&quot;>Style Red&lt;/span>&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: left;&quot;>Left Aligned&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: center;&quot;>Center Text&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: right;&quot;>Right Aligned&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;&lt;p style=&quot;margin-left: 40.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 80.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 120.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p>No Indent&lt;/p>&#xd;&#xa;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot;>&#xd;&#xa;&lt;tbody>&lt;tr>&lt;th>Header&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row1&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row2&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <text_copy
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/background/bg-dark]"
+                                    text="&lt;h1>Heading 1&lt;/h1>&#xd;&#xa;&lt;h2>Heading 2&lt;/h2>&#xd;&#xa;&lt;h3>Heading 3&lt;/h3>&#xd;&#xa;&lt;h4>Heading 4&lt;/h4>&#xd;&#xa;&lt;h5>Heading 5&lt;/h5>&#xd;&#xa;&lt;p>&lt;small>Small&lt;/small>&lt;/p>&#xd;&#xa;&lt;p>&lt;i>&lt;small>Emphasis&lt;/small>&lt;/i>&lt;/p>&#xd;&#xa;&lt;p>Paragraph&lt;/p>&#xd;&#xa;&lt;blockquote>Blockquote&lt;/blockquote>&#xd;&#xa;&lt;p>&lt;b>Bold&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b>&lt;i>Italic&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/i>&lt;u>Underline&lt;/u>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;sub>Subscript&amp;nbsp; &amp;nbsp; &lt;/sub>&lt;sup>Superscript&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/sup>&lt;a href=&quot;http://www.google.com.au&quot; target=&quot;_blank&quot;>Link&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>Special characters :&amp;nbsp;÷&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c4&quot;>Style Green&lt;/span>&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c1&quot;>Style Red&lt;/span>&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: left;&quot;>Left Aligned&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: center;&quot;>Center Text&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: right;&quot;>Right Aligned&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;&lt;p style=&quot;margin-left: 40.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 80.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 120.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p>No Indent&lt;/p>&#xd;&#xa;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot;>&#xd;&#xa;&lt;tbody>&lt;tr>&lt;th>Header&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row1&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row2&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </contentblock_1227356683>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

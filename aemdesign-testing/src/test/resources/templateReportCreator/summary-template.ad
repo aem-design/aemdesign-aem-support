@@ -1,0 +1,60 @@
+= AEM.Design Test Results
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Table of Contents
+:sectnums:
+
+// numbering from here on
+:numbered:
+
+<% def stats = com.athaydes.spockframework.report.util.Utils.aggregateStats( data )
+ %>== Specification run results
+
+[small]#created on ${new Date()} by ${System.properties['user.name']}#
+
+== Config
+
+[options="header"]
+|====================================================================
+| Config            | Value
+| Exec Config       | ${System.properties['geb.env']}
+| Target Host       | ${System.properties['geb.build.baseUrl']}
+| Testing User      | ${System.properties['crx.user']}
+| Testing Host      | ${System.properties['selenumhuburl']}
+| Driver            | ${System.properties['testingdriver']}
+| Test Filter       | ${System.properties['test']}
+|====================================================================
+
+== Summary
+
+[options="header"]
+|==================================================================================================================================
+| Total          | Passed          | Failed          | Feature failures | Feature errors   | Success rate        | Total time (ms)
+| ${stats.total} | ${stats.passed} | ${stats.failed} | ${stats.fFails}  | ${stats.fErrors} | ${fmt.toPercentage(stats.successRate)}| ${fmt.toTimeDuration(stats.time)}
+|==================================================================================================================================
+
+== Specifications
+
+[.summary,options="header"]
+|===================================================================
+|Name  | Features | Failed | Errors | Skipped | Success rate | Time
+<% data.each { name, map ->
+   def s = map.stats
+   def linkedName = "link:${name}.html[${name}]"
+   if (s.failures.toString() == "0") {
+        linkedName += " icon:check-circle[role=green]"
+    } else {
+        linkedName += " icon:exclamation-triangle[role=red]"
+    }
+    if (s.skipped.toString() != "0") {
+        linkedName += " icon:eye-slash[role=gray]"
+    }
+%>| ${linkedName} | ${s.totalRuns} | ${s.failures} | ${s.errors} | ${s.skipped} | ${s.successRate} | ${fmt.toTimeDuration(s.time)}
+<% } %>
+|===================================================================
+
+
+[small]#AEM.Design generated reports using ${com.athaydes.spockframework.report.SpockReportExtension.PROJECT_URL}[Athaydes Spock Reports] with asciidoc Geb Template#
+
+<%
+    //println "REPORT: exiting spec-template"
+%>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Event1"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <event_details
+                    cq:tags="[aemdesign-showcase:content-type/page/event]"
+                    jcr:lastModified="{Date}2019-07-20T03:38:05.891+10:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/event-details"
+                    author="Max Barrass"
+                    cardIconShow="true"
+                    cardStyle="[aemdesign-showcase:component-style-icon/general/globe]"
+                    componentId="eventdetails1"
+                    description="&lt;p>Event Details Description&lt;/p>&#xd;&#xa;&lt;p>Event to showcase all events&lt;/p>&#xd;&#xa;&lt;p>Event to showcase all events&lt;/p>&#xd;&#xa;&lt;p>Event to showcase all events&lt;/p>&#xd;&#xa;&lt;p>Event to showcase all events&lt;/p>&#xd;&#xa;&lt;p>With Long Description&lt;/p>&#xd;&#xa;"
+                    eventEndDate="{Date}2018-08-31T10:24:00.000+10:00"
+                    eventLoc="Melbourne"
+                    eventStartDate="{Date}2018-08-30T00:00:00.000+10:00"
+                    textIsRich="true"
+                    title="Event Details Title">
+                </event_details>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

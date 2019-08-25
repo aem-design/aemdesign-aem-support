@@ -1,0 +1,101 @@
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/// Generates a percentage based on the aspect ratio supplied
+/// @param {Number} $width - X axis
+/// @param {Number} $height - Y axis
+/// @return {Number} - A percentage number representing the aspect ratio
+@function aspect-ratio($width: 16, $height: 9) {
+  @return ($height / $width) * 100%;
+}
+
+/// Creates a spacer size by converting a pixel value to REM
+/// @param {Number} $size - The pixel size to generate from
+/// @return {Number} - A REM number
+@function create-spacer($size: 16px) {
+  @return ($spacer * strip-unit($size));
+}
+
+/// Retrieves the spacer value for the given key
+/// @param {String} $key - The key name for the spacer size
+/// @return {Number} - A REM number
+@function get-spacer($key) {
+  @return map-get($spacers, $key);
+}
+
+/// Converts the input string to a unicode safe character
+/// @param {String} $str - The input string to convert
+/// @return {String} - The converted string
+@function unicode($str) {
+  @return unquote('\'') + $str + unquote('\'');
+}
+
+/// Appends the `$addition` selector with the `$base` selector
+/// @param {String} $base - The initial selector
+/// @param {String} $addition - String to append to `$base`
+/// @return {String} - The joined selector
+@function create-selector($base, $addition) {
+  @return '#{selector-append($base, $addition)}';
+}
+
+/// Retrieve a heading level config for the given level
+/// @param {String} $level - Level to search for
+/// @return {Map} - Map for the level
+@function typography-heading($level) {
+  @return map-get(map-get($typography, headings), $level);
+}
+
+/// Retrieves the height or width for the logo size at the provided breakpoint
+/// @param {String} $name - Name of the logo
+/// @param {String} $breakpoint - Breakpoint size to look up
+/// @param {String} $axis - Height or width?
+/// @return {Number} - Height or width in pixels
+@function logo-size($name: null, $breakpoint: sm, $axis: width) {
+  @if not $name or not map-has-key($logos, $name) {
+    @error 'Invalid logo name given, valid names are: #{map-keys($logos)}';
+  }
+  @else {
+    $sizes: map-deep-get($logos, $name, $breakpoint);
+
+    @return if($axis == width, nth($sizes, 2), nth($sizes, 1));
+  }
+
+  @return null;
+}
+
+/// Returns an icon size for the given size name
+/// @param {String} $for - The name for the icon size
+/// @return {Number} - The icon size
+@function icon-size($for) {
+  $for: unquote($for);
+
+  @if not map-has-key($icon-sizes, $for) {
+    @error 'The icon size "#{$for}" does not appear to exist, please check the name is correct!';
+    @return false;
+  }
+  @else {
+    @return map-get($icon-sizes, $for);
+  }
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Editing a Package"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/administrator/packaging"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text_1907134826
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Click &lt;b>Edit&lt;/b> to edit the package settings. Here, you can add information and/or define certain settings; for example, these include a description, the icon, related bugs and add provider details.&lt;/li>&#xa;&lt;li>Click &lt;b style=&quot;font-size: 12px;&quot;>OK&lt;/b> after you are finished editing the settings.&lt;/li>&#xa;&lt;li>Add &lt;b>Screenshots&lt;/b> to the package as required. One instance is available when the package is created, add more if required by using &lt;b>Package Screenshot&lt;/b> from sidekick.&lt;/li>&#xa;&lt;li>Add the actual image by double-clicking the image component in the &lt;b>Screenshots&lt;/b> area, adding an image, and clicking &lt;b>OK&lt;/b>.&lt;/li>&#xa;&lt;li>Define the &lt;b>Package Filters&lt;/b> by dragging instances of the &lt;b>Filter Definition&lt;/b> from the sidekick, then double-clicking to open for editing:&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_1586087139
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Packaging-Edit_Package.png"
+                            imageOption="asIs"
+                            imageRotate="0"
+                            width="500"/>
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;div>Specify:&lt;/div>&#xa;&lt;ul>&#xa;&lt;li>&lt;i>&lt;b>Root Path&lt;/b> – The content to be packaged; this can be the root of a sub-tree.&lt;/i>&lt;/li>&#xa;&lt;li>&lt;i>&lt;b>Rules&lt;/b> – Rules are optional; for simple package definitions, it is not necessary to specify include or exclude rules. If needed, you can define either &lt;b>Include&lt;/b> or &lt;b>Exclude&lt;/b> rules to exactly define the package contents. Add rules using the &lt;b>+&lt;/b> symbol, alternatively remove rules using the &lt;b>-&lt;/b> symbol. Rules are applied according to their order so position them as required using the &lt;b>Up&lt;/b> and &lt;b>Down&lt;/b> buttons.&lt;/i>&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <text_1244994373
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Then click &lt;b>OK&lt;/b> to save the filter.&lt;/li>&#xa;&lt;li>To confirm what the package will hold you can use &lt;b>Test Install&lt;/b>. This performs a dry run of the build process and lists everything that will be added to the package when it is actually built.&amp;nbsp;&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

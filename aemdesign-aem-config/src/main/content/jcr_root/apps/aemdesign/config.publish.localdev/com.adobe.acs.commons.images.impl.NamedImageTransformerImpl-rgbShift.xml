@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          name="my-rgbShift"
+          transforms="[rgb-shift:red=.291277&amp;green=.154323&amp;blue=.0749494]"/>
+
+<!--
+    v.1.8.0+
+0.291277
+0.154323
+0.0749494
+
+    Shifts the color of all pixels in an image.
+    Parameters are a percentage of R/G/B value.
+    Omit or set R/G/B shift value to 0 to keep current value.
+    If any element of the color is shifted beyond min/max allowed (0..255) the min/max value is used.
+    Based on http://pixastic.com/lib/docs/actions/coloradjust/
+
+    red=[-1.0..1.0] (Percentage, amount of red to shift the image)
+    green=[-1.0..1.0] (Percentage, amount of green to shift the image)
+    blue=[-1.0..1.0] (Percentage, amount of blue to shift the image)
+-->

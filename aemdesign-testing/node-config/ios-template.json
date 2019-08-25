@@ -1,0 +1,30 @@
+{
+  "capabilities":
+  [
+    {
+      "browserName": "Safari",
+      "version":"12.2",
+      "maxInstances": 1,
+      "platform":"iOS",
+      "deviceName":"iPhone Xr"
+    }
+  ],
+  "configuration":
+  {
+    "cleanUpCycle":2000,
+    "timeout":5000,
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "url":"http://APPIUM_IP:APPIUM_PORT/wd/hub",
+    "port": "APPIUM_PORT",
+    "hub": "http://SELENIUM_IP:SELENIUM_PORT/grid/register",
+    "hubPort": "SELENIUM_PORT",
+    "hubHost": "SELENIUM_IP",
+    "maxSession": 1,
+    "register": true,
+    "registerCycle": 5000,
+    "role": "node",
+    "unregisterIfStillDownAfter": 5000,
+    "debug": false,
+    "nodeStatusCheckTimeout": 5000
+  }
+}

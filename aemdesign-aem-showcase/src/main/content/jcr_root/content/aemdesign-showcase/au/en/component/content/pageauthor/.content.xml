@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page Author"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <contentblockmenu1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                    componentId="contentblockmenu1"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    componentTheme="[]"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Author: Default"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pageauthor
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/pageauthor"
+                            componentId="pageauthor1"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    componentTheme="[]"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Author: Simple"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pageauthor
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/pageauthor"
+                            componentId="pageauthor2"
+                            textIsRich="true"
+                            variant="simple"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    componentTheme="[]"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Author: Default with Override"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pageauthor
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/pageauthor"
+                            author="Author Full Name"
+                            authorUrl="http://aem.design"
+                            componentId="pageauthor3"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock3>
+                <contentblock4
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock4"
+                    componentTheme="[]"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Author: Simple with Override"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pageauthor
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/pageauthor"
+                            author="Author Full Name"
+                            authorUrl="http://aem.design"
+                            componentId="pageauthor4"
+                            textIsRich="true"
+                            variant="simple"/>
+                    </par>
+                </contentblock4>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

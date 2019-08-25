@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page/event]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Event Details 6"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <event-details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/event-details"
+                    componentId="event-details"
+                    description="Event Description"
+                    enquiryInfo="AAAAA&#xa;BBBBB&#xa;CCCCC&#xa;DDDDD"
+                    eventEndDate="{Date}2016-04-11T00:00:00.000+08:00"
+                    eventLoc="Connecting Space AAA"
+                    eventRefLabel="Event Label"
+                    eventRefLink="/content/aemdesign-showcase/au/en/component/lists/event-list"
+                    eventStartDate="{Date}2016-04-01T16:18:00.000+08:00"
+                    metaDataSep="Event"
+                    subTitleFormat="aemdesign-showcase:component-style-theme/details/event-details/format/subtitle/singledate"
+                    title="Event Title"/>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/content/dam/aemdesign-showcase/en/components/content/download/an-introduction-to-git-9-638.jpg"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>

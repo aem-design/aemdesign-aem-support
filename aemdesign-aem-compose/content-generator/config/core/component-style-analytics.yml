@@ -1,0 +1,67 @@
+
+# Analytics
+content/_cq_tags/aemdesign/component-analytics: &component-analytics
+  hittype:
+    prefixes:
+      - event
+      - exception
+      - item
+      - pageview
+      - screenview
+      - social
+      - timing
+      - transaction
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  pagetype:
+    prefixes:
+    - common
+    - marketing
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  type:
+    prefixes:
+    - aa
+    - ga
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  linktype:
+    prefixes:
+    - button
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  linklocation:
+    prefixes:
+    - link
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  eventtype:
+    prefixes:
+    - site-interaction
+    valueFormat: 'site interaction' #has to be this
+    title: '%%prefix_normalised%%'
+
+  event-category:
+    prefixes:
+    - custom-category
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  event-action:
+    prefixes:
+    - custom-action
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+
+
+# Showcase Copy
+content/_cq_tags/aemdesign-showcase/component-analytics: *component-analytics
+
+# Training Copy
+content/_cq_tags/aemdesign-training/component-analytics: *component-analytics

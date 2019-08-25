@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Check that a project name was given
+if [ -z "$1" ]; then
+  echo "Project name invalid or not given!"
+  exit
+fi
+
+# Check if the 'sync' directory exists
+if [ ! -d "sync/" ]; then
+  echo Directory sync/ not found, run \"npm run aem:checkout\"vi a
+  exit
+fi
+
+CLIENT_LIBS_FOLDER=$(cat ../pom.xml | sed -n 's:.*<package\.clientLibsFolder>\(.*\)</package\.clientLibsFolder>.*:\1:p')
+PROJECT_FOLDER=$1
+
+USERNAME=$(cat ../pom.xml | sed -n 's:.*<crx\.username>\(.*\)</crx\.username>.*:\1:p')
+PASSWORD=$(cat ../pom.xml | sed -n 's:.*<crx\.password>\(.*\)</crx\.password>.*:\1:p')
+
+echo "Copying files from public to sync"
+cp -r public/${PROJECT_FOLDER}/** sync/jcr_root/etc/clientlibs/${CLIENT_LIBS_FOLDER}/${PROJECT_FOLDER}
+
+echo "Launching VLT"
+cd sync
+../tools/vault-cli/bin/vlt --verbose --credentials ${USERNAME}:${PASSWORD} commit --force ./jcr_root/etc/clientlibs/${CLIENT_LIBS_FOLDER}/${PROJECT_FOLDER}

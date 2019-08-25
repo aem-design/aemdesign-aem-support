@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:description="Page Description"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Generic Details"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <genericdetails
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/generic-details"
+                    componentId="generic-details"
+                    description="&lt;p>Generic Details to showcase base behaviour of Details components&lt;/p>"
+                    textIsRich="true"/>
+            </par>
+        </article>
+		<image
+			jcr:primaryType="nt:unstructured"
+			fileReference="/content/dam/aemdesign-showcase/en/common/images/tea.jpg"/>
+	</jcr:content>
+</jcr:root>

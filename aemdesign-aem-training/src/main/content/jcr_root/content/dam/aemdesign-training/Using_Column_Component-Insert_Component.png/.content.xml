@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:exif="http://ns.adobe.com/exif/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="fbca7b1f-0cfb-4ffa-9fb7-447e866dd550">
+    <jcr:content
+        cq:name="Using_Column_Component-Insert_Component.png"
+        cq:parentPath="/content/dam/aemdesign-training"
+        dam:assetState="processed"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-07-12T16:36:40.194+10:00"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}32"
+            dam:Comments="XML:com.adobe.xmp: &lt;?xpacket begin=&quot;﻿&quot; id=&quot;W5M0MpCehiHzreSzNTczkc9d&quot;?>&#xa;&lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        &quot;>&#xa; &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;>&#xa;  &lt;rdf:Description rdf:about=&quot;&quot;&#xa;    xmlns:ns1=&quot;http://www.day.com/dam/1.0&quot;&#xa;    xmlns:tiff=&quot;http://ns.adobe.com/tiff/1.0/&quot;&#xa;    xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;&#xa;    xmlns:exif=&quot;http://ns.adobe.com/exif/1.0/&quot;&#xa;   ns1:Physicalheightininches=&quot;11.977669715881348&quot;&#xa;   ns1:Physicalwidthininches=&quot;14.748156547546387&quot;&#xa;   ns1:Fileformat=&quot;PNG&quot;&#xa;   ns1:Progressive=&quot;no&quot;&#xa;   ns1:extracted=&quot;2015-12-21T12:10:20.130+08:00&quot;&#xa;   ns1:Bitsperpixel=&quot;32&quot;&#xa;   ns1:MIMEtype=&quot;image/png&quot;&#xa;   ns1:Comments=&quot;XML:com.adobe.xmp: &amp;lt;x:xmpmeta xmlns:x=&amp;quot;adobe:ns:meta/&amp;quot; x:xmptk=&amp;quot;XMP Core 5.4.0&amp;quot;&amp;gt;&amp;#xA;   &amp;lt;rdf:RDF xmlns:rdf=&amp;quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;quot;&amp;gt;&amp;#xA;      &amp;lt;rdf:Description rdf:about=&amp;quot;&amp;quot;&amp;#xA;            xmlns:exif=&amp;quot;http://ns.adobe.com/exif/1.0/&amp;quot;&amp;gt;&amp;#xA;         &amp;lt;exif:PixelXDimension&amp;gt;1416&amp;lt;/exif:PixelXDimension&amp;gt;&amp;#xA;         &amp;lt;exif:PixelYDimension&amp;gt;1150&amp;lt;/exif:PixelYDimension&amp;gt;&amp;#xA;      &amp;lt;/rdf:Description&amp;gt;&amp;#xA;   &amp;lt;/rdf:RDF&amp;gt;&amp;#xA;&amp;lt;/x:xmpmeta&amp;gt;&amp;#xA;&amp;#xA;&quot;&#xa;   ns1:Physicalwidthindpi=&quot;96&quot;&#xa;   ns1:Physicalheightindpi=&quot;96&quot;&#xa;   ns1:Numberofimages=&quot;1&quot;&#xa;   ns1:Numberoftextualcomments=&quot;1&quot;&#xa;   ns1:sha1=&quot;d58de762d3af44106b16e217a1636508ce0343c9&quot;&#xa;   ns1:size=&quot;139311&quot;&#xa;   tiff:ImageLength=&quot;1150&quot;&#xa;   tiff:ImageWidth=&quot;1416&quot;&#xa;   dc:format=&quot;image/png&quot;&#xa;   dc:modified=&quot;2016-02-03T10:16:41.019+08:00&quot;&#xa;   exif:PixelYDimension=&quot;1150&quot;&#xa;   exif:PixelXDimension=&quot;1416&quot;/>&#xa; &lt;/rdf:RDF>&#xa;&lt;/x:xmpmeta>&#xa;&lt;?xpacket end=&quot;r&quot;?>&#xa;"
+            dam:extracted="{Date}2019-07-12T16:36:36.959+10:00"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}1"
+            dam:Physicalheightindpi="{Long}96"
+            dam:Physicalheightininches="{Decimal}11.977669715881348"
+            dam:Physicalwidthindpi="{Long}96"
+            dam:Physicalwidthininches="{Decimal}14.748156547546387"
+            dam:Progressive="no"
+            dam:sha1="9c05f890d3e17d67095c2ba9a5c9a3ddc0538613"
+            dam:size="{Long}140632"
+            dc:format="image/png"
+            dc:modified="{Date}2016-02-03T10:16:41.019+08:00"
+            exif:PixelXDimension="{Long}1416"
+            exif:PixelYDimension="{Long}1150"
+            jcr:lastModified="{Date}2019-07-12T16:33:49.348+10:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}1150"
+            tiff:ImageWidth="{Long}1416"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

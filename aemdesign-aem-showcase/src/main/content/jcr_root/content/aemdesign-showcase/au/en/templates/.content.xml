@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <base-page/>
+    <three/>
+    <three-column/>
+    <one-column/>
+    <two-column/>
+    <jcr:content
+        cq:designPath="/apps/settings/wcm/designs/aemdesign"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Templates List"
+        sling:resourceType="aemdesign/components/template/base">
+        <image
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0"/>
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside"
+            cancelInheritParent="true"
+            componentId="side">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    text="&lt;h1>Aside&lt;/h1>&#xa;"
+                    textIsRich="true"/>
+            </par>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    text="&lt;h1>Article&lt;/h1>&#xa;"
+                    textIsRich="true"/>
+            </par>
+        </article>
+    </jcr:content>
+    <one/>
+    <two/>
+</jcr:root>

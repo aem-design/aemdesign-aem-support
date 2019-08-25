@@ -1,0 +1,34 @@
+target
+*iml
+drivers
+build
+
+# Ignore IDE and Operating System artifacts
+.idea
+.classpath
+.metadata
+.project
+.settings
+maven-eclipse.xml
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+#ignore testing remote driver exec files and restuls
+/remote-*
+/local-*
+dockerlogs/*
+
+#ignore bash things
+.bash_history
+
+#ignore selenium jars
+selenium-server-*
+
+#ruby
+vendor/
+Gemfile.lock
+
+#appium
+node-config/appium_node_config

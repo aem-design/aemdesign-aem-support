@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page/event]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Event Details 11"
+        sling:redirect="true"
+        sling:resourceType="aemdesign/components/template/base"
+        sling:vanityPath="en">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <event-details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/event-details"
+                    componentId="event-details"
+                    description="&lt;p>Redirect to Vanity URL : en&lt;/p>&#xa;"
+                    eventDisplayDate="01.09.2015 to 09.09.2015"
+                    eventEndDate="{Date}2015-09-09T00:00:00.000+08:00"
+                    eventLoc=""
+                    eventRefLabel="DETAILS"
+                    eventRefLabel2="BUY"
+                    eventRefLink="en"
+                    eventRefLink2="http://www.taobao.com"
+                    eventStartDate="{Date}2015-09-01T16:22:00.000+08:00"
+                    metaDataSep=","
+                    subTitleFormat="aemdesign-showcase:component-style-theme/details/event-details/format/subtitle/singledatetime"
+                    title="Event Title"/>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/content/dam/aemdesign-showcase/galleries/m-plus-collection/2012-1429-1.jpg"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>

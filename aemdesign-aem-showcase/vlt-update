@@ -1,0 +1,42 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+source "../scripts/functions.sh"
+
+SCRIPT_PARAMS="$@"
+
+set_term_title "Sync Showcase"
+
+HOST="http://localhost:4502/crx/server/crx.default/jcr:root/"
+JCR_ROOT="$(realpath ./src/main/content/jcr_root/)"
+CREDENTIALS="$AEM_USER:$AEM_PASS"
+FILTER="./src/main/content/META-INF/vault/filter.xml"
+TIMEOUT=30
+
+WATCH_COMMAND=""
+
+function doSync() {
+
+
+    debug "Downloading content from HOST=$HOST" "info"
+    debug "THIS WILL OVERWRITE ALL OF YOUR LOCAL CHANGES" "error"
+
+    read  -n 1 -p "Press any key to continue"
+
+    vltUpdate "$CREDENTIALS" "$HOST" "$JCR_ROOT" "$FILTER"
+
+    set_term_title "Done"
+}
+
+function main() {
+
+
+   doSync
+
+
+}
+
+debugOn
+
+#start
+main "$@";

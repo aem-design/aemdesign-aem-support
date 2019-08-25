@@ -1,0 +1,28 @@
+// stylelint-disable declaration-no-important
+
+.bg-charcoal {
+  *:not(.link):not(.link-text):not(.svg-inline--fa):not(path):not(select):not(option) {
+    color: $white;
+  }
+
+  table {
+    &,
+    td,
+    tr,
+    th {
+      border-color: $white;
+    }
+  }
+}
+
+.bg-charcoal-pattern {
+  @extend %charcoal-foil;
+}
+
+.bg-yellow-pattern {
+  @extend %yellow-foil;
+}
+
+.bg-red-pattern {
+  @extend %red-foil;
+}

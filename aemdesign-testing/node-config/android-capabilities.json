@@ -1,0 +1,48 @@
+{
+  "homepage_is_newtabpage" : false,
+  "browser" : {
+    "show_home_button" : true,
+    "check_default_browser" : false
+  },
+  "homepage" : "http://google.com",
+  "first_run_tabs" : [
+    "chrome://history"
+  ],
+  "distribution" : {
+    "skip_first_run_ui" : true,
+    "show_welcome_page" : false,
+    "import_bookmarks" : false,
+    "make_chrome_default" : false
+  },
+  "sync_promo" : {
+    "user_skipped" : true,
+    "skip_first_run_ui": true
+  },
+  "chromeOptions": {
+    "prefs": {
+      "distribution": {
+        "skip_first_run_ui": true
+      }
+    },
+    "args": [
+      "--enable-automation",
+      "--disable-web-security",
+      "--allow-file-access-from-files",
+      "--allow-running-insecure-content",
+      "--allow-cross-origin-auth-prompt",
+      "--allow-file-access",
+      "--no-sandbox",
+      "--ignore-certificate-errors",
+      "--homepage=about:blank",
+      "--no-first-run",
+      "--disable-infobars",
+      "--hide-scrollbars",
+      "--disable-notifications",
+      "--disable-extensions",
+      "--use-fake-ui-for-media-stream=1",
+      "--disable-popup-blocking",
+      "--disable-overlay-scrollbar",
+      "--no-default-browser-check"]
+  },
+  "forceMjsonwp": true
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[]"
+        cq:template="/conf/aemdesign/settings/wcm/templates/experience-fragment"
+        cq:xfMasterVariation="{Boolean}true"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Default Global Footer Nav"
+        sling:resourceType="aemdesign/components/template/experience-fragments/base/v2/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/container">
+            <global_footer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/contentblock"
+                componentId="global_footer"
+                variant="parsys">
+                <par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/container">
+                    <footer
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/footer"
+                        cancelInheritParent="true"
+                        componentId="footer"
+                        componentModifiers="[aemdesign-showcase:component-style-modifier/color/standard/white,aemdesign-showcase:component-style-modifier/background/primary/bg-charcoal]"
+                        componentTheme="[aemdesign-showcase:component-style-theme/layout/brand-footer]">
+                        <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+							<pagelist
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="aemdesign/components/lists/pagelist"
+								componentId="pagelist_navigation"
+								componentTheme="[aemdesign-showcase:component-style-theme/lists/navlist/navbar/nav]"
+								detailsBadge="default"
+								listFrom="children"
+								orderBy="@jcr:content/jcr:title"
+								parentPage="/content/aemdesign-showcase/au/en">
+								<badgeThumbnail
+									jcr:primaryType="nt:unstructured"
+									sling:resourceType="aemdesign/components/media/image"/>
+							</pagelist>
+                        </par>
+                    </footer>
+                </par>
+            </global_footer>
+        </root>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:description="Page Description"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="News Details"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <newsdetails
+                    cq:tags="[]"
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/news-details"
+                    componentId="news-details"
+                    publishDate="{Date}2018-12-31T16:59:00.000+08:00"
+                    showBreadcrumb="false"
+                    showToolbar="false"
+                    title="News Title"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    title="News Details: Default without included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <newsdetails
+                            cq:tags="[]"
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/news-details"
+                            componentId="news-details1"
+                            publishDate="{Date}2018-12-31T16:59:00.000+08:00"
+                            showBreadcrumb="false"
+                            showToolbar="false"
+                            title="News Title"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    title="News Details: Default with included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <newsdetails
+                            cq:tags="[]"
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/news-details"
+                            componentId="news-details2"
+                            publishDate="{Date}2018-12-31T16:59:00.000+08:00"
+                            showBreadcrumb="true"
+                            showToolbar="true"
+                            title="News Title">
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                cancelInheritParent="true"
+                                componentId="toolbar_SVHE8T4BL">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_toolbar"
+                                        text="Text in Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parsys"
+                                    text="Text in Parsys"
+                                    textIsRich="true"/>
+                            </par>
+                        </newsdetails>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    title="News Details: Default with Background"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <newsdetails
+                            cq:tags="[aemdesign-showcase:content-type/page/news,aemdesign-showcase:content-type/page/event]"
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/news-details"
+                            author="News Author"
+                            componentId="news-details3"
+                            description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p>&#xd;&#xa;&lt;h3>Sub - heading&lt;/h3>&#xd;&#xa;&lt;p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&lt;/p>"
+                            publishDate="{Date}2019-01-16T09:57:00.000+11:00"
+                            showBreadcrumb="true"
+                            showParsys="true"
+                            showToolbar="true"
+                            title="News Details Title">
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                cancelInheritParent="true"
+                                componentId="toolbar_JANP8MLTE">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_toolbar"
+                                        text="Text in Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parsys"
+                                    text="Text in Parsys"
+                                    textIsRich="true"/>
+                                <bgimage
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/media/image"
+                                    componentId="bgimage_ZG5GUZUBN"
+                                    fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            </par>
+                        </newsdetails>
+                    </par>
+                </contentblock3>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

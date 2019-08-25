@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Editing Page Properties"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/basic-user/managing-pages"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;div>You can set various properties for a page:&lt;br>&#xa;&lt;/div>&#xa;&lt;ul>&#xa;&lt;li>Navigate to the page from &lt;b>Sites Console&lt;/b>.&lt;/li>&#xa;&lt;li>Use the &lt;b>View Properties&lt;/b> icon on your required page&lt;br>&#xa;&lt;img src=&quot;/content/dam/aemdesign-training/Editing_a_Page-Info.png&quot;>&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <image_2021748102
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Editing_a_Page-View_Properties.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_756962224
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Use the&lt;b> Edit &lt;/b>icon to make any changes required:&lt;br>&#xa;&lt;img src=&quot;/content/dam/aemdesign-training/Editing_a_Page-Edit.png&quot;>&lt;/li>&#xa;&lt;li>Then the&amp;nbsp;&lt;b style=&quot;font-family: ramblabold, Helvetica, Arial, 华文宋体, STSong, 新細明體, PMingLiU, sans-serif; font-size: 1em; line-height: 20.8px; word-wrap: break-word; margin: 0px; padding: 0px; clear: both; float: none; background: 0px 50%;&quot;>Done&lt;/b>&amp;nbsp;icon to save, or&amp;nbsp;&lt;b style=&quot;font-family: ramblabold, Helvetica, Arial, 华文宋体, STSong, 新細明體, PMingLiU, sans-serif; font-size: 1em; line-height: 20.8px; word-wrap: break-word; margin: 0px; padding: 0px; clear: both; float: none; background: 0px 50%;&quot;>Cancel&lt;/b>&amp;nbsp;as appropriate:&lt;br>&#xa;&lt;img src=&quot;/content/dam/aemdesign-training/Editing_a_Page-Done_Cancel.png&quot;>&lt;/li>&#xa;&lt;li>Use the Back (back arrow) icon to leave the properties details:&lt;br>&#xa;&lt;img src=&quot;/content/dam/aemdesign-training/Editing_a_Page-Back.png&quot;>&lt;/li>&#xa;&lt;/ul>&#xa;"
+                            textIsRich="true"/>
+                        <text_1423476735
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;div>&lt;b>List of Page Properties&lt;/b>&lt;/div>&#xa;&lt;ul>&#xa;&lt;li>&lt;b>Title&lt;/b> – The title of the page is shown in various locations. For example, the Websites tab list and the Sites card/list views. This is a mandatory field.&lt;/li>&#xa;&lt;li>&lt;b>Tags&lt;/b>&amp;nbsp;– Here you can add, or remove tags from the page by updating the list in the selection box:&lt;ul>&#xa;&lt;li>A completely new tag can be entered by typing the name in an empty selection box.&lt;/li>&#xa;&lt;li>The new tag will actually be created when you hit enter. The new tag will then be shown in a box, with a small star on the right indicating that it is a new tag.&lt;/li>&#xa;&lt;li>With the drop-down functionality you can select from existing tags.&lt;/li>&#xa;&lt;li>An x appears when you mouse-over a tag entry in the selection box; this can be used to remove that tag for this page.&lt;/li>&#xa;&lt;li>After selecting a tag is it listed below the selection box. You can remove a tag from this list using the x.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p style=&quot;margin-left: 40px;&quot;>See Using Tags section for detailed description.&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>&lt;b>Hide in Navigation&amp;nbsp;– A toggle switch to indicate whether the page is shown or hidden in the page navigation.&lt;/b>&lt;/li>&#xa;&lt;li>&lt;b>Page Title –&amp;nbsp;A title to be used on the page.&lt;/b>&lt;/li>&#xa;&lt;li>&lt;b>Navigation Title&lt;/b> – You can specify a separate title for use in the navigation (for example, if you want something more concise). If empty, the &lt;b>Title&lt;/b> will be used.&lt;/li>&#xa;&lt;li>&lt;b>Subtitle&lt;/b> – A subtitle for use on the page.&lt;br>&#xa;&lt;/li>&#xa;&lt;li>&amp;nbsp;&lt;b>Description&lt;/b> – Your description of the page, its purpose or any other details you want to add.&lt;/li>&#xa;&lt;li>&lt;b>On Time – &lt;/b>The date and time at which the published page will be activated. When published this page will be kept dormant until the specified time. Leave these fields empty for pages you want to publish immediately (the normal scenario).&lt;br>&#xa;&lt;/li>&#xa;&lt;li>&lt;b>Off Time – &lt;/b>The time at which the published page will be deactivated. Leave these fields empty for pages you want to publish immediately.&lt;/li>&#xa;&lt;li>&lt;b>Vanity URL –&amp;nbsp;Allows you to enter a vanity URL for this page. That allows you to have a shorter and more expressive URL.&lt;/b>&lt;/li>&#xa;&lt;li>&lt;b>Redirect Vanity URL –&amp;nbsp;Indicates whether you want the page to use the vanity URL.&lt;/b>&lt;/li>&#xa;&lt;li>&lt;b>Language&amp;nbsp;– The page language.&lt;/b>&lt;/li>&#xa;&lt;li>&lt;b>Redirect – &lt;/b>Indicate the page to which this page should automatically redirect.&lt;br>&#xa;&lt;/li>&#xa;&lt;li>&lt;b>Design – &lt;/b>Indicate the design to be used for this page.&lt;/li>&#xa;&lt;li>&lt;b>Alias – &lt;/b>Specify an alias to be used with this page.&lt;/li>&#xa;&lt;li>&lt;b>Enable Closed User Group – &lt;/b>Enables (or disables) use of closed user groups (CUGs).&lt;/li>&#xa;&lt;li>&lt;b>Login Page – &lt;/b>The page to be used for login.&lt;/li>&#xa;&lt;li>&lt;b>Admitted Groups – &lt;/b>Groups eligible for login to the CUG.&lt;/li>&#xa;&lt;li>&lt;b>Realm Name – &lt;/b>Realm name for the CUG.&lt;/li>&#xa;&lt;li>&lt;b>Export – &lt;/b>Specify an export configuration.&lt;/li>&#xa;&lt;li>&lt;b>Page Thumbnail –&amp;nbsp;&lt;/b>Shows the page thumbnail image.&lt;ul>&#xa;&lt;li>Generate Preview&lt;b>&amp;nbsp;–&amp;nbsp;&lt;/b>Generate a preview of the page to use as thumbnail.&lt;/li>&#xa;&lt;li>Upload Image&lt;b>&amp;nbsp;–&amp;nbsp;&lt;/b>Upload an image to use as thumbnail.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;/li>&#xa;&lt;li>&lt;b>Cloud Services – &lt;/b>Define properties for cloud services.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

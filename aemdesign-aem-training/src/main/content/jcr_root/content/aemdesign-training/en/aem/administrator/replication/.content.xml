@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Replication"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/administrator"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text_1907134826
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>Replication agents are central to Adobe Experience Manager (AEM) as the mechanism used to:&lt;/p>&#xa;&lt;p>&lt;b>Publish (activate) content from an author to a publish environment&lt;/b>&lt;/p>&#xa;&lt;p>To publish/activate a page, see &lt;b>Publishing a Page&lt;/b> for detailed steps.&lt;/p>&#xa;&lt;p>&lt;b>Explicitly flush content from the Dispatcher cache&lt;/b>&lt;/p>&#xa;&lt;p>This is used for managing the Dispatcher cache. A replication agent on the AEM author instance sends a cache invalidation request to Dispatcher when a page is published. The request causes Dispatcher to eventually refresh the file in the cache as new content is published.&lt;b>&lt;/b>&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>Return user input from the publish environment to the author&lt;/b>&lt;/p>&#xa;&lt;p>Features such as comments and forms, allow users to enter information on a publish instance. For this a type of replication is needed to return this information to the author environment, from where it is redistributed to other publish environments&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>Replication out of box&lt;/b>&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>To follow this example and use the default replication agents in AEM:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Author environment on port 4502&lt;/li>&#xa;&lt;li>Publish environment on port 4503&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>Replication Agents&lt;/b>&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Default Agent (publish) – Agent that replicates to the default publish instance.&lt;/li>&#xa;&lt;li>Reverse Replication (outbox) – This agent stores reverse replicated content in the outbox&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>Reverse Replication Agent (publish_reverse) – Agent that retrieves reverse replicated content from the default publish instance's outbox.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+    <monitoring-your-replication-agents/>
+    <edit-the-agent-properties/>
+</jcr:root>

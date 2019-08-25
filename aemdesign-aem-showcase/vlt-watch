@@ -1,0 +1,93 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+source "../scripts/functions.sh"
+
+SCRIPT_PARAMS="$@"
+
+set_term_title "Watch Showcase Content"
+
+HOST="http://localhost:4502/crx"
+JCR_ROOT="$(realpath ./src/main/content/jcr_root/)"
+CREDENTIALS="$AEM_USER:$AEM_PASS"
+FILTER="./src/main/content/META-INF/vault/filter.xml"
+TIMEOUT=5
+
+WATCH_COMMAND=""
+
+function doWatch() {
+
+#    vltCheckout "$CREDENTIALS" "$HOST" "$JCR_ROOT" "$FILTER"
+
+    CURRENT_PATH=$(pwd)
+    cd $JCR_ROOT
+    debug "Watching path $JCR_ROOT with timeout of $TIMEOUT for OS: $OS" "info"
+
+    # shellcheck disable=SC2050
+    while [ "1" == "1" ];
+    do
+        set_term_title "Waiting for changes"
+        debug "Waiting for changes..." "error"
+
+        if [[ "$OS" == "windowsnt" || "$OS" == *"mingw"* || "$OS" == *"cygwin"*  ]]; then
+            #TODO: does this work?
+    #        FILES_LIST=$(watch -g -t -d ls -lR $JCR_ROOT/*)
+
+            FILES_LIST=""
+        elif [[ "$OS" == "linux" ]]; then
+            #TODO: does this work?
+    #        FILES_LIST=$(inotifywait -e modify -e create -r $JCR_ROOT/*)
+
+            FILES_LIST=""
+        elif [[ "$OS" == "darwin" ]]; then
+            #watch for files | remove lines that have status markers old/tmp | remove /n | grap the second column
+            FILES_LIST=$($FSWATCH --quit --ignore .DS_Store:.idea:.git:.iml:.vlt --p $JCR_ROOT | grep -v -E '___jb_(old|tmp)___$' | tr -d '\n' | awk '{print $2}')
+        fi
+
+        set_term_title "Uploading"
+        debug "CHANGES: $FILES_LIST" "info"
+        vltCheckin "$CREDENTIALS" "$HOST" "$JCR_ROOT" $FILES_CHANGED
+        debug "Sleeping $TIMEOUT sec" "info"
+        sleep $TIMEOUT
+    done
+    cd $CURRENT_PATH
+
+}
+
+function main() {
+    getOS
+
+
+
+    if [[ "$OS" == "windowsnt" || "$OS" == *"mingw"* || "$OS" == *"cygwin"*  ]]; then
+        if [[ "false" == "$(which watch && echo true || echo false)" ]]; then
+            debug "You need to install 'procps-ng' package" "error"
+        else
+
+            debug "NOT IMPLEMENTED FOR YOUR OS: $OS" "error"
+            debug "YOU CAN HELP CODE IS THERE JUST NEED TO UNCOMMENT IT AND TEST IT" "error"
+
+#            doWatch
+
+        fi
+
+    elif [ "$OS" == "linux" ]; then
+        debug "NOT IMPLEMENTED FOR YOUR OS: $OS" "error"
+        debug "YOU CAN HELP CODE IS THERE JUST NEED TO UNCOMMENT IT AND TEST IT" "error"
+
+#            doWatch
+
+    elif [ "$OS" == "darwin" ]; then
+        if [[ "" == "$FSWATCH" ]]; then
+            debug "Install FSWatch install https://github.com/wildone/fswatch" "error"
+        else
+            doWatch
+        fi
+    fi
+
+}
+
+debugOn
+
+#start
+main "$@";

@@ -1,0 +1,314 @@
+#!/bin/bash
+
+#TESTING
+#./asciidoctor-convert-reports -images ./images -root ./root -source source1 -base base1 -input ./input -output ./output -filter *.files -pdf -html
+
+PATH_PDF="pdf"
+PATH_HTML="html"
+ROOT="./local-chrome"
+INPUT="spock-reports"
+OUTPUT="generated-docs"
+BASE="./"
+SOURCE="coderay"
+FILTER="*.ad"
+IMAGES="generated-docs/$PATH_PDF"
+SCRIPT_PARAMS="$@"
+ARG_PREFIX="-"
+EXTENSION_PDF=".pdf"
+EXTENSION_HTML=".html"
+FRONT_COVER="src/asciidoc/aem.png"
+DOCINFODIR="src/asciidoc"
+LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
+LOCAL_BUNDLE="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundle)"
+
+function toUpperCase() {
+    local STRING=$@
+    echo "$(echo $STRING|awk '{print toupper($0)}')"
+}
+
+function println() {
+    printf "$@\n"
+}
+
+function printError() {
+    local DEFAULT_COLOR_ERROR="\033[0;31;91m" #light red
+    local DEFAULT_COLOR_RESET="\033[0m" #light green
+    println "$DEFAULT_COLOR_ERROR${@}$DEFAULT_COLOR_RESET"
+}
+
+function printWarning() {
+    local DEFAULT_COLOR_WARN="\033[0;31;93m" #light yellow
+    local DEFAULT_COLOR_RESET="\033[0m" #light green
+    println "$DEFAULT_COLOR_WARN${@}$DEFAULT_COLOR_RESET"
+}
+
+function printInfo() {
+    local DEFAULT_COLOR_INFO="\033[0;31;94m" #light blue
+    local DEFAULT_COLOR_RESET="\033[0m" #light green
+    println "$DEFAULT_COLOR_INFO${@}$DEFAULT_COLOR_RESET"
+}
+
+function debug() {
+    if [[ ! -z $DEBUG ]]; then
+        println "$@"
+    fi
+}
+
+function getFolderOwner() {
+    echo "$(ls -ld $1 | awk '{print $3}')"
+}
+
+function checkPermissions() {
+
+    local FOLDER_OWNER="$(getFolderOwner $1)"
+
+    if [[ "$FOLDER_OWNER" != "$USER" ]]; then
+
+        printWarning "PATH [$1] NOT OWNED BY YOU, TRYING TO FIX"
+
+        local FOLDER_UPDATE=$(sudo chown $USER:$USER -R $1)
+        FOLDER_OWNER="$(getFolderOwner $1)"
+
+        if [[ "$FOLDER_OWNER" != "$USER" ]]; then
+            printError "COULD NOT FIX, PLEASE ENSURE YOU HAVE ACCESS TO [$1] FOLDER BEFORE CONTINUING"
+            exit 1
+        fi
+
+        printInfo "PATH [$1] OWNED UPDATED"
+    fi
+
+}
+
+function printUsage() {
+    println ""
+    println "Usage:"
+    println " $0 [$(toUpperCase "options" )...]"
+    println ""
+    println "Options:"
+    println " ${ARG_PREFIX}html\t\t\t\t\t{convert to html}"
+    println " ${ARG_PREFIX}pdf\t\t\t\t\t{convert to html}"
+    println " ${ARG_PREFIX}h\t\t\t\t\t{help}"
+    println " ${ARG_PREFIX}debug\t\t\t\t\t{debug messages}"
+    println " ${ARG_PREFIX}root <path>\t\t\t\t{default: $ROOT}"
+    println " ${ARG_PREFIX}base <path>\t\t\t\t{default: $BASE}"
+    println " ${ARG_PREFIX}input <dir with asciidoc files>\t{default: $ROOT/$INPUT}"
+    println " ${ARG_PREFIX}output <dir for converted files>\t{default: $ROOT/$OUTPUT}"
+    println " ${ARG_PREFIX}source <sourcecode highlight type>\t{default: $SOURCE}"
+    println " ${ARG_PREFIX}filter <sourcecode highlight type>\t{default: $FILTER}"
+    println " ${ARG_PREFIX}images <pdf images relative path>\t{default: $ROOT/$IMAGES}"
+    println ""
+    println ""
+}
+
+function printConfig() {
+    println ""
+    println "Config:"
+    println " - ROOT: $ROOT"
+    println " - INPUT: $ROOT/$INPUT"
+    println " - OUTPUT: $ROOT/$OUTPUT"
+    println " - BASE: $BASE"
+    println " - SOURCE: $SOURCE"
+    println " - IMAGES: $ROOT/$IMAGES"
+    println " - FILTER: $FILTER"
+    println " - CONVERT_HTML: $CONVERT_HTML"
+    println " - CONVERT_PDF: $CONVERT_PDF"
+    println ""
+
+}
+
+function installDependencies() {
+
+    local LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
+    if [[ -z $LOCAL_GEM_USER_PATH ]]; then
+        local GEM_INSTALL=$(gem install bundler --user-install)
+    fi
+
+    LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
+    LOCAL_BUNDLER="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundler)"
+
+    local STATUS_CHECK="$($LOCAL_BUNDLER check  --path vendor/bundle)"
+    debug "CHECK RUBY: $STATUS_CHECK"
+
+    if [[ ! "$STATUS_CHECK" == *"dependencies are satisfied"* ]]; then
+        debug "BUNDLER: Installing"
+        local BUNDLER_STATUS=$($LOCAL_BUNDLER install --path vendor/bundle)
+        if [[ "$BUNDLER_STATUS" == *"Bundle complete!"* ]]; then
+            debug "BUNDLER: OK"
+        else
+            echo $BUNDLER_STATUS
+        fi
+    else
+        debug "RUBY: OK"
+    fi
+
+}
+
+#convertToPDF \
+# "./local-chrome/spock-reports/specs.component.content.text.TextScreenshotSpec.ad" \
+# "./local-chrome/generated-docs/pdf2/specs.component.content.text.TextScreenshotSpec.pdf" \
+# ./local-chrome/
+# ./local-chrome/generated-docs/pdf2
+
+
+function convertToPDF() {
+    local FILE_INPUT=${1?Need input file}
+    local FILE_OUTPUT=${2?Need output file}
+    local PATH_ROOT=${3?Need root path}
+    local PATH_IMAGES=${4?Need image path}
+
+    debug "$LOCAL_BUNDLE exec asciidoctor-pdf \
+        -R $PATH_ROOT \
+        -B $BASE \
+        -a source-highlighter=$SOURCE \
+        -a imagesdir=$PATH_IMAGES \
+        -a docinfo1 \
+        -a docinfodir=$DOCINFODIR \
+        -a toc=left \
+        -a front-cover-image=$FRONT_COVER \
+        -a icons=font \
+        -o $FILE_OUTPUT" \
+        $FILE_INPUT
+
+    $LOCAL_BUNDLE exec asciidoctor-pdf \
+        -R $PATH_ROOT \
+        -B $BASE \
+        -a source-highlighter=$SOURCE \
+        -a imagesdir=$PATH_IMAGES \
+        -a docinfo1 \
+        -a docinfodir=$DOCINFODIR \
+        -a toc=left \
+        -a front-cover-image=$FRONT_COVER \
+        -a icons=font \
+        -o $FILE_OUTPUT \
+        $FILE_INPUT
+}
+
+function convertToHTML() {
+    local FILE_INPUT=${1?Need input file}
+    local FILE_OUTPUT=${2?Need output file}
+    local PATH_ROOT=${3?Need root path}
+
+    debug "$LOCAL_BUNDLE exec asciidoctor \
+        -R $PATH_ROOT \
+        -B $BASE \
+        -a source-highlighter=$SOURCE \
+        -a docinfo1 \
+        -a docinfodir=$DOCINFODIR \
+        -a toc=left \
+        -a icons=font \
+        -b html \
+        -o $FILE_OUTPUT \
+        $FILE_INPUT"
+
+    $LOCAL_BUNDLE exec asciidoctor \
+        -R $PATH_ROOT \
+        -B $BASE \
+        -a source-highlighter=$SOURCE \
+        -a docinfo1 \
+        -a docinfodir=$DOCINFODIR \
+        -a toc=left \
+        -a icons=font \
+        -b html \
+        -o $FILE_OUTPUT \
+        $FILE_INPUT
+}
+
+function main() {
+
+    checkPermissions "drivers"
+    checkPermissions "$ROOT"
+    checkPermissions "target"
+
+    installDependencies
+
+    printConfig
+
+    checkArguments
+
+
+    for fullpath in $(find "$ROOT/$INPUT" -name "$FILTER"); do
+        [[ -e "$fullpath" ]] || continue
+
+#        println "$fullpath"
+        filename="${fullpath##*/}"                      # Strip longest match of */ from start
+        dir="${fullpath:0:${#fullpath} - ${#filename}}" # Substring from 0 thru pos of filename
+        base="${filename%.[^.]*}"                       # Strip shortest match of . plus at least one non-dot char from end
+        ext="${filename:${#base} + 1}"                  # Substring from len of base thru end
+
+
+        if [[ ! -z $CONVERT_HTML ]]; then
+            println "CONVERT TO HTML: $fullpath"
+            debug "convertToHTML \"$fullpath\" \"${ROOT}/${OUTPUT}/$base${EXTENSION_HTML}\" \"$ROOT\""
+            convertToHTML $fullpath ${ROOT}/${OUTPUT}/${PATH_HTML}/$base${EXTENSION_HTML} $ROOT
+        fi
+        if [[ ! -z $CONVERT_PDF ]]; then
+            println "CONVERT TO PDF: $fullpath"
+            debug "convertToPDF \"$fullpath\" \"${ROOT}/${OUTPUT}/$base${EXTENSION_PDF}\" \"$ROOT\" \"$ROOT/$IMAGES\""
+            convertToPDF $fullpath ${ROOT}/${OUTPUT}/${PATH_PDF}/$base${EXTENSION_PDF} $ROOT $ROOT/$IMAGES
+        fi
+    done
+
+}
+
+function checkArguments() {
+    if [[ -z $CONVERT_HTML && -z $CONVERT_PDF ]] || [[ "$SCRIPT_PARAMS" == "" ]]; then
+        printUsage
+        println "Please specify converter to use."
+        exit 0
+    fi
+
+}
+
+#process arguments
+while [[ $# -gt 0 ]]
+do
+    key="$1"
+
+
+    case "$1" in
+        "${ARG_PREFIX}html")
+            CONVERT_HTML=true
+            ;;
+        "${ARG_PREFIX}pdf")
+            CONVERT_PDF=true
+            ;;
+        "${ARG_PREFIX}root")
+            shift
+            ROOT=$1
+            ;;
+        "${ARG_PREFIX}input")
+            shift
+            INPUT=$1
+            ;;
+        "${ARG_PREFIX}output")
+            shift
+            OUTPUT=$1
+            ;;
+        "${ARG_PREFIX}base")
+            shift
+            BASE=$1
+            ;;
+        "${ARG_PREFIX}source")
+            shift
+            SOURCE=$1
+            ;;
+        "${ARG_PREFIX}filter")
+            shift
+            FILTER=$1
+            ;;
+        "${ARG_PREFIX}images")
+            shift
+            IMAGES=$1
+            ;;
+        "${ARG_PREFIX}h")
+            printUsage
+            ;;
+        "${ARG_PREFIX}debug")
+            DEBUG=true
+            ;;
+    esac
+    shift
+done
+
+
+main

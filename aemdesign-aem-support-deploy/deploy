@@ -1,0 +1,9 @@
+#!/bin/bash
+
+source "../scripts/functions.sh"
+
+set_term_title "Deploying Project"
+mvn -Dvault.useProxy=false -DskipTests clean install -P installdeploymentpackage "$@"
+
+set_term_title "Deployed"
+

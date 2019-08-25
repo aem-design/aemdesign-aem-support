@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="ee60a691-4073-4bf7-973f-97a16e8c1581">
+    <jcr:content
+        dam:assetState="processed"
+        jcr:lastModified="{Date}2019-07-12T16:33:36.470+10:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:extracted="{Date}2019-07-12T16:33:36.225+10:00"
+            dam:sha1="0ebad26a3f82993d8d8a4bdea23626972f08dfae"
+            dam:size="{Long}142416"
+            dc:format="application/octet-stream"
+            dc:modified="{Date}2015-12-05T20:32:07.042+08:00"
+            dc:title="16 bit Tone ALAC Test File"
+            jcr:lastModified="{Date}2019-03-05T00:40:49.055+11:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            xmp:CreateDate="{Date}1904-01-01T00:00:00.000Z"
+            xmp:ModifyDate="{Date}1904-01-01T00:00:00.000Z"
+            xmpDM:album="Test Files"
+            xmpDM:artist="None"
+            xmpDM:logComment="Test File">
+            <xmpDM:duration
+                jcr:primaryType="nt:unstructured"
+                xmpDM:scale="1/44100"
+                xmpDM:value="{Long}221184"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

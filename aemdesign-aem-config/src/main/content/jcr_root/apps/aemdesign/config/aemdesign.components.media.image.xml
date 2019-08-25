@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    adapt.supported.widths="[480,640,720,800,960,1024,1280,1440,1920,2048]"
+/>
+<!-- OSGI config for setting admin config for component: aemdesign/components/media/image  -->
+<!-- original adapt image supported widths  [320,480,476,620] " -->

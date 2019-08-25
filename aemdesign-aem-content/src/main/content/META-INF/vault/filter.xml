@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+
+
+    <filter root="/content/dam/aemdesign" mode="update"/>
+    <filter root="/content/aemdesign" mode="update"/>
+    <filter root="/content/api/aemdesign" mode="update"/>
+
+
+    <!--TODO: uncomment when you have forms content-->
+    <!--&lt;!&ndash; forms &ndash;&gt;-->
+    <!--<filter root="/content/forms/af/aemdesign"/>-->
+    <!--&lt;!&ndash; forms: dam &ndash;&gt;-->
+    <!--<filter root="/content/dam/formsanddocuments/aemdesign"/>-->
+    <!--<filter root="/content/dam/formsanddocuments-themes/aemdesign"/>-->
+    <!--<filter root="/content/dam/formsanddocuments-fdm/aemdesign"/>-->
+
+    <!--&lt;!&ndash; forms: apply ace &ndash;&gt;-->
+    <!--<filter root="/content/forms/fp/aemdesign" mode="update">-->
+        <!--<exclude pattern="/content/forms/fp[^/]*$" />-->
+        <!--<include pattern="/content/forms/fp[^/*]/rep:policy" />-->
+    <!--</filter>-->
+
+    <!--&lt;!&ndash; forms: apply ace &ndash;&gt;-->
+    <!--<filter root="/content/forms/portal" mode="update">-->
+        <!--<exclude pattern="/content/forms/portal[^/]*$" />-->
+        <!--<include pattern="/content/forms/portal[^/*]/rep:policy" />-->
+    <!--</filter>-->
+
+
+    <filter root="/conf/global/settings/workflow/models/aemdesign" mode="update"/>
+    <filter root="/conf/global/settings/workflow/notification/aemdesign" mode="update"/>
+    <filter root="/conf/global/settings/workflow/launcher/config/aemdesign" mode="update"/>
+
+    <filter root="/conf/aemdesign/settings/wcm" mode="update"/>
+    <filter root="/conf/aemdesign/settings/dam" mode="update"/>
+
+    <filter root="/content/experience-fragments/aemdesign" mode="update"/>
+
+
+
+</workspaceFilter>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#" xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="fe3aad32-5149-44de-a285-1a5ab5c32c48">
+    <jcr:content
+        dam:assetState="processing"
+        dam:relativePath="tets/EarthFromSpace.mov"
+        jcr:primaryType="dam:AssetContent"
+        status="Error[No Encoding]">
+        <metadata
+            dam:extracted="{Date}2017-10-13T09:43:12.795+11:00"
+            dam:sha1="5f0c63885e46657538a7b405557725a3628f8e68"
+            dam:size="{Long}64623045"
+            dc:extent="{Long}36068"
+            dc:format="video/quicktime"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}1080"
+            tiff:ImageWidth="{Long}1920"
+            xmp:CreateDate="{Date}2016-05-10T19:36:07.000Z"
+            xmp:MetadataDate="{Date}2016-05-10T20:36:40.000+01:00"
+            xmp:ModifyDate="{Date}2016-05-10T19:36:40.000Z"
+            xmpDM:startTimeSampleSize="{Long}1"
+            xmpDM:startTimeScale="{Long}25"
+            xmpDM:videoFieldOrder="Progressive"
+            xmpDM:videoFrameRate="25.000000"
+            xmpDM:videoPixelAspectRatio="1/1"
+            xmpMM:DocumentID="3a25359a-2bec-b569-f248-8ddd0000004d"
+            xmpMM:InstanceID="xmp.iid:71e055be-af6d-44be-a283-1f029ec1e5f1"
+            xmpMM:OriginalDocumentID="xmp.did:2cda8caa-c9cf-4a13-80a7-4723579738e1">
+            <xmpDM:altTimecode
+                jcr:primaryType="nt:unstructured"
+                xmpDM:timeFormat="25Timecode"
+                xmpDM:timeValue="00:00:00:00"
+                xmpNodeType="xmpStruct"/>
+            <xmpDM:startTimecode
+                jcr:primaryType="nt:unstructured"
+                xmpDM:timeFormat="25Timecode"
+                xmpDM:timeValue="00:00:00:00"
+                xmpNodeType="xmpStruct"/>
+            <xmpDM:videoFrameSize
+                jcr:primaryType="nt:unstructured"
+                stDim:h="{Decimal}1080"
+                stDim:unit="pixel"
+                stDim:w="{Decimal}1920"
+                xmpNodeType="xmpStruct"/>
+            <xmpDM:duration
+                jcr:primaryType="nt:unstructured"
+                xmpDM:scale="1/25"
+                xmpDM:value="{Long}917"
+                xmpNodeType="xmpStruct"/>
+            <xmpMM:History
+                jcr:primaryType="nt:unstructured"
+                xmpArraySize="{Long}4"
+                xmpArrayType="rdf:Seq"
+                xmpNodeType="xmpArray">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    stEvt:action="saved"
+                    stEvt:changed="/"
+                    stEvt:instanceID="5c2b88f0-7962-8099-c155-256f0000007a"
+                    stEvt:softwareAgent="Adobe Adobe Media Encoder CC (Macintosh)"
+                    stEvt:when="{Date}2016-05-10T20:36:40.000+01:00"
+                    xmpNodeType="xmpStruct"/>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    stEvt:action="saved"
+                    stEvt:changed="/"
+                    stEvt:instanceID="10aef71b-2526-ee68-4c64-538500000072"
+                    stEvt:softwareAgent="Adobe Adobe Media Encoder CC (Macintosh)"
+                    stEvt:when="{Date}2016-05-10T20:34:54.000+01:00"
+                    xmpNodeType="xmpStruct"/>
+                <_x0033_
+                    jcr:primaryType="nt:unstructured"
+                    stEvt:action="saved"
+                    stEvt:changed="/"
+                    stEvt:instanceID="xmp.iid:52fcafad-d69d-4668-a0f9-b07105b4d51d"
+                    stEvt:softwareAgent="Adobe Adobe Media Encoder CC (Macintosh)"
+                    stEvt:when="{Date}2016-05-10T20:36:40.000+01:00"
+                    xmpNodeType="xmpStruct"/>
+                <_x0034_
+                    jcr:primaryType="nt:unstructured"
+                    stEvt:action="saved"
+                    stEvt:changed="/metadata"
+                    stEvt:instanceID="xmp.iid:71e055be-af6d-44be-a283-1f029ec1e5f1"
+                    stEvt:softwareAgent="Adobe Adobe Media Encoder CC (Macintosh)"
+                    stEvt:when="{Date}2016-05-10T20:36:40.000+01:00"
+                    xmpNodeType="xmpStruct"/>
+            </xmpMM:History>
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="cc74570f-1861-9fcb-6212-483f00000045"
+                stRef:instanceID="10aef71b-2526-ee68-4c64-538500000072"
+                stRef:originalDocumentID="xmp.did:29de526e-15f9-4c21-a94e-468cde28b531"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

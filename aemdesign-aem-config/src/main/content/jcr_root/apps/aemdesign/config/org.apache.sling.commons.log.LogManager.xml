@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+    org.apache.sling.commons.log.pattern="%d{dd.MM.yyyy\ HH:mm:ss.SSS}\ *%level*\ [%thread]\ %logger\ %msg%n"
+    org.apache.sling.commons.log.file.size="'.'yyyy-MM-dd"
+    org.apache.sling.commons.log.file=""
+    org.apache.sling.commons.log.file.number="{Long}5"
+    org.apache.sling.commons.log.level="error"
+    org.apache.sling.commons.log.maxOldFileCountInDump="{Long}3"
+    org.apache.sling.commons.log.configurationFile=""
+    org.apache.sling.commons.log.numOfLines="{Long}1000"
+    org.apache.sling.commons.log.maxCallerDataDepth="{Long}7"
+    org.apache.sling.commons.log.packagingDataEnabled="{Boolean}false"/>

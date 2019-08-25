@@ -1,0 +1,65 @@
+// stylelint-disable selector-max-compound-selectors
+
+&-social-links {
+  background-color: color('charcoal');
+  min-width: 100%;
+
+  > .content {
+    margin: 0;
+
+    > ul {
+      justify-content: flex-start;
+      margin-bottom: 0;
+      margin-left: 0;
+      width: 100%;
+
+      > li {
+        flex: 0 0 16px;
+        margin-bottom: 0;
+        max-width: 16px;
+        padding: 0;
+        width: auto;
+
+        &:not(:last-child) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  ul {
+    > li {
+      + li {
+        margin-left: 15px;
+
+        @include media-breakpoint-up(lg) {
+          margin-left: 20px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          margin-left: 30px;
+        }
+      }
+
+      a {
+        align-items: center;
+        color: $white;
+        display: inline-flex;
+        height: 30px;
+        justify-content: center;
+        text-decoration: none;
+        transition: opacity 250ms ease-in-out;
+        width: 16px;
+
+        @include hover-focus {
+          opacity: .8;
+        }
+      }
+    }
+  }
+
+  .icon {
+    color: $white;
+    font-size: 16px;
+  }
+}

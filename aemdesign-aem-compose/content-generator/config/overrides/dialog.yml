@@ -1,0 +1,5 @@
+apps/aemdesign/global/dialog/touch/style/content/items/styleTab/items/column1/items/style:
+  items:
+    template: 'dialog-field'
+    contents:
+      - componentChevron: { "granite:class": 'hidden', fieldLabel: "" }

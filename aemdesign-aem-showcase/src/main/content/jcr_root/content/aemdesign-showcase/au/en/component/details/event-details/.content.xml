@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2018-09-01T21:21:25.859+10:00"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:description="Page Description"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Event Details"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <contentblockmenu
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+					componentId="contentblockmenu1"/>
+                <eventdetails
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/event-details"
+                    componentId="event-details"
+                    description="&lt;p>Event to showcase all events&lt;/p>"
+                    pageMetaProperty="og:type"
+                    pageMetaPropertyContent="article"
+                    textIsRich="true"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    title="Variant: Default"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <eventdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/event-details"
+                            componentId="event-details1"
+                            description="&lt;p>Event to showcase all events&lt;/p>"
+                            eventEndDate="{Date}2018-10-05T09:20:00.000+10:00"
+                            eventStartDate="{Date}2018-10-01T09:20:00.000+10:00"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    title="Variant: Hidden"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <eventdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/event-details"
+                            componentId="event-details2"
+                            description="&lt;p>Event to showcase all events&lt;/p>"
+                            eventEndDate="{Date}2018-10-05T09:20:00.000+10:00"
+                            eventStartDate="{Date}2018-10-01T09:20:00.000+10:00"
+                            textIsRich="true"
+                            variant="hidden"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    title="Variant: Default with Formatting"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <eventdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/event-details"
+                            author="Max Barrass"
+                            componentId="event-details3"
+                            description="&lt;p>Event to showcase all events&lt;/p>"
+                            eventDisplayTimeFormat="aemdesign-showcase:component-style-theme/details/event-details/format/displaytime/schema-separator-lower"
+                            eventEndDate="{Date}2018-10-05T09:20:00.000+10:00"
+                            eventLoc="Melbourne"
+                            eventStartDate="{Date}2018-10-01T09:20:00.000+10:00"
+                            showTags="true"
+                            subTitleFormat="aemdesign-showcase:component-style-theme/details/event-details/format/subtitle/default"
+                            textIsRich="true"
+                            titleFormat="aemdesign-showcase:component-style-theme/details/event-details/format/title/italic"
+                            titleType="h3"/>
+                    </par>
+                </contentblock3>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

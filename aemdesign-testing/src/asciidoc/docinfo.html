@@ -1,0 +1,189 @@
+<!--header start-->
+<meta name="keywords" content="Generated Docs">
+<style>
+    /*custom header css*/
+    p.tableblock { word-break: break-all; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+    function specExpandToggle() {
+        $(".toggle").trigger("click");
+    }
+
+    function summaryToggleErrors() {
+        $("table.summary tbody tr td:nth-child(6n+2)").each(function(){
+            //check if Features is not 0
+            if( $(this).text() !== "0") {
+                if ($(this).parent().is(":visible")) {
+                    $(this).parent().hide();
+                } else {
+                    $(this).parent().show();
+                }
+            }
+        });
+
+        //output to console spec names
+        var specsNames = "";
+        $("table.summary tbody tr:visible td:nth-child(1)").each(function(){
+			var a = $(this).text();
+            specsNames += a.substr(a.lastIndexOf(".")+1).trim()+",";
+        });
+        console.log(specsNames);
+    }
+
+    $(document).ready(function () {
+        $(".sectionbody .sect2 > h3").each(function() {
+
+            $("<span class='right'><label class='switch'><input type='checkbox' class='toggle'><span class='slider round'></span></label></span>").insertBefore($(this).find(".big"));
+
+        });
+
+        $("#_specifications").each(function() {
+            $(this).html($(this).html() + "<span class='floatingtoggle right'><span class='label'>Errors Only:</span> <label class='switch'><input type='checkbox' class='summaryToggleErrors'><span class='slider round'></span></label></span>" )
+        });
+
+
+        $("#_features").each(function() {
+            $(this).html($(this).html() + "<span class='floatingtoggle right'><span class='label'>Expand All:</span> <label class='switch'><input type='checkbox' class='specExpandToggle'><span class='slider round'></span></label></span>" )
+        });
+
+
+
+
+        $(".toggle").click(function() {
+            var $testBlock = $(this).closest(".sect2").find(".exampleblock");
+            if ($testBlock.is(":visible")) {
+                $testBlock.hide();
+            } else {
+                $testBlock.show();
+            }
+
+
+        });
+
+        $(".summaryToggleErrors").click(function() {
+            summaryToggleErrors();
+        });
+
+        $(".specExpandToggle").click(function() {
+            specExpandToggle();
+        });
+
+
+        $(".toc2 a").click(function() {
+            var linkid = $(this).attr("href");
+            $(linkid).find(".toggle").trigger("click");
+        });
+
+
+
+    });
+</script>
+<style>
+    h1 {
+        word-break: break-all;
+    }
+
+    .right {
+        float: right;
+    }
+    .left {
+        float: right;
+    }
+    .exampleblock {
+        display: none;
+    }
+    .floatingtoggle {
+        vertical-align: middle;
+        align-content: center;
+    }
+
+    .floatingtoggle .label {
+        font-size: 1.0625rem;
+        float: left;
+        margin-right: 0.5em;
+        line-height: 2em;    }
+
+    .sect2 h3 strong {
+        display: none;
+    }
+
+    #toc strong {
+        display: none;
+    }
+
+    .sect2 h3 .big {
+        float: right;
+        padding-right: 0.5em;
+        line-height: 1em;
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>
+<!--header end-->

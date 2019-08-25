@@ -1,0 +1,9 @@
+@each $type in map-keys($container-types) {
+  .container-#{$type} {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        max-width: map-deep-get($container-types, $type, $breakpoint);
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+&-tall {
+  align-items: flex-end;
+
+  > .container {
+    @include media-breakpoint-up(md) {
+      background-color: rgba(color('charcoal'), .9);
+      padding-bottom: 25px;
+      padding-top: 25px;
+      width: calc(100% - #{$grid-gutter-width});
+
+      // stylelint-disable-next-line
+      header,
+      header + .responsivegrid {
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      background-color: transparent;
+      padding-bottom: 0;
+      padding-top: 60px;
+
+      // stylelint-disable-next-line
+      header,
+      header + .responsivegrid {
+        padding-left: 80px;
+        padding-right: 80px;
+      }
+
+      // stylelint-disable-next-line
+      header,
+      header + .responsivegrid,
+      &::before {
+        width: 580px;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding-top: 95px;
+
+      // stylelint-disable-next-line
+      header,
+      header + .responsivegrid {
+        padding-left: 110px;
+        padding-right: 110px;
+      }
+
+      // stylelint-disable-next-line
+      header,
+      header + .responsivegrid,
+      &::before {
+        width: 680px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 290px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 200px;
+  }
+
+  @include media-breakpoint-only(md) {
+    padding-bottom: 20px;
+  }
+
+  @include media-breakpoint-up(md) {
+    min-height: 580px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    align-items: stretch;
+    min-height: 508px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    min-height: 600px;
+  }
+}

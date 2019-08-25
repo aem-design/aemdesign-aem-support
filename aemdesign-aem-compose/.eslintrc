@@ -1,0 +1,32 @@
+{
+  "root": true,
+
+  "extends": [
+    "plugin:vue/essential",
+    "plugin:@typescript-eslint/recommended",
+    "@vue/typescript"
+  ],
+
+  "plugins": [
+    "@typescript-eslint"
+  ],
+
+  "parser": "vue-eslint-parser",
+
+  "env": {
+    "node": true,
+    "builtin": true,
+    "es6": true
+  },
+
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "project": "./tsconfig.json"
+  },
+
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/indent": [1, 2, {"SwitchCase": 1, "VariableDeclarator": 1}]
+  }
+}

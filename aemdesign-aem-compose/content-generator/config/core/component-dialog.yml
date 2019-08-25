@@ -1,0 +1,415 @@
+content/_cq_tags/aemdesign/component-dialog: &component-dialog
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  asset/rendition/prefix:
+    prefixes:
+      - thumbnail
+      - web
+    valueFormat: 'cq5dam.%%prefix%%.'
+    title: 'OOTB %%prefix_normalised%%'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  css/mediaquery:
+    contents:
+      - medium: { title: "Medium", value: "(min-width: 768px)" }
+      - retina: { title: "Retina", value: "(-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx)" }
+      - landscape-large: { title: "Landscape Large", value: "(min-width: 768px) and (orientation: landscape), screen and (min-width: 992px)" }
+      - extra-large: { title: "Extra Large", value: "(min-width: 1200px)" }
+      - retina-medium: { title: "Retina Medium", value: "(min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 768px) and (min-resolution: 1.5dppx)" }
+      - retina-landscape-large: { title: "Retina Landscape", value: "(min-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 768px) and (orientation: landscape) and (min-resolution: 1.5dppx), only screen and (min-width: 992px) and (min-device-pixel-ratio: 2)" }
+      - retina-extra-large: { title: "Retina Extra Large", value: "(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 1200px) and (min-resolution: 1.5dppx)" }
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  common/true-false:
+    prefixes:
+      - 'false'
+      - 'true'
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  honorific/prefix:
+    prefixes:
+      - dr
+      - lady
+      - miss
+      - mr
+      - mrs
+      - ms
+      - sir
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  honorific/suffix:
+    prefixes:
+      - none
+    valueFormat: '.'
+    title: '%%prefix_normalised%%'
+
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  html/animation/name:
+    prefixes:
+      - fade
+      - fade-down
+      - fade-down-left
+      - fade-down-right
+      - fade-left
+      - fade-right
+      - fade-up
+      - fade-up-left
+      - fade-up-right
+      - flip-down
+      - flip-left
+      - flip-right
+      - flip-up
+      - slide-down
+      - slide-left
+      - slide-right
+      - slide-up
+      - zoom-in
+      - zoom-in-down
+      - zoom-in-left
+      - zoom-in-right
+      - zoom-in-up
+      - zoom-out
+      - zoom-out-down
+      - zoom-out-left
+      - zoom-out-right
+      - zoom-out-up
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+  html/animation/easing:
+    prefixes:
+      - ease
+      - ease-in
+      - ease-in-back
+      - ease-in-cubic
+      - ease-in-out
+      - ease-in-out-back
+      - ease-in-out-cubic
+      - ease-in-out-quad
+      - ease-in-out-quart
+      - ease-in-out-sine
+      - ease-in-quad
+      - ease-in-quart
+      - ease-in-sine
+      - ease-out
+      - ease-out-back
+      - ease-out-cubic
+      - ease-out-quad
+      - ease-out-quart
+      - ease-out-sine
+      - linear
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  html/direction:
+    prefixes:
+      - left
+      - right
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+  html/heading:
+    prefixes:
+      - h1
+      - h2
+      - h3
+      - h4
+      - h5
+      - h6
+      - lead
+      - p2
+      - p3
+      - p4
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+  html/linktarget:
+    prefixes:
+      - blank
+      - parent
+      - self
+      - top
+    valueFormat: '_%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  html/position:
+    prefixes:
+    - left
+    - right
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  html/toggle:
+    prefixes:
+      - button
+      - buttons
+      - collapse
+      - dropdown
+      - modal
+      - pill
+      - popover
+      - tab
+      - tooltip
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+  html/type:
+    prefixes:
+      - button
+      - embed
+      - input
+      - link
+      - menu
+      - object
+      - script
+      - source
+      - style
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  html/metadata/properties:
+    prefixes:
+      - ogtitle: {title: "Open Graph - Title", value: "og:title"}
+      - ogtype: {title: "Open Graph - Type", value: "og:type"}
+      - ogimage: {title: "Open Graph - Image", value: "og:image"}
+      - ogurl: {title: "Open Graph - Url", value: "og:url"}
+      - ogdescription: {title: "Open Graph - Description", value: "og:description"}
+
+
+  components/layout/contentblock/variant:
+    contents:
+      - container: {title: "Container", value: "container"}
+      - containerVideo: {title: "Container with Video Background", value: "containerVideo"}
+      - floating: {title: "Floating Section", value: "floating"}
+      - advsection: {title: "Advanced Section with Title", value: "advsection"}
+      - fieldset: {title: "Field Set in Form", value: "fieldset"}
+      - descriptionlist: {title: "Description List", value: "descriptionlist"}
+      - parsys: {title: "Classic Parsys", value: "parsys"}
+      - childsection: {title: "Child Section", value: "childsection"}
+      - componentConfig: {title: "Section with Component Config Output", value: "componentConfig"}
+      - accordion: {title: "Accordion", value: "accordion"}
+
+  components/lists/list/orderby:
+    contents:
+      - bytitle: {title: "By Title", value: "@jcr:content/jcr:title"}
+      - bycreated: {title: "By Created Date", value: "@jcr:content/jcr:created"}
+      - bymodified: {title: "By Modified Date", value: "@jcr:content/jcr:lastModified"}
+      - bytemplate: {title: "By Template", value: "@jcr:content/jcr:template"}
+      - byscore: {title: "By Score", value: "@jcr:score"}
+
+  components/lists/list/badge:
+    contents:
+      - icon: {title: "Icon", value: "icon"}
+      - image: {title: "Image", value: "image"}
+      - cardIcon: {title: "Card with Icon", value: "cardIcon"}
+      - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
+      - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
+      - cardIconTitleCategoryDescription: {title: "Card with Icon, Title, Category and Description", value: "cardIconTitleCategoryDescription"}
+      - cardImageTitleCategoryDescription: {title: "Card with Image, Title, Category and Description", value: "cardImageTitleCategoryDescription"}
+      - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
+
+  components/lists/pagelist/badge:
+    contents:
+      - icon: {title: "Icon", value: "icon"}
+      - image: {title: "Image", value: "image"}
+      - cardIcon: {title: "Card with Icon", value: "cardIcon"}
+      - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
+      - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
+      - cardIconTitleCategoryDescription: {title: "Card with Icon, Title, Category and Description", value: "cardIconTitleCategoryDescription"}
+      - cardImageTitleCategoryDescription: {title: "Card with Image, Title, Category and Description", value: "cardImageTitleCategoryDescription"}
+      - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
+      - cardTitleDescriptionAction: {title: "Card with Title, Description and Action", value: "cardTitleDescriptionAction"}
+      - cardImageTitleSubtitleDescriptionAction: {title: "Card with Image, Title, Sub Title, Description and Action", value: "cardImageTitleSubtitleDescriptionAction"}
+      - cardImageTitleDescriptionAction: {title: "Card with Image, Title, Description and Action", value: "cardImageTitleDescriptionAction"}
+      - cardImageTitleAction: {title: "Card with Image, Title and Action", value: "cardImageTitleAction"}
+      - cardImageTitleDescription: {title: "Card with Image, Title and Description", value: "cardImageTitleDescription"}
+      - cardImageTagTitleAction: {title: "Card with Image, Tag, Title and Action", value: "cardImageTagTitleAction"}
+      - cardIconDescription: {title: "Card with Icon and Description", value: "cardIconDescription"}
+      - cardIconTitle: {title: "Card with Icon and Title", value: "cardIconTitle"}
+      - cardIconTitleDescription: {title: "Card with Icon, Title and Description", value: "cardIconTitleDescription"}
+      - cardIconTitleDescriptionAction: {title: "Card with Icon, Title, Description and Action", value: "cardIconTitleDescriptionAction"}
+      - cardImageSubtitleTitleCategoryDescriptionAction: {title: "Clickable Card with Image, Subtitle, Title, Category, Description and Action", value: "cardImageSubtitleTitleCategoryDescriptionAction"}
+      - cardActionImageTitle: {title: "Clickable Card with Image and Title", value: "cardActionImageTitle"}
+      - cardActionIconTitleCategoryDescription: {title: "Clickable Card with Icon, Title, Category and Description", value: "cardActionIconTitleCategoryDescription"}
+      - cardActionImageTitleDescription: {title: "Clickable Card with Image, Title and Description", value: "cardActionImageTitleDescription"}
+      - cardActionIconDescription: {title: "Clickable Card with Icon and Description", value: "cardActionIconDescription"}
+      - cardActionImageTitleCategoryDescription: {title: "Clickable Card with Image, Title, Category and Description", value: "cardActionImageTitleCategoryDescription"}
+      - cardActionIconTitleDescription: {title: "Clickable Card with Icon, Title and Description", value: "cardActionIconTitleDescription"}
+
+  components/lists/newslist/badge:
+    contents:
+      - icon: {title: "Icon", value: "icon"}
+      - image: {title: "Image", value: "image"}
+      - cardIcon: {title: "Card with Icon", value: "cardIcon"}
+      - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
+      - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
+      - cardIconTitleCategoryDescription: {title: "Card with Icon, Title, Category and Description", value: "cardIconTitleCategoryDescription"}
+      - cardImageTitleCategoryDescription: {title: "Card with Image, Title, Category and Description", value: "cardImageTitleCategoryDescription"}
+      - cardImageTitleCategoryActionDate: {title: "Card with Image, Title, Category, Action and Date", value: "cardImageTitleCategoryActionDate"}
+      - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
+      - cardTitleDescriptionAction: {title: "Card with Title, Description and Action", value: "cardTitleDescriptionAction"}
+      - cardImageTitleSubtitleDescriptionAction: {title: "Card with Image, Title, Sub Title, Description and Action", value: "cardImageTitleSubtitleDescriptionAction"}
+      - cardImageTitleDescriptionAction: {title: "Card with Image, Title, Description and Action", value: "cardImageTitleDescriptionAction"}
+      - cardImageTitleAction: {title: "Card with Image, Title and Action", value: "cardImageTitleAction"}
+      - cardImageTitleDescription: {title: "Card with Image, Title and Description", value: "cardImageTitleDescription"}
+      - cardIconDescription: {title: "Card with Icon and Description", value: "cardIconDescription"}
+      - cardIconTitleDescription: {title: "Card with Icon, Title and Description", value: "cardIconTitleDescription"}
+      - cardIconTitleDescriptionAction: {title: "Card with Icon, Title, Description and Action", value: "cardIconTitleDescriptionAction"}
+      - cardActionImageTitle: {title: "Clickable Card with Image and Title", value: "cardActionImageTitle"}
+      - cardActionIconTitleCategoryDescription: {title: "Clickable Card with Icon, Title, Category and Description", value: "cardActionIconTitleCategoryDescription"}
+      - cardActionImageTitleDescription: {title: "Clickable Card with Image, Title and Description", value: "cardActionImageTitleDescription"}
+      - cardActionIconDescription: {title: "Clickable Card with Icon and Description", value: "cardActionIconDescription"}
+      - cardActionImageTitleCategoryDescription: {title: "Clickable Card with Image, Title, Category and Description", value: "cardActionImageTitleCategoryDescription"}
+      - cardActionIconTitleDescription: {title: "Clickable Card with Icon, Title and Description", value: "cardActionIconTitleDescription"}
+
+  components/lists/eventlist/badge:
+    contents:
+      - cardActionIconTitleCategoryDescription: {title: "Clickable Card with Icon, Title, Category and Description", value: "cardActionIconTitleCategoryDescription"}
+      - cardActionImageTitle: {title: "Clickable Card with Image and Title", value: "cardActionImageTitle"}
+      - cardActionImageTitleCategoryDescription: {title: "Clickable Card with Image, Title, Category and Description", value: "cardActionImageTitleCategoryDescription"}
+      - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
+      - cardIcon: {title: "Card with Icon", value: "cardIcon"}
+      - cardIconTitleAction: {title: "Card with Icon, Title and Action", value: "cardIconTitleAction"}
+      - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
+      - cardIconTitleDateAction: {title: "Card with Icon, Title, Date and Action", value: "cardIconTitleDateAction"}
+      - cardIconTitleDescriptionAction: {title: "Card with Icon, Title, Description and Action", value: "cardIconTitleDescriptionAction"}
+      - cardIconTitleSubtitleDate: {title: "Card with Icon, Title, Subtitle and Date", value: "cardIconTitleSubtitleDate"}
+      - cardIconTitleSubtitleDateDescriptionAction: {title: "Card with Icon, Title, Subtitle, Date, Description and Action", value: "cardIconTitleSubtitleDateDescriptionAction"}
+      - cardIconTitleSubtitleDescriptionAction: {title: "Card with Icon, Title, Subtitle, Description and Action", value: "cardIconTitleSubtitleDescriptionAction"}
+      - cardImageTitleAction: {title: "Card with Image, Title and Action", value: "cardImageTitleAction"}
+      - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
+      - cardImageTitleDescriptionAction: {title: "Card with Image, Title, Description and Action", value: "cardImageTitleDescriptionAction"}
+      - cardImageTitleSubtitleDescriptionAction: {title: "Card with Image, Title, Sub Title, Description and Action", value: "cardImageTitleSubtitleDescriptionAction"}
+      - cardTitleDescriptionAction: {title: "Card with Title, Description and Action", value: "cardTitleDescriptionAction"}
+      - icon: {title: "Icon", value: "icon"}
+      - image: {title: "Image", value: "image"}
+
+  components/lists/contactlist/badge:
+    contents:
+      - cardActionIconTitleCategoryDescription: {title: "Clickable Card with Icon, Title, Category and Description", value: "cardActionIconTitleCategoryDescription"}
+      - cardActionImageTitleCategoryDescription: {title: "Clickable Card with Image, Title, Category and Description", value: "cardActionImageTitleCategoryDescription"}
+      - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
+      - cardIcon: {title: "Card with Icon", value: "cardIcon"}
+      - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
+      - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
+      - icon: {title: "Icon", value: "icon"}
+      - image: {title: "Image", value: "image"}
+
+  components/lists/locationlist/badge:
+    contents:
+      - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
+      - cardIconTitleCategoryDescription: {title: "Card with Icon, Title, Category and Description", value: "cardIconTitleCategoryDescription"}
+      - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
+      - cardImageTitleCategoryDescription: {title: "Card with Image, Title, Category and Description", value: "cardImageTitleCategoryDescription"}
+      - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
+      - data: {title: "Output Data", value: "data"}
+      - icon: {title: "Icon", value: "icon"}
+      - image: {title: "Image", value: "image"}
+
+  components/lists/navlist/variant:
+    contents:
+      - simple: {title: "Simple", value: "simple"}
+      - stacked: {title: "Stacked", value: "stacked"}
+      - dropdown: {title: "Dropdown", value: "dropdown"}
+
+  components/lists/taglist/orderby:
+    contents:
+      - bytitle: {title: "By Title", value: "@jcr:content/jcr:title"}
+      - byscore: {title: "By Score", value: "@jcr:score"}
+
+  components/lists/taglist/variant:
+    contents:
+      - optionsList: {title: "Options List", value: "optionsList"}
+      - list: {title: "List", value: "list"}
+
+
+  components/lists/langnav/searchlogic:
+    contents:
+      - showRoot: {title: "Show Root", value: "showRoot"}
+      - hidden: {title: "Show Nothing", value: "hidden"}
+
+  components/lists/langnav/languageSet:
+    contents:
+      - en: {title: "EN", description: "English", value: "au/en"}
+      - ru: {title: "RU", description: "Russian", value: "ru/ru"}
+
+  components/lists/assetlist/orderby:
+    contents:
+      - bytitle: {title: "By Title", value: "@jcr:content/jcr:title"}
+      - byscore: {title: "By Score", value: "@jcr:score"}
+
+  components/lists/assetlist/variant:
+    contents:
+      - figure: {title: "Figure", value: "figure"}
+
+
+  components/lists/listnav/badge:
+    contents:
+      - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
+      - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
+      - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
+      - default: {title: "Title", value: "default"}
+
+
+  # Journey Planner
+  components/widgets/journey-planner:
+    contents:
+      - title:
+          title: 'Title'
+          json: true
+          value:
+            field: 'textfield'
+            order: 1
+            tooltip: 'Main title for the widget'
+      - icon:
+          title: 'Icon'
+          json: true
+          value:
+            field: 'autocomplete'
+            order: 2
+            source: 'component-style-icon'
+            tooltip: 'Widget icon'
+      - campus:
+          title: 'Campus'
+          json: true
+          value:
+            field: 'select'
+            items:
+              - label: 'Hawthorn'
+                value: 'John Street, Hawthorn, VIC, 3122, Australia'
+              - label: 'Wantirna'
+                value: '369 Stud Road, Wantirna, VIC, 3152, Australia'
+              - label: 'Croydon'
+                value: '12-50 Norton Road, Croydon, VIC, 3136, Australia'
+              - label: 'Sarawak, Malaysia'
+                value: 'Jalan Simpang Tiga, 93350 Kuching, Sarawak, Malaysia'
+            order: 3
+            placeholder: 'Please choose a campus'
+            tooltip: 'Which Campus should the map default to?'
+      - description:
+          title: 'Description'
+          json: true
+          value:
+            field: 'textarea'
+            order: 4
+            slot: description
+            tooltip: 'Description that sits just below the form elements'
+
+
+# Showcase Copy
+content/_cq_tags/aemdesign-showcase/component-dialog: *component-dialog
+
+# Training Copy
+content/_cq_tags/aemdesign-training/component-dialog: *component-dialog

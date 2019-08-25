@@ -1,0 +1,24 @@
+
+# Component Topic
+content/_cq_tags/aemdesign/component-topic: &component-topic
+  #used for comms between components
+  group:
+    prefixes:
+      - group1
+      - group2
+    title: '%%prefix_normalised%%'
+
+  #used for comms between components
+  topic:
+    prefixes:
+      - eventFilterSelected         #when a selection in tag list is made
+      - mapMarkerFilterSelected     #when map marker is filtered
+    title: '%%prefix_normalised%%'
+
+
+
+# Showcase Copy
+content/_cq_tags/aemdesign-showcase/component-topic: *component-topic
+
+# Training Copy
+content/_cq_tags/aemdesign-training/component-topic: *component-topic

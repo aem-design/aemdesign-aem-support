@@ -1,0 +1,39 @@
+ol,
+ul {
+  @include list-unstyled;
+
+  padding-bottom: 0;
+
+  li {
+    padding-left: 15px;
+
+    &::before {
+      color: color('grey-3');
+      display: inline-block;
+      margin-left: -15px;
+      margin-right: 10px;
+      position: relative;
+    }
+  }
+}
+
+ul li::before {
+  background-color: currentColor;
+  border-radius: 100%;
+  content: '';
+  height: 5px;
+  top: -3px;
+  width: 5px;
+}
+
+ol {
+  counter-reset: list-item;
+
+  li {
+    counter-increment: list-item;
+
+    &::before {
+      content: counter(list-item);
+    }
+  }
+}

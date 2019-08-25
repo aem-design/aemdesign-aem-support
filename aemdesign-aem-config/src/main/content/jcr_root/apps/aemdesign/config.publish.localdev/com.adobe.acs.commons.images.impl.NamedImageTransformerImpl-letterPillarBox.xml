@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          name="my-letterPillarBox"
+          transforms="[letter-pillar-box:width=1000&amp;height=1000&amp;alpha=.65&amp;color=0F0F0F]"/>
+
+<!--
+        v.2.1.0+
+        Adds a Letter/Pillar box support when the specified new dimensions don’t match aspect ratio of original image.
+        The appropriate boxing will be applied based on best fit for the calculated aspect ratio.
+        The background of the boxing is configurable,
+        however if using JPG encoding transparency is lost resulting in black.
+
+        width=[width in px]
+        height=[height in px]
+        alpha=[0.0..1.0] (Opacity of background, percentage)
+        color=[000000..FFFFFF] (Hex Color for use in background)
+-->

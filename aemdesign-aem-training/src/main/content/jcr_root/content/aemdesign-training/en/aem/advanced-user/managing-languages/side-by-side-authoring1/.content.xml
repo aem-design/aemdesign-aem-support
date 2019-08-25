@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Exercise - Language Copy"
+        sling:resourceType="aemdesign/components/template/base"
+        hideInNav="true">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/advanced-user/managing-languages"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&lt;b>Objective:&lt;/b>&amp;nbsp;Learn how to performa language copy to copy pages from one language to another.&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Navigate to your&amp;nbsp;&lt;b>AEM Training by [Your Name]&lt;/b>&amp;nbsp;site.&lt;/li>&#xa;&lt;li>From that level, create a page &amp;quot;&lt;b>French&lt;/b>&amp;quot; using Geometrixx Home Page as the Template.&lt;/li>&#xa;&lt;li>Set Title to&amp;nbsp;&lt;b>French&lt;/b> and Name to&amp;nbsp;&lt;b>fr&lt;/b>.&lt;/li>&#xa;&lt;li>Open Site Admin Page using Classic UI - http://[AEM Site]:4502/siteadmin&lt;/li>&#xa;&lt;li>Navigate to the&amp;nbsp;your&amp;nbsp;&lt;b>AEM Training by [Your Name]&lt;/b>&amp;nbsp;site.&lt;/li>&#xa;&lt;li>Perform Language Copy to copy ALL pages from &lt;b>English&lt;/b> to &lt;b>French, except Vehicle page and its child pages.&lt;/b>&lt;/li>&#xa;&lt;li>Examine the pages are copied from English to French.&lt;/li>&#xa;&lt;/ol>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>

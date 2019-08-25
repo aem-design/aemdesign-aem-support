@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deleting a Project or Resource Link"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/basic-user/creating-a-project"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text_1355968648
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>The same method is used to delete a project from the console or a linked resource from your project:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>Navigate to the appropriate location:&lt;ul>&#xa;&lt;li>To delete a project to go to the top level of the &lt;b>Projects&lt;/b> console&lt;/li>&#xa;&lt;li>To delete a resource link within a project, open your project in the &lt;b>Projects&lt;/b> console&lt;/li>&#xa;&lt;/ul>&#xa;&lt;/li>&#xa;&lt;li>Enter selection mode by clicking&amp;nbsp;&lt;b>Select&lt;/b>&amp;nbsp;and selecting your project or resource link.&lt;/li>&#xa;&lt;li>Tap/click&amp;nbsp;&lt;b>Delete&lt;/b>.&lt;img src=&quot;/content/dam/aemdesign-training/Managing_Tags-Delete_Tag_Button.png&quot;>&lt;/li>&#xa;&lt;li>You need to confirm the deletion in a dialog. If confirmed, the project or resource link is deleted. Tap/click&amp;nbsp;&lt;b style=&quot;font-family: ramblabold, Helvetica, Arial, 华文宋体, STSong, 新細明體, PMingLiU, sans-serif; font-size: 1em; line-height: 20.8px; word-wrap: break-word; margin: 0px; padding: 0px; clear: both; float: none; background: 0px 50%;&quot;>Deselect&lt;/b>&amp;nbsp;to exit selection mode.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>See “Managing Tile” to learn how to manage resources within the project.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

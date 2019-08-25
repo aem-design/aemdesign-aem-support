@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="c81f5f07-412d-4221-921d-2db2f1425255">
+    <jcr:content
+        dam:assetState="processing"
+        dam:relativePath="tets/FishTank.mp4"
+        jcr:primaryType="dam:AssetContent"
+        status="Error[No Encoding]">
+        <metadata
+            dam:extracted="{Date}2017-10-13T09:43:11.507+11:00"
+            dam:sha1="f88bcb95935d9199725068110ac9b7c8fe4e1669"
+            dam:size="{Long}4122679"
+            dc:extent="{Long}11026"
+            dc:format="video/mp4"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}720"
+            tiff:ImageWidth="{Long}1280"
+            xmp:CreateDate="{Date}2016-08-01T03:47:56.000Z"
+            xmp:ModifyDate="{Date}2016-08-01T03:47:56.000Z">
+            <xmpDM:duration
+                jcr:primaryType="nt:unstructured"
+                xmpDM:scale="1/90000"
+                xmpDM:value="{Long}1013551"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

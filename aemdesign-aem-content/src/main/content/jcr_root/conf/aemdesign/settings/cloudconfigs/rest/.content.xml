@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/libs/cq/cloudserviceconfigs/templates/servicepage"
+        jcr:description="Configuration for RESP API Service and Workflow's"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Rest API"
+        sling:resourceType="cq/cloudserviceconfigs/components/servicepage"
+        description="Configuration for RESP API Service and Workflow's"
+        descriptionExtended="Configuration for RESP API Service and Workflows allows adding configurations to services and workflow steps"
+        inclusionRank="100"
+        ranking="40"
+        serviceAdminUrl=""
+        serviceUrl=""
+        showOnDashboard="{Boolean}true"
+        thumbnailPath="/apps/aemdesign/templates/cloudconfig/rest/rest.png"
+        visible="{Boolean}true"/>
+</jcr:root>

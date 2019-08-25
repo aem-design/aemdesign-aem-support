@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Exercise - Side by Side Authoring"
+        sling:resourceType="aemdesign/components/template/base"
+        hideInNav="true">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/advanced-user/managing-languages"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&lt;b>Objective:&lt;/b>&amp;nbsp;To learn how to use side by side authoring to author content.&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Navigate to the&amp;nbsp;&lt;b style=&quot;font-family: ramblabold, Helvetica, Arial, 华文宋体, STSong, 新細明體, PMingLiU, sans-serif; font-size: 1em; line-height: 20.799999237060547px; word-wrap: break-word; margin: 0px; padding: 0px; clear: both; float: none; background-position: 0px 50%;&quot;>English &amp;gt; Vehicles &lt;/b>&amp;nbsp;page in your&amp;nbsp;&lt;b style=&quot;font-family: ramblabold, Helvetica, Arial, 华文宋体, STSong, 新細明體, PMingLiU, sans-serif; font-size: 1em; line-height: 20.799999237060547px; word-wrap: break-word; margin: 0px; padding: 0px; clear: both; float: none; background-position: 0px 50%;&quot;>AEM Training by [Your Name]&lt;/b>&amp;nbsp;site.&lt;/li>&#xa;&lt;li>Edit the page in Classic UI&lt;/li>&#xa;&lt;li>Modify any text within the page.&lt;/li>&#xa;&lt;li>Create a version of this page.&lt;/li>&#xa;&lt;li>Translate this page to &lt;b>French&lt;/b> using &lt;b>Translation Prepare&lt;/b> workflow.&lt;/li>&#xa;&lt;li>Navigate to the&amp;nbsp;&lt;b style=&quot;font-family: ramblabold, Helvetica, Arial, 华文宋体, STSong, 新細明體, PMingLiU, sans-serif; font-size: 1em; line-height: 20.799999237060547px; word-wrap: break-word; margin: 0px; padding: 0px; clear: both; float: none; background-position: 0px 50%;&quot;>French &amp;gt; Vehicles &lt;/b>&amp;nbsp;page in your&amp;nbsp;&lt;b style=&quot;font-family: ramblabold, Helvetica, Arial, 华文宋体, STSong, 新細明體, PMingLiU, sans-serif; font-size: 1em; line-height: 20.799999237060547px; word-wrap: break-word; margin: 0px; padding: 0px; clear: both; float: none; background-position: 0px 50%;&quot;>AEM Training by [Your Name]&lt;/b>&amp;nbsp;site.&lt;/li>&#xa;&lt;li>Edit the page in Classic UI.&lt;/li>&#xa;&lt;li>Show Side-By-Side.&lt;/li>&#xa;&lt;li>Iterate step 1 - step 8 once by making other modifications on English version.&lt;/li>&#xa;&lt;li>Complete the Transalation workflow.&amp;nbsp;&lt;/li>&#xa;&lt;/ol>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

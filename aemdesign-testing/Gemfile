@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'asciidoctor'
+gem 'asciidoctor-pdf'
+gem 'coderay'
+gem 'concurrent-ruby'
+gem 'rouge'
+gem 'pygments.rb'
+gem 'prawn'
+gem 'prawn-svg'

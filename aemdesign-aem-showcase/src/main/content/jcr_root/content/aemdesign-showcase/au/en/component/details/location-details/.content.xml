@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page/location]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:description="Page Description"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Location Component"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <locationdetails
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/location-details"
+                    componentId="location-details"
+                    latitude="10"
+                    longitude="12"
+                    pageMetaProperty="og:type"
+                    pageMetaPropertyContent="article"
+                    pages="[/content/aemdesign-showcase/au/en/content/news/2016/01/article13,/content/aemdesign-showcase/au/en/content/news/2016/01/article1,/content/aemdesign-showcase/au/en/content/news/2016/01/article2]"
+                    title="Location Detail"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1_JH7ZICYXY"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Variant: Default"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <locationdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/location-details"
+                            componentId="location-details1"
+                            latitude="10"
+                            longitude="12"
+                            pages="[/content/aemdesign-showcase/au/en/content/news/2016/01/article13,/content/aemdesign-showcase/au/en/content/news/2016/01/article1,/content/aemdesign-showcase/au/en/content/news/2016/01/article2]"
+                            title="Location Detail 1">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container"/>
+                        </locationdetails>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2_XYYGECKN8"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Variant: Hidden"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <locationdetails
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/location-details"
+                            componentId="location-details2"
+                            latitude="10"
+                            longitude="12"
+                            pages="[/content/aemdesign-showcase/au/en/content/news/2016/01/article13,/content/aemdesign-showcase/au/en/content/news/2016/01/article1,/content/aemdesign-showcase/au/en/content/news/2016/01/article2]"
+                            title="Location Detail 2"
+                            variant="hidden"/>
+                    </par>
+                </contentblock2>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

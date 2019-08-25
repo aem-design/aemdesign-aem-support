@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="54cdd859-28c2-458b-8346-2f656a953e13">
+    <jcr:content
+        cq:name="snow.jpg"
+        cq:parentPath="/content/dam/aemdesign-showcase/en/common/images"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/common/images/snow.jpg"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-03-05T00:41:02.556+11:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:extracted="{Date}2018-01-31T02:41:59.341+11:00"
+            dam:sha1="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            dam:size="{Long}2834687"
+            dc:creator="[Lilian Henglein &amp; David Steets]"
+            dc:creator_xmpArrayType="rdf:Seq"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2019-03-05T00:41:02.556+11:00"
+            dc:rights="henglein &amp; steets"
+            dc:subject="[Arrow Sign,Beauty,Beauty In Nature,Central Europe,Cold Temperature,Color Image,Day,Directional Sign,Environment,European Alps,Frozen,Germany,Getting Away From It All,Guidance,Horizontal,Landscape,Mountain,Mountain Range,Nature,No People,Non-Urban Scene,Number of People,Outdoors,Photography,Remote,Scenics,Sign,Snow,Sunlight,Sunny,Travel,Travel Destinations,Valley,Valley Type,Winter,places,Objects]"
+            dc:subject_xmpArrayType="rdf:Bag"
+            jcr:lastModified="{Date}2019-03-05T00:41:02.556+11:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            photoshop:CaptionWriter="Lilian Henglein &amp; David Steets"
+            photoshop:Credit="cultura"
+            photoshop:TransmissionReference="rf"
+            tiff:ImageLength="{Long}3400"
+            tiff:ImageWidth="{Long}5100"
+            xmpRights:Marked="{Boolean}true"
+            xmpRights:WebStatement="www.hengleinsteets.de"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

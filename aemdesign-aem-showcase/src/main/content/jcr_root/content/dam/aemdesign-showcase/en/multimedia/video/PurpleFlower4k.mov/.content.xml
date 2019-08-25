@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="559c9f71-8798-428b-9770-e1fd74a446d0">
+    <jcr:content
+        dam:assetState="processing"
+        dam:relativePath="tets/PurpleFlower4k.mov"
+        jcr:primaryType="dam:AssetContent"
+        status="Error[No Encoding]">
+        <metadata
+            dam:extracted="{Date}2017-10-13T09:44:34.908+11:00"
+            dam:sha1="f98dfe4adc36d2c43b9d4794af7427a1d4b0527b"
+            dam:size="{Long}74220484"
+            dc:extent="{Long}5071"
+            dc:format="video/quicktime"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}2160"
+            tiff:ImageWidth="{Long}3840"
+            xmp:CreateDate="{Date}2016-09-28T18:18:41.000Z"
+            xmp:ModifyDate="{Date}2016-09-28T18:18:45.000Z"
+            xmpDM:startTimeSampleSize="{Long}15015"
+            xmpDM:startTimeScale="{Long}360000">
+            <xmpDM:duration
+                jcr:primaryType="nt:unstructured"
+                xmpDM:scale="1/360000"
+                xmpDM:value="{Long}2056888"
+                xmpNodeType="xmpStruct"/>
+            <xmpDM:altTimecode
+                jcr:primaryType="nt:unstructured"
+                xmpDM:timeFormat="23976Timecode"
+                xmpDM:timeValue="00:55:03:06"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

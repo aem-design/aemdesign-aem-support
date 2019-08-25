@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Pagination - Pages for pagination tests"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Variant: Default with Pagination"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagelist
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/pagelist"
+                            componentId="pagelist1"
+                            listFrom="children"
+                            listType="list"
+                            pageMax="1"
+                            parentPage="/content/aemdesign-showcase/au/en/component/lists/page-list/pagination"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Variant: Default with Load More module"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagelist
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/pagelist"
+                            componentId="pagelist2"
+                            componentModules="[aemdesign-showcase:component-style-module/lists/pagination/loadmore]"
+                            listFrom="children"
+                            listType="list"
+                            pageMax="1"
+                            parentPage="/content/aemdesign-showcase/au/en/component/lists/page-list/pagination"/>
+                    </par>
+                </contentblock2>
+            </par>
+        </article>
+    </jcr:content>
+    <page1/>
+    <page2/>
+    <page3/>
+    <page4/>
+    <page5/>
+</jcr:root>

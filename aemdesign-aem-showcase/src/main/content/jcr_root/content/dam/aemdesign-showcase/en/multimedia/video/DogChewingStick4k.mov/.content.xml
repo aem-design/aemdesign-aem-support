@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="707de19c-3733-4f9e-871d-910e0f67908d">
+    <jcr:content
+        dam:assetState="processing"
+        dam:relativePath="tets/DogChewingStick4k.mov"
+        jcr:primaryType="dam:AssetContent"
+        status="Error[No Encoding]">
+        <metadata
+            dam:extracted="{Date}2017-10-13T09:49:06.070+11:00"
+            dam:sha1="63e57fe3b6024796a7837e8241a168f132a8b1cd"
+            dam:size="{Long}93437598"
+            dc:extent="{Long}9013"
+            dc:format="video/quicktime"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}2160"
+            tiff:ImageWidth="{Long}4096"
+            xmp:CreateDate="{Date}2015-08-01T15:25:02.000Z"
+            xmp:ModifyDate="{Date}2015-08-01T15:25:08.000Z"
+            xmpDM:startTimeSampleSize="{Long}15000"
+            xmpDM:startTimeScale="{Long}360000">
+            <xmpDM:duration
+                jcr:primaryType="nt:unstructured"
+                xmpDM:scale="1/360000"
+                xmpDM:value="{Long}3285839"
+                xmpNodeType="xmpStruct"/>
+            <xmpDM:altTimecode
+                jcr:primaryType="nt:unstructured"
+                xmpDM:timeFormat="24Timecode"
+                xmpDM:timeValue="23:51:10:19"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

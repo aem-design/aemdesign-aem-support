@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Content Block Lock"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    showBreadcrumb="false"
+                    showToolbar="false"/>
+                <contentblocklock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock1"
+                    componentTheme="[]"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    islocked="true"
+                    title="Section">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text1"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Section Locked&lt;/p>"
+                            textIsRich="true"/>
+                    </par>
+                </contentblocklock1>
+                <contentblocklock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    islocked="false"
+                    title="Container"
+                    variant="container">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text2"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Container Unlocked&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblocklock2>
+                <contentblocklock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock3"
+                    hideTitle="false"
+                    hideTitleSeparator="false"
+                    title="Float Section"
+                    variant="floating">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text3"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Float Section&lt;br>&#xa;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblocklock3>
+                <contentblocklock4
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock4"
+                    hideTitle="false"
+                    hideTitleSeparator="false"
+                    title="Description List Section"
+                    variant="descriptionlist">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text4"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Description List Section&lt;br>&#xa;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblocklock4>
+                <contentblocklock5
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock5"
+                    hideTitle="false"
+                    hideTitleSeparator="false"
+                    title="Field Set Section"
+                    variant="fieldset">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text5"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Field Set Section&lt;br>&#xa;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblocklock5>
+                <contentblocklock6
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock6"
+                    hideInMenu="false"
+                    hideTitle="true"
+                    hideTitleSeparator="false"
+                    hideTopLink="true"
+                    title="Variant: Advanced Plain Section"
+                    titleType="h2"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text6"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Advanced Plain Section&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblocklock6>
+                <contentblocklock7
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock7"
+                    hideInMenu="false"
+                    hideTitle="false"
+                    hideTitleSeparator="false"
+                    linksLeft="/content/aemdesign-showcase/au/en/component/layout/contentblock"
+                    linksLeftTitle="Left Links"
+                    linksRight="/content/aemdesign-showcase/au/en/component/layout/contentblock"
+                    linksRightTitle="Right Links"
+                    title="Variant: Advanced Section with Links"
+                    titleType="p"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text7"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Advanced Section with Links&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblocklock7>
+                <contentblocklock8
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblocklock"
+                    componentId="contentblocklock8"
+                    componentTheme="[]"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    imageRotate="0"
+                    title="Section">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text8"
+                            text="&lt;p>&lt;b>Variant&lt;/b>: Section with Background&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                    <bgimage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"
+                        fileReference="/content/dam/aemdesign-showcase/en/common/aem-design.png"/>
+                </contentblocklock8>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

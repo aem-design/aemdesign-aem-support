@@ -1,0 +1,10 @@
+{
+  "esversion": 7,
+  "asi": true,
+  "ignoreDelimiters": [
+    {
+      "start": "start-non-standard",
+      "end": "end-non-standard"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/libs/cq/cloudserviceconfigs/templates/servicepage"
+        jcr:description="Salesforce Marketing Cloud API"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="SalesForce API"
+        sling:resourceType="cq/cloudserviceconfigs/components/servicepage"
+        description="Simple Salesforce integration API"
+        descriptionExtended="Simple Salesforce integration API"
+        inclusionRank="100"
+        ranking="40"
+        serviceAdminUrl="http://www.salesforce.com/"
+        serviceUrl="http://www.salesforce.com/"
+        showOnDashboard="{Boolean}true"
+        thumbnailPath="/apps/aemdesign/templates/cloudconfig/salesforceapi/salesforce.png"
+        visible="{Boolean}true"/>
+</jcr:root>

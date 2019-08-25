@@ -1,0 +1,291 @@
+// stylelint-disable selector-max-compound-selectors
+%component-list {
+  @include make-container(0);
+  @include make-container-max-widths;
+  // iPhone X support
+  @include iphone-x;
+
+  > .content {
+    > ul,
+    .owl-carousel:not(.owl-loaded) {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+        margin-left: -($list-item-md-margin / 2);
+        width: calc(100% + #{$list-item-md-margin});
+      }
+
+      @include media-breakpoint-up(lg) {
+        margin-left: -($list-item-lg-margin / 2);
+        width: calc(100% + #{$list-item-lg-margin});
+      }
+    }
+
+    > ul > li,
+    .owl-carousel > .item {
+      flex: 0 1 100%;
+      position: relative;
+      width: 100%;
+    }
+
+    > ul {
+      margin-bottom: -$list-item-margin;
+
+      > li {
+        margin-bottom: $list-item-margin;
+        padding-left: 0;
+
+        // stylelint-disable-next-line
+        &::before {
+          display: none;
+        }
+
+        @include media-breakpoint-up(md) {
+          margin-bottom: $list-item-md-margin;
+        }
+
+        @include media-breakpoint-up(lg) {
+          margin-bottom: $list-item-lg-margin;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: -$list-item-md-margin;
+      }
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: -$list-item-lg-margin;
+      }
+    }
+
+    // When the carousel container has been build, hide the original list
+    .owl-carousel:not(.mobile-carousel) + ul {
+      display: none;
+    }
+  }
+
+  // Hide the default AEM pagination
+  .pagination {
+    display: none;
+  }
+
+  // Create the default page list child variant sizes
+  @include pagelist-variant {
+    flex: 0 1 100%;
+
+    @include media-breakpoint-up(md) {
+      flex-basis: percentage(4 / $grid-columns);
+      max-width: percentage(4 / $grid-columns);
+      padding-left: $list-item-md-margin / 2;
+      padding-right: $list-item-md-margin / 2;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-left: $list-item-lg-margin / 2;
+      padding-right: $list-item-lg-margin / 2;
+    }
+  }
+
+  @include media-breakpoint-only(md) {
+    &:not(.theme--lists-fill):not([data-modules="carousel"]):not(.theme--page-list-social-links) > .content > ul > li {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+  }
+
+  // Normalize the list when the 'carousel' module is applied
+  @extend %component-list-carousel;
+}
+
+%component-list-carousel {
+  $grid-gutter: $grid-gutter-width / 2;
+
+  &.owl-ready .owl-carousel:not(.owl-loaded) {
+    @include make-container-max-widths;
+
+    flex-wrap: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+  }
+
+  .owl-carousel {
+    .owl-stage {
+      display: flex;
+
+      &-outer {
+        margin-bottom: -20px;
+        margin-left: -10px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        width: calc(100% + 100% + 10px);
+      }
+    }
+
+    .owl-item > .item,
+    > .item {
+      height: 100%;
+      width: 100%;
+    }
+
+    .owl-item,
+    > .item {
+      display: flex;
+      flex-basis: 272px;
+      float: none;
+      height: auto;
+      max-width: 272px;
+      min-height: 100%;
+      min-width: 272px;
+      transition: $transition-fade;
+
+      @include media-breakpoint-up(md) {
+        flex-basis: 260px;
+        max-width: 260px;
+        min-width: 260px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        flex-basis: 290px;
+        max-width: 290px;
+        min-width: 290px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        flex-basis: 403.33px;
+        max-width: 403.33px;
+        min-width: 403.33px;
+      }
+    }
+
+    &.owl-loaded {
+      @include make-container-max-widths;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    // Controls the active state of the carousel items
+    .owl-item:not(.active) {
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    @include media-breakpoint-down(sm) {
+      .owl-item.active ~ .owl-item {
+        opacity: .5;
+        pointer-events: none;
+      }
+
+      @media screen and (orientation: landscape) {
+        // stylelint-disable-next-line
+        .owl-item.active + .owl-item.active ~ .owl-item {
+          opacity: .5;
+          pointer-events: none;
+        }
+      }
+    }
+
+    @include media-breakpoint-between(sm, md) {
+      // stylelint-disable-next-line
+      .owl-item.active + .owl-item.active ~ .owl-item {
+        opacity: .5;
+        pointer-events: none;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-left: $grid-gutter;
+      padding-right: $grid-gutter;
+
+      // stylelint-disable-next-line
+      .owl-item.active + .owl-item.active + .owl-item.active ~ .owl-item {
+        opacity: .5;
+        pointer-events: none;
+      }
+    }
+  }
+
+  @include not-aem-author {
+    &[data-modules*='carousel'] {
+      margin-bottom: -20px;
+      padding-bottom: 20px;
+
+      &.owl-ready {
+        max-width: 100%;
+        overflow: hidden;
+        width: 100%;
+
+        > .content {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+
+      &:not(.owl-ready) {
+        padding-left: $grid-gutter;
+        padding-right: $grid-gutter;
+      }
+
+      &:not(.owl-ready) .owl-carousel {
+        flex-wrap: nowrap;
+        margin-left: -$list-item-margin;
+        overflow: hidden;
+
+        > .item {
+          margin-left: $list-item-margin;
+
+          @include media-breakpoint-down(sm) {
+            &:nth-child(n+3) {
+              display: none;
+            }
+          }
+
+          @include media-breakpoint-up(md) {
+            margin-left: $list-item-md-margin;
+
+            &:nth-child(n+4) {
+              display: none;
+            }
+          }
+
+          @include media-breakpoint-up(lg) {
+            margin-left: $list-item-lg-margin;
+          }
+        }
+
+        @include media-breakpoint-up(md) {
+          margin-left: -$list-item-md-margin;
+        }
+
+        @include media-breakpoint-up(lg) {
+          margin-left: -$list-item-lg-margin;
+        }
+      }
+    }
+
+    &[data-list-split-enabled='true'] {
+      &.owl-ready {
+        @include make-container-max-widths;
+      }
+
+      ul {
+        margin-bottom: 0;
+
+        @include media-breakpoint-down(md) {
+          &:not(.mobile-carousel) {
+            display: none;
+          }
+        }
+
+        @include media-breakpoint-up(lg) {
+          &.mobile-carousel {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

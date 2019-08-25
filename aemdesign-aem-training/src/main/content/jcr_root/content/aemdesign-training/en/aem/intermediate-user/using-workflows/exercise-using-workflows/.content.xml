@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Exercise - Using Workflows"
+        sling:resourceType="aemdesign/components/template/base"
+        hideInNav="true">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&lt;b>Objective:&lt;/b> To learn how to use workflow to complete tasks in specified sequence which may interact with different actors. In this exercise, you will create a new page and request for approval to activate the page (same as page publishing to allow the page to be published to Publish instance. Further explanation about Page Publishing is described in Publishing a Page section.)&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Navigate to the &lt;b>English &amp;gt; Vehicles&lt;/b>&amp;nbsp;page in your &lt;b>AEM Training by [Your Name]&lt;/b> site.&lt;/li>&#xa;&lt;li>Create a new page with the word “Car” as the Title and Name.&lt;/li>&#xa;&lt;li>Insert a Text Component with the text &lt;b>“This section describes what car it is.”&lt;/b>&lt;/li>&#xa;&lt;li>Insert an Image Component underneath the Text Component.&lt;/li>&#xa;&lt;li>Drag the Car image from Assets to the Image Component.&lt;/li>&#xa;&lt;li>Insert a 2 Column Component underneath the Image Component.&lt;/li>&#xa;&lt;li>Insert 2 Text Components on each column.&lt;/li>&#xa;&lt;li>On the left side Text Component, type in the text &lt;b>“Definition: A vehicle that has four wheels and an engine and that is used for carrying passengers on roads”&lt;/b>&lt;/li>&#xa;&lt;li>On the right side Text Component, type in the text &lt;b>“History: The first working steam-powered vehicle was designed—and most likely built—by Ferdinand Verbiest, a Flemish member of a Jesuit mission in China around 1672. It was a 65-cm-long scale-model toy for the Chinese Emperor that was unable to carry a driver or a passenger”&lt;/b>.&lt;/li>&#xa;&lt;li>Tagging the page using the word “&lt;b>Car&lt;/b>”.&lt;/li>&#xa;&lt;li>Add an annotation on the car image – “&lt;b>Will need to revisit the image before publishing&lt;/b>”&lt;/li>&#xa;&lt;li>Start the workflow for “Request of Activation”.&lt;/li>&#xa;&lt;li>Set the Title of the workflow to &lt;b>Content Approval Workflow.&lt;/b>&lt;/li>&#xa;&lt;li>Complete the rest of the steps until the workflow is completed. Ensure you examine the result action after each step is completed.&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>Page’s Timeline on that page should show the following log sequence:&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Using_a_Workflow-Result.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="200"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>

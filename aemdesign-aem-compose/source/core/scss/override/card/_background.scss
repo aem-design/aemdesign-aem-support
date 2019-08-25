@@ -1,0 +1,92 @@
+// stylelint-disable selector-max-compound-selectors
+
+&--background,
+.cards-background & {
+  background-color: $white;
+  position: relative;
+
+  .card-img-top {
+
+    @include media-breakpoint-only(sm) {
+      @media (orientation: landscape) {
+        bottom: 0;
+        left: 50%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    img {
+      @include object-fit(cover, center);
+
+      @include media-breakpoint-only(sm) {
+        @media (orientation: landscape) {
+          @include object-fit(cover, left top);
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        @include object-fit(contain, right top);
+      }
+    }
+  }
+
+  .card-body {
+    background-color: transparent;
+    padding: 30px;
+    position: relative;
+
+    @include media-breakpoint-only(sm) {
+      @media (orientation: landscape) {
+        padding: 35px;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 136px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-top: 180px;
+      padding: 40px;
+    }
+
+    .card-subtitle {
+      margin-bottom: 0;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 6px;
+      }
+    }
+
+    .card-title {
+      margin-bottom: 20px;
+    }
+
+    .card-text {
+      margin-bottom: 30px;
+    }
+
+    .card-action {
+      padding-top: 0;
+    }
+  }
+}

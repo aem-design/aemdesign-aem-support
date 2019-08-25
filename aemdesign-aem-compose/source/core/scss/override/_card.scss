@@ -1,0 +1,143 @@
+// PLEASE NOTE!!
+//
+// This overrides only styles that aren't configurable by Bootstrap, please take
+// care when making changes as we shouldn't be duplicating styles that Bootstrap
+// generates for us automatically.
+
+.card {
+  box-shadow: 0 2px 3px color('grey-4');
+  height: 100%;
+  margin-bottom: 0;
+  width: 100%;
+
+  &-img-top {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      @include object-fit(cover, center);
+
+      display: block;
+      width: 100%;
+
+      &[src$='jpeg'],
+      &[src$='jpg'],
+      &[src$='png'] {
+        max-height: 145px;
+        min-height: 100%;
+        min-width: 100%;
+
+        @include media-breakpoint-up(md) {
+          max-height: 160px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          max-height: 210px;
+        }
+      }
+
+      // Handle SVG images slightly different so they don't stretch when they shouldn't
+      &[src$='svg'] {
+        object-fit: contain;
+      }
+
+      &[data-ofi-src] {
+        max-height: 100%;
+      }
+
+      // In browsers that don't support object-fit we use a polyfill, for icons that are
+      // SVG we need to ensure they scale to the parent container rather than covering
+      // the whole element.
+      &[data-ofi-src$='svg'] {
+        // stylelint-disable-next-line
+        background-size: auto !important;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      @include aspect-ratio(16, 9, 'img');
+
+      img {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &-subtitle,
+  &-date,
+  &-taglist,
+  &-text {
+    margin-bottom: $card-spacer-y;
+  }
+
+  &-body {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+
+    // A small 'hack' (if you will) that ensures buttons remain aligned to the bottom of the
+    // card as sibling cards will be the same height as oneanother.
+    > :last-child:not(.card-title):not(.card-text) {
+      margin-top: auto;
+    }
+
+    // Remove the bottom margin if it's the only or last child in the body
+    > :only-child,
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-date,
+  &-text {
+    font-weight: 300;
+  }
+
+  &-taglist {
+    .taglist li::before {
+      display: none;
+    }
+
+    li {
+      padding-left: 0;
+    }
+
+    &--basic {
+      color: color('grey-2');
+      font-size: 12px;
+      margin-bottom: 0;
+
+      li::before {
+        display: none;
+      }
+    }
+  }
+
+  &-action {
+    // Normally 40px, we take 16px from here because other elements are spaced that far apart
+    padding-top: 24px;
+  }
+
+  &-link {
+    @extend .link;
+
+    height: auto;
+  }
+
+  // Variations and style changes
+  @import 'card/background';
+  @import 'card/common';
+  @import 'card/notification';
+  @import 'card/promoted';
+  @import 'card/taglist-share';
+  @import 'card/column';
+  @import 'card/columns';
+
+  // Background variations
+  .bg-yellow &,
+  .bg-yellow-pattern & {
+    box-shadow: 0 2px 3px #f3c26d;
+  }
+}

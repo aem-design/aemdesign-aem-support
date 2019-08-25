@@ -1,0 +1,29 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+
+.contentblock {
+  @include clearfix;
+
+  // Strip away the padding when a nested `.container` exists in a content block container
+  &.container > .container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .video:not(.playing) {
+    display: none;
+  }
+
+  &.advsection > .content {
+    > .title {
+      @include make-container;
+      @include make-container-max-widths;
+
+      @extend %headings-underlined;
+    }
+  }
+}

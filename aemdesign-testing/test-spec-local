@@ -1,0 +1,17 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+
+SCRIPT_PARAMS="$@"
+
+SKIP_PRINT_CONFIG=true
+
+source "../scripts/functions.sh"
+
+EXEC_HOST="${1:-$LOCAL_IP}"
+EXEC_ENV="${2:-remote-seleniumhub-chrome}" #localremote - seleniumhub - local-phantomjs
+HUB_URL="${3:-$SELENIUMHUB_SCHEME://$LOCAL_IP:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE}"
+EXEC_AEM_PORT="${4:-$AEM_PORT}"
+
+echo ./test-spec "$EXEC_HOST" "$EXEC_AEM_PORT" "$EXEC_ENV" "$HUB_URL"
+./test-spec "$EXEC_HOST" "$EXEC_AEM_PORT" "$EXEC_ENV" "$HUB_URL"

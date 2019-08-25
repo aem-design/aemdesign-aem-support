@@ -1,0 +1,38 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+
+.text {
+  @include clearfix;
+
+  &:not(.text-heading-outlined) {
+    @extend %headings-underlined;
+  }
+
+  // Smaller text
+  &-small {
+    @extend small;
+  }
+
+  // Darker list
+  &-list-dark {
+    li::before,
+    li::before {
+      color: color('red');
+    }
+  }
+
+  p {
+    margin-bottom: 16px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 24px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 30px;
+    }
+  }
+}

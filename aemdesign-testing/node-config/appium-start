@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+PARENT_PROJECT_PATH="$(realpath ../..)"
+
+SCRIPT_PARAMS="$@"
+
+source "../../scripts/functions.sh"
+
+APPIUM_IP="$LOCAL_IP"
+APPIUM_PORT="4723"
+SELENIUM_IP="$LOCAL_IP"
+SELENIUM_PORT="32768"
+DEVICE_TYPE="${1:-ios}"
+DEVICE_TEMPLATE="$DEVICE_TYPE-template.json"
+DEVICE_CONFIG_DIR="appium_node_config"
+DEVICE_CONFIG="$DEVICE_CONFIG_DIR/$DEVICE_TYPE.json"
+CHROMEDRIVER="$(pwd)/chromedriver/chromedriver"
+
+APPIUM="./node_modules/.bin/appium"
+APPIUM_DOCTOR="./node_modules/.bin/appium-doctor"
+
+echo "APPIUM_IP: $APPIUM_IP"
+echo "APPIUM_PORT: $APPIUM_PORT"
+echo "SELENIUM_IP: $SELENIUM_IP"
+echo "SELENIUM_PORT: $SELENIUM_PORT"
+echo "APPIUM: $APPIUM"
+echo "APPIUM_DOCTOR: $APPIUM_DOCTOR"
+echo "DEVICE_TYPE: $DEVICE_TYPE"
+echo "DEVICE_TEMPLATE: $DEVICE_TEMPLATE"
+echo "DEVICE_CONFIG: $DEVICE_CONFIG"
+echo "CHROMEDRIVER: $CHROMEDRIVER"
+
+if [[ ! -f $APPIUM && ! -f $APPIUM_DOCTOR ]]; then
+    npm install appium appium-doctor appium-chromedriver --chromedriver_version="2.28" --save-local
+else
+    echo
+    echo
+    echo APPIUM is installed
+    echo
+    echo
+fi
+
+echo Checking APPIUM dependencies
+APPIUM_STATUS="$(./node_modules/.bin/appium-doctor 2>&1 | grep -o -m 1 -B 500 "necessary dependencies completed" | grep WARN)"
+
+if [[ ! "$APPIUM_STATUS" == "" ]]; then
+    ./node_modules/.bin/appium-doctor
+    echo
+    echo
+    echo PLEASE FIX ALL WARNINGS BEFORE CONTINUING
+    echo
+    echo
+    exit 1
+else
+    echo
+    echo
+    echo Necessary dependecies are ok
+    echo
+    echo
+fi
+
+echo Creating APPIUM config
+
+mkdir "$DEVICE_CONFIG_DIR"
+
+createFileFromTemplate "s/APPIUM_IP/$APPIUM_IP/g;s/APPIUM_PORT/$APPIUM_PORT/g;s/SELENIUM_IP/$SELENIUM_IP/g;s/SELENIUM_PORT/$SELENIUM_PORT/g" "$DEVICE_TEMPLATE" "$DEVICE_CONFIG"
+
+echo Starting APPIUM server
+
+if [[ "$DEVICE_TYPE" == "ios" ]]; then
+    ./node_modules/.bin/appium --nodeconfig "$DEVICE_CONFIG" -a $LOCAL_IP -p $APPIUM_PORT --default-capabilities "$DEVICE_TYPE-capabilities.json"
+else
+    ./node_modules/.bin/appium --nodeconfig "$DEVICE_CONFIG" -a $LOCAL_IP -p $APPIUM_PORT --chromedriver-executable "$CHROMEDRIVER" --default-capabilities "$DEVICE_TYPE-capabilities.json"
+fi
+

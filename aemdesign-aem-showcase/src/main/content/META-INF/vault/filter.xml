@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <!--                        W A R N I N G                     -->
+    <!--        This change can make the AEM content removed      -->
+    <!--    http://jackrabbit.apache.org/filevault/filter.html    -->
+    <!--                        W A R N I N G                     -->
+    <filter root="/content/aemdesign-showcase"/>
+    <filter root="/content/dam/aemdesign-showcase"/>
+    <!--<filter root="/content/cq:tags/aemdesign-showcase"/>-->
+
+    <filter root="/conf/aemdesign-showcase"/>
+    <filter root="/content/experience-fragments/aemdesign-showcase" mode="update"/>
+</workspaceFilter>

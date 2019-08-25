@@ -1,0 +1,15 @@
+img {
+  max-width: 100%;
+}
+
+figure,
+picture {
+  img {
+    display: block;
+    min-width: 100%;
+  }
+}
+
+picture img {
+  width: auto;
+}

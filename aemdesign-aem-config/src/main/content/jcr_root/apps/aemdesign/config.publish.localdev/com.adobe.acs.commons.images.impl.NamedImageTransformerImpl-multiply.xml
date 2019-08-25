@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          name="my-mulitply"
+          transforms="[multiply:alpha=.75&amp;red=51&amp;green=102&amp;blue=255]"/>
+
+<!--
+    alpha=[0.0..1.0] (Opacity, percentage)
+    color=[000000..FFFFFF] (Hex Color for use in blending; if specified, overrides all red/green/blue parameters)
+    red=[0..255] (Red value for use in blending; not required if using color parameter; default value: 255)
+    green=[0..255] (Green value for use in blending; not required if using color parameter; default value: 255)
+    blue=[0..255] (Blue value for use in blending; not required if using color parameter; default value: 255)
+-->

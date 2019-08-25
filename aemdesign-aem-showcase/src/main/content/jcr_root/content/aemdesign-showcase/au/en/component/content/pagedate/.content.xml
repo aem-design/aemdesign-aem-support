@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:created="{Date}2018-02-19T14:28:45.110+11:00"
+        cq:lastModified="{Date}2018-02-20T14:28:45.110+11:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2018-02-21T14:28:45.110+11:00"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page Date"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <contentblockmenu1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                    componentId="contentblockmenu1"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    componentTheme="[]"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Page Date: Default"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagedate
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/pagedate"
+                            componentId="pagedate1"/>
+                    </par>
+                </contentblock1>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

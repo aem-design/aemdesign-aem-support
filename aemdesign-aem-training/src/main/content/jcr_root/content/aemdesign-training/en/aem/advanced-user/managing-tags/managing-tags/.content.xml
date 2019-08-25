@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Managing Tags"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/aemdesign-training/en/aem/advanced-user/managing-tags"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>Tags can be grouped into various namespaces. Such hierarchies allow taxonomies to be built. These taxonomies are global throughout AEM.&lt;/p>&#xa;&lt;p>Tags are managed by grouping into namespaces, reviewing usage of exiting tags before creating new ones, and re-organizing without disconnecting the tag from currently referenced content.&lt;/p>&#xa;&lt;p>To access the Tagging console:&lt;/p>&#xa;&lt;p>·&amp;nbsp;&amp;nbsp; From the Left Rail, select&amp;nbsp;&lt;b>Tools&lt;/b>-&amp;gt;&lt;b>Operations&lt;/b>-&amp;gt;&lt;b>Tagging&lt;/b>&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Managing_Tags-Home.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_1267610963
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&lt;b>Creating a Namespace&lt;/b>&lt;/p>&#xa;&lt;p>To create a new namespace, select the &lt;b>Create Namespace&lt;/b> icon. &amp;nbsp;&lt;/p>&#xa;&lt;p>The namespace is itself a tag, and need not contain any sub-tags. &amp;nbsp;However, to continue creating a taxonomy, create sub-tags, which in turn may be either leaf tags or container tags.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                        <image_1699991257
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Managing_Tags-Create_Namespace_Button.png"
+                            imageOption="asIs"
+                            imageRotate="0"
+                            width="500"/>
+                        <image_1605837091
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/media/image"
+                            fileReference="/content/dam/aemdesign-training/Managing_Tags-Add_Namespace_Dialog.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="200"/>
+                        <text_370658609
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&#xa;&lt;li>Title – (required)&amp;nbsp;A display title for the namespace.&lt;/li>&#xa;&lt;li>Name – (optional)&amp;nbsp;A name&amp;nbsp;for the namespace. If not specified, a valid node name is created from the Title.&lt;/li>&#xa;&lt;li>Description – (optional)&amp;nbsp;A description of the namespace.&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>Once the required information is entered, select &lt;b>Create.&lt;/b>&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

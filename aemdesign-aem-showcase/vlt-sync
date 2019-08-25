@@ -1,0 +1,45 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(realpath ..)"
+source "../scripts/functions.sh"
+
+SCRIPT_PARAMS="$@"
+
+set_term_title "Sync Showcase"
+
+HOST="http://localhost:4502/crx/server/crx.default/jcr:root/"
+JCR_ROOT="$(realpath ./src/main/content/jcr_root/)"
+CREDENTIALS="$AEM_USER:$AEM_PASS"
+FILTER="./src/main/content/META-INF/vault/filter.xml"
+TIMEOUT=30
+
+WATCH_COMMAND=""
+
+function doSync() {
+
+
+    debug "Setting up sync of JCR_ROOT=$JCR_ROOT with HOST=$HOST" "info"
+
+    vltSyncRegister "$CREDENTIALS" "$HOST" "$JCR_ROOT"
+
+    debug "Checking Status of sync with HOST=$HOST" "info"
+    echo $(vltSyncStatus "$CREDENTIALS" "$HOST")
+    read  -n 1 -p "Press any key to stop"
+
+    vltSyncUnRegister "$CREDENTIALS" "$HOST" "$JCR_ROOT"
+
+    set_term_title "Done"
+}
+
+function main() {
+
+    debug "THIS DONT WORK CAN YOU DEBUG?" "error"
+#   doSync
+
+
+}
+
+debugOn
+
+#start
+main "$@";

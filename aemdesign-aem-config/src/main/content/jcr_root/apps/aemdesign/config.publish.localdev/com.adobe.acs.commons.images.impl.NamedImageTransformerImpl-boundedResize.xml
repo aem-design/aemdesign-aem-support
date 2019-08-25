@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          name="my-boundedResize"
+          transforms="[bounded-resize:width=600&amp;height=600&amp;upscale=true]"/>
+
+<!--
+    v1.8.0+
+
+    Resizes the image but will not resize past maximum dimension constraints.
+    Accepts two Integer params: height and width.
+    Either width or height will scale to the parameterized limit.
+    The other dimension scale automatically to maintain the original aspect ratio.
+    If the original image is smaller than the configured dimensions the image won’t be resized.
+    Upscale param can be set to true to allow upscaling smaller images.
+
+-->

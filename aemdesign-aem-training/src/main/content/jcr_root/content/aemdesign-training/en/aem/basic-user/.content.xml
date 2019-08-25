@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Basic Author"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentTheme="[]"
+                    text="&lt;p>This section gives a glance on AEM to users.&amp;nbsp; It introduces the user interface and basic page authoring and asset management functionalities to the users.&amp;nbsp; After completing this section, you will:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>able to login to AEM&lt;/li>&#xa;&lt;li>understand the AEM user interface – Touch UI and Classis UI&lt;/li>&#xa;&lt;li>know the basic operation on managing Projects, Sites and Pages&lt;/li>&#xa;&lt;li>know how to manage digital assets using AEM Assets&lt;/li>&#xa;&lt;li>understand basic page authoring&lt;/li>&#xa;&lt;li>know how to use Scaffold&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                    textIsRich="true"/>
+            </par>
+        </article>
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside"
+            cancelInheritParent="true">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <navlist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/navlist"
+                    cancelInheritParent="true"
+                    componentId="side"
+                    listFrom="children"
+                    parentPage="/content/aemdesign-training/en/aem/basic-user"
+                    showBackToTop="false"
+                    showLangNav="false"
+                    showSearch="false"/>
+            </par>
+        </aside>
+    </jcr:content>
+    <setup-and-login/>
+    <aem-interface-tour-touchui/>
+    <aem-interface-tour-classicui/>
+    <creating-a-project/>
+    <creating-a-site/>
+    <managing-digital-assets/>
+    <managing-pages/>
+    <using-a-component/>
+    <using-a-scaffold/>
+</jcr:root>

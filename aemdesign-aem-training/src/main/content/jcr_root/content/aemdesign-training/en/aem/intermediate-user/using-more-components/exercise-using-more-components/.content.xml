@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign:content-type/page]"
+        cq:template="/conf/aemdesign-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Exercise - Using More Components"
+        sling:resourceType="aemdesign/components/template/base"
+        hideInNav="true">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&lt;b>Objective:&lt;/b> Learn how to add more components into the page.&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Navigate to the &lt;b>English &amp;gt; Vehicles &amp;gt; Ship&lt;/b> page in your &lt;b>AEM Training by [Your Name]&lt;/b> site.&lt;/li>&#xa;&lt;li>Insert an Image Component underneath the Text Component.&lt;/li>&#xa;&lt;li>Drag the &lt;b>Ship1&lt;/b> image from Assets to the Image Component.&lt;/li>&#xa;&lt;li>Insert a 2 Column Component underneath the Image Component.&lt;/li>&#xa;&lt;li>Insert 2 Text Components on each column.&lt;/li>&#xa;&lt;li>Type in “&lt;b>Ships are generally distinguished from boats based on size, shape and cargo or passenger capacity. Ships are used on lakes, seas, and rivers for a variety of activities, such as the transport of people or goods, fishing, entertainment, public safety, and warfare. Historically, a ship was a sailing vessel with at least three square-rigged masts and a full bowsprit.&lt;/b>” in the Text Column on left side column.&lt;/li>&#xa;&lt;li>Type in “&lt;b>The first known vessels date back about 10,000 years ago, but could not be described as ships. The first navigators began to use animal skins or woven fabrics as sails. Affixed to the top of a pole set upright in a boat, these sails gave early ships range. This allowed men to explore widely.&lt;/b>” In the Text Column on the right side column.&lt;/li>&#xa;&lt;li>Insert another Image Component in the right side column.&lt;/li>&#xa;&lt;li>Drag the &lt;b>Ship2&lt;/b> image from Assets to that Image Component.&lt;/li>&#xa;&lt;li>Modify the Height and Width of the image with 300 and 100, respectively.&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>
