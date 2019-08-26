@@ -1,13 +1,22 @@
 # aemdesign-aem-support
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=design.aem%3Aaemdesign-aem-support&metric=alert_status)](https://sonarcloud.io/dashboard?id=design.aem%3Aaemdesign-aem-support)
 [![build_status](https://travis-ci.org/aem-design/aemdesign-aem-support.svg?branch=master)](https://travis-ci.org/aem-design/aemdesign-aem-support)
+[![codecov](https://codecov.io/gh/aem-design/aemdesign-aem-support/branch/master/graph/badge.svg?magic)](https://codecov.io/gh/aem-design/aemdesign-aem-support)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-aem-common/badge.svg?magic)](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-aem-common)
+[![github license](https://img.shields.io/github/license/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
+[![github issues](https://img.shields.io/github/issues/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
+[![github last commit](https://img.shields.io/github/last-commit/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
+[![github repo size](https://img.shields.io/github/repo-size/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
+[![github repo size](https://img.shields.io/github/languages/code-size/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
+[![github release](https://img.shields.io/github/release/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support)
 
-A set of content and support projects that should be deploy alongside [aemdesign-aem-core](https://github.com/aem-design/aemdesign-aem-core).
+A set of content and support projects that should be deploy alongside [aemdesign-aem-support](https://github.com/aem-design/aemdesign-aem-support).
 
 ## Documentation
 
 * [AEM.Design Blog](https://aem.design)
-* [AEM.Design SonarCloud](https://sonarcloud.io/project/issues?id=design.aem%3Aaemdesign-aem-core)
+* [AEM.Design SonarCloud](https://sonarcloud.io/project/issues?id=design.aem%3Aaemdesign-aem-support)
 
 ## Development
 If you're curious about how the next generation of components looks like, a tech preview is made available in the
@@ -100,7 +109,7 @@ Detailed table of component can be found here [Component List](https://github.co
 
 ## Component Versioning
 
-The components' versioning scheme is documented on the [AEM Core WCM Components' versioning policies](https://github.com/adobe/aem-core-wcm-components/wiki/Versioning-policies) wiki page.
+The components' versioning scheme is documented on the [AEM Core WCM Components' versioning policies](https://github.com/adobe/aem-support-wcm-components/wiki/Versioning-policies) wiki page.
 
 ## System Requirements
 
@@ -138,13 +147,13 @@ The project has the following requirements:
 
 For ease of build and installation the following profiles are provided:
 
- * ``deploymentpackage`` - activates packaging of aemdesign-aem-core-deploy
+ * ``deploymentpackage`` - activates packaging of aemdesign-aem-support-deploy
  * ``installdeploymentpackage`` - installs the deploy package/bundle to an existing AEM author instance
 
 You can use helper script for ease of local deployment
 
-* ``deploy-local`` - deploy aemdesign-aem-core-deploy package to your local AEM instance running on port 4502
-* ``deploy-local-publish`` - deploy aemdesign-aem-core-deploy package to your local AEM instance running on port 4503
+* ``deploy-local`` - deploy aemdesign-aem-support-deploy package to your local AEM instance running on port 4502
+* ``deploy-local-publish`` - deploy aemdesign-aem-support-deploy package to your local AEM instance running on port 4503
 
 ### UberJar
 
@@ -157,14 +166,14 @@ For more details about the UberJar please head over to the
 ## Include core components into your own project maven build
 
 To add core components to your project, you will need to add it to your maven build.
-The released version of the framework are available on the public maven repository at https://repo1.maven.org/maven2/design/aem/aemdesign-aem-core-deploy/ 
+The released version of the framework are available on the public maven repository at https://repo1.maven.org/maven2/design/aem/aemdesign-aem-support-deploy/ 
 
 To include the deploy package into your own project's maven build using maven you can add the dependency to your pom.xml like this
 
  ```
  <dependency>
      <groupId>design.aem</groupId>
-     <artifactId>aemdesign-aem-core-deploy</artifactId>
+     <artifactId>aemdesign-aem-support-deploy</artifactId>
      <type>zip</type>
      <version>2.0.100</version>
  </dependency>
@@ -175,7 +184,7 @@ and then add this subpackage to your sub package section
 ```
  <subPackage>
      <groupId>design.aem</groupId>
-     <artifactId>aemdesign-aem-core-deploy</artifactId>
+     <artifactId>aemdesign-aem-support-deploy</artifactId>
      <filter>true</filter>
  </subPackage>
 ```
