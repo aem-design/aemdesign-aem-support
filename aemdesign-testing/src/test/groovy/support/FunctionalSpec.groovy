@@ -766,7 +766,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
 
     def getImageWidth(imgUrl) {
         def usernamePassword = getAdminUsername() + ":" + getAdminUsername();
-        def encodedCreds =  new sun.misc.BASE64Encoder().encode(usernamePassword.getBytes())
+        def encodedCreds =   Base64.encoder.encode(usernamePassword.getBytes())
         def url = new URL(imgUrl)
         def urlConnection = url.openConnection()
         urlConnection.setRequestProperty("Authorization", "Basic " + encodedCreds);
