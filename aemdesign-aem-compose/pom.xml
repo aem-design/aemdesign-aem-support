@@ -8,7 +8,7 @@
   <parent>
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.4</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -20,7 +20,7 @@
   <packaging>content-package</packaging>
   <name>AEM Design - Support - Compose</name>
   <description>Showcase and Styleguide for AEM Design project</description>
-  <version>2.0.0</version>
+  <version>2.0.4</version>
 
   <properties>
     <sonar.sources>source,pom.xml</sonar.sources>
@@ -56,6 +56,72 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+	<build>
+		<resources>
+			<!-- define the resources that will go into the package -->
+			<resource>
+				<directory>.maven/content/jcr_root</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<!-- exclude .vlt control files in the package -->
+					<exclude>**/.vlt</exclude>
+					<exclude>**/.vltignore</exclude>
+					<exclude>**/.gitignore</exclude>
+					<exclude>**/*.iml</exclude>
+					<exclude>**/.classpath</exclude>
+					<exclude>**/.project</exclude>
+					<exclude>**/.settings</exclude>
+					<exclude>**/.DS_Store</exclude>
+					<exclude>**/target/**</exclude>
+					<exclude>**/pom.xml</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<configuration>
+					<includeEmptyDirs>true</includeEmptyDirs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>copy-metainf-vault-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/vault-work/META-INF</outputDirectory>
+							<resources>
+								<resource>
+									<directory>.maven/content/META-INF</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-content-generator-content-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>content-generator/content</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 	<profiles>
 		<profile>
@@ -462,69 +528,9 @@
 			</activation>
 			<build>
 
-				<resources>
-					<!-- define the resources that will go into the package -->
-					<resource>
-						<directory>.maven/content/jcr_root</directory>
-						<filtering>false</filtering>
-						<excludes>
-							<!-- exclude .vlt control files in the package -->
-							<exclude>**/.vlt</exclude>
-							<exclude>**/.vltignore</exclude>
-							<exclude>**/.gitignore</exclude>
-							<exclude>**/*.iml</exclude>
-							<exclude>**/.classpath</exclude>
-							<exclude>**/.project</exclude>
-							<exclude>**/.settings</exclude>
-							<exclude>**/.DS_Store</exclude>
-							<exclude>**/target/**</exclude>
-							<exclude>**/pom.xml</exclude>
-						</excludes>
-					</resource>
-				</resources>
-
 				<plugins>
 
-					<plugin>
-						<artifactId>maven-resources-plugin</artifactId>
-						<groupId>org.apache.maven.plugins</groupId>
-						<configuration>
-							<includeEmptyDirs>true</includeEmptyDirs>
-						</configuration>
-						<executions>
-							<execution>
-								<id>copy-metainf-vault-resources</id>
-								<phase>generate-resources</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<outputDirectory>${basedir}/target/vault-work/META-INF</outputDirectory>
-									<resources>
-										<resource>
-											<directory>.maven/content/META-INF</directory>
-											<filtering>true</filtering>
-										</resource>
-									</resources>
-								</configuration>
-							</execution>
-							<execution>
-								<id>copy-content-generator-content-resources</id>
-								<phase>generate-resources</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<outputDirectory>${basedir}/target/classes/</outputDirectory>
-									<resources>
-										<resource>
-											<directory>content-generator/content</directory>
-										</resource>
-									</resources>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
+
 
 					<plugin>
 						<groupId>com.github.eirslett</groupId>
@@ -595,6 +601,51 @@
 
 			</build>
 		</profile>
+
+
+
+		<!-- AEM.Design overrides -->
+		<profile>
+			<id>copyTags</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<groupId>org.apache.maven.plugins</groupId>
+						<configuration>
+							<includeEmptyDirs>true</includeEmptyDirs>
+						</configuration>
+						<executions>
+							<execution>
+								<id>copy-content-generator-content-resources</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/target/classes/</outputDirectory>
+									<resources>
+										<resource>
+											<directory>content-generator/content</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+
+
+
+			</build>
+		</profile>
+
 	</profiles>
 
 </project>
