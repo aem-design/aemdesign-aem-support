@@ -248,6 +248,12 @@
 							<verbose>false</verbose>
 							<failOnError>true</failOnError>
 							<group>${package.group}</group>
+							<properties>
+								<acHandling>merge_preserve</acHandling>
+								<created>${buildNumber}</created>
+								<createdBy>${package.createdBy}</createdBy>
+								<description>${project.description}</description>
+							</properties>
 							<filters combine.children="append">
 								<filter>
 									<root>/${package.appFolder}/clientlibs/core</root>
@@ -425,6 +431,12 @@
 							<verbose>false</verbose>
 							<failOnError>true</failOnError>
 							<group>${package.group}</group>
+							<properties>
+								<acHandling>merge_preserve</acHandling>
+								<created>${buildNumber}</created>
+								<createdBy>${package.createdBy}</createdBy>
+								<description>${project.description}</description>
+							</properties>
 							<filters combine.children="append">
 								<filter>
 									<root>/${package.appFolder}/clientlibs/styleguide</root>
@@ -472,61 +484,6 @@
 				</resources>
 
 				<plugins>
-					<plugin>
-						<groupId>com.github.eirslett</groupId>
-						<artifactId>frontend-maven-plugin</artifactId>
-						<version>1.6</version>
-						<configuration>
-							<nodeVersion>${nodeVersion}</nodeVersion>
-							<npmVersion>${npmVersion}</npmVersion>
-							<yarnVersion>${yarnVersion}</yarnVersion>
-						</configuration>
-						<executions>
-							<execution>
-								<id>exec-aem-generate-tags-aemdesign</id>
-								<phase>initialize</phase>
-								<goals>
-									<goal>yarn</goal>
-								</goals>
-								<configuration>
-									<arguments>- -stack_size=8192</arguments>
-									<arguments>run aem:generatetags --no-clean --no-console --config=overrides.yml
-									</arguments>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>com.day.jcr.vault</groupId>
-						<artifactId>content-package-maven-plugin</artifactId>
-						<extensions>true</extensions>
-						<configuration>
-							<verbose>false</verbose>
-							<failOnError>true</failOnError>
-							<group>${package.group}</group>
-							<filters combine.children="append">
-								<filter>
-									<root>/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars</root>
-									<mode>update</mode>
-								</filter>
-								<filter>
-									<root>/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles</root>
-									<mode>update</mode>
-								</filter>
-								<filter>
-									<root>/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats</root>
-									<mode>update</mode>
-								</filter>
-							</filters>
-							<subPackages>
-								<subPackage>
-									<type>zip</type>
-									<filter>true</filter>
-								</subPackage>
-							</subPackages>
-						</configuration>
-					</plugin>
-
 
 					<plugin>
 						<artifactId>maven-resources-plugin</artifactId>
@@ -569,29 +526,75 @@
 						</executions>
 					</plugin>
 
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>1.6</version>
+						<configuration>
+							<nodeVersion>${nodeVersion}</nodeVersion>
+							<npmVersion>${npmVersion}</npmVersion>
+							<yarnVersion>${yarnVersion}</yarnVersion>
+						</configuration>
+						<executions>
+							<execution>
+								<id>exec-aem-generate-tags-aemdesign</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>yarn</goal>
+								</goals>
+								<configuration>
+									<arguments>- -stack_size=8192</arguments>
+									<arguments>run aem:generatetags --no-clean --no-console --config=overrides.yml
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>com.day.jcr.vault</groupId>
+						<artifactId>content-package-maven-plugin</artifactId>
+						<extensions>true</extensions>
+						<configuration>
+							<verbose>false</verbose>
+							<failOnError>true</failOnError>
+							<group>${package.group}</group>
+							<properties>
+								<acHandling>merge_preserve</acHandling>
+								<created>${buildNumber}</created>
+								<createdBy>${package.createdBy}</createdBy>
+								<description>${project.description}</description>
+							</properties>
+							<filters combine.children="append">
+								<filter>
+									<root>/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars</root>
+									<mode>update</mode>
+								</filter>
+								<filter>
+									<root>/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles</root>
+									<mode>update</mode>
+								</filter>
+								<filter>
+									<root>/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats</root>
+									<mode>update</mode>
+								</filter>
+							</filters>
+							<subPackages>
+								<subPackage>
+									<type>zip</type>
+									<filter>true</filter>
+								</subPackage>
+							</subPackages>
+						</configuration>
+					</plugin>
+
+
 				</plugins>
+
+
 
 			</build>
 		</profile>
 	</profiles>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>content-package-maven-plugin</artifactId>
-				<groupId>com.day.jcr.vault</groupId>
-				<extensions>true</extensions>
-				<configuration>
-					<group>${package.group}</group>
-					<targetURL>${package.uploadProtocol}://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>
-					<properties>
-						<acHandling>merge_preserve</acHandling>
-						<created>${buildNumber}</created>
-						<createdBy>${package.createdBy}</createdBy>
-						<description>${project.description}</description>
-					</properties>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
