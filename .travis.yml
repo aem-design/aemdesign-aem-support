@@ -54,3 +54,6 @@ deploy:
 #  email: false
 #  slack:
 #    secure: $SLACK_TOKEN
+
+after_failure:
+	- find . -type d -name target | xargs -n 1 -t  sh -c 'ls -latr'
