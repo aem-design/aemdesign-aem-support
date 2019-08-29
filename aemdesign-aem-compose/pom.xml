@@ -8,7 +8,7 @@
   <parent>
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.4</version>
+    <version>2.0.10</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -20,7 +20,7 @@
   <packaging>content-package</packaging>
   <name>AEM Design - Support - Compose</name>
   <description>Showcase and Styleguide for AEM Design project</description>
-  <version>2.0.4</version>
+  <version>2.0.10</version>
 
   <properties>
     <sonar.sources>source,pom.xml</sonar.sources>
