@@ -7,7 +7,7 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.4</version>
+    <version>2.0.10</version>
     <packaging>pom</packaging>
 
     <name>AEM Design - Support Project</name>
@@ -469,7 +469,8 @@
                     <flattenedPomFilename>.flattened-pom.xml</flattenedPomFilename>
                     <outputDirectory>${project.build.directory}</outputDirectory>
                     <updatePomFile>true</updatePomFile>
-                    <flattenMode>ossrh</flattenMode>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+					<embedBuildProfileDependencies>true</embedBuildProfileDependencies>
                 </configuration>
                 <executions>
                     <execution>
