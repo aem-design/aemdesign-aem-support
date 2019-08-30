@@ -9,7 +9,7 @@
     <parent>
         <groupId>design.aem</groupId>
         <artifactId>aemdesign-aem-support</artifactId>
-        <version>2.0.14</version>
+        <version>2.0.15</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -18,10 +18,11 @@
     <!-- ====================================================================== -->
 
     <artifactId>aemdesign-aem-compose</artifactId>
-    <packaging>content-package</packaging>
-    <name>AEM Design - Support - Compose</name>
-    <description>Showcase and Styleguide for AEM Design project</description>
-    <version>2.0.14</version>
+	<version>2.0.15</version>
+	<packaging>content-package</packaging>
+	<name>AEM Design - Support - Compose</name>
+	<description>Showcase and Styleguide for AEM Design project</description>
+	<url>${parent.url}</url>
 
     <properties>
         <sonar.sources>source,pom.xml</sonar.sources>
@@ -46,6 +47,39 @@
             <name>Max Barrass</name>
         </developer>
     </developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/aem-design/aemdesign-aem-support.git</connection>
+		<url>https://github.com/aem-design/aemdesign-aem-support</url>
+	</scm>
+
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/aem-design/aemdesign-aem-support/issues</url>
+	</issueManagement>
+
+	<distributionManagement>
+		<site>
+			<id>api.wiki</id>
+			<url>https://github.com/aem-design/aemdesign-aem-support/wiki</url>
+		</site>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
     <dependencyManagement>
         <dependencies>
