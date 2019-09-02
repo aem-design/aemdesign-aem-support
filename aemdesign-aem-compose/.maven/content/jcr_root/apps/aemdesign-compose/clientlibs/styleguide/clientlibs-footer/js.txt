@@ -1,1 +1,1 @@
-../js/styleguide.js
+js/styleguide.js

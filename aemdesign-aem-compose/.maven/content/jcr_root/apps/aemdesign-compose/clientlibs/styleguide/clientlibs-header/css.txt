@@ -1,1 +1,1 @@
-../css/styleguide.css
+css/styleguide.css
