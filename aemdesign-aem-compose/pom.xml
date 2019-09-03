@@ -433,12 +433,6 @@
                         </filter>
                     </filters>
 
-                    <subPackages>
-                        <subPackage>
-                            <type>zip</type>
-                            <filter>true</filter>
-                        </subPackage>
-                    </subPackages>
                 </configuration>
             </plugin>
         </plugins>
