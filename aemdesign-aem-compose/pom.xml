@@ -138,12 +138,103 @@
 			</plugin>
 
             <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <groupId>com.github.eirslett</groupId>
+                <version>1.6</version>
+                <configuration>
+                    <nodeVersion>${nodeVersion}</nodeVersion>
+                    <npmVersion>${npmVersion}</npmVersion>
+                    <yarnVersion>${yarnVersion}</yarnVersion>
+                </configuration>
+                <executions>
+                    <!-- Init -->
+                    <execution>
+                        <id>exec-install-node-and-npm</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>exec-install-node-and-yarn</id>
+                        <phase>initialize</phase>
+
+                        <goals>
+                            <goal>install-node-and-yarn</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>exec-yarn-install</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- Core -->
+                    <execution>
+                        <id>exec-aem-build-core</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>${package.npmCommand} --env.project=core --env.maven --env.clean
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>exec-aem-generate-tags-core</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>- -stack_size=8192</arguments>
+                            <arguments>run aem:generatetags --no-clean --no-console --config=core.yml
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <!-- Styleguide -->
+                    <execution>
+                        <id>exec-aem-build-styleguide</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>${package.npmCommand} --env.project=styleguide --env.maven --env.clean
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- AEM.Design overrides -->
+                    <execution>
+                        <id>exec-aem-generate-tags-aemdesign</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>- -stack_size=8192</arguments>
+                            <arguments>run aem:generatetags --no-clean --no-console --config=overrides.yml
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <!-- ensure that the empty directories are copied -->
                 <configuration>
                     <includeEmptyDirs>true</includeEmptyDirs>
                 </configuration>
                 <executions>
+                    <!-- Init -->
                     <execution>
                         <id>copy-metainf-vault-resources</id>
                         <phase>generate-resources</phase>
@@ -160,6 +251,79 @@
                             </resources>
                         </configuration>
                     </execution>
+
+                    <!-- Core -->
+                    <execution>
+                        <id>copy-header-vault-resources-core</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${basedir}/target/classes/${package.appFolder}/clientlibs/core/clientlibs-header
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>public/core/clientlibs-header</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-footer-vault-resources-core</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${basedir}/target/classes/${package.appFolder}/clientlibs/core/clientlibs-footer
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>public/core/clientlibs-footer</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <!-- Styleguide -->
+                    <execution>
+                        <id>copy-header-vault-resources-styleguide</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${basedir}/target/classes/${package.appFolder}/clientlibs/styleguide/clientlibs-header
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>public/styleguide/clientlibs-header</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-footer-resources-styleguide</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${basedir}/target/classes/${package.appFolder}/clientlibs/styleguide/clientlibs-footer
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>public/styleguide/clientlibs-footer</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+
+                    <!-- AEM.Design overrides -->
                     <execution>
                         <id>copy-content-generator-content-resources</id>
                         <phase>generate-resources</phase>
@@ -177,7 +341,146 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <verbose>false</verbose>
+                    <failOnError>true</failOnError>
+                    <group>${package.group}</group>
+                    <properties>
+                        <acHandling>merge_preserve</acHandling>
+                        <created>${buildNumber}</created>
+                        <createdBy>${package.createdBy}</createdBy>
+                        <description>${project.description}</description>
+                    </properties>
+                    <filters combine.children="append">
+                        <!-- Core -->
+                        <filter>
+                            <root>/${package.appFolder}/clientlibs/core</root>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/content-type</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-topic</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-style-theme</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-style-modifier
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-style-module</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-style-chevron</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-style-icon</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-dialog</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-aria</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.core}/component-analytics</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/content-type</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-topic</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-theme
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-modifier
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-module
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-chevron
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-icon
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-dialog</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-aria</root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>${package.tagPath}/${package.tagNamespace.showcase}/component-analytics</root>
+                            <mode>update</mode>
+                        </filter>
 
+                        <!-- Styleguide -->
+                        <filter>
+                            <root>/${package.appFolder}/clientlibs/styleguide</root>
+                        </filter>
+
+                        <!-- AEM.Design overrides -->
+                        <filter>
+                            <root>
+                                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>
+                                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                        <filter>
+                            <root>
+                                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats
+                            </root>
+                            <mode>update</mode>
+                        </filter>
+                    </filters>
+
+                    <subPackages>
+                        <subPackage>
+                            <type>zip</type>
+                            <filter>true</filter>
+                        </subPackage>
+                    </subPackages>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -213,507 +516,7 @@
             </build>
         </profile>
 
-        <profile>
-            <id>deploymentpackage</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>release</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>frontend-maven-plugin</artifactId>
-                        <groupId>com.github.eirslett</groupId>
-                        <version>1.6</version>
-                        <configuration>
-                            <nodeVersion>${nodeVersion}</nodeVersion>
-                            <npmVersion>${npmVersion}</npmVersion>
-                            <yarnVersion>${yarnVersion}</yarnVersion>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>exec-install-node-and-npm</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>install-node-and-npm</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>exec-install-node-and-yarn</id>
-                                <phase>initialize</phase>
 
-                                <goals>
-                                    <goal>install-node-and-yarn</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>exec-yarn-install</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>yarn</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>install</arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <!-- Core -->
-        <profile>
-            <id>buildCore</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>release</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.eirslett</groupId>
-                        <artifactId>frontend-maven-plugin</artifactId>
-                        <version>1.6</version>
-                        <configuration>
-                            <nodeVersion>${nodeVersion}</nodeVersion>
-                            <npmVersion>${npmVersion}</npmVersion>
-                            <yarnVersion>${yarnVersion}</yarnVersion>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>exec-aem-build-core</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>yarn</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>${package.npmCommand} --env.project=core --env.maven --env.clean
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>exec-aem-generate-tags-core</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>yarn</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>- -stack_size=8192</arguments>
-                                    <arguments>run aem:generatetags --no-clean --no-console --config=core.yml
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <!-- ensure that the empty directories are copied -->
-                        <configuration>
-                            <includeEmptyDirs>true</includeEmptyDirs>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>copy-header-vault-resources-core</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>
-                                        ${basedir}/target/classes/${package.appFolder}/clientlibs/core/clientlibs-header
-                                    </outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>public/core/clientlibs-header</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>copy-footer-vault-resources-core</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>
-                                        ${basedir}/target/classes/${package.appFolder}/clientlibs/core/clientlibs-footer
-                                    </outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>public/core/clientlibs-footer</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.day.jcr.vault</groupId>
-                        <artifactId>content-package-maven-plugin</artifactId>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <verbose>false</verbose>
-                            <failOnError>true</failOnError>
-                            <group>${package.group}</group>
-                            <properties>
-                                <acHandling>merge_preserve</acHandling>
-                                <created>${buildNumber}</created>
-                                <createdBy>${package.createdBy}</createdBy>
-                                <description>${project.description}</description>
-                            </properties>
-                            <filters combine.children="append">
-                                <filter>
-                                    <root>/${package.appFolder}/clientlibs/core</root>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/content-type</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-topic</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-style-theme</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-style-modifier
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-style-module</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-style-chevron</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-style-icon</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-dialog</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-aria</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.core}/component-analytics</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/content-type</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-topic</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-theme
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-modifier
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-module
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-chevron
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-style-icon
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-dialog</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-aria</root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>${package.tagPath}/${package.tagNamespace.showcase}/component-analytics</root>
-                                    <mode>update</mode>
-                                </filter>
-                            </filters>
-
-                            <subPackages>
-                                <subPackage>
-                                    <type>zip</type>
-                                    <filter>true</filter>
-                                </subPackage>
-                            </subPackages>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- Styleguide -->
-        <profile>
-            <id>buildStyleguide</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>release</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.eirslett</groupId>
-                        <artifactId>frontend-maven-plugin</artifactId>
-                        <version>1.6</version>
-                        <configuration>
-                            <nodeVersion>${nodeVersion}</nodeVersion>
-                            <npmVersion>${npmVersion}</npmVersion>
-                            <yarnVersion>${yarnVersion}</yarnVersion>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>exec-aem-build-styleguide</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>yarn</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>${package.npmCommand} --env.project=styleguide --env.maven --env.clean
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <!-- ensure that the empty directories are copied -->
-                        <configuration>
-                            <includeEmptyDirs>true</includeEmptyDirs>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>copy-header-vault-resources-styleguide</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>
-                                        ${basedir}/target/classes/${package.appFolder}/clientlibs/styleguide/clientlibs-header
-                                    </outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>public/styleguide/clientlibs-header</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>copy-footer-resources-styleguide</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>
-                                        ${basedir}/target/classes/${package.appFolder}/clientlibs/styleguide/clientlibs-footer
-                                    </outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>public/styleguide/clientlibs-footer</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>com.day.jcr.vault</groupId>
-                        <artifactId>content-package-maven-plugin</artifactId>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <verbose>false</verbose>
-                            <failOnError>true</failOnError>
-                            <group>${package.group}</group>
-                            <properties>
-                                <acHandling>merge_preserve</acHandling>
-                                <created>${buildNumber}</created>
-                                <createdBy>${package.createdBy}</createdBy>
-                                <description>${project.description}</description>
-                            </properties>
-                            <filters combine.children="append">
-                                <filter>
-                                    <root>/${package.appFolder}/clientlibs/styleguide</root>
-                                </filter>
-                            </filters>
-                            <subPackages>
-                                <subPackage>
-                                    <type>zip</type>
-                                    <filter>true</filter>
-                                </subPackage>
-                            </subPackages>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- AEM.Design overrides -->
-        <profile>
-            <id>buildComponentDialogOverrides</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>release</name>
-                </property>
-            </activation>
-            <build>
-
-                <plugins>
-
-
-                    <plugin>
-                        <groupId>com.github.eirslett</groupId>
-                        <artifactId>frontend-maven-plugin</artifactId>
-                        <version>1.6</version>
-                        <configuration>
-                            <nodeVersion>${nodeVersion}</nodeVersion>
-                            <npmVersion>${npmVersion}</npmVersion>
-                            <yarnVersion>${yarnVersion}</yarnVersion>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>exec-aem-generate-tags-aemdesign</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>yarn</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>- -stack_size=8192</arguments>
-                                    <arguments>run aem:generatetags --no-clean --no-console --config=overrides.yml
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>com.day.jcr.vault</groupId>
-                        <artifactId>content-package-maven-plugin</artifactId>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <verbose>false</verbose>
-                            <failOnError>true</failOnError>
-                            <group>${package.group}</group>
-                            <properties>
-                                <acHandling>merge_preserve</acHandling>
-                                <created>${buildNumber}</created>
-                                <createdBy>${package.createdBy}</createdBy>
-                                <description>${project.description}</description>
-                            </properties>
-                            <filters combine.children="append">
-                                <filter>
-                                    <root>
-                                        /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>
-                                        /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                                <filter>
-                                    <root>
-                                        /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats
-                                    </root>
-                                    <mode>update</mode>
-                                </filter>
-                            </filters>
-                            <subPackages>
-                                <subPackage>
-                                    <type>zip</type>
-                                    <filter>true</filter>
-                                </subPackage>
-                            </subPackages>
-                        </configuration>
-                    </plugin>
-
-
-                </plugins>
-
-
-            </build>
-        </profile>
-
-
-        <!-- AEM.Design overrides -->
-        <profile>
-            <id>copyTags</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>release</name>
-                </property>
-            </activation>
-            <build>
-
-                <plugins>
-
-                    <plugin>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <configuration>
-                            <includeEmptyDirs>true</includeEmptyDirs>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>copy-content-generator-content-resources</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${basedir}/target/classes/</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>content-generator/content</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                </plugins>
-
-
-            </build>
-        </profile>
 
     </profiles>
 
