@@ -217,6 +217,9 @@
             <id>deploymentpackage</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>release</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -265,6 +268,9 @@
             <id>buildCore</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>release</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -470,6 +476,9 @@
             <id>buildStyleguide</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>release</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -577,6 +586,9 @@
             <id>buildComponentDialogOverrides</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>release</name>
+                </property>
             </activation>
             <build>
 
@@ -664,6 +676,9 @@
             <id>copyTags</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>release</name>
+                </property>
             </activation>
             <build>
 
