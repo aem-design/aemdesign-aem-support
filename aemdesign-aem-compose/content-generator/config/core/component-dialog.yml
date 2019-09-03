@@ -187,6 +187,35 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - ogurl: {title: "Open Graph - Url", value: "og:url"}
       - ogdescription: {title: "Open Graph - Description", value: "og:description"}
 
+  components/detials/generic-details/fields:
+    contents:
+      - action: {title: "Action Link", value: "action"}
+      - description: {title: "Description", value: "description"}
+      - title: {title: "Title", value: "title"}
+      - subtitle: {title: "Sub Title", value: "subtitle"}
+      - startdate: {title: "Start Date", value: "startdate"}
+      - taglist: {title: "Tag List", value: "taglist"}
+      - icon: {title: "Icon", value: "icon"}
+      - image: {title: "Image", value: "image"}
+      - picture: {title: "Responsive Image", value: "picture"}
+      - footer: {title: "Include Footer Container", value: "footer"}
+      - header: {title: "Include Header Container", value: "header"}
+      - toolbar: {title: "Include Toolbar Container", value: "toolbar"}
+
+  components/detials/generic-details/templates:
+    contents:
+      - default: {title: "Default", value: "Default Field List"}
+      - action-icon: {title: "Link with Icon", value: "action-icon"}
+      - action-image: {title: "Link with Image", value: "action-image"}
+      - horizontal-icon: {title: "Horizontal Card with Icon", value: "horizontal-icon"}
+      - card: {title: "Card", value: "card"}
+      - card-icon: {title: "Card with Icon", value: "card-icon"}
+      - card-image: {title: "Card with Image", value: "card-image"}
+      - simple: {title: "Simple list of fields", value: "simple"}
+      - simple-icon: {title: "Icon", value: "simple-icon"}
+      - simple-image: {title: "Image with Link", value: "simple-image"}
+      - simple-metadata: {title: "Image with Link", value: "simple-metadata"}
+
 
   components/layout/contentblock/variant:
     contents:
