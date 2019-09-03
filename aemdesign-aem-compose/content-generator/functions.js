@@ -236,12 +236,20 @@ function writeTemplate(outputPath, templateDefault, template) {
     let paths = outputPath.split('/')
     let promises = []
 
+    //remove file from path array
     paths.pop()
 
     if (paths.length > 0) {
       while (paths.length !== 0) {
+
         let node  = paths[paths.length - 1] || ''
         let title = paths[paths.length - 1] || ''
+
+        //skip generation of content for ../target
+        if ( title === ".." || ( paths.length === 2 && (paths[paths.length - 2] === ".." && title === "target")) ) {
+          paths.pop()
+          continue
+        }
 
         title = normalisePrefix(title)
 
