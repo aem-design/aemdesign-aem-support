@@ -48,7 +48,7 @@ const {
   isArray,
 } = require('lodash')
 
-const rootPath       = 'content'
+const rootPath       = '../target/classes'
 const tmpPath        = 'output'
 const pathPrefixTags = 'content/_cq_tags'
 const pathPrefixApps = 'apps/'

@@ -22,7 +22,7 @@ const {
   size,
 } = require('lodash')
 
-const rootPath = 'content'
+const rootPath = '../target/classes'
 
 const breakpoints = {
   sm: null,
