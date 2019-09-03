@@ -25,7 +25,7 @@ install:
 
 ## Build and release to maven central
 script:
-  - if [[ $TRAVIS_BRANCH == "master" ]]; then mvn deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -Pdeploymentpackage,buildCore,buildStyleguide,release; fi
+  - if [[ $TRAVIS_BRANCH == "master" ]]; then mvn --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -Pdeploymentpackage,buildCore,buildStyleguide,release package deploy ; fi
 
 ## Get the project version
 before_deploy:
