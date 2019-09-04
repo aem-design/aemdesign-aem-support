@@ -184,14 +184,7 @@
 
             <build>
                 <plugins>
-                    <!-- Skip maven-deploy-plugin use nexus-staging-maven-plugin instead -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
+
                     <!-- To release to Maven central -->
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
