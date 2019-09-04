@@ -11,7 +11,7 @@ doWorkflowsTurnOff
 
 set_term_title "Deploying Monolith Package: mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage clean install "
 echo "- Deploy"
-mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage,buildCore,buildStyleguide,installdeploymentpackage clean install "$@"
+mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage,installdeploymentpackage clean install "$@"
 set_term_title "Deployed"
 
 
