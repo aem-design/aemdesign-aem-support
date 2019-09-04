@@ -49,64 +49,6 @@
         <maven.build.timestamp.format>yyyy-MM-dd HH</maven.build.timestamp.format>
     </properties>
 
-    <reporting>
-        <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
-                <!--<version>2.18.1</version>-->
-                <!--<configuration>-->
-                    <!--<outputDirectory>${project.buildDirectory}/spock-reports</outputDirectory>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!-- Normally, we take off the dependency report, saves time. -->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-project-info-reports-plugin</artifactId>-->
-                <!--<version>2.9</version>-->
-                <!--<configuration>-->
-                    <!--<dependencyLocationsEnabled>false</dependencyLocationsEnabled>-->
-                    <!--<outputDirectory>${project.buildDirectory}/spock-reports</outputDirectory>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!-- Cobertura Code Coverage Plugin -->
-            <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>cobertura-maven-plugin</artifactId>-->
-                <!--<version>2.7</version>-->
-                <!--<configuration>-->
-                    <!--<check></check>-->
-                    <!--<instrumentation>-->
-                        <!--<ignoreTrivial>true</ignoreTrivial>-->
-                    <!--</instrumentation>-->
-                    <!--<formats>-->
-                        <!--<format>html</format>-->
-                        <!--<format>xml</format>-->
-                    <!--</formats>-->
-                    <!--<outputDirectory>${project.buildDirectory}</outputDirectory>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-                <!--<version>2.10.4</version>-->
-                <!--<configuration>-->
-                    <!--<show>public</show>-->
-                    <!--<outputDirectory>${project.buildDirectory}</outputDirectory>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
-                <!--<version>2.17</version>-->
-                <!--<configuration>-->
-                    <!--<configLocation>checkstyle.xml</configLocation>-->
-                    <!--<outputDirectory>${project.buildDirectory}</outputDirectory>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-        </plugins>
-    </reporting>
-
     <build>
         <defaultGoal>test</defaultGoal>
         <outputDirectory>${project.buildDirectory}</outputDirectory>
@@ -128,15 +70,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>-->
-                <!--<artifactId>maven-release-plugin</artifactId>-->
-                <!--<version>2.5.3</version>-->
-                <!--<configuration>-->
-                    <!--<arguments>-DskipTests</arguments>-->
-                    <!--<tagNameFormat>aemdesign-@{project.version}</tagNameFormat>-->
-                    <!--<releaseProfiles>release</releaseProfiles>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -159,17 +92,6 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-failsafe-plugin</artifactId>-->
-                <!--<version>2.20.1</version>-->
-                <!--<configuration>-->
-                    <!--<systemPropertyVariables>-->
-                        <!--<com.athaydes.spockframework.report.outputDir>${project.buildDirectory}/spock-reports</com.athaydes.spockframework.report.outputDir>-->
-                        <!--<buildDirectory>${project.buildDirectory}/spock-reports</buildDirectory>-->
-                    <!--</systemPropertyVariables>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.codehaus.gmaven</groupId>
                 <artifactId>gmaven-plugin</artifactId>
@@ -197,26 +119,6 @@
 
 
     <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${surefire.plugin.version}</version>
-                        <configuration>
-                            <parallel>${surefire.plugin.parallel}</parallel>
-                            <threadCount>${surefire.plugin.threadCount}</threadCount>
-                            <forkCount>${surefire.plugin.forkCount}</forkCount>
-                            <threadCountSuites>${surefire.plugin.threadCountSuites}</threadCountSuites>
-                            <reuseForks>${surefire.plugin.reuseForks}</reuseForks>
-                            <skipTests>false</skipTests>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
 
         <profile>
             <id>authoring-test</id>
