@@ -198,13 +198,13 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - icon: {title: "Icon", value: "icon"}
       - image: {title: "Image", value: "image"}
       - picture: {title: "Responsive Image", value: "picture"}
-      - footer: {title: "Include Footer Container", value: "footer"}
-      - header: {title: "Include Header Container", value: "header"}
-      - toolbar: {title: "Include Toolbar Container", value: "toolbar"}
+      - container: {title: "Component - Container", value: "container"}
+      - breadcrumb: {title: "Component - Breadcrumb", value: "breadcrumb"}
+      - toolbar: {title: "Component - Toolbar", value: "toolbar"}
 
   components/detials/generic-details/templates:
     contents:
-      - default: {title: "Default", value: "Default Field List"}
+      - default: {title: "Default", value: "default"}
       - action-icon: {title: "Link with Icon", value: "action-icon"}
       - action-image: {title: "Link with Image", value: "action-image"}
       - horizontal-icon: {title: "Horizontal Card with Icon", value: "horizontal-icon"}
