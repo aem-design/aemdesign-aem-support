@@ -17,11 +17,10 @@ before_install:
   - find . -type d -name target | xargs -n 1 -t  sh -c 'ls -latr $0'
   - if [[ $TRAVIS_BRANCH == "master" && $SONAR_ENABLED == "true" ]]; then mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${TRAVIS_BRANCH}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}" && echo "SONAR ON ${TRAVIS_BRANCH} DONE"; fi
   - if [[ $TRAVIS_BRANCH != "master" && $SONAR_ENABLED == "true" ]]; then mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${TRAVIS_BRANCH}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}" && echo "SONAR ON ${TRAVIS_BRANCH} DONE"; fi
+  - echo "READY"
 
-#install:
-#  - mvn clean install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -P all-modules && echo "INSTALL DONE"
-#  - mvn test -q && bash <(curl -s https://codecov.io/bash)
-#  - echo "CODECOVERAGE DONE"
+install:
+  - echo "INSTALL DONE"
 
 ## Build and release to maven central
 script:
