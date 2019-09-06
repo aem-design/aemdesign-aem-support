@@ -163,7 +163,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     static String getHostName() {
-        return System.properties.getProperty("crx.host", "192.168.27.2")
+        return System.properties.getProperty("crx.host", "localhost")
     }
 
 

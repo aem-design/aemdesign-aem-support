@@ -32,11 +32,11 @@ mvn -pl aemdesign-testing clean test -Dgeb.env=dev -Dtest=Text*
 - Pass parameters to test on other sites
 From Root:
 ```bash
-mvn -pl aemdesign-testing clean test -Dgeb.env=dev -Dcrx.host=192.168.27.2 -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
+mvn -pl aemdesign-testing clean test -Dgeb.env=dev -Dcrx.host=localhost -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
 ```
 In Project Folder
 ```bash
-mvn clean test -Dgeb.env=dev -Dcrx.host=192.168.27.2 -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
+mvn clean test -Dgeb.env=dev -Dcrx.host=localhost -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
 ```
 - Quick test on clean instance
 Test Login Page from Root Project
