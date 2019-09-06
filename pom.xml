@@ -7,22 +7,12 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.52</version>
+    <version>2.0.56</version>
     <packaging>pom</packaging>
 
     <name>AEM Design - Support Project</name>
     <description>Parent project for supporting content and testing of AEM.Design patterns</description>
 	<url>http://aem.design</url>
-
-    <modules>
-        <module>aemdesign-aem-config</module>
-        <module>aemdesign-aem-content</module>
-        <module>aemdesign-aem-compose</module>
-        <module>aemdesign-aem-showcase</module>
-        <module>aemdesign-aem-support-deploy</module>
-        <module>aemdesign-aem-training</module>
-        <module>aemdesign-testing</module>
-    </modules>
 
     <!-- ====================================================================== -->
     <!-- P R O P E R T I E S                                                    -->
@@ -677,6 +667,25 @@
     </build>
 
     <profiles>
+
+        <profile>
+            <id>no-deploy</id>
+            <activation>
+                <property>
+                    <name>!deploy</name>
+                </property>
+            </activation>
+            <modules>
+                <module>aemdesign-aem-config</module>
+                <module>aemdesign-aem-content</module>
+                <module>aemdesign-aem-compose</module>
+                <module>aemdesign-aem-showcase</module>
+                <module>aemdesign-aem-support-deploy</module>
+                <module>aemdesign-aem-training</module>
+                <module>aemdesign-testing</module>
+            </modules>
+        </profile>
+
         <profile>
             <id>deploymentpackage</id>
             <activation>
