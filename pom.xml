@@ -7,7 +7,7 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.46</version>
+    <version>2.0.52</version>
     <packaging>pom</packaging>
 
     <name>AEM Design - Support Project</name>
@@ -695,6 +695,15 @@
 					<name>release</name>
 				</property>
 			</activation>
+
+            <modules>
+                <module>aemdesign-aem-config</module>
+                <module>aemdesign-aem-content</module>
+                <module>aemdesign-aem-compose</module>
+                <module>aemdesign-aem-showcase</module>
+                <module>aemdesign-aem-support-deploy</module>
+                <module>aemdesign-aem-training</module>
+            </modules>
 
 			<build>
 				<plugins>
