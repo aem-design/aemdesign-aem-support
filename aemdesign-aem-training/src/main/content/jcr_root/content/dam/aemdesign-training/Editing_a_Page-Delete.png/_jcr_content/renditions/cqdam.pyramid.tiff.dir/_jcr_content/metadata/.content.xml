@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="nt:unstructured"
-    ptiff.height="{Long}21"
-    ptiff.md5="4121a9d4e8fce32d9f1beea69a1001d9"
-    ptiff.original="{Boolean}true"
-    ptiff.size="{Long}5312"
-    ptiff.width="{Long}59"/>
