@@ -6,6 +6,8 @@
     <jcr:content
         dam:assetState="processing"
         dam:relativePath="tets/RedRoses.mov"
+        jcr:lastModified="{Date}2019-09-12T17:17:21.138+10:00"
+        jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
@@ -14,6 +16,9 @@
             dam:size="{Long}26417455"
             dc:extent="{Long}10052"
             dc:format="video/quicktime"
+            dc:modified="{Date}2019-09-12T17:17:21.138+10:00"
+            jcr:lastModified="{Date}2019-09-12T17:17:21.138+10:00"
+            jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}1080"

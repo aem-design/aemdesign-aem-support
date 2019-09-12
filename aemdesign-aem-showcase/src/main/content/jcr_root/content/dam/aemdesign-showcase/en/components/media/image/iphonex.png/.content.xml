@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:mixinTypes="[mix:referenceable]"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
     jcr:primaryType="dam:Asset"
     jcr:uuid="72ba6150-b8aa-4011-9095-bbdaef91fce3">
     <jcr:content
+        cq:name="iphonex.png"
+        cq:parentPath="/content/dam/aemdesign-showcase/en/components/media/image"
         dam:assetState="processed"
         dam:relativePath="aemdesign-showcase/en/components/media/image/iphonex.png"
-        jcr:lastModified="{Date}2019-06-04T15:52:50.529+10:00"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2019-09-12T17:17:01.318+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -22,9 +26,12 @@
             dam:Physicalwidthindpi="{Long}72"
             dam:Physicalwidthininches="{Decimal}3.8467414379119873"
             dam:Progressive="no"
-            dam:sha1="12e192e3144db53219c5d644319b900f4d09dc79"
+            dam:sha1="f0d76c454cb2a72d2285eb82d6648b55ebcba5a0"
             dam:size="{Long}31671"
             dc:format="image/png"
+            dc:modified="{Date}2019-09-12T17:17:01.067+10:00"
+            jcr:lastModified="{Date}2019-09-12T17:17:01.066+10:00"
+            jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             photoshop:ColorMode="{Long}3"

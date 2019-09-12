@@ -6,6 +6,8 @@
     <jcr:content
         dam:assetState="processing"
         dam:relativePath="tets/DogChewingStick4k.mov"
+        jcr:lastModified="{Date}2019-09-12T17:17:13.728+10:00"
+        jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
@@ -14,6 +16,9 @@
             dam:size="{Long}93437598"
             dc:extent="{Long}9013"
             dc:format="video/quicktime"
+            dc:modified="{Date}2019-09-12T17:17:13.728+10:00"
+            jcr:lastModified="{Date}2019-09-12T17:17:13.728+10:00"
+            jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}2160"

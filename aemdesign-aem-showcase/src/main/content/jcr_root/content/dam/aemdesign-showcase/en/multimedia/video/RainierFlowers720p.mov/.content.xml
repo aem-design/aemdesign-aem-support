@@ -6,6 +6,8 @@
     <jcr:content
         dam:assetState="processing"
         dam:relativePath="tets/RainierFlowers720p.mov"
+        jcr:lastModified="{Date}2019-09-12T17:17:17.566+10:00"
+        jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
@@ -14,6 +16,9 @@
             dam:size="{Long}5964516"
             dc:extent="{Long}13066"
             dc:format="video/quicktime"
+            dc:modified="{Date}2019-09-12T17:17:17.566+10:00"
+            jcr:lastModified="{Date}2019-09-12T17:17:17.566+10:00"
+            jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}720"

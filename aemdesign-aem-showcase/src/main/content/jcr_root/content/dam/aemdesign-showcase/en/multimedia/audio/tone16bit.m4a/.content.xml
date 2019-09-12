@@ -5,7 +5,7 @@
     jcr:uuid="ee60a691-4073-4bf7-973f-97a16e8c1581">
     <jcr:content
         dam:assetState="processed"
-        jcr:lastModified="{Date}2019-07-12T16:33:36.470+10:00"
+        jcr:lastModified="{Date}2019-09-12T17:17:09.978+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -15,7 +15,7 @@
             dc:format="application/octet-stream"
             dc:modified="{Date}2015-12-05T20:32:07.042+08:00"
             dc:title="16 bit Tone ALAC Test File"
-            jcr:lastModified="{Date}2019-03-05T00:40:49.055+11:00"
+            jcr:lastModified="{Date}2019-09-12T17:17:09.565+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"

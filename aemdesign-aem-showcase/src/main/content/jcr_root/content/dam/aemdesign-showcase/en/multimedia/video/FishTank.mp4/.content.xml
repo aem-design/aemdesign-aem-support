@@ -6,6 +6,8 @@
     <jcr:content
         dam:assetState="processing"
         dam:relativePath="tets/FishTank.mp4"
+        jcr:lastModified="{Date}2019-09-12T17:17:06.148+10:00"
+        jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
@@ -14,6 +16,9 @@
             dam:size="{Long}4122679"
             dc:extent="{Long}11026"
             dc:format="video/mp4"
+            dc:modified="{Date}2019-09-12T17:17:06.148+10:00"
+            jcr:lastModified="{Date}2019-09-12T17:17:06.147+10:00"
+            jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}720"

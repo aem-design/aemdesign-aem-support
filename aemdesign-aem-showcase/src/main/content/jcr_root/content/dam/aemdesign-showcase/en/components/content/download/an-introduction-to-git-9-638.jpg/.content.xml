@@ -9,7 +9,7 @@
         cq:parentPath="/content/dam/aemdesign-showcase/en/components/content/download"
         dam:assetState="processed"
         dam:s7damType="Image"
-        jcr:lastModified="{Date}2019-07-12T16:32:35.545+10:00"
+        jcr:lastModified="{Date}2019-09-12T17:16:47.593+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -24,11 +24,11 @@
             dam:Physicalwidthindpi="{Long}-1"
             dam:Physicalwidthininches="{Decimal}-1.0"
             dam:Progressive="yes"
-            dam:sha1="1178a27a5f191b166bd1b17305268025b9388d35"
+            dam:sha1="6f60ca7b8ca9e4adf8d3e468ff008e55746f910f"
             dam:size="{Long}38695"
             dc:format="image/jpeg"
             dc:modified="{Date}2019-03-05T00:40:41.514+11:00"
-            jcr:lastModified="{Date}2019-07-12T16:32:34.517+10:00"
+            jcr:lastModified="{Date}2019-09-12T17:16:47.449+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"

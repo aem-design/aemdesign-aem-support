@@ -10,7 +10,7 @@
         dam:assetState="processed"
         dam:relativePath="aemdesign-showcase/en/common/images/solarpanles.jpg"
         dam:s7damType="Image"
-        jcr:lastModified="{Date}2019-03-05T00:40:54.709+11:00"
+        jcr:lastModified="{Date}2019-09-12T17:16:43.313+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -36,7 +36,7 @@
             dc:subject="[Alternative Energy,Bavaria,Central Europe,Color Image,Day,Environment,Environmental Conservation,Environmental Issues,Field,Fuel and Power Generation,Germany,Grass,Lens Flare,Nature,No People,Number of People,Order,Outdoors,Photography,Renewable Energy,Science and Technology,Sky,Solar Energy,Solar Equipment,Solar Panel,Sun,Sunlight,Technology,Vertical,Objects,places]"
             dc:subject_xmpArrayType="rdf:Bag"
             dc:title="112231050"
-            jcr:lastModified="{Date}2019-03-05T00:40:54.709+11:00"
+            jcr:lastModified="{Date}2019-09-12T17:16:43.313+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"

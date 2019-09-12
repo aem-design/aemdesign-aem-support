@@ -10,7 +10,7 @@
         dam:assetState="processed"
         dam:relativePath="aemdesign-showcase/en/common/images/golfcourse.jpg"
         dam:s7damType="Image"
-        jcr:lastModified="{Date}2019-07-12T16:33:43.042+10:00"
+        jcr:lastModified="{Date}2019-09-12T17:17:31.643+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -29,9 +29,9 @@
             dam:size="{Long}1832806"
             dc:format="image/jpeg"
             dc:modified="{Date}2019-03-05T00:41:16.502+11:00"
-            dc:subject="[andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships]"
+            dc:subject="[andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships,andrews,course,golf,partnership,sponsoring,partnerships]"
             dc:subject_xmpArrayType="rdf:Bag"
-            jcr:lastModified="{Date}2019-07-12T16:33:29.585+10:00"
+            jcr:lastModified="{Date}2019-09-12T17:17:01.635+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
