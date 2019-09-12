@@ -3,4 +3,5 @@
     jcr:primaryType="cq:Tag"
     jcr:title="%%title%%"
     value="%%value%%"
-    sling:resourceType="cq/tagging/components/tag"/>
+    sling:resourceType="cq/tagging/components/tag"
+    %%attributes%%/>
