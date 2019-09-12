@@ -193,19 +193,38 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     }
   } else {
     if (contentData.content !== undefined) {
+      const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>0
+
       for (const field of Object.keys(contentData.content)) {
-        folderName    = field
+        folderName = field
         templatePatch = templatePatch.replace('%%node%%', field)
 
         const fieldValues = contentData.content[field]
+        let fieldAttributes = ""
 
+        //for all fields apart from json flag
         for (const fieldName of Object.keys(fieldValues).filter(x => x !== 'json')) {
           const value = fieldValues[fieldName]
-
-          templatePatch = templatePatch.replace(
-            '%%' + fieldName + '%%',
-            fieldValues.json === true && fieldName === 'value' ? Buffer.from(JSON.stringify(value)).toString('base64') : value
-          )
+          //check if the field is explicitly mentioned in template
+          if (templatePatch.indexOf('%%' + fieldName + '%%')>-1) {
+            //replace field value
+            templatePatch = templatePatch.replace(
+                '%%' + fieldName + '%%',
+                fieldValues.json === true && fieldName === 'value' ? Buffer.from(JSON.stringify(value)).toString('base64') : value
+            )
+          } else if (templateHasAttributes) {
+            //if not array add to attributes collection
+            if (!Array.isArray(value)) {
+              fieldAttributes += fieldName + '="' + value + '" '
+            } else {
+              //if array join and add as array string
+              fieldAttributes += fieldName + '="[' + Object.values(value).join(",") + ']" '
+            }
+          }
+        }
+        //replace attributes placeholder with collected fields
+        if (templateHasAttributes) {
+          templatePatch = templatePatch.replace('%%attributes%%', fieldAttributes)
         }
       }
     } else {
