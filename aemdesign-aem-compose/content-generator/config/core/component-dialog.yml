@@ -193,9 +193,7 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - custom: {title: "Custom Layout", value: "custom", valuealt: "custom"}
       - hidden: {title: "Hidden", value: "hidden"}
       - breadcrumbSubTitleTitleDescriptionAction: {
-        title: "Card - Breadcrumb, Subtitle, Title, Description and Action",
-        value: "",
-        valuealt: "",
+        title: "Breadcrumb, Subtitle, Title, Description and Action",
         templates: ["default"],
         fields: ["breadcrumb","subtitle","title","description","action"]
       }
@@ -204,8 +202,6 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
     contents:
       - cardBreadcrumbSubTitleTitleDescriptionAction: {
         title: "Card - Breadcrumb, Subtitle, Title, Description and Action",
-        value: "",
-        valuealt: "",
         templates: ["card"],
         fields: ["breadcrumb","subtitle","title","description","action"]
       }
