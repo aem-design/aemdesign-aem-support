@@ -1,15 +1,5 @@
 #!/bin/bash
 
-TIMESTAMP=$(date +"%s")
-
-# Create the output directory if it doesn't exist
-if [ ! -d 'output/' ]; then
-  mkdir output
-fi
 
 # Generate the AEM tags
-node generator.js "$@" > output/generate.output.$TIMESTAMP.txt
-
-# Grab the log output from the current file and count the results
-echo "Generated tag nodes: $(cat output/generate.output.$TIMESTAMP.txt | grep -c 'Saved content for')"
-echo "Error in templates: $(cat output/generate.output.$TIMESTAMP.txt | grep -c 'Invalid Template for')"
+node generator.js --no-color --no-clean --no-console --config=core.yml
