@@ -187,7 +187,249 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - ogurl: {title: "Open Graph - Url", value: "og:url"}
       - ogdescription: {title: "Open Graph - Description", value: "og:description"}
 
-  components/detials/generic-details/fields:
+  components/details/generic-details/variant:
+    contents:
+      - default: {title: "Default", value: "", valuealt: "displayoptions" }
+      - custom: {title: "Custom Layout", value: "custom", valuealt: "custom"}
+      - hidden: {title: "Hidden", value: "hidden"}
+      - breadcrumbSubTitleTitleDescriptionAction: {
+        title: "Card - Breadcrumb, Subtitle, Title, Description and Action",
+        value: "",
+        valuealt: "",
+        templates: ["default"],
+        fields: ["breadcrumb","subtitle","title","description","action"]
+      }
+
+  components/details/generic-details/badge:
+    contents:
+      - cardBreadcrumbSubTitleTitleDescriptionAction: {
+        title: "Card - Breadcrumb, Subtitle, Title, Description and Action",
+        value: "",
+        valuealt: "",
+        templates: ["card"],
+        fields: ["breadcrumb","subtitle","title","description","action"]
+      }
+      
+  components/details/generic-details/legacy:
+    contents:
+      - "cardActionIconDescription": {
+        title: "Clickable Card with Icon and Description",
+        value: "badge.cardActionIconDescription",
+        templates: ["action-icon"],
+        fields: ["description"]
+      }
+      - cardActionIconTitleCategoryDescription: {
+        title: "Clickable Card with Icon, Title, Category and Description",
+        value: "badge.cardActionIconTitleCategoryDescription",
+        templates: ["action-icon"],
+        fields: ["title", "category", "description"]
+      }
+      - cardActionIconTitleDescription: {
+        title: "Clickable Card with Icon, Title and Description",
+        value: "badge.cardActionIconTitleDescription",
+        templates: ["action-icon"],
+        fields: ["title", "description"]
+      }
+      - cardActionImageTitle: {
+        title: "Clickable Card with Image and Title",
+        value: "badge.cardActionImageTitle",
+        templates: ["action-image"],
+        fields: ["title"]
+      }
+      - cardActionImageTitleCategoryDescription: {
+        title: "Clickable Card with Image, Title, Category and Description",
+        value: "badge.cardActionImageTitleCategoryDescription",
+        templates: ["action-image"],
+        fields: ["title", "category", "description"]
+      }
+      - cardActionImageTitleDescription: {
+        title: "Clickable Card with Image, Title and Description",
+        value: "badge.cardActionImageTitleDescription",
+        templates: ["action-image"],
+        fields: ["title", "description"]
+      }
+      - cardHorizontalIconTitleCategoryDescriptionAction: {
+        title: "Horizontal Card with Icon, Title, Category, Description and Action",
+        value: "badge.cardHorizontalIconTitleCategoryDescriptionAction",
+        templates: ["horizontal-icon"],
+        fields: ["title", "category", "description", "action"]
+      }
+      - cardIcon: {
+        title: "Card with Icon",
+        value: "badge.cardIcon",
+        templates: ["card-icon"],
+        fields: []
+      }
+      - cardIconDescription: {
+        title: "Card with Icon and Description",
+        value: "badge.cardIconDescription",
+        templates: ["card-icon"],
+        fields: ["description"]
+      }
+      - cardIconTitle: {
+        title: "Card with Icon and Title",
+        value: "badge.cardIconTitle",
+        templates: ["card-icon"],
+        fields: ["title"]
+      }
+      - cardIconTitleAction: {
+        title: "Card with Icon, Title and Action",
+        value: "badge.cardIconTitleAction",
+        templates: ["card-icon"],
+        fields: ["title", "action"]
+      }
+      - cardIconTitleCategoryDescription: {
+        title: "Card with Icon, Title, Category and Description",
+        value: "badge.cardIconTitleCategoryDescription",
+        templates: ["card-icon"],
+        fields: ["title", "category", "description"]
+      }
+      - cardIconTitleCategoryDescriptionAction: {
+        title: "Card with Icon, Title, Category, Description and Action",
+        value: "badge.cardIconTitleCategoryDescriptionAction",
+        templates: ["card-icon"],
+        fields: ["title", "category", "description", "action"]
+      }
+      - cardIconTitleDateAction: {
+        title: "Card with Icon, Title, Date and Action",
+        value: "badge.cardIconTitleDateAction",
+        templates: ["card-icon"],
+        fields: ["title", "date", "action"]
+      }
+      - cardIconTitleDateDescriptionAction: {
+        title: "Card with Icon, Title, Date, Description and Action",
+        value: "badge.cardIconTitleDateDescriptionAction",
+        templates: ["card-icon"],
+        fields: ["title", "date", "description"]
+      }
+      - cardIconTitleDescription: {
+        title: "Card with Icon, Title and Description",
+        value: "badge.cardIconTitleDescription",
+        templates: ["card-icon"],
+        fields: ["title", "description"]
+      }
+      - cardIconTitleDescriptionAction: {
+        title: "Card with Icon, Title, Description and Action",
+        value: "badge.cardIconTitleDescriptionAction",
+        templates: ["card-icon"],
+        fields: ["title", "description", "action"]
+      }
+      - cardIconTitleSubtitleDate: {
+        title: "Card with Icon, Title, Subtitle and Date",
+        value: "badge.cardIconTitleSubtitleDate",
+        templates: ["card-icon"],
+        fields: ["title", "subtitle", "date"]
+      }
+      - cardIconTitleSubtitleDateDescriptionAction: {
+        title: "Card with Icon, Title, Subtitle, Date, Description and Action",
+        value: "badge.cardIconTitleSubtitleDateDescriptionAction",
+        templates: ["card-icon"],
+        fields: ["title", "subtitle", "date", "description", "action"]
+      }
+      - cardIconTitleSubtitleDescriptionAction: {
+        title: "Card with Icon, Title, Subtitle, Description and Action",
+        value: "badge.cardIconTitleSubtitleDescriptionAction",
+        templates: ["card-icon"],
+        fields: ["title", "subtitle", "description", "action"]
+      }
+      - cardImageSubtitleTitleCategoryDescriptionAction: {
+        title: "Card with Image, Subtitle, Title, Category, Description and Action",
+        value: "badge.cardImageSubtitleTitleCategoryDescriptionAction",
+        templates: ["card-image"],
+        fields: ["subtitle", "title", "category", "description", "action"]
+      }
+      - cardImageSubtitleTitleDescriptionAction: {
+        title: "Card with Image, Subtitle, Title, Description and Action",
+        value: "badge.cardImageSubtitleTitleDescriptionAction",
+        templates: ["card-image"],
+        fields: ["subtitle", "title", "description", "action"]
+      }
+      - cardImageTagTitleAction: {
+        title: "Card with Image, Tag, Title and Action",
+        value: "badge.cardImageTagTitleAction",
+        templates: ["card-image"],
+        fields: ["tag", "title", "action"]
+      }
+      - cardImageTitleAction: {
+        title: "Card with Image, Title and Action",
+        value: "badge.cardImageTitleAction",
+        templates: ["card-image"],
+        fields: ["title", "action"]
+      }
+      - cardImageTitleCategoryActionDate: {
+        title: "Card with Image, Title, Category, Action and Date",
+        value: "badge.cardImageTitleCategoryActionDate",
+        templates: ["card-image"],
+        fields: ["title", "category", "action", "date"]
+      }
+      - cardImageTitleCategoryDescription: {
+        title: "Card with Image, Title, Category and Description",
+        value: "badge.cardImageTitleCategoryDescription",
+        templates: ["card-image"],
+        fields: ["title", "category", "description"]
+      }
+      - cardImageTitleCategoryDescriptionAction: {
+        title: "Card with Image, Title, Category, Description and Action",
+        value: "badge.cardImageTitleCategoryDescriptionAction",
+        templates: ["card-image"],
+        fields: ["title", "category", "description", "action"]
+      }
+      - cardImageTitleDescription: {
+        title: "Card with Image, Title and Description",
+        value: "badge.cardImageTitleDescription",
+        templates: ["card-image"],
+        fields: ["title", "description"]
+      }
+      - cardImageTitleDescriptionAction: {
+        title: "Card with Image, Title, Description and Action",
+        value: "badge.cardImageTitleDescriptionAction",
+        templates: ["card-image"],
+        fields: ["title", "description", "action"]
+      }
+      - cardImageTitleSubtitleDescriptionAction: {
+        title: "Card with Image, Title, Sub Title, Description and Action",
+        value: "badge.cardImageTitleSubtitleDescriptionAction",
+        templates: ["card-image"],
+        fields: ["title", "subtitle", "description", "action"]
+      }
+      - cardTitleDescriptionAction: {
+        title: "Card with Title, Description and Action",
+        value: "badge.cardTitleDescriptionAction",
+        templates: ["card"],
+        fields: ["title", "description", "action"]
+      }
+      - data: {
+        title: "Output Data",
+        value: "badge.data",
+        templates: ["simple-data"],
+        fields: []
+      }
+      - default: {
+        title: "Default",
+        value: "badge.default",
+        templates: ["default"],
+        fields: []
+      }
+      - icon: {
+        title: "Icon",
+        value: "badge.icon",
+        templates: ["simple-icon"],
+        fields: []
+      }
+      - image: {
+        title: "Image",
+        value: "badge.image",
+        templates: ["simple-image"],
+        fields: []
+      }
+      - metadata: {
+        title: "Metadata",
+        value: "badge.metadata",
+        templates: ["simple-metadata"],
+        fields: []
+      }
+
+  components/details/generic-details/fields:
     contents:
       - action: {title: "Action Link", value: "action"}
       - description: {title: "Description", value: "description"}
@@ -202,7 +444,7 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - breadcrumb: {title: "Component - Breadcrumb", value: "breadcrumb"}
       - toolbar: {title: "Component - Toolbar", value: "toolbar"}
 
-  components/detials/generic-details/templates:
+  components/details/generic-details/templates:
     contents:
       - default: {title: "Default", value: "default"}
       - action-icon: {title: "Link with Icon", value: "action-icon"}
