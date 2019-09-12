@@ -193,7 +193,7 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     }
   } else {
     if (contentData.content !== undefined) {
-      const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>0
+      const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
 
       for (const field of Object.keys(contentData.content)) {
         folderName = field
@@ -232,6 +232,8 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
       return
     }
   }
+  //remove attributes filed from template
+  templatePatch = templatePatch.replace('%%attributes%%', '')
 
   writeTemplate(`${rootPath}/${category}/${path}/${folderName}`, categoryTemplateDefault, templatePatch)
 }
