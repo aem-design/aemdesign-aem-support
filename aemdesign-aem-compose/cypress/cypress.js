@@ -68,8 +68,8 @@ async function runTests() {
     inline          : true,
     reportDir,
     reportFilename  : 'summary',
-    reportPageTitle : 'Swinburne UI Results',
-    reportTitle     : 'Swinburne UI Results',
+    reportPageTitle : 'UI Results',
+    reportTitle     : 'UI Results',
     saveJson        : true,
   })
 

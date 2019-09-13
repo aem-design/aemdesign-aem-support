@@ -39,7 +39,7 @@ Visit http://localhost:4504 in your browser once `webpack-dev-server` has starte
 
 **NOTE:** You can only run one project at a time!
 
-#### Swinburne Global
+#### Core
 `yarn serve:sut`
 
 #### DLS (Styleguide)

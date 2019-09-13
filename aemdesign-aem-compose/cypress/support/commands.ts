@@ -1,5 +1,5 @@
 function navigateToPage(category: 'components' | 'guidelines', name: string, done: MochaDone) {
-  const url = `/content/swinburne-site-showcase/en/styleguide/${category}/${name}.html?wcmmode=disabled`
+  const url = `/content/aemdesign-showcase/au/en/styleguide/${category}/${name}.html?wcmmode=disabled`
 
   cy.log('Navigating to', url)
   cy.visit(url)
