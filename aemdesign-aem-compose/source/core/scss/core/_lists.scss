@@ -27,13 +27,10 @@ ul li::before {
 }
 
 ol {
-  counter-reset: list-item;
+  counter-reset: list-counter;
 
-  li {
-    counter-increment: list-item;
-
-    &::before {
-      content: counter(list-item);
-    }
+  li::before {
+    content: counter(list-counter);
+    counter-increment: list-counter;
   }
 }

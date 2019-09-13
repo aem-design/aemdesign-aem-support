@@ -630,51 +630,6 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - default: {title: "Title", value: "default"}
 
 
-  # Journey Planner
-  components/widgets/journey-planner:
-    contents:
-      - title:
-          title: 'Title'
-          json: true
-          value:
-            field: 'textfield'
-            order: 1
-            tooltip: 'Main title for the widget'
-      - icon:
-          title: 'Icon'
-          json: true
-          value:
-            field: 'autocomplete'
-            order: 2
-            source: 'component-style-icon'
-            tooltip: 'Widget icon'
-      - campus:
-          title: 'Campus'
-          json: true
-          value:
-            field: 'select'
-            items:
-              - label: 'Hawthorn'
-                value: 'John Street, Hawthorn, VIC, 3122, Australia'
-              - label: 'Wantirna'
-                value: '369 Stud Road, Wantirna, VIC, 3152, Australia'
-              - label: 'Croydon'
-                value: '12-50 Norton Road, Croydon, VIC, 3136, Australia'
-              - label: 'Sarawak, Malaysia'
-                value: 'Jalan Simpang Tiga, 93350 Kuching, Sarawak, Malaysia'
-            order: 3
-            placeholder: 'Please choose a campus'
-            tooltip: 'Which Campus should the map default to?'
-      - description:
-          title: 'Description'
-          json: true
-          value:
-            field: 'textarea'
-            order: 4
-            slot: description
-            tooltip: 'Description that sits just below the form elements'
-
-
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-dialog: *component-dialog
 

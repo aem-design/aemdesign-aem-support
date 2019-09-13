@@ -1,6 +1,6 @@
 %yellow-foil {
   background-color: color('yellow');
-  background-image: url(/etc.clientlibs/aemdesign-compose/clientlibs/core/clientlibs-header/resources/images/patterns/foil-yellow.png);
+  background-image: url(#{$asset-base-path}images/patterns/foil-yellow.png);
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 13px 140px;
@@ -8,7 +8,7 @@
 
 %charcoal-foil {
   background-color: color('charcoal');
-  background-image: url(/etc.clientlibs/aemdesign-compose/clientlibs/core/clientlibs-header/resources/images/patterns/foil-white.png);
+  background-image: url(#{$asset-base-path}images/patterns/foil-white.png);
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 13px 140px;
@@ -16,14 +16,14 @@
 
 %red-foil {
   background-color: color('red');
-  background-image: url(/etc.clientlibs/aemdesign-compose/clientlibs/core/clientlibs-header/resources/images/patterns/foil-red.png);
+  background-image: url(#{$asset-base-path}images/patterns/foil-red.png);
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 13px 140px;
 }
 
 %white-foil {
-  background-image: url(/etc.clientlibs/aemdesign-compose/clientlibs/core/clientlibs-header/resources/images/patterns/foil-white.png);
+  background-image: url(#{$asset-base-path}images/patterns/foil-white.png);
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 13px 140px;
@@ -42,7 +42,7 @@
 
   > *:not(.card-tags):not(.card-action),
   > .card-action .card-link.btn-link {
-    color: $white;
+    color: color('white');
   }
 
   .card-title {

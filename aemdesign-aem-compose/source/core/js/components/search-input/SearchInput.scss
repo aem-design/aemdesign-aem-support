@@ -1,0 +1,39 @@
+.search-input {
+  filter: drop-shadow(0 2px 4px color('grey-3'));
+
+  label {
+    margin-left: 31px;
+    z-index: 4;
+  }
+
+  .invalid-feedback {
+    font-size: smaller;
+    position: absolute;
+    top: 60px;
+    z-index: 1;
+  }
+
+  .input-group-prepend {
+    .icon {
+      font-size: icon-size(regular);
+    }
+  }
+
+  &__popover {
+    background-color: #fff;
+    padding: 0 15px 15px 0;
+    width: 100%;
+
+    .link {
+      margin-left: 15px;
+      margin-top: 15px;
+      min-width: inherit;
+    }
+  }
+}
+
+.ie-11 {
+  .search-input {
+    box-shadow: 0 2px 4px color('grey-3');
+  }
+}

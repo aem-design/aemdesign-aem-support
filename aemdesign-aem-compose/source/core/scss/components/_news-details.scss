@@ -50,7 +50,7 @@
   h1,
   .published,
   .tag {
-    color: $white;
+    color: color('white');
   }
 
   h1 {
@@ -92,7 +92,7 @@
       margin-left: $spacing-2xs;
 
       &::before {
-        color: $white;
+        color: color('white');
         content: '#';
         font-size: 10px;
 
@@ -103,7 +103,7 @@
     }
 
     &::before {
-      background-color: $white;
+      background-color: color('white');
       content: ' ';
       display: inline-block;
       height: 17px;

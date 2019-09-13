@@ -4,5 +4,5 @@
  * @return {boolean}
  */
 export const isAuthorEditMode = (): boolean => {
-  return window.CQ || window.parent.CQ
+  return (window.parent.CQ || {}).wcm
 }

@@ -168,7 +168,7 @@
     margin-right: -20px;
 
     > div[component] {
-      border-bottom: 1px solid rgba($white, .3);
+      border-bottom: 1px solid rgba(color('white'), .3);
       padding-bottom: 11px;
       padding-top: 11px;
 
@@ -196,8 +196,8 @@
 
         .pagelist[component] .content ul {
           li {
-            flex-basis: inherit;
-            max-width: inherit;
+            flex-basis: inherit !important;
+            max-width: inherit !important;
           }
         }
 
@@ -215,8 +215,8 @@
             flex-wrap: wrap;
 
             li {
-              flex-basis: calc(100% / 3 - 20px);
-              max-width: calc(100% / 3 - 20px);
+              flex-basis: calc(100% / 3 - 20px) !important;
+              max-width: calc(100% / 3 - 20px) !important;
 
               + li {
                 margin-left: 20px;
@@ -247,8 +247,8 @@
         }
 
         &:last-child .pagelist[component] ul li {
-          flex-basis: 100%;
-          max-width: 100%;
+          flex-basis: 100% !important;
+          max-width: 100% !important;
 
           // stylelint-disable-next-line
           + li {

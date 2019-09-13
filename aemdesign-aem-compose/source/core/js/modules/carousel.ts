@@ -235,7 +235,9 @@ function bindCarouselToElement(
       .attr('data-layer-label', 'carousel right')
   }, 500))
 
-  $list.owlCarousel(carouselConfig)
+  // Fixes a strange issue that began from nowhere which causes the width of the carousel
+  // to be calculated incorrectly.
+  setTimeout(() => $list.owlCarousel(carouselConfig), 50)
 }
 
 /**

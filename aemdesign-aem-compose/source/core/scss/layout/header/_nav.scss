@@ -30,7 +30,7 @@
     display: none;
 
     .title {
-      color: $white;
+      color: color('white');
     }
 
     .description {
@@ -227,7 +227,7 @@
       button.link {
         background: transparent;
         border: 0;
-        color: $white;
+        color: color('white');
         display: flex;
         flex-direction: row-reverse;
         font-weight: 700;
@@ -311,7 +311,7 @@
             &,
             &[aria-expanded='true'],
             &::before {
-              color: $white;
+              color: color('white');
             }
 
             @include yellow-link;
@@ -357,7 +357,7 @@
                 }
 
                 .title {
-                  color: $white;
+                  color: color('white');
                   margin-top: -$spacing-2xs;
                 }
 
@@ -411,7 +411,7 @@
           width: 50%;
 
           a {
-            color: $white;
+            color: color('white');
             margin-right: 0;
 
             &.active,
@@ -438,7 +438,7 @@
 
     a[class*='l-'],
     .nav-link {
-      color: $white;
+      color: color('white');
       position: relative;
     }
 

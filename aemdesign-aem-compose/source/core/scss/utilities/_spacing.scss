@@ -16,6 +16,15 @@
             padding-right: $space !important;
           }
         }
+
+        // Create additional spacers for single side use-cases
+        $sides: if($direction == 'vertical', bottom top, left right);
+
+        @each $side in $sides {
+          .spacing-#{$direction}-#{$level}-#{$side} {
+            padding-#{$side}: $space !important;
+          }
+        }
       }
     }
   }

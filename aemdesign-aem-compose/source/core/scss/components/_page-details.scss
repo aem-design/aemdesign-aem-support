@@ -7,6 +7,7 @@
 [component].page-details {
   align-items: center;
   display: flex;
+  flex-direction: column;
   padding-bottom: 20px;
   padding-top: 20px;
   position: relative;
@@ -60,6 +61,31 @@
     }
   }
 
+  &__hero,
+  // `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
+  .lazysizes-display-clone {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  &__hero {
+    width: 100%;
+
+    img {
+      @include object-fit(cover, right center);
+
+      height: 100%;
+      width: 100%;
+    }
+  }
+
   &.bg-charcoal-pattern,
   &.bg-red-pattern,
   &.bg-yellow-pattern {
@@ -69,7 +95,7 @@
       }
 
       > * {
-        color: $white;
+        color: color('white');
       }
     }
   }
@@ -82,11 +108,24 @@
     background-color: color('yellow');
   }
 
+  // IE11 fix to ensure flexbox and min-height work together
+  .ie-11 &::after {
+    content: '';
+    display: inline-block;
+    font-size: 0;
+    min-height: inherit;
+  }
+
   @include media-breakpoint-up(md) {
+    flex-direction: row;
     min-height: 200px;
   }
 
   @include media-breakpoint-up(lg) {
     min-height: 280px;
+
+    .ie-11 & {
+      min-height: 240px;
+    }
   }
 }

@@ -89,7 +89,7 @@
   }
 
   @include media-breakpoint-only(md) {
-    &:not(.theme--lists-fill):not([data-modules="carousel"]):not(.theme--page-list-social-links) > .content > ul > li {
+    &:not(.theme--lists-fill):not([data-modules="carousel"]):not(.theme--page-list-social-links):not(.theme--lists-horizontal) > .content > ul > li {
       flex-basis: 50%;
       max-width: 50%;
     }
@@ -219,8 +219,10 @@
         width: 100%;
 
         > .content {
-          padding-left: 15px;
-          padding-right: 15px;
+          @include media-breakpoint-down(md) {
+            padding-left: 15px;
+            padding-right: 15px;
+          }
         }
       }
 

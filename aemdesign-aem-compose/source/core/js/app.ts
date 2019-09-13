@@ -1,5 +1,6 @@
 import AEMFixes from '@module/aem'
 import Carousels from '@module/carousel'
+import Forms from '@module/forms'
 import Header from '@module/header'
 import Icons from '@module/icons'
 import Subscribers from '@module/subscribers'
@@ -8,6 +9,16 @@ import { isAuthorEditMode } from '@utility/aem'
 
 // Begin the app...
 $(async () => {
+
+  console.log('app.js jQuery Version', $.fn.jquery)
+
+  // Modify any form elements on the page first as they are the most important components
+  // that require custom modifications in order to work correctly.
+  const formElements = document.querySelectorAll('input:not([type=button]), select')
+
+  if (!isAuthorEditMode()) {
+    Forms(formElements)
+  }
 
   // Vue.js components, we load them before anything else as they are non-blocking
   const vueReferences = document.querySelectorAll('[vue-component]')
@@ -29,15 +40,6 @@ $(async () => {
   // Bind the pub/sub event subscribers
   Subscribers()
 
-  // 'object-fit' polyfill for unsupported browsers
-  if ('objectFit' in document.documentElement.style === false) {
-    const {
-      default: objectFitImages,
-    } = await import(/* webpackChunkName: "object-fit-images" */ 'object-fit-images')
-
-    objectFitImages()
-  }
-
   // Header controls
   Header()
 
@@ -56,10 +58,30 @@ $(async () => {
   // Append Font Awesome icons to any/all elements that need them
   Icons()
 
+  // Look for any media elements on the page
+  const mediaElements = document.querySelectorAll('[data-media]')
+
+  if (mediaElements.length && !isAuthorEditMode()) {
+    const {
+      default: media,
+    } = await import(/* webpackChunkName: "media" */ '@module/media')
+
+    media(mediaElements)
+  }
+
   // Load the Font Awesome icons last as they are the heaviest payload
   await import(/* webpackChunkName: "fontawesome-pro-brands" */ '@fortawesome/fontawesome-pro/js/brands')
   await import(/* webpackChunkName: "fontawesome-pro-light" */ '@fortawesome/fontawesome-pro/js/light')
   await import(/* webpackChunkName: "fontawesome-pro" */ '@fortawesome/fontawesome-pro/js/fontawesome')
+
+  // IE11 hacky fixes ಥ﹏ಥ
+  if ((!!window.MSInputMethodContext && !!document.documentMode)) {
+    const {
+      default: IE11Fixes,
+    } = await import(/* webpackChunkName: "ie11-fixes" */ '@utility/ie11')
+
+    IE11Fixes()
+  }
 
 })
 

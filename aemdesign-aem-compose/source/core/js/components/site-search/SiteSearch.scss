@@ -1,0 +1,205 @@
+@import '~dialog-polyfill/dist/dialog-polyfill.css';
+
+.site-search {
+
+  &__modal {
+    @extend .dialog-slide;
+    background-color: color('white');
+    border: none;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+  &__header {
+    align-items: center;
+    box-shadow: 0 2px 3px color('grey-4');
+    display: flex;
+    height: 60px;
+    padding: 10px 0;
+    width: 100%;
+    @include media-breakpoint-up(md) {
+      height: 70px;
+    }
+
+    > .container {
+      height: 100%;
+
+      .row {
+        height: inherit;
+      }
+    }
+  }
+  &__logo {
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: block;
+      height: 100%;
+    }
+  }
+  &__open {
+    appearance: none;
+    align-self: flex-end;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font-weight: $font-weight-bold;
+    margin: auto 10px auto auto;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    @include media-breakpoint-up(md) {
+      margin: auto 20px auto auto;
+    }
+
+    span {
+      pointer-events: none;
+    }
+
+    .icon {
+      margin-right: 0;
+      pointer-events: none;
+      @include media-breakpoint-up(xl) {
+        margin-right: 20px;
+      }
+    }
+
+    .lg-sr-only {
+      @include media-breakpoint-down(lg) {
+        @include sr-only;
+      }
+    }
+  }
+  &__close {
+    appearance: none;
+    align-self: flex-end;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font-weight: $font-weight-bold;
+    margin: auto 0 auto auto;;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    span {
+      pointer-events: none;
+    }
+
+    .icon {
+      margin-right: 10px;
+      pointer-events: none;
+      @include media-breakpoint-up(md) {
+        margin-right: 20px;
+      }
+
+    }
+
+    .sm-sr-only {
+      @include media-breakpoint-down(sm) {
+        @include sr-only;
+      }
+    }
+  }
+  &__body {
+    display: flex;
+    height: calc(100vh - 60px);
+    padding: 20px 0;
+    overflow-y: auto;
+    @include media-breakpoint-up(md) {
+      height: calc(100vh - 70px);
+      padding: 50px 0;
+    }
+
+    > .container {
+      display: flex;
+      width: 100%;
+
+      @include media-breakpoint-only(md) {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+
+      .row {
+        flex: 1 1 100%;
+        align-content: space-between;
+      }
+    }
+  }
+
+  &__sidebar {
+    ul {
+      margin-bottom: 30px;
+      @include media-breakpoint-up(md) {
+        margin-bottom: 50px;
+      }
+    }
+
+    li {
+      position: relative;
+      font-weight: $font-weight-bold;
+      margin: 16px 0;
+      padding-left: 25px;
+      &:before {
+        display: none;
+      }
+
+      .icon {
+        color: color('red');
+        font-size: 18px;
+        left: 0;
+        position: absolute;
+        top: 3px;
+
+        @include media-breakpoint-up(lg) {
+          top: 6px;
+        }
+      }
+    }
+  }
+
+}
+
+// modal animation
+
+@keyframes mmfadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mmfadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes mmslideIn {
+  from { transform: translateY(15%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes mmslideOut {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10%); }
+}
+
+.dialog-slide {
+  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+  will-change: transform;
+
+  .dialog__container {
+    animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+    will-change: transform;
+  }
+
+  &[open] {
+    animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+
+    .dialog__container {
+      animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+    }
+  }
+}

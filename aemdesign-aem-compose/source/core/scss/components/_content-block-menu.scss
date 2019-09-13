@@ -7,7 +7,7 @@
 [component].contentblockmenu {
   @include make-container;
 
-  background-color: $white;
+  background-color: color('white');
   border-bottom: 1px solid color('grey-4');
   border-top: 1px solid color('grey-4');
   padding-bottom: $spacing-sm;

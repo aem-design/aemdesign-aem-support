@@ -132,6 +132,7 @@
     "order/properties-alphabetical-order": true,
     "order/properties-order": null,
 
+    "scss/at-mixin-argumentless-call-parentheses": "never",
     "scss/at-function-named-arguments": "never",
     "scss/at-rule-no-unknown": [
       true,

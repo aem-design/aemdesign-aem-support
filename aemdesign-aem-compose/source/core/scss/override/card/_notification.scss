@@ -1,62 +1,16 @@
 &--notification,
 .cards-notification & {
-  &,
-  .card {
-    position: relative;
-    padding-top: 6px;
-    &:before {
-      content: '';
-      width: 100%;
-      height: 6px;
-      display: block;
-      position: absolute;
-      background-color: rgba($white, 0.5);
-      top: 0;
-      left: 0;
-    }
+  @extend %notification-base;
 
-  }
   .card-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background-color: inherit;
-    border-radius: 50%;
-    margin: 30px 20px 0 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    .icon {
-      color: $white;
-      font-size: 13px;
-    }
+    @extend %notification-icon;
   }
+
   .card-body {
-    padding: 75px 20px 20px 20px;
-    background-color: $white;
-    margin: -1px;
+    @extend %notification-body;
   }
-  @include media-breakpoint-only(md) {
-    .card-icon {
-      margin: 20px 15px 0 15px;
-    }
-    .card-body {
-      padding: 20px 25px 25px 60px;
-    }
-  }
-  @include media-breakpoint-up(lg) {
-    .card-icon {
-      width: 40px;
-      height: 40px;
-      margin: 30px 20px 0 20px;
-      .icon {
-        font-size: 16px;
-      }
-    }
-    .card-body {
-      padding: 35px 30px 30px 80px;
-    }
+
+  .card-action {
+    padding-top: 10px;
   }
 }

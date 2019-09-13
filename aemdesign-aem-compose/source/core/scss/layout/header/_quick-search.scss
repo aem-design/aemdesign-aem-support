@@ -20,31 +20,31 @@
     $logo-width-lg: logo-size(primary, lg, width);
     $logo-width-xl: logo-size(primary, xl, width);
 
-    background-color: $white;
+    background-color: color('white');
     border-width: 0;
     opacity: 0;
     padding: 0 15px;
     pointer-events: none;
     position: absolute;
-    right: 45px;
+    right: 0;
     top: 0;
     transition: $transition-fade;
-    // <viewport width> - <logo width> - <submit button margin> - <submit button width>
-    width: calc(100vw - #{$logo-width} - 15px - 30px);
+    // <viewport width> - <logo width>
+    width: calc(100vw - #{$logo-width});
     z-index: 1;
 
     @include media-breakpoint-up(md) {
       right: calc(100% - 40px);
-      // (<viewport width> - <parent width / 2>) - <logo width> - <submit button width> - <parent margin> - <parent^parent padding / 2>
-      width: calc((100vw - 50%) - #{$logo-width-md} - 30px - #{$actions-margin} - 10px);
+      // (<viewport width> - <parent width / 2>) + <logo width> - <submit button width>
+      width: calc((100vw - 100%) - #{$logo-width-md} + 30px - #{$actions-margin} + 10px);
     }
 
     @include media-breakpoint-up(lg) {
-      width: calc((100vw - 50%) - #{$logo-width-lg} - 40px - #{$actions-margin} - 10px);
+      width: calc((100vw - 100%) - #{$logo-width-lg} + 40px - #{$actions-margin});
     }
 
     @include media-breakpoint-up(xl) {
-      width: calc((100vw - 50%) - #{$logo-width-xl} - 40px - #{$actions-margin} - 10px);
+      width: calc((100vw - 100%) - #{$logo-width-xl} + 40px - #{$actions-margin});
     }
   }
 
@@ -52,7 +52,6 @@
     background-color: transparent;
     border-width: 0;
     display: block;
-    margin-right: 10px;
     padding: 0;
     pointer-events: all;
     transition: margin-left 200ms ease-in-out;
@@ -73,6 +72,10 @@
     }
   }
 
+  + .link {
+    margin-left: 10px;
+  }
+
   @include media-breakpoint-down(sm) {
     form {
       display: flex;
@@ -85,7 +88,7 @@
     }
 
     &.show form {
-      background-color: $white;
+      background-color: color('white');
       pointer-events: all;
       right: -$actions-margin;
     }
