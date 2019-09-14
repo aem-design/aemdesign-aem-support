@@ -3,3 +3,5 @@
 echo "Installing Drivers"
 
 mvn clean verify -DskipTests=true
+
+bundle install
