@@ -217,7 +217,6 @@ function main() {
 
     checkPermissions "drivers"
     checkPermissions "$ROOT"
-    checkPermissions "target"
 
     installDependencies
 
