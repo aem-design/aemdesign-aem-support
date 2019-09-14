@@ -29,8 +29,7 @@
                     showParsys="false"
                     showToolbar="false"
                     subCategory="[aemdesign-showcase:content-type/page/book]"
-                    textIsRich="true">
-                </page-details>
+                    textIsRich="true"/>
             </par>
         </article>
         <image

@@ -177,8 +177,7 @@
                             sortOrder="asc"
                             tags="[aemdesign-showcase:content-type/page,aemdesign-showcase:content-type/page/contact]"
                             tagsMatch="any"
-                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags">
-                        </list>
+                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags"/>
                     </par>
                 </contentblock8>
                 <contentblock9
@@ -199,8 +198,7 @@
                             listFrom="tags"
                             sortOrder="asc"
                             tagsMatch="any"
-                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags">
-                        </list>
+                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags"/>
                     </par>
                 </contentblock9>
             </par>
@@ -210,4 +208,5 @@
     <icons/>
     <nodetails/>
     <tags/>
+    <test/>
 </jcr:root>

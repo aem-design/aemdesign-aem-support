@@ -26,8 +26,7 @@
                     showBreadcrumb="false"
                     showParsys="false"
                     showToolbar="false"
-                    textIsRich="true">
-                </page-details>
+                    textIsRich="true"/>
             </par>
         </article>
     </jcr:content>
