@@ -141,6 +141,9 @@ function monitorTests() {
     echo "================================================================="
     echo ""
 
+    if [[ ! -d "dockerlogs" ]]; then
+        mkdir dockerlogs
+    fi
     $DOCKER logs -f $@ > dockerlogs/docker-log-stdout-$(date +%s).log &
     $DOCKER logs -f $@
     echo Stopping: $@
