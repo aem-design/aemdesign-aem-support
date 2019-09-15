@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/conf/aemdesign-showcase/settings/wcm/templates/.*]"
+        cq:lastModified="{Date}2019-09-13T22:03:25.758+10:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/base"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Custom Badges"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <genericdetails
+                    jcr:lastModified="{Date}2019-09-13T22:02:45.874+10:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/generic-details"
+                    badgeFields="[subtitle,title]"
+                    badgeFieldsTemplate="card-image"
+                    componentId="generic-details"
+                    description="Custom Description"
+                    textIsRich="true"
+                    title="Page Title"
+                    variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/breadcrumbSubTitleTitleDescriptionAction"
+                    variantFields="[subtitle,title,description,action]"
+                    variantFieldsTemplate="card-icon">
+                    <bgimage
+                        jcr:lastModified="{Date}2019-09-13T22:02:45.874+10:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                    <thumbnail
+                        jcr:lastModified="{Date}2019-09-13T22:02:45.874+10:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                    <secondaryImage
+                        jcr:lastModified="{Date}2019-09-13T22:02:45.874+10:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                </genericdetails>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

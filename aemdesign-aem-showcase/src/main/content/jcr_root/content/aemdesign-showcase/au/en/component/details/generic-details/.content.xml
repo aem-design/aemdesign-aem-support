@@ -2,8 +2,6 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-09-09T15:14:13.252+10:00"
-        cq:lastModifiedBy="admin"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:description="Page Properties -  Description"
         jcr:primaryType="cq:PageContent"
@@ -14,8 +12,7 @@
         subtitle="Page Properties - Subtitle">
         <article
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="aemdesign/components/layout/article"
-            componentId="article_EGYEKQYRU">
+            sling:resourceType="aemdesign/components/layout/article">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
@@ -25,7 +22,13 @@
                     sling:resourceType="aemdesign/components/details/generic-details"
                     componentId="generic-details"
                     description="&lt;p>Generic Details to showcase base behaviour of Details components&lt;/p>"
-                    textIsRich="true"/>
+                    textIsRich="true">
+                    <pagedate
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/content/pagedate"
+                        componentId="pagedate"
+                        publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                </genericdetails>
                 <contentblock1
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
@@ -42,11 +45,15 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/details/generic-details"
                             componentId="generic-details1"
-                            description="Custom Description"
                             showBreadcrumb="false"
                             showParsys="false"
-                            showToolbar="false"
-                            title="Page Title"/>
+                            showToolbar="false">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate1"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
                     </par>
                 </contentblock1>
                 <contentblock2
@@ -65,11 +72,9 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/details/page-details"
                             componentId="generic-details2"
-                            description="Custom Description"
                             showBreadcrumb="true"
                             showParsys="true"
-                            showToolbar="true"
-                            title="Page Title 2">
+                            showToolbar="true">
                             <toolbar
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="aemdesign/components/layout/navbar"
@@ -104,6 +109,11 @@
                                     text="Text in Parsys"
                                     textIsRich="true"/>
                             </par>
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate2"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
                         </genericdetails>
                     </par>
                 </contentblock2>
@@ -147,11 +157,10 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/details/generic-details"
                             componentId="generic-details4"
-                            description="Custom Description"
                             showBreadcrumb="true"
                             showParsys="true"
                             showToolbar="true"
-                            title="Page Title 4">
+                            textIsRich="true">
                             <toolbar
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="aemdesign/components/layout/navbar"
@@ -185,6 +194,11 @@
                                     text="Text in Parsys"
                                     textIsRich="true"/>
                             </par>
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate4"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
                         </genericdetails>
                     </par>
                 </contentblock4>
@@ -209,7 +223,13 @@
                             showBreadcrumb="false"
                             showParsys="false"
                             showToolbar="false"
-                            title="Page Title"/>
+                            title="Custom Title">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate5"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
                     </par>
                 </contentblock5>
                 <contentblock6
@@ -234,7 +254,13 @@
                             showBreadcrumb="false"
                             showParsys="false"
                             showToolbar="false"
-                            title="Page Title"/>
+                            title="Custom Title">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate6"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
                     </par>
                 </contentblock6>
                 <contentblock7
@@ -243,7 +269,33 @@
                     componentId="contentblock7"
                     hideTitle="false"
                     hideTitleSeparator="true"
-                    title="Generic Details: Custom Variant using Card Field Template with selected fields Subtitle, Title, Description and Action"
+                    title="Generic Details: Custom Variant using Field Template Card with selected Fields Subtitle, Title, Description and Action"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:lastModified="{Date}2019-09-13T21:53:13.635+10:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            badgeFields="[subtitle,title]"
+                            badgeFieldsTemplate="card"
+                            componentId="generic-details7"
+                            textIsRich="true"
+                            variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/custom"
+                            variantFields="[subtitle,title,description,action]"
+                            variantFieldsTemplate="card"/>
+                    </par>
+                </contentblock7>
+                <contentblock8
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock8"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Variant Template with Breadcrumb, SubTitle, Title, Description and Action"
                     variant="advsection">
                     <par
                         jcr:primaryType="nt:unstructured"
@@ -252,20 +304,54 @@
                             jcr:mixinTypes="[cq:Taggable]"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/details/generic-details"
-                            componentId="generic-details7"
-                            description="Custom Description"
+                            badgeTemplate="aemdesign-showcase:component-dialog/components/details/generic-details/badge/cardBreadcrumbSubTitleTitleDescriptionAction"
+                            componentId="generic-details8"
                             textIsRich="true"
-                            title="Page Title"
-                            variant="custom"
+                            variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/breadcrumbSubTitleTitleDescriptionAction"
                             variantFields="[subtitle,title,description,action]"
                             variantFieldsTemplate="card">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate8"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
                         </genericdetails>
                     </par>
-                </contentblock7>
+                </contentblock8>
+                <contentblock9
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock9"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Default without included components and Page Date, Custom Title and Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic-details9"
+                            description="Custom Description"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Custom Title">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate9"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock9>
             </par>
         </article>
         <image
             jcr:primaryType="nt:unstructured"
             fileReference="/content/dam/aemdesign-showcase/en/common/images/tea.jpg"/>
     </jcr:content>
+    <custom-badges/>
 </jcr:root>
