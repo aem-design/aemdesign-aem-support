@@ -4,12 +4,14 @@
     <jcr:content
         cq:lastModified="{Date}2019-09-16T01:29:57.363+10:00"
         cq:lastModifiedBy="admin"
+        cq:tags="[aemdesign-showcase:content-type/page]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:description="Page Properties - Description"
         jcr:primaryType="cq:PageContent"
         jcr:title="Generic Details"
         sling:resourceType="aemdesign/components/template/base"
         navTitle="Page Properties - Navigation Title"
+        onTime="{Date}2019-09-18T15:15:00.000+10:00"
         pageTitle="Page Properties - Page Title"
         subtitle="Page Properties - Subtitle">
         <article
