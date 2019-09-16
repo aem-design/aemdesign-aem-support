@@ -194,7 +194,8 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - hidden: {title: "Hidden", value: "hidden"}
       - breadcrumbSubTitleTitleDescriptionAction: {
         title: "Breadcrumb, Subtitle, Title, Description and Action",
-        templates: ["default"],
+        templates: ["simple"],
+        value: "custom",
         fields: ["breadcrumb","subtitle","title","description","action"]
       }
 
