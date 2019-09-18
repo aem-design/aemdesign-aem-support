@@ -189,7 +189,7 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
 
   components/details/generic-details/variant:
     contents:
-      - default: {title: "Default", value: "", valuealt: "displayoptions" }
+      - default: {title: "Default", value: "default", valuealt: "displayoptions" }
       - custom: {title: "Custom Layout", value: "custom", valuealt: "custom"}
       - hidden: {title: "Hidden", value: "hidden"}
       - breadcrumbSubTitleTitleDescriptionAction: {
