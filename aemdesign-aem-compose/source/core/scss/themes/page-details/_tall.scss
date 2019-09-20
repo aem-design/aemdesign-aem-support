@@ -55,12 +55,17 @@
     }
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-between(md, md) {
     padding-top: 290px;
   }
 
   @include media-breakpoint-down(sm) {
-    padding-top: 200px;
+    padding-top: 0;
+
+    .page-details__hero,
+    .page-details__hero img {
+      max-height: 200px;
+    }
   }
 
   @include media-breakpoint-only(md) {
@@ -74,9 +79,17 @@
   @include media-breakpoint-up(lg) {
     align-items: stretch;
     min-height: 508px;
+
+    .ie-11 & {
+      min-height: 468px;
+    }
   }
 
   @include media-breakpoint-up(xl) {
     min-height: 600px;
+
+    .ie-11 & {
+      min-height: 560px;
+    }
   }
 }

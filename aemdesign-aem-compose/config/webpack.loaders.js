@@ -20,7 +20,7 @@ const CSSLoaders = (env, options = {}) => ([
       sourceMap : env.dev === true,
 
       config: {
-        path: resolve(process.cwd(), 'postcss.config.js'),
+        path: resolve(__dirname, '../postcss.config.js'),
 
         ctx: {
           prod: env.prod === true,
@@ -44,7 +44,7 @@ const CSSLoaders = (env, options = {}) => ([
 /**
  * JavaScript loaders
  */
-const JSLoaders = (env) => ([
+const JSLoaders = (env, options = {}) => ([
   {
     exclude : [resolve('node_modules')],
     loader  : 'vue-loader',
@@ -60,6 +60,10 @@ const JSLoaders = (env) => ([
       },
       {
         loader: 'ts-loader',
+
+        options: {
+          configFile: options.configFile ? options.configFile : resolve(process.cwd(), 'tsconfig.json'),
+        },
       },
     ],
   },

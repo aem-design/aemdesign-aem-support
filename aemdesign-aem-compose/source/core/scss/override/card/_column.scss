@@ -1,41 +1,53 @@
 &--column,
 .cards-column & {
-  @include media-breakpoint-up(md) {
-    .card-img-top {
-      @include aspect-ratio(410, 135);
-    }
-    .card-body {
-      .card-text {
-        margin-bottom: 25px;
-      }
-      .card-link {
-        min-width: 175px;
-      }
-    }
-  }
-  @include media-breakpoint-up(lg) {
-    max-height: 500px;
-    flex-direction: row;
-    .card-img-top {
-      @include aspect-ratio(415, 375);
-    }
-    .card-body {
-      padding: 40px;
-      .card-title {
-        margin-bottom: 30px;
-        &::after {
-          display: block;
-        }
-      }
-    }
-    .card-img-top,
-    .card-body {
+  .card-img-top,
+  .card-body,
+  // `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
+  .lazysizes-display-clone {
+    @include media-breakpoint-up(lg) {
+      max-height: 435px;
+      min-height: 435px;
+      min-width: 50%;
       width: 50%;
     }
-  }
-  @include media-breakpoint-up(xl) {
-    .card-body {
-      padding: 50px;
+
+    @include media-breakpoint-up(xl) {
+      max-height: 500px;
+      min-height: 500px;
     }
+  }
+
+  .card-img-top,
+  // `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
+  .lazysizes-display-clone {
+    height: 150px;
+
+    @include media-breakpoint-up(md) {
+      height: 178px;
+    }
+  }
+
+  .card-body {
+    @include headings-underline(h2 h3 h4, false);
+
+    @include media-breakpoint-up(xl) {
+      padding: 50px 60px;
+    }
+  }
+
+  .card-title {
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .card-text {
+    @include media-breakpoint-up(md) {
+      margin-bottom: 25px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
   }
 }

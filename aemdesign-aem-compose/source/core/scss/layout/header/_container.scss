@@ -80,7 +80,7 @@
   }
 
   @include media-breakpoint-up(lg) {
-    background-color: $white;
+    background-color: color('white');
 
     .collapse:not(.show) {
       display: flex;

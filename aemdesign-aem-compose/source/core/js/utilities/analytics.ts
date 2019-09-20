@@ -11,6 +11,8 @@ export function trackAction(
   data: { [key: string]: string },
   eventAction: string,
 ) {
+  console.log("[Analytics] Tracking new action for '%s' and event action '%s' with:", tenant, eventAction, data)
+
   window.digitalData[tenant] = { ...data }
   window.digitalData.event.push({ eventAction })
 }

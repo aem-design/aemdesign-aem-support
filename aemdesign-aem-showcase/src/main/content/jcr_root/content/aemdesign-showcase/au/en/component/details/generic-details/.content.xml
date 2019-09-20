@@ -2,14 +2,21 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2019-09-16T01:29:57.363+10:00"
+        cq:lastModifiedBy="admin"
+        cq:tags="[aemdesign-showcase:content-type/page]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
-        jcr:description="Page Description"
+        jcr:description="Page Properties - Description"
         jcr:primaryType="cq:PageContent"
         jcr:title="Generic Details"
-        sling:resourceType="aemdesign/components/template/base">
+        sling:resourceType="aemdesign/components/template/base"
+        navTitle="Page Properties - Navigation Title"
+        pageTitle="Page Properties - Page Title"
+        subtitle="Page Properties - Subtitle">
         <article
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="aemdesign/components/layout/article">
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
@@ -18,12 +25,367 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/generic-details"
                     componentId="generic-details"
+                    pageMetaProperty="og:type"
+                    pageMetaPropertyContent="article"
                     description="&lt;p>Generic Details to showcase base behaviour of Details components&lt;/p>"
-                    textIsRich="true"/>
+                    textIsRich="true">
+                    <pagedate
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/content/pagedate"
+                        componentId="pagedate"
+                        publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                </genericdetails>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Default without included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic-details1"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate1"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Default with included components"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="generic-details2"
+                            showBreadcrumb="true"
+                            showParsys="true"
+                            showToolbar="true">
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                cancelInheritParent="true"
+                                componentId="toolbar2">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_toolbar"
+                                        text="Text in Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            <secondaryImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parsys"
+                                    text="Text in Parsys"
+                                    textIsRich="true"/>
+                            </par>
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate2"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Hidden Variant"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic-details3"
+                            description="Hidden Description"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Hidden Title"
+                            variant="hidden"/>
+                    </par>
+                </contentblock3>
+                <contentblock4
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock4"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Default with Inherited Toolbar"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic-details4"
+                            showBreadcrumb="true"
+                            showParsys="true"
+                            showToolbar="true"
+                            textIsRich="true">
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                componentId="toolbar4">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_toolbar"
+                                        text="Text in Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            <secondaryImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parsys"
+                                    text="Text in Parsys"
+                                    textIsRich="true"/>
+                            </par>
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate4"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock4>
+                <contentblock5
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock5"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Default without included components and hidden Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic-details5"
+                            description="Custom Description"
+                            hideDescription="true"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Custom Title">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate5"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock5>
+                <contentblock6
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock6"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Default without included components and hidden Title and Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic-details6"
+                            description="Custom Description"
+                            hideDescription="true"
+                            hideTitle="true"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            title="Custom Title">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate6"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock6>
+                <contentblock7
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock7"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Custom Variant using Field Template Card with selected Fields Subtitle, Title, Description and Action"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:lastModified="{Date}2019-09-13T21:53:13.635+10:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            badgeFields="[subtitle,title]"
+                            badgeFieldsTemplate="card"
+                            componentId="generic-details7"
+                            textIsRich="true"
+                            variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/custom"
+                            variantFields="[subtitle,title,description,action]"
+                            variantFieldsTemplate="card"/>
+                    </par>
+                </contentblock7>
+                <contentblock8
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock8"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Variant Template with Breadcrumb, SubTitle, Title, Description and Action"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            badgeTemplate="aemdesign-showcase:component-dialog/components/details/generic-details/badge/cardBreadcrumbSubTitleTitleDescriptionAction"
+                            componentId="generic-details8"
+                            textIsRich="true"
+                            variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/breadcrumbSubTitleTitleDescriptionAction"
+                            variantFields="[subtitle,title,description,action]"
+                            variantFieldsTemplate="card">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate8"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock8>
+                <contentblock9
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock9"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Generic Details: Default without included components and Page Date, Custom Title and Description"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic-details9"
+                            description="Custom Description"
+                            showBreadcrumb="false"
+                            showParsys="false"
+                            showToolbar="false"
+                            textIsRich="true"
+                            title="Custom Title"
+                            variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/default">
+                            <pagedate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/content/pagedate"
+                                componentId="pagedate9"
+                                publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock9>
+                <contentblock10
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock10"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="Generic Details: Using Content Fragment as Source"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                                jcr:mixinTypes="[cq:Taggable]"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/details/generic-details"
+                                componentId="generic-details10"
+                                textIsRich="true"
+                                variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/default">
+                            <pagedate
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/pagedate"
+                                    componentId="pagedate10"
+                                    publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock10>
             </par>
         </article>
-		<image
-			jcr:primaryType="nt:unstructured"
-			fileReference="/content/dam/aemdesign-showcase/en/common/images/tea.jpg"/>
-	</jcr:content>
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/content/dam/aemdesign-showcase/en/common/images/tea.jpg"/>
+    </jcr:content>
+    <custom-badges/>
 </jcr:root>

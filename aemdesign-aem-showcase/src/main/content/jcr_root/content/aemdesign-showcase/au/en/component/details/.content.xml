@@ -41,7 +41,7 @@
                     componentId="contentblock4"
                     hideTitle="false"
                     hideTitleSeparator="true"
-                    title="Page Details: For Inheriting by Page Details Toolbar"
+                    title="Page Details: For Inheriting by Details Components"
                     variant="advsection">
                     <par
                         jcr:primaryType="nt:unstructured"
@@ -59,8 +59,7 @@
                             <toolbar
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="aemdesign/components/layout/navbar"
-                                cancelInheritParent="true"
-                                componentId="toolbar_N74VSQQQX">
+                                cancelInheritParent="true">
                                 <par
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="aemdesign/components/layout/container">
@@ -91,6 +90,50 @@
                                     textIsRich="true"/>
                             </par>
                         </pagedetails>
+                        <genericdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="generic-details4"
+                            description="Custom Description"
+                            showBreadcrumb="true"
+                            showParsys="true"
+                            showToolbar="true"
+                            title="Page Title 4">
+                            <toolbar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/navbar"
+                                cancelInheritParent="true">
+                                <par
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/layout/container">
+                                    <text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="aemdesign/components/content/text"
+                                        componentId="text_in_parent_toolbar"
+                                        text="Text in Parent Toolbar"
+                                        textIsRich="true"/>
+                                </par>
+                            </toolbar>
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                            <secondaryImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"
+                                fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="text_in_parent_parsys"
+                                    text="Text in Parent Parsys"
+                                    textIsRich="true"/>
+                            </par>
+                        </genericdetails>
                     </par>
                 </contentblock4>
             </par>

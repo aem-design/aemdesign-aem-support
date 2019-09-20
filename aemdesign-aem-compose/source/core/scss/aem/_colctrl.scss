@@ -14,8 +14,14 @@ div[class*='colctrl']:not([class*='col-']) {
   }
 
   @include media-breakpoint-down(sm) {
-    .col-sm-12:not(:last-child) {
+    .col-sm-12:not(:last-child),
+    .col-sm:not(:last-child) {
       padding-bottom: 30px;
+    }
+
+    .col-sm {
+      flex-basis: 100%;
+      width: 100%;
     }
   }
 }

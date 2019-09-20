@@ -1,0 +1,54 @@
+// stylelint-disable selector-max-compound-selectors
+// stylelint-disable declaration-no-important
+
+.cards-tiles-narrow & {
+  background-color: #fff !important;
+  border-radius: 3px;
+  flex-direction: row;
+  height: auto;
+  text-decoration: none;
+
+  .card-body {
+    border-radius: 3px;
+    flex-direction: row;
+    padding: 16px;
+
+    .card-icon {
+      font-size: icon-size('small');
+      line-height: inherit;
+      margin-top: 0;
+
+      &:first-child {
+        margin-right: 16px;
+      }
+      &:last-child {
+        color: color('charcoal');
+        margin-left: auto;
+        margin-top: 0;
+      }
+      @include media-breakpoint-up(md) {
+        font-size: icon-size('regular');
+      }
+    }
+
+    .card-title {
+      color: color('charcoal');
+      line-height: inherit;
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: color('charcoal');
+      color: #fff;
+
+      .card-title,
+      .card-icon {
+        color: #fff;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      padding: 14px 18px;
+    }
+  }
+}

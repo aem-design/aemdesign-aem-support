@@ -1,5 +1,9 @@
 img {
   max-width: 100%;
+
+  &.lazyload:not([src]) {
+    visibility: hidden;
+  }
 }
 
 figure,

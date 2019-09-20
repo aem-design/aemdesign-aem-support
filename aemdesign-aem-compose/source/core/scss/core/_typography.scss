@@ -46,13 +46,15 @@ p {
 // Bold text
 
 b,
-strong {
+strong,
+.strong {
   font-weight: 700;
 }
 
 // Small text
 
-small {
+small,
+.small {
   font-size: 10px;
   line-height: 23px;
 

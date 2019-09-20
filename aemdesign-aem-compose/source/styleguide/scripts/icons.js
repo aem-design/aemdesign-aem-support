@@ -72,6 +72,7 @@ const icons = [
   { class: 'fab fa-connectdevelop', 'name': 'Connectdevelop' },
   { class: 'fab fa-facebook-f', 'name': 'Facebook F' },
   { class: 'fab fa-facebook', 'name': 'Facebook' },
+  { class: 'fab fa-facebook-square', 'name': 'Facebook Square' },
   { class: 'fab fa-instagram', 'name': 'Instagram' },
   { class: 'fab fa-twitter', 'name': 'Twitter' },
   { class: 'fab fa-pinterest-p', 'name': 'Pinterest P' },

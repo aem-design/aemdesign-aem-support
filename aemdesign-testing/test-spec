@@ -40,10 +40,10 @@ if [[ "$EXEC_ENV" == *"remote"* ]]; then
 fi
 
 #THIS WILL RUN ALL WORKING TESTS
-EXEC_TEST="${5:-Download*,Aside*,Article*,Link*,Table*,Text*,Footer*,Header*,RedirectNotification*,ContentBlockA*,ContentBlockP*,ContentBlockS*,ContentBlockM*,PageList*,PageDetails*,Columns*,Breadcrumb*,Image*,Video*,ContactDetails*,EmbedSource*,Navbar*,NavList*,PageTitle*,PageTags*,PageDate*,PageDescription*,DataLayer*,External*,PageAuthor*,EventDetails*,OnlineMedia*,Reference*,List*,SearchList*,Audio*,Tooltip*,NewsDetails*,LocationDetails*,NewsList*,ContactList*,ShareButton*,LocationList*,ContentTabs*,Timing*,StaticInclude*,TagList*,LangNav*,AssetList*,ListNav*,ContentBlockC*}"
+EXEC_TEST="${5:-Download*,Aside*,Article*,Link*,Table*,Text*,Footer*,Header*,RedirectNotification*,ContentBlockA*,ContentBlockP*,ContentBlockS*,ContentBlockM*,PageList*,PageDetails*,Columns*,Breadcrumb*,Image*,Video*,ContactDetails*,EmbedSource*,Navbar*,NavList*,PageTitle*,PageTags*,PageDate*,PageDescription*,DataLayer*,External*,PageAuthor*,EventDetails*,OnlineMedia*,Reference*,List*,SearchList*,Audio*,Tooltip*,NewsDetails*,LocationDetails*,NewsList*,ContactList*,ShareButton*,LocationList*,ContentTabs*,Timing*,StaticInclude*,TagList*,LangNav*,AssetList*,ListNav*,ContentBlockC*,GenericDetails*}"
 
 #THIS WILL RUN ONLY ONE TEST YOU CAN USE THIS IN DEV
-#EXEC_TEST="${5:-AssetListS*,PageListS*,SearchListPub*,TooltipS*,PageTitleS*,LinkS*,DownloadS*,ExternalS*,VideoS*,ImageS*}"
+#EXEC_TEST="${5:-GenericDetails*}"
 
 EXEC_TEST_EXCLUDE="${6:-}"
 EXEC_PARAMS=" ${*:7}"

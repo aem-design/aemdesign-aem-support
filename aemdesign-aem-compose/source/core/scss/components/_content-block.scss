@@ -7,6 +7,12 @@
 [component].contentblock {
   @include clearfix;
 
+  > .icon {
+    color: color('red');
+    font-size: icon-size(large);
+    margin-bottom: 10px;
+  }
+
   // Strip away the padding when a nested `.container` exists in a content block container
   &.container > .container {
     max-width: 100%;
@@ -25,5 +31,15 @@
 
       @extend %headings-underlined;
     }
+
+    // Fix any nested grids so they don't break outside of the container
+    // stylelint-disable-next-line
+    > .contents > .responsivegrid > .aem-Grid > .colctrl > .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
+
+  @import 'contentblock/card';
+  @import 'contentblock/notification';
 }

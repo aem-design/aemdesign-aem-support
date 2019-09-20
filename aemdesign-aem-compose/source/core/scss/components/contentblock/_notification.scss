@@ -1,0 +1,55 @@
+&--notification,
+&--notification-full {
+  @extend %notification-base;
+  @extend %notification-body;
+
+  height: 100%;
+  z-index: 1;
+
+  > .icon {
+    @extend %notification-icon;
+  }
+
+  > .title {
+    // Push the title down 5px to offset the difference in HTML between notifications
+    margin-top: 5px;
+  }
+
+  &::before {
+    background-color: color('white');
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    content: '';
+    display: block;
+    height: calc(100% - 6px);
+    left: 1px;
+    position: absolute;
+    top: 5px;
+    width: calc(100% - 2px);
+    z-index: -1;
+  }
+}
+
+&--notification-full {
+  border-radius: 3px;
+  box-shadow: none;
+
+  > .icon {
+    background-color: color('charcoal');
+  }
+
+  // stylelint-disable-next-line
+  > .responsivegrid .aem-Grid > :not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  &::before {
+    content: none;
+  }
+
+  &.bg-charcoal > .icon {
+    background-color: color('white');
+    // stylelint-disable-next-line
+    color: color('charcoal') !important;
+  }
+}

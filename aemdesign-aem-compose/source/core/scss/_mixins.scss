@@ -1,5 +1,5 @@
+@import 'mixins/forms';
 @import 'mixins/headings';
-
 
 // =============================================================================
 // Font Face
@@ -209,7 +209,7 @@
 }
 
 @mixin foil($color) {
-  background-image: url(../resources/images/patterns/foil-#{$color}.png);
+  background-image: url(#{$asset-base-path}images/patterns/foil-#{$color}.png);
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 13px 140px;

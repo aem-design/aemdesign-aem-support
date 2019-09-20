@@ -1,5 +1,8 @@
 @import 'common';
 
+$asset-base-path: '/etc.clientlibs/aemdesign-compose/clientlibs/core/clientlibs-header/resources/' !default;
+
+
 // Colours
 
 $brand-colours: (
@@ -30,6 +33,11 @@ $brand-colours: (
     'grey-4'   : #e2e2e2,
     'grey-5'   : #f6f6f6,
   ),
+
+  other: (
+    'white' : #ffffff,
+    'black' : #000000,
+  ),
 );
 
 $colors: (
@@ -51,14 +59,15 @@ $colors: (
   'turquoise-50' : map-deep-get($brand-colours, 'secondary', 'turquoise-50'),
   'yellow'       : map-deep-get($brand-colours, 'primary', 'yellow'),
   'yellow-50'    : map-deep-get($brand-colours, 'primary', 'yellow-50'),
+  'white'        : map-deep-get($brand-colours, 'other', 'white'),
+  'black'        : map-deep-get($brand-colours, 'other', 'black'),
+
 );
 
 $theme-colors: $colors;
 
 // Body
-
-$body-bg:                   $white;
-$body-color:                color('charcoal');
+$body-bg:                   color('white');
 
 // Links
 
@@ -109,6 +118,7 @@ $spacing-5xl: 45px;
 $spacing-6xl: 50px;
 $spacing-7xl: 55px;
 $spacing-8xl: 70px;
+
 // Components
 //
 // Define common padding and border radius sizes and more.
@@ -330,6 +340,12 @@ $card-border-radius:                null;
 $card-inner-border-radius:          null;
 $card-bg:                           transparent;
 
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+$input-btn-line-height:       23px;
+
 // Buttons
 
 $btn-padding-y:               13.5px;
@@ -357,6 +373,31 @@ $btn-active-box-shadow:       null;
 $btn-border-radius:           3px;
 $btn-border-radius-lg:        $btn-border-radius;
 $btn-border-radius-sm:        $btn-border-radius;
+
+// Forms
+
+$label-color:                           #808285;
+$label-margin-bottom:                   null;
+
+$input-padding-y:                       20px;
+$input-padding-x:                       15px;
+$input-font-size:                       12px;
+$input-font-weight:                     $font-weight-bold;
+$input-line-height:                     $input-btn-line-height;
+
+$input-bg:                              color('white');
+$input-bg-dark:                         #505050;
+
+$input-color:                           color('charcoal');
+$input-border-color:                    color('grey-4');
+$input-border-width:                    1px;
+
+$input-border-radius:                   3px;
+
+$input-focus-border-color:              $black;
+$input-focus-color:                     $input-color;
+
+$input-height:                          50px;
 
 // Header
 

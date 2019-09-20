@@ -1,8 +1,8 @@
 // stylelint-disable declaration-no-important
 
 .bg-charcoal {
-  *:not(.link):not(.link-text):not(.svg-inline--fa):not(path):not(select):not(option) {
-    color: $white;
+  *:not(.link):not(.link-text):not(.svg-inline--fa):not(path):not(select):not(option):not(.ignore) {
+    color: color('white');
   }
 
   table {
@@ -10,7 +10,7 @@
     td,
     tr,
     th {
-      border-color: $white;
+      border-color: color('white');
     }
   }
 }

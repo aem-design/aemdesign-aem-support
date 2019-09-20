@@ -87,7 +87,7 @@
 }
 
 &__nav-backdrop {
-  background-color: rgba($white, .5);
+  background-color: rgba(color('white'), .5);
   display: block;
   height: $header-height-md;
   pointer-events: none;

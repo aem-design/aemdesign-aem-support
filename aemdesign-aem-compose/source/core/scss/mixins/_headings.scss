@@ -46,7 +46,7 @@
   // Apply a different keyline margin depending on the heading level
   @each $level in $selectors {
     @each $bp, $opts in typography-heading(nth($level, length($level))) {
-      @if map-has-key($opts, margin-bottom) {
+      @if not not $opts and map-has-key($opts, margin-bottom) {
         @include media-breakpoint-up($bp) {
           @if $parent-nesting == true {
             &::after {
@@ -55,7 +55,7 @@
           }
           @else {
             $level-selectors: selector-nest(
-              if($extend-to-class == true, ($level '.#{$level}'), $level),
+              if($extend-to-class == true, ($level ', .#{$level}'), $level),
               '&::after',
             );
 
@@ -71,7 +71,7 @@
   // H4 headings have a slightly smaller keyline under them on larger screens
   @if index($selectors, h4) != null {
     $h4-selectors: selector-nest(
-      if($extend-to-class == true, (h4 unquote('.h4')), h4),
+      if($extend-to-class == true, (h4 unquote(', .h4')), h4),
       '&::after',
     );
 

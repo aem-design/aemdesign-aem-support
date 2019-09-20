@@ -21,7 +21,7 @@
                     cardIcon="[aemdesign-showcase:component-style-modifier/icon/size/sm,aemdesign-showcase:component-style-icon/social/facebook]"
                     cardIconShow="true"
                     componentIcon="[aemdesign-showcase:component-style-icon/social/facebook]"
-					componentId="page-details"
+                    componentId="page-details"
                     componentModifiers="[aemdesign-showcase:component-style-modifier/icon/size/sm]"
                     showBreadcrumb="false"
                     showParsys="false"

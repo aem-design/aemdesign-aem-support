@@ -1,29 +1,36 @@
+import _throttle from 'lodash/throttle'
+
 import { hasParent, matches, sanitizeHTML } from '@utility/dom'
 
 // Internal
 const CALLBACK_CLICK     = 'click'
 const CALLBACK_KEYUP     = 'keyup'
+const CALLBACK_RESIZE    = 'resize'
 const QUICK_SEARCH_CLASS = '.brand-header__quick-search'
 
 const callbacks: {
-  click: Array<(target: HTMLElement) => void>,
-  keyup: Array<(event: KeyboardEvent) => void>,
+  click  : Array<(target: HTMLElement) => void>,
+  keyup  : Array<(event: KeyboardEvent) => void>,
+  resize : Array<() => void>,
 } = {
-  [CALLBACK_CLICK]: [],
-  [CALLBACK_KEYUP]: [],
+  [CALLBACK_CLICK]  : [],
+  [CALLBACK_KEYUP]  : [],
+  [CALLBACK_RESIZE] : [],
 }
+
+let scrollbarWidth = 0
 
 /**
  * Binds the submit button and form events that are used to toggle the visibility of the form
  * and submit the user input to the Funnelback hosted results page.
  *
- * @param {Element} quickSearch Quick search (AEM) component
+ * @param {HTMLElement} quickSearch Quick search (AEM) component
  * @param {HTMLFormElement} searchForm Search `<form>` element
  * @param {HTMLInputElement} searchField Search `<input>` element
  * @param {HTMLElement} submitButton Search `<button>` element
  */
 function bindSearchEvents({ quickSearch, searchField, searchForm, submitButton }: {
-  quickSearch: Element;
+  quickSearch: HTMLElement;
   searchField: HTMLInputElement;
   searchForm: HTMLFormElement;
   submitButton: HTMLElement;
@@ -32,6 +39,8 @@ function bindSearchEvents({ quickSearch, searchField, searchForm, submitButton }
     event.preventDefault()
 
     if (!quickSearch.classList.contains('show')) {
+      setTrueWidthOfSearchField(searchField)
+
       quickSearch.classList.add('show')
       searchField.removeAttribute('tabindex')
 
@@ -47,6 +56,16 @@ function bindSearchEvents({ quickSearch, searchField, searchForm, submitButton }
     event.preventDefault()
     submitSearchForm({ searchForm, searchField })
   })
+}
+
+function setTrueWidthOfSearchField(searchField: HTMLElement) {
+  searchField.style.width = ''
+
+  const currentWidth = getComputedStyle(searchField).width
+
+  if (currentWidth) {
+    searchField.style.width = `${parseInt(currentWidth) - scrollbarWidth}px`
+  }
 }
 
 /**
@@ -77,6 +96,30 @@ function submitSearchForm({ searchField, searchForm }: {
   }
 }
 
+function getScrollbarWidth() {
+  const outer = document.createElement('div')
+  outer.style.visibility = 'hidden'
+  outer.style.width = '100px'
+  outer.style.msOverflowStyle = 'scrollbar' // needed for WinJS apps
+
+  document.body.appendChild(outer)
+
+  const widthNoScroll = outer.offsetWidth
+  outer.style.overflow = 'scroll'
+
+  const inner = document.createElement('div')
+  inner.style.width = '100%'
+  outer.appendChild(inner)
+
+  const widthWithScroll = inner.offsetWidth
+
+  if (outer.parentNode) {
+    outer.parentNode.removeChild(outer)
+  }
+
+  return widthNoScroll - widthWithScroll
+}
+
 export default () => {
   const searchForms = document.querySelectorAll(QUICK_SEARCH_CLASS)
 
@@ -84,13 +127,16 @@ export default () => {
     return
   }
 
+  // Get the size of the scrollbar initially
+  scrollbarWidth = getScrollbarWidth()
+
   for (const quickSearch of searchForms) {
     const searchField: HTMLInputElement = quickSearch.querySelector('input[type=search]') as HTMLInputElement
     const searchForm: HTMLFormElement = quickSearch.querySelector('form') as HTMLFormElement
     const submitButton: HTMLElement = quickSearch.querySelector('button[type=submit]') as HTMLElement
 
     if (searchField && searchForm && submitButton) {
-      bindSearchEvents({ quickSearch, searchField, searchForm, submitButton })
+      bindSearchEvents({ quickSearch: quickSearch as HTMLElement, searchField, searchForm, submitButton })
 
       // Define the event callback for when the user clicks on the page
       setEventCallback<HTMLElement>((target) => {
@@ -106,11 +152,15 @@ export default () => {
           quickSearch.classList.remove('show')
           searchField.setAttribute('tabindex', '-1')
 
+
           if (submitButton) {
             submitButton.focus()
           }
         }
       }, CALLBACK_KEYUP)
+
+      // Define the resize event callback
+      setEventCallback(() => setTrueWidthOfSearchField(searchField), CALLBACK_RESIZE)
     }
   }
 
@@ -129,4 +179,12 @@ export default () => {
       callback(event)
     }
   })
+
+  window.addEventListener('resize', _throttle(() => {
+    scrollbarWidth = getScrollbarWidth()
+
+    for (const callback of callbacks[CALLBACK_RESIZE]) {
+      callback()
+    }
+  }, 200))
 }

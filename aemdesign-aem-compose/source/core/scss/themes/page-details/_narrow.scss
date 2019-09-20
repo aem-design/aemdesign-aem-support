@@ -23,10 +23,28 @@
   }
 
   @include media-breakpoint-down(md) {
-    padding-top: 200px;
+    flex-direction: column;
+    padding-top: 0;
+
+    .page-details__hero,
+    .page-details__hero img {
+      max-height: 200px;
+    }
+
+    .page-details__hero {
+      position: static;
+    }
   }
 
-  @include media-breakpoint-down(sm) {
-    padding-top: 100px;
+  @include media-breakpoint-up(md) {
+    min-height: 350px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-height: 430px;
+
+    .ie-11 & {
+      min-height: 390px;
+    }
   }
 }

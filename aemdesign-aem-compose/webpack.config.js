@@ -11,9 +11,8 @@ const {
 } = require('webpack')
 
 const BundleAnalyzerPlugin    = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const CleanWebpackPlugin      = require('clean-webpack-plugin')
+const { CleanWebpackPlugin }  = require('clean-webpack-plugin')
 const CopyWebpackPlugin       = require('copy-webpack-plugin')
-const EventHooksPlugin        = require('event-hooks-webpack-plugin')
 const ImageminPlugin          = require('imagemin-webpack-plugin').default
 const LodashPlugin            = require('lodash-webpack-plugin')
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin')
@@ -46,7 +45,6 @@ xmlParser.parseString(pomConfig, (_, { project }) => {
 xmlParser.parseString(parentPomConfig, (_, { project }) => {
   const properties = project.properties[0]
 
-
   authorPort          = properties['crx.port'][0]
 })
 
@@ -58,7 +56,6 @@ if (!(authorPort || appsFolder)) {
   console.error('Unable to parse the parent maven configuration!')
   process.exit(0)
 }
-
 
 // Load the CSS and JavaScript loaders
 const { CSSLoaders, JSLoaders } = require('./config/webpack.loaders')
@@ -106,12 +103,12 @@ module.exports = env => {
       const additionalEntryKeys = Object.keys(project.additionalEntries)
         .filter(x => project.hmr[key].mapToOutput.indexOf(x) !== -1)
 
-        for (const entry of additionalEntryKeys) {
-          additionalEntries[key] = [
-            ...additionalEntries[key],
-            ...project.additionalEntries[entry],
-          ]
-        }
+      for (const entry of additionalEntryKeys) {
+        additionalEntries[key] = [
+          ...additionalEntries[key],
+          ...project.additionalEntries[entry],
+        ]
+      }
     }
 
     entry = {
@@ -140,8 +137,8 @@ module.exports = env => {
   const outputFolder = env.hmr === true ? clientLibsPath : false
 
   return {
-    context : SOURCE_PATH,
-    devtool : ifDev(env.hmr === true ? 'cheap-module-source-map' : 'cheap-module-eval-source-map'),
+    context: SOURCE_PATH,
+    devtool: ifDev(env.hmr === true ? 'cheap-module-source-map' : 'cheap-module-eval-source-map'),
     entry,
     mode,
 
@@ -185,7 +182,8 @@ module.exports = env => {
             },
             ...CSSLoaders(env, {
               sassOptions: {
-                includePaths: [resolve(PROJECT_PATH, 'scss')],
+                data         : `@import 'setup';`,
+                includePaths : [resolve(PROJECT_PATH, 'scss')],
               },
             }),
           ],
@@ -246,7 +244,7 @@ module.exports = env => {
             condition: true,
 
             banner() {
-              return `Copyright 2016-${(new Date).getFullYear()} AEM.Design`
+              return `Copyright 2019-${(new Date).getFullYear()} AEM.Design`
             },
           },
 
@@ -287,9 +285,15 @@ module.exports = env => {
           default: false,
           vendors: false,
 
+          jquery: env.hmr === true ? false : {
+            filename : 'js/vendorlib/jquery.js',
+            name     : 'jquery',
+            test     : /[\\/]node_modules[\\/](jquery)[\\/]/,
+          },
+
           vue: {
             name: 'vue',
-            test: /[\\/]node_modules[\\/](vue|vue-property-decorator|process|setimmediate|timers-browserify)[\\/]/,
+            test: /[\\/]node_modules[\\/](vue|vue-property-decorator)[\\/]/,
           },
         },
       },
@@ -368,21 +372,11 @@ module.exports = env => {
       ifProd(new LoaderOptionsPlugin({
         minimize: true,
       })),
-      new EventHooksPlugin({
-        done() {
-          if (env.deploy) {
-            const child = require('child_process').exec(`./deploy-front-end ${env.project}`)
-
-            child.stdout.on('data', data => process.stdout.write(data))
-            child.stderr.on('data', data => process.stderr.write(data))
-          }
-        },
-      }),
     ]),
 
     resolve: {
       alias: {
-        'vue$': env.dev === true ? 'vue/dist/vue.esm.js' : 'vue/dist/vue.min.js',
+        vue$: env.dev === true ? 'vue/dist/vue.esm.js' : 'vue/dist/vue.min.js',
       },
 
       extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
@@ -394,12 +388,13 @@ module.exports = env => {
 
     devServer: {
       contentBase : resolve(PUBLIC_PATH, env.project),
+      host        : '0.0.0.0',
       open        : false,
       port        : 4504,
 
       proxy: {
         context : () => true,
-        target  : `http://localhost:${authorPort}`,
+        target  : `http://${env.host || 'localhost'}:${authorPort}`,
       },
     },
   }

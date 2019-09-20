@@ -1,3 +1,16 @@
+/**
+ * Generates the dynamic import logic needed for each async Vue component.
+ *
+ * @param {string} folder Name of the folder containing the Vue component
+ * @param {string} view Name of the Vue component
+ * @return {() => Promise<any>}
+ */
+function loadView(folder: string, view: string): () => Promise<any> {
+  return () => import(
+    /* webpackChunkName: "components/[request]" */
+    `./${folder}/${view}.vue`)
+}
+
 export default async (references: NodeListOf<Element>) => {
   const { default: Vue } = await import('vue')
 
@@ -8,7 +21,11 @@ export default async (references: NodeListOf<Element>) => {
 
   // Define the components we can use
   const components = {
-    'journey-planner': () => import(/* webpackChunkName: "components/journey-planner" */ './journey-planner/JourneyPlanner.vue'),
+    'social-share'    : loadView('social-share', 'SocialShare'),
+    'site-search'     : loadView('site-search', 'SiteSearch'),
+    'search-input'    : loadView('search-input', 'SearchInput'),
+    'search-results'  : loadView('search-results', 'SearchResults'),
+    'view-more'       : loadView('view-more', 'ViewMore'),
   }
 
   const validComponents = Object.keys(components)

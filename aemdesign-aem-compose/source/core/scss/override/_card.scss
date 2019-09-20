@@ -10,59 +10,27 @@
   margin-bottom: 0;
   width: 100%;
 
-  &-img-top {
+  &-img-top,
+  // `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
+  .lazysizes-display-clone {
     display: block;
-    overflow: hidden;
-    position: relative;
-
-    img {
-      @include object-fit(cover, center);
-
-      display: block;
-      width: 100%;
-
-      &[src$='jpeg'],
-      &[src$='jpg'],
-      &[src$='png'] {
-        max-height: 145px;
-        min-height: 100%;
-        min-width: 100%;
-
-        @include media-breakpoint-up(md) {
-          max-height: 160px;
-        }
-
-        @include media-breakpoint-up(xl) {
-          max-height: 210px;
-        }
-      }
-
-      // Handle SVG images slightly different so they don't stretch when they shouldn't
-      &[src$='svg'] {
-        object-fit: contain;
-      }
-
-      &[data-ofi-src] {
-        max-height: 100%;
-      }
-
-      // In browsers that don't support object-fit we use a polyfill, for icons that are
-      // SVG we need to ensure they scale to the parent container rather than covering
-      // the whole element.
-      &[data-ofi-src$='svg'] {
-        // stylelint-disable-next-line
-        background-size: auto !important;
-      }
-    }
+    height: 145px;
 
     @include media-breakpoint-up(md) {
-      @include aspect-ratio(16, 9, 'img');
-
-      img {
-        top: 50%;
-        transform: translateY(-50%);
-      }
+      height: 160px;
     }
+
+    @include media-breakpoint-up(xl) {
+      height: 210px;
+    }
+  }
+
+  &-img-top img {
+    @include object-fit(cover, center);
+
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
   &-subtitle,
@@ -73,13 +41,13 @@
   }
 
   &-body {
-    background-color: $white;
+    background-color: color('white');
     display: flex;
     flex-direction: column;
 
     // A small 'hack' (if you will) that ensures buttons remain aligned to the bottom of the
     // card as sibling cards will be the same height as oneanother.
-    > :last-child:not(.card-title):not(.card-text) {
+    > :last-child:not(.card-title):not(.card-subtitle):not(.card-text) {
       margin-top: auto;
     }
 
@@ -88,16 +56,28 @@
     > :last-child {
       margin-bottom: 0;
     }
+
+    @include media-breakpoint-up(lg) {
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding: $grid-gutter-width 40px;
+    }
   }
 
-  &-date,
-  &-text {
+  &-date {
     font-weight: 300;
   }
 
   &-taglist {
     .taglist li::before {
       display: none;
+    }
+
+    ul {
+      margin-bottom: 0;
     }
 
     li {
@@ -113,6 +93,29 @@
         display: none;
       }
     }
+  }
+
+  &--taglist-button {
+    .card-date {
+      color: color('grey-2');
+      font-weight: 400;
+    }
+    .taglist {
+      &__item {
+        border: 1px solid color('grey-2');
+        border-radius: 3px;
+        color: color('charcoal');
+        display: inline-block;
+        font-size: smaller;
+        font-weight: 600;
+        line-height: 16px;
+        padding: 2px 8px;
+      }
+    }
+  }
+
+  &-text {
+    color: #808285;
   }
 
   &-action {
@@ -134,6 +137,8 @@
   @import 'card/taglist-share';
   @import 'card/column';
   @import 'card/columns';
+  @import 'card/testimonial';
+  @import 'card/tiles-narrow';
 
   // Background variations
   .bg-yellow &,

@@ -2,7 +2,7 @@
 // stylelint-disable selector-max-compound-selectors
 
 $color-base:  #869791;
-$color-white: $white;
+$color-white: color('white');
 $color-gray:  #d6d6d6;
 
 @import '~owl.carousel/src/scss/core';
@@ -49,11 +49,11 @@ $color-gray:  #d6d6d6;
     // Alternative colours
     .bg-charcoal,
     .bg-charcoal-pattern & {
-      border-color: $white;
+      border-color: color('white');
 
       @include hover {
         &:not(:active):not(.disabled) {
-          background-color: $white;
+          background-color: color('white');
           color: color('charcoal');
         }
       }
@@ -66,7 +66,7 @@ $color-gray:  #d6d6d6;
       @include hover {
         &:not(:active):not(.disabled) {
           background-color: color('charcoal');
-          color: $white;
+          color: color('white');
         }
       }
     }

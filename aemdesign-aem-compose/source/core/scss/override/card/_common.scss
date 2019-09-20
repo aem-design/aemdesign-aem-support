@@ -1,41 +1,19 @@
 .cards-column &,
 .cards-columns &,
 [class*='card--column'] {
-  .card-img-top {
-    @include aspect-ratio(215, 115);
-    @include media-breakpoint-down(sm) {
-      > img {
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
+  .card-link {
+    min-width: 125px;
+
+    @include media-breakpoint-up(md) {
+      min-width: 175px;
     }
   }
-  .card-body {
-    padding: 30px;
-    @extend %headings-underlined;
-    .card-title {
-      &::after {
-        display: none;
-      }
-    }
-    .card-link {
-      min-width: 125px;
-    }
-    .card-text {
-      margin-bottom: 45px;
-    }
+
+  .card-text {
+    margin-bottom: 45px;
   }
+
   .card-action {
     padding-top: 0;
-  }
-  @include media-breakpoint-up(md) {
-    .card-body {
-      .card-link {
-        min-width: 175px;
-      }
-    }
   }
 }

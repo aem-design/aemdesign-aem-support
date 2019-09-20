@@ -12,7 +12,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="AEM.Design Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:AEM.Design - Content,group:AEM.Design - Media,group:AEM.Design - Details,group:AEM.Design - Layout,group:AEM.Design - Forms,group:AEM.Design - Lists,group:AEM.Design - Widgets,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/designimporter/components/importerEx,/libs/dam/cfm/components/contentfragment]"
+                        components="[group:AEM.Design - Content,group:AEM.Design - Media,group:AEM.Design - Details,group:AEM.Design - Layout,group:AEM.Design - Forms,group:AEM.Design - Lists,group:AEM.Design - Widgets,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/designimporter/components/importerEx]"
                         policyResourceType="aemdesign/components/layout/container">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -48,7 +48,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="dam/cfm/components/contentfragment"
+                                    resourceType="aemdesign/components/content/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
@@ -68,7 +68,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="AEM.Design Structure"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:AEM.Design - Content,group:AEM.Design - Media,group:AEM.Design - Details,group:AEM.Design - Layout,group:AEM.Design - Forms,group:AEM.Design - Lists,group:AEM.Design - Widgets,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/designimporter/components/importerEx,/libs/dam/cfm/components/contentfragment]"
+                        components="[group:AEM.Design - Content,group:AEM.Design - Media,group:AEM.Design - Details,group:AEM.Design - Layout,group:AEM.Design - Forms,group:AEM.Design - Lists,group:AEM.Design - Widgets,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/designimporter/components/importerEx]"
                         policyResourceType="aemdesign/components/layout/container">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -104,7 +104,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="dam/cfm/components/contentfragment"
+                                    resourceType="aemdesign/components/content/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"

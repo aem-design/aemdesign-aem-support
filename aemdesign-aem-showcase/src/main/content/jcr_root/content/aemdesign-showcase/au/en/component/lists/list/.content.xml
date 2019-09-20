@@ -18,6 +18,10 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page-details"/>
+                <contentblockmenu1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                        componentId="contentblockmenu1"/>
                 <contentblock1
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
@@ -177,14 +181,13 @@
                             sortOrder="asc"
                             tags="[aemdesign-showcase:content-type/page,aemdesign-showcase:content-type/page/contact]"
                             tagsMatch="any"
-                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags">
-                        </list>
+                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags"/>
                     </par>
                 </contentblock8>
                 <contentblock9
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock8"
+                    componentId="contentblock9"
                     hideTitle="false"
                     hideTitleSeparator="true"
                     title="List: Pages search with By Tags with Tags not Specified"
@@ -199,10 +202,200 @@
                             listFrom="tags"
                             sortOrder="asc"
                             tagsMatch="any"
-                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags">
-                        </list>
+                            tagsSearchRoot="/content/aemdesign-showcase/au/en/component/lists/list/tags"/>
                     </par>
                 </contentblock9>
+                <contentblock10
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock10"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details without Badge or Badge Config"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                componentId="list10"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock10>
+                <contentblock11
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock11"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Custom Badge and Badge Template"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                badgeTemplate="aemdesign-showcase:component-dialog/components/details/generic-details/badge/cardBreadcrumbSubTitleTitleDescriptionAction"
+                                badgeCustom="true"
+                                componentId="list11"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock11>
+                <contentblock12
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock12"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Custom Badge and Badge Fields and Field Template"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                badgeCustom="true"
+                                badgeFields="[action,subtitle]"
+                                badgeFieldsTemplate="card"
+                                componentId="list12"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock12>
+                <contentblock13
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock13"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Legacy Badge"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                componentId="list13"
+                                detailsBadge="cardImageTitleCategoryDescription"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock13>
+                <contentblock14
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock14"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Custom Badge and Badge Fields"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                componentId="list14"
+                                badgeCustom="true"
+                                badgeFields="[action,subtitle]"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock14>
+                <contentblock15
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock15"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Custom Badge and Badge Fields Template"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                componentId="list15"
+                                badgeCustom="true"
+                                badgeFieldsTemplate="action-icon"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock15>
+                <contentblock16
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock16"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Custom Badge, Badge Fields, Badge Fields Template and Badge Template taking Priority"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                componentId="list16"
+                                badgeCustom="true"
+                                badgeTemplate="aemdesign-showcase:component-dialog/components/details/generic-details/badge/cardBreadcrumbSubTitleTitleDescriptionAction"
+                                badgeFields="[action,subtitle]"
+                                badgeFieldsTemplate="card"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock16>
+                <contentblock17
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock17"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Legacy Badge - Card Coloured with Image, Title, Subtitle, Description and Action"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                componentId="list17"
+                                detailsBadge="cardImageTitleSubtitleDescriptionAction"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock17>
             </par>
         </article>
     </jcr:content>

@@ -4,7 +4,7 @@
 // behaviour that can be handled already by Bootstrap helper classes such as spacing
 // and other component level changes.
 
-[component].accordion [component].accordion-toggle {
+[component].accordion .accordion-toggle {
   $grid-gutter: $grid-gutter-width / 2;
 
   appearance: unset;
@@ -12,7 +12,7 @@
   background-image: none;
   border: unset;
   border-radius: 0;
-  color: $white;
+  color: color('white');
   display: block;
   // stylelint-disable-next-line
   height: auto !important;
@@ -22,7 +22,7 @@
   width: 100%;
 
   > .svg-inline--fa {
-    color: $white;
+    color: color('white');
     font-size: icon-size(small);
     position: absolute;
     right: $grid-gutter;
@@ -75,7 +75,7 @@
   }
 
   @include hover-focus {
-    color: $white;
+    color: color('white');
   }
 
   @include media-breakpoint-up(md) {
@@ -106,5 +106,6 @@
 .accordion-body {
   @extend .container-text;
 
+  padding-bottom: 20px;
   padding-top: 5px;
 }

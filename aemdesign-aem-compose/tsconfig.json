@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -46,6 +46,7 @@
   },
 
   "include": [
+    "@types/*.d.ts",
     "source/**/*.ts",
     "source/**/*.tsx",
     "source/**/*.vue",
@@ -54,7 +55,6 @@
 
   "exclude": [
     "public",
-    "node_modules",
-    "cypress"
+    "node_modules"
   ]
 }

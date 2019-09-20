@@ -1,9 +1,6 @@
 &-narrow,
 &-tall {
   background-color: color('charcoal');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   z-index: 1;
 
@@ -21,7 +18,7 @@
 
     .title,
     .description {
-      color: $white;
+      color: color('white');
     }
 
     .title::after {
