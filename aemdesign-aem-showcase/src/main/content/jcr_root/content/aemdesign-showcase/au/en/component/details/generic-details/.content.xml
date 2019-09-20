@@ -11,7 +11,6 @@
         jcr:title="Generic Details"
         sling:resourceType="aemdesign/components/template/base"
         navTitle="Page Properties - Navigation Title"
-        onTime="{Date}2019-09-18T15:15:00.000+10:00"
         pageTitle="Page Properties - Page Title"
         subtitle="Page Properties - Subtitle">
         <article
@@ -26,6 +25,8 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/generic-details"
                     componentId="generic-details"
+                    pageMetaProperty="og:type"
+                    pageMetaPropertyContent="article"
                     description="&lt;p>Generic Details to showcase base behaviour of Details components&lt;/p>"
                     textIsRich="true">
                     <pagedate
@@ -354,6 +355,32 @@
                         </genericdetails>
                     </par>
                 </contentblock9>
+                <contentblock10
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock10"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="Generic Details: Using Content Fragment as Source"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <genericdetails
+                                jcr:mixinTypes="[cq:Taggable]"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/details/generic-details"
+                                componentId="generic-details10"
+                                textIsRich="true"
+                                variant="aemdesign-showcase:component-dialog/components/details/generic-details/variant/default">
+                            <pagedate
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/pagedate"
+                                    componentId="pagedate10"
+                                    publishDate="{Date}2019-09-15T15:15:00.000+10:00"/>
+                        </genericdetails>
+                    </par>
+                </contentblock10>
             </par>
         </article>
         <image

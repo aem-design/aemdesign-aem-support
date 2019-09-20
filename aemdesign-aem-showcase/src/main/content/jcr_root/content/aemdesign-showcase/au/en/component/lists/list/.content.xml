@@ -350,7 +350,7 @@
                 <contentblock16
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/contentblock"
-                        componentId="contentblock15"
+                        componentId="contentblock16"
                         hideTitle="false"
                         hideTitleSeparator="true"
                         title="List: Generic Details with Custom Badge, Badge Fields, Badge Fields Template and Badge Template taking Priority"
@@ -373,6 +373,29 @@
                         </list>
                     </par>
                 </contentblock16>
+                <contentblock17
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock17"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="List: Generic Details with Legacy Badge - Card Coloured with Image, Title, Subtitle, Description and Action"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <list
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/list"
+                                componentId="list17"
+                                detailsBadge="cardImageTitleSubtitleDescriptionAction"
+                                listFrom="static"
+                                pages="[/content/aemdesign-showcase/au/en/component/details/generic-details,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge1,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge2,/content/aemdesign-showcase/au/en/component/details/generic-details/custom-badges/custombadge3]"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </list>
+                    </par>
+                </contentblock17>
             </par>
         </article>
     </jcr:content>
