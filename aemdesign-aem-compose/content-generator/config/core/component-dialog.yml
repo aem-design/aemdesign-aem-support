@@ -441,6 +441,7 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - breadcrumb: {title: "Component - Breadcrumb", value: "breadcrumb"}
       - toolbar: {title: "Component - Toolbar", value: "toolbar"}
       - pagedate: {title: "Component - Page Date", value: "pagedate"}
+      - pagenavtitle: {title: "Component - Page Nav Title", value: "pagenavtitle"}
 
   components/details/generic-details/templates:
     contents:
