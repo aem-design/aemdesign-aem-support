@@ -478,6 +478,7 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - bymodified: {title: "By Modified Date", value: "@jcr:content/jcr:lastModified"}
       - bytemplate: {title: "By Template", value: "@jcr:content/jcr:template"}
       - byscore: {title: "By Score", value: "@jcr:score"}
+      - bypublishdate: { title: "By Publish Date", value: "@jcr:content/*/par/*/publishDate" }
 
   components/lists/list/badge:
     contents:
