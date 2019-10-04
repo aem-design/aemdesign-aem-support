@@ -118,6 +118,29 @@
                             parentPage="/content/aemdesign-showcase/au/en/content/news/2019/01"/>
                     </par>
                 </contentblock5>
+                <contentblock6
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        componentId="contentblock6"
+                        title="Badge: Card with Image, Title, Category, Action and Date with Order by Publish Date"
+                        variant="componentConfig">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/container">
+                        <newslist
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/lists/newslist"
+                                componentId="newslist6"
+                                detailsBadge="cardImageTitleCategoryActionDate"
+                                limit="10"
+                                listFrom="children"
+                                orderBy="@jcr:content/*/par/*/publishDate"
+                                parentPage="/content/aemdesign-showcase/au/en/content/news/2019/01"
+                                sortOrder="asc"
+                                tagsMatch="any">
+                        </newslist>
+                    </par>
+                </contentblock6>
             </par>
         </article>
     </jcr:content>

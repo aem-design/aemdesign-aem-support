@@ -1,5 +1,6 @@
 package specs.component.lists.newslist
 
+import spock.lang.IgnoreRest
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -137,6 +138,39 @@ class NewsListPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
+
+    @IgnoreRest
+    @Unroll("Functionality of Component with Card with Image Title Subtitle Action and Date with Order by Publish Date in #viewport.label")
+    def "Functionality of Component with Card with Image Title Subtitle Action and Date with Order by Publish Date"() {
+
+        given: '>the page hierarchy is created as "Components" > "Lists" > "Page List"'
+        and: '>I am in the component showcase page'
+        and: '>the component is on the showcase page'
+        def selector = "#newslist6"
+
+        when: "I am on the component showcase page"
+        setWindowSize(viewport)
+        waitForAuthorPreviewPage()
+
+        then: "The component should be on the page"
+        def component = waitForComponent(selector)
+        takeScreenshot($(selector).firstElement(), "The component should be on the page")
+
+        and: "Has five list items"
+        assert $("${selector} li").size() == 6
+
+        and: "First Card is News Title 2"
+        assert $("${selector} .card-title").getAt(0).getAttribute("innerText") == "News Title 2"
+
+        and: "Second Card is News Title 1"
+        assert $("${selector} .card-title").getAt(1).getAttribute("innerText") == "News Title 1"
+
+        and: "Third Card is News Title 3"
+        assert $("${selector} .card-title").getAt(2).getAttribute("innerText") == "News Title 3"
+
+        where: "Browser size width: #viewport.width and height: #viewport.height"
+        viewport << getViewPorts()
+    }
 
 
 
