@@ -138,8 +138,6 @@ class NewsListPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
-
-    @IgnoreRest
     @Unroll("Functionality of Component with Card with Image Title Subtitle Action and Date with Order by Publish Date in #viewport.label")
     def "Functionality of Component with Card with Image Title Subtitle Action and Date with Order by Publish Date"() {
 
