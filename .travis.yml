@@ -17,6 +17,7 @@ before_install:
   - find . -type d -name target | xargs -n 1 -t  sh -c 'ls -latr $0'
   - if [[ $TRAVIS_BRANCH == "master" && $SONAR_ENABLED == "true" ]]; then mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${TRAVIS_BRANCH}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}" && echo "SONAR ON ${TRAVIS_BRANCH} DONE"; fi
   - if [[ $TRAVIS_BRANCH != "master" && $SONAR_ENABLED == "true" ]]; then mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${TRAVIS_BRANCH}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}" && echo "SONAR ON ${TRAVIS_BRANCH} DONE"; fi
+  - export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
   - echo "READY"
   - declare -a REPO_SLUG_ARRAY="(${TRAVIS_REPO_SLUG/\// })"
 
@@ -46,9 +47,12 @@ deploy:
       - aemdesign-aem-content/target/aemdesign-aem-content-$CURRENT_VERSION.zip
       - aemdesign-aem-config/target/aemdesign-aem-config-$CURRENT_VERSION.zip
     skip_cleanup: true
+    tag_name: $CURRENT_VERSION
+    name: $CURRENT_VERSION
+    target_commitish: $TRAVIS_COMMIT
+    body: $GIT_RELEASE_NOTES
     on:
       branch: master
-    name: $CURRENT_VERSION
   - provider: script
     script: if [[ $TRAVIS_BRANCH == "master" ]]; then bash docker run --rm aemdesign/travis-trigger-build sbb --github_user=${REPO_SLUG_ARRAY[0]} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}; fi
   - provider: script
