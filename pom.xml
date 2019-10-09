@@ -18,6 +18,7 @@
     <!-- P R O P E R T I E S                                                    -->
     <!-- ====================================================================== -->
     <properties>
+        <crx.scheme>http</crx.scheme>
         <crx.host>localhost</crx.host>
         <crx.port>4502</crx.port>
         <crx.username>admin</crx.username>
@@ -56,6 +57,7 @@
         <aem.uberjar.version>6.4.0</aem.uberjar.version>
 		<gitClosestTagName>${git.closest.tag.name}</gitClosestTagName>
 		<gitClosestTagCommitCount>${git.closest.tag.commit.count}</gitClosestTagCommitCount>
+        <test.dispatcher>false</test.dispatcher>
     </properties>
 
     <developers>

@@ -1,21 +1,20 @@
 #!/bin/bash
 
-PARENT_PROJECT_PATH="$(realpath ..)"
-
+POM_FILE="../pom.xml"
 SCRIPT_PARAMS="$@"
 
 source "../scripts/functions.sh"
 
-echo selenium-grid-network: $($DOCKER network create selenium-grid)
+echo selenium-grid-network: $(${DOCKER} network create selenium-grid )
 
-echo selenium-hub: $($DOCKER run --rm -d -p $SELENIUMHUB_PORT:4444 --net selenium-grid --name selenium-hub -e GRID_TIMEOUT=10 selenium/hub)
+echo selenium-hub: $(${DOCKER} start selenium-hub || ${DOCKER} run --rm -d -p ${SELENIUMHUB_PORT}:4444 --net selenium-grid --name selenium-hub -e GRID_TIMEOUT=10 selenium/hub:3.141.59)
 
 if [[ "$OS" == "windowsbash" ]]; then
-    echo selenium-hub-node-chrome: $($DOCKER run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub --shm-size=1g --name selenium-hub-node-chrome selenium/node-chrome)
-    #echo selenium-hub-node-firefox: $($DOCKER run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub --name selenium-hub-node-firefox selenium/node-firefox)
+    echo selenium-hub-node-chrome: $(${DOCKER} start selenium-hub-node-chrome || ${DOCKER} run --rm -d --net selenium-grid --shm-size=1g -e HUB_HOST=selenium-hub --name selenium-hub-node-chrome selenium/node-chrome:3.141.59)
+    #echo selenium-hub-node-firefox: $(${DOCKER} run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub --name selenium-hub-node-firefox selenium/node-firefox)
 else
-    echo selenium-hub-node-chrome: $($DOCKER run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm --name selenium-hub-node-chrome selenium/node-chrome)
-    #echo selenium-hub-node-firefox: $($DOCKER run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm --name selenium-hub-node-firefox selenium/node-firefox)
+    echo selenium-hub-node-chrome: $(${DOCKER} start selenium-hub-node-chrome || ${DOCKER} run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm --name selenium-hub-node-chrome selenium/node-chrome:3.141.59)
+    #echo selenium-hub-node-firefox: $(${DOCKER} run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm --name selenium-hub-node-firefox selenium/node-firefox)
 fi
 
-#$DOCKER run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub --name selenium-hub-node-chrome selenium/node-chrome
+#${DOCKER} run --rm -d --net selenium-grid -e HUB_HOST=selenium-hub --name selenium-hub-node-chrome selenium/node-chrome

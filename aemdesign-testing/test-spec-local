@@ -1,17 +1,25 @@
 #!/bin/bash
 
 PARENT_PROJECT_PATH="$(realpath ..)"
-
 SCRIPT_PARAMS="$@"
-
 SKIP_PRINT_CONFIG=true
 
 source "../scripts/functions.sh"
 
-EXEC_HOST="${1:-$LOCAL_IP}"
-EXEC_ENV="${2:-remote-seleniumhub-chrome}" #localremote - seleniumhub - local-phantomjs
-HUB_URL="${3:-$SELENIUMHUB_SCHEME://$LOCAL_IP:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE}"
-EXEC_AEM_PORT="${4:-$AEM_PORT}"
+SELENIUM_URL="${SELENIUMHUB_SCHEME}://${LOCAL_IP}:${SELENIUMHUB_PORT}${SELENIUMHUB_SERVICE}"
 
-echo ./test-spec "$EXEC_HOST" "$EXEC_AEM_PORT" "$EXEC_ENV" "$HUB_URL"
-./test-spec "$EXEC_HOST" "$EXEC_AEM_PORT" "$EXEC_ENV" "$HUB_URL"
+if [[ "$#" -gt 0 ]]; then
+  TEST_SPECS="$@"
+  IFS=',' read -ra specs <<< "$TEST_SPECS"
+
+  for i in "${specs[@]}"; do
+    if [[ ! ${i} =~ Spec\*?$ ]]; then
+      echo "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec."
+      exit 1
+    fi
+  done
+
+  ./test-spec --login --report --host "${LOCAL_IP}" --url "${SELENIUM_URL}" --tests "${TEST_SPECS}"
+else
+  ./test-spec --login --report --host "${LOCAL_IP}" --url "${SELENIUM_URL}"
+fi
