@@ -1,76 +1,337 @@
 #!/bin/bash
 
 PARENT_PROJECT_PATH="$(realpath ..)"
-
 SCRIPT_PARAMS="$@"
+SKIP_PRINT_CONFIG=true
+
+getMavenCommand() {
+  local DISPATCHER=${1}
+  local DRIVER=${2}
+  local HOST=${3}
+  local LOGIN=${4}
+  local MAVEN_CONFIG=${5}
+  local PASSWORD=${6}
+  local PORT=${7}
+  local SCHEME=${8}
+  local SPECS=${9}
+  local SELENIUM_URL=${10}
+  local USERNAME=${11}
+
+  local MAVEN_EXTRAS=""
+
+  if ! ${TEST_SKIP_CONVERT}; then
+    MAVEN_EXTRAS=" -P compile-reports-ruby"
+  fi
+
+  read -r -d '' COMMAND <<EOF
+mvn clean test${MAVEN_EXTRAS} -Dgeb.env="${DRIVER}" -Dproject.buildDirectory="${DRIVER}" -Dcrx.scheme="${SCHEME}" -Dcrx.host="${HOST}" -Dcrx.port="${PORT}" -Dcrx.username="${USERNAME}" -Dcrx.password="${PASSWORD}" -Dtest="${SPECS}" -Dselenium.huburl="${SELENIUM_URL}" -Dlogin.req="${LOGIN}" -Dtest.dispatcher="${DISPATCHER}" ${MAVEN_CONFIG}
+EOF
+
+  echo ${COMMAND}
+}
+
+runTest() {
+  local DRIVER=${1}
+  local COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
+
+  COMMAND="cd aemdesign-aem-support/aemdesign-testing && ${COMMAND}"
+
+  echo ""
+  echo "Maven Command:"
+  echo ${COMMAND}
+  echo ""
+
+  # Check if the container exists
+  if [[ ! "$(${DOCKER} ps -q -f name=${DRIVER})" ]]; then
+    if [[ "$(${DOCKER} ps -aq -f status=exited -f name=${DRIVER})" ]]; then
+      # cleanup
+      echo "...Removing container: $DRIVER"
+      ${DOCKER} rm ${DRIVER}
+      echo "Done!"
+    fi
+
+    echo "...Starting container: $DRIVER"
+    echo ""
+
+    local PROJECT_ROOT_DIR="$(pwd)/.."
+    local MAVEN_DIR="$(realpath ~/.m2)"
+
+    if [[ "$OS" == "windows" ]]; then
+      PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
+      MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
+    elif [[ "$OS" == "windowsbash" ]]; then
+      MAVEN_DIR="/mnt/c/Users/$USER/.m2"
+      PROJECT_ROOT_DIR="$(cd .. && pwd)"
+    else
+      PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
+      MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
+    fi
+
+    if ${TEST_JENKINS}; then
+      MAVEN_DIR="jenkins_m2"
+      PROJECT_ROOT_DIR="jenkins_workspace_ebs"
+    fi
+
+    echo "Project Root Directory: ${PROJECT_ROOT_DIR}"
+    echo "Maven Directory: ${MAVEN_DIR}"
+    echo ""
+
+    read -r -d '' DOCKER_COMMAND <<EOF
+${DOCKER} run -d --name ${DRIVER} -v ${PROJECT_ROOT_DIR}:/build -v ${MAVEN_DIR}:/root/.m2 ${TEST_IMAGE} /bin/sh -c ${COMMAND}
+EOF
+
+    echo "Docker Command:"
+    echo ${DOCKER_COMMAND}
+
+    eval ${DOCKER_COMMAND}
+
+    echo ""
+    echo "Done!"
+  else
+    echo "...Container is already running: $DRIVER"
+  fi
+}
+
+runTests() {
+  declare -a DRIVERS_EXEC=($@)
+
+  local DRIVERS_EXEC_LENGTH=${#DRIVERS_EXEC[@]}
+
+  echo ""
+
+  for (( i = 1; i < ${DRIVERS_EXEC_LENGTH} + 1; i++ )); do
+    ITEM_VALUE=${DRIVERS_EXEC[$i-1]}
+
+    echo "Starting container: [$i/${DRIVERS_EXEC_LENGTH}] $ITEM_VALUE"
+    runTest "$ITEM_VALUE"
+  done
+}
+
+convertReports() {
+  declare -a OPEN_REPORTS=($@)
+
+  local OPEN_REPORTS_LENGTH=${#OPEN_REPORTS[@]}
+
+  ./asciidoctor-convert-reports -pdf -html -root ${TEST_DRIVER_NAME}
+
+  echo ""
+
+  # Walk thought reports and see if the reports are ready to open
+  for (( i = 1; i < ${OPEN_REPORTS_LENGTH} + 1; i++ )); do
+    ITEM_VALUE=${OPEN_REPORTS[$i-1]}
+
+    echo "CHECKING REPORT: [$i/${OPEN_REPORTS_LENGTH}] $ITEM_VALUE"
+    echo "OPENING REPORT: $ITEM_VALUE/$TEST_REPORT_PATH"
+
+    OPEN_REPORT=$(groovy -Dproject.buildDirectory=${ITEM_VALUE} openReport.groovy)
+  done
+
+  echo "REPORTS CONVERTED"
+}
+
+monitorTests() {
+  declare -a OPEN_REPORTS=($@)
+
+  echo ""
+  echo "-----------------------------------------------------------------"
+  echo ""
+  echo " Monitoring container(s)"
+  echo "   - Auto Open Report? ${TEST_OPEN_REPORT}"
+  echo ""
+  echo "-----------------------------------------------------------------"
+  echo ""
+
+  ${DOCKER} logs -f $@ > dockerlogs/docker-log-stdout-$(date +%s).log &
+  ${DOCKER} logs -f $@
+
+  echo Stopping: $@
+  ${DOCKER} stop $@
+
+  echo Removing: $@
+  ${DOCKER} rm $@
+
+  if ${TEST_OPEN_REPORT}; then
+    convertReports "${OPEN_REPORTS[@]}"
+  fi
+}
+
+testServer() {
+  local ADDRESS="$@"
+  local RESULT="$(${CURL} -L --write-out %{http_code} --connect-timeout 5 --max-time 5 --silent --output /dev/null ${ADDRESS} | ${GREP} -q "000" && echo false || echo true)"
+
+  echo ${RESULT}
+}
+
+showHelp() {
+cat << EOF
+Usage: ./test-spec -L -D
+Run the automation test suite against author, publisher or dispatcher.
+
+  -h, --help            Display help
+  -s, --scheme          Set the URI scheme, i.e. https
+  -H, --host            Set the hostname/IP address of the server
+  -p, --port            Set the server port
+  -U, --username        Set the CRX username for the host
+  -P, --password        Set the CRX password for the host
+  -u, --url             Set the selenium hub URL
+  -t, --tests           Set the Groovy specs
+  -L, --login           Enables authenticated requests on the host                      (default: false)
+  -c, --config          Custom Maven user settings file name
+  -R, --report          Open the report when when it becomes available?                 (default: false)
+  -D, --dispatcher      Toggles the test suite state so all WCM modes are disabled      (default: false)
+  -S, --skip-convert    Skip the test report conversion at the end of the run           (default: false)
+EOF
+}
+
+main() {
+  declare argv
+  argv=$(getopt -o "hs:H:p:U:P:u:t:Lc:RDS" --long "help,scheme:,host:,port:,username:,password:,url:,tests:,login,config:,report,dispatcher,skip-convert" -- "$@") || return
+  eval "set -- ${argv}"
+
+  declare a
+  for a; do
+    case ${a} in
+      -h|--help)
+        showHelp
+        exit 0
+        ;;
+      -s|--scheme)
+        export TEST_SCHEME=$2
+        shift 2
+
+        [[ "$TEST_SCHEME" =~ ^https?$ ]] || {
+          echo "Invalid URI scheme given, it must be either 'http' or 'https'."
+          exit 1
+        }
+        ;;
+      -H|--host)
+        export TEST_HOST=$2
+        shift 2
+        ;;
+      -p|--port)
+        export TEST_PORT=$2
+        shift 2
+
+        [[ "$TEST_PORT" =~ ^[0-9]{1,5}$ ]] || {
+          echo "Invalid port number given, entry must be a number between 1-65535."
+          exit 1
+        }
+        ;;
+      -U|--username)
+        export TEST_USERNAME=$2
+        shift 2
+        ;;
+      -P|--password)
+        export TEST_PASSWORD=$2
+        shift 2
+        ;;
+      -u|--url)
+        export TEST_SELENIUM_URL=$2
+        shift 2
+        ;;
+      -t|--tests)
+        export TEST_SPECS=$2
+        shift 2
+
+        IFS=',' read -ra specs <<< "$TEST_SPECS"
+
+        for i in "${specs[@]}"; do
+          if [[ ! ${i} =~ Spec\*?$ ]]; then
+            echo "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec."
+            exit 1
+          fi
+        done
+        ;;
+      -L|--login)
+        export TEST_LOGIN=true
+        shift
+        ;;
+      -c|--config)
+        export TEST_MAVEN_CONFIG=$2
+        shift 2
+
+        if [[ "$TEST_MAVEN_CONFIG" == config* ]]; then
+          export TEST_MAVEN_CONFIG="-s${TEST_MAVEN_CONFIG}"
+        else
+          echo "Invalid Maven configuration name given, file name must start with 'config'"
+          exit 1
+        fi
+        ;;
+      -R|--report)
+        export TEST_OPEN_REPORT=true
+        shift
+        ;;
+      -D|--dispatcher)
+        export TEST_DISPATCHER=true
+        shift
+        ;;
+      -S|--skip-convert)
+        export TEST_SKIP_CONVERT=true
+        shift
+        ;;
+      --)
+        shift
+        break;;
+    esac
+  done
+
+  echo "Test Configuration:"
+  echo ""
+  echo "Scheme:                  ${TEST_SCHEME}"
+  echo "Host:                    ${TEST_HOST}"
+  echo "Port:                    ${TEST_PORT}"
+  echo "Selenium URL:            ${TEST_SELENIUM_URL}"
+  echo "Test Specs:              ${TEST_SPECS}"
+  echo "Authenticate?            ${TEST_LOGIN}"
+  echo "Custom Maven Config:     ${TEST_MAVEN_CONFIG:-N/A}"
+  echo "Run on Dispatcher?       ${TEST_DISPATCHER}"
+  echo "Skip Report Conversion?  ${TEST_SKIP_CONVERT}"
+  echo ""
+
+  set_term_title "Testing In-Progress"
+
+  # Begin the testing...
+  echo "Checking if Selenium Hub and AEM are available..."
+  echo ""
+
+  AEM_AVAILABLE=$(testServer ${TEST_SCHEME}://${TEST_HOST}:${TEST_PORT})
+  HUB_AVAILABLE=$(testServer ${TEST_SELENIUM_URL})
+
+  echo "Is Selenium Hub at ${TEST_SELENIUM_URL} available? ${HUB_AVAILABLE}"
+  echo "Is AEM at ${TEST_SCHEME}://${TEST_HOST}:${TEST_PORT} available? ${AEM_AVAILABLE}"
+  echo ""
+
+  if [[ "true" == "$HUB_AVAILABLE" && "true" == "$AEM_AVAILABLE" ]]; then
+    echo "Selenium Hub and AEM are both up and available!"
+    echo ""
+
+    runTests ${TEST_DRIVER_NAME}
+    monitorTests ${TEST_DRIVER_NAME}
+  else
+    echo "Either Selenium Hub or AEM is not currently available!"
+    exit 1
+  fi
+
+  set_term_title "Testing Finished"
+}
 
 source "../scripts/functions.sh"
 
-EXEC_AEM_HOST="${1:-$AEM_HOST}"
-EXEC_AEM_PORT="${2:-$AEM_PORT}"
-EXEC_ENV="${3:-remote-seleniumhub-chrome}" #localremote - seleniumhub - local-phantomjs
-HUB_URL="${4:-$SELENIUMHUB_SCHEME://$SELENIUMHUB_HOST:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE}"
-AEM_URL="$AEM_SCHEMA://$EXEC_AEM_HOST:$EXEC_AEM_PORT"
+# Test defaults
+export TEST_IMAGE="aemdesign/centos-java-buildpack:v10.2.1"
+export TEST_OPEN_REPORT=false
+export TEST_REPORT_PATH="generated-docs/summary.html"
+export TEST_DRIVER_NAME="remote-seleniumhub-chrome"
+export TEST_SCHEME="$AEM_SCHEME"
+export TEST_HOST="$AEM_HOST"
+export TEST_PORT="$AEM_PORT"
+export TEST_USERNAME="$AEM_USER"
+export TEST_PASSWORD="$AEM_PASS"
+export TEST_SELENIUM_URL="$SELENIUMHUB_SCHEME://$SELENIUMHUB_HOST:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE"
+export TEST_SPECS="Download*,Aside*,Article*,Link*,Table*,Text*,Footer*,Header*,RedirectNotification*,ContentBlockA*,ContentBlockP*,ContentBlockS*,ContentBlockM*,PageList*,PageDetails*,Columns*,Breadcrumb*,Image*,Video*,ContactDetails*,EmbedSource*,Navbar*,NavList*,PageTitle*,PageTags*,PageDate*,PageDescription*,DataLayer*,External*,PageAuthor*,EventDetails*,OnlineMedia*,Reference*,List*,SearchList*,Audio*,Tooltip*,NewsDetails*,LocationDetails*,NewsList*,ContactList*,ShareButton*,LocationList*,ContentTabs*,Timing*,StaticInclude*,TagList*,LangNav*,AssetList*,ListNav*,ContentBlockC*,GenericDetails*"
+export TEST_LOGIN=false
+export TEST_MAVEN_CONFIG=""
+export TEST_DISPATCHER=false
+export TEST_SKIP_CONVERT=false
 
-
-if [ "$EXEC_ENV" == "" ]; then
-    echo "Please specify driver name ex remote-seleniumhub-chrome"
-    exit 1
-fi
-
-#test if servers are available
-AEM_AVAILABLE=$(testServer $AEM_URL)
-
-if [[ "true" == "$AEM_AVAILABLE" ]]; then
-    echo "AEM IS AVAILABLE at $AEM_URL"
-else
-    echo "AEM IS NOT AVAILABLE at $AEM_URL"
-    exit 1 #indicate error with non zero return
-fi
-
-if [[ "$EXEC_ENV" == *"remote"* ]]; then
-
-    DEFAULT_HUB_AVAIABLE=$(testServer $HUB_URL)
-    if [[ "true" == "$DEFAULT_HUB_AVAIABLE" ]]; then
-        echo "SELENIUM HUB IS AVAILABLE at $HUB_URL"
-    else
-        echo "SELENIUM HUB AND/OR AEM NOT AVAILABLE at $HUB_URL"
-        exit 1 #indicate error with non zero return
-    fi
-fi
-
-#THIS WILL RUN ALL WORKING TESTS
-EXEC_TEST="${5:-Download*,Aside*,Article*,Link*,Table*,Text*,Footer*,Header*,RedirectNotification*,ContentBlockA*,ContentBlockP*,ContentBlockS*,ContentBlockM*,PageList*,PageDetails*,Columns*,Breadcrumb*,Image*,Video*,ContactDetails*,EmbedSource*,Navbar*,NavList*,PageTitle*,PageTags*,PageDate*,PageDescription*,DataLayer*,External*,PageAuthor*,EventDetails*,OnlineMedia*,Reference*,List*,SearchList*,Audio*,Tooltip*,NewsDetails*,LocationDetails*,NewsList*,ContactList*,ShareButton*,LocationList*,ContentTabs*,Timing*,StaticInclude*,TagList*,LangNav*,AssetList*,ListNav*,ContentBlockC*,GenericDetails*}"
-
-#THIS WILL RUN ONLY ONE TEST YOU CAN USE THIS IN DEV
-#EXEC_TEST="${5:-GenericDetails*}"
-
-EXEC_TEST_EXCLUDE="${6:-}"
-EXEC_PARAMS=" ${*:7}"
-
-#if skip is not specified run profile to convert using results
-if [[ -z $EXEC_SKIP_CONVERT || "$EXEC_SKIP_CONVERT" == "false" ]]; then
-    EXEC_EXTRAS="-P compile-reports-ruby"
-fi
-
-echo EXEC_EXTRAS: $EXEC_EXTRAS
-
-set_term_title "Testing In-Progress"
-
-echo "RUNNING ENV: $EXEC_ENV"
-echo "RUNNING TESTS: $EXEC_TEST"
-echo "EXCLUDING TESTS: $EXEC_TEST_EXCLUDE"
-echo "WITH PARAMETERS: $EXEC_PARAMS"
-echo mvn clean test $EXEC_EXTRAS -Dgeb.env="$EXEC_ENV" -Dproject.buildDirectory="$EXEC_ENV" -Dcrx.host="$EXEC_AEM_HOST" -Dcrx.port="$EXEC_AEM_PORT" -Dtest="$EXEC_TEST,$EXEC_TEST_EXCLUDE""$EXEC_PARAMS" -Dselenumhuburl="$HUB_URL"
-
-mvn clean test $EXEC_EXTRAS -Dgeb.env="$EXEC_ENV" -Dproject.buildDirectory="$EXEC_ENV" -Dcrx.host="$EXEC_AEM_HOST" -Dcrx.port="$EXEC_AEM_PORT" -Dtest="$EXEC_TEST,$EXEC_TEST_EXCLUDE""$EXEC_PARAMS" -Dselenumhuburl="$HUB_URL"
-
-set_term_title "Testing Finished"
-
-#open report when finished if LOCAL
-#if [[ -z "${EXEC_ENV##local-*}" ]]; then
-#    if [[ -e "$EXEC_ENV/$DEFAULT_REPORT_PATH" ]]; then
-#        echo "OPENING REPORT: $EXEC_ENV/$DEFAULT_REPORT_PATH"
-#        OPEN_REPORT=$(groovy -Dproject.buildDirectory=$EXEC_ENV openReport.groovy)
-#    fi
-#fi
+[[ $BASH_SOURCE != "$0" ]] || main "$@"
