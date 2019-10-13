@@ -1,3 +1,4 @@
 #!/bin/bash
 
-mvn archetype:create-from-project -P create-from-project
+mvn clean
+mvn archetype:create-from-project -P create-from-project -Darchetype.properties=archetype.properties
