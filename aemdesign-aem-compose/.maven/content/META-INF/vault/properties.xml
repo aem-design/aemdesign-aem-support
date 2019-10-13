@@ -6,7 +6,7 @@
 <entry key="version">1.0-SNAPSHOT</entry>
 <entry key="dependencies" />
 <entry key="packageFormatVersion">2</entry>
-<entry key="description">Prototype for AEM.Design AEM project</entry>
+<entry key="description">Compose for AEM.Design AEM project</entry>
 <entry key="group">AEM.Design</entry>
-<entry key="name">aemdesign-aem-prototype</entry>
+<entry key="name">aemdesign-aem-compose</entry>
 </properties>
