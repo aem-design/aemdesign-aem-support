@@ -4,11 +4,27 @@ const fse         = require('fs-extra')
 const { merge }   = require('mochawesome-merge')
 const generator   = require('mochawesome-report-generator')
 const { resolve } = require('path')
+const spawn   = require('child_process');
 
 const addContext = require('./addContext')
 
 const cypressBasePath = 'cypress/integration'
 const reportDir       = resolve(__dirname, 'reports')
+
+function getConfigFromMaven(variable) {
+  return spawn.execSync(`cat ../pom.xml | grep -e "<${variable}>.*</${variable}>" | sed -e "s/.*\\<${variable}\\>\\(.*\\)\\<\\/${variable}\\>.*/\\1/"`).toString().trim();
+  // return spawn.execSync(`mvn help:evaluate -q -DforceStdout -D"expression=${variable}"`).toString();
+}
+
+const CRX_USERNAME = getConfigFromMaven('crx.username')
+const CRX_PASSWORD = getConfigFromMaven('crx.username')
+const PACKAGE_CONTENTFOLDER = getConfigFromMaven('package.contentFolder')
+
+const TEST_ENV = {
+  CRX_USERNAME: CRX_USERNAME,
+  CRX_PASSWORD: CRX_PASSWORD,
+  PACKAGE_CONTENTFOLDER: PACKAGE_CONTENTFOLDER,
+}
 
 const specPaths = process.argv[2] ?
   process.argv.slice(2).map((name) => `${cypressBasePath}/${name.trim()}.spec.ts`):
@@ -44,6 +60,7 @@ async function runTests() {
   const { runs, totalFailed, totalTests } = await cypress.run({
     browser: 'chrome',
     spec,
+    env: TEST_ENV
   })
 
   // No results were run, this is probably due to an error
