@@ -125,26 +125,6 @@
                 </configuration>
             </plugin>
 
-            <!-- use the buildnumber plugin to generate a ISO8601 timestamp -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>1.1</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <format>{0,date,yyyyMMdd}</format>
-                    <items>
-                        <item>timestamp</item>
-                    </items>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
