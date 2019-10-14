@@ -72,7 +72,6 @@ class ListPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
-    @IgnoreRest
     @Unroll("List: Pages search with By Tags in #viewport.label")
     def "List: Pages search with By Tags"() {
 
@@ -97,7 +96,6 @@ class ListPublishSpec extends ComponentSpec {
     }
 
 
-    @IgnoreRest
     @Unroll("List: Pages search with By Tags with Tags not Specified in #viewport.label")
     def "List: Pages search with By Tags with Tags not Specified"() {
 
@@ -120,5 +118,31 @@ class ListPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
+
+    @Unroll("List: Default Search in #viewport.label")
+    def "List: Default Search"() {
+
+        given: '>the page hierarchy is created as "Components" > "Lists" > "List"'
+        and: '>I am in the component showcase page'
+        and: '>the component is on the showcase page'
+        def selector = "#list18"
+
+        when: "I am on the component showcase page"
+        setWindowSize(viewport)
+        waitForAuthorPreviewPage()
+
+        then: "The component should be on the page"
+        def component = waitForComponent(selector)
+        takeScreenshot($(selector).firstElement(), "The component should be on the page")
+
+        and: "Has one list items"
+        assert $("${selector} li").size() == 1
+
+        and: "Has title line"
+        assert compareInnerTextIgnoreCase("${selector} li .title","Page 5 Contact Details")
+
+        where: "Browser size width: #viewport.width and height: #viewport.height"
+        viewport << getViewPorts()
+    }
 
 }
