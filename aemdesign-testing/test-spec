@@ -34,7 +34,11 @@ runTest() {
   local DRIVER=${1}
   local COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
 
-  COMMAND="cd aemdesign-aem-support/aemdesign-testing && ${COMMAND}"
+  if [[ -z "$TEST_WORKSPACE" ]]; then
+    COMMAND="cd $(ls | grep "-testing") && ${COMMAND}"
+  else
+    COMMAND="cd ${TEST_WORKSPACE}/$(ls | grep "-testing") && ${COMMAND}"
+  fi
 
   echo ""
   echo "Maven Command:"
@@ -65,11 +69,6 @@ runTest() {
     else
       PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
       MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
-    fi
-
-    if ${TEST_JENKINS}; then
-      MAVEN_DIR="jenkins_m2"
-      PROJECT_ROOT_DIR="jenkins_workspace_ebs"
     fi
 
     echo "Project Root Directory: ${PROJECT_ROOT_DIR}"
@@ -132,6 +131,8 @@ convertReports() {
 monitorTests() {
   declare -a OPEN_REPORTS=($@)
 
+  OPEN_REPORTS_LENGTH=${#OPEN_REPORTS[@]}
+
   echo ""
   echo "-----------------------------------------------------------------"
   echo ""
@@ -175,6 +176,7 @@ Run the automation test suite against author, publisher or dispatcher.
   -P, --password        Set the CRX password for the host
   -u, --url             Set the selenium hub URL
   -t, --tests           Set the Groovy specs
+  -w, --workspace       Set the path to the current workspace/working directory
   -L, --login           Enables authenticated requests on the host                      (default: false)
   -c, --config          Custom Maven user settings file name
   -R, --report          Open the report when when it becomes available?                 (default: false)
@@ -242,6 +244,10 @@ main() {
           fi
         done
         ;;
+      -w|--workspace)
+        export TEST_WORKSPACE=$2
+        shift 2
+        ;;
       -L|--login)
         export TEST_LOGIN=true
         shift
@@ -277,14 +283,15 @@ main() {
 
   echo "Test Configuration:"
   echo ""
-  echo "Scheme:                  ${TEST_SCHEME}"
-  echo "Host:                    ${TEST_HOST}"
-  echo "Port:                    ${TEST_PORT}"
-  echo "Selenium URL:            ${TEST_SELENIUM_URL}"
-  echo "Test Specs:              ${TEST_SPECS}"
-  echo "Authenticate?            ${TEST_LOGIN}"
-  echo "Custom Maven Config:     ${TEST_MAVEN_CONFIG:-N/A}"
-  echo "Run on Dispatcher?       ${TEST_DISPATCHER}"
+  echo "Scheme:                ${TEST_SCHEME}"
+  echo "Host:                  ${TEST_HOST}"
+  echo "Port:                  ${TEST_PORT}"
+  echo "Selenium URL:          ${TEST_SELENIUM_URL}"
+  echo "Test Specs:            ${TEST_SPECS}"
+  echo "Workspace:             ${TEST_WORKSPACE:-N/A}"
+  echo "Authenticate?          ${TEST_LOGIN}"
+  echo "Custom Maven Config:   ${TEST_MAVEN_CONFIG:-N/A}"
+  echo "Run on Dispatcher?     ${TEST_DISPATCHER}"
   echo "Skip Report Conversion?  ${TEST_SKIP_CONVERT}"
   echo ""
 
@@ -328,7 +335,8 @@ export TEST_PORT="$AEM_PORT"
 export TEST_USERNAME="$AEM_USER"
 export TEST_PASSWORD="$AEM_PASS"
 export TEST_SELENIUM_URL="$SELENIUMHUB_SCHEME://$SELENIUMHUB_HOST:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE"
-export TEST_SPECS="Download*,Aside*,Article*,Link*,Table*,Text*,Footer*,Header*,RedirectNotification*,ContentBlockA*,ContentBlockP*,ContentBlockS*,ContentBlockM*,PageList*,PageDetails*,Columns*,Breadcrumb*,Image*,Video*,ContactDetails*,EmbedSource*,Navbar*,NavList*,PageTitle*,PageTags*,PageDate*,PageDescription*,DataLayer*,External*,PageAuthor*,EventDetails*,OnlineMedia*,Reference*,List*,SearchList*,Audio*,Tooltip*,NewsDetails*,LocationDetails*,NewsList*,ContactList*,ShareButton*,LocationList*,ContentTabs*,Timing*,StaticInclude*,TagList*,LangNav*,AssetList*,ListNav*,ContentBlockC*,GenericDetails*"
+export TEST_SPECS="$(cat test-list | tr '\n' ',')"
+export TEST_WORKSPACE=""
 export TEST_LOGIN=false
 export TEST_MAVEN_CONFIG=""
 export TEST_DISPATCHER=false
