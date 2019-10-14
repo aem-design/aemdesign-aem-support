@@ -187,7 +187,7 @@ EOF
 
 main() {
   declare argv
-  argv=$(getopt -o "hs:H:p:U:P:u:t:Lc:RDS" --long "help,scheme:,host:,port:,username:,password:,url:,tests:,login,config:,report,dispatcher,skip-convert" -- "$@") || return
+  argv=$(getopt -o "hs:H:p:U:P:u:t:w:Lc:RDS" --long "help,scheme:,host:,port:,username:,password:,url:,tests:,workspace:,login,config:,report,dispatcher,skip-convert" -- "$@") || return
   eval "set -- ${argv}"
 
   declare a
