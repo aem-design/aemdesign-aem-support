@@ -15,9 +15,6 @@ Cypress.Commands.add('authenticate', (done: MochaDone) => {
   // TODO: Load the username/password dynamically
   let USERNAME = Cypress.env("CRX_USERNAME")
   let PASSWORD = Cypress.env("CRX_PASSWORD")
-  console.log(`USERNAME=${USERNAME}`)
-  console.log(`PASSWORD=${PASSWORD}`)
-  console.log(`PACKAGE_CONTENTFOLDER=${Cypress.env('PACKAGE_CONTENTFOLDER')}`)
 
   cy.get('#username').type(USERNAME)
   cy.get('#password').type(PASSWORD)
