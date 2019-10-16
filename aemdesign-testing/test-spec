@@ -35,9 +35,9 @@ runTest() {
   local COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
 
   if [[ -z "$TEST_WORKSPACE" ]]; then
-    COMMAND="cd $(ls | grep "-testing") && ${COMMAND}"
+    COMMAND="cd $(ls | grep "'-testing'") && ${COMMAND}"
   else
-    COMMAND="cd ${TEST_WORKSPACE}/$(ls | grep '-testing') && ${COMMAND}"
+    COMMAND="cd ${TEST_WORKSPACE}/$(ls | grep "'-testing'") && ${COMMAND}"
   fi
 
   echo ""
@@ -75,9 +75,7 @@ runTest() {
     echo "Maven Directory: ${MAVEN_DIR}"
     echo ""
 
-    read -r -d '' DOCKER_COMMAND <<EOF
-${DOCKER} run -d --name ${DRIVER} -v ${PROJECT_ROOT_DIR}:/build -v ${MAVEN_DIR}:/root/.m2 ${TEST_IMAGE} /bin/sh -c ${COMMAND}
-EOF
+    DOCKER_COMMAND="${DOCKER} run -d --name ${DRIVER} -v ${PROJECT_ROOT_DIR}:/build -v ${MAVEN_DIR}:/root/.m2 ${TEST_IMAGE} /bin/sh -c ${COMMAND}"
 
     echo "Docker Command:"
     echo ${DOCKER_COMMAND}
@@ -107,11 +105,15 @@ runTests() {
 }
 
 convertReports() {
+  ./asciidoctor-convert-reports -pdf -html -root ${TEST_DRIVER_NAME}
+
+  echo "REPORTS CONVERTED"
+}
+
+openReports() {
   declare -a OPEN_REPORTS=($@)
 
   local OPEN_REPORTS_LENGTH=${#OPEN_REPORTS[@]}
-
-  ./asciidoctor-convert-reports -pdf -html -root ${TEST_DRIVER_NAME}
 
   echo ""
 
@@ -125,7 +127,7 @@ convertReports() {
     OPEN_REPORT=$(groovy -Dproject.buildDirectory=${ITEM_VALUE} openReport.groovy)
   done
 
-  echo "REPORTS CONVERTED"
+  echo "REPORTS OPENED"
 }
 
 monitorTests() {
@@ -142,6 +144,11 @@ monitorTests() {
   echo "-----------------------------------------------------------------"
   echo ""
 
+  if [[ ! -d "dockerlogs" ]]; then
+    mkdir dockerlogs
+  fi
+
+  echo "Save container logs"
   ${DOCKER} logs -f $@ > dockerlogs/docker-log-stdout-$(date +%s).log &
   ${DOCKER} logs -f $@
 
@@ -152,7 +159,7 @@ monitorTests() {
   ${DOCKER} rm $@
 
   if ${TEST_OPEN_REPORT}; then
-    convertReports "${OPEN_REPORTS[@]}"
+    openReports "${OPEN_REPORTS[@]}"
   fi
 }
 
