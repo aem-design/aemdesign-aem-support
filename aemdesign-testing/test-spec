@@ -37,7 +37,7 @@ runTest() {
   if [[ -z "$TEST_WORKSPACE" ]]; then
     COMMAND="cd $(ls | grep "-testing") && ${COMMAND}"
   else
-    COMMAND="cd ${TEST_WORKSPACE}/$(ls | grep "-testing") && ${COMMAND}"
+    COMMAND="cd ${TEST_WORKSPACE}/$(ls | grep '-testing') && ${COMMAND}"
   fi
 
   echo ""
@@ -238,7 +238,7 @@ main() {
         IFS=',' read -ra specs <<< "$TEST_SPECS"
 
         for i in "${specs[@]}"; do
-          if [[ ! ${i} =~ Spec\*?$ ]]; then
+          if [[ $(isStringMatchesRegex "${i}" ".*(Spec|\*)") == "false" ]]; then
             echo "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec."
             exit 1
           fi
