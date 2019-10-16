@@ -13,7 +13,7 @@ if [[ "$#" -gt 0 ]]; then
   IFS=',' read -ra specs <<< "$TEST_SPECS"
 
   for i in "${specs[@]}"; do
-    if [[ ! ${i} =~ Spec\*?$ ]]; then
+    if [[ $(echo "${i}" | grep -Eq '.*(Spec|\*)' && echo "true" || echo "false") == "false" ]]; then
       echo "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec."
       exit 1
     fi
