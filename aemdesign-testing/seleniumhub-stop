@@ -1,7 +1,8 @@
 #!/bin/bash
 
-POM_FILE="../pom.xml"
+PARENT_PROJECT_PATH="$(realpath ..)"
 SCRIPT_PARAMS="$@"
+SKIP_PRINT_CONFIG=true
 
 source "../scripts/functions.sh"
 
