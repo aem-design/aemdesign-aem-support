@@ -12,4 +12,5 @@ source "$SCRIPTS_PARENT/functions-vlt.sh"
 source "$SCRIPTS_PARENT/functions-fswatch.sh"
 source "$SCRIPTS_PARENT/functions-docker.sh"
 source "$SCRIPTS_PARENT/functions-getopt.sh"
+source "$SCRIPTS_PARENT/functions-strings.sh"
 

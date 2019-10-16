@@ -13,12 +13,11 @@ if [[ "$#" -gt 0 ]]; then
   IFS=',' read -ra specs <<< "$TEST_SPECS"
 
   for i in "${specs[@]}"; do
-    if [[ $(echo "${i}" | grep -Eq '.*(Spec|\*)' && echo "true" || echo "false") == "false" ]]; then
+    if [[ $(isStringMatchesRegex "${i}" ".*(Spec|\*)") == "false" ]]; then
       echo "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec."
       exit 1
     fi
   done
-
   ./test-spec --login --report --host "${LOCAL_IP}" --url "${SELENIUM_URL}" --tests "${TEST_SPECS}"
 else
   ./test-spec --login --report --host "${LOCAL_IP}" --url "${SELENIUM_URL}"
