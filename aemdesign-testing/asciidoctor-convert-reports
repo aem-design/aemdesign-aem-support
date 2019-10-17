@@ -18,11 +18,6 @@ EXTENSION_PDF=".pdf"
 EXTENSION_HTML=".html"
 FRONT_COVER="src/asciidoc/aem.png"
 DOCINFODIR="src/asciidoc"
-LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
-LOCAL_BUNDLE="$(which bundle)"
-if [[ -z "$LOCAL_BUNDLE" ]]; then
-    LOCAL_BUNDLE="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundle)"
-fi
 
 function toUpperCase() {
     local STRING=$@
@@ -132,7 +127,7 @@ function installDependencies() {
         LOCAL_BUNDLER="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundler)"
     fi
 
-    local STATUS_CHECK="$($LOCAL_BUNDLER check  --path vendor/bundle)"
+    local STATUS_CHECK="$($LOCAL_BUNDLER check --path vendor/bundle)"
     debug "CHECK RUBY: $STATUS_CHECK"
 
     if [[ ! "$STATUS_CHECK" == *"dependencies are satisfied"* ]]; then
@@ -225,6 +220,13 @@ function main() {
 #    checkPermissions "$ROOT"
 
     installDependencies
+
+    LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
+    LOCAL_BUNDLE="$(which bundle)"
+    if [[ -z "$LOCAL_BUNDLE" ]]; then
+        LOCAL_BUNDLE="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundle)"
+    fi
+
 
     printConfig
 
