@@ -1,24 +1,7 @@
 #!/bin/bash
 
-PARENT_PROJECT_PATH="$(realpath ..)"
-SCRIPT_PARAMS="$@"
-SKIP_PRINT_CONFIG=true
-
-source "../scripts/functions.sh"
-
-SELENIUM_URL="${SELENIUMHUB_SCHEME}://${LOCAL_IP}:${SELENIUMHUB_PORT}${SELENIUMHUB_SERVICE}"
-
 if [[ "$#" -gt 0 ]]; then
-  TEST_SPECS="$@"
-  IFS=',' read -ra specs <<< "$TEST_SPECS"
-
-  for i in "${specs[@]}"; do
-    if [[ $(isStringMatchesRegex "${i}" ".*(Spec|\*)") == "false" ]]; then
-      echo "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec."
-      exit 1
-    fi
-  done
-  ./test-spec --login --report --host "${LOCAL_IP}" --url "${SELENIUM_URL}" --tests "${TEST_SPECS}"
+  ./test-spec --login --report --tests "$@"
 else
-  ./test-spec --login --report --host "${LOCAL_IP}" --url "${SELENIUM_URL}"
+  ./test-spec --login --report
 fi
