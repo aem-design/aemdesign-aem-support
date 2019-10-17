@@ -11,6 +11,7 @@
     "moduleResolution": "node",
     "noImplicitAny": false,
     "pretty": false,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,

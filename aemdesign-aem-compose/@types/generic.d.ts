@@ -9,15 +9,3 @@ declare var require: {
 
 declare var __DEV__: boolean;
 declare var __PROD__: boolean;
-
-declare type FormInputCallback = (
-  ($target: JQuery, $input: JQuery, event: JQuery.TriggeredEvent) => boolean
-) | void;
-
-declare type SubscriberTree = {
-  default: SubscriberHandler,
-}
-
-declare type SubscriberHandler = (
-  event: JQuery.Event, originalEvent: JQuery.TriggeredEvent, type: string
-) => void;
