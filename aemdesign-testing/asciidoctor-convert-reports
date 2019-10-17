@@ -221,8 +221,8 @@ function convertToHTML() {
 
 function main() {
 
-    checkPermissions "drivers"
-    checkPermissions "$ROOT"
+#    checkPermissions "drivers"
+#    checkPermissions "$ROOT"
 
     installDependencies
 
