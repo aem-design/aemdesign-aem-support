@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo "Installing Drivers"
+echo "Installing Dependencies"
 
-mvn clean verify -DskipTests=true
+#mvn clean verify -DskipTests=true
+
+gem install bundler
 
 bundle install
