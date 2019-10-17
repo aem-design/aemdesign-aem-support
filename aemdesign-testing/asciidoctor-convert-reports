@@ -116,6 +116,9 @@ function printConfig() {
 
 function installDependencies() {
 
+    rvm install 2.6
+    rvm use 2.6 --default
+
     local LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
     if [[ -z $LOCAL_GEM_USER_PATH ]]; then
         local GEM_INSTALL=$(gem install bundler --user-install)
