@@ -209,6 +209,8 @@ function convertToHTML() {
         -a docinfodir=$DOCINFODIR \
         -a toc=left \
         -a icons=font \
+        -a data-uri \
+        -a allow-uri-read \
         -b html \
         -o $FILE_OUTPUT \
         $FILE_INPUT"

@@ -1,0 +1,99 @@
+---
+## file: site.yml
+## This playbook deploys the whole application stack.
+
+- name: site automation testing
+  hosts: 127.0.0.1
+  connection: local
+
+  pre_tasks:
+    - name: get docker host ip
+      become: true
+      shell: |
+        set -o pipefail
+        /sbin/ip route | awk '/default/ { print $3 }'
+      args:
+        executable: /bin/bash
+      register: dockerhost_ip
+      changed_when: false
+    - name: set params
+      set_fact:
+        test_debug_hide: "false"
+        service_aem_license_key: "{{ lookup('env','AEM_KEY') }}"
+        service_aem_license_name: "{{ lookup('env','AEM_NAME') }}"
+        service_aem_access_port: "5502"
+        service_aem_access_host: "localhost"
+        service_aem_username: "admin"
+        service_aem_password: "admin"
+        service_aem_container_name: "author"
+        service_aem_image_tag: "6.5.0-bundle"
+        service_selenium_node_name_chrome: "node-chrome-test-{{ ansible_date_time.iso8601_micro | to_uuid }}"
+        service_selenium_grid_port: "9944"
+        service_selenium_grid_container_name: "service_selenium_grid_container_name"
+        service_docker_host: "unix://var/run/docker.sock"
+        service_docker_host_address: "{{ dockerhost_ip.stdout }}"
+
+
+  tasks:
+    - name: run selenium grid
+      import_role:
+        name: aem_design.selenium_grid
+      vars:
+        grid_host: "{{ service_docker_host_address }}"
+        grid_http_port: "{{ service_selenium_grid_port }}"
+        docker_container_name: "{{ service_selenium_grid_container_name }}"
+        docker_host: "{{ service_docker_host }}"
+        docker_volumes: []
+        docker_published_ports: [
+          "{{ test_grid_port }}:4444",
+        ]
+        debug_hide: "{{ test_debug_hide }}"
+    - name: run selenium grid node chrome
+      import_role:
+        name: aem_design.selenium_grid_node
+      vars:
+        grid_host: "{{ service_docker_host_address }}"
+        grid_port: "{{ service_selenium_grid_host }}"
+        docker_container_name: "{{ service_selenium_node_name_chrome }}"
+        docker_host: "{{ service_docker_host }}"
+        debug_hide: "{{ test_debug_hide }}"
+    - name: run aem author istance
+      import_role:
+        name: aem_design.aem
+      vars:
+        docker_published_ports: [
+          "{{ service_aem_access_port }}:8080"
+        ]
+        docker_volumes: []
+        docker_container_name: "{{ service_aem_container_name }}"
+        docker_image_tag: "{{ service_aem_image_tag }}"
+        docker_host: "{{ service_docker_host }}"
+        debug_hide: "{{ test_debug_hide }}"
+    - name: ensure container is registered
+      import_role:
+        name: aem_design.aem_license
+      vars:
+        aem_license_key: "{{ service_aem_license_key }}"
+        aem_license_name: "{{ service_aem_license_name }}"
+        aem_port: "{{ service_aem_access_port }}"
+        aem_host: "{{ service_aem_access_host }}"
+        docker_host: "{{ service_docker_host }}"
+        debug_hide: "{{ test_debug_hide }}"
+    - name: ensure instance is ready
+      import_role:
+        name: aem_design.aem_verify
+      vars:
+        aem_port: "{{ service_aem_access_port }}"
+        aem_host: "{{ service_aem_access_host }}"
+        docker_host: "{{ service_docker_host }}"
+        debug_hide: "{{ test_debug_hide }}"
+    - name: install showcase package
+      command: "curl -u {{ service_aem_username }}:{{ service_aem_password }} \
+        -F 'file=@{{ package_file }}' \
+        -F 'name={{ package_filename }}' \
+        -F force=true \
+        -F install=true \
+        'http://{{ service_docker_host_address }}:{{ service_aem_access_port }}/crx/packmgr/service.jsp'"
+
+
+

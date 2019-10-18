@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#echo RUNNING TESTS
+#pip install ansible
+#echo INSTALLING ANSIBLE GALAXY REQUIREMENTS
+#ansible-galaxy install -r requirements.yml --force
+#echo PREPARE INFRASTRUCTURE
+#ansible-playbook --connection=local 127.0.0.1 automation-testing.yml
+#echo RUN TESTS
+#cd aemdesign-testing
+#./test-spec --login  GenericDetailsA*
+#echo PUBLISH RESULTS
+
+export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
+echo TEST_RESULTS=${TEST_RESULTS}
+
+export PATH_GHPAGES="/tmp/ghpages"
+
+mkdir ${PATH_GHPAGES}
+cd ${PATH_GHPAGES}
+git clone --single-branch --branch gh-pages --depth 1 https://github.com/aem-design/aemdesign-aem-support.git
+
+echo COPY UPDATED RESULTS
+cp -Rv "${TEST_RESULTS}/generated-docs" "./aemdesign-aem-support/generated-docs"

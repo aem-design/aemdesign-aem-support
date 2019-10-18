@@ -7,6 +7,11 @@ cache:
 git:
   depth: false
 
+addons:
+  apt:
+    packages:
+      - python36
+
 ## export GPG details
 before_install:
   - echo TRAVIS_BRANCH=$TRAVIS_BRANCH
@@ -22,7 +27,7 @@ before_install:
   - declare -a REPO_SLUG_ARRAY="(${TRAVIS_REPO_SLUG/\// })"
 
 install:
-  - echo "INSTALL DONE"
+  - ./automation-testing
 
 ## Build and release to maven central
 script:
@@ -57,11 +62,20 @@ deploy:
     script: if [[ $TRAVIS_BRANCH == "master" ]]; then bash docker run --rm aemdesign/travis-trigger-build sbb --github_user=${REPO_SLUG_ARRAY[0]} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}; fi
   - provider: script
     script: if [[ $TRAVIS_BRANCH == "master" ]]; then bash docker run --rm aemdesign/travis-trigger-build sbb --github_user=${REPO_SLUG_ARRAY[0]} --github_repo=aem --github_branch=6.4.0-bundle --travis_token=${TRAVIS_TOKEN}; fi
+  - provider: pages
+    local_dir: aemdesign-testing/remote-seleniumhub-chrome
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep_history: true
+    on:
+      branch: master
 
 #notifications:
 #  email: false
 #  slack:
 #    secure: $SLACK_TOKEN
+
+
 
 after_failure:
   - find . -type d -name target | xargs -n 1 -t  sh -c 'ls -latr $0'
