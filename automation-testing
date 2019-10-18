@@ -1,11 +1,18 @@
 #!/bin/bash
 
+echo PACKAGE PROJECT
+mvn clean package
+
 echo RUNNING TESTS
 pip install ansible
 echo INSTALLING ANSIBLE GALAXY REQUIREMENTS
 ansible-galaxy install -r requirements.yml --force
 echo PREPARE INFRASTRUCTURE
-ansible-playbook --connection=local 127.0.0.1 automation-testing.yml
+
+PACKAGE_FILE="$(pwd)/$(ls -b aemdesign-aem-support-deploy/target/*.zip | sed -n '$p')"
+PACKAGE_FILENAME=$(basename ${PACKAGE_FILE})
+
+ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME"
 echo RUN TESTS
 cd aemdesign-testing
 ./test-spec --login  GenericDetailsA*
