@@ -1,5 +1,11 @@
 #!/bin/bash
 
+NETWORK_INTERFACE=$(route -n get 0.0.0.0 2>/dev/null | awk '/interface: / {print $2}')
+LOCAL_IP=$(ifconfig $NETWORK_INTERFACE | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -1)
+
+AEM_PORT=5502
+GRID_PORT=9944
+
 echo PACKAGE PROJECT
 mvn clean package -DskipTests=true
 
@@ -12,10 +18,13 @@ echo PREPARE INFRASTRUCTURE
 PACKAGE_FILE="$(pwd)/$(ls -b aemdesign-aem-support-deploy/target/*.zip | sed -n '$p')"
 PACKAGE_FILENAME=$(basename ${PACKAGE_FILE})
 
-ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME"
+ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME service_selenium_grid_port=${GRID_PORT} service_aem_access_port=${AEM_PORT}"
 echo RUN TESTS
+
+
+
 cd aemdesign-testing
-./test-spec --login  GenericDetailsA*
+./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${GRID_PORT}/wd/hub GenericDetailsA*
 echo PUBLISH RESULTS
 
 export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
