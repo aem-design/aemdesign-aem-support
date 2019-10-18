@@ -15,9 +15,9 @@ addons:
       - "python3-pip"
 
 before_install:
-  - echo SWTICH TO PYTHON3
-  - pyenv install 3.6.3
-  - pyenv global 3.6.3
+#  - echo SWTICH TO PYTHON3
+#  - pyenv install 3.6.3
+#  - pyenv global 3.6.3
   - pip3 install virtualenv virtualenvwrapper workon
   - echo SETUP VIRTUALENV
   - which python3
