@@ -11,13 +11,15 @@ git:
 addons:
   apt:
     packages:
-      - python36
+      - "python3"
+      - "python3-pip"
 
-## export GPG details
 before_install:
   - echo SWTICH TO PYTHON3
   - pyenv install 3.6.3
   - pyenv global 3.6.3
+  - pip3 install virtualenv virtualenvwrapper workon
+  - echo EXPORT GPG DETAILS
   - echo TRAVIS_BRANCH=$TRAVIS_BRANCH
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
