@@ -20,6 +20,9 @@ before_install:
   - pyenv global 3.6.3
   - pip3 install virtualenv virtualenvwrapper workon
   - echo SETUP VIRTUALENV
+  - which python3
+  - which virtualenv
+  - find / -name virtualenvwrapper.sh
   - export WORKON_HOME=$HOME/.virtualenvs
   - export PROJECT_HOME=$HOME/Devel
   - export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
