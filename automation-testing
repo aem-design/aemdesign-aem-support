@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo PACKAGE PROJECT
-mvn clean package
+mvn clean package -DskipTests=true
 
 echo RUNNING TESTS
-pip install ansible
+pip3 install ansible
 echo INSTALLING ANSIBLE GALAXY REQUIREMENTS
 ansible-galaxy install -r requirements.yml --force
 echo PREPARE INFRASTRUCTURE
