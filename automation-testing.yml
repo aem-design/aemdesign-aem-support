@@ -8,10 +8,10 @@
 
   pre_tasks:
     - name: get docker host ip
-      become: true
       shell: |
         set -o pipefail
-        /sbin/ip route | awk '/default/ { print $3 }'
+        NETWORK_INTERFACE=$(route -n get 0.0.0.0 2>/dev/null | awk '/interface: / {print $2}')
+        ifconfig $NETWORK_INTERFACE | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -1
       args:
         executable: /bin/bash
       register: dockerhost_ip
@@ -26,12 +26,12 @@
         service_aem_username: "admin"
         service_aem_password: "admin"
         service_aem_container_name: "author"
-        service_aem_image_tag: "6.5.0-bundle"
         service_selenium_node_name_chrome: "node-chrome-test-{{ ansible_date_time.iso8601_micro | to_uuid }}"
         service_selenium_grid_port: "9944"
         service_selenium_grid_container_name: "service_selenium_grid_container_name"
         service_docker_host: "unix://var/run/docker.sock"
         service_docker_host_address: "{{ dockerhost_ip.stdout }}"
+        package_file: "aemdesign-aem-support-deploy"
 
 
   tasks:
@@ -41,11 +41,13 @@
       vars:
         grid_host: "{{ service_docker_host_address }}"
         grid_http_port: "{{ service_selenium_grid_port }}"
+        docker_image: "selenium/hub"
+        docker_image_tag: "latest"
         docker_container_name: "{{ service_selenium_grid_container_name }}"
         docker_host: "{{ service_docker_host }}"
         docker_volumes: []
         docker_published_ports: [
-          "{{ test_grid_port }}:4444",
+          "{{ service_selenium_grid_port }}:4444",
         ]
         debug_hide: "{{ test_debug_hide }}"
     - name: run selenium grid node chrome
@@ -53,9 +55,12 @@
         name: aem_design.selenium_grid_node
       vars:
         grid_host: "{{ service_docker_host_address }}"
-        grid_port: "{{ service_selenium_grid_host }}"
+        grid_port: "{{ service_selenium_grid_port }}"
+        docker_image: "selenium/node-chrome"
+        docker_image_tag: "latest"
         docker_container_name: "{{ service_selenium_node_name_chrome }}"
         docker_host: "{{ service_docker_host }}"
+        docker_published_ports: []
         debug_hide: "{{ test_debug_hide }}"
     - name: run aem author istance
       import_role:
@@ -66,7 +71,8 @@
         ]
         docker_volumes: []
         docker_container_name: "{{ service_aem_container_name }}"
-        docker_image_tag: "{{ service_aem_image_tag }}"
+        docker_image: "aemdesign/aem"
+        docker_image_tag: "6.5.0-bundle"
         docker_host: "{{ service_docker_host }}"
         debug_hide: "{{ test_debug_hide }}"
     - name: ensure container is registered
