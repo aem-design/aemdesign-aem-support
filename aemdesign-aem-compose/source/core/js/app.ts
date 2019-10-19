@@ -38,7 +38,7 @@ $(async () => {
   Icons()
 
   // Load the Font Awesome icons last as they are the heaviest payload
-  await import(/* webpackChunkName: "fontawesome-brands */ '@fortawesome/fontawesome-free/js/brands')
+  await import(/* webpackChunkName: "fontawesome-brands" */ '@fortawesome/fontawesome-free/js/brands')
   await import(/* webpackChunkName: "fontawesome" */ '@fortawesome/fontawesome-free/js/fontawesome')
 
   // IE11 hacky fixes ಥ﹏ಥ

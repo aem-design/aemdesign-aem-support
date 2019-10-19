@@ -163,6 +163,9 @@
                         </goals>
                         <configuration>
                             <arguments>${package.npmCommand} --env.project=core --env.maven --env.clean</arguments>
+                            <environmentVariables>
+                                <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
+                            </environmentVariables>
                         </configuration>
                     </execution>
                     <execution>

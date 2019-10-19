@@ -105,7 +105,6 @@ $button-colours: ();
   // Override the link button styles
   &-link {
     color: $link-color;
-    font-size: $btn-font-size + 2px;
     min-width: unset;
     padding: 0;
 
@@ -134,7 +133,6 @@ $button-colours: ();
   @include media-breakpoint-down(sm) {
     // Correct the button size for mobile devices when it is default
     &:not(&-sm):not(&-lg):not(&-link) {
-      font-size: $btn-font-size-sm;
       height: 40px;
       line-height: $btn-line-height-sm;
     }
