@@ -40,7 +40,7 @@ Visit http://localhost:4504 in your browser once `webpack-dev-server` has starte
 **NOTE:** You can only run one project at a time!
 
 #### Core
-`yarn serve:sut`
+`yarn serve:core`
 
 #### DLS (Styleguide)
 The styleguide is its own project to remove any duplicate/irrelevant code from the final website builds. This allows us to have specific deployments for DLS while maintaining a clean codebase for other projects.

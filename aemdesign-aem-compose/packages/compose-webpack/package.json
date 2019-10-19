@@ -1,0 +1,10 @@
+{
+  "author": "Chris Shaw <me@cshaw.xyz>",
+  "description": "Webpack configuration and helpers for the AEM Design compose module",
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "MIT",
+  "name": "@aem-design/compose-webpack",
+  "version": "0.0.1"
+}

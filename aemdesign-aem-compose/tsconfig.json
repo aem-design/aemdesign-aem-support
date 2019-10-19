@@ -51,11 +51,12 @@
     "source/**/*.ts",
     "source/**/*.tsx",
     "source/**/*.vue",
-    "source/**/*.scss",
+    "source/**/*.scss"
   ],
 
   "exclude": [
     "public",
-    "node_modules"
+    "node_modules",
+    "packages"
   ]
 }

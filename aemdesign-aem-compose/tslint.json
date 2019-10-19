@@ -7,8 +7,8 @@
     "max-line-length": false,
     "member-access": false,
     "member-ordering": false,
-    "only-arrow-functions": false,
     "no-console": false,
+    "only-arrow-functions": false,
     "quotemark": false,
     "semicolon": false
   }

@@ -1,23 +1,26 @@
-import * as helpers from './helpers'
+const { getMavenConfigurationValueByPath } = require('./helpers')
 
-export function getMavenConfiguration(): MavenConfigMap {
+function getMavenConfiguration(paths) {
   return {
-    appsPath: helpers.getMavenConfigurationValueByPath<string>({
-      path : 'package.appsPath[0]',
-      pom  : './pom.xml',
+    appsPath: getMavenConfigurationValueByPath({
+      parser : (value) => value[0],
+      path   : 'package.appsPath',
+      pom    : paths.child,
     }),
-    authorPort: helpers.getMavenConfigurationValueByPath<number>({
-      path : 'crx.port[0]',
-      pom  : '../pom.xml',
+    authorPort: getMavenConfigurationValueByPath({
+      parser : (value) => value[0],
+      path   : 'crx.port',
+      pom    : paths.parent,
     }),
-    sharedAppsPath: helpers.getMavenConfigurationValueByPath<string>({
-      path : 'package.path.apps[0]',
-      pom  : './pom.xml',
+    sharedAppsPath: getMavenConfigurationValueByPath({
+      parser : (value) => value[0],
+      path   : 'package.path.apps',
+      pom    : paths.child,
     }),
   }
 }
 
-export const projects = {
+const projects = {
   core: {
     outputName: 'app',
 
@@ -61,4 +64,9 @@ export const projects = {
 
     additionalEntries: {},
   },
+}
+
+module.exports = {
+  getMavenConfiguration,
+  projects,
 }
