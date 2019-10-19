@@ -13,9 +13,4 @@ body {
     position: fixed;
     width: 100%;
   }
-
-  @include media-breakpoint-down(md) {
-    font-size: 12px;
-    line-height: 23px;
-  }
 }

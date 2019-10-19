@@ -23,7 +23,7 @@ export const components: ComponentConfig = {
  */
 function buildIcon(iconClass: string): Element {
   const icon = document.createElement('i')
-  icon.setAttribute('class', `icon fal fa-${iconClass}`)
+  icon.setAttribute('class', `icon fa fa-${iconClass}`)
 
   return icon
 }

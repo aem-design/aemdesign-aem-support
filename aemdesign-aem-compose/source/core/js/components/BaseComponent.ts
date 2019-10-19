@@ -1,9 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
-// Internal
-const EventBus = new Vue()
-
-import { LogType } from '@type/enum'
+import { LogLevel } from '@type/enum'
 
 @Component
 export default class BaseComponent extends Vue {
@@ -14,17 +11,14 @@ export default class BaseComponent extends Vue {
   @Prop({ default: null, type: String })
   public target!: string
 
-  public eventBus!: Vue
-
   // tslint:disable-next-line:variable-name
   protected _name!: string
+
   protected documentTarget: Document = document
   protected windowTarget: Window = window
 
   constructor() {
     super()
-
-    this.eventBus = EventBus
   }
 
   beforeMount() {
@@ -32,7 +26,7 @@ export default class BaseComponent extends Vue {
     this.detectWindowTargetFromId()
   }
 
-  protected log(type: LogType, ...args) {
+  protected log(type: LogLevel, ...args: any[]) {
     console[type.toString().toLowerCase()](`[${this._name}]`, ...args)
   }
 
@@ -44,7 +38,11 @@ export default class BaseComponent extends Vue {
         return appIframe
       }
     } else {
-      if (window.frameElement) {
+      const iframe = window.top.frames.document.querySelector('[id^="Your App: "]');
+
+      if (iframe) {
+        return iframe as HTMLIFrameElement
+      } else if (window.frameElement) {
         return window.frameElement as HTMLIFrameElement
       }
     }

@@ -19,7 +19,7 @@
 @mixin headings-underline(
   $selectors: h1 h2 h3 h4,
   $extend-to-class: true,
-  $underline-colour: color('red'),
+  $underline-colour: color('black'),
   $parent-nesting: false,
 ) {
   $main-headings: $selectors;

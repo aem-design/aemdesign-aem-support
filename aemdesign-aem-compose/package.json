@@ -31,6 +31,7 @@
     "@babel/preset-typescript": "^7.6.0",
     "@babel/register": "^7.6.2",
     "@babel/runtime": "^7.6.3",
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "@types/bootstrap": "^4.3.1",
     "@types/copy-webpack-plugin": "^5.0.0",
     "@types/cssnano": "^4.0.0",
@@ -143,7 +144,7 @@
   "private": true,
   "name": "aemdesign-compose",
   "scripts": {
-    "aem:build": "TS_NODE_PROJECT='tsconfig.webpack.json' $(npm bin)/webpack --env.prod --env.aem -p",
+    "aem:build": "TS_NODE_PROJECT='tsconfig.webpack.json' COMPOSE_SIMPLE_LOG=true $(npm bin)/webpack --env.prod --env.aem -p",
     "aem:build:dev": "TS_NODE_PROJECT='tsconfig.webpack.json' $(npm bin)/webpack --env.dev --env.aem",
     "aem:generatetags": "node content-generator/generator.js --no-color",
     "serve:core": "TS_NODE_PROJECT='tsconfig.webpack.json' $(npm bin)/webpack-dev-server --hot --env.clean --env.dev --env.hmr --progress --color --env.project=core",

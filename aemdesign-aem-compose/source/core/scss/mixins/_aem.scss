@@ -1,0 +1,12 @@
+///
+@mixin not-aem-author() {
+  html:not(.aem-AuthorLayer-Edit):not(.aem-AuthorLayer-Preview) & {
+    @content;
+  }
+}
+
+@mixin aem-author-edit() {
+  html.aem-AuthorLayer-Edit {
+    @content;
+  }
+}

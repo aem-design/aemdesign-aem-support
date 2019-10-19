@@ -6,7 +6,7 @@ import * as sass from 'sass'
 import * as webpack from 'webpack'
 
 declare namespace compose {
-  type LogTypes = 'error' | 'info' | 'log' | 'warn'
+  type LogLevels = 'error' | 'info' | 'log' | 'warn'
   
   interface Configuration {
     getMavenConfiguration(paths: {
@@ -19,7 +19,8 @@ declare namespace compose {
   
   interface Loaders {
     css(env: webpack.ParserOptions, options?: {
-      sassOptions: sass.Options,
+      sassLoader?: { [key: string]: any };
+      sassOptions?: sass.Options,
     }): webpack.RuleSetUseItem[];
     
     js(env: webpack.ParserOptions, options?: {
@@ -30,7 +31,7 @@ declare namespace compose {
   interface Logging {
     error(...args: any): void;
     info(...args: any): void;
-    log(logType: LogTypes, ...args: any): void;
+    log(logType: LogLevels, ...args: any): void;
     warning(...args: any): void;
   }
   

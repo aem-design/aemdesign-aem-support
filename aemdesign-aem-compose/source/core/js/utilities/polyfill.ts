@@ -16,5 +16,6 @@ export function customEventPolyfill() {
     return evt
   }
 
+  // @ts-ignore
   window.CustomEvent = CustomEvent;
 }

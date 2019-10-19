@@ -17,7 +17,7 @@ module.exports = (env, options = {}) => ([
       sourceMap : env.dev === true,
 
       config: {
-        path: resolve(process.cwd(), 'postcss.config.js'),
+        path: resolve(__dirname, '../postcss.config.js'),
 
         ctx: {
           prod: env.prod === true,
@@ -30,10 +30,15 @@ module.exports = (env, options = {}) => ([
 
     options: {
       implementation : require('sass'),
-      outputStyle    : env.dev === true ? 'expanded' : 'compressed',
-      precision      : 5,
       sourceMap      : env.dev === true,
-      ...(options.sassOptions || {}),
+
+      sassOptions: {
+        outputStyle : env.dev === true ? 'expanded' : 'compressed',
+        precision   : 5,
+        ...(options.sassOptions || {}),
+      },
+
+      ...(options.sassLoader || {}),
     },
   },
 ])

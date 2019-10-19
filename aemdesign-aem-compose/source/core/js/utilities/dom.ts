@@ -45,20 +45,41 @@ export function matches(el: Element, selector: string): boolean {
  * Determine if the given parent `selector` matches any parent elements.
  *
  * @param {ParentNode} parent Target element to test
- * @param {string} selector String to test against the element
- * @returns {boolean}
+ * @param {string} selector String to test elements against
+ * @param {boolean} [returnOnFound=false] Return the matched selected when found?
+ * @returns {ParentNode | boolean}
  */
-export function hasParent(parent: ParentNode | null, selector: string): boolean {
+export function hasParent(
+  parent: ParentNode | null,
+  selector: string,
+  returnOnFound: boolean = false,
+): ParentNode | boolean {
   let pn = parent
 
   while (pn && pn !== document) {
     if (matches(pn as Element, selector)) {
-      pn = null
-      return true
+      return returnOnFound ? pn : true
     } else {
       pn = (pn as Element).parentNode
     }
   }
 
   return false
+}
+
+/**
+ * Attempt to find a parent element using the given `selector`.
+ *
+ * @param {ParentNode} currentNode Current element in context
+ * @param {string} selector String to test elements against
+ * @return {Element | null}
+ */
+export function getParent(currentNode: Element, selector: string): Element | null {
+  const parent = hasParent(currentNode.parentNode, selector, true)
+
+  if (parent !== false) {
+    return parent as Element
+  }
+
+  return null
 }

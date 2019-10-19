@@ -4,6 +4,6 @@
 // behaviour that can be handled already by Bootstrap helper classes such as spacing
 // and other component level changes.
 
-[component].pagelist {
+.pagelist {
   @extend %component-list;
 }

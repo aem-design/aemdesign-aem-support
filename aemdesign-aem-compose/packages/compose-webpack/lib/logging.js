@@ -20,7 +20,7 @@ function getLogLabel(value) {
   
   for (const logType of logTypeKeys) {
     if (LOG_TYPES[logType] === value) {
-      return LOG_TYPES_COLOURS[logType]
+      return colors.bold(LOG_TYPES_COLOURS[logType])
     }
   }
 
@@ -38,7 +38,11 @@ function info(...args) {
 }
 
 function log(logType, ...args) {
-  console[logType](`[${getLogLabel(logType)}]`, ...args)
+  if (process.env.COMPOSE_SIMPLE_LOG) {
+    console[logType](...args)
+  } else {
+    console[logType](`[${getLogLabel(logType)}]`, ...args)
+  }
 }
 
 function warning(...args) {

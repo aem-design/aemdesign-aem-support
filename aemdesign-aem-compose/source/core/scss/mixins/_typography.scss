@@ -1,0 +1,75 @@
+///
+@mixin typography-level($for, $key) {
+  $config: map-deep-get($typography, $for, $key);
+  @include typography-style($key, $config, true);
+}
+
+///
+@mixin typography-style($level, $config, $styles-only: false) {
+  $selector: $level;
+
+  // Determine if this style needs a base selector in addition to a class
+  $no-tag: map-has-key($config, no-tag) and map-get($config, no-tag) == true;
+  $no-default: not map-has-key($config, default-selector);
+
+  // Change the `$selector` so it reflects the default if one is set
+  @if not $no-default {
+    $selector: unquote(map-get($config, default-selector));
+  }
+
+  // Should the selector be extended?
+  @if map-has-key($config, extend-to) {
+    $selector: unquote('#{$selector}, #{map-get($config, extend-to)}');
+  }
+
+  // Loop through each breakpoint and set the styles
+  @each $breakpoint, $size in $grid-breakpoints {
+    @if map-has-key($config, $breakpoint) {
+      $break-config: map-get($config, $breakpoint);
+
+      @if map-has-key($break-config, only) and map-get($break-config, only) == true {
+        @include media-breakpoint-only($breakpoint) {
+          @include typography-bp($selector, $level, $no-tag, $no-default, $break-config, $styles-only);
+        }
+      }
+      @else {
+        @include media-breakpoint-up($breakpoint) {
+          @include typography-bp($selector, $level, $no-tag, $no-default, $break-config, $styles-only);
+        }
+      }
+    }
+  }
+}
+
+@mixin typography-bp(
+  $selector,
+  $level,
+  $no-tag,
+  $no-default,
+  $break-config,
+  $styles-only: false
+) {
+  @if $styles-only == true {
+    @include typography-styles($break-config);
+  }
+  @else if $no-tag and $no-default {
+    .#{$level} {
+      @include typography-styles($break-config);
+    }
+  }
+  @else {
+    #{$selector},
+    .#{$level} {
+      @include typography-styles($break-config);
+    }
+  }
+}
+
+///
+@mixin typography-styles($config) {
+  @each $key, $value in $config {
+    @if $key != 'only' {
+      #{$key}: #{$value};
+    }
+  }
+}

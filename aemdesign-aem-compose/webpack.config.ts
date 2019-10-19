@@ -15,6 +15,10 @@ import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import VueLoaderPlugin from 'vue-loader/lib/plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
+// Ensure 'tsconfig-paths-webpack-plugin' doesn't try to use the project file we supplied
+// to 'ts-node' to parse this file.
+delete process.env.TS_NODE_PROJECT
+
 // Load our helper modules
 import { config, loaders, logging } from '@aem-design/compose-webpack'
 
@@ -26,6 +30,7 @@ logging.info('  \\ \\  \\ \\  \\ \\  \\_|\\ \\ \\  \\    \\ \\  \\ __\\ \\  \\_\
 logging.info('   \\ \\__\\ \\__\\ \\_______\\ \\__\\    \\ \\__\\\\__\\ \\_______\\ \\_______\\____\\_\\  \\ \\__\\ \\_______\\ \\__\\\\ \\__\\')
 logging.info('    \\|__|\\|__|\\|_______|\\|__|     \\|__\\|__|\\|_______|\\|_______|\\_________\\|__|\\|_______|\\|__| \\|__|')
 logging.info('                                                              \\|_________|                         ')
+
 logging.info('')
 logging.info('Starting up the webpack bundler...')
 logging.info('')
@@ -130,8 +135,6 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
   logging.info('Entry Configuration')
   logging.info('-------------------')
   logging.info(JSON.stringify(entry, null, 2))
-
-  process.exit(0)
 
   const outputFolder = env.hmr === true ? clientLibsPath : false
 
@@ -375,10 +378,12 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
         vue$: env.dev === true ? 'vue/dist/vue.esm.js' : 'vue/dist/vue.min.js',
       },
 
-      extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+      extensions: ['.ts', '.tsx', '.js'],
 
       plugins: [
-        new TsconfigPathsPlugin(),
+        new TsconfigPathsPlugin({
+          configFile: resolve(__dirname, 'tsconfig.json'),
+        }),
       ],
     },
 

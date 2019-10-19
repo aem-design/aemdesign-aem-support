@@ -4,11 +4,10 @@
 // behaviour that can be handled already by Bootstrap helper classes such as spacing
 // and other component level changes.
 
-[component].contentblock {
+.contentblock {
   @include clearfix;
 
   > .icon {
-    color: color('red');
     font-size: icon-size(large);
     margin-bottom: 10px;
   }
@@ -41,5 +40,4 @@
   }
 
   @import 'contentblock/card';
-  @import 'contentblock/notification';
 }

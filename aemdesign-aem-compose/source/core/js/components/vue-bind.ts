@@ -20,13 +20,7 @@ export default async (references: NodeListOf<Element>) => {
   Vue.config.silent        = __PROD__
 
   // Define the components we can use
-  const components = {
-    'social-share'    : loadView('social-share', 'SocialShare'),
-    'site-search'     : loadView('site-search', 'SiteSearch'),
-    'search-input'    : loadView('search-input', 'SearchInput'),
-    'search-results'  : loadView('search-results', 'SearchResults'),
-    'view-more'       : loadView('view-more', 'ViewMore'),
-  }
+  const components = {}
 
   const validComponents = Object.keys(components)
 
@@ -46,7 +40,7 @@ export default async (references: NodeListOf<Element>) => {
       const componentName = reference.getAttribute('vue-component')
 
       if (!componentName || validComponents.indexOf(componentName) === -1) {
-        console.warn("[Vue] Component '%s' is invalid, valid components are:", validComponents.join(', '))
+        console.warn("[Vue] Component '%s' is invalid, valid components are:", componentName, validComponents.join(', '))
         continue
       }
 

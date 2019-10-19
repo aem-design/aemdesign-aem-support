@@ -1,0 +1,9 @@
+/// Page List variant generator
+@mixin pagelist-variant($selector: false) {
+  $selector: if($selector != false, unquote($selector + ' '), '');
+  $selector: $selector + '> .content > ul > li';
+
+  #{unquote($selector)} {
+    @content;
+  }
+}

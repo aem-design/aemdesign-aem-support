@@ -28,9 +28,9 @@ const webpackOptions = {
           },
           ...CSSLoaders({ prod: true }, {
             sassOptions: {
-              includePaths: [resolve(process.cwd(), 'source/sut/scss')],
+              includePaths: [resolve(process.cwd(), 'source/core/scss')],
               data: `
-                $asset-base-path: '${process.cwd()}/source/sut/';
+                $asset-base-path: '${process.cwd()}/source/core/';
                 $fa-font-path: '~@fortawesome/fontawesome-pro/webfonts';
                 @import "@fortawesome/fontawesome-pro/scss/fontawesome.scss";
                 @import '@fortawesome/fontawesome-pro/scss/light.scss';
@@ -51,7 +51,7 @@ const webpackOptions = {
           {
             loader: 'file-loader',
             options: {
-              context  : resolve(process.cwd(), 'source/sut'),
+              context  : resolve(process.cwd(), 'source/core'),
               emitFile : false,
               name     : '[path][name].[ext]',
 

@@ -1,0 +1,15 @@
+/// Generates the code required for the 'object-fit-images' polyfill
+/// @see https://github.com/bfred-it/object-fit-images
+/// @param {String} $fit - How should the image scale to its parent?
+/// @param {String} $position - The offset for the image
+@mixin object-fit($fit: fill, $position: null) {
+  object-fit: $fit;
+
+  @if $position {
+    font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+    object-position: $position;
+  }
+  @else {
+    font-family: 'object-fit: #{$fit}';
+  }
+}
