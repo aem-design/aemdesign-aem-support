@@ -1,3 +1,4 @@
+import { bold } from 'colors'
 import { relative, resolve } from 'path'
 import webpack from 'webpack'
 
@@ -15,6 +16,16 @@ import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import VueLoaderPlugin from 'vue-loader/lib/plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
+console.log('________  _______   _____ ______       ________  _______   ________  ___  ________  ________      ')
+console.log('|\\   __  \\|\\  ___ \\ |\\   _ \\  _   \\    |\\   ___ \\|\\  ___ \\ |\\   ____\\|\\  \\|\\   ____\\|\\   ___  \\    ')
+console.log('\\ \\  \\|\\  \\ \\   __/|\\ \\  \\\\\\__\\ \\  \\   \\ \\  \\_|\\ \\ \\   __/|\\ \\  \\___|\\ \\  \\ \\  \\___|\\ \\  \\\\ \\  \\   ')
+console.log(' \\ \\   __  \\ \\  \\_|/_\\ \\  \\\\|__| \\  \\   \\ \\  \\ \\\\ \\ \\  \\_|/_\\ \\_____  \\ \\  \\ \\  \\  __\\ \\  \\\\ \\  \\  ')
+console.log('  \\ \\  \\ \\  \\ \\  \\_|\\ \\ \\  \\    \\ \\  \\ __\\ \\  \\_\\\\ \\ \\  \\_|\\ \\|____|\\  \\ \\  \\ \\  \\|\\  \\ \\  \\\\ \\  \\ ')
+console.log('   \\ \\__\\ \\__\\ \\_______\\ \\__\\    \\ \\__\\\\__\\ \\_______\\ \\_______\\____\\_\\  \\ \\__\\ \\_______\\ \\__\\\\ \\__\\')
+console.log('    \\|__|\\|__|\\|_______|\\|__|     \\|__\\|__|\\|_______|\\|_______|\\_________\\|__|\\|_______|\\|__| \\|__|')
+console.log('                                                              \\|_________|                         ')
+console.log('')
+
 // Ensure 'tsconfig-paths-webpack-plugin' doesn't try to use the project file we supplied
 // to 'ts-node' to parse this file.
 delete process.env.TS_NODE_PROJECT
@@ -22,16 +33,6 @@ delete process.env.TS_NODE_PROJECT
 // Load our helper modules
 import { config, loaders, logging } from '@aem-design/compose-webpack'
 
-logging.info('________  _______   _____ ______       ________  _______   ________  ___  ________  ________      ')
-logging.info('|\\   __  \\|\\  ___ \\ |\\   _ \\  _   \\    |\\   ___ \\|\\  ___ \\ |\\   ____\\|\\  \\|\\   ____\\|\\   ___  \\    ')
-logging.info('\\ \\  \\|\\  \\ \\   __/|\\ \\  \\\\\\__\\ \\  \\   \\ \\  \\_|\\ \\ \\   __/|\\ \\  \\___|\\ \\  \\ \\  \\___|\\ \\  \\\\ \\  \\   ')
-logging.info(' \\ \\   __  \\ \\  \\_|/_\\ \\  \\\\|__| \\  \\   \\ \\  \\ \\\\ \\ \\  \\_|/_\\ \\_____  \\ \\  \\ \\  \\  __\\ \\  \\\\ \\  \\  ')
-logging.info('  \\ \\  \\ \\  \\ \\  \\_|\\ \\ \\  \\    \\ \\  \\ __\\ \\  \\_\\\\ \\ \\  \\_|\\ \\|____|\\  \\ \\  \\ \\  \\|\\  \\ \\  \\\\ \\  \\ ')
-logging.info('   \\ \\__\\ \\__\\ \\_______\\ \\__\\    \\ \\__\\\\__\\ \\_______\\ \\_______\\____\\_\\  \\ \\__\\ \\_______\\ \\__\\\\ \\__\\')
-logging.info('    \\|__|\\|__|\\|_______|\\|__|     \\|__\\|__|\\|_______|\\|_______|\\_________\\|__|\\|_______|\\|__| \\|__|')
-logging.info('                                                              \\|_________|                         ')
-
-logging.info('')
 logging.info('Starting up the webpack bundler...')
 logging.info('')
 
@@ -46,11 +47,11 @@ if (!(authorPort || appsPath || sharedAppsPath)) {
   process.exit(1)
 }
 
-logging.info('Maven configuration')
+logging.info(bold('Maven configuration'))
 logging.info('-------------------')
-logging.info('Author Port         :', authorPort)
-logging.info('Apps Path           :', appsPath)
-logging.info('Shared Apps Path    :', sharedAppsPath)
+logging.info(bold('Author Port         :'), authorPort)
+logging.info(bold('Apps Path           :'), appsPath)
+logging.info(bold('Shared Apps Path    :'), sharedAppsPath)
 logging.info('')
 
 // Set the public and source paths for the project
@@ -68,14 +69,14 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
   const mode    = env.dev === true ? 'development' : 'production'
   const project = config.projects[env.project]
 
-  logging.info('Webpack Configuration')
+  logging.info(bold('Webpack Configuration'))
   logging.info('---------------------')
-  logging.info('Mode                :', mode)
-  logging.info('Project             :', env.project)
-  logging.info('Hot Reloading?      :', env.hmr ? 'yes' : 'no')
+  logging.info(bold('Mode                :'), mode)
+  logging.info(bold('Project             :'), env.project)
+  logging.info(bold('Hot Reloading?      :'), env.hmr ? 'yes' : 'no')
 
   const clientLibsPath = `${sharedAppsPath}/${appsPath}/clientlibs/${env.project}/`
-  logging.info('Client Libary Path  :', clientLibsPath)
+  logging.info(bold('Client Libary Path  :'), clientLibsPath)
 
   let entry = {}
 
@@ -129,10 +130,10 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
     }
   }
 
-  logging.info('Public Path         :', PUBLIC_PATH)
-  logging.info('Public Path (AEM)   :', PUBLIC_PATH_AEM)
+  logging.info(bold('Public Path         :'), PUBLIC_PATH)
+  logging.info(bold('Public Path (AEM)   :'), PUBLIC_PATH_AEM)
   logging.info('')
-  logging.info('Entry Configuration')
+  logging.info(bold('Entry Configuration'))
   logging.info('-------------------')
   logging.info(JSON.stringify(entry, null, 2))
 
@@ -160,11 +161,6 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
           use: [
             env.hmr === true ? {
               loader: 'style-loader',
-
-              options: {
-                hmr       : true,
-                sourceMap : true,
-              },
             } : { loader: MiniCssExtractPlugin.loader },
             ...loaders.css(env),
           ],

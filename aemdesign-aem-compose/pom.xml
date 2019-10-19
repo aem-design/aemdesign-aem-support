@@ -162,7 +162,7 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>${package.npmCommand} --env.project=core --env.maven --env.clean</arguments>
+                            <arguments>${package.npmCommand} --no-color --env.project=core --env.maven --env.clean</arguments>
                             <environmentVariables>
                                 <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
                             </environmentVariables>
@@ -176,7 +176,7 @@
                         </goals>
                         <configuration>
                             <arguments>- -stack_size=8192</arguments>
-                            <arguments>run aem:generatetags --no-clean --no-console --config=core.yml</arguments>
+                            <arguments>run aem:generatetags --no-color --no-clean --no-console --config=core.yml</arguments>
                         </configuration>
                     </execution>
                     <!-- Styleguide -->
@@ -187,7 +187,7 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>${package.npmCommand} --env.project=styleguide --env.maven --env.clean</arguments>
+                            <arguments>${package.npmCommand} --no-color --env.project=styleguide --env.maven --env.clean</arguments>
                         </configuration>
                     </execution>
 
@@ -200,7 +200,7 @@
                         </goals>
                         <configuration>
                             <arguments>- -stack_size=8192</arguments>
-                            <arguments>run aem:generatetags --no-clean --no-console --config=overrides.yml</arguments>
+                            <arguments>run aem:generatetags --no-color --no-clean --no-console --config=overrides.yml</arguments>
                         </configuration>
                     </execution>
                 </executions>
