@@ -27,7 +27,7 @@ logging.info('   \\ \\__\\ \\__\\ \\_______\\ \\__\\    \\ \\__\\\\__\\ \\______
 logging.info('    \\|__|\\|__|\\|_______|\\|__|     \\|__\\|__|\\|_______|\\|_______|\\_________\\|__|\\|_______|\\|__| \\|__|')
 logging.info('                                                              \\|_________|                         ')
 logging.info('')
-logging.info('Starting up the Webpack bundler...')
+logging.info('Starting up the webpack bundler...')
 logging.info('')
 
 const { appsPath, authorPort, sharedAppsPath } = config.getMavenConfiguration({

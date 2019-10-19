@@ -143,8 +143,8 @@
   "private": true,
   "name": "aemdesign-compose",
   "scripts": {
-    "aem:build": "$(npm bin)/webpack --env.prod --env.aem -p",
-    "aem:build:dev": "$(npm bin)/webpack --env.dev --env.aem",
+    "aem:build": "TS_NODE_PROJECT='tsconfig.webpack.json' $(npm bin)/webpack --env.prod --env.aem -p",
+    "aem:build:dev": "TS_NODE_PROJECT='tsconfig.webpack.json' $(npm bin)/webpack --env.dev --env.aem",
     "aem:generatetags": "node content-generator/generator.js --no-color",
     "serve:core": "TS_NODE_PROJECT='tsconfig.webpack.json' $(npm bin)/webpack-dev-server --hot --env.clean --env.dev --env.hmr --progress --color --env.project=core",
     "serve:sg": "TS_NODE_PROJECT='tsconfig.webpack.json' $(npm bin)/webpack-dev-server --hot --env.clean --env.dev --env.hmr --progress --color --env.project=styleguide",
