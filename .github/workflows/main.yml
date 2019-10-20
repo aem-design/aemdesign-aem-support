@@ -39,10 +39,10 @@ jobs:
         run: $DOCKER_COMMAND mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
 
       - name: sonar qube on master
-        if: github.ref == "master"
+        if: github.ref == 'master'
         run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
       - name: sonar qube on master
-        if: github.ref != "master"
+        if: github.ref != 'master'
         run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
 
       - name: set up python ${{ matrix.python-version }}
@@ -58,7 +58,7 @@ jobs:
         run: ./automation-testing
 
       - name: deploy to maven cental
-        if: github.ref == "master"
+        if: github.ref == 'master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
 
       - uses: meeDamian/github-release@0.1
@@ -76,7 +76,7 @@ jobs:
             aemdesign-aem-config/target/aemdesign-aem-config-$CURRENT_VERSION.zip
 
       - name: trigger build of bundle docker container
-        if: github.ref == "master"
+        if: github.ref == 'master'
         run: |
           docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}
           docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.4.0-bundle --travis_token=${TRAVIS_TOKEN}
