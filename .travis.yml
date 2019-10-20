@@ -4,11 +4,15 @@ sudo: false
 cache:
   directories:
     - '$HOME/.m2/repository'
+    - .git/lfs
 
 git:
   depth: false
+  lfs_skip_smudge: true
 
 before_install:
+  - echo PULL GIT LFS TO CACHE
+  - git lfs pull
   - echo SWTICH TO PYTHON3
   - pyenv install 3.6.3
   - pyenv global 3.6.3
@@ -23,6 +27,9 @@ before_install:
   - echo TRAVIS_BRANCH=$TRAVIS_BRANCH
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+
+# Package all of the content
+install:
   - mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q && echo "CLEAN DONE"
   - mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules && echo "PACKAGE AND LOCAL INSTALL DONE"
   - find . -type d -name target | xargs -n 1 -t  sh -c 'ls -latr $0'
@@ -32,7 +39,8 @@ before_install:
   - echo "READY"
   - declare -a REPO_SLUG_ARRAY="(${TRAVIS_REPO_SLUG/\// })"
 
-install:
+# Deploy and Test packages in AEM
+before_script:
   - ./automation-testing
 
 ## Build and release to maven central
