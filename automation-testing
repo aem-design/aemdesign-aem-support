@@ -29,9 +29,9 @@ echo PUBLISH RESULTS
 
 export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
 
-export PATH_GHPAGES="/tmp/ghpages"
+export PATH_GHPAGES="./build/ghpages"
 
-mkdir ${PATH_GHPAGES}
+mkdir -p ${PATH_GHPAGES}
 cd ${PATH_GHPAGES}
 git clone --single-branch --branch gh-pages --depth 1 https://github.com/aem-design/aemdesign-aem-support.git
 
