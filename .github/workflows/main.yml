@@ -4,32 +4,15 @@ on: [push]
 
 jobs:
   build:
-    
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
         python-version: [3.6]
+    env:
+      BUILD_IMAGE: aemdesign/centos-java-buildpack
 
     steps:
       - uses: actions/checkout@v1
-      - name: prepare
-        run: |
-          echo HOME=$HOME
-          echo GITHUB_WORKSPACE=$GITHUB_WORKSPACE
-          export REPO_NAME=$(basename $GITHUB_WORKSPACE)
-          echo REPO_NAME=$REPO_NAME
-          export WORK_PATH=$HOME/work/$REPO_NAME
-          echo WORK_PATH=$WORK_PATH
-          ls $WORK_PATH
-          export MAVEN_PATH=$WORK_PATH/.m2
-          mkdir $MAVEN_PATH
-          echo "test">$MAVEN_PATH/test.txt
-          echo MAVEN_PATH=$MAVEN_PATH
-          echo ::set-env name=BUILD_IMAGE::aemdesign/centos-java-buildpack
-          echo ::set-env name=MAVEN_DIR::$MAVEN_PATH
-          echo ::set-env name=REPO_NAME::$REPO_NAME
-          echo ::set-env name=WORK_PATH::$WORK_PATH
-      - name: docker - mvn clean
-        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE pwd && ls -l . && ls -l /build/.m2
-#        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q -Dmaven.repo.local=/build/.m2/repository && echo "CLEAN DONE"
+      - name: docker - mvn clean and cache .m2 in ./build/.m2/repository in repo dir
+        run: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q -Dmaven.repo.local=./build/.m2/repository
