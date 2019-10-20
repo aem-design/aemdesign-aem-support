@@ -61,7 +61,7 @@ jobs:
         if: github.ref == 'master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
 
-      - uses: meeDamian/github-release@0.1
+      - uses: meeDamian/github-release@1.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${CURRENT_VERSION}
