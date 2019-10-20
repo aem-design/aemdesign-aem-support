@@ -14,5 +14,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: docker - mvn clean and cache .m2 in ./build/.m2/repository in repo dir
-        run: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q -Dmaven.repo.local=./build/.m2/repository
+      - name: docker - mvn clean (cache .m2 in ./build/.m2/repository in repo dir)
+        run: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+      - name: docker - mvn package
+        run: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build $BUILD_IMAGE mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
