@@ -22,12 +22,13 @@ jobs:
           export WORK_PATH=$HOME/work/$REPO_NAME
           echo WORK_PATH=$WORK_PATH
           export MAVEN_PATH=$WORK_PATH/.m2
+          mkdir $MAVEN_PATH
+          echo "test">$MAVEN_PATH/test.txt
           echo MAVEN_PATH=$MAVEN_PATH
           echo ::set-env name=BUILD_IMAGE::aemdesign/centos-java-buildpack
           echo ::set-env name=MAVEN_DIR::$MAVEN_PATH
           echo ::set-env name=REPO_NAME::$REPO_NAME
           echo ::set-env name=WORK_PATH::$WORK_PATH
-          mkdir $MAVEN_PATH
       - name: docker - mvn clean
-        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE pwd && ls -l /build/ && ls -l /build/${REPO_NAME}
+        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE pwd && ls -l . && ls -l /build && ls -l /build/.m2
 #        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q -Dmaven.repo.local=/build/.m2/repository && echo "CLEAN DONE"
