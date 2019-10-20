@@ -10,7 +10,7 @@ jobs:
       matrix:
         python-version: [3.6]
     env:
-      DOCKER_COMMAND: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build aemdesign/centos-java-buildpack
+      DOCKER_COMMAND: "docker run --user \$(id -u):\$(id -g) -v $GITHUB_WORKSPACE:/build aemdesign/centos-java-buildpack"
       SONAR_ORGANISATION: "aemdesign-github"
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_URL: "https://sonarcloud.io"
