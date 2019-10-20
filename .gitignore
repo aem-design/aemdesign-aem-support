@@ -65,4 +65,4 @@ aemdesign-testing/local-*
 .bash_history
 
 #github actions
-.m2/
+build/
