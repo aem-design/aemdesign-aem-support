@@ -10,11 +10,74 @@ jobs:
       matrix:
         python-version: [3.6]
     env:
-      BUILD_IMAGE: aemdesign/centos-java-buildpack
+      DOCKER_COMMAND: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build aemdesign/centos-java-buildpack
+      SONAR_ORGANISATION: "aemdesign-github"
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_URL: "https://sonarcloud.io"
+      SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+      SONATYPE_USERNAME: "aemdesign"
+      GPG_SECRET_KEYS: ${{ secrets.GPG_SECRET_KEYS }}
+      GPG_OWNERTRUST: ${{ secrets.GPG_OWNERTRUST }}
+      GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      GITHUB_USER: aemdesign
+      TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
 
     steps:
       - uses: actions/checkout@v1
+      - name: get release notes
+        run: |
+          export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
+          echo "===START==="
+          echo $GIT_RELEASE_NOTES
+          echo "====END===="
+          echo ::set-env name=GIT_RELEASE_NOTES::$GIT_RELEASE_NOTES
+          export CURRENT_VERSION=$(mvn help:evaluate -q -DforceStdout -Dexpression=project.version)
+          echo ::set-env name=CURRENT_VERSION::$CURRENT_VERSION
       - name: docker - mvn clean (cache .m2 in ./build/.m2/repository in repo dir)
-        run: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+        run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
       - name: docker - mvn package
-        run: docker run --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/build $BUILD_IMAGE mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+        run: $DOCKER_COMMAND mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+
+      - name: sonar qube on master
+        if: github.ref == master
+        run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
+      - name: sonar qube on master
+        if: github.ref != master
+        run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
+
+      - name: set up python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: install dependencies
+        run: |
+          sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: automation test
+        run: ./automation-testing
+
+      - name: deploy to maven cental
+        if: github.ref == master
+        run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
+
+      - uses: meeDamian/github-release@0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${CURRENT_VERSION}
+          name: ${CURRENT_VERSION}
+          body: $GIT_RELEASE_NOTES
+          files: >
+            aemdesign-aem-support-deploy/target/aemdesign-aem-support-deploy-$CURRENT_VERSION.zip
+            aemdesign-aem-compose/target/aemdesign-aem-compose-$CURRENT_VERSION.zip
+            aemdesign-aem-showcase/target/aemdesign-aem-showcase-$CURRENT_VERSION.zip
+            aemdesign-aem-training/target/aemdesign-aem-training-$CURRENT_VERSION.zip
+            aemdesign-aem-content/target/aemdesign-aem-content-$CURRENT_VERSION.zip
+            aemdesign-aem-config/target/aemdesign-aem-config-$CURRENT_VERSION.zip
+
+      - name: trigger build of bundle docker container
+        if: github.ref == master
+        run: |
+          docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}
+          docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.4.0-bundle --travis_token=${TRAVIS_TOKEN}
+        
