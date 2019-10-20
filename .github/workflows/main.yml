@@ -13,23 +13,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: set up python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{ matrix.python-version }}
       - name: prepare
         run: |
           echo $HOME
           echo $GITHUB_WORKSPACE
-          export MAVEN_DIR=$GITHUB_WORKSPACE/maven-m2
+          export WORK_PATH=$HOME/work/$REPO_NAME
+          echo $WORK_PATH
+          export MAVEN_PATH=$WORK_PATH/.m2
+          echo $MAVEN_PATH
           echo ::set-env name=BUILD_IMAGE::aemdesign/centos-java-buildpack
-          echo ::set-env name=MAVEN_DIR::$MAVEN_DIR
-          mkdir $MAVEN_DIR
-          ls $GITHUB_WORKSPACE
-      - name: prepare
-        run: |
-          echo $BUILD_IMAGE
-          echo $MAVEN_DIR
-          ls $GITHUB_WORKSPACE
-#      - name: docker - mvn clean
-#        run: docker run --user $(id -u):$(id -g) -v $HOME:/build -w "/build/${PARENT_PROJECT_NAME}/${PARENT_PROJECT_LOCATION}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q && echo "CLEAN DONE"
+          echo ::set-env name=MAVEN_DIR::$MAVEN_PATH
+          echo ::set-env name=REPO_NAME::$(basename $GITHUB_WORKSPACE)
+          echo ::set-env name=WORK_PATH::$WORK_PATH
+          mkdir $MAVEN_PATH
+      - name: docker - mvn clean
+        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q -Dmaven.repo.local=/build/.m2/repository && echo "CLEAN DONE"
