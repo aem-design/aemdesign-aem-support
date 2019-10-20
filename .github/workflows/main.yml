@@ -29,5 +29,5 @@ jobs:
           echo ::set-env name=WORK_PATH::$WORK_PATH
           mkdir $MAVEN_PATH
       - name: docker - mvn clean
-        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE ls /build/ && /build/${REPO_NAME}
+        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE pwd && ls -l /build/ && ls -l /build/${REPO_NAME}
 #        run: docker run --user $(id -u):$(id -g) -v $WORK_PATH:/build -w "/build/${REPO_NAME}/${REPO_NAME}" -v ${MAVEN_DIR}:/build/.m2 $BUILD_IMAGE mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q -Dmaven.repo.local=/build/.m2/repository && echo "CLEAN DONE"
