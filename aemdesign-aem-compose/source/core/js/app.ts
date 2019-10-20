@@ -70,9 +70,9 @@ $(async () => {
   }
 
   // Load the Font Awesome icons last as they are the heaviest payload
-  await import(/* webpackChunkName: "fontawesome-pro-brands" */ '@fortawesome/fontawesome-pro/js/brands')
-  await import(/* webpackChunkName: "fontawesome-pro-light" */ '@fortawesome/fontawesome-pro/js/light')
-  await import(/* webpackChunkName: "fontawesome-pro" */ '@fortawesome/fontawesome-pro/js/fontawesome')
+  await import(/* webpackChunkName: "fontawesome-free-brands" */ '@fortawesome/fontawesome-free/js/brands')
+  await import(/* webpackChunkName: "fontawesome-free-solid" */ '@fortawesome/fontawesome-free/js/solid')
+  await import(/* webpackChunkName: "fontawesome-free" */ '@fortawesome/fontawesome-free/js/fontawesome')
 
   // IE11 hacky fixes ಥ﹏ಥ
   if ((!!window.MSInputMethodContext && !!document.documentMode)) {

@@ -19,7 +19,7 @@
     }
   ],
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "5.10.2",
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "body-scroll-lock": "^2.6.4",
     "bootstrap": "4.3.1",
     "child_process": "^1.0.2",
