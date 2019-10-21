@@ -21,14 +21,12 @@ jobs:
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       GITHUB_USER: aemdesign
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
-      GITHUB_BRANCH: ${{ github.ref }}
 
     steps:
       - uses: actions/checkout@v1
       - name: set eval variables
         run: |
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
-          echo ${GITHUB_BRANCH}
       - name: get release notes
         run: |
           export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
@@ -44,10 +42,10 @@ jobs:
         run: $DOCKER_COMMAND mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
 
       - name: sonar qube on master
-        if: github.ref == 'master'
+        if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
       - name: sonar qube on master
-        if: github.ref != 'master'
+        if: github.ref != 'refs/heads/master'
         run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
 
       - name: set up python ${{ matrix.python-version }}
@@ -63,7 +61,7 @@ jobs:
         run: ./automation-testing
 
       - name: deploy to maven cental
-        if: github.ref == 'master'
+        if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
 
       - uses: meeDamian/github-release@1.0
@@ -81,7 +79,7 @@ jobs:
             aemdesign-aem-config/target/aemdesign-aem-config-$CURRENT_VERSION.zip
 
       - name: trigger build of bundle docker container
-        if: github.ref == 'master'
+        if: github.ref == 'refs/heads/master'
         run: |
           docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}
           docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.4.0-bundle --travis_token=${TRAVIS_TOKEN}
