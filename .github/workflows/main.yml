@@ -10,7 +10,7 @@ jobs:
       matrix:
         python-version: [3.6]
     env:
-      DOCKER_COMMAND: "docker run -v $GITHUB_WORKSPACE:/build aemdesign/centos-java-buildpack"
+      DOCKER_IMAGE: "aemdesign/centos-java-buildpack"
       SONAR_ORGANISATION: "aemdesign-github"
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_URL: "https://sonarcloud.io"
@@ -24,6 +24,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: set eval variables
+        run: |
+          echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
       - name: get release notes
         run: |
           export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
