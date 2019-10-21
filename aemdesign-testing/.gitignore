@@ -32,3 +32,4 @@ Gemfile.lock
 
 #appium
 node-config/appium_node_config
+node-config/package-lock.json
