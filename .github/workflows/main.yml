@@ -21,12 +21,14 @@ jobs:
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       GITHUB_USER: aemdesign
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
+      GITHUB_BRANCH: ${{ github.ref }}
 
     steps:
       - uses: actions/checkout@v1
       - name: set eval variables
         run: |
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
+          echo ${GITHUB_BRANCH}
       - name: get release notes
         run: |
           export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
