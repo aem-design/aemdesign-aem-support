@@ -1,8 +1,11 @@
-const { resolve } = require('path')
+import { resolve } from 'path'
+import webpack = require('webpack')
 
 const nodeModulesPath = resolve(process.cwd(), 'node_modules')
 
-module.exports = (env, options = {}) => ([
+export default (env: webpack.ParserOptions, options?: {
+  configFile?: string,
+}): webpack.RuleSetRule[] => ([
   {
     exclude : [nodeModulesPath],
     loader  : 'vue-loader',

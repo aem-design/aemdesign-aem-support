@@ -1,6 +1,11 @@
-const { resolve } = require('path')
+import { resolve } from 'path'
+import sass from 'sass'
+import webpack from 'webpack'
 
-module.exports = (env, options = {}) => ([
+export default (env: webpack.ParserOptions, options?: {
+  sassLoader?: { [key: string]: any };
+  sassOptions?: sass.Options,
+}): webpack.RuleSetUseItem[] => ([
   {
     loader: 'css-loader',
 

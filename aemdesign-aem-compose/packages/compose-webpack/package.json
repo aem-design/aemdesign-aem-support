@@ -6,5 +6,12 @@
   },
   "license": "MIT",
   "name": "@aem-design/compose-webpack",
-  "version": "0.0.1"
+  "private": true,
+  "version": "0.0.1",
+  "peerDependencies": {
+    "xml2js": "^0.4.22"
+  },
+  "dependencies": {
+    "@aem-design/compose-support": "0.0.1"
+  }
 }
