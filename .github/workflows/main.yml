@@ -24,6 +24,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+        with:
+          submodules: true
+          lfs: true
       - name: set eval variables
         run: |
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
