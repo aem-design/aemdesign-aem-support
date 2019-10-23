@@ -1,4 +1,5 @@
-import { bold } from 'colors'
+import chalk from 'chalk'
+import figlet from 'figlet'
 import { relative, resolve } from 'path'
 import webpack from 'webpack'
 
@@ -9,70 +10,60 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
-console.log('________  _______   _____ ______       ________  _______   ________  ___  ________  ________      ')
-console.log('|\\   __  \\|\\  ___ \\ |\\   _ \\  _   \\    |\\   ___ \\|\\  ___ \\ |\\   ____\\|\\  \\|\\   ____\\|\\   ___  \\    ')
-console.log('\\ \\  \\|\\  \\ \\   __/|\\ \\  \\\\\\__\\ \\  \\   \\ \\  \\_|\\ \\ \\   __/|\\ \\  \\___|\\ \\  \\ \\  \\___|\\ \\  \\\\ \\  \\   ')
-console.log(' \\ \\   __  \\ \\  \\_|/_\\ \\  \\\\|__| \\  \\   \\ \\  \\ \\\\ \\ \\  \\_|/_\\ \\_____  \\ \\  \\ \\  \\  __\\ \\  \\\\ \\  \\  ')
-console.log('  \\ \\  \\ \\  \\ \\  \\_|\\ \\ \\  \\    \\ \\  \\ __\\ \\  \\_\\\\ \\ \\  \\_|\\ \\|____|\\  \\ \\  \\ \\  \\|\\  \\ \\  \\\\ \\  \\ ')
-console.log('   \\ \\__\\ \\__\\ \\_______\\ \\__\\    \\ \\__\\\\__\\ \\_______\\ \\_______\\____\\_\\  \\ \\__\\ \\_______\\ \\__\\\\ \\__\\')
-console.log('    \\|__|\\|__|\\|_______|\\|__|     \\|__\\|__|\\|_______|\\|_______|\\_________\\|__|\\|_______|\\|__| \\|__|')
-console.log('                                                              \\|_________|                         ')
-console.log('')
+console.log(figlet.textSync('AEM.Design', {
+  font: '3D-ASCII',
+}))
 
 // Ensure 'tsconfig-paths-webpack-plugin' doesn't try to use the project file we supplied
 // to 'ts-node' to parse this file.
 delete process.env.TS_NODE_PROJECT
 
 // Load our helper modules
-import { logging } from '@aem-design/compose-support'
-import { config, loaders } from '@aem-design/compose-webpack'
+import ComposeSupport from '@aem-design/compose-support'
+import ComposeWebpack from '@aem-design/compose-webpack'
 
-logging.info('Starting up the webpack bundler...')
-logging.info('')
+ComposeSupport.logger.info('Starting up the webpack bundler...')
+ComposeSupport.logger.info('')
 
-const { appsPath, authorPort, sharedAppsPath } = config.getMavenConfiguration()
+const { appsPath, authorPort, sharedAppsPath } = ComposeWebpack.config.getMavenConfiguration()
 
 // Ensure our Maven config values are valid before continuing on...
 if (!(authorPort || appsPath || sharedAppsPath)) {
-  logging.error('Unable to continue due to missing or invalid Maven configuration values!')
+  ComposeSupport.logger.error('Unable to continue due to missing or invalid Maven configuration values!')
   process.exit(1)
 }
 
-logging.info(bold('Maven configuration'))
-logging.info('-------------------')
-logging.info(bold('Author Port         :'), authorPort)
-logging.info(bold('Apps Path           :'), appsPath)
-logging.info(bold('Shared Apps Path    :'), sharedAppsPath)
-logging.info('')
+ComposeSupport.logger.info(chalk.bold('Maven configuration'))
+ComposeSupport.logger.info('-------------------')
+ComposeSupport.logger.info(chalk.bold('Author Port         :'), authorPort)
+ComposeSupport.logger.info(chalk.bold('Apps Path           :'), appsPath)
+ComposeSupport.logger.info(chalk.bold('Shared Apps Path    :'), sharedAppsPath)
+ComposeSupport.logger.info('')
 
 // Set the public and source paths for the project
 const PUBLIC_PATH = resolve(__dirname, 'public')
 const SOURCE_PATH = resolve(__dirname, 'source')
 
 export default (env: webpack.ParserOptions): webpack.Configuration => {
-  if (!env.project) {
-    logging.error('Specify a project when running webpack eg --env.project="core"')
-    process.exit(1)
-  }
+  ComposeWebpack.config.setupEnvironment(env)
+
+  //
+  //
+  //
 
   const mode    = env.dev === true ? 'development' : 'production'
-  const project = config.projects[env.project]
-
-  config.setEnvironment({
-    ...env,
-    mode,
-  })
+  const project = ComposeWebpack.config.projects[env.project]
 
   const { ifDev, ifProd } = getIfUtils(env)
 
-  logging.info(bold('Webpack Configuration'))
-  logging.info('---------------------')
-  logging.info(bold('Mode                :'), mode)
-  logging.info(bold('Project             :'), env.project)
-  logging.info(bold('Hot Reloading?      :'), env.hmr ? 'yes' : 'no')
+  ComposeSupport.logger.info(chalk.bold('Webpack Configuration'))
+  ComposeSupport.logger.info('---------------------')
+  ComposeSupport.logger.info(chalk.bold('Mode                :'), mode)
+  ComposeSupport.logger.info(chalk.bold('Project             :'), env.project)
+  ComposeSupport.logger.info(chalk.bold('Hot Reloading?      :'), env.hmr ? 'yes' : 'no')
 
   const clientLibsPath = `${sharedAppsPath}/${appsPath}/clientlibs/${env.project}/`
-  logging.info(bold('Client Libary Path  :'), clientLibsPath)
+  ComposeSupport.logger.info(chalk.bold('Client Libary Path  :'), clientLibsPath)
 
   let entry = {}
 
@@ -126,12 +117,12 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
     }
   }
 
-  logging.info(bold('Public Path         :'), PUBLIC_PATH)
-  logging.info(bold('Public Path (AEM)   :'), PUBLIC_PATH_AEM)
-  logging.info('')
-  logging.info(bold('Entry Configuration'))
-  logging.info('-------------------')
-  logging.info(JSON.stringify(entry, null, 2))
+  ComposeSupport.logger.info(chalk.bold('Public Path         :'), PUBLIC_PATH)
+  ComposeSupport.logger.info(chalk.bold('Public Path (AEM)   :'), PUBLIC_PATH_AEM)
+  ComposeSupport.logger.info('')
+  ComposeSupport.logger.info(chalk.bold('Entry Configuration'))
+  ComposeSupport.logger.info('-------------------')
+  console.log(JSON.stringify(entry, null, 2))
 
   const outputFolder = env.hmr === true ? clientLibsPath : false
 
@@ -158,7 +149,7 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
             env.hmr === true ? {
               loader: 'style-loader',
             } : { loader: MiniCssExtractPlugin.loader },
-            ...loaders.css(env),
+            ...ComposeWebpack.loaders.css(env),
           ],
         },
         {
@@ -174,7 +165,7 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
                 sourceMap : true,
               },
             },
-            ...loaders.css(env, {
+            ...ComposeWebpack.loaders.css(env, {
               sassOptions: {
                 data         : `@import 'setup';`,
                 includePaths : [resolve(PROJECT_PATH, 'scss')],
@@ -189,7 +180,7 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
             {
               loader: MiniCssExtractPlugin.loader,
             },
-            ...loaders.css(env),
+            ...ComposeWebpack.loaders.css(env),
           ],
         },
         {
@@ -224,7 +215,7 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
             },
           ],
         },
-        ...loaders.js(env),
+        ...ComposeWebpack.loaders.js(env),
       ],
     },
 
@@ -293,7 +284,8 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
     },
 
     plugins: [
-      // ...
+      ...ComposeWebpack.plugins.ComposeDefaults(),
+      new ComposeWebpack.plugins.ComposeMessages(),
     ],
 
     resolve: {
@@ -305,7 +297,7 @@ export default (env: webpack.ParserOptions): webpack.Configuration => {
 
       plugins: [
         new TsconfigPathsPlugin({
-          configFile: resolve(__dirname, 'tsconfig.json'),
+          configFile: resolve(__dirname, 'tsComposeWebpack.config.json'),
         }),
       ],
     },

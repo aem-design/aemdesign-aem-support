@@ -1,4 +1,4 @@
-import colors from 'colors'
+import chalk from 'chalk'
 
 export enum LogTypes {
   ERROR = 'error',
@@ -9,10 +9,10 @@ export enum LogTypes {
 
 // Internal
 const LOG_TYPES_COLOURS = {
-  ERROR   : colors.red('ERROR'),
-  INFO    : colors.blue('INFO'),
+  ERROR   : chalk.bgRed(' ERROR '),
+  INFO    : chalk.bgBlue(' INFO '),
   LOG     : 'LOG',
-  WARNING : colors.yellow('WARN'),
+  WARNING : chalk.bgYellow(' WARN '),
 }
 
 function getLogLabel(value: string): string {
@@ -20,20 +20,20 @@ function getLogLabel(value: string): string {
 
   for (const logType of logTypeKeys) {
     if (LogTypes[logType] === value) {
-      return colors.bold(LOG_TYPES_COLOURS[logType])
+      return chalk.bold(LOG_TYPES_COLOURS[logType])
     }
   }
 
   log(LogTypes.ERROR, 'Unknown log type given: %s. Valid log types are: %s', value, logTypeKeys)
 
-  return colors.gray('Unknown')
+  return chalk.bgWhiteBright('Unknown')
 }
 
 export function log(logType: LogTypes, ...args: any[]) {
   if (process.env.COMPOSE_SIMPLE_LOG) {
     console[logType](...args)
   } else {
-    console[logType](`[${getLogLabel(logType)}]`, ...args)
+    console[logType](`${getLogLabel(logType)}`, ...args)
   }
 }
 

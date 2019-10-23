@@ -1,3 +1,7 @@
-import * as logging from './lib/logging'
+import * as logger from './lib/logger'
 
-export { logging }
+const modules = { logger }
+
+export { logger }
+
+export default modules
