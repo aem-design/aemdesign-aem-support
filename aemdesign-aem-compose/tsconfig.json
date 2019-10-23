@@ -28,30 +28,27 @@
     ],
 
     "paths": {
-      "@global/*": [
-        "source/core/js/*"
-      ],
       "@components/*": [
-        "source/core/js/components/*"
+        "src/core/js/components/*"
       ],
       "@module/*": [
-        "source/core/js/modules/*"
+        "src/core/js/modules/*"
       ],
       "@type/*": [
-        "source/core/@types/*"
+        "src/core/@types/*"
       ],
       "@utility/*": [
-        "source/core/js/utilities/*"
+        "src/core/js/utilities/*"
       ]
     }
   },
 
   "include": [
     "@types/*.d.ts",
-    "source/**/*.ts",
-    "source/**/*.tsx",
-    "source/**/*.vue",
-    "source/**/*.scss"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.scss"
   ],
 
   "exclude": [

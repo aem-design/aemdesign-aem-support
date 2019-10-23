@@ -2,10 +2,10 @@ import { resolve } from 'path'
 import sass from 'sass'
 import webpack from 'webpack'
 
-export default (env: webpack.ParserOptions, options?: {
+export default (env: webpack.ParserOptions, options: {
   sassLoader?: { [key: string]: any };
   sassOptions?: sass.Options,
-}): webpack.RuleSetUseItem[] => ([
+} = {}): webpack.RuleSetUseItem[] => ([
   {
     loader: 'css-loader',
 

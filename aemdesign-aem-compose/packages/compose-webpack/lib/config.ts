@@ -10,45 +10,50 @@ import { getMavenConfigurationValueByPath } from './helpers'
 export enum ConfigurationType {
   MAVEN_PARENT = 'maven.parent',
   MAVEN_PROJECT = 'maven.project',
-  PATH_OUTPUT = 'paths.output',
+  PATH_CLIENTLIBS = 'paths.clientlibs',
   PATH_PUBLIC = 'paths.public',
+  PATH_PUBLIC_AEM = 'paths.public.aem',
   PATH_SOURCE = 'paths.source',
 }
 
-interface Configuration {
+export interface Configuration {
   [ConfigurationType.MAVEN_PARENT]: string;
   [ConfigurationType.MAVEN_PROJECT]: string;
-  [ConfigurationType.PATH_OUTPUT]: string;
+  [ConfigurationType.PATH_CLIENTLIBS]: string | false;
   [ConfigurationType.PATH_PUBLIC]: string;
+  [ConfigurationType.PATH_PUBLIC_AEM]: string;
   [ConfigurationType.PATH_SOURCE]: string;
 }
 
-interface Environment extends webpack.ParserOptions {
+export interface Environment extends webpack.ParserOptions {
   mode: 'development' | 'production';
   project: string;
 }
 
-interface MavenConfigMap {
+export interface MavenConfigMap {
   authorPort: number;
   appsPath: string;
   sharedAppsPath: string;
 }
 
-interface Projects {
-  [project: string]: {
-    [key: string]: any;
-  }
+export interface ProjectMap {
+  [project: string]: Project;
+}
+
+export interface Project {
+  [key: string]: any;
 }
 
 // Internal
 const workingDirectory = process.cwd()
 
 const configurationDefaults: Configuration = {
-  [ConfigurationType.MAVEN_PARENT]  : resolve(workingDirectory, '../pom.xml'),
-  [ConfigurationType.MAVEN_PROJECT] : resolve(workingDirectory, './pom.xml'),
-  [ConfigurationType.PATH_OUTPUT]   : null,
-  [ConfigurationType.PATH_PUBLIC]   : resolve(workingDirectory, 'public'),
-  [ConfigurationType.PATH_SOURCE]   : resolve(workingDirectory, 'source'),
+  [ConfigurationType.MAVEN_PARENT]    : resolve(workingDirectory, '../pom.xml'),
+  [ConfigurationType.MAVEN_PROJECT]   : resolve(workingDirectory, './pom.xml'),
+  [ConfigurationType.PATH_CLIENTLIBS] : false,
+  [ConfigurationType.PATH_PUBLIC]     : resolve(workingDirectory, 'public'),
+  [ConfigurationType.PATH_PUBLIC_AEM] : '/',
+  [ConfigurationType.PATH_SOURCE]     : resolve(workingDirectory, 'source'),
 }
 
 const configuration: Configuration = {
@@ -106,8 +111,11 @@ export function ifProd(obj: any) {
   return getIfUtils(environment).ifProduction(obj)
 }
 
+export function getProjectConfiguration(): Project {
+  return projects[environment.project]
+}
+
 export function getProjectPath<T extends ConfigurationType>(path: T): string {
-  logger.info(getConfiguration(path), environment.project)
   return resolve(getConfiguration(path), environment.project)
 }
 
@@ -133,7 +141,7 @@ export function getMavenConfiguration(): MavenConfigMap {
   }
 }
 
-export const projects: Projects = {
+export const projects: ProjectMap = {
   core: {
     outputName: 'app',
 

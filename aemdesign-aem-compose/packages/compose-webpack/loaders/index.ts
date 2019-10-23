@@ -1,4 +1,4 @@
 import css from './css'
-import js from './javascript'
+import js from './js'
 
-export { css, js }
+export default { css, js }

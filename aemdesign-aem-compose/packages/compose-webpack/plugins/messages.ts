@@ -11,7 +11,7 @@ const pluginName = 'compose-messages'
  * All credit and inspiration goes to https://github.com/lukeed/webpack-messages
  */
 export default class ComposeMessages implements webpack.Plugin {
-  private readonly name = chalk.cyan('compose')
+  private readonly name = chalk.bold('compose')
 
   private clear() {
     return process.stdout.write('\x1B[2J\x1B[3J\x1B[H\x1Bc')

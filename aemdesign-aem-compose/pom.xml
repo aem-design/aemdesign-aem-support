@@ -27,9 +27,9 @@
     <properties>
         <sonar.sources>source,pom.xml</sonar.sources>
         <!--<sonar.skip>true</sonar.skip>-->
-        <nodeVersion>v8.15.0</nodeVersion>
-        <npmVersion>6.4.1</npmVersion>
-        <yarnVersion>v1.13.0</yarnVersion>
+        <nodeVersion>v10.16.3</nodeVersion>
+		<npmVersion>6.11.3</npmVersion>
+		<yarnVersion>v1.19.1</yarnVersion>
         <npmCommand>aem:build</npmCommand>
         <generated.content>content-generator/content</generated.content>
         <package.path.apps>apps</package.path.apps>
@@ -179,6 +179,7 @@
                             <arguments>run aem:generatetags --no-color --no-clean --no-console --config=core.yml</arguments>
                         </configuration>
                     </execution>
+                    
                     <!-- Styleguide -->
                     <execution>
                         <id>exec-aem-build-styleguide</id>

@@ -14,9 +14,12 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import {
   ConfigurationType,
+
   environment,
+
   getConfiguration,
   getProjectPath,
+
   ifProd,
 } from '../lib/config'
 
@@ -27,10 +30,10 @@ export {
 }
 
 export default (): webpack.Plugin[] => {
-  const outputFolder = ''
-  const publicPath   = getConfiguration(ConfigurationType.PATH_PUBLIC)
-  const projectName  = environment.project
-  const projectPath  = getProjectPath(ConfigurationType.PATH_SOURCE)
+  const publicPath    = getConfiguration(ConfigurationType.PATH_PUBLIC)
+  const publicPathAEM = getConfiguration(ConfigurationType.PATH_CLIENTLIBS)
+  const projectName   = environment.project
+  const sourcePath    = getProjectPath(ConfigurationType.PATH_SOURCE)
 
   return removeEmpty<webpack.Plugin>([
 
@@ -51,12 +54,12 @@ export default (): webpack.Plugin[] => {
      */
     new CopyWebpackPlugin([
       {
-        context : resolve(projectPath, 'clientlibs-header/resources'),
+        context : resolve(sourcePath, 'clientlibs-header/resources'),
         from    : './**/*.*',
         to      : resolve(publicPath, projectName, 'clientlibs-header/resources'),
       },
       {
-        context : resolve(projectPath, 'clientlibs-header/css'),
+        context : resolve(sourcePath, 'clientlibs-header/css'),
         from    : './*.css',
         to      : resolve(publicPath, projectName, 'clientlibs-header/css'),
       },
@@ -69,8 +72,8 @@ export default (): webpack.Plugin[] => {
      * @see https://webpack.js.org/plugins/mini-css-extract-plugin
      */
     new MiniCssExtractPlugin({
-      chunkFilename : `${outputFolder || 'clientlibs-header/css'}/[id].css`,
-      filename      : `${outputFolder || 'clientlibs-header/css'}/[name].css`,
+      chunkFilename : `${publicPathAEM || 'clientlibs-header/css'}/[id].css`,
+      filename      : `${publicPathAEM || 'clientlibs-header/css'}/[name].css`,
     }),
 
     /**
@@ -79,7 +82,7 @@ export default (): webpack.Plugin[] => {
      * @see https://webpack.js.org/plugins/stylelint-webpack-plugin
      */
     environment.maven !== true ? new StyleLintPlugin({
-      context     : resolve(projectPath, 'scss'),
+      context     : resolve(sourcePath, 'scss'),
       emitErrors  : false,
       failOnError : false,
       files       : ['**/*.scss'],
@@ -127,10 +130,9 @@ export default (): webpack.Plugin[] => {
      * Expose´ for 3rd-party vendors & libraries.
      *
      * @see https://webpack.js.org/plugins/provide-plugin
+     * @see https://github.com/shakacode/bootstrap-loader#bootstrap-4-internal-dependency-solution
      */
     new webpack.ProvidePlugin({
-      // Expose the Bootstrap modules to the global namespace
-      // https://github.com/shakacode/bootstrap-loader#bootstrap-4-internal-dependency-solution
       Alert     : 'exports-loader?Alert!bootstrap/js/dist/alert',
       Button    : 'exports-loader?Button!bootstrap/js/dist/button',
       Carousel  : 'exports-loader?Carousel!bootstrap/js/dist/carousel',
