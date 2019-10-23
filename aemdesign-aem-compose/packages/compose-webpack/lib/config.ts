@@ -53,7 +53,7 @@ const configurationDefaults: Configuration = {
   [ConfigurationType.PATH_CLIENTLIBS] : false,
   [ConfigurationType.PATH_PUBLIC]     : resolve(workingDirectory, 'public'),
   [ConfigurationType.PATH_PUBLIC_AEM] : '/',
-  [ConfigurationType.PATH_SOURCE]     : resolve(workingDirectory, 'source'),
+  [ConfigurationType.PATH_SOURCE]     : resolve(workingDirectory, 'src'),
 }
 
 const configuration: Configuration = {
@@ -152,7 +152,7 @@ export const projects: ProjectMap = {
       },
 
       header: {
-        mapToOutput : ['vendorlib/common'],
+        mapToOutput : ['../../clientlibs-header/js/vendorlib/common'],
         outputName  : 'clientlibs-header',
       },
     },
@@ -163,7 +163,7 @@ export const projects: ProjectMap = {
     },
 
     additionalEntries: {
-      'vendorlib/common': [
+      '../../clientlibs-header/js/vendorlib/common': [
         './core/js/vendor.ts',
         'es6-promise/auto',
         'classlist.js',

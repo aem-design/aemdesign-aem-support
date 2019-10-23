@@ -30,10 +30,10 @@ export {
 }
 
 export default (): webpack.Plugin[] => {
-  const publicPath    = getConfiguration(ConfigurationType.PATH_PUBLIC)
-  const publicPathAEM = getConfiguration(ConfigurationType.PATH_CLIENTLIBS)
-  const projectName   = environment.project
-  const sourcePath    = getProjectPath(ConfigurationType.PATH_SOURCE)
+  const clientLibsPath = getConfiguration(ConfigurationType.PATH_CLIENTLIBS)
+  const publicPath     = getConfiguration(ConfigurationType.PATH_PUBLIC)
+  const projectName    = environment.project
+  const sourcePath     = getProjectPath(ConfigurationType.PATH_SOURCE)
 
   return removeEmpty<webpack.Plugin>([
 
@@ -72,8 +72,8 @@ export default (): webpack.Plugin[] => {
      * @see https://webpack.js.org/plugins/mini-css-extract-plugin
      */
     new MiniCssExtractPlugin({
-      chunkFilename : `${publicPathAEM || 'clientlibs-header/css'}/[id].css`,
-      filename      : `${publicPathAEM || 'clientlibs-header/css'}/[name].css`,
+      chunkFilename : `${clientLibsPath || ''}clientlibs-header/css/[id].css`,
+      filename      : `${clientLibsPath || ''}clientlibs-header/css/[name].css`,
     }),
 
     /**

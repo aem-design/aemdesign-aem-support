@@ -133,8 +133,8 @@ export default () => {
       mode,
 
       output: {
-        chunkFilename : `${clientLibsPath || 'clientlibs-footer'}/resources/chunks/[name]${flagProd ? '.[contenthash:8]' : ''}.js`,
-        filename      : `${clientLibsPath || 'clientlibs-footer/js'}/[name].js`,
+        chunkFilename : `${clientLibsPath || ''}clientlibs-footer/resources/chunks/[name]${flagProd ? '.[contenthash:8]' : ''}.js`,
+        filename      : `${clientLibsPath || ''}clientlibs-footer/js/[name].js`,
         path          : projectPathPublic,
         publicPath    : publicPathAEM,
       },
@@ -266,7 +266,11 @@ export default () => {
             default: false,
             vendors: false,
 
-            ['clientlibs-footer/js/vendorlib/jquery.js']: flagHMR ? false : {
+            jquery: flagHMR ? false : {
+              // @ts-ignore
+              filename: `${clientLibsPath || ''}clientlibs-header/js/vendorlib/jquery.js`,
+              // @ts-check
+
               name : 'jquery',
               test : /[\\/]node_modules[\\/](jquery)[\\/]/,
             },
@@ -280,7 +284,6 @@ export default () => {
       },
 
       plugins: [
-        new plugins.ComposeMessages(),
         ...plugins.ComposeDefaults(),
       ],
 
