@@ -1,5 +1,4 @@
 import chalk from 'chalk'
-import figlet from 'figlet'
 import { relative, resolve } from 'path'
 import webpack from 'webpack'
 
@@ -10,10 +9,6 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
-console.log(figlet.textSync('AEM.Design', {
-  font: '3D-ASCII',
-}))
-
 // Ensure 'tsconfig-paths-webpack-plugin' doesn't try to use the project file we supplied
 // to 'ts-node' to parse this file.
 delete process.env.TS_NODE_PROJECT
@@ -22,27 +17,21 @@ delete process.env.TS_NODE_PROJECT
 import ComposeSupport from '@aem-design/compose-support'
 import ComposeWebpack from '@aem-design/compose-webpack'
 
-ComposeSupport.logger.info('Starting up the webpack bundler...')
-ComposeSupport.logger.info('')
+/**
+ * Start your engines...
+ */
 
-const { appsPath, authorPort, sharedAppsPath } = ComposeWebpack.config.getMavenConfiguration()
-
-// Ensure our Maven config values are valid before continuing on...
-if (!(authorPort || appsPath || sharedAppsPath)) {
-  ComposeSupport.logger.error('Unable to continue due to missing or invalid Maven configuration values!')
-  process.exit(1)
-}
-
-ComposeSupport.logger.info(chalk.bold('Maven configuration'))
-ComposeSupport.logger.info('-------------------')
-ComposeSupport.logger.info(chalk.bold('Author Port         :'), authorPort)
-ComposeSupport.logger.info(chalk.bold('Apps Path           :'), appsPath)
-ComposeSupport.logger.info(chalk.bold('Shared Apps Path    :'), sharedAppsPath)
-ComposeSupport.logger.info('')
+ComposeWebpack.runtime()
 
 // Set the public and source paths for the project
 const PUBLIC_PATH = resolve(__dirname, 'public')
 const SOURCE_PATH = resolve(__dirname, 'source')
+
+const {
+  appsPath,
+  authorPort,
+  sharedAppsPath,
+} = ComposeWebpack.config.getMavenConfiguration()
 
 export default (env: webpack.ParserOptions): webpack.Configuration => {
   ComposeWebpack.config.setupEnvironment(env)
