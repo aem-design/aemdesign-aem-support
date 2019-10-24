@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-07-22T14:35:43.388+10:00"
+        cq:lastModified="{Date}2019-10-24T16:31:16.759+11:00"
         cq:lastModifiedBy="admin"
         cq:tags="[aemdesign-showcase:content-type/page]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
@@ -108,8 +108,6 @@
                     </par>
                 </contentblock4>
                 <contentblock5
-                    jcr:lastModified="{Date}2019-07-22T14:02:02.204+10:00"
-                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
                     componentId="contentblock5"
@@ -128,10 +126,35 @@
                             listFrom="children"
                             parentPage="/content/aemdesign-showcase/au/en/component/lists/event-list/events"
                             sortOrder="asc"
-                            tagsMatch="any">
-                        </eventlist>
+                            tagsMatch="any"/>
                     </par>
                 </contentblock5>
+                <contentblock6
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock6"
+                    title="Badge: Search"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <eventlist
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/eventlist"
+                            componentId="eventlist6"
+                            listFrom="querybuilder"
+                            savedquery="fulltext=event&#xd;&#xa;group.p.or=true&#xd;&#xa;group.1_group.path=/content/aemdesign-showcase/au/en/component/lists/event-list/events&#xd;&#xa;group.1_group.type=cq:Page&#xd;&#xa;orderby=path"
+                            sortOrder="asc"
+                            tagsMatch="any">
+                        </eventlist>
+                        <text_info
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text2"
+                            text="&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>To see the search list component in action, copy and paste the following piece as an attribute into your browser's address bar&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;&lt;a href=&quot;/content/aemdesign-showcase/au/en/component/lists/event-list.html?wcmmode=disabled&amp;amp;q=fulltext%3Devent4%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fau%2Fen%2Fcomponent%2Flists%2Fevent-list%2Fevents%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Aorderby%3Dpath&quot; title=&quot;Load page with Query Parameter&quot;>Load page with Query Parameter&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>You can debug this query in query debuger&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/libs/cq/search/content/querydebug.html?_charset_=UTF-8&amp;amp;query=fulltext%3Devent4%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2Faemdesign-showcase%2Fau%2Fen%2Fcomponent%2Flists%2Fevent-list%2Fevents%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Aorderby%3Dpath&quot; title=&quot;View in Query Builder&quot;>View in Query Builder&lt;/a>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock6>
             </par>
         </article>
     </jcr:content>
