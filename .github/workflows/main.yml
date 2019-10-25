@@ -27,6 +27,13 @@ jobs:
         with:
           submodules: true
           lfs: true
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+          registry-url: https://npm.pkg.github.com/
+          scope: "@aem-design"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN_ADMIN }}
       - name: set eval variables
         run: |
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
