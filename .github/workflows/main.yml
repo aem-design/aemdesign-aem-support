@@ -66,11 +66,11 @@ jobs:
         if: github.ref != 'refs/heads/master'
         run: mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
 
-      - name: install dependencies
-        run: |
-          sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+#      - name: install dependencies
+#        run: |
+#          sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
+#          python -m pip install --upgrade pip
+#          pip install -r requirements.txt
 #      - name: automation test
 #        run: ./automation-testing
 
