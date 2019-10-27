@@ -33,13 +33,13 @@ export PATH_GHPAGES="./build/ghpages"
 
 mkdir -p ${PATH_GHPAGES}
 cd ${PATH_GHPAGES}
-git clone --single-branch --branch gh-pages --depth 1 https://github.com/aem-design/aemdesign-aem-support.git
+git clone https://github.com/aem-design/aemdesign-aem-support-output.git
+cd aemdesign-aem-support-output
 
 echo COPY UPDATED RESULTS
-cp -Rv "${TEST_RESULTS}/generated-docs" "./aemdesign-aem-support/generated-docs"
+cp -Rv "${TEST_RESULTS}/generated-docs" "./aemdesign-aem-support-output/generated-docs"
 
 echo COMMIT AND PUSH UPDATES
-cd ${PATH_GHPAGES}/aemdesign-aem-support
 git add .
 git commit -a -m "update reports"
 git push
