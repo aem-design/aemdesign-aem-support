@@ -21,6 +21,8 @@ jobs:
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       GITHUB_USER: aemdesign
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
+      GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
+      GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
 
       
 
@@ -45,6 +47,8 @@ jobs:
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
           $DOCKER_COMMAND java -version
           $DOCKER_COMMAND node -v
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USERNAME}"
       - name: get release notes
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
