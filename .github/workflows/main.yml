@@ -21,6 +21,11 @@ jobs:
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       GITHUB_USER: aemdesign
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
+      DOCKER_REGISTRY: "docker.io"
+      DOCKER_REGISTRY_INDEX: "index.docker.io/aemdesign"
+      DOCKER_USERNAME: "devopsaemdesign"
+      ORGANISATION_NAME: "aemdesign"
+      
 
     steps:
       - uses: actions/checkout@v1
@@ -51,10 +56,10 @@ jobs:
       - name: docker - mvn package
         run: $DOCKER_COMMAND mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
 
-      - name: sonar qube on master
+      - name: docker - sonar qube on master
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
-      - name: sonar qube on master
+      - name: docker - sonar qube on master
         if: github.ref != 'refs/heads/master'
         run: $DOCKER_COMMAND mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
 
