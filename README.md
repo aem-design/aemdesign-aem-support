@@ -2,7 +2,6 @@
 
 [![build_status](https://github.com/aem-design/aemdesign-aem-support/workflows/ci/badge.svg)](https://github.com/aem-design/aemdesign-aem-support/actions?workflow=ci)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=design.aem%3Aaemdesign-aem-support&metric=alert_status)](https://sonarcloud.io/dashboard?id=design.aem%3Aaemdesign-aem-support)
-[![build_status](https://travis-ci.org/aem-design/aemdesign-aem-support.svg?branch=master)](https://travis-ci.org/aem-design/aemdesign-aem-support)
 [![codecov](https://codecov.io/gh/aem-design/aemdesign-aem-support/branch/master/graph/badge.svg?magic)](https://codecov.io/gh/aem-design/aemdesign-aem-support)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-aem-support/badge.svg?magic)](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-aem-support)
 [![github license](https://img.shields.io/github/license/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
