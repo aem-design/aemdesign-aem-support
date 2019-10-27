@@ -21,10 +21,7 @@ jobs:
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       GITHUB_USER: aemdesign
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
-      DOCKER_REGISTRY: "docker.io"
-      DOCKER_REGISTRY_INDEX: "index.docker.io/aemdesign"
-      DOCKER_USERNAME: "devopsaemdesign"
-      ORGANISATION_NAME: "aemdesign"
+
       
 
     steps:
@@ -42,6 +39,8 @@ jobs:
       - name: set eval variables
         run: |
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
+          $DOCKER_COMMAND java -version
+          $DOCKER_COMMAND node -v
       - name: get release notes
         run: |
           export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
