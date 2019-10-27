@@ -47,13 +47,11 @@ jobs:
           $DOCKER_COMMAND node -v
       - name: get release notes
         run: |
-          export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
+          source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
           echo "===START==="
           echo $GIT_RELEASE_NOTES
           echo "====END===="
-          echo ::set-env name=GIT_RELEASE_NOTES::$GIT_RELEASE_NOTES
-          export CURRENT_VERSION=$(mvn help:evaluate -q -DforceStdout -Dexpression=project.version)
-          echo ::set-env name=CURRENT_VERSION::$CURRENT_VERSION
+          echo CURRENT_VERSION=$CURRENT_VERSION
       - name: docker - mvn clean (cache .m2 in ./build/.m2/repository in repo dir)
         run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
       - name: docker - mvn package
