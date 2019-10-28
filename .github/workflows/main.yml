@@ -23,6 +23,8 @@ jobs:
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
       GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
       GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+      AEM_NAME: ${{ secrets.AEM_NAME }}
+      AEM_KEY: ${{ secrets.AEM_KEY }}
 
       
 
