@@ -78,6 +78,12 @@ jobs:
       - name: automation test
         run: ./automation-testing
 
+      - name: automation test if failure
+        run: |
+          docker ps -a
+          docker logs -t service_aem_container_name
+        if: failure()
+
       - name: deploy to maven cental
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
