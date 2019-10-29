@@ -12,7 +12,10 @@
 
     String gebEnvReportsDir = System.getProperty("geb.build.reportsDir")
     def reportImagePath = System.properties['user.dir'] + "/" + System.properties['project.buildDirectory'] + "/test-reports/geb/" //"../../test-reports/geb/"
-    def rootPath = "../"
+
+    println "REPORT: reportImagePath=" + reportImagePath
+
+    def rootPath = System.properties['user.dir'] + "/"
     def srcRelativeToHtmlPath = "" // "../../"
     def linkPathPrefix = ""
     def imagePathPrefix = ""
@@ -102,6 +105,9 @@ Time: $totalTime
 //                    println "REPORT: gebTestResults - iteration block file: ${afile}"
 
                     if (filePathFull.endsWith(pathCheckEndImage)) {
+
+                            print "filePathFull=" + filePathFull
+
                         //screenshot detection
                         if (filePathFull.startsWith(pathCheckStartSource)) {
                             blockScreenshots = blockScreenshots << """ .Source\n"""
