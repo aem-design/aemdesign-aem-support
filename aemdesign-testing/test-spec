@@ -301,8 +301,6 @@ processArguments() {
         ;;
       --)
         shift
-        # set all remaining params not parsed as spec list
-        export TEST_SPECS=$@
         break;;
     esac
   done
