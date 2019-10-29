@@ -72,6 +72,11 @@
         docker_image_tag: "6.5.0-bundle"
         docker_host: "{{ service_docker_host }}"
         debug_hide: "{{ test_debug_hide }}"
+        aem_jvm_opts: "-server -Xms248m -Xmx1524m \
+          -XX:MaxDirectMemorySize=256M \
+          -XX:+CMSClassUnloadingEnabled \
+          -Djava.awt.headless=true \
+          -Dorg.apache.felix.http.host=0.0.0.0"
     - name: ensure container is registered
       import_role:
         name: aem_design.aem_license
@@ -82,6 +87,7 @@
         aem_host: "{{ service_aem_access_host }}"
         docker_host: "{{ service_docker_host }}"
         debug_hide: "{{ test_debug_hide }}"
+        wait_delay: 10
     - name: ensure instance is ready
       import_role:
         name: aem_design.aem_verify
