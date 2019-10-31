@@ -16,15 +16,19 @@ jobs:
       SONAR_URL: "https://sonarcloud.io"
       SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
       SONATYPE_USERNAME: "aemdesign"
-      GPG_SECRET_KEYS: ${{ secrets.GPG_SECRET_KEYS }}
-      GPG_OWNERTRUST: ${{ secrets.GPG_OWNERTRUST }}
-      GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       GITHUB_USER: aemdesign
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
       GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
       GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
       AEM_NAME: ${{ secrets.AEM_NAME }}
       AEM_KEY: ${{ secrets.AEM_KEY }}
+      GPG_SECRET_KEYS: ${{ secrets.GPG_SECRET_KEYS }}
+      GPG_OWNERTRUST: ${{ secrets.GPG_OWNERTRUST }}
+      GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      GPG_EXECUTABLE: gpg
+      GPG_PRESET_EXECUTABLE: /usr/lib/gnupg/gpg-preset-passphrase
+      GPG_PUBID: "50A036956AAC64C13EF47B10D1E96A30ECFC7DFF"
+      GPG_PUBID_KEYGRIP: "020E615868703482DC2CD110B98D2702B6ABF89C"
 
       
 
@@ -51,6 +55,12 @@ jobs:
           $DOCKER_COMMAND node -v
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USERNAME}"
+      - name: setup gpg
+        run: |
+          source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/setup-gpg.sh)
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USERNAME}"
+
       - name: get release notes
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
@@ -83,6 +93,12 @@ jobs:
           docker ps -a
           docker logs -t service_aem_container_name
         if: failure()
+
+      - name: commit testing screenshots
+        run: |
+          git add aemdesign-testing/src/test/screenshots/*
+          git commit -m "update screenshots after automated test"
+          git push
 
       - name: deploy to maven cental
         if: github.ref == 'refs/heads/master'
