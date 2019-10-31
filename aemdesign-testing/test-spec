@@ -6,8 +6,13 @@ SKIP_PRINT_CONFIG=true
 
 source "../scripts/functions.sh"
 
+# get default from exported variables
+TEST_SELENIUMHUB_SCHEME=${SELENIUMHUB_SCHEME:-http}
+TEST_SELENIUMHUB_PORT=${SELENIUMHUB_PORT:-32768}
+TEST_SELENIUMHUB_SERVICE=${SELENIUMHUB_SERVICE:-/wd/hub}
+
 # Test defaults
-TEST_SELENIUM_URL="${SELENIUMHUB_SCHEME}://${LOCAL_IP}:${SELENIUMHUB_PORT}${SELENIUMHUB_SERVICE}"
+TEST_SELENIUM_URL=""  # "${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
 TEST_IMAGE="aemdesign/centos-java-buildpack"
 TEST_OPEN_REPORT=false
 TEST_REPORT_PATH="generated-docs/summary.html"
@@ -311,8 +316,8 @@ main() {
   processArguments $@
 
   # update selenium url
-  if [[ "${SELENIUMHUB_HOST}" == "localhost" ]]; then
-    TEST_SELENIUM_URL="${SELENIUMHUB_SCHEME}://${LOCAL_IP}:${SELENIUMHUB_PORT}${SELENIUMHUB_SERVICE}"
+  if [[ "${SELENIUMHUB_HOST}" == "localhost" && "$TEST_SELENIUM_URL" == "" ]]; then
+    TEST_SELENIUM_URL="${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
   fi
 
   #update host
