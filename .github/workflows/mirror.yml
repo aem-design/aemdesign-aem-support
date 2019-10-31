@@ -16,4 +16,6 @@ jobs:
           lfs: true
       - name: mirror repo to azure
         run: |
+          git checkout master
+          git config lfs.https://aemdesign@dev.azure.com/aemdesign/AEM.Design/_git/aemdesign-aem-support.git/info/lfs.locksverify=true
           git push --mirror https://aemdesign:${AZURE_TOKEN}@dev.azure.com/aemdesign/AEM.Design/_git/aemdesign-aem-support
