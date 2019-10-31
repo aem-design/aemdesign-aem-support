@@ -315,18 +315,21 @@ main() {
 
   processArguments $@
 
-  # update selenium url
+  # update selenium url if localhost and not passed
   if [[ "${SELENIUMHUB_HOST}" == "localhost" && "$TEST_SELENIUM_URL" == "" ]]; then
+    debug "Selenium hub url not specified or set to localhost, updating to use local ip" "info"
     TEST_SELENIUM_URL="${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
   fi
 
   #update host
   if [[ "${TEST_HOST}" == "localhost" ]]; then
+    debug "Test host is set as localhost, updating to use local ip" "info"
     TEST_HOST="${LOCAL_IP}"
   fi
 
-  # validate test specs
-  if [[ ! -z "$TEST_SPECS" ]]; then
+  # load default spect list if not passed
+  if [[ "$TEST_SPECS" == "" ]]; then
+    debug "Test Specs not specified loading defaults" "info"
     IFS=',' read -ra specs <<< "$TEST_SPECS"
 
     for i in "${specs[@]}"; do
@@ -351,6 +354,7 @@ main() {
 
   # set maven config
   if [[ "$(isStringMatchesRegex "${TEST_MAVEN_CONFIG}" "^config.*" )" == "true" ]]; then
+    debug "Maven config specified, exporting." "info"
     export TEST_MAVEN_CONFIG="-s${TEST_MAVEN_CONFIG}"
   fi
 
