@@ -31,6 +31,8 @@
         service_docker_host_address: "{{ dockerhost_ip.stdout }}"
         service_selenium_grid_port: "32768"
         service_aem_access_port: "5502"
+        package_file: ""
+        package_filename: ""
 
 
   tasks:
