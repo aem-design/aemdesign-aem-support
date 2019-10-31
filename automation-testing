@@ -4,10 +4,10 @@ NETWORK_INTERFACE=$(route -n get 0.0.0.0 2>/dev/null | awk '/interface: / {print
 LOCAL_IP=$(ifconfig $NETWORK_INTERFACE | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -1)
 
 AEM_PORT=5502
-GRID_PORT=9944
+SELENIUMHUB_PORT=9944
 
-echo PACKAGE PROJECT
-mvn clean package -DskipTests=true
+#echo PACKAGE PROJECT
+#mvn clean package -DskipTests=true
 
 echo RUNNING TESTS
 pip3 install ansible
@@ -18,13 +18,23 @@ echo PREPARE INFRASTRUCTURE
 PACKAGE_FILE="$(pwd)/$(ls -b aemdesign-aem-support-deploy/target/*.zip | sed -n '$p')"
 PACKAGE_FILENAME=$(basename ${PACKAGE_FILE})
 
-ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME service_selenium_grid_port=${GRID_PORT} service_aem_access_port=${AEM_PORT}"
+echo UPLOAD FILE: ${PACKAGE_FILE}
+echo UPLOAD FILENAME: ${PACKAGE_FILENAME}
+echo AEM_PORT: ${AEM_PORT}
+echo SELENIUMHUB_PORT: ${SELENIUMHUB_PORT}
+echo LOCAL_IP: ${LOCAL_IP}
+
+ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME service_selenium_grid_port=${SELENIUMHUB_PORT} service_aem_access_port=${AEM_PORT}"
 echo RUN TESTS
 
-
-
 cd aemdesign-testing
-./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${GRID_PORT}/wd/hub GenericDetailsA*
+./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${SELENIUMHUB_PORT}/wd/hub GenericDetailsA*
+
+
+if [[ ! -d "remote-seleniumhub-chrome/generated-docs/html" ]]; then
+    echo TEST DID NOT OUTPUT ANY RESULTS
+    exit 1
+fi
 echo PUBLISH RESULTS
 
 export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
