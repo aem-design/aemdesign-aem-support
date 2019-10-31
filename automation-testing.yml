@@ -21,7 +21,7 @@
         test_debug_hide: "false"
         service_aem_license_key: "{{ lookup('env','AEM_KEY') }}"
         service_aem_license_name: "{{ lookup('env','AEM_NAME') }}"
-        service_aem_access_host: "localhost"
+        service_aem_access_host: "{{ dockerhost_ip.stdout }}"
         service_aem_username: "admin"
         service_aem_password: "admin"
         service_aem_container_name: "service_aem_container_name"
@@ -29,6 +29,8 @@
         service_selenium_grid_container_name: "service_selenium_grid_container_name"
         service_docker_host: "unix://var/run/docker.sock"
         service_docker_host_address: "{{ dockerhost_ip.stdout }}"
+        service_selenium_grid_port: "32768"
+        service_aem_access_port: "5502"
 
 
   tasks:
