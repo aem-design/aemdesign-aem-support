@@ -58,9 +58,6 @@ jobs:
       - name: setup gpg
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/setup-gpg.sh)
-          git config --global user.email "${GITHUB_EMAIL}"
-          git config --global user.name "${GITHUB_USERNAME}"
-
       - name: get release notes
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
