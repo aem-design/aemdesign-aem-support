@@ -27,6 +27,9 @@ echo LOCAL_IP: ${LOCAL_IP}
 ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME service_selenium_grid_port=${SELENIUMHUB_PORT} service_aem_access_port=${AEM_PORT}"
 echo RUN TESTS
 
+echo CURRENT DIR: $(pwd)
+echo ls -l
+
 cd aemdesign-testing
 ./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${SELENIUMHUB_PORT}/wd/hub GenericDetailsA*
 
@@ -35,13 +38,22 @@ if [[ ! -d "remote-seleniumhub-chrome/generated-docs/html" ]]; then
     echo TEST DID NOT OUTPUT ANY RESULTS
     exit 1
 fi
-export OUTPUT_SOURCE="$(pwd)/${TEST_RESULTS}/generated-docs"
+
+export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
+echo TEST_RESULTS: ${TEST_RESULTS}
+
+ls -l ${TEST_RESULTS}
+
+export OUTPUT_SOURCE="${TEST_RESULTS}/generated-docs"
+
 echo OUTPUT_SOURCE: ${OUTPUT_SOURCE}
 echo PUBLISH RESULTS
 
-export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
 
 export PATH_GHPAGES="./build/ghpages"
+
+echo CURRENT DIR: $(pwd)
+echo ls -l
 
 echo CREATE TEMP FOLDER
 mkdir -p ${PATH_GHPAGES}
@@ -50,8 +62,12 @@ echo CLONE OUTPUT REPO
 cd ${PATH_GHPAGES}
 git clone https://github.com/aem-design/aemdesign-aem-support-output.git
 
+
 echo SWITCH TO GH-PAGES BRANCH
 cd aemdesign-aem-support-output
+
+echo CURRENT DIR: $(pwd)
+echo ls -l
 
 OUTPUT_DEST="$(pwd)/generated-docs"
 echo OUTPUT_DEST: ${OUTPUT_DEST}
