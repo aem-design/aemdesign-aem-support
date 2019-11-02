@@ -35,6 +35,8 @@ if [[ ! -d "remote-seleniumhub-chrome/generated-docs/html" ]]; then
     echo TEST DID NOT OUTPUT ANY RESULTS
     exit 1
 fi
+export OUTPUT_SOURCE=$(pwd ${TEST_RESULTS}/generated-docs)
+echo OUTPUT_SOURCE: ${OUTPUT_SOURCE}
 echo PUBLISH RESULTS
 
 export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
@@ -50,10 +52,17 @@ git clone https://github.com/aem-design/aemdesign-aem-support-output.git
 
 echo SWITCH TO GH-PAGES BRANCH
 cd aemdesign-aem-support-output
+
+OUTPUT_DEST=$(pwd generated-docs)
+echo OUTPUT_DEST: ${OUTPUT_DEST}
+
+echo CHECKOUT GH-PAGES
 git checkout gh-pages
 
 echo COPY UPDATED RESULTS
-cp -Rv "${TEST_RESULTS}/generated-docs" "./aemdesign-aem-support-output/generated-docs"
+echo COPY: "${OUTPUT_SOURCE}"
+echo TO: "${OUTPUT_DEST}"
+cp -Rv "${OUTPUT_SOURCE}" "${OUTPUT_DEST}"
 
 echo COMMIT AND PUSH UPDATES
 git add .
