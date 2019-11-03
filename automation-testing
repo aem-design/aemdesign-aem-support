@@ -33,27 +33,31 @@ echo ls -l
 cd aemdesign-testing
 ./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${SELENIUMHUB_PORT}/wd/hub GenericDetailsA*
 
-
 if [[ ! -d "remote-seleniumhub-chrome/generated-docs/html" ]]; then
     echo TEST DID NOT OUTPUT ANY RESULTS
     exit 1
 fi
 
-export TEST_RESULTS="$(pwd)/aemdesign-testing/remote-seleniumhub-chrome"
+echo CURRENT DIR: $(pwd)
+
+echo ">>> CURRENT <<<"
+ls -l
+
+
+export TEST_RESULTS="$(pwd)/remote-seleniumhub-chrome"
 echo TEST_RESULTS: ${TEST_RESULTS}
 
+echo ">>> TEST_RESULTS <<<"
 ls -l ${TEST_RESULTS}
 
 export OUTPUT_SOURCE="${TEST_RESULTS}/generated-docs"
-
 echo OUTPUT_SOURCE: ${OUTPUT_SOURCE}
+
+echo ">>> OUTPUT_SOURCE <<<"
+ls -l ${OUTPUT_SOURCE}
+
 echo PUBLISH RESULTS
-
-
 export PATH_GHPAGES="./build/ghpages"
-
-echo CURRENT DIR: $(pwd)
-echo ls -l
 
 echo CREATE TEMP FOLDER
 mkdir -p ${PATH_GHPAGES}
@@ -67,7 +71,7 @@ echo SWITCH TO GH-PAGES BRANCH
 cd aemdesign-aem-support-output
 
 echo CURRENT DIR: $(pwd)
-echo ls -l
+ls -l
 
 OUTPUT_DEST="$(pwd)/generated-docs"
 echo OUTPUT_DEST: ${OUTPUT_DEST}
