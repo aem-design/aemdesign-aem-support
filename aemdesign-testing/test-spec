@@ -49,7 +49,7 @@ getMavenCommand() {
     MAVEN_EXTRAS="-P compile-reports-ruby"
   fi
 
-  COMMAND="mvn clean test ${MAVEN_EXTRAS} -Dgeb.env="${DRIVER}" -Dproject.buildDirectory="${DRIVER}" -Dcrx.scheme="${SCHEME}" -Dcrx.host="${HOST}" -Dcrx.port="${PORT}" -Dcrx.username="${USERNAME}" -Dcrx.password="${PASSWORD}" -Dtest="${SPECS}" -Dseleniumhuburl="${SELENIUM_URL}" -Dlogin.req="${LOGIN}" -Dtest.dispatcher="${DISPATCHER}" ${MAVEN_CONFIG}"
+  COMMAND="mvn clean test ${MAVEN_EXTRAS} -Dgeb.env="${DRIVER}" -Dproject.buildDirectory="${DRIVER}" -Dcrx.scheme="${SCHEME}" -Dcrx.host="${HOST}" -Dcrx.port="${PORT}" -Dcrx.username="${USERNAME}" -Dcrx.password="${PASSWORD}" -Dtest="${SPECS}" -Dselenium.huburl="${SELENIUM_URL}" -Dlogin.req="${LOGIN}" -Dtest.dispatcher="${DISPATCHER}" ${MAVEN_CONFIG}"
 
   echo ${COMMAND}
 }

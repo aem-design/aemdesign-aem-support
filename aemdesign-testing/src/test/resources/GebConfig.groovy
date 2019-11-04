@@ -53,7 +53,7 @@ String GLOBAL_PORT = System.properties.getProperty("crx.port","4502")
 String GLOBAL_USER = System.properties.getProperty("crx.user","admin")
 String GLOBAL_PASS = System.properties.getProperty("crx.password","admin")
 String GLOBAL_URL = "${GLOBAL_SCHEME}://${GLOBAL_HOST}:${GLOBAL_PORT}"
-String GLOBAL_SELENIUMHUB_URL = System.properties.getProperty("selenumhuburl","http://$GLOBAL_HOST:32768/wd/hub")
+String GLOBAL_SELENIUMHUB_URL = System.properties.getProperty("selenium.huburl","http://$GLOBAL_HOST:32768/wd/hub")
 String GLOBAL_BUILD_DIR = System.properties.getProperty("project.buildDirectory", GLOBAL_ENV)
 
 //save params if have not been defined
