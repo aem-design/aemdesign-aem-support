@@ -101,9 +101,11 @@
         docker_host: "{{ service_docker_host }}"
         debug_hide: "{{ test_debug_hide }}"
     - name: install showcase package
-      command: "curl -u {{ service_aem_username }}:{{ service_aem_password }} \
+      command: "curl -u '{{ service_aem_username }}:{{ service_aem_password }}' \
+        -X POST \
         -F 'file=@{{ package_file }}' \
         -F 'name={{ package_filename }}' \
+        -H User-Agent:curl \
         -F force=true \
         -F install=true \
         'http://{{ service_docker_host_address }}:{{ service_aem_access_port }}/crx/packmgr/service.jsp'"
