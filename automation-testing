@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $(which ansible-galaxy) == "" || $(which ansible-playbook) == "" ]]; then
+    echo PLEASE INSTALL ANSIBLE
+    exit 1
+fi
+
 NETWORK_INTERFACE=$(route -n get 0.0.0.0 2>/dev/null | awk '/interface: / {print $2}')
 LOCAL_IP=$(ifconfig $NETWORK_INTERFACE | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -1)
 
