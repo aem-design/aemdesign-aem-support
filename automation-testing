@@ -1,5 +1,11 @@
 #!/bin/bash
 
+PARENT_PROJECT_PATH="$(pwd)"
+SCRIPT_PARAMS="$@"
+SKIP_PRINT_CONFIG=true
+
+source "../scripts/functions.sh"
+
 if [[ $(which ansible-galaxy) == "" || $(which ansible-playbook) == "" ]]; then
     echo PLEASE INSTALL ANSIBLE
     exit 1
@@ -34,6 +40,14 @@ echo RUN TESTS
 
 echo CURRENT DIR: $(pwd)
 echo ls -l
+
+AEM_AVAILABLE=$(testServer http://${LOCAL_IP}:${AEM_PORT})
+HUB_AVAILABLE=$(testServer http://${LOCAL_IP}:${SELENIUMHUB_PORT})
+
+if [[ "${AEM_AVAILABLE}" == "false" || "${HUB_AVAILABLE}" == "false" ]]; then
+    echo PLEASE ENSURE AEM AND SELENIIUM HUB IS AVAILABLE
+    exit 1
+fi
 
 cd aemdesign-testing
 ./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${SELENIUMHUB_PORT}/wd/hub GenericDetailsA*
