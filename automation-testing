@@ -87,4 +87,4 @@ cp -Rv "${OUTPUT_SOURCE}" "${OUTPUT_DEST}"
 echo COMMIT AND PUSH UPDATES
 git add .
 git commit -a -m "update reports"
-git push
+git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/aem-design/aemdesign-aem-support-output.git" gh-pages
