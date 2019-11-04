@@ -4,28 +4,40 @@ PARENT_PROJECT_PATH="$(pwd)"
 SCRIPT_PARAMS="$@"
 SKIP_PRINT_CONFIG=true
 
-source "../scripts/functions.sh"
+source "./scripts/functions.sh"
 
+
+# check if aem license is set
+if [[ ${AEM_NAME} == "" || ${AEM_KEY} == "" ]]; then
+    echo PLEASE SET AEM_KEY AND AEM_NAME VARIABLES
+    exit 1
+fi
+
+# check if ansible is installed
 if [[ $(which ansible-galaxy) == "" || $(which ansible-playbook) == "" ]]; then
     echo PLEASE INSTALL ANSIBLE
     exit 1
 fi
 
+# get local net address
 NETWORK_INTERFACE=$(route -n get 0.0.0.0 2>/dev/null | awk '/interface: / {print $2}')
 LOCAL_IP=$(ifconfig $NETWORK_INTERFACE | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -1)
 
+# set ports
 AEM_PORT=5502
 SELENIUMHUB_PORT=9944
 
 #echo PACKAGE PROJECT
 #mvn clean package -DskipTests=true
 
+# get ansible roles
 echo RUNNING TESTS
 pip3 install ansible
 echo INSTALLING ANSIBLE GALAXY REQUIREMENTS
 ansible-galaxy install -r requirements.yml --force
 echo PREPARE INFRASTRUCTURE
 
+# get current deploy package path
 PACKAGE_FILE="$(pwd)/$(ls -b aemdesign-aem-support-deploy/target/*.zip | sed -n '$p')"
 PACKAGE_FILENAME=$(basename ${PACKAGE_FILE})
 
@@ -35,12 +47,14 @@ echo AEM_PORT: ${AEM_PORT}
 echo SELENIUMHUB_PORT: ${SELENIUMHUB_PORT}
 echo LOCAL_IP: ${LOCAL_IP}
 
+# setup services for testing
 ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME service_selenium_grid_port=${SELENIUMHUB_PORT} service_aem_access_port=${AEM_PORT}"
 echo RUN TESTS
 
 echo CURRENT DIR: $(pwd)
 echo ls -l
 
+# check if aem and selenum is read
 AEM_AVAILABLE=$(testServer http://${LOCAL_IP}:${AEM_PORT})
 HUB_AVAILABLE=$(testServer http://${LOCAL_IP}:${SELENIUMHUB_PORT})
 
@@ -49,6 +63,7 @@ if [[ "${AEM_AVAILABLE}" == "false" || "${HUB_AVAILABLE}" == "false" ]]; then
     exit 1
 fi
 
+# run tests
 cd aemdesign-testing
 ./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${SELENIUMHUB_PORT}/wd/hub GenericDetailsA*
 
@@ -81,6 +96,7 @@ export PATH_GHPAGES="./build/ghpages"
 echo CREATE TEMP FOLDER
 mkdir -p ${PATH_GHPAGES}
 
+# get output repo into which publish the reports
 echo CLONE OUTPUT REPO
 cd ${PATH_GHPAGES}
 git clone https://github.com/aem-design/aemdesign-aem-support-output.git
@@ -98,11 +114,13 @@ echo OUTPUT_DEST: ${OUTPUT_DEST}
 echo CHECKOUT GH-PAGES
 git checkout gh-pages
 
+# copy result reports
 echo COPY UPDATED RESULTS
 echo COPY: "${OUTPUT_SOURCE}"
 echo TO: "${OUTPUT_DEST}"
 cp -Rv "${OUTPUT_SOURCE}" "${OUTPUT_DEST}"
 
+# commit and push result reports
 echo COMMIT AND PUSH UPDATES
 git add .
 git commit -a -m "update reports"
