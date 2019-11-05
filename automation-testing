@@ -108,7 +108,7 @@ cd aemdesign-aem-support-output
 echo CURRENT DIR: $(pwd)
 ls -l
 
-OUTPUT_DEST="$(pwd)/generated-docs"
+OUTPUT_DEST="$(pwd)"
 echo OUTPUT_DEST: ${OUTPUT_DEST}
 
 echo CHECKOUT GH-PAGES
