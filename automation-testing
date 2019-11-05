@@ -127,4 +127,4 @@ find ./generated-docs   -size +100000k -exec git lfs track {} \;
 echo COMMIT AND PUSH UPDATES
 git add .
 git commit -a -m "update reports"
-git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/aem-design/aemdesign-aem-support-output.git" gh-pages
+git push "https://$GITHUB_USERNAME:$GITHUB_TOKEN_ADMIN@github.com/aem-design/aemdesign-aem-support-output.git" gh-pages
