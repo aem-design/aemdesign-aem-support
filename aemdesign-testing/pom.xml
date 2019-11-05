@@ -266,7 +266,7 @@
                                 </goals>
                                 <configuration>
                                     <executable>bash</executable>
-                                    <commandlineArgs>./asciidoctor-convert-reports -html -pdf -root ${project.buildDirectory}</commandlineArgs>
+                                    <commandlineArgs>./asciidoctor-convert-reports -html -root ${project.buildDirectory}</commandlineArgs>
                                 </configuration>
                             </execution>
                         </executions>
