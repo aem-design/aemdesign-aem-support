@@ -120,6 +120,9 @@ echo COPY: "${OUTPUT_SOURCE}"
 echo TO: "${OUTPUT_DEST}"
 cp -Rv "${OUTPUT_SOURCE}" "${OUTPUT_DEST}"
 
+# add any files bigger than 100mb to gitlfs
+find ./generated-docs   -size +100000k -exec git lfs track {} \;
+
 # commit and push result reports
 echo COMMIT AND PUSH UPDATES
 git add .
