@@ -92,12 +92,6 @@ jobs:
           docker logs -t service_aem_container_name
         if: failure()
 
-      - name: commit testing screenshots
-        run: |
-          git add aemdesign-testing/src/test/screenshots/*
-          git commit -m "update screenshots after automated test"
-          git push
-
       - name: deploy to maven cental
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
