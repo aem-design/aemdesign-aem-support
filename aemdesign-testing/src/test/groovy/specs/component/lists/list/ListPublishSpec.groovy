@@ -8,7 +8,7 @@ import support.ComponentSpec
 @Stepwise
 class ListPublishSpec extends ComponentSpec {
 
-    String pathPage = "component/lists/list.html"
+    String pathPage = "component/lists/list"
     String pathSite = "content/aemdesign-showcase"
     String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/list"
