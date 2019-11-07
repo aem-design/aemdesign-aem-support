@@ -20,6 +20,7 @@ jobs:
       TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
       GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
       GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+      GITHUB_TOKEN_ADMIN: ${{ secrets.GITHUB_TOKEN_ADMIN }}
       AEM_NAME: ${{ secrets.AEM_NAME }}
       AEM_KEY: ${{ secrets.AEM_KEY }}
       GPG_SECRET_KEYS: ${{ secrets.GPG_SECRET_KEYS }}
@@ -48,6 +49,13 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+      - name: get release notes
+        run: |
+          source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
+          echo "===START==="
+          echo $GIT_RELEASE_NOTES
+          echo "====END===="
+          echo CURRENT_VERSION=$CURRENT_VERSION
       - name: set eval variables
         run: |
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
@@ -58,16 +66,6 @@ jobs:
       - name: setup gpg
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/setup-gpg.sh)
-          git config --global user.email "${GITHUB_EMAIL}"
-          git config --global user.name "${GITHUB_USERNAME}"
-
-      - name: get release notes
-        run: |
-          source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
-          echo "===START==="
-          echo $GIT_RELEASE_NOTES
-          echo "====END===="
-          echo CURRENT_VERSION=$CURRENT_VERSION
       - name: docker - mvn clean (cache .m2 in ./build/.m2/repository in repo dir)
         run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
       - name: docker - mvn package
@@ -87,18 +85,6 @@ jobs:
           pip install -r requirements.txt
       - name: automation test
         run: ./automation-testing
-
-      - name: automation test if failure
-        run: |
-          docker ps -a
-          docker logs -t service_aem_container_name
-        if: failure()
-
-      - name: commit testing screenshots
-        run: |
-          git add aemdesign-testing/src/test/screenshots/*
-          git commit -m "update screenshots after automated test"
-          git push
 
       - name: deploy to maven cental
         if: github.ref == 'refs/heads/master'
@@ -125,3 +111,10 @@ jobs:
           docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}
           docker run --rm aemdesign/travis-trigger-build sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.4.0-bundle --travis_token=${TRAVIS_TOKEN}
         
+      - name: automation test if failure
+        run: |
+          df
+          docker ps -a
+          docker logs -t service_aem_container_name
+        if: failure()
+
