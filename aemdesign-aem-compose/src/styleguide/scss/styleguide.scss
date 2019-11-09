@@ -123,12 +123,6 @@ html:not(.aem-AuthorLayer-Edit) {
     }
   }
 
-  .brand-header__quick-search input[type='search'] {
-    @include media-breakpoint-up(xl) {
-      width: calc((100vw - 50%) - #{logo-size(primary, xl, width)} - 40px - #{$actions-margin} - 10px - #{$styleguide-sidebar-width});
-    }
-  }
-
   .flex-center {
     align-items: center;
     display: flex;
@@ -139,11 +133,6 @@ html:not(.aem-AuthorLayer-Edit) {
     > * {
       text-align: center;
     }
-  }
-
-  .theme--logo img {
-    max-width: 100%;
-    min-width: initial;
   }
 
   .backgrounds {

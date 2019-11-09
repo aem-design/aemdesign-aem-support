@@ -30,7 +30,6 @@
         <nodeVersion>v10.16.3</nodeVersion>
 		<npmVersion>6.11.3</npmVersion>
 		<yarnVersion>v1.19.1</yarnVersion>
-        <npmCommand>aem:build</npmCommand>
         <generated.content>content-generator/content</generated.content>
         <package.path.apps>apps</package.path.apps>
         <package.appsPath>aemdesign-compose</package.appsPath>
@@ -162,7 +161,7 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>${package.npmCommand} --no-color --env.project=core --env.maven --env.clean</arguments>
+                            <arguments>${package.npmCommand} --project core --maven --no-color</arguments>
                             <environmentVariables>
                                 <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
                             </environmentVariables>
@@ -176,7 +175,7 @@
                         </goals>
                         <configuration>
                             <arguments>- -stack_size=8192</arguments>
-                            <arguments>run aem:generatetags --no-color --no-clean --no-console --config=core.yml</arguments>
+                            <arguments>aem:generatetags --no-color --no-clean --no-console --config=core.yml</arguments>
                         </configuration>
                     </execution>
                     
@@ -188,7 +187,10 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>${package.npmCommand} --no-color --env.project=styleguide --env.maven --env.clean</arguments>
+                            <arguments>${package.npmCommand} --project styleguide --maven --no-color</arguments>
+                            <environmentVariables>
+                                <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
+                            </environmentVariables>
                         </configuration>
                     </execution>
 

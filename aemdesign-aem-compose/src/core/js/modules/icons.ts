@@ -11,7 +11,7 @@ export const components: ComponentConfig = {
 
   link: {
     icon      : buildIcon(icons.longArrowRight),
-    selectors : ['.link.btn', '.btn.btn-link', 'header .nav-link', '.card-link.btn'],
+    selectors : ['.link.btn'],
   },
 }
 

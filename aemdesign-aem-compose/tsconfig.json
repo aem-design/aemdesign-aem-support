@@ -1,31 +1,8 @@
 {
+  "extends": "@aem-design/compose-webpack/configs/tsconfig.json",
+  
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "jsx": "preserve",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "pretty": false,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es5",
-
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2015",
-      "es2016",
-      "es2017",
-      "esnext",
-      "scripthost"
-    ],
+    "baseUrl": ".",
 
     "paths": {
       "@components/*": [
@@ -43,17 +20,16 @@
     }
   },
 
+  "exclude": [
+    "public/**/*",
+    "node_modules/**/*"
+  ],
+
   "include": [
     "@types/*.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/**/*.scss"
-  ],
-
-  "exclude": [
-    "public",
-    "node_modules",
-    "packages"
   ]
 }
