@@ -1,8 +1,19 @@
-[![Apache V2 License](http://img.shields.io/badge/license-Apache%20V2-blue.svg)](https://github.com/Comcast/patternlab-edition-node-webpack/blob/master/LICENSE)
+[![Apache-2.0 License](https://img.shields.io/github/license/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support/aemdesign-aem-compose)
 
-## AEM Design Compose
+# AEM.Design Compose
 The compose project is designed as the base for all AEM Design components, functionality, and behaviour. It encapsulates static assets, JavaScript, CSS and a styleguide project within that controls the DLS (Design Language System).
 
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+  - [NPM Packages](#npm-packages)
+- [Deploy Code into AEM](#deploy-code-into-aem)
+  - [Hot Module Reloading](#hot-module-reloading)
+    - [Core](#core)
+    - [DLS (Styleguide)](#dls-styleguide)
+- [Linting](#linting)
+- [Testing](#testing)
+  
 ## Features
 - Content generator - _for generating content for AEM using YAML_
 - ITCSS Sass structure
@@ -26,7 +37,7 @@ Once you have met the requirements above, install the npm packages by simply run
 `yarn`
 
 ## Deploy Code into AEM
-Run `./deploy-local` and the Prototype project will installed into your local AEM instance.
+Run `./deploy-local` and the Compose module will installed into your local AEM instance. If you like sourcemaps and debugging you can run `./deploy-local-dev` which is a non-production build.
 
 ### Hot Module Reloading
 All local development uses `webpack-dev-server` which proxies to your local AEM instance and provides real time updates without needing to constantly deploy manually. The beneift to manual deployments is that we get:
@@ -38,7 +49,7 @@ All local development uses `webpack-dev-server` which proxies to your local AEM 
 
 Visit http://localhost:4504 in your browser once `webpack-dev-server` has started.
 
-**NOTE:** You can only run one project at a time!
+**NOTE:** _You can only run one project at a time!_
 
 #### Core
 `yarn serve:core`
@@ -54,4 +65,4 @@ All code in the project is linted both in your IDE (where supported) and during 
 ## Testing
 Cypress will be used for all front end testing. To run tests you can use the full filename or globbing for partial matching.
 
-`yarn test:cypress:run 'forms*' 'site-search`
+`yarn test:cypress:run 'test*'`
