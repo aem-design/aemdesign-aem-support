@@ -1,3 +1,12 @@
+import ErrorBoundary from '@components/error-boundary/ErrorBoundary.vue'
+
+// Define the components we can use
+const components = {
+  // <Component (kebab-case)>: loadView('component', 'Entry')
+}
+
+const validComponents = Object.keys(components)
+
 /**
  * Generates the dynamic import logic needed for each async Vue component.
  *
@@ -7,22 +16,17 @@
  */
 function loadView(folder: string, view: string): () => Promise<any> {
   return () => import(
-    /* webpackChunkName: "components/[request]" */
+    /* webpackChunkName: "vc/[request]" */
     `./${folder}/${view}.vue`)
 }
 
 export default async (references: NodeListOf<Element>) => {
-  const { default: Vue } = await import('vue')
+  const Vue = (await import('vue')).default
 
   Vue.config.devtools      = true
   Vue.config.performance   = __DEV__
   Vue.config.productionTip = __PROD__
   Vue.config.silent        = __PROD__
-
-  // Define the components we can use
-  const components = {}
-
-  const validComponents = Object.keys(components)
 
   // Register the components
   console.info('[Vue] %d ready to be created!', validComponents.length)
@@ -31,6 +35,9 @@ export default async (references: NodeListOf<Element>) => {
     console.info('[Vue] Registering...', component)
     Vue.component(component, components[component])
   }
+
+  // Register the error boundary component
+  Vue.component('error-boundary', ErrorBoundary)
 
   // Find any and all Vue component references in the DOM
   console.info('[Vue] Found %d reference elements!', references.length)

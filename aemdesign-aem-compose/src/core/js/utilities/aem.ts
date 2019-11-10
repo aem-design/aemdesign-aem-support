@@ -3,6 +3,6 @@
  *
  * @return {boolean}
  */
-export const isAuthorEditMode = (): boolean => {
+export const isAuthorMode = (): boolean => {
   return window.parent.CQ?.wcm
 }

@@ -1,57 +1,78 @@
+import $ from 'jquery'
+
 import AEMFixes from '@module/aem'
 import Icons from '@module/icons'
 
-import { isAuthorEditMode } from '@utility/aem'
+import { isAuthorMode } from '@utility/aem'
 
-// Begin the app...
-$(async () => {
+// Internal
+const authorMode = isAuthorMode()
 
+async function load() {
   console.log('app.js jQuery Version', $.fn.jquery)
 
-  // Vue.js components, we load them before anything else as they are non-blocking
-  const vueReferences = document.querySelectorAll('[vue-component]')
+  /**
+   * Vue.js components
+   *
+   * We typically want to load these as soon as possible to ensure our more feature-rich experiences
+   * are available to the end-user as soon-as-possible.
+   */
+  const vueComponents = document.querySelectorAll('[vue-component]')
 
-  if (!isAuthorEditMode() && vueReferences.length) {
-    const {
-      default: BindVueToPage,
-    } = await import(/* webpackChunkName: "components/vue-bind" */ '@components/vue-bind')
+  if (!authorMode && vueComponents.length) {
+    const composeVue = (await import(/* webpackChunkName: "vue/compose" */ '@components/compose-vue')).default
 
-    BindVueToPage(vueReferences)
+    composeVue(vueComponents)
   }
 
-  // AEM comnponent level fixes
+  /**
+   * AEM comnponent level fixes.
+   */
   AEMFixes()
 
-  // Apply some fixes when we aren't in the AEM author 'edit' mode
-  if (isAuthorEditMode()) {
-    // Open all the 'collapse' elements on the page when in author
-    $('.collapse[data-parent]').collapse('dispose')
-
-    const {
-      default: authorWatch,
-    } = await import(/* webpackChunkName: "author-watch" */ '@module/author-watch')
-
-    authorWatch()
-  }
-
-  // Append Font Awesome icons to any/all elements that need them
+  /**
+   * Append icons elements to any elements that need them. This is done via JavaScript because
+   * we don't want to waste paint performance using CSS which won't yield as good of a result.
+   */
   Icons()
 
-  // Load the Font Awesome icons last as they are the heaviest payload
-  await import(/* webpackChunkName: "fontawesome-brands" */ '@fortawesome/fontawesome-free/js/brands')
-  await import(/* webpackChunkName: "fontawesome" */ '@fortawesome/fontawesome-free/js/fontawesome')
+  /**
+   * Apply some fixes when we are in the AEM author 'edit' mode.
+   */
+  if (authorMode) {
+    // Open all the 'collapse' elements on the page, by default they are closed and can't be updated
+    // by an author which isn't what we want.
+    $('.collapse[data-parent]').collapse('dispose')
 
-  // IE11 hacky fixes ಥ﹏ಥ
-  if ((!!window.MSInputMethodContext && !!document.documentMode)) {
-    const {
-      default: IE11Fixes,
-    } = await import(/* webpackChunkName: "ie11-fixes" */ '@utility/ie11')
+    // DOM watch mode!
+    const watcher = (await import(/* webpackChunkName: "md/watcher" */ '@module/watcher')).default
 
-    IE11Fixes()
+    watcher()
   }
 
-})
+  /**
+   * Load the Font Awesome icons now as they are the heaviest payload overall.
+   *
+   * TODO: Add the ability to define only a subset of icons instead of everything.
+   */
+  await import(/* webpackChunkName: "vd/fontawesome-brands" */ '@fortawesome/fontawesome-free/js/brands')
+  await import(/* webpackChunkName: "vd/fontawesome" */ '@fortawesome/fontawesome-free/js/fontawesome')
 
+  // IE11 fixes ಥ﹏ಥ
+  if ((!!window.MSInputMethodContext && !!document.documentMode)) {
+    const makeIE11Work = (await import(/* webpackChunkName: "ut/ie11-fixes" */ '@utility/ie11')).default
+
+    makeIE11Work()
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', load)
+} else {
+  load()
+}
+
+// Hot module reloading support
 if (module.hot) {
   module.hot.accept()
 }

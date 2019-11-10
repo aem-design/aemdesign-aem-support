@@ -27,7 +27,7 @@ export default class BaseComponent extends Vue {
   }
 
   protected log(type: LogLevel, ...args: any[]) {
-    console[type.toString().toLowerCase()](`[${this._name}]`, ...args)
+    console[type.toString().toLowerCase()](`[${this._name || 'Unknown'}]`, ...args)
   }
 
   private getAppFrame() {
