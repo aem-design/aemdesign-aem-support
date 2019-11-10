@@ -4,14 +4,15 @@
 The compose project is designed as the base for all AEM Design components, functionality, and behaviour. It encapsulates static assets, JavaScript, CSS and a styleguide project within that controls the DLS (Design Language System).
 
 ## Features
-
-- Content generator - for generating content for AEM using YML
-- VUE widgets 
+- Content generator - _for generating content for AEM using YAML_
+- ITCSS Sass structure
+- TypeScript driven JavaScript
+- Vue.js components as widgets
 
 ## Installation
 Getting going is pretty simple, you will, however, need to make sure you have the below installed first to ensure a smooth and consistent experience with other developers.
 
-- **Node >= 8 <= 10** _(required)_
+- **Node >= 10** _(required)_
 - **Yarn >= 1.10.0** _(version required for hash compatibility)_
 - **TypeScript enabled IDE** _(VS Code or an IDE plugin)_
 - **ESLint** _(required)_
