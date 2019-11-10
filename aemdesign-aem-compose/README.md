@@ -1,4 +1,4 @@
-[![Apache-2.0 License](https://img.shields.io/github/license/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support/aemdesign-aem-compose)
+[![Apache-2.0 License](https://img.shields.io/github/license/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support/tree/master/aemdesign-aem-compose)
 
 # AEM.Design Compose
 The compose project is designed as the base for all AEM Design components, functionality, and behaviour. It encapsulates static assets, JavaScript, CSS and a styleguide project within that controls the DLS (Design Language System).
