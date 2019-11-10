@@ -1,6 +1,14 @@
 // stylelint-disable declaration-no-important
 
-// Responsive visibility utilities
+/**
+ * Bootstrap visibility
+ */
+
+@import '~bootstrap/scss/utilities/visibility';
+
+/**
+ * Responsive visibility utilities
+ */
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   .invisible-#{$breakpoint}-up {

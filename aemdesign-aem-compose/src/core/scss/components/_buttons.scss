@@ -1,0 +1,144 @@
+/**
+ * Bootstrap buttons
+ */
+
+@import '~bootstrap/scss/buttons';
+
+/**
+* Overrides
+*/
+
+// Colour variants
+//
+// Pattern:
+// <variant name>: (
+//   <base colour>,
+//   <text colour>,
+//   <hover colour>,
+//   <shadow colour (on hover)>,
+//   <border colour (optional)>,
+//   <border colour (on hover, optional)>
+// )
+
+$button-colours: ();
+
+.btn {
+  align-items: center;
+  border-bottom-width: 0;
+  display: inline-flex;
+  height: 50px;
+  letter-spacing: -.5px;
+  min-width: 175px;
+  position: relative;
+
+  @each $variant, $options in $button-colours {
+    $base-colour: nth($options, 1);
+    $border-colour: nth($options, 5);
+    $border-hover-colour: nth($options, 6);
+    $hover-colour: nth($options, 3);
+    $shadow-colour: nth($options, 4);
+    $text-colour: nth($options, 2);
+
+    &-#{$variant} {
+      // If no border colour is given we use the base colour to avoid hover state issues
+      $border-colour: if($border-colour != null, $border-colour, $base-colour);
+
+      background-color: $base-colour;
+      border-color: $border-colour;
+      box-shadow: inset 0 -1px 0 $border-colour;
+      color: $text-colour;
+
+      &:not(:active) {
+        $border-hover-colour: if($border-hover-colour != null, $border-hover-colour, $hover-colour);
+
+        @include hover {
+          background-color: $hover-colour;
+          border-color: if($border-hover-colour != null, $border-hover-colour, $hover-colour);
+          box-shadow: inset 0 -2px 0 $shadow-colour;
+          color: $text-colour;
+        }
+      }
+
+      &:active {
+        color: $text-colour;
+      }
+    }
+  }
+
+  > span,
+  > .svg-inline--fa {
+    transition: transform .15s ease-in-out;
+  }
+
+  > .svg-inline--fa {
+    font-size: 14px;
+    margin-left: auto;
+
+    @include media-breakpoint-up(md) {
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 18px;
+    }
+  }
+
+  &:not(.btn-link) {
+    > span {
+      margin-right: 15px;
+    }
+  }
+
+  @include hover {
+    &:not(.btn-link):not(:active) {
+      > span,
+      > .svg-inline--fa {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &-sm {
+    height: 40px;
+  }
+
+  &-lg {
+    height: 60px;
+  }
+
+  // Override the link button styles
+  &-link {
+    color: $link-color;
+    min-width: unset;
+    padding: 0;
+
+    > .svg-inline--fa {
+      margin-left: 30px;
+    }
+
+    &:focus,
+    &.focus {
+      text-decoration: none;
+    }
+  }
+
+  // Disabled state
+  &.disabled:not(.btn-link),
+  &:disabled {
+    box-shadow: inset 0 0 0 rgba($black, 0);
+  }
+
+  &:focus,
+  &.focus {
+    outline: 1px dotted #212121;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  @include media-breakpoint-down(sm) {
+    // Correct the button size for mobile devices when it is default
+    &:not(&-sm):not(&-lg):not(&-link) {
+      height: 40px;
+      line-height: $btn-line-height-sm;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+/**
+ * Bootstrap breadcrumb
+ */
+
+@import '~bootstrap/scss/breadcrumb';
+
+/**
+* Overrides
+*/
+
+.breadcrumb {
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 23px;
+
+  &-item {
+    align-items: center;
+    display: inline-flex;
+
+    &,
+    a {
+      color: $black;
+      font-weight: 400;
+    }
+
+    .icon {
+      margin-left: $breadcrumb-item-padding;
+    }
+
+    + .breadcrumb-item {
+      &::before {
+        display: none;
+      }
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+nav.breadcrumb {
+  padding-bottom: 8px;
+  padding-top: 8px;
+}

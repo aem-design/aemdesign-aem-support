@@ -1,0 +1,29 @@
+p {
+  hyphens: none;
+
+  // This selector removes the bottom margin from all paragraph tags on the page that are
+  // the last of their type in the parent container and are the last child overall. If this
+  // this condition isn't met, the paragraph will retain the existing margin.
+  &:last-of-type:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Bold text
+
+b,
+strong,
+.strong {
+  font-weight: 700;
+}
+
+// Small text
+
+small {
+  font-size: 10px;
+  line-height: 23px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 12px;
+  }
+}

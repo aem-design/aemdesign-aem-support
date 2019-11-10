@@ -1,0 +1,197 @@
+@import 'common';
+@import 'paths';
+
+// Colours
+
+$brand-colours: (
+  primary: (),
+
+  secondary: (),
+
+  greys: (),
+
+  other: (
+    'black' : $black,
+    'white' : $white,
+  ),
+);
+
+$colors: (
+  'white' : map-deep-get($brand-colours, 'other', 'white'),
+  'black' : map-deep-get($brand-colours, 'other', 'black'),
+);
+
+$theme-colors: $colors;
+
+// Spacer levels
+//
+// Designed to ease authoring by providing responsive spacing that can be applied to any component
+// on the page without needing to explicitly know what each breakpoint looks like.
+
+$spacing-levels: (
+  vertical: (
+    level-1: (
+      xs: 20px,
+      md: 30px,
+      lg: 40px,
+      xl: 50px,
+    ),
+  ),
+);
+
+// Body
+
+$body-bg:                    $body-bg;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$border-color:                $border-color;
+
+$border-radius:               $border-radius;
+$border-radius-lg:            $border-radius-lg;
+$border-radius-sm:            $border-radius-sm;
+
+// Fonts
+
+$h1-font-size:                60px;
+$h2-font-size:                48px;
+$h3-font-size:                30px;
+$h4-font-size:                22px;
+$h5-font-size:                18px;
+$h6-font-size:                16px;
+
+$headings-margin-bottom:      20px;
+$headings-font-weight:        normal;
+$headings-line-height:        1;
+$headings-color:              inherit;
+
+$lead-font-size:              18px;
+$lead-font-weight:            normal;
+
+// Options
+
+$enable-caret:              false;
+$enable-rounded:            true;
+
+// Icons
+
+$icon-sizes: (
+  smaller : 10px,
+  small   : 13px,
+  regular : 16px,
+  large   : 23px,
+);
+
+// Custom typography map for responsive headings and text
+
+$typography: (
+  headings: (
+    h1: (
+      xs: (
+        font-size: 40px,
+        font-weight: 300,
+        line-height: 42px,
+        margin-bottom: 30px,
+      ),
+      lg: (
+        font-size: $h1-font-size,
+        line-height: 63px,
+        margin-bottom: 40px,
+      ),
+    ),
+
+    h2: (
+      xs: (
+        font-size: 26px,
+        font-weight: 600,
+        line-height: 32px,
+      ),
+      lg: (
+        font-size: $h2-font-size,
+        font-weight: 400,
+        line-height: 48px,
+      ),
+    ),
+
+    h3: (
+      xs: (
+        font-size: 22px,
+        font-weight: 600,
+        line-height: 29px,
+      ),
+      lg: (
+        font-size: $h3-font-size,
+        line-height: 36px,
+      ),
+    ),
+
+    h4: (
+      xs: (
+        font-size: 18px,
+        font-weight: 600,
+        line-height: 26px,
+      ),
+      lg: (
+        font-size: $h4-font-size,
+        line-height: 30px,
+        margin-bottom: 25px,
+      ),
+    ),
+
+    h5: (
+      xs: (
+        font-size: 14px,
+        font-weight: 600,
+        line-height: 24px,
+      ),
+      lg: (
+        font-size: $h5-font-size,
+        line-height: 24px,
+      ),
+    ),
+
+    h6: (
+      xs: (
+        font-size: 10px,
+        font-weight: 600,
+        line-height: 18px,
+      ),
+      lg: (
+        font-size: $h6-font-size,
+        line-height: 22px,
+      ),
+    ),
+  ),
+
+  text: (),
+);
+
+// Grid generic
+
+$aem-prefix:     'aem-Grid';
+$aem-prefix-col: 'aem-GridColumn';
+
+$aem-breakpoints: (
+  'small'   : 'sm',
+  'medium'  : 'md',
+  'large'   : 'lg',
+  'default' : 'xl',
+);
+
+// Grid breakpoints
+
+$grid-breakpoints: $breakpoints;
+
+// Grid containers
+
+$container-max-widths: (
+  xs: 1290px,
+);
+
+// Custom container variants
+//
+// ( <key | name>: <max width>px )
+
+$container-types: ();

@@ -8,7 +8,7 @@ import { isAuthorMode } from '@utility/aem'
 // Internal
 const authorMode = isAuthorMode()
 
-async function load() {
+async function loadApp() {
   console.log('app.js jQuery Version', $.fn.jquery)
 
   /**
@@ -26,15 +26,15 @@ async function load() {
   }
 
   /**
-   * AEM comnponent level fixes.
-   */
-  AEMFixes()
-
-  /**
    * Append icons elements to any elements that need them. This is done via JavaScript because
    * we don't want to waste paint performance using CSS which won't yield as good of a result.
    */
   Icons()
+
+  /**
+   * AEM comnponent level fixes.
+   */
+  AEMFixes()
 
   /**
    * Apply some fixes when we are in the AEM author 'edit' mode.
@@ -58,7 +58,9 @@ async function load() {
   await import(/* webpackChunkName: "vd/fontawesome-brands" */ '@fortawesome/fontawesome-free/js/brands')
   await import(/* webpackChunkName: "vd/fontawesome" */ '@fortawesome/fontawesome-free/js/fontawesome')
 
-  // IE11 fixes ಥ﹏ಥ
+  /**
+   * IE11 fixes... ಥ﹏ಥ
+   */
   if ((!!window.MSInputMethodContext && !!document.documentMode)) {
     const makeIE11Work = (await import(/* webpackChunkName: "ut/ie11-fixes" */ '@utility/ie11')).default
 
@@ -67,9 +69,9 @@ async function load() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', load)
+  document.addEventListener('DOMContentLoaded', loadApp)
 } else {
-  load()
+  loadApp()
 }
 
 // Hot module reloading support

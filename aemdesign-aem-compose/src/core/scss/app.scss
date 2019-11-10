@@ -1,45 +1,54 @@
 @charset 'UTF-8';
 
+// Settings & Tooling
 @import 'setup';
 
-// Bootstrap reset and base typography
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/type';
+// Generics
+@import 'generic/custom-fonts';
+@import 'generic/normalize';
+@import 'generic/typography';
 
-// Vendors
-@import 'vendor/index';
+// Elements
+@import 'elements/headings';
+@import 'elements/images';
+@import 'elements/page';
+@import 'elements/text';
 
-// // Core
-@import 'core/index';
+// Objects
+@import 'objects/icon';
+@import 'objects/layout';
+@import 'objects/list';
 
-// // Bootstrap components
-// @import '~bootstrap/scss/button-group';
-// @import '~bootstrap/scss/buttons';
-// @import '~bootstrap/scss/breadcrumb';
-// @import '~bootstrap/scss/card';
-// @import '~bootstrap/scss/dropdown';
-// @import '~bootstrap/scss/grid';
-// @import '~bootstrap/scss/images';
-// @import '~bootstrap/scss/modal';
-// @import '~bootstrap/scss/nav';
-// @import '~bootstrap/scss/navbar';
-// @import '~bootstrap/scss/transitions';
+// Components
+@import 'components/breadcrumb';
+@import 'components/button-group';
+@import 'components/buttons';
+@import 'components/card';
+@import 'components/content-block';
+@import 'components/content-block.card';
+@import 'components/dropdown';
+@import 'components/event-list';
+@import 'components/images';
+@import 'components/link';
+@import 'components/nav';
+@import 'components/navbar';
+@import 'components/news-list';
+@import 'components/page-details';
+@import 'components/page-list';
+@import 'components/placeholders.list';
+@import 'components/tag-list';
+@import 'components/text';
 
-// // Layout
-// @import 'layout/index';
-
-// // Bootstrap overrides
-// @import 'override/index';
-
-// // Global utility classes
-// @import 'utilities';
-
-// // Components
-// @import 'components/index';
-
-// // AEM specific changes
-// @import 'aem/index';
+// Utilities
+@import 'utilities/spacings';
+@import 'utilities/text';
+@import 'utilities/transitions';
+@import 'utilities/visibility';
 
 // Themes
-// TODO: ...
+// They don't really exist in ITCSS but they are a construct we need but can come back to.
+// TODO: Clean these up
 // @import 'themes/index';
+
+// Vendors
+// @import 'vendor/';

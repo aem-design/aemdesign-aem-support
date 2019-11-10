@@ -2,9 +2,23 @@
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 
-// Internals
-@import 'functions';
-@import 'variables';
-@import 'mixins';
+// Tools: Functions
+@import 'tools/functions/layout';
+@import 'tools/functions/map';
+@import 'tools/functions/selector';
+@import 'tools/functions/typography';
 
+// Settings
+@import 'settings/global';
+
+// Tools: Mixins
+@import 'tools/mixins/aem';
+@import 'tools/mixins/device';
+@import 'tools/mixins/font-face';
+@import 'tools/mixins/layout';
+@import 'tools/mixins/list';
+@import 'tools/mixins/object-fit';
+@import 'tools/mixins/typography';
+
+// Load Bootstraps mixins
 @import '~bootstrap/scss/mixins';

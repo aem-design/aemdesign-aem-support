@@ -1,4 +1,4 @@
-import sassVars from '../../scss/_common.scss'
+import sassVars from '../../scss/settings/_common.scss'
 
 export const breakpoints = {
   desktop      : parseInt(sassVars['breakpoint-lg'], 10),

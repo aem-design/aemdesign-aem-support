@@ -1,5 +1,15 @@
 // stylelint-disable declaration-no-important
 
+/**
+ * Bootstrap text
+ */
+
+@import '~bootstrap/scss/utilities/text';
+
+/**
+ * Custom font weights
+ */
+
 @each $weight in 300 400 600 700 {
   .fw-#{$weight} {
     font-weight: $weight !important;

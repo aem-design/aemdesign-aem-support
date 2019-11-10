@@ -1,17 +1,8 @@
-// PLEASE NOTE!!
-//
-// These styles directly affect AEM components, they should not introduce any new
-// behaviour that can be handled already by Bootstrap helper classes such as spacing
-// and other component level changes.
-
 .text {
   @include clearfix;
 
-  &:not(.text-heading-outlined) {
-    @extend %headings-underlined;
-  }
-
   // Smaller text
+  // TODO: Make this a utility class
   &-small {
     @extend small;
   }
