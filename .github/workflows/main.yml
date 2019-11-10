@@ -86,6 +86,11 @@ jobs:
       - name: automation test
         run: ./automation-testing
 
+      - name: automation test release reports
+        if: github.ref == 'refs/heads/master'
+        run: ./automation-testing-release
+
+
       - name: deploy to maven cental
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release

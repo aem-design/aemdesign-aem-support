@@ -72,59 +72,24 @@ if [[ ! -d "remote-seleniumhub-chrome/generated-docs/html" ]]; then
     exit 1
 fi
 
-echo CURRENT DIR: $(pwd)
+export TEST_REPORT_OUTPUT="$(pwd)/remote-seleniumhub-chrome/generated-docs"
+echo ::set-env name=TEST_REPORT_OUTPUT::${TEST_REPORT_OUTPUT}
+echo REPORT PATH=$TEST_REPORT_OUTPUT
 
-echo ">>> CURRENT <<<"
-ls -l
-
-
-export TEST_RESULTS="$(pwd)/remote-seleniumhub-chrome"
-echo TEST_RESULTS: ${TEST_RESULTS}
-
-echo ">>> TEST_RESULTS <<<"
-ls -l ${TEST_RESULTS}
-
-export OUTPUT_SOURCE="${TEST_RESULTS}/generated-docs"
-echo OUTPUT_SOURCE: ${OUTPUT_SOURCE}
-
-echo ">>> OUTPUT_SOURCE <<<"
-ls -l ${OUTPUT_SOURCE}
-
-echo PUBLISH RESULTS
+echo BUILD DIR FOR PUBLISH RESULTS
 export PATH_GHPAGES="./build/ghpages"
+echo PATH_GHPAGES=${PATH_GHPAGES}
 
 echo CREATE TEMP FOLDER
 mkdir -p ${PATH_GHPAGES}
 
-# get output repo into which publish the reports
+# create temp folder for output repo
 echo CLONE OUTPUT REPO
 cd ${PATH_GHPAGES}
-git clone https://github.com/aem-design/aemdesign-aem-support-output.git
 
+export TEST_REPORT_GHPAGES_PATH="$(pwd)"
+echo ::set-env name=TEST_REPORT_GHPAGES_PATH::${TEST_REPORT_GHPAGES_PATH}
+echo OUTPUT REPO=$TEST_REPORT_GHPAGES_PATH
 
-echo SWITCH TO GH-PAGES BRANCH
-cd aemdesign-aem-support-output
-
-echo CURRENT DIR: $(pwd)
-ls -l
-
-OUTPUT_DEST="$(pwd)"
-echo OUTPUT_DEST: ${OUTPUT_DEST}
-
-echo CHECKOUT GH-PAGES
-git checkout gh-pages
-
-# copy result reports
-echo COPY UPDATED RESULTS
-echo COPY: "${OUTPUT_SOURCE}"
-echo TO: "${OUTPUT_DEST}"
-cp -Rv "${OUTPUT_SOURCE}" "${OUTPUT_DEST}"
-
-# add any files bigger than 100mb to gitlfs
-find ./generated-docs   -size +100000k -exec git lfs track {} \;
-
-# commit and push result reports
-echo COMMIT AND PUSH UPDATES
-git add .
-git commit -a -m "update reports"
-git push "https://$GITHUB_USERNAME:$GITHUB_TOKEN_ADMIN@github.com/aem-design/aemdesign-aem-support-output.git" gh-pages
+export TEST_REPORT_COMMENT="$(git rev-parse HEAD)"
+echo ::set-env name=TEST_REPORT_COMMENT::${TEST_REPORT_COMMENT}
