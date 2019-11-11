@@ -1,11 +1,15 @@
-///
+/// ...
+/// @group layout
+/// @since 1.0.0
 @mixin container-flush($pseudo: ':not(:last-child)') {
   [class*='col']#{unquote($pseudo)} > div {
     @content;
   }
 }
 
-///
+/// ...
+/// @group layout
+/// @since 1.0.0
 @mixin aspect-ratio(
   $width: 16,
   $height: 9,

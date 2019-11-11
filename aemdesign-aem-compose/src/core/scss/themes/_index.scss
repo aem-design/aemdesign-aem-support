@@ -1,8 +1,15 @@
 .theme {
-  @import 'lists';
-  @import 'page-list';
-  @import 'page-details';
-  @import 'video';
-  @import 'image';
-  @import 'content-block';
+  // Lists
+  &--lists {
+    @import 'lists.horizontal';
+
+    @at-root {
+      @import 'lists.layout';
+    }
+  }
+
+  // Video
+  &--video {
+    @import 'video.background';
+  }
 }

@@ -1,4 +1,6 @@
 /// Page List variant generator
+/// @group list
+/// @since 1.0.0
 @mixin pagelist-variant($selector: false) {
   $selector: if($selector != false, unquote($selector + ' '), '');
   $selector: $selector + '> .content > ul > li';

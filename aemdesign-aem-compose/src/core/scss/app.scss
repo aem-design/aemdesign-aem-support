@@ -40,6 +40,12 @@
 @import 'components/text';
 
 // Utilities
+@import 'utilities/accessibility';
+@import 'utilities/align';
+@import 'utilities/background';
+@import 'utilities/display';
+@import 'utilities/flex';
+@import 'utilities/position';
 @import 'utilities/spacings';
 @import 'utilities/text';
 @import 'utilities/transitions';
@@ -47,8 +53,7 @@
 
 // Themes
 // They don't really exist in ITCSS but they are a construct we need but can come back to.
-// TODO: Clean these up
-// @import 'themes/index';
+@import 'themes/index';
 
 // Vendors
 // @import 'vendor/';

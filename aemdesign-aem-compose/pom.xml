@@ -178,7 +178,7 @@
                             <arguments>aem:generatetags --no-color --no-clean --no-console --config=core.yml</arguments>
                         </configuration>
                     </execution>
-                    
+
                     <!-- Styleguide -->
                     <execution>
                         <id>exec-aem-build-styleguide</id>
@@ -208,7 +208,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -248,7 +248,7 @@
                             </outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>public/core/clientlibs-header</directory>
+                                    <directory>public/core/resources</directory>
                                 </resource>
                             </resources>
                         </configuration>

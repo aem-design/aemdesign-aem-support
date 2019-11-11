@@ -2,6 +2,7 @@
 @import 'paths';
 
 // Colours
+/// @type Map
 
 $brand-colours: (
   primary: (),
@@ -27,6 +28,7 @@ $theme-colors: $colors;
 //
 // Designed to ease authoring by providing responsive spacing that can be applied to any component
 // on the page without needing to explicitly know what each breakpoint looks like.
+/// @type Map
 
 $spacing-levels: (
   vertical: (
@@ -76,6 +78,7 @@ $enable-caret:              false;
 $enable-rounded:            true;
 
 // Icons
+/// @type Map
 
 $icon-sizes: (
   smaller : 10px,
@@ -85,6 +88,7 @@ $icon-sizes: (
 );
 
 // Custom typography map for responsive headings and text
+/// @type Map
 
 $typography: (
   headings: (

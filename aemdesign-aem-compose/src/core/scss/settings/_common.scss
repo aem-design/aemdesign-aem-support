@@ -1,5 +1,6 @@
 // Grid breakpoints
 
+/// @type Map
 $breakpoints: (
   xs: 0,
   sm: 320px,
@@ -10,8 +11,11 @@ $breakpoints: (
 
 // Lists
 
+/// @type Number
 $list-item-margin:            15px;
+/// @type Number
 $list-item-md-margin:         20px;
+/// @type Number
 $list-item-lg-margin:         25px;
 
 // Export these values to Webpack for use via JavaScript.

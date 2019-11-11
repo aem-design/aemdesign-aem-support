@@ -1,10 +1,65 @@
+/// Generates a `@font-face` declaration.
+/// @see https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
+/// @author Chris Shaw
+/// @group typography
+/// @since 1.0.0
+/// @param {String} $name - Font family name
+/// @param {String} $path - Path to the font files
+/// @param {Number} $weight [null] - Font weight
+/// @param {String} $style [null] - Font style
+/// @param {List} $exts [woff2 woff] - List of file extensions
+/// @example
+///   @include font-face(
+///     'Open Sans',
+///     'open-sans/open-sans-v15-latin-300',
+///     300,
+///     normal
+///   );
 ///
+///   @include font-face(
+///     'Open Sans',
+///     'open-sans/open-sans-v15-latin-300',
+///     $exts: woff2
+///   );
+/// @output `@font-face` declaration
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
+  $src: '#{$asset-base-path}fonts/';
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_'),
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype',
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+/// ...
+/// @group typography
+/// @since 1.0.0
 @mixin typography-level($for, $key) {
   $config: map-deep-get($typography, $for, $key);
   @include typography-style($key, $config, true);
 }
 
-///
+/// ...
+/// @group typography
+/// @since 1.0.0
 @mixin typography-style($level, $config, $styles-only: false) {
   $selector: $level;
 
@@ -41,6 +96,9 @@
   }
 }
 
+/// ...
+/// @group typography
+/// @since 1.0.0
 @mixin typography-bp(
   $selector,
   $level,
@@ -65,7 +123,9 @@
   }
 }
 
-///
+/// ...
+/// @group typography
+/// @since 1.0.0
 @mixin typography-styles($config) {
   @each $key, $value in $config {
     @if $key != 'only' {

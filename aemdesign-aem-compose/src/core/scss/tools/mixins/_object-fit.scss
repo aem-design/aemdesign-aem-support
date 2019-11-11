@@ -1,7 +1,15 @@
-/// Generates the code required for the 'object-fit-images' polyfill
-/// @see https://github.com/bfred-it/object-fit-images
-/// @param {String} $fit - How should the image scale to its parent?
-/// @param {String} $position - The offset for the image
+/// Generates the code required for the 'object-fit-images' polyfill.
+/// @see https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+/// @author Chris Shaw
+/// @group typography
+/// @since 1.0.0
+/// @param {String} $fit [fill] - How should the image scale to its parent?
+/// @param {String} $position [null] - The offset for the image
+/// @example
+///   @include object-fit;
+///   @include object-fit(cover);
+///   @include object-fit($position: center);
+/// @output `object-fit` properties and `font-family` fallback for JavaScript polyfills
 @mixin object-fit($fit: fill, $position: null) {
   object-fit: $fit;
 
