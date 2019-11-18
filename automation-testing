@@ -76,6 +76,10 @@ export TEST_REPORT_OUTPUT="$(pwd)/remote-seleniumhub-chrome/generated-docs"
 echo ::set-env name=TEST_REPORT_OUTPUT::${TEST_REPORT_OUTPUT}
 echo REPORT PATH=$TEST_REPORT_OUTPUT
 
+export TEST_REPORT_COMPARE_SOURCES="$(pwd)/src/test/screenshots"
+echo ::set-env name=TEST_REPORT_COMPARE_SOURCES::${TEST_REPORT_COMPARE_SOURCES}
+echo REPORT COMPARE SOURCES PATH=$TEST_REPORT_COMPARE_SOURCES
+
 echo BUILD DIR FOR PUBLISH RESULTS
 export PATH_GHPAGES="./build/ghpages"
 echo PATH_GHPAGES=${PATH_GHPAGES}
