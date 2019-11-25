@@ -2,11 +2,11 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:isCheckedOut="{Boolean}false"
     jcr:primaryType="cq:WorkflowModel"
+    jcr:uuid="d4a2f024-5e3e-4883-8e0a-0fb3ed32dc7a"
     sling:resourceType="cq/workflow/components/model"
     description="No Description"
     title="Project Permissions Update">
-    <metaData
-        jcr:primaryType="nt:unstructured"/>
+    <metaData jcr:primaryType="nt:unstructured"/>
     <nodes jcr:primaryType="nt:unstructured">
         <node0
             jcr:primaryType="cq:WorkflowNode"
