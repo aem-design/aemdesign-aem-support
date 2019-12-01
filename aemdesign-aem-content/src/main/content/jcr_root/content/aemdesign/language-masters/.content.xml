@@ -12,8 +12,4 @@
         hideInNav="{Boolean}true"
         redirectTarget="/content/aemdesign/language-masters/en"/>
     <en/>
-    <de/>
-    <fr/>
-    <es/>
-    <it/>
 </jcr:root>
