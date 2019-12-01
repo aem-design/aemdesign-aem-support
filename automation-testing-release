@@ -23,8 +23,8 @@ if [[ ${REPORT_REPO} == "" || ${REPORT_REPO_NAME} == "" ]]; then
 fi
 
 # check if git variables are set
-if [[ ${TEST_REPORT_OUTPUT} == "" || ${REPORT_DIR} == "" || ${TEST_REPORT_GHPAGES_PATH} == "" ]]; then
-    echo PLEASE SET TEST_REPORT_OUTPUT, REPORT_DIR AND TEST_REPORT_GHPAGES_PATH VARIABLE
+if [[ ${TEST_REPORT_OUTPUT} == "" || ${REPORT_DIR} == "" || ${TEST_REPORT_GHPAGES_PATH} == "" || ${TEST_REPORT_COMPARE_SOURCES} == "" ]]; then
+    echo PLEASE SET TEST_REPORT_OUTPUT, REPORT_DIR, TEST_REPORT_GHPAGES_PATH AND TEST_REPORT_COMPARE_SOURCES VARIABLE
     exit 1
 fi
 
@@ -55,3 +55,19 @@ echo COMMIT AND PUSH UPDATES
 git add .
 git commit -a -m "update reports <a href='https://github.com/aem-design/aemdesign-aem-support/commit/${TEST_REPORT_COMMENT}'>${TEST_REPORT_COMMENT}</a>"
 git push ${REPORT_REPO} gh-pages
+
+echo COMMIT AND PUSH COMPARE IMAGES TO MASTER
+git checkout master
+
+echo TEST_REPORT_COMPARE_SOURCES: ${TEST_REPORT_COMPARE_SOURCES}
+echo TO: "${OUTPUT_DEST}"
+
+echo COPY UPDATED REPORT COMPARE ASSETS
+cp -Rvrf "${TEST_REPORT_COMPARE_SOURCES}" "${OUTPUT_DEST}"
+
+# add any files bigger than 100mb to gitlfs
+find ${REPORT_CONTENT}  -size +100000k -exec git lfs track {} \;
+
+git add .
+git commit -a -m "update compare assets <a href='https://github.com/aem-design/aemdesign-aem-support/commit/${TEST_REPORT_COMMENT}'>${TEST_REPORT_COMMENT}</a>"
+git push ${REPORT_REPO} master

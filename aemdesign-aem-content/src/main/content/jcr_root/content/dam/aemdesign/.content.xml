@@ -3,6 +3,7 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="sling:OrderedFolder">
     <jcr:content
+        cq:conf="/conf/aemdesign"
         jcr:mixinTypes="[cq:ReplicationStatus]"
         jcr:primaryType="nt:unstructured"
         jcr:title="AEM.Design">

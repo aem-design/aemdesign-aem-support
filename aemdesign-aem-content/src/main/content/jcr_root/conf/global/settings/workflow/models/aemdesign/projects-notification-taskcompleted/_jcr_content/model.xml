@@ -6,8 +6,7 @@
     sling:resourceType="cq/workflow/components/model"
     description="No Description"
     title="Projects Notification Task Completed">
-    <metaData
-        jcr:primaryType="nt:unstructured"/>
+    <metaData jcr:primaryType="nt:unstructured"/>
     <nodes jcr:primaryType="nt:unstructured">
         <node0
             jcr:primaryType="cq:WorkflowNode"
