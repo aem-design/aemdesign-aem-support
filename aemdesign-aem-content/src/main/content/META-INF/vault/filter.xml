@@ -38,6 +38,8 @@
 
     <filter root="/content/experience-fragments/aemdesign" mode="update"/>
 
+    <filter root="/apps/msm/aemdesign" mode="update"/>
+
 
 
 </workspaceFilter>
