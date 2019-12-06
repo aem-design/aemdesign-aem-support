@@ -109,12 +109,6 @@ jobs:
             aemdesign-aem-training/target/aemdesign-aem-training-$CURRENT_VERSION.zip
             aemdesign-aem-content/target/aemdesign-aem-content-$CURRENT_VERSION.zip
             aemdesign-aem-config/target/aemdesign-aem-config-$CURRENT_VERSION.zip
-
-      - name: trigger build of bundle docker container
-        if: github.ref == 'refs/heads/master'
-        run: |
-          docker run --rm aemdesign/travis-build-trigger sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}
-          docker run --rm aemdesign/travis-build-trigger sbb --github_user=${GITHUB_USER} --github_repo=aem --github_branch=6.4.0-bundle --travis_token=${TRAVIS_TOKEN}
         
       - name: automation test if failure
         run: |
