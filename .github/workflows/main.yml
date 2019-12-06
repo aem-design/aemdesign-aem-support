@@ -95,20 +95,21 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
 
-      - uses: meeDamian/github-release@1.0
+      - name: create github release ${{ env.GITHUB_TAG }}
+        uses: meeDamian/github-release@1.0
         if: github.ref == 'refs/heads/master'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${CURRENT_VERSION}
-          name: ${CURRENT_VERSION}
-          body: $GIT_RELEASE_NOTES
+          tag: ${{ env.GITHUB_TAG }}
+          name: ${{ env.GITHUB_TAG }}
+          body: ${{ env.GIT_RELEASE_NOTES }}
           files: >
-            aemdesign-aem-support-deploy/target/aemdesign-aem-support-deploy-$CURRENT_VERSION.zip
-            aemdesign-aem-compose/target/aemdesign-aem-compose-$CURRENT_VERSION.zip
-            aemdesign-aem-showcase/target/aemdesign-aem-showcase-$CURRENT_VERSION.zip
-            aemdesign-aem-training/target/aemdesign-aem-training-$CURRENT_VERSION.zip
-            aemdesign-aem-content/target/aemdesign-aem-content-$CURRENT_VERSION.zip
-            aemdesign-aem-config/target/aemdesign-aem-config-$CURRENT_VERSION.zip
+            aemdesign-aem-support-deploy/target/aemdesign-aem-support-deploy-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-compose/target/aemdesign-aem-compose-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-showcase/target/aemdesign-aem-showcase-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-training/target/aemdesign-aem-training-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-content/target/aemdesign-aem-content-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-config/target/aemdesign-aem-config-${{ env.GITHUB_TAG }}.zip
         
       - name: automation test if failure
         run: |
