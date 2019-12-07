@@ -35,7 +35,7 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
                     componentId="contentblock2"
-                    title="Default"
+                    title="Button"
                     variant="advsection">
                     <par
                         jcr:primaryType="nt:unstructured"
