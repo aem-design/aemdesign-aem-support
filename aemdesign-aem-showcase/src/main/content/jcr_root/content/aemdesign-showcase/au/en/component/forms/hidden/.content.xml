@@ -25,7 +25,7 @@
                         <hidden
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/forms/hidden"
-                            id="hidden"
+                            id="hidden1"
                             name="hidden1"
                             value="hidden"/>
                     </par>
