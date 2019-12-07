@@ -25,6 +25,7 @@
                         <form
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/forms/form/v1/form"
+                            id="form1"
                             action="/content/usergenerated/aemdesign-showcase/au/en/component/forms/form/cq-gen1575718682458/"
                             actionType="foundation/components/form/actions/store"/>
                     </par>
