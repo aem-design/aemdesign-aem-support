@@ -2,54 +2,64 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:template="/conf/aemdesign/settings/wcm/templates/onecolumn"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
-        cq:template="/conf/aemdesign/settings/wcm/templates/onecolumn"
+        jcr:uuid="ec2cecbc-a5e0-4d20-924f-de9a6ae4c7ba"
         sling:resourceType="aemdesign/components/template/base"
         navRoot="{Boolean}true">
         <header
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemdesign/components/layout/header"
-                cancelInheritParent="true">
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/header"
+            cancelInheritParent="true"
+            componentId="header_SFZGQQ0RT">
             <par
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/layout/container">
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Language Master Header"
-                        variant="simple"/>
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="text_IYJ25IOXM"
+                    text="Language Master Header"
+                    variant="simple"/>
             </par>
         </header>
         <footer
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemdesign/components/layout/footer"
-                cancelInheritParent="true">
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/footer"
+            cancelInheritParent="true"
+            componentId="footer_R5URRUAMR">
             <par
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/layout/container">
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Language Master Footer"
-                        variant="simple"/>
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="text_ITYZ1ML5N"
+                    text="Language Master Footer"
+                    variant="simple"/>
             </par>
         </footer>
         <article
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemdesign/components/layout/article">
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_2MTJPMDJX">
             <par
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/layout/container">
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Language Master Content"
-                        variant="simple"/>
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="text_7JFKQFG1D"
+                    text="Language Master Content"
+                    variant="simple"/>
             </par>
         </article>
     </jcr:content>
-
+    <about/>
+    <contact-us/>
+    <privacy-policy/>
+    <search/>
 </jcr:root>

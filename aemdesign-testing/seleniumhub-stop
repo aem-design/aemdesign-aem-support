@@ -1,14 +1,14 @@
 #!/bin/bash
 
 PARENT_PROJECT_PATH="$(realpath ..)"
-
 SCRIPT_PARAMS="$@"
+SKIP_PRINT_CONFIG=true
 
 source "../scripts/functions.sh"
 
-$DOCKER stop selenium-hub
+${DOCKER} stop selenium-hub
 
-$DOCKER stop selenium-hub-node-chrome
+${DOCKER} stop selenium-hub-node-chrome
 #docker stop selenium-hub-node-firefox
 
-$DOCKER network rm selenium-grid
+${DOCKER} network rm selenium-grid

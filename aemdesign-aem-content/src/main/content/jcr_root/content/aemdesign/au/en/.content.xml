@@ -2,56 +2,100 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:tags="[aemdesign:content-type/page]"
+        cq:lastModified="{Date}2019-12-02T10:18:23.904+11:00"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2019-12-02T10:18:23.905+11:00"
+        cq:lastRolledoutBy="admin"
         cq:template="/conf/aemdesign/settings/wcm/templates/onecolumn"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:language="en"
-        jcr:mixinTypes="[mix:versionable]"
+        jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
+        jcr:uuid="b4c528f7-9553-46ab-881d-48404be379f5"
         sling:resourceType="aemdesign/components/template/base"
-        hideInNav="true"
-        redirectTarget="/content/aemdesign-showcase/en/component">
+        navRoot="{Boolean}true">
         <header
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemdesign/components/layout/header"
-                cancelInheritParent="true">
+            cq:lastRolledout="{Date}2019-12-02T10:18:23.882+11:00"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/header"
+            cancelInheritParent="true"
+            componentId="header_SFZGQQ0RT">
             <par
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/layout/container">
+                cq:lastRolledout="{Date}2019-12-02T10:18:23.884+11:00"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Language Header"
-                        variant="simple"/>
+                    cq:lastRolledout="{Date}2019-12-02T10:18:23.888+11:00"
+                    cq:lastRolledoutBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="text_IYJ25IOXM"
+                    text="Language Master Header"
+                    variant="simple"/>
             </par>
         </header>
         <footer
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemdesign/components/layout/footer"
-                cancelInheritParent="true">
+            cq:lastRolledout="{Date}2019-12-02T10:18:23.891+11:00"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/footer"
+            cancelInheritParent="true"
+            componentId="footer_R5URRUAMR">
             <par
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/layout/container">
+                cq:lastRolledout="{Date}2019-12-02T10:18:23.893+11:00"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Language Footer"
-                        variant="simple"/>
+                    cq:lastRolledout="{Date}2019-12-02T10:18:23.897+11:00"
+                    cq:lastRolledoutBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="text_ITYZ1ML5N"
+                    text="Language Master Footer"
+                    variant="simple"/>
             </par>
         </footer>
         <article
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemdesign/components/layout/article">
+            cq:lastRolledout="{Date}2019-12-02T10:18:23.900+11:00"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_2MTJPMDJX">
             <par
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/layout/container">
+                cq:lastRolledout="{Date}2019-12-02T10:18:23.902+11:00"
+                cq:lastRolledoutBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Language Content"
-                        variant="simple"/>
+                    cq:lastRolledout="{Date}2019-12-02T10:18:23.905+11:00"
+                    cq:lastRolledoutBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="text_7JFKQFG1D"
+                    text="Language Master Content"
+                    variant="simple"/>
             </par>
         </article>
+        <cq:LiveSyncConfig
+            cq:isDeep="{Boolean}true"
+            cq:master="/content/aemdesign/language-masters/en"
+            cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
+            jcr:primaryType="cq:LiveCopy"/>
     </jcr:content>
+    <about/>
+    <contact-us/>
+    <privacy-policy/>
+    <search/>
 </jcr:root>

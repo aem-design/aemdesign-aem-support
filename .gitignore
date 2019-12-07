@@ -63,3 +63,6 @@ aemdesign-testing/local-*
 
 #ignore bash things
 .bash_history
+
+#github actions
+build/

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}false"
+    jcr:primaryType="cq:WorkflowModel"
+    jcr:uuid="4f2d02a9-c7c3-4ace-aeb6-079e23b05fb6"
+    sling:resourceType="cq/workflow/components/model"
+    description="No Description"
+    title="AEM.Design Showcase - Content Fragment Page Creation">
+    <metaData
+        cq:generatingPage="/conf/global/settings/workflow/models/aemdesign/content-fragment-page-creation/jcr:content"
+        cq:lastModified="{Long}1574641634338"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"/>
+    <nodes jcr:primaryType="nt:unstructured">
+        <node0
+            jcr:primaryType="cq:WorkflowNode"
+            title="Start"
+            type="START">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node0>
+        <node1
+            jcr:primaryType="cq:WorkflowNode"
+            description="Generate Pages for Content Fragments"
+            title="Content Fragment Page Generation"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                outputLocation="/content/aemdesign-showcase/au/en/content/content-fragment-pages"
+                PROCESS="design.aem.workflow.process.ContentFragmentPageGenerator"
+                PROCESS_AUTO_ADVANCE="true"
+                templatePage="/conf/aemdesign/settings/wcm/templates/onecolumn"
+                throttle="true"/>
+        </node1>
+        <node2
+            jcr:primaryType="cq:WorkflowNode"
+            title="End"
+            type="END">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node2>
+    </nodes>
+    <transitions jcr:primaryType="nt:unstructured">
+        <node0_x0023_node1
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node0"
+            rule=""
+            to="node1">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node0_x0023_node1>
+        <node1_x0023_node2
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node1"
+            to="node2">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node1_x0023_node2>
+    </transitions>
+</jcr:root>

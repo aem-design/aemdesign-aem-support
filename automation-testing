@@ -1,0 +1,99 @@
+#!/bin/bash
+
+PARENT_PROJECT_PATH="$(pwd)"
+SCRIPT_PARAMS="$@"
+SKIP_PRINT_CONFIG=true
+
+source "./scripts/functions.sh"
+
+
+# check if aem license is set
+if [[ ${AEM_NAME} == "" || ${AEM_KEY} == "" ]]; then
+    echo PLEASE SET AEM_KEY AND AEM_NAME VARIABLES
+    exit 1
+fi
+
+# check if ansible is installed
+if [[ $(which ansible-galaxy) == "" || $(which ansible-playbook) == "" ]]; then
+    echo PLEASE INSTALL ANSIBLE
+    exit 1
+fi
+
+# get local net address
+NETWORK_INTERFACE=$(route -n get 0.0.0.0 2>/dev/null | awk '/interface: / {print $2}')
+LOCAL_IP=$(ifconfig $NETWORK_INTERFACE | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -1)
+
+# set ports
+AEM_PORT=5502
+SELENIUMHUB_PORT=9944
+
+#echo PACKAGE PROJECT
+#mvn clean package -DskipTests=true
+
+# get ansible roles
+echo RUNNING TESTS
+pip3 install ansible
+echo INSTALLING ANSIBLE GALAXY REQUIREMENTS
+ansible-galaxy install -r requirements.yml --force
+echo PREPARE INFRASTRUCTURE
+
+# get current deploy package path
+PACKAGE_FILE="$(pwd)/$(ls -b aemdesign-aem-support-deploy/target/*.zip | sed -n '$p')"
+PACKAGE_FILENAME=$(basename ${PACKAGE_FILE})
+
+echo UPLOAD FILE: ${PACKAGE_FILE}
+echo UPLOAD FILENAME: ${PACKAGE_FILENAME}
+echo AEM_PORT: ${AEM_PORT}
+echo SELENIUMHUB_PORT: ${SELENIUMHUB_PORT}
+echo LOCAL_IP: ${LOCAL_IP}
+
+# setup services for testing
+ansible-playbook --connection=local  automation-testing.yml --extra-vars "package_file=$PACKAGE_FILE package_filename=$PACKAGE_FILENAME service_selenium_grid_port=${SELENIUMHUB_PORT} service_aem_access_port=${AEM_PORT}"
+echo RUN TESTS
+
+echo CURRENT DIR: $(pwd)
+echo ls -l
+
+# check if aem and selenum is read
+AEM_AVAILABLE=$(testServer http://${LOCAL_IP}:${AEM_PORT})
+HUB_AVAILABLE=$(testServer http://${LOCAL_IP}:${SELENIUMHUB_PORT})
+
+if [[ "${AEM_AVAILABLE}" == "false" || "${HUB_AVAILABLE}" == "false" ]]; then
+    echo PLEASE ENSURE AEM AND SELENIIUM HUB IS AVAILABLE
+    exit 1
+fi
+
+# run tests
+cd aemdesign-testing
+./test-spec --login --host $LOCAL_IP --port ${AEM_PORT} --url http://$LOCAL_IP:${SELENIUMHUB_PORT}/wd/hub GenericDetailsA*
+
+if [[ ! -d "remote-seleniumhub-chrome/generated-docs/html" ]]; then
+    echo TEST DID NOT OUTPUT ANY RESULTS
+    exit 1
+fi
+
+export TEST_REPORT_OUTPUT="$(pwd)/remote-seleniumhub-chrome/generated-docs"
+echo ::set-env name=TEST_REPORT_OUTPUT::${TEST_REPORT_OUTPUT}
+echo REPORT PATH=$TEST_REPORT_OUTPUT
+
+export TEST_REPORT_COMPARE_SOURCES="$(pwd)/src/test/screenshots"
+echo ::set-env name=TEST_REPORT_COMPARE_SOURCES::${TEST_REPORT_COMPARE_SOURCES}
+echo REPORT COMPARE SOURCES PATH=$TEST_REPORT_COMPARE_SOURCES
+
+echo BUILD DIR FOR PUBLISH RESULTS
+export PATH_GHPAGES="./build/ghpages"
+echo PATH_GHPAGES=${PATH_GHPAGES}
+
+echo CREATE TEMP FOLDER
+mkdir -p ${PATH_GHPAGES}
+
+# create temp folder for output repo
+echo CLONE OUTPUT REPO
+cd ${PATH_GHPAGES}
+
+export TEST_REPORT_GHPAGES_PATH="$(pwd)"
+echo ::set-env name=TEST_REPORT_GHPAGES_PATH::${TEST_REPORT_GHPAGES_PATH}
+echo OUTPUT REPO=$TEST_REPORT_GHPAGES_PATH
+
+export TEST_REPORT_COMMENT="$(git rev-parse HEAD)"
+echo ::set-env name=TEST_REPORT_COMMENT::${TEST_REPORT_COMMENT}

@@ -31,11 +31,14 @@
     <filter root="/conf/global/settings/workflow/models/aemdesign" mode="update"/>
     <filter root="/conf/global/settings/workflow/notification/aemdesign" mode="update"/>
     <filter root="/conf/global/settings/workflow/launcher/config/aemdesign" mode="update"/>
+    <filter root="/var/workflow/models/aemdesign" mode="update"/>
 
     <filter root="/conf/aemdesign/settings/wcm" mode="update"/>
     <filter root="/conf/aemdesign/settings/dam" mode="update"/>
 
     <filter root="/content/experience-fragments/aemdesign" mode="update"/>
+
+    <filter root="/apps/msm/aemdesign" mode="update"/>
 
 
 

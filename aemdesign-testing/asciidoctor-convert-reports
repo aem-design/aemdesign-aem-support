@@ -18,8 +18,6 @@ EXTENSION_PDF=".pdf"
 EXTENSION_HTML=".html"
 FRONT_COVER="src/asciidoc/aem.png"
 DOCINFODIR="src/asciidoc"
-LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
-LOCAL_BUNDLE="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundle)"
 
 function toUpperCase() {
     local STRING=$@
@@ -117,29 +115,44 @@ function printConfig() {
 }
 
 function installDependencies() {
-
-    local LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
-    if [[ -z $LOCAL_GEM_USER_PATH ]]; then
-        local GEM_INSTALL=$(gem install bundler --user-install)
-    fi
-
-    LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
-    LOCAL_BUNDLER="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundler)"
-
-    local STATUS_CHECK="$($LOCAL_BUNDLER check  --path vendor/bundle)"
-    debug "CHECK RUBY: $STATUS_CHECK"
-
-    if [[ ! "$STATUS_CHECK" == *"dependencies are satisfied"* ]]; then
-        debug "BUNDLER: Installing"
-        local BUNDLER_STATUS=$($LOCAL_BUNDLER install --path vendor/bundle)
-        if [[ "$BUNDLER_STATUS" == *"Bundle complete!"* ]]; then
-            debug "BUNDLER: OK"
-        else
-            echo $BUNDLER_STATUS
-        fi
-    else
-        debug "RUBY: OK"
-    fi
+#    rvm use ruby-2.6.3
+    export HOME="."
+    export PATH=$PATH:/usr/local/rvm/bin
+    source /usr/local/rvm/src/rvm/scripts/rvm
+    rvm reload
+    INSTALLED_RUBY=$(rvm list rubies strings)
+    rvm use ${INSTALLED_RUBY}
+#    bundle update --bundler --local
+    echo "bundle install --path vendor/bundle"
+    bundle install --path vendor/bundle
+#    rvm install ruby-2.6.3
+#    rvm use ruby-2.6.3
+#
+#    local LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
+#    if [[ -z $LOCAL_GEM_USER_PATH ]]; then
+#        local GEM_INSTALL=$(gem install bundler --user-install)
+#    fi
+#
+#    LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
+#    LOCAL_BUNDLER=$(which bundler)
+#    if [[ -z "$LOCAL_BUNDLER" ]]; then
+#        LOCAL_BUNDLER="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundler)"
+#    fi
+#
+#    local STATUS_CHECK="$($LOCAL_BUNDLER check --path vendor/bundle)"
+#    debug "CHECK RUBY: $STATUS_CHECK"
+#
+#    if [[ ! "$STATUS_CHECK" == *"dependencies are satisfied"* ]]; then
+#        debug "BUNDLER: Installing"
+#        local BUNDLER_STATUS=$($LOCAL_BUNDLER install --path vendor/bundle)
+#        if [[ "$BUNDLER_STATUS" == *"Bundle complete!"* ]]; then
+#            debug "BUNDLER: OK"
+#        else
+#            echo $BUNDLER_STATUS
+#        fi
+#    else
+#        debug "RUBY: OK"
+#    fi
 
 }
 
@@ -196,6 +209,8 @@ function convertToHTML() {
         -a docinfodir=$DOCINFODIR \
         -a toc=left \
         -a icons=font \
+        -a data-uri \
+        -a allow-uri-read \
         -b html \
         -o $FILE_OUTPUT \
         $FILE_INPUT"
@@ -215,10 +230,17 @@ function convertToHTML() {
 
 function main() {
 
-    checkPermissions "drivers"
-    checkPermissions "$ROOT"
+#    checkPermissions "drivers"
+#    checkPermissions "$ROOT"
 
     installDependencies
+
+    LOCAL_GEM_USER_PATH=$(ruby -e 'puts Gem.user_dir')
+    LOCAL_BUNDLE="$(which bundle)"
+    if [[ -z "$LOCAL_BUNDLE" ]]; then
+        LOCAL_BUNDLE="$(find $LOCAL_GEM_USER_PATH/gems/*/exe/* -name bundle)"
+    fi
+
 
     printConfig
 

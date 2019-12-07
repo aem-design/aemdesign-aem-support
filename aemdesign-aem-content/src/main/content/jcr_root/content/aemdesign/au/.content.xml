@@ -9,6 +9,7 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
+        jcr:uuid="cc438e78-8f5c-4548-b3e8-bf88582ca0de"
         sling:resourceType="aemdesign/components/template/base"
         hideInNav="true"
         redirectTarget="/content/aemdesign-showcase/en/component">
@@ -20,10 +21,10 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Country Header"
-                        variant="simple"/>
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    text="Country Header"
+                    variant="simple"/>
             </par>
         </header>
         <footer
@@ -34,10 +35,10 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Country Footer"
-                        variant="simple"/>
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    text="Country Footer"
+                    variant="simple"/>
             </par>
         </footer>
         <article
@@ -47,11 +48,12 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
                 <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/content/text"
-                        text="Country Content"
-                        variant="simple"/>
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    text="Country Content"
+                    variant="simple"/>
             </par>
         </article>
     </jcr:content>
+    <en/>
 </jcr:root>

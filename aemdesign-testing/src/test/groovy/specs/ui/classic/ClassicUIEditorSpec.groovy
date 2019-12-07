@@ -29,7 +29,7 @@ class ClassicUIEditorSpec extends ComponentSpec {
         println(page.title)
         println(page.properties)
         println("Read Editables")
-        println(page.Editor.Editables("['/content/aemdesign-showcase/ae/en/jcr:content/article'].dialog"))
+        println(page.Editor.Editables("['/content/aemdesign-showcase/au/en/jcr:content/article'].dialog"))
         println("End of Test")
 
     }

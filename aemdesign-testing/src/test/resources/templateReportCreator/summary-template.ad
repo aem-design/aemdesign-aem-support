@@ -2,6 +2,7 @@
 // toc-title definition MUST follow document title without blank line!
 :toc-title: Table of Contents
 :sectnums:
+:data-uri:
 
 // numbering from here on
 :numbered:

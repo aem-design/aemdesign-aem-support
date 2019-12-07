@@ -900,6 +900,29 @@
                         </pagelist>
                     </par>
                 </contentblock38>
+                <contentblock39
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock39"
+                    title="Badge: Card with Title, Description and Action with override for Card Style and Link Style"
+                    variant="componentConfig">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagelist
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/pagelist"
+                            badgeLinkStyle="[aemdesign-showcase:component-style-modifier/button/normal/link,aemdesign-showcase:component-style-modifier/button/primary-red]"
+                            badgeLinkText="[READ MORE]"
+                            cardStyle="[aemdesign-showcase:component-style-modifier/card/promoted,aemdesign-showcase:component-style-modifier/background/bg-c3]"
+                            componentId="pagelist39"
+                            detailsBadge="cardTitleDescriptionAction"
+                            limit="3"
+                            listFrom="children"
+                            listType="list"
+                            parentPage="/content/aemdesign-showcase/au/en/component/lists/page-list/cards"/>
+                    </par>
+                </contentblock39>
             </par>
         </article>
     </jcr:content>

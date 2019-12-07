@@ -1,27 +1,47 @@
 language: java
+services: docker
 sudo: false
 cache:
   directories:
     - '$HOME/.m2/repository'
+    - .git/lfs
 
 git:
   depth: false
+  lfs_skip_smudge: true
 
-## export GPG details
 before_install:
+  - echo PULL GIT LFS TO CACHE
+  - git lfs pull
+  - echo SWTICH TO PYTHON3
+  - pyenv install 3.6.3
+  - pyenv global 3.6.3
+  - pip3 install virtualenv virtualenvwrapper workon
+  - echo SETUP VIRTUALENV
+  - export WORKON_HOME=$HOME/.virtualenvs
+  - export PROJECT_HOME=$HOME/Devel
+  - export VIRTUALENVWRAPPER_PYTHON=/opt/pyenv/shims/python3
+  - export VIRTUALENVWRAPPER_VIRTUALENV=/opt/pyenv/shims/virtualenv
+  - source /opt/pyenv/shims/virtualenvwrapper.sh
+  - echo EXPORT GPG DETAILS
   - echo TRAVIS_BRANCH=$TRAVIS_BRANCH
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+
+# Package all of the content
+install:
   - mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -q && echo "CLEAN DONE"
   - mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules && echo "PACKAGE AND LOCAL INSTALL DONE"
   - find . -type d -name target | xargs -n 1 -t  sh -c 'ls -latr $0'
   - if [[ $TRAVIS_BRANCH == "master" && $SONAR_ENABLED == "true" ]]; then mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${TRAVIS_BRANCH}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}" && echo "SONAR ON ${TRAVIS_BRANCH} DONE"; fi
   - if [[ $TRAVIS_BRANCH != "master" && $SONAR_ENABLED == "true" ]]; then mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${TRAVIS_BRANCH}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}" && echo "SONAR ON ${TRAVIS_BRANCH} DONE"; fi
+  - export GIT_RELEASE_NOTES="$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h - %s (%an)")"
   - echo "READY"
   - declare -a REPO_SLUG_ARRAY="(${TRAVIS_REPO_SLUG/\// })"
 
-install:
-  - echo "INSTALL DONE"
+# Deploy and Test packages in AEM
+before_script:
+  - ./automation-testing
 
 ## Build and release to maven central
 script:
@@ -46,18 +66,30 @@ deploy:
       - aemdesign-aem-content/target/aemdesign-aem-content-$CURRENT_VERSION.zip
       - aemdesign-aem-config/target/aemdesign-aem-config-$CURRENT_VERSION.zip
     skip_cleanup: true
+    tag_name: $CURRENT_VERSION
+    name: $CURRENT_VERSION
+    target_commitish: $TRAVIS_COMMIT
+    body: $GIT_RELEASE_NOTES
     on:
       branch: master
-    name: $CURRENT_VERSION
   - provider: script
     script: if [[ $TRAVIS_BRANCH == "master" ]]; then bash docker run --rm aemdesign/travis-trigger-build sbb --github_user=${REPO_SLUG_ARRAY[0]} --github_repo=aem --github_branch=6.5.0-bundle --travis_token=${TRAVIS_TOKEN}; fi
   - provider: script
     script: if [[ $TRAVIS_BRANCH == "master" ]]; then bash docker run --rm aemdesign/travis-trigger-build sbb --github_user=${REPO_SLUG_ARRAY[0]} --github_repo=aem --github_branch=6.4.0-bundle --travis_token=${TRAVIS_TOKEN}; fi
+  - provider: pages
+    local_dir: aemdesign-testing/remote-seleniumhub-chrome
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep_history: true
+    on:
+      branch: master
 
 #notifications:
 #  email: false
 #  slack:
 #    secure: $SLACK_TOKEN
+
+
 
 after_failure:
   - find . -type d -name target | xargs -n 1 -t  sh -c 'ls -latr $0'

@@ -1,5 +1,6 @@
 function navigateToPage(category: 'components' | 'guidelines', name: string, done: MochaDone) {
-  const url = `/content/aemdesign-showcase/au/en/styleguide/${category}/${name}.html?wcmmode=disabled`
+  let PACKAGE_CONTENTFOLDER = Cypress.env("PACKAGE_CONTENTFOLDER")
+  const url = `/content/${PACKAGE_CONTENTFOLDER}-showcase/au/en/styleguide/${category}/${name}.html?wcmmode=disabled`
 
   cy.log('Navigating to', url)
   cy.visit(url)
@@ -12,8 +13,11 @@ function navigateToPage(category: 'components' | 'guidelines', name: string, don
 
 Cypress.Commands.add('authenticate', (done: MochaDone) => {
   // TODO: Load the username/password dynamically
-  cy.get('#username').type('admin')
-  cy.get('#password').type('admin')
+  let USERNAME = Cypress.env("CRX_USERNAME")
+  let PASSWORD = Cypress.env("CRX_PASSWORD")
+
+  cy.get('#username').type(USERNAME)
+  cy.get('#password').type(PASSWORD)
 
   cy.get('#login').submit()
 

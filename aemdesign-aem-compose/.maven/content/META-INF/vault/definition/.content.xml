@@ -19,6 +19,5 @@
     <thumbnail.psd/>
     <screenshots jcr:primaryType="nt:unstructured">
         <screenshot1 jcr:primaryType="nt:unstructured"/>
-        <screenshot2 jcr:primaryType="nt:unstructured"/>
     </screenshots>
 </jcr:root>

@@ -4,13 +4,14 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:allowedTemplates="[/conf/aemdesign/settings/wcm/templates/.*]"
-        cq:deviceGroups="[mobile/groups/responsive]"
         cq:designPath="/apps/settings/wcm/designs/aemdesign"
+        cq:deviceGroups="[mobile/groups/responsive]"
         cq:template="/conf/aemdesign/settings/wcm/templates/twocolumn"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="AEM.Design"
+        jcr:uuid="61664baf-69dd-4bf4-84a1-39c2543710a0"
         sling:resourceType="aemdesign/components/template/base"
         redirectTarget="/content/aemdesign-showcase/en">
         <article
@@ -25,4 +26,6 @@
             </par>
         </article>
     </jcr:content>
+    <language-masters/>
+    <au/>
 </jcr:root>

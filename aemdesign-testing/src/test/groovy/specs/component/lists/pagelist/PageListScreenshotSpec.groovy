@@ -1,5 +1,6 @@
 package specs.component.lists.pagelist
 
+import spock.lang.IgnoreRest
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -277,8 +278,8 @@ class PageListScreenshotSpec extends ComponentSpec {
 
     }
 
-    @Unroll("Appearance of Component as Promoted Cards in #viewport.label")
-    def "Appearance of Component as Promoted Cards"() {
+    @Unroll("Appearance of Component as Card with Title, Description and Action with override on Badge CTA in #viewport.label")
+    def "Appearance of Component as Card with Title, Description and Action with override on Badge CTA"() {
 
         given: '>I am in the component showcase page'
         and: '>the component is on the showcase page'
@@ -506,5 +507,29 @@ class PageListScreenshotSpec extends ComponentSpec {
 
 
     }
+
+    @Unroll("Appearance of Component as Card with Title, Description and Action with override for Card Style and Link Style in #viewport.label")
+    def "Appearance of Component as Card with Title, Description and Action with override for Card Style and Link Style"() {
+
+        given: '>I am in the component showcase page'
+        and: '>the component is on the showcase page'
+        def selector = "#pagelist39"
+
+        when: 'I am in the component showcase page'
+        setWindowSize(viewport)
+        waitForAuthorPreviewPage()
+
+        then: 'The component should appear on the page'
+        def component = waitForComponent(selector)
+
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
+        designRef(selector)
+
+        where: "Browser size width: #viewport.width and height: #viewport.height"
+        viewport << getViewPorts()
+
+
+    }
+
 
 }

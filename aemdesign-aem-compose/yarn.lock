@@ -1230,10 +1230,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@fortawesome/fontawesome-pro@5.10.2":
-  version "5.10.2"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/fontawesome-pro-5.10.2.tgz#03092f3759af9aa7c1b4ef064e18ce35b4f6f9d6"
-  integrity sha512-cWDAbjzIqdEQAbQW/RK5bn1qDUs6pnz2TkJPvR+cTjZHnHlFOX+Zu1iUOEKab+HY38qyZyeA+1C675N+ee/rgg==
+"@fortawesome/fontawesome-free@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
+  integrity sha512-XiUPoS79r1G7PcpnNtq85TJ7inJWe0v+b5oZJZKb0pGHNIV6+UiNeQWiFGmuQ0aj7GEhnD/v9iqxIsjuRKtEnQ==
 
 "@hapi/address@2.x.x":
   version "2.0.0"
@@ -3999,6 +3999,11 @@ check-types@^7.3.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-7.4.0.tgz#0378ec1b9616ec71f774931a3c6516fad8c152f4"
   integrity sha512-YbulWHdfP99UfZ73NcUDlNJhEIDgm9Doq9GhpyXbF+7Aegi3CVV7qqMCKTTqJxlvEvnQBp9IA+dxsGN6xK/nSg==
+
+child_process@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/child_process/-/child_process-1.0.2.tgz#b1f7e7fc73d25e7fd1d455adc94e143830182b5a"
+  integrity sha1-sffn/HPSXn/R1FWtyU4UODAYK1o=
 
 "chokidar@>=2.0.0 <4.0.0":
   version "3.0.1"

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="c03aa53f-aea3-47e6-afc8-88e4034902aa">
+    <jcr:content
+        cq:name="all-field-types"
+        cq:parentPath="/content/dam/aemdesign-showcase/en/content-fragments"
+        jcr:description="Content Fragment Description"
+        jcr:lastModified="{Date}2019-11-14T16:17:18.559+11:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="All Field Types"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2019-11-14T16:17:18.559+11:00">
+        <data
+            cq:model="/conf/aemdesign-showcase/settings/dam/cfm/models/all-field-types"
+            jcr:primaryType="nt:unstructured">
+            <master
+                cq:tags="[aemdesign-showcase:content-type/content-fragment]"
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                boolean="{Boolean}true"
+                boolean_x0040_LastModified="{Date}2019-11-14T16:17:18.525+11:00"
+                contentreference="/content/cq:tags/aemdesign-showcase/content-type/content-fragment"
+                contentreference_x0040_LastModified="{Date}2019-11-14T16:17:18.528+11:00"
+                contentreferencemulti="[/content/cq:tags/aemdesign-showcase/content-type/content-fragment,/content/cq:tags/aemdesign-showcase/content-type/content-fragment]"
+                contentreferencemulti_x0040_LastModified="{Date}2019-11-14T16:17:18.529+11:00"
+                datetime="{Date}2019-11-14T16:15:00.000+11:00"
+                datetime_x0040_LastModified="{Date}2019-11-14T16:17:18.526+11:00"
+                enumeration="value1"
+                enumeration_x0040_LastModified="{Date}2019-11-14T16:17:18.526+11:00"
+                multilinemarkdown="**Multiline Markdown**"
+                multilinemarkdown_x0040_ContentType="text/x-markdown"
+                multilinemarkdown_x0040_LastModified="{Date}2019-11-14T16:17:18.359+11:00"
+                multilineplaintext="&lt;b>Multiline Plain Text&lt;/b>"
+                multilineplaintext_x0040_ContentType="text/plain"
+                multilineplaintext_x0040_LastModified="{Date}2019-11-14T16:17:18.360+11:00"
+                multilinerichtext="&lt;p>&lt;b>Multiline Rich Text&lt;/b>&lt;/p>&#xa;"
+                multilinerichtext_x0040_ContentType="text/html"
+                multilinerichtext_x0040_LastModified="{Date}2019-11-14T16:17:18.358+11:00"
+                number="{Double}-14.0"
+                number_x0040_LastModified="{Date}2019-11-14T16:17:18.361+11:00"
+                numbermulti="{Double}[14.0,-14.0]"
+                numbermulti_x0040_LastModified="{Date}2019-11-14T16:17:18.517+11:00"
+                tags="[aemdesign-showcase:content-type/content-fragment]"
+                tags_x0040_LastModified="{Date}2019-11-14T16:17:18.527+11:00"
+                text="Single Line Text"
+                text_x0040_LastModified="{Date}2019-11-14T16:17:18.356+11:00"
+                textmulti="[Single Line Text Multi,Single Line Text Multi]"
+                textmulti_x0040_LastModified="{Date}2019-11-14T16:17:18.357+11:00"/>
+        </data>
+        <metadata
+            cq:tags="[aemdesign-showcase:content-type/content-fragment]"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
