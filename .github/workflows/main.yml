@@ -103,6 +103,7 @@ jobs:
           tag: ${{ env.GITHUB_TAG }}
           name: ${{ env.GITHUB_TAG }}
           body: ${{ env.GIT_RELEASE_NOTES }}
+          gzip: false
           files: >
             aemdesign-aem-support-deploy/target/aemdesign-aem-support-deploy-${{ env.GITHUB_TAG }}.zip
             aemdesign-aem-compose/target/aemdesign-aem-compose-${{ env.GITHUB_TAG }}.zip
