@@ -10,4 +10,5 @@
 
     <filter root="/conf/aemdesign-showcase"/>
     <filter root="/content/experience-fragments/aemdesign-showcase" mode="update"/>
+    <filter root="/content/usergenerated/content/aemdesign-showcase/au/en/content/forms" mode="update"/>
 </workspaceFilter>
