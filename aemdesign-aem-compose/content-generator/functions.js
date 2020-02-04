@@ -19,6 +19,8 @@ const isDebug = process.argv.find(function(value) { return value === "--debug"})
 const {
   each,
   escape,
+  isArray,
+  isString,
   size,
 } = require('lodash')
 
@@ -147,7 +149,7 @@ function escapeXml(unsafe) {
 
 function titleCase(str) {
   try {
-    return str.toLowerCase().split(' ').map(word => (
+    return str.toLowerCase().replace('-', ' ').split(' ').map(word => (
       word.replace(word[0], word[0].toUpperCase())
     )).join(' ')
   } catch (ex) {
@@ -193,40 +195,77 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     }
   } else {
     if (contentData.content !== undefined) {
-      const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
+        const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
 
-      for (const field of Object.keys(contentData.content)) {
-        folderName = field
-        templatePatch = templatePatch.replace('%%node%%', field)
+        //check if json being specified as contents
+        if (contentData.json) {
+            const content = contentData.content
 
-        const fieldValues = contentData.content[field]
-        let fieldAttributes = ""
+            templatePatch = templatePatch.replace('%%title%%', titleCase(contentData.jsonKey))
+            templatePatch = templatePatch.replace('%%value%%', contentData.jsonKey)
+            //remove attributes field is exist in template
+            templatePatch = templatePatch.replace('%%attributes%%', "")
 
-        //for all fields apart from json flag
-        for (const fieldName of Object.keys(fieldValues).filter(x => x !== 'json')) {
-          const value = fieldValues[fieldName]
-          //check if the field is explicitly mentioned in template
-          if (templatePatch.indexOf('%%' + fieldName + '%%')>-1) {
-            //replace field value
-            templatePatch = templatePatch.replace(
-                '%%' + fieldName + '%%',
-                fieldValues.json === true && fieldName === 'value' ? Buffer.from(JSON.stringify(value)).toString('base64') : value
-            )
-          } else if (templateHasAttributes) {
-            //if not array add to attributes collection
-            if (!Array.isArray(value)) {
-              fieldAttributes += fieldName + '="' + value + '" '
+            if (isArray(content) || isString(content)) {
+                let localPatch = template
+
+                localPatch = localPatch.replace('%%title%%', titleCase(contentData.key))
+                localPatch = localPatch.replace('%%value%%', Buffer.from(JSON.stringify(content || [])).toString('base64'))
+                //remove attributes field is exist in template
+                localPatch = localPatch.replace('%%attributes%%', "")
+
+                writeTemplate(`${rootPath}/${category}/${path}/${contentData.key}`, categoryTemplateDefault, localPatch)
             } else {
-              //if array join and add as array string
-              fieldAttributes += fieldName + '="[' + Object.values(value).join(",") + ']" '
+                each(content, (field, key) => {
+                    let localPatch = template
+
+                    localPatch = localPatch.replace('%%title%%', field.title)
+                    localPatch = localPatch.replace('%%value%%', Buffer.from(JSON.stringify(field || [])).toString('base64'))
+                    //remove attributes field is exist in template
+                    localPatch = localPatch.replace('%%attributes%%', "")
+
+                    writeTemplate(`${rootPath}/${category}/${path}/${contentData.key}/${key}`, categoryTemplateDefault, localPatch)
+                })
+            }
+
+        } else {
+
+          for (const field of Object.keys(contentData.content)) {
+            folderName = field
+            templatePatch = templatePatch.replace('%%node%%', field)
+
+            const fieldValues = contentData.content[field]
+            let fieldAttributes = ""
+
+            //for all fields apart from json flag
+            for (const fieldName of Object.keys(fieldValues).filter(x => x !== 'json')) {
+              const value = fieldValues[fieldName]
+              //check if the field is explicitly mentioned in template
+              if (templatePatch.indexOf('%%' + fieldName + '%%')>-1) {
+                //replace field value
+                templatePatch = templatePatch.replace(
+                    '%%' + fieldName + '%%',
+                    fieldValues.json === true && fieldName === 'value' ? Buffer.from(JSON.stringify(value)).toString('base64') : value
+                )
+              } else if (templateHasAttributes) {
+                //if not array add to attributes collection
+                if (!Array.isArray(value)) {
+                  fieldAttributes += fieldName + '="' + value + '" '
+                } else {
+                  //if array join and add as array string
+                  fieldAttributes += fieldName + '="[' + Object.values(value).join(",") + ']" '
+                }
+              }
+            }
+            //replace attributes placeholder with collected fields
+            if (templateHasAttributes) {
+              templatePatch = templatePatch.replace('%%attributes%%', fieldAttributes)
             }
           }
+
         }
-        //replace attributes placeholder with collected fields
-        if (templateHasAttributes) {
-          templatePatch = templatePatch.replace('%%attributes%%', fieldAttributes)
-        }
-      }
+
+
     } else {
       logToConsole('Nothing to do with:', path)
       return

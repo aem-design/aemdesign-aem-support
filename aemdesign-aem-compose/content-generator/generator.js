@@ -111,18 +111,18 @@ try {
         }
 
         if (contents !== undefined) {
-
-          contents.forEach(content => {
-
-            debug({"PROCESSING DIRECT CONTENT": content})
-
-            categories[category][subcategory].content.push({
-              content  : content,
-              template : data.template || '',
-              type     : 'content',
-            })
+          each(contents, (content, key) => {
+            if (key !== 'json' && key !== 'jsonKey') {
+              categories[category][subcategory].content.push({
+                content,
+                key,
+                json     : contents.json,
+                jsonKey  : contents.jsonKey || '',
+                template : data.template || '',
+                type     : 'content',
+              })
+            }
           })
-          continue;
         }
 
         if (prefixes !== undefined) {
