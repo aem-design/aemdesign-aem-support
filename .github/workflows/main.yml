@@ -80,7 +80,7 @@ jobs:
 
       - name: install dependencies
         run: |
-          sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
+          sudo apt-get install -f ansible libcurl4-openssl-dev libssl-dev socat default-jdk
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: automation test
