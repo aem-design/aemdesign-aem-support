@@ -84,13 +84,18 @@ jobs:
           sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: automation test
+        id: automation_test
         run: ./automation-testing
 
       - name: automation test release reports
         if: github.ref == 'refs/heads/master'
         run: ./automation-testing-release
-
+        env:
+          TEST_REPORT_OUTPUT: ${{ steps.automation_test.outputs.TEST_REPORT_OUTPUT }}
+          TEST_REPORT_COMPARE_SOURCES: ${{ steps.automation_test.outputs.TEST_REPORT_COMPARE_SOURCES }}
+          TEST_REPORT_GHPAGES_PATH: ${{ steps.automation_test.outputs.TEST_REPORT_GHPAGES_PATH }}
 
       - name: deploy to maven cental
         if: github.ref == 'refs/heads/master'
