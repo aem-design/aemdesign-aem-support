@@ -432,4 +432,46 @@ class PageListPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
+
+    @Unroll("Badge: Card with Title, Description and Action with override for Card Style and Link Style in #viewport.label")
+    def "Badge: Card with Title, Description and Action with override for Card Style and Link Style"() {
+
+        given: '>the page hierarchy is created as "Components" > "Lists" > "Page List"'
+        and: '>I am in the component showcase page'
+        and: '>the component is on the showcase page'
+        def selector = "#pagelist39"
+
+        when: "I am on the component showcase page"
+        setWindowSize(viewport)
+        waitForAuthorPreviewPage()
+
+        then: "The component should be on the page"
+        def component = waitForComponent(selector)
+        takeScreenshot($(selector).firstElement(), "The component should be on the page")
+
+        and: "List Component Does not have attribute data-layer-label"
+        assert $("${selector}").getAttribute("data-layer-label").size() == 0
+
+        and: "List Has three items"
+        assert $("${selector} li").size() == 3
+
+        and: "First Items - Has image"
+        assert $("${selector} > div > ul > li.first > div > div.card-img-top > img").attr("alt") == "Page1"
+
+        and: "First Items - Has title"
+        assert $("${selector} > div > ul > li.first > div > div.card-body > h3").text() == "Page1"
+
+        and: "First Items - Has description"
+        assert $("${selector} > div > ul > li.first > div > div.card-body > div.card-text").text() == "Page with Licensed Page Image, with non-Licensed Secondary Image and with Background non-Licensed Image"
+
+        and: "First Items - Has call to action with overridden text"
+        assert $("${selector} > div > ul > li.first > div > div.card-body > div > a").text().toUpperCase() == "READ MORE"
+
+        and: "First Items - Has call to action with custom css"
+        assert $("${selector} > div > ul > li.first > div > div.card-body > div > a").getAttribute("class").contains("btn-primary-red")
+
+        where: "Browser size width: #viewport.width and height: #viewport.height"
+        viewport << getViewPorts()
+    }
+
 }

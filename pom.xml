@@ -7,12 +7,12 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.91</version>
+    <version>2.0.292</version>
     <packaging>pom</packaging>
 
     <name>AEM Design - Support Project</name>
     <description>Parent project for supporting content and testing of AEM.Design patterns</description>
-	<url>http://aem.design</url>
+    <url>http://aem.design</url>
 
     <!-- ====================================================================== -->
     <!-- P R O P E R T I E S                                                    -->
@@ -55,8 +55,8 @@
         <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
         <exclude.content></exclude.content>
         <aem.uberjar.version>6.4.0</aem.uberjar.version>
-		<gitClosestTagName>${git.closest.tag.name}</gitClosestTagName>
-		<gitClosestTagCommitCount>${git.closest.tag.commit.count}</gitClosestTagCommitCount>
+        <gitClosestTagName>${git.closest.tag.name}</gitClosestTagName>
+        <gitClosestTagCommitCount>${git.closest.tag.commit.count}</gitClosestTagCommitCount>
         <test.dispatcher>false</test.dispatcher>
     </properties>
 
@@ -302,7 +302,7 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.5</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -337,28 +337,28 @@
             </plugin>
 
 
-			<plugin>
-				<groupId>org.codehaus.gmaven</groupId>
-				<artifactId>groovy-maven-plugin</artifactId>
-				<version>2.0</version>
-				<executions>
-					<execution>
-						<id>update-finalname</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>execute</goal>
-						</goals>
-						<configuration>
-							<source>
-								project.build.finalName="${project.artifactId}-${gitClosestTagName}.${gitClosestTagCommitCount}";
-								project.properties['gitClosestTagName']="${git.closest.tag.name}";
-								project.properties['gitClosestTagCommitCount']="${git.closest.tag.commit.count}";
-								println("project.build.finalName=${project.build.finalName}");
-							</source>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>groovy-maven-plugin</artifactId>
+                <version>2.0</version>
+                <executions>
+                    <execution>
+                        <id>update-finalname</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <source>
+                                project.build.finalName="${project.artifactId}-${gitClosestTagName}.${gitClosestTagCommitCount}";
+                                project.properties['gitClosestTagName']="${git.closest.tag.name}";
+                                project.properties['gitClosestTagCommitCount']="${git.closest.tag.commit.count}";
+                                println("project.build.finalName=${project.build.finalName}");
+                            </source>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <!-- update versions for all submodules -->
             <plugin>
@@ -671,7 +671,17 @@
     <profiles>
 
         <profile>
+            <id>testing</id>
+            <modules>
+                <module>aemdesign-testing</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>all-modules</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <modules>
                 <module>aemdesign-aem-config</module>
                 <module>aemdesign-aem-content</module>
@@ -693,9 +703,9 @@
             </modules>
         </profile>
 
-		<!-- Activate using the release property: mvn clean install -Prelease -->
-		<profile>
-			<id>release</id>
+        <!-- Activate using the release property: mvn clean install -Prelease -->
+        <profile>
+            <id>release</id>
             <modules>
                 <module>aemdesign-aem-config</module>
                 <module>aemdesign-aem-content</module>
@@ -705,8 +715,8 @@
                 <module>aemdesign-aem-training</module>
             </modules>
 
-			<build>
-				<plugins>
+            <build>
+                <plugins>
                     <!-- To sign the artifacts -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -722,60 +732,60 @@
                             </execution>
                         </executions>
                     </plugin>
-					<!-- Skip maven-deploy-plugin use nexus-staging-maven-plugin instead -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-deploy-plugin</artifactId>
-						<configuration>
-							<skip>true</skip>
-						</configuration>
-					</plugin>
-					<!-- To release to Maven central -->
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.8</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<stagingProfileId>c4011210992a35</stagingProfileId>
-							<stagingDescription>travis pipeline https://travis-ci.org/aem-design/aemdesign-aem-core</stagingDescription>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-							<autoDropAfterRelease>true</autoDropAfterRelease>
-						</configuration>
-					</plugin>
-					<!-- To generate javadoc -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-						<version>3.0.1</version>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.10.4</version>
-						<executions>
-							<execution>
-								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
+                    <!-- Skip maven-deploy-plugin use nexus-staging-maven-plugin instead -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                    <!-- To release to Maven central -->
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <stagingProfileId>c4011210992a35</stagingProfileId>
+                            <stagingDescription>travis pipeline https://travis-ci.org/aem-design/aemdesign-aem-core</stagingDescription>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <autoDropAfterRelease>true</autoDropAfterRelease>
+                        </configuration>
+                    </plugin>
+                    <!-- To generate javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
 
-				</plugins>
+                </plugins>
 
-			</build>
-		</profile>
+            </build>
+        </profile>
     </profiles>
 </project>

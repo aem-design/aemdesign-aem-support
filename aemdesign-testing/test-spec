@@ -4,6 +4,34 @@ PARENT_PROJECT_PATH="$(realpath ..)"
 SCRIPT_PARAMS="$@"
 SKIP_PRINT_CONFIG=true
 
+source "../scripts/functions.sh"
+
+# get default from exported variables
+TEST_SELENIUMHUB_SCHEME=${SELENIUMHUB_SCHEME:-http}
+TEST_SELENIUMHUB_PORT=${SELENIUMHUB_PORT:-32768}
+TEST_SELENIUMHUB_SERVICE=${SELENIUMHUB_SERVICE:-/wd/hub}
+
+# Test defaults
+TEST_SELENIUM_URL=""  # "${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
+TEST_IMAGE="aemdesign/centos-java-buildpack"
+TEST_OPEN_REPORT=false
+TEST_REPORT_PATH="generated-docs/summary.html"
+TEST_DRIVER_NAME="remote-seleniumhub-chrome"
+TEST_SCHEME="$AEM_SCHEME"
+TEST_HOST="$AEM_HOST"
+TEST_PORT="$AEM_PORT"
+TEST_USERNAME="$AEM_USER"
+TEST_PASSWORD="$AEM_PASS"
+TEST_SPECS="$(cat test-list | tr '\n' ',')"
+TEST_WORKSPACE=""
+TEST_LOGIN=false
+TEST_MAVEN_CONFIG=""
+TEST_DISPATCHER=false
+TEST_SKIP_CONVERT=false
+TEST_USING_MAVEN=false
+
+debugOn
+
 getMavenCommand() {
   local DISPATCHER=${1}
   local DRIVER=${2}
@@ -17,75 +45,89 @@ getMavenCommand() {
   local SELENIUM_URL=${10}
   local USERNAME=${11}
 
-  local MAVEN_EXTRAS=""
-
-  if ! ${TEST_SKIP_CONVERT}; then
-    MAVEN_EXTRAS=" -P compile-reports-ruby"
+  if [[ ${TEST_SKIP_CONVERT} == "false" ]]; then
+    MAVEN_EXTRAS="-P compile-reports-ruby"
   fi
 
-  read -r -d '' COMMAND <<EOF
-mvn clean test${MAVEN_EXTRAS} -Dgeb.env="${DRIVER}" -Dproject.buildDirectory="${DRIVER}" -Dcrx.scheme="${SCHEME}" -Dcrx.host="${HOST}" -Dcrx.port="${PORT}" -Dcrx.username="${USERNAME}" -Dcrx.password="${PASSWORD}" -Dtest="${SPECS}" -Dselenium.huburl="${SELENIUM_URL}" -Dlogin.req="${LOGIN}" -Dtest.dispatcher="${DISPATCHER}" ${MAVEN_CONFIG}
-EOF
+  COMMAND="mvn clean test ${MAVEN_EXTRAS} -Dgeb.env="${DRIVER}" -Dproject.buildDirectory="${DRIVER}" -Dcrx.scheme="${SCHEME}" -Dcrx.host="${HOST}" -Dcrx.port="${PORT}" -Dcrx.username="${USERNAME}" -Dcrx.password="${PASSWORD}" -Dtest="${SPECS}" -Dselenium.huburl="${SELENIUM_URL}" -Dlogin.req="${LOGIN}" -Dtest.dispatcher="${DISPATCHER}" ${MAVEN_CONFIG}"
 
   echo ${COMMAND}
 }
 
+getGitDir() {
+  echo $(git rev-parse --git-dir | sed -e 's/\(.*\)\.git.*/\1/')
+}
+
+
 runTest() {
   local DRIVER=${1}
-  local COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
+  local MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
 
-  if [[ -z "$TEST_WORKSPACE" ]]; then
-    COMMAND="cd $(ls | grep "'-testing'") && ${COMMAND}"
-  else
-    COMMAND="cd ${TEST_WORKSPACE}/$(ls | grep "'-testing'") && ${COMMAND}"
-  fi
+  printSectionBanner "RUNNING TEST FOR DRIVER: ${DRIVER}"
 
-  echo ""
-  echo "Maven Command:"
-  echo ${COMMAND}
-  echo ""
+  printSectionLine "Maven MAVEN_COMMAND:"
+  debug "${MAVEN_COMMAND}"
 
   # Check if the container exists
   if [[ ! "$(${DOCKER} ps -q -f name=${DRIVER})" ]]; then
-    if [[ "$(${DOCKER} ps -aq -f status=exited -f name=${DRIVER})" ]]; then
-      # cleanup
-      echo "...Removing container: $DRIVER"
-      ${DOCKER} rm ${DRIVER}
-      echo "Done!"
-    fi
+      if [[ "$(${DOCKER} ps -aq -f status=exited -f name=${DRIVER})" ]]; then
+        # cleanup
+        printSectionLine "Removing container:"
+        ${DOCKER} rm ${DRIVER}
+      fi
 
-    echo "...Starting container: $DRIVER"
-    echo ""
+      local PROJECT_ROOT_DIR="${PARENT_PROJECT_PATH}"
+      local MAVEN_DIR="$(realpath ~/.m2)"
 
-    local PROJECT_ROOT_DIR="$(pwd)/.."
-    local MAVEN_DIR="$(realpath ~/.m2)"
+      if [[ "$OS" == "windows" ]]; then
+        PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
+        MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
+      elif [[ "$OS" == "windowsbash" ]]; then
+        MAVEN_DIR="/mnt/c/Users/$USER/.m2"
+        PROJECT_ROOT_DIR="$(cd .. && pwd)"
+      else
+        PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
+        MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
+      fi
 
-    if [[ "$OS" == "windows" ]]; then
-      PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
-      MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
-    elif [[ "$OS" == "windowsbash" ]]; then
-      MAVEN_DIR="/mnt/c/Users/$USER/.m2"
-      PROJECT_ROOT_DIR="$(cd .. && pwd)"
-    else
-      PROJECT_ROOT_DIR=$(fixPath "$PROJECT_ROOT_DIR")
-      MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
-    fi
+      printSectionLine "Project Root Directory: ${PROJECT_ROOT_DIR}"
+      printSectionLine "Maven Directory: ${MAVEN_DIR}"
 
-    echo "Project Root Directory: ${PROJECT_ROOT_DIR}"
-    echo "Maven Directory: ${MAVEN_DIR}"
-    echo ""
+      if [[ ! ${TEST_USING_MAVEN} == "true" ]]; then
 
-    DOCKER_COMMAND="${DOCKER} run -d --name ${DRIVER} -v ${PROJECT_ROOT_DIR}:/build -v ${MAVEN_DIR}:/root/.m2 ${TEST_IMAGE} /bin/sh -c ${COMMAND}"
+        PARENT_PROJECT_WITH_GIT=$(getGitDir)
+        PARENT_PROJECT_LOCATION=${CURRENT_PATH#"$PARENT_PROJECT_WITH_GIT"}
+        PARENT_PROJECT_NAME=$(basename $PARENT_PROJECT_WITH_GIT)
 
-    echo "Docker Command:"
-    echo ${DOCKER_COMMAND}
+        printSectionLine "Parent GIT Directory: ${PARENT_PROJECT_WITH_GIT}"
+        printSectionLine "Parent Project Name: ${PARENT_PROJECT_NAME}"
+        printSectionLine "Testing Directory: ${CURRENT_PATH}"
+        printSectionLine "Testing Sub Directory: ${PARENT_PROJECT_LOCATION}"
 
-    eval ${DOCKER_COMMAND}
+        # run docker container as current use
+        # set work directory to be current project
+        # mount parent project directory into build
+        # mount .m2 into /build/.m2 as we are running as user
+        # pass maven command location for .m2 dir
+        # run bash with login to allow usage of RVM
+        # auto-remove container after its done
+        DOCKER_COMMAND="${DOCKER} run -d --user $(id -u):$(id -g) --rm --name ${DRIVER} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w "/build/${PARENT_PROJECT_NAME}/${PARENT_PROJECT_LOCATION}" ${TEST_IMAGE} bash -l -c \"${MAVEN_COMMAND} -Dmaven.repo.local=/build/.m2/repository\""
 
-    echo ""
-    echo "Done!"
+        debug "${DOCKER_COMMAND}"
+
+        eval ${DOCKER_COMMAND}
+
+        printSubSectionStart "Docker Command Execute"
+        printSubSectionEnd "Docker Command Execute"
+      else
+        printSubSectionStart "Direct Maven Command Execute"
+        debug "${MAVEN_COMMAND}"
+        cd .. && ${MAVEN_COMMAND} && cd -
+        printSubSectionEnd "Direct Maven Command Execute"
+      fi
+
   else
-    echo "...Container is already running: $DRIVER"
+      printSectionLine "Container is already running: $DRIVER"
   fi
 }
 
@@ -94,73 +136,74 @@ runTests() {
 
   local DRIVERS_EXEC_LENGTH=${#DRIVERS_EXEC[@]}
 
-  echo ""
-
   for (( i = 1; i < ${DRIVERS_EXEC_LENGTH} + 1; i++ )); do
     ITEM_VALUE=${DRIVERS_EXEC[$i-1]}
 
-    echo "Starting container: [$i/${DRIVERS_EXEC_LENGTH}] $ITEM_VALUE"
+    printSectionLine "Starting test: [$i/${DRIVERS_EXEC_LENGTH}] $ITEM_VALUE"
     runTest "$ITEM_VALUE"
   done
 }
 
-convertReports() {
-  ./asciidoctor-convert-reports -pdf -html -root ${TEST_DRIVER_NAME}
-
-  echo "REPORTS CONVERTED"
-}
-
+# open reports after they have been generated
 openReports() {
   declare -a OPEN_REPORTS=($@)
 
   local OPEN_REPORTS_LENGTH=${#OPEN_REPORTS[@]}
 
-  echo ""
+  printSubSectionStart "Open Reports"
+
+  printSectionLine "REPORTS: $@"
 
   # Walk thought reports and see if the reports are ready to open
   for (( i = 1; i < ${OPEN_REPORTS_LENGTH} + 1; i++ )); do
     ITEM_VALUE=${OPEN_REPORTS[$i-1]}
 
-    echo "CHECKING REPORT: [$i/${OPEN_REPORTS_LENGTH}] $ITEM_VALUE"
-    echo "OPENING REPORT: $ITEM_VALUE/$TEST_REPORT_PATH"
+    printSectionLine "CHECKING REPORT: [$i/${OPEN_REPORTS_LENGTH}] $ITEM_VALUE"
+    printSectionLine "OPENING REPORT: $ITEM_VALUE/$TEST_REPORT_PATH"
 
     OPEN_REPORT=$(groovy -Dproject.buildDirectory=${ITEM_VALUE} openReport.groovy)
   done
 
-  echo "REPORTS OPENED"
+
+  printSubSectionEnd "Open Reports"
 }
 
+# monitor docker container and store into log file
 monitorTests() {
   declare -a OPEN_REPORTS=($@)
 
   OPEN_REPORTS_LENGTH=${#OPEN_REPORTS[@]}
 
-  echo ""
-  echo "-----------------------------------------------------------------"
-  echo ""
-  echo " Monitoring container(s)"
-  echo "   - Auto Open Report? ${TEST_OPEN_REPORT}"
-  echo ""
-  echo "-----------------------------------------------------------------"
-  echo ""
-
   if [[ ! -d "dockerlogs" ]]; then
     mkdir dockerlogs
   fi
 
-  echo "Save container logs"
-  ${DOCKER} logs -f $@ > dockerlogs/docker-log-stdout-$(date +%s).log &
-  ${DOCKER} logs -f $@
+  printSubSectionStart "Watch Logs and Save to Log file"
 
-  echo Stopping: $@
-  ${DOCKER} stop $@
+  local LOGFILE="dockerlogs/docker-log-stdout-$(date +%s).log"
+  printSectionLine "CONTAINERS: ${OPEN_REPORTS}"
+  printSectionLine "LOGFILE: ${LOGFILE}"
+  ${DOCKER} logs -f $@ | tee -ai ${LOGFILE}
 
-  echo Removing: $@
-  ${DOCKER} rm $@
+  printSubSectionEnd "Watch Logs and Save to Log file"
 
   if ${TEST_OPEN_REPORT}; then
     openReports "${OPEN_REPORTS[@]}"
   fi
+}
+
+
+function stopContainers() {
+
+  printSectionLine "Stop Containers"
+
+  printSectionLine "Stopping: $@"
+  ${DOCKER} stop $@
+
+  printSectionLine "Removing: $@"
+  ${DOCKER} rm $@
+
+
 }
 
 testServer() {
@@ -189,14 +232,15 @@ Run the automation test suite against author, publisher or dispatcher.
   -R, --report          Open the report when when it becomes available?                 (default: false)
   -D, --dispatcher      Toggles the test suite state so all WCM modes are disabled      (default: false)
   -S, --skip-convert    Skip the test report conversion at the end of the run           (default: false)
+  -M, --maven           Run maven command directly, if running in docker container      (default: false)
 EOF
 }
 
-main() {
+# process command arguments and set environment variables
+processArguments() {
   declare argv
-  argv=$(getopt -o "hs:H:p:U:P:u:t:w:Lc:RDS" --long "help,scheme:,host:,port:,username:,password:,url:,tests:,workspace:,login,config:,report,dispatcher,skip-convert" -- "$@") || return
+  argv=$(getopt -o "hs:H:p:U:P:u:t:w:Lc:RDSM" --long "help,scheme:,host:,port:,username:,password:,url:,tests:,workspace:,login,config:,report,dispatcher,skip-convert,maven" -- "$@") || return
   eval "set -- ${argv}"
-
   declare a
   for a; do
     case ${a} in
@@ -207,11 +251,6 @@ main() {
       -s|--scheme)
         export TEST_SCHEME=$2
         shift 2
-
-        [[ "$TEST_SCHEME" =~ ^https?$ ]] || {
-          echo "Invalid URI scheme given, it must be either 'http' or 'https'."
-          exit 1
-        }
         ;;
       -H|--host)
         export TEST_HOST=$2
@@ -220,11 +259,6 @@ main() {
       -p|--port)
         export TEST_PORT=$2
         shift 2
-
-        [[ "$TEST_PORT" =~ ^[0-9]{1,5}$ ]] || {
-          echo "Invalid port number given, entry must be a number between 1-65535."
-          exit 1
-        }
         ;;
       -U|--username)
         export TEST_USERNAME=$2
@@ -241,15 +275,6 @@ main() {
       -t|--tests)
         export TEST_SPECS=$2
         shift 2
-
-        IFS=',' read -ra specs <<< "$TEST_SPECS"
-
-        for i in "${specs[@]}"; do
-          if [[ $(isStringMatchesRegex "${i}" ".*(Spec|\*)") == "false" ]]; then
-            echo "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec."
-            exit 1
-          fi
-        done
         ;;
       -w|--workspace)
         export TEST_WORKSPACE=$2
@@ -262,13 +287,6 @@ main() {
       -c|--config)
         export TEST_MAVEN_CONFIG=$2
         shift 2
-
-        if [[ "$TEST_MAVEN_CONFIG" == config* ]]; then
-          export TEST_MAVEN_CONFIG="-s${TEST_MAVEN_CONFIG}"
-        else
-          echo "Invalid Maven configuration name given, file name must start with 'config'"
-          exit 1
-        fi
         ;;
       -R|--report)
         export TEST_OPEN_REPORT=true
@@ -282,71 +300,103 @@ main() {
         export TEST_SKIP_CONVERT=true
         shift
         ;;
+      -M|--maven)
+        export TEST_USING_MAVEN=true
+        shift
+        ;;
       --)
         shift
         break;;
     esac
   done
+}
 
-  echo "Test Configuration:"
-  echo ""
-  echo "Scheme:                ${TEST_SCHEME}"
-  echo "Host:                  ${TEST_HOST}"
-  echo "Port:                  ${TEST_PORT}"
-  echo "Selenium URL:          ${TEST_SELENIUM_URL}"
-  echo "Test Specs:            ${TEST_SPECS}"
-  echo "Workspace:             ${TEST_WORKSPACE:-N/A}"
-  echo "Authenticate?          ${TEST_LOGIN}"
-  echo "Custom Maven Config:   ${TEST_MAVEN_CONFIG:-N/A}"
-  echo "Run on Dispatcher?     ${TEST_DISPATCHER}"
-  echo "Skip Report Conversion?  ${TEST_SKIP_CONVERT}"
-  echo ""
+main() {
+
+  processArguments $@
+
+  # update selenium url if localhost and not passed
+  if [[ "${SELENIUMHUB_HOST}" == "localhost" && "$TEST_SELENIUM_URL" == "" ]]; then
+    debug "Selenium hub url not specified or set to localhost, updating to use local ip" "info"
+    TEST_SELENIUM_URL="${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
+  fi
+
+  #update host
+  if [[ "${TEST_HOST}" == "localhost" ]]; then
+    debug "Test host is set as localhost, updating to use local ip" "info"
+    TEST_HOST="${LOCAL_IP}"
+  fi
+
+  # load default spect list if not passed
+  if [[ "$TEST_SPECS" == "" ]]; then
+    debug "Test Specs not specified loading defaults" "info"
+    IFS=',' read -ra specs <<< "$TEST_SPECS"
+
+    for i in "${specs[@]}"; do
+      if [[ $(isStringMatchesRegex "${i}" ".*(Spec|\*)") == "false" ]]; then
+        debug "'$i' does not conform to the spec naming convention, i.e. NewsListScreenshotSpec." "error"
+        exit 1
+      fi
+    done
+  fi
+
+  # validate SCHEME
+  if [[ "$(isStringMatchesRegex "${TEST_SCHEME}" "^http[s]{0,}.*" )" == "false" ]]; then
+    debug "Invalid URI scheme given, it must be either 'http' or 'https'." "error"
+    exit 1
+  fi
+
+  # validate port
+  if [[ "$(isStringMatchesRegex "${TEST_PORT}" "^[0-9]{1,5}$" )" == "false" ]]; then
+    debug "Invalid port number given, entry must be a number between 1-65535." "error"
+    exit 1
+  fi
+
+  # set maven config
+  if [[ "$(isStringMatchesRegex "${TEST_MAVEN_CONFIG}" "^config.*" )" == "true" ]]; then
+    debug "Maven config specified, exporting." "info"
+    export TEST_MAVEN_CONFIG="-s${TEST_MAVEN_CONFIG}"
+  fi
+
+  printSectionBanner "Test Configuration:" "warn"
+  printSectionLine "Scheme:                 ${TEST_SCHEME}"
+  printSectionLine "Host:                   ${TEST_HOST}"
+  printSectionLine "Port:                   ${TEST_PORT}"
+  printSectionLine "Selenium URL:           ${TEST_SELENIUM_URL}"
+  printSectionLine "Test Specs:             ${TEST_SPECS}"
+  printSectionLine "Workspace:              ${TEST_WORKSPACE:-N/A}"
+  printSectionLine "Authenticate?           ${TEST_LOGIN}"
+  printSectionLine "Custom Maven Config:    ${TEST_MAVEN_CONFIG:-N/A}"
+  printSectionLine "Run on Dispatcher?      ${TEST_DISPATCHER}"
+  printSectionLine "Skip Report Conversion? ${TEST_SKIP_CONVERT}"
+  printSectionLine "Run plain Maven?        ${TEST_USING_MAVEN}"
 
   set_term_title "Testing In-Progress"
 
   # Begin the testing...
-  echo "Checking if Selenium Hub and AEM are available..."
-  echo ""
+  printSectionBanner "Checking if Selenium Hub and AEM are available"
 
   AEM_AVAILABLE=$(testServer ${TEST_SCHEME}://${TEST_HOST}:${TEST_PORT})
   HUB_AVAILABLE=$(testServer ${TEST_SELENIUM_URL})
 
-  echo "Is Selenium Hub at ${TEST_SELENIUM_URL} available? ${HUB_AVAILABLE}"
-  echo "Is AEM at ${TEST_SCHEME}://${TEST_HOST}:${TEST_PORT} available? ${AEM_AVAILABLE}"
-  echo ""
+  printSectionLine "Is Selenium Hub at ${TEST_SELENIUM_URL} available? ${HUB_AVAILABLE}"
+  printSectionLine "Is AEM at ${TEST_SCHEME}://${TEST_HOST}:${TEST_PORT} available? ${AEM_AVAILABLE}"
 
   if [[ "true" == "$HUB_AVAILABLE" && "true" == "$AEM_AVAILABLE" ]]; then
-    echo "Selenium Hub and AEM are both up and available!"
-    echo ""
+      debug "Selenium Hub and AEM are both up and available!" "info"
 
-    runTests ${TEST_DRIVER_NAME}
-    monitorTests ${TEST_DRIVER_NAME}
+      runTests ${TEST_DRIVER_NAME}
+
+      if [[ ! ${TEST_USING_MAVEN} == "true" ]]; then
+        monitorTests ${TEST_DRIVER_NAME}
+      fi
   else
-    echo "Either Selenium Hub or AEM is not currently available!"
-    exit 1
+      debug "Either Selenium Hub or AEM is not currently available!" "error"
+      exit 1
   fi
 
   set_term_title "Testing Finished"
 }
 
-source "../scripts/functions.sh"
-
-# Test defaults
-export TEST_IMAGE="aemdesign/centos-java-buildpack:v10.2.1"
-export TEST_OPEN_REPORT=false
-export TEST_REPORT_PATH="generated-docs/summary.html"
-export TEST_DRIVER_NAME="remote-seleniumhub-chrome"
-export TEST_SCHEME="$AEM_SCHEME"
-export TEST_HOST="$AEM_HOST"
-export TEST_PORT="$AEM_PORT"
-export TEST_USERNAME="$AEM_USER"
-export TEST_PASSWORD="$AEM_PASS"
-export TEST_SELENIUM_URL="$SELENIUMHUB_SCHEME://$SELENIUMHUB_HOST:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE"
-export TEST_SPECS="$(cat test-list | tr '\n' ',')"
-export TEST_WORKSPACE=""
-export TEST_LOGIN=false
-export TEST_MAVEN_CONFIG=""
-export TEST_DISPATCHER=false
-export TEST_SKIP_CONVERT=false
 
 [[ $BASH_SOURCE != "$0" ]] || main "$@"

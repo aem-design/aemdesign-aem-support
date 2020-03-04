@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page]"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Content Template"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_QRA2ITH23">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <generic_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/generic-details"
+                    componentId="generic_details"
+                    textIsRich="true"
+                    title="In Page Generic Details Content">
+                </generic_details>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Using Template"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contenttemplate
+                            jcr:lastModified="{Date}2019-12-03T11:52:19.186+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/contenttemplate"
+                            componentId="contenttemplate1"
+                            templatePath="/apps/aemdesign/components/content/contenttemplate/v1/contenttemplate/template/default.html"
+                            templateUse="templatePath"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Using Custom Template"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contenttemplate
+                            jcr:lastModified="{Date}2019-12-03T12:10:51.937+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/contenttemplate"
+                            componentId="contenttemplate2"
+                            customTemplateJEXL="&lt;div>${title}&lt;/div>"
+                            templatePath="/apps/aemdesign/components/content/contenttemplate/v1/contenttemplate/template/default.html"
+                            templateUse="customTemplate"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Using Details Component in Generic Details"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <generic_details
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic_details3"
+                            textIsRich="true"
+                            title="Parsys in Generic Details Content">
+                            <par jcr:primaryType="nt:unstructured">
+                                <contenttemplate
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/contenttemplate"
+                                    componentId="contenttemplate3"
+                                    customTemplateJEXL="&lt;div>${title}&lt;/div>"
+                                    templatePath="/apps/aemdesign/components/content/contenttemplate/v1/contenttemplate/template/default.html"
+                                    templateUse="templatePath"/>
+                            </par>
+                        </generic_details>
+                    </par>
+                </contentblock3>
+                <contentblock4
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock4"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Using Template"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contenttemplate
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/contenttemplate"
+                            componentId="contenttemplate4"
+                            templatePath="/apps/aemdesign/components/content/contenttemplate/v1/contenttemplate/template/default.html"
+                            templateUse="templatePath"/>
+                    </par>
+                </contentblock4>
+                <contentblock5
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock5"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Using Custom Template in Generic Details"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <generic_details
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/generic-details"
+                            componentId="generic_details5"
+                            title="Parsys in Generic Details Content">
+                            <par jcr:primaryType="nt:unstructured">
+                                <contenttemplate
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/contenttemplate"
+                                    componentId="contenttemplate5"
+                                    customTemplateJEXL="&lt;div>${title}&lt;/div>"
+                                    templatePath="/apps/aemdesign/components/content/contenttemplate/v1/contenttemplate/template/default.html"
+                                    templateUse="customTemplate"/>
+                            </par>
+                        </generic_details>
+                    </par>
+                </contentblock5>
+                <contentblock6
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock6"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Using Template"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contenttemplate
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/contenttemplate"
+                            componentId="contenttemplate6"
+                            templatePath="/apps/aemdesign/components/content/contenttemplate/v1/contenttemplate/template/default.html"
+                            templateUse="templatePath"/>
+                    </par>
+                </contentblock6>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

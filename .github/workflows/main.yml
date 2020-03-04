@@ -1,0 +1,127 @@
+name: ci
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.6]
+    env:
+      DOCKER_IMAGE: "aemdesign/centos-java-buildpack"
+      SONAR_ORGANISATION: "aemdesign-github"
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_URL: "https://sonarcloud.io"
+      SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+      SONATYPE_USERNAME: "aemdesign"
+      GITHUB_USER: aemdesign
+      TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
+      GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
+      GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+      GITHUB_TOKEN_ADMIN: ${{ secrets.GITHUB_TOKEN_ADMIN }}
+      AEM_NAME: ${{ secrets.AEM_NAME }}
+      AEM_KEY: ${{ secrets.AEM_KEY }}
+      GPG_SECRET_KEYS: ${{ secrets.GPG_SECRET_KEYS }}
+      GPG_OWNERTRUST: ${{ secrets.GPG_OWNERTRUST }}
+      GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      GPG_EXECUTABLE: gpg
+      GPG_PRESET_EXECUTABLE: /usr/lib/gnupg/gpg-preset-passphrase
+      GPG_PUBID: "50A036956AAC64C13EF47B10D1E96A30ECFC7DFF"
+      GPG_PUBID_KEYGRIP: "020E615868703482DC2CD110B98D2702B6ABF89C"
+
+      
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+          lfs: true
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+          registry-url: https://npm.pkg.github.com/
+          scope: "@aem-design"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN_ADMIN }}
+      - name: set up python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: get release notes
+        run: |
+          source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
+          echo "===START==="
+          echo $GIT_RELEASE_NOTES
+          echo "====END===="
+          echo CURRENT_VERSION=$CURRENT_VERSION
+      - name: set eval variables
+        run: |
+          echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
+          $DOCKER_COMMAND java -version
+          $DOCKER_COMMAND node -v
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USERNAME}"
+      - name: setup gpg
+        run: |
+          source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/setup-gpg.sh)
+      - name: docker - mvn clean (cache .m2 in ./build/.m2/repository in repo dir)
+        run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+      - name: docker - mvn package
+        run: $DOCKER_COMMAND mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+
+      - name: docker - sonar qube on master
+        if: github.ref == 'refs/heads/master'
+        run: mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
+      - name: docker - sonar qube on master
+        if: github.ref != 'refs/heads/master'
+        run: mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
+
+      - name: install dependencies
+        run: |
+          sudo apt-get update --fix-missing
+          sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+#      - name: automation test
+#        id: automation_test
+#        run: ./automation-testing
+#
+#      - name: automation test release reports
+#        if: github.ref == 'refs/heads/master'
+#        run: ./automation-testing-release
+#        env:
+#          TEST_REPORT_OUTPUT: ${{ steps.automation_test.outputs.TEST_REPORT_OUTPUT }}
+#          TEST_REPORT_COMPARE_SOURCES: ${{ steps.automation_test.outputs.TEST_REPORT_COMPARE_SOURCES }}
+#          TEST_REPORT_GHPAGES_PATH: ${{ steps.automation_test.outputs.TEST_REPORT_GHPAGES_PATH }}
+
+      - name: deploy to maven cental
+        if: github.ref == 'refs/heads/master'
+        run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn clean deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
+
+      - name: create github release ${{ env.GITHUB_TAG }}
+        uses: meeDamian/github-release@1.0
+        if: github.ref == 'refs/heads/master'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ env.GITHUB_TAG }}
+          name: ${{ env.GITHUB_TAG }}
+          body: ${{ env.GIT_RELEASE_NOTES }}
+          gzip: false
+          files: >
+            aemdesign-aem-support-deploy/target/aemdesign-aem-support-deploy-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-compose/target/aemdesign-aem-compose-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-showcase/target/aemdesign-aem-showcase-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-training/target/aemdesign-aem-training-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-content/target/aemdesign-aem-content-${{ env.GITHUB_TAG }}.zip
+            aemdesign-aem-config/target/aemdesign-aem-config-${{ env.GITHUB_TAG }}.zip
+        
+      - name: automation test if failure
+        run: |
+          df
+          docker ps -a
+          docker logs -t service_aem_container_name
+        if: failure()
+

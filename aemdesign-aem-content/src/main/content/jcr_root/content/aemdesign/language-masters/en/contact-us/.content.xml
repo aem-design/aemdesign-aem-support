@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/conf/aemdesign/settings/wcm/templates/.*]"
+        cq:lastModified="{Date}2019-12-02T10:08:38.329+11:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aemdesign/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Contact Us"
+        sling:resourceType="aemdesign/components/template/base">
+        <header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/header">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </header>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <generic_details
+                    jcr:created="{Date}2019-11-23T21:43:15.130+11:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2019-11-23T21:43:15.130+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/generic-details"
+                    componentId="generic_details_K7HIG8YKY"/>
+            </par>
+        </article>
+        <footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/footer">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </footer>
+    </jcr:content>
+</jcr:root>

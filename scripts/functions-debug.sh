@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #DEBUG
+FOLD=$(/usr/bin/which fold)
 
 function debugOn {
 #    export FLAG_DEBUG=true
@@ -51,7 +52,7 @@ function debug {
     COLOR_END="$COLOR_RESET"
 
     local TEXT="${1:-}"
-    local TYPE="${2:-}"
+    local TYPE="${2:-$COLOR_DEFAULT}"
     local LABEL_TEXT=""
     local TEXT_SUFFUX=""
     local NEWLINESUFFUX=$3
@@ -64,6 +65,7 @@ function debug {
         ("error") COLOR_START="$COLOR_ERROR" LABEL_TEXT="$LABEL_ERROR " COLOR_END="$COLOR_END";;
         ("info") COLOR_START="$COLOR_INFO" LABEL_TEXT="$LABEL_INFO ";;
         ("warn") COLOR_START="$COLOR_WARN" LABEL_TEXT="$LABEL_WARN ";;
+        (*) COLOR_START="$COLOR_RESET" LABEL_TEXT="$LABEL_WARN ";;
     esac
 
 
@@ -101,3 +103,132 @@ function debugStatus {
 function set_term_title() {
    echo -en "\033]0;$1\a"
 }
+
+
+# HELPERS TO OUTPUT STATMENTS
+
+function printSectionBanner() {
+    TEXT=$1
+    TYPE=${2:-warn}
+    debug "$(printf '@%.0s' {1..100})" "$TYPE"
+    debug "$(printf '@  %-94s  @' "$TEXT")" "$TYPE"
+    debug "$(printf '@%.0s' {1..100})" "$TYPE"
+}
+
+
+#printSectionStart(text)
+function printSectionStart {
+    DEFAULT_PREFIX=""
+    SECTION_TITLE=${1:-SECTION}
+
+    LINE_TEXT="${DEFAULT_PREFIX} START: ${SECTION_TITLE}"
+
+    printf "\n"
+    printLineMajor
+    printf "\n"
+    printf "||%-96s||\n" "$LINE_TEXT"
+    printLineMajor
+    printf "\n"
+}
+
+#printSectionEnd(text)
+function printSectionEnd {
+    DEFAULT_PREFIX=""
+    SECTION_TITLE=${1:-SECTION}
+
+    LINE_TEXT="${DEFAULT_PREFIX} END: ${SECTION_TITLE}"
+
+    printf "\n"
+    printLineMajorEnd
+    printf "\n"
+    printf "||%-96s||\n" "$LINE_TEXT"
+    printLineMajor
+    printf "\n"
+}
+
+#printSubSectionStart(text)
+function printSubSectionStart {
+    DEFAULT_PREFIX=" "
+    SECTION_TITLE=${1:-SECTION}
+
+    LINE_TEXT="${DEFAULT_PREFIX} START: ${SECTION_TITLE}"
+
+    printf "\n"
+    printLineMinor
+    printf " |%-96s|\n" "$LINE_TEXT"
+    printLineMinor
+
+}
+
+#printSubSectionEnd(text)
+function printSubSectionEnd {
+    DEFAULT_PREFIX=" "
+    SECTION_TITLE=${1:-SECTION}
+
+    LINE_TEXT="${DEFAULT_PREFIX} END: ${SECTION_TITLE}"
+    printLineMinorEnd
+    printf " |%-96s|\n" "$LINE_TEXT"
+    printLineMinor
+    printf "\n"
+}
+
+#printSectionLine(text)
+function printSectionLine {
+    DEFAULT_PREFIX=" - "
+    LINE_TEXT="${1:-}"
+    TYPE="${2:-}"
+
+    LINE_PREFIX=""
+
+    if [ $# -ne 3 ]; then
+        LINE_PREFIX="$DEFAULT_PREFIX"
+    else
+        LINE_PREFIX="$3"
+    fi
+
+    LINE_TEXT="$LINE_PREFIX$LINE_TEXT"
+    debug "$(printf "%s\n" "$LINE_TEXT" | $FOLD -sw 98)" "$TYPE"
+}
+
+
+#printSectionInLine(text)
+function printSectionInLine {
+    DEFAULT_PREFIX="  > "
+    LINE_TEXT="${1:-}"
+
+    LINE_PREFIX=""
+
+    if [ $# -ne 2 ]; then
+        LINE_PREFIX="$DEFAULT_PREFIX"
+    else
+        LINE_PREFIX="$2"
+    fi
+
+    echo -n "$LINE_PREFIX$LINE_TEXT"
+}
+
+#printSectionInLineReset
+function printSectionInLineReset {
+    printSectionLine "" ""
+}
+
+#printLineMajor
+function printLineMajor {
+   printf '=%.0s' {1..100}
+}
+
+#printLineMinor
+function printLineMinor {
+   echo " $(printf '\x2D%.0s' {1..98})"
+}
+
+#printLineMinorEnd
+function printLineMinorEnd {
+   echo " $(printf '^%.0s' {1..98})"
+}
+
+#printLineMajorEnd
+function printLineMajorEnd {
+   printf '^%.0s' {1..100}
+}
+

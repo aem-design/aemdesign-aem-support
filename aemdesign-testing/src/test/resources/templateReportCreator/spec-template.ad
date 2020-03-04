@@ -2,6 +2,7 @@
 // toc-title definition MUST follow document title without blank line!
 :toc-title: Table of Contents
 :sectnums:
+:data-uri:
 
 [small]#created on ${new Date()} by ${System.properties['user.name']}#
 
@@ -10,9 +11,10 @@
     def fmt, stats, gebReport
 
     String gebEnvReportsDir = System.getProperty("geb.build.reportsDir")
-    def reportImagePath = "../../test-reports/geb/"
-    def rootPath = "../"
-    def srcRelativeToHtmlPath = "../../"
+    def reportImagePath = System.properties['user.dir'] + "/" + System.properties['project.buildDirectory'] + "/test-reports/geb/" //"../../test-reports/geb/"
+
+    def rootPath = System.properties['user.dir'] + "/"
+    def srcRelativeToHtmlPath = "" // "../../"
     def linkPathPrefix = ""
     def imagePathPrefix = ""
     def removePathStart = "./"
@@ -31,6 +33,7 @@
     //since Spock-Reports first executes the spec-templates, we
     //have to transform the JsonReport in here...
 //    println "REPORT: SPEC TEMPLATE"
+    //println System.properties['project.buildDirectory']
 
     def jsonFile = support.ReportConverter.convertJsonReport()
 
@@ -100,6 +103,7 @@ Time: $totalTime
 //                    println "REPORT: gebTestResults - iteration block file: ${afile}"
 
                     if (filePathFull.endsWith(pathCheckEndImage)) {
+
                         //screenshot detection
                         if (filePathFull.startsWith(pathCheckStartSource)) {
                             blockScreenshots = blockScreenshots << """ .Source\n"""
@@ -117,7 +121,7 @@ Time: $totalTime
                             imagePathPrefix=srcRelativeToHtmlPath
                             linkPathPrefix=srcRelativeToHtmlPath
                         }
-                        blockScreenshots = blockScreenshots << """image:${imagePathPrefix}${filePathUrl}[width="95%",pdfwidth="100%",scaledwidth="95%",link="${linkPathPrefix}${filePathUrl}"]\n"""
+                        blockScreenshots = blockScreenshots << """image:${imagePathPrefix}${filePathUrl}[width="95%",pdfwidth="100%",scaledwidth="95%"]\n"""
                     }
                     if (filePathFull.endsWith(pathCheckEndHtml)) {
                         blockScreenshots = blockScreenshots << """link:${linkPathPrefix}${filePathUrlEnc}[source html]\n"""

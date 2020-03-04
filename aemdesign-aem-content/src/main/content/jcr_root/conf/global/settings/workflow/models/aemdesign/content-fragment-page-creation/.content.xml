@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/default"
+        cq:lastModified="{Date}2019-11-25T11:27:13.105+11:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="AEM.Design Showcase - Content Fragment Page Creation"
+        sling:resourceType="cq/workflow/components/pages/model">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <contentfragmentpageg
+                jcr:created="{Date}2019-11-21T22:00:24.275+11:00"
+                jcr:createdBy="admin"
+                jcr:description="Generate Pages for Content Fragments"
+                jcr:lastModified="{Date}2019-11-25T11:25:40.181+11:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content Fragment Page Generation"
+                sling:resourceType="aemdesign/components/workflow/contentfragmentpagegen">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    outputLocation="/content/aemdesign-showcase/au/en/content/content-fragment-pages"
+                    PROCESS="design.aem.workflow.process.ContentFragmentPageGenerator"
+                    PROCESS_AUTO_ADVANCE="true"
+                    templatePage="/conf/aemdesign/settings/wcm/templates/onecolumn"
+                    throttle="true"/>
+            </contentfragmentpageg>
+        </flow>
+        <image/>
+    </jcr:content>
+</jcr:root>
