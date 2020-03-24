@@ -1,0 +1,29 @@
+$spacing-offset: $grid-gutter-width / 2;
+
+// Non-specific
+
+.contentblock.accordion,
+.contentblock.advsection,
+.pagelist,
+.newslist,
+.eventlist,
+.brand-footer {
+  margin-left: -$spacing-offset;
+  margin-right: -$spacing-offset;
+}
+
+// Lists
+
+.pagelist,
+.newslist,
+.eventlist {
+  width: auto;
+}
+
+// Tabs
+
+.nav-tabs .contentblock.accordion,
+.nav-tabs .contentblock.advsection, {
+  margin-left: 0;
+  margin-right: 0;
+}

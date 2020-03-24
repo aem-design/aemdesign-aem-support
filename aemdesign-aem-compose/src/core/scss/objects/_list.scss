@@ -1,35 +1,49 @@
 ol,
 ul {
-  @include list-unstyled;
-
+  list-style: none;
+  margin-bottom: 0;
   padding-bottom: 0;
+  padding-left: 20px;
 
-  li {
-    padding-left: 15px;
+  > li {
+    padding-bottom: $line-height-base / 2;
+    position: relative;
+
+    li {
+      padding-bottom: 0;
+      padding-top: $line-height-base / 2;
+    }
+
+    ol,
+    ul {
+      padding-left: 48px;
+    }
 
     &::before {
+      // color: color('grey-1');
       display: inline-block;
-      margin-left: -15px;
-      margin-right: 10px;
-      position: relative;
+      font-size: 14px;
+      left: -20px;
+      position: absolute;
+      width: 10px;
+
+      // .bg-charcoal & {
+      //   color: color('grey-2');
+      // }
     }
   }
 }
 
-ul li::before {
-  background-color: currentColor;
-  border-radius: 100%;
-  content: '';
-  height: 5px;
-  top: -3px;
-  width: 5px;
+ul > li::before {
+  content: '●';
 }
 
 ol {
   counter-reset: list-counter;
 
-  li::before {
+  > li::before {
     content: counter(list-counter);
     counter-increment: list-counter;
+    font-weight: 600;
   }
 }

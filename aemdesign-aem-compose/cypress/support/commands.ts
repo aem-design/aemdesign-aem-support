@@ -32,10 +32,8 @@ Cypress.Commands.add('visitComponent', (componentName: string, done: MochaDone) 
   navigateToPage('components', componentName, done)
 })
 
-// tslint:disable-next-line:no-namespace
 declare global {
   namespace Cypress {
-    // tslint:disable-next-line:interface-name
     interface Chainable<Subject> {
       authenticate(callback: MochaDone): void;
       visitGuideline(guidelineName: string, done: MochaDone): void;

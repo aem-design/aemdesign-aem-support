@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Design Language System - AEM.Design"
+        jcr:uuid="c14cb0ee-cd1f-4c6c-acaa-aa6b1c7c114f"
+        navTitle="DLS"
+        sling:resourceType="aemdesign/components/template/styleguide">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside"
+            cancelInheritParent="true"
+            componentId="aside_032FUJZ8C">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <dls_intro_heading
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="dls_intro_heading"
+                    text="&lt;p class=&quot;h6&quot;>AEM.Design&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <dls_intro_tagline
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/text"
+                    componentId="dls_intro_tagline"
+                    text="&lt;p>Design Language System&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <dls_home_button
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="dls_home_button">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <dls_home_button_link
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/link"
+                            componentId="dls_home_button_link"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/link]"
+                            label="DLS Homepage"
+                            linkUrl="/content/aemdesign-showcase/au/en/styleguide/dls"/>
+                    </par>
+                </dls_home_button>
+                <dls_nav
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/lists/navlist"
+                    cancelInheritParent="true"
+                    componentId="dls_nav"
+                    depthFromRoot="1"
+                    listFrom="children"
+                    parentPage="/content/aemdesign-showcase/au/en/styleguide/dls"
+                    variant="dropdown"/>
+            </par>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_VVP06VKA6">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"
+                    editable="{Boolean}false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"
+                    title="Design Language System"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock"
+                    componentModifiers="[aemdesign-showcase:component-style-modifier/grid/sizes/small,aemdesign-showcase:component-style-modifier/spacing/vertical/base]"
+                    showIcon="false"
+                    variant="container">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text_BYZU9ZUJS"
+                            text="&lt;h2>Welcome&lt;/h2>&#xd;&#xa;&lt;p class=&quot;lead&quot;>The DLS (Design Language System) serves the purpose of showcasing the correct usage of brand colours, logos, typography etc. in conjunction with delivered components to provide the best and most seamless authoring experience possible within AEM.&lt;/p>&#xd;&#xa;&lt;h3>Why have the DLS inside AEM?&lt;/h3>&#xd;&#xa;&lt;p>Typical AEM development sees custom components just being delivered which isn't the approach AEM.Design wanted to take. What was opted for instead was a principal source of truth that can be&amp;nbsp;criticised before reaching authors which is important for proving each and every deliverable works as intended.&lt;/p>&#xd;&#xa;&lt;p>The benefits received from this approach is developers, QA's and content authors get to play with newly delivered and existing components which make visualising possibilties that much easier.&lt;/p>&#xd;&#xa;&lt;h3>Who maintains the DLS?&lt;/h3>&#xd;&#xa;&lt;p>The front-end development team is solely responsible for maintaining, improving and ensuring the DLS is performing its key role within the work being delivered.&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+    <guidelines/>
+    <components/>
+</jcr:root>
+

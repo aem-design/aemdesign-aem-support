@@ -4,10 +4,8 @@
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Motion"
-        sling:resourceType="aemdesign/components/template/styleguide"
-        navTitle="Motion"
-        pageTitle="Motion">
+        jcr:title="Components"
+        sling:resourceType="aemdesign/components/template/styleguide">
         <aside
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/aside">
@@ -45,4 +43,15 @@
             </par>
         </article>
     </jcr:content>
+    <breadcrumbs/>
+    <carousel/>
+    <columns/>
+    <content-block/>
+    <link/>
+    <news-details/>
+    <news-list/>
+    <page-details/>
+    <page-list/>
+    <text/>
+    <widgets/>
 </jcr:root>

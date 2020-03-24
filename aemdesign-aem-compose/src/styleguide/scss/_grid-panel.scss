@@ -1,0 +1,28 @@
+.grid-panel {
+  &__column {
+    height: 60px;
+
+    &::before,
+    &::after {
+      // background-color: color('charcoal-10');
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: $grid-gutter-width / 2;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+
+    @include media-breakpoint-only(sm) {
+      // border-bottom: 1px solid color('charcoal-10');
+    }
+  }
+}

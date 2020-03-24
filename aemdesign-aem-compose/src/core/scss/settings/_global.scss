@@ -11,15 +11,15 @@ $brand-colours: (
 
   greys: (),
 
-  other: (
+  standard: (
     'black' : $black,
     'white' : $white,
   ),
 );
 
 $colors: (
-  'white' : map-deep-get($brand-colours, 'other', 'white'),
-  'black' : map-deep-get($brand-colours, 'other', 'black'),
+  'white' : map-deep-get($brand-colours, 'standard', 'white'),
+  'black' : map-deep-get($brand-colours, 'standard', 'black'),
 );
 
 $theme-colors: $colors;
@@ -32,7 +32,7 @@ $theme-colors: $colors;
 
 $spacing-levels: (
   vertical: (
-    level-1: (
+    base: (
       xs: 20px,
       md: 30px,
       lg: 40px,
@@ -196,6 +196,10 @@ $container-max-widths: (
 
 // Custom container variants
 //
-// ( <key | name>: <max width>px )
+// ( <name>: ( <breakpoint>: <max width>px )
 
-$container-types: ();
+$container-types: (
+  small: (
+    xs: map-get($breakpoints, md),
+  ),
+);

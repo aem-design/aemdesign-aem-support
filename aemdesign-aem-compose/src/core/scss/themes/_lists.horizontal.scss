@@ -21,7 +21,7 @@
         width: auto;
 
         &:not(:last-child) {
-          margin-right: $spacing-2xl;
+          margin-right: 15px;
         }
 
         @include media-breakpoint-up(lg) {

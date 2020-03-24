@@ -11,7 +11,6 @@ export default class BaseComponent extends Vue {
   @Prop({ default: null, type: String })
   public target!: string
 
-  // tslint:disable-next-line:variable-name
   protected _name!: string
 
   protected documentTarget: Document = document

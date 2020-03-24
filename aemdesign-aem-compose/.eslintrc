@@ -2,28 +2,14 @@
   "root": true,
 
   "extends": [
+    "@chrisblossom/eslint-config",
     "plugin:vue/essential",
-    "plugin:@typescript-eslint/recommended",
     "@vue/typescript"
   ],
 
   "plugins": [
-    "@typescript-eslint",
     "cypress"
   ],
-
-  "parser": "vue-eslint-parser",
-
-  "env": {
-    "node": true,
-    "builtin": true,
-    "es6": true
-  },
-
-  "parserOptions": {
-    "parser": "@typescript-eslint/parser",
-    "project": "./tsconfig.json"
-  },
 
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",

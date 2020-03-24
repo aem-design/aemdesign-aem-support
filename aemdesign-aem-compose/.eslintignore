@@ -3,6 +3,5 @@
 **/cypress/*.js
 **/config
 **/public
+**/node_modules/
 **/packages
-
-webpack.config.js

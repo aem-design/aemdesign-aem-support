@@ -1,9 +1,11 @@
 /// ...
 /// @group aem
 /// @since 1.0.0
-@mixin not-aem-author() {
-  html:not(.aem-AuthorLayer-Edit):not(.aem-AuthorLayer-Preview) & {
-    @content;
+@mixin not-aem-author($root: null) {
+  @at-root {
+    html:not(.aem-AuthorLayer-Edit):not(.aem-AuthorLayer-Preview) #{if($root != null, unquote($root), &)} {
+      @content;
+    }
   }
 }
 

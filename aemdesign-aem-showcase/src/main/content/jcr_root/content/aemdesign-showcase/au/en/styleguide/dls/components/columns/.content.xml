@@ -57,7 +57,7 @@
 						<col_break15573003694320
 							jcr:primaryType="nt:unstructured"
 							sling:resourceType="aemdesign/components/layout/colctrl"
-							componentModifiers="[aemdesign-showcase:component-style-modifier/spacing/vertical/level-1]"
+							componentModifiers="[aemdesign-showcase:component-style-modifier/spacing/vertical/base]"
 							controlType="break"/>
 						<image
 							jcr:primaryType="nt:unstructured"

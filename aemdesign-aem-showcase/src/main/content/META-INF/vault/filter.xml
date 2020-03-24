@@ -6,7 +6,7 @@
     <!--                        W A R N I N G                     -->
     <filter root="/content/aemdesign-showcase"/>
     <filter root="/content/dam/aemdesign-showcase"/>
-    <!--<filter root="/content/cq:tags/aemdesign-showcase"/>-->
+<!--    <filter root="/content/cq:tags/aemdesign-showcase"/>-->
 
     <filter root="/conf/aemdesign-showcase"/>
     <filter root="/content/experience-fragments/aemdesign-showcase" mode="update"/>

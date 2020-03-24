@@ -3,38 +3,16 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
   # Backgrounds
   background/primary:
     prefixes:
-      - charcoal
-      - charcoal-pattern
-      - red
-      - red-pattern
-      - red-50
-      - yellow
-      - yellow-pattern
-      - yellow-50
     startWith: bg-
     title: '%%prefix_normalised%%'
 
   background/secondary:
     prefixes:
-      - blue
-      - blue-50
-      - green
-      - green-50
-      - purple
-      - purple-50
-      - turquoise
-      - turquoise-50
     startWith: bg-
     title: '%%prefix_normalised%%'
 
   background/greys:
     prefixes:
-      - charcoal
-      - grey-1
-      - grey-2
-      - grey-3
-      - grey-4
-      - grey-5
     startWith: bg-
     title: '%%prefix_normalised%%'
 
@@ -49,12 +27,6 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
   button:
       prefixes:
           - link
-          - primary-red
-          - primary-yellow
-          - secondary-charcoal
-          - secondary-outline
-          - secondary-outline-charcoal
-          - secondary-white
       valueFormat: btn btn-%%prefix%%
       title: '%%prefix_normalised%%'
 
@@ -62,14 +34,6 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
   button/normal:
     prefixes:
       - link
-      - primary
-      - secondary
-      - success
-      - danger
-      - warning
-      - info
-      - light
-      - dark
     valueFormat: btn btn-%%prefix%%
     title: '%%prefix_normalised%%'
 
@@ -78,60 +42,35 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefixes:
       - outline-primary
       - outline-secondary
-      - outline-success
-      - outline-danger
-      - outline-warning
-      - outline-info
-      - outline-light
-      - outline-dark
     valueFormat: btn btn-%%prefix%%
     title: '%%prefix_normalised%%'
 
   # Button Size
   button/size:
-      contents:
-          - block: { value: "btn-block", title: "Block (Full Width)" }
-          - lg: { value: "btn-lg", title: "Large Button" }
-          - sm: { value: "btn-sm", title: "Small Button" }
+    contents:
+      - block: { value: "btn-block", title: "Block (Full Width)" }
+      - lg: { value: "btn-lg", title: "Large Button" }
+      - sm: { value: "btn-sm", title: "Small Button" }
 
   # Button State
   button/state:
-      contents:
-          - active: { value: "active", title: "Active" }
-          - disabled: { value: "disabled", title: "Disabled" }
+    contents:
+      - active: { value: "active", title: "Active" }
+      - disabled: { value: "disabled", title: "Disabled" }
 
   # Colours
   colour/primary:
     prefixes:
-      - charcoal
-      - red
-      - red-50
-      - yellow
-      - yellow-50
     startWith: text-
     title: '%%prefix_normalised%%'
 
   colour/secondary:
     prefixes:
-      - blue
-      - blue-50
-      - green
-      - green-50
-      - purple
-      - purple-50
-      - turquoise
-      - turquoise-50
     startWith: text-
     title: '%%prefix_normalised%%'
 
   colour/greys:
     prefixes:
-      - charcoal
-      - grey-1
-      - grey-2
-      - grey-3
-      - grey-4
-      - grey-5
     startWith: text-
     title: '%%prefix_normalised%%'
 
@@ -145,9 +84,6 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
   # Cards
   card:
     prefixes:
-      - background
-      - column
-      - columns
       - notification
       - promoted
     valueFormat: card--%%prefix%%
@@ -284,15 +220,12 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefix: container
     title: 'Container'
 
-  grid/container-flush:
-    flat: true
-    prefix: container-flush
-    title: 'Container Flush'
-
-  grid/container-text:
-    flat: true
-    prefix: container-text
-    title: 'Container Text'
+  grid/container/sizes:
+    prefixes:
+      - full-width
+      - small
+    prefixValue: container--
+    title: '%%prefix_normalised%%'
 
   # Icons
   icon/size:
@@ -355,7 +288,7 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
 
   spacing/vertical:
     prefixes:
-      - level-1
+      - base
     prefixValue: spacing-vertical-
     title: '%%prefix_normalised%%'
 
