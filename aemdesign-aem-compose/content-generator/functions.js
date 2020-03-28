@@ -171,6 +171,7 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
   let templatePatch = template
 
   if (contentData.type === 'tag') {
+    debug({type: "tag", contentData: contentData})
     const value = contentData.valueFormatted !== '' ?
       escape(contentData.valueFormatted):
       escape(contentData.prefixValue + contentData.value)
@@ -195,6 +196,7 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     }
   } else {
     if (contentData.content !== undefined) {
+        debug({type: "content", contentData: contentData})
         const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
 
         //check if json being specified as contents
@@ -229,7 +231,7 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
             }
 
         } else {
-
+          debug({type: "other", contentData: contentData})
           for (const field of Object.keys(contentData.content)) {
             folderName = field
             templatePatch = templatePatch.replace('%%node%%', field)
