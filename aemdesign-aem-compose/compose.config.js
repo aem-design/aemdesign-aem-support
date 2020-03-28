@@ -1,6 +1,8 @@
 const { configuration } = require('@aem-design/compose-webpack')
 
 module.exports = configuration({
+  features: ['typescript', 'vue'],
+
   standard: {
     banner: {
       font: 'ANSI Shadow',
