@@ -325,8 +325,8 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
 
   text/style:
     prefixes:
-      - -underlined
-    prefixValue: text-
+      - underlined
+    prefixValue: text--
     title: 'Underlined'
 
   # Text Alignments

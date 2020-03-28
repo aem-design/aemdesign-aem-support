@@ -101,7 +101,7 @@ content/_cq_tags/aemdesign/component-style-icon: &component-style-icon
       - wheelchair
       - wrench
       - handshake-alt
-    valueFormat: fal fa-%%prefix%%
+    valueFormat: fa fa-%%prefix%%
     title: '%%prefix_normalised%%'
 
 
