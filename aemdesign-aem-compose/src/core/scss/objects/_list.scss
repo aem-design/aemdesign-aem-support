@@ -20,16 +20,11 @@ ul {
     }
 
     &::before {
-      // color: color('grey-1');
       display: inline-block;
-      font-size: 14px;
+      font-size: $font-size-sm - 4px;
       left: -20px;
       position: absolute;
-      width: 10px;
-
-      // .bg-charcoal & {
-      //   color: color('grey-2');
-      // }
+      // width: 10px;
     }
   }
 }
@@ -44,6 +39,6 @@ ol {
   > li::before {
     content: counter(list-counter);
     counter-increment: list-counter;
-    font-weight: 600;
+    font-size: $font-size-sm;
   }
 }

@@ -1,21 +1,29 @@
 .text {
   @include clearfix;
 
-  // Smaller text
-  // TODO: Make this a utility class
   &-small {
     @extend small;
   }
 
   p {
-    margin-bottom: 16px;
+    margin-bottom: $grid-gutter-width / 2;
+  }
 
-    @include media-breakpoint-up(md) {
-      margin-bottom: 24px;
+  // Push any heading directly after a paragraph tag further away
+  @for $heading-level from 1 through 6 {
+    p + h#{$heading-level} {
+      padding-top: $grid-gutter-width;
     }
+  }
 
-    @include media-breakpoint-up(lg) {
-      margin-bottom: 30px;
-    }
+  // Ensure the last child in the text component doesn't have a margin
+  :last-child:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    margin-bottom: 0;
+  }
+
+  // Default spacing to keep components away from one another
+  // TODO: Determine how we can adapt to this a reusable construct
+  &:not([class*='spacing-']) + .image {
+    padding-top: $grid-gutter-width;
   }
 }

@@ -147,6 +147,7 @@
       }
     ],
     "scss/dollar-variable-default": null,
+    "scss/dollar-variable-pattern": null,
     "scss/selector-no-redundant-nesting-selector": true
   }
 }

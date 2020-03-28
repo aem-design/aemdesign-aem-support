@@ -3,8 +3,22 @@
  *
  * @include font-face(
  *   'Open Sans',
- *   'open-sans/open-sans-v15-latin-300',
+ *   'open-sans/open-sans-light',
  *   300,
- *   normal
+ *   normal,
  * );
  */
+
+@include font-face(
+  'Noto Sans',
+  'noto-sans/NotoSans-Regular',
+  400,
+  normal,
+);
+
+@include font-face(
+  'Noto Sans',
+  'noto-sans/NotoSans-Bold',
+  700,
+  normal,
+);

@@ -9,28 +9,25 @@
 */
 
 .breadcrumb {
-  font-size: 10px;
-  font-weight: 300;
-  line-height: 23px;
+  background-color: transparent;
+  font-size: $font-size-sm;
+  padding: 0;
+  width: 100%;
 
   &-item {
     align-items: center;
     display: inline-flex;
-
-    &,
-    a {
-      color: $black;
-      font-weight: 400;
-    }
+    padding-bottom: 0;
+    padding-right: $breadcrumb-item-item-padding;
 
     .icon {
       margin-left: $breadcrumb-item-padding;
     }
 
-    + .breadcrumb-item {
-      &::before {
-        display: none;
-      }
+    &.active > a {
+      color: inherit;
+      // Change the breadcrumbs component in common to not present a link here
+      pointer-events: none;
     }
 
     &:first-child {
@@ -38,12 +35,25 @@
     }
 
     &::before {
+      position: static;
+    }
+
+    &:first-child::before {
       display: none;
     }
+  }
+
+  &-item + &-item::before {
+    padding-right: $breadcrumb-item-item-padding;
   }
 }
 
 nav.breadcrumb {
-  padding-bottom: 8px;
-  padding-top: 8px;
+  background-color: $breadcrumb-bg;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+
+  // Inverted colours
+  &.bg-black .breadcrumb-item.active {
+    color: $white;
+  }
 }

@@ -2,7 +2,7 @@
 /// @group device
 /// @since 1.0.0
 @mixin iphone-x($gutter: $grid-gutter-width / 2) {
-  @supports (padding: #{'max(0px)'}) {
+  @supports (padding-left: #{'max(#{$gutter}, var(safe-area-inset-left))'}) {
     @include iphone-x-prop('padding-left', $gutter);
     @include iphone-x-prop('padding-right', $gutter);
   }

@@ -1,0 +1,5 @@
+@each $area-name in map-keys($spacing-areas) {
+  $state: __set-spacing-state(false);
+
+  @include generate-spacing-area($area-name);
+}

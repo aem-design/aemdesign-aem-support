@@ -23,7 +23,7 @@
 ///   );
 /// @output `@font-face` declaration
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
-  $src: '#{$asset-base-path}fonts/';
+  $src: null;
 
   $extmods: (
     eot: '?',
@@ -38,10 +38,11 @@
   @each $ext in $exts {
     $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
     $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+    $src: append($src, url(quote('#{$asset-base-path}fonts/' + $path + '.' + $extmod)) format(quote($format)), comma);
   }
 
   @font-face {
+    font-display: swap;
     font-family: quote($name);
     font-style: $style;
     font-weight: $weight;

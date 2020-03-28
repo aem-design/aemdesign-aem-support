@@ -1,0 +1,25 @@
+// Designed to ease authoring by providing responsive spacing that can be applied to any component
+// on the page without needing to explicitly know what each breakpoint looks like.
+
+/// @type Map
+$spacing-areas: (
+  banner: (
+    internal: true,
+
+    config: (
+      xs: $grid-gutter-width,
+      lg: $grid-gutter-width * 1.5,
+    ),
+  ),
+
+  section: (
+    vertical: true,
+
+    config: (
+      xs: 20px,
+      md: 30px,
+      lg: 40px,
+      xl: 50px,
+    ),
+  ),
+);

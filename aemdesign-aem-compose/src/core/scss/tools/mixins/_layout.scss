@@ -35,3 +35,15 @@
     }
   }
 }
+
+/// ...
+/// @group layout
+/// @since 1.0.0
+@mixin fix-nested-component() {
+  @at-root {
+    &.#{$aem-prefix-col} {
+      all: unset;
+      box-sizing: inherit;
+    }
+  }
+}

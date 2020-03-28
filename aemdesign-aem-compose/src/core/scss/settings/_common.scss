@@ -12,11 +12,11 @@ $breakpoints: (
 // Lists
 
 /// @type Number
-$list-item-margin:            15px;
+$list-item-margin:       15px;
 /// @type Number
-$list-item-md-margin:         20px;
+$list-item-md-margin:    20px;
 /// @type Number
-$list-item-lg-margin:         25px;
+$list-item-lg-margin:    25px;
 
 // Export these values to Webpack for use via JavaScript.
 // @see js/utilities/config.ts

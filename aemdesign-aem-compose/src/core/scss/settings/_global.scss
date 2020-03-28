@@ -9,7 +9,17 @@ $brand-colours: (
 
   secondary: (),
 
-  greys: (),
+  greys: (
+    'grey-1': lighten($black, 90%),
+    'grey-2': lighten($black, 80%),
+    'grey-3': lighten($black, 70%),
+    'grey-4': lighten($black, 60%),
+    'grey-5': lighten($black, 50%),
+    'grey-6': lighten($black, 40%),
+    'grey-7': lighten($black, 30%),
+    'grey-8': lighten($black, 20%),
+    'grey-9': lighten($black, 10%),
+  ),
 
   standard: (
     'black' : $black,
@@ -18,28 +28,22 @@ $brand-colours: (
 );
 
 $colors: (
-  'white' : map-deep-get($brand-colours, 'standard', 'white'),
-  'black' : map-deep-get($brand-colours, 'standard', 'black'),
+  'white': map-deep-get($brand-colours, 'standard', 'white'),
+  'black': map-deep-get($brand-colours, 'standard', 'black'),
+
+  // Greys
+  'grey-1': map-deep-get($brand-colours, 'greys', 'grey-1'),
+  'grey-2': map-deep-get($brand-colours, 'greys', 'grey-2'),
+  'grey-3': map-deep-get($brand-colours, 'greys', 'grey-3'),
+  'grey-4': map-deep-get($brand-colours, 'greys', 'grey-4'),
+  'grey-5': map-deep-get($brand-colours, 'greys', 'grey-5'),
+  'grey-6': map-deep-get($brand-colours, 'greys', 'grey-6'),
+  'grey-7': map-deep-get($brand-colours, 'greys', 'grey-7'),
+  'grey-8': map-deep-get($brand-colours, 'greys', 'grey-8'),
+  'grey-9': map-deep-get($brand-colours, 'greys', 'grey-9'),
 );
 
 $theme-colors: $colors;
-
-// Spacer levels
-//
-// Designed to ease authoring by providing responsive spacing that can be applied to any component
-// on the page without needing to explicitly know what each breakpoint looks like.
-/// @type Map
-
-$spacing-levels: (
-  vertical: (
-    base: (
-      xs: 20px,
-      md: 30px,
-      lg: 40px,
-      xl: 50px,
-    ),
-  ),
-);
 
 // Body
 
@@ -49,13 +53,17 @@ $body-bg:                    $body-bg;
 //
 // Define common padding and border radius sizes and more.
 
-$border-color:                $border-color;
-
-$border-radius:               $border-radius;
-$border-radius-lg:            $border-radius-lg;
-$border-radius-sm:            $border-radius-sm;
+// ...
 
 // Fonts
+
+$font-size-base:              16px;
+$font-size-sm:                12px;
+
+$font-weight-base:            $font-weight-light;
+
+$line-height-base:            24px;
+$line-height-sm:              18px;
 
 $h1-font-size:                60px;
 $h2-font-size:                48px;
@@ -64,9 +72,10 @@ $h4-font-size:                22px;
 $h5-font-size:                18px;
 $h6-font-size:                16px;
 
-$headings-margin-bottom:      20px;
+$headings-margin-bottom:      $grid-gutter-width / 2;
+$headings-font-family:        'Noto Sans', $font-family-base;
 $headings-font-weight:        normal;
-$headings-line-height:        1;
+$headings-line-height:        1.4;
 $headings-color:              inherit;
 
 $lead-font-size:              18px;
@@ -88,89 +97,8 @@ $icon-sizes: (
 );
 
 // Custom typography map for responsive headings and text
-/// @type Map
 
-$typography: (
-  headings: (
-    h1: (
-      xs: (
-        font-size: 40px,
-        font-weight: 300,
-        line-height: 42px,
-        margin-bottom: 30px,
-      ),
-      lg: (
-        font-size: $h1-font-size,
-        line-height: 63px,
-        margin-bottom: 40px,
-      ),
-    ),
-
-    h2: (
-      xs: (
-        font-size: 26px,
-        font-weight: 600,
-        line-height: 32px,
-      ),
-      lg: (
-        font-size: $h2-font-size,
-        font-weight: 400,
-        line-height: 48px,
-      ),
-    ),
-
-    h3: (
-      xs: (
-        font-size: 22px,
-        font-weight: 600,
-        line-height: 29px,
-      ),
-      lg: (
-        font-size: $h3-font-size,
-        line-height: 36px,
-      ),
-    ),
-
-    h4: (
-      xs: (
-        font-size: 18px,
-        font-weight: 600,
-        line-height: 26px,
-      ),
-      lg: (
-        font-size: $h4-font-size,
-        line-height: 30px,
-        margin-bottom: 25px,
-      ),
-    ),
-
-    h5: (
-      xs: (
-        font-size: 14px,
-        font-weight: 600,
-        line-height: 24px,
-      ),
-      lg: (
-        font-size: $h5-font-size,
-        line-height: 24px,
-      ),
-    ),
-
-    h6: (
-      xs: (
-        font-size: 10px,
-        font-weight: 600,
-        line-height: 18px,
-      ),
-      lg: (
-        font-size: $h6-font-size,
-        line-height: 22px,
-      ),
-    ),
-  ),
-
-  text: (),
-);
+@import 'typography';
 
 // Grid generic
 
@@ -203,3 +131,11 @@ $container-types: (
     xs: map-get($breakpoints, md),
   ),
 );
+
+// Spacing
+
+@import 'spacing';
+
+// Breadcrumbs
+
+@import 'breadcrumbs';
