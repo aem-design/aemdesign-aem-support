@@ -1,0 +1,8 @@
+#!/bin/bash
+
+TIMESTAMP=$(date +"%s")
+
+rm -rf ../target/classes/content/_cq_tags/aemdesign/component-style-test
+
+# Generate the AEM tags
+node generator.js --debug --config=../test/component-style-test.yml
