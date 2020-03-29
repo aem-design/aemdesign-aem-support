@@ -116,31 +116,6 @@
 
     <plugins>
       <plugin>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>2.5</version>
-
-        <executions>
-          <execution>
-            <id>clean-content-generator</id>
-            <phase>initialize</phase>
-            <goals>
-              <goal>clean</goal>
-            </goals>
-            <configuration>
-              <filesets>
-                <fileset>
-                  <directory>${basedir}/content-generator/content</directory>
-                  <includes>
-                    <include>**</include>
-                  </includes>
-                </fileset>
-              </filesets>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
         <artifactId>frontend-maven-plugin</artifactId>
         <groupId>com.github.eirslett</groupId>
         <version>1.6</version>
@@ -199,7 +174,7 @@
             </goals>
             <configuration>
               <arguments>- -stack_size=8192</arguments>
-              <arguments>aem:generatetags --no-color --no-clean --no-console --config=core.yml</arguments>
+              <arguments>aem:generatetags --no-color --clean --no-console --config=core.yml</arguments>
             </configuration>
           </execution>
 
@@ -304,61 +279,6 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>com.day.jcr.vault</groupId>
-        <artifactId>content-package-maven-plugin</artifactId>
-        <extensions>true</extensions>
-        <configuration>
-          <verbose>false</verbose>
-          <failOnError>true</failOnError>
-          <group>${package.group}</group>
-          <properties>
-            <acHandling>merge_preserve</acHandling>
-            <created>${buildNumber}</created>
-            <createdBy>${package.createdBy}</createdBy>
-            <description>${project.description}</description>
-          </properties>
-          <filters combine.children="append">
-            <!-- Core -->
-            <filter>
-              <root>/${package.appFolder}/clientlibs/core</root>
-            </filter>
-            <filter>
-              <root>${package.tagPath}/${package.tagNamespace.core}</root>
-              <mode>update</mode>
-            </filter>
-            <filter>
-              <root>${package.tagPath}/${package.tagNamespace.showcase}</root>
-              <mode>update</mode>
-            </filter>
-
-            <!-- Styleguide -->
-            <filter>
-              <root>/${package.appFolder}/clientlibs/styleguide</root>
-            </filter>
-
-            <!-- AEM.Design overrides -->
-            <filter>
-              <root>
-                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars
-              </root>
-              <mode>update</mode>
-            </filter>
-            <filter>
-              <root>
-                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles
-              </root>
-              <mode>update</mode>
-            </filter>
-            <filter>
-              <root>
-                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats
-              </root>
-              <mode>update</mode>
-            </filter>
-          </filters>
-        </configuration>
       </plugin>
     </plugins>
   </build>

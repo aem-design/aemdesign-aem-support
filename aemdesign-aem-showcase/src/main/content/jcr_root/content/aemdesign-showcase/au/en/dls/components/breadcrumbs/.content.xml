@@ -24,7 +24,6 @@
                     jcr:mixinTypes="[cq:Taggable]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     description="&lt;p>Breadcrumb enable users to quickly see their location within a path of navigation and navigate to a parent page if required.&lt;/p>&#xd;&#xa;&lt;p>Content is automatically generated using the site heirarchy in AEM.&lt;/p>&#xd;&#xa;"
                     editable="{Boolean}false"
                     showBreadcrumb="false"

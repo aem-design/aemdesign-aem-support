@@ -4,10 +4,8 @@
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Background"
-        sling:resourceType="aemdesign/components/template/styleguide"
-        navTitle="Background"
-        pageTitle="Background">
+        jcr:title="Colours"
+        sling:resourceType="aemdesign/components/template/styleguide">
         <aside
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/aside">
@@ -26,7 +24,6 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
@@ -40,7 +37,19 @@
                     componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
                     <par
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/layout/container"/>
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contentblock_colours
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock">
+                            <par jcr:primaryType="nt:unstructured">
+                                <embedsource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/embedsource"
+                                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/colors]"
+                                    html=""/>
+                            </par>
+                        </contentblock_colours>
+                    </par>
                 </contentblock>
             </par>
         </article>

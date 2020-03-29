@@ -24,27 +24,12 @@
 					jcr:primaryType="nt:unstructured"
 					sling:resourceType="aemdesign/components/details/page-details"
 					componentId="page_details"
-					componentModifiers="[aemdesign-showcase:component-style-modifier/background/primary/bg-yellow-pattern]"
-					componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
 					editable="{Boolean}false"
 					showBreadcrumb="false"
 					showPageDate="false"
 					showParsys="false"
 					showToolbar="false"
-					textIsRich="true">
-					<secondaryImage
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/media/image"/>
-					<thumbnail
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/media/image"/>
-					<bgimage
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/media/image"/>
-					<ogImage
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/media/image"/>
-				</page_details>
+					textIsRich="true"/>
 				<contentblock_single_link_text_align
 					jcr:primaryType="nt:unstructured"
 					sling:resourceType="aemdesign/components/layout/contentblock"
@@ -79,16 +64,9 @@
 									jcr:primaryType="nt:unstructured"
 									sling:resourceType="aemdesign/components/content/link"
 									componentId="link_single_link_text_align_left"
-									componentModifiers="[aemdesign-showcase:component-style-modifier/button/secondary-charcoal]"
 									label="Link"
 									variant="button"/>
 							</par>
-							<bgimage
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="aemdesign/components/media/image"/>
-							<bgvideo
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="aemdesign/components/media/video"/>
 						</contentblock_single_link_text_align_left>
 						<text_single_link_text_align_center_heading
 							jcr:primaryType="nt:unstructured"
@@ -109,16 +87,9 @@
 									jcr:primaryType="nt:unstructured"
 									sling:resourceType="aemdesign/components/content/link"
 									componentId="link_single_link_text_align_center"
-									componentModifiers="[aemdesign-showcase:component-style-modifier/button/secondary-charcoal]"
 									label="Link"
 									variant="button"/>
 							</par>
-							<bgimage
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="aemdesign/components/media/image"/>
-							<bgvideo
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="aemdesign/components/media/video"/>
 						</contentblock_single_link_text_align_center>
 						<text_single_link_text_align_right_heading
 							jcr:primaryType="nt:unstructured"
@@ -139,24 +110,11 @@
 									jcr:primaryType="nt:unstructured"
 									sling:resourceType="aemdesign/components/content/link"
 									componentId="link_single_link_text_align_right"
-									componentModifiers="[aemdesign-showcase:component-style-modifier/button/secondary-charcoal]"
 									label="Link"
 									variant="button"/>
 							</par>
-							<bgimage
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="aemdesign/components/media/image"/>
-							<bgvideo
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="aemdesign/components/media/video"/>
 						</contentblock_single_link_text_align_right>
 					</par>
-					<bgimage
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/media/image"/>
-					<bgvideo
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/media/video"/>
 				</contentblock_single_link_text_align>
 			</par>
 		</article>

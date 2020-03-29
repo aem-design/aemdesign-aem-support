@@ -1,4 +1,11 @@
 content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
+  accessibility:
+    prefixes:
+      - sr-only
+      - sr-only-focusable
+      - text-hide
+      - visible
+    title: '%%prefix_normalised%%'
 
   # Backgrounds
   background/primary:
@@ -13,6 +20,15 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
 
   background/greys:
     prefixes:
+      - grey-1
+      - grey-2
+      - grey-3
+      - grey-4
+      - grey-5
+      - grey-6
+      - grey-7
+      - grey-8
+      - grey-9
     startWith: bg-
     title: '%%prefix_normalised%%'
 
@@ -25,10 +41,10 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
 
   # Button
   button:
-      prefixes:
-          - link
-      valueFormat: btn btn-%%prefix%%
-      title: '%%prefix_normalised%%'
+    prefixes:
+        - link
+    valueFormat: btn btn-%%prefix%%
+    title: '%%prefix_normalised%%'
 
   # Button
   button/normal:
@@ -84,7 +100,6 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
   # Cards
   card:
     prefixes:
-      - notification
       - promoted
     valueFormat: card--%%prefix%%
     title: '%%prefix_normalised%%'
@@ -220,7 +235,7 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefix: container
     title: 'Container'
 
-  grid/container/sizes:
+  grid/container/size:
     prefixes:
       - full-width
       - small
@@ -286,43 +301,21 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefixValue: text-
     title: '%%prefix_normalised%%'
 
-  spacing/vertical:
+  # Spacing areas
+  spacing-area:
     prefixes:
-      - base
-    prefixValue: spacing-vertical-
+      - section
+    valueFormat: 'spacing--%%prefix%%-v'
     title: '%%prefix_normalised%%'
 
-  video:
+  spacing-area/axis:
     prefixes:
-      - allowfullscreen
-      - loop
-      - mozAllowFullScreen
-      - muted
-      - playsinline
-      - webkitallowfullscreen
-    title: '%%prefix_normalised%%'
-
-  visibility/hide:
-    prefixes:
-      - invisible
-      - invisible-lg-down
-      - invisible-lg-up
-      - invisible-md-down
-      - invisible-md-up
-      - invisible-sm-down
-      - invisible-sm-up
-      - invisible-xl-down
-      - invisible-xl-up
-      - invisible-xs-down
-      - invisible-xs-up
-    title: '%%prefix_normalised%%'
-
-  visibility/screen-reader:
-    prefixes:
-      - sr-only
-      - sr-only-focusable
-      - text-hide
-      - visible
+      - section-v
+    # Dirty hack until content generator is rebuilt
+    sizes:
+      - bottom
+      - top
+    valueFormat: 'spacing--%%prefix%%--%%size%%'
     title: '%%prefix_normalised%%'
 
   schema/widgets/onlinemedia:
@@ -339,7 +332,7 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
 
   height:
     contents:
-      - banner: {title: "Banner H:200px", value: "height-banner"}
+      - banner: { title: "Banner H:200px", value: "height-banner" }
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-style-modifier: *component-style-modifier

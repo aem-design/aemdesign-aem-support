@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="cq:Page">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
@@ -24,7 +25,6 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
@@ -35,10 +35,19 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
                     componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
+                    componentModifiers="[aemdesign-showcase:component-style-modifier/grid/container/size/small,aemdesign-showcase:component-style-modifier/spacing-area/section]"
+                    showIcon="false"
+                    variant="container">
                     <par
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/layout/container"/>
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="text_BYZU9ZUJS"
+                            text="&lt;p class=&quot;lead&quot;>TBC&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
                 </contentblock>
             </par>
         </article>

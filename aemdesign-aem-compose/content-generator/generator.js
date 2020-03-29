@@ -59,8 +59,6 @@ const {
   getBreakpointInfix,
   loadTemplateForCategory,
   parseTitle,
-  getDirectories,
-  isDirectory,
   debug
 } = require('./functions')
 
@@ -379,8 +377,10 @@ try {
   if (args.clean === false) {
     generator()
   } else {
-    rimraf(currentPath(rootPath), () => {
-      mkdirp.sync(currentPath(rootPath))
+    const tagsPath = currentPath(`${rootPath}/${pathPrefixTags}`)
+
+    rimraf(tagsPath, () => {
+      mkdirp.sync(tagsPath)
       generator()
     })
   }

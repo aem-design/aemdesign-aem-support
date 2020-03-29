@@ -4,10 +4,8 @@
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Breakpoints"
-        sling:resourceType="aemdesign/components/template/styleguide"
-        navTitle="breakpoints"
-        pageTitle="breakpoints">
+        jcr:title="Backgrounds"
+        sling:resourceType="aemdesign/components/template/styleguide">
         <aside
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/aside">
@@ -26,7 +24,6 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
@@ -36,8 +33,7 @@
                 <contentblock
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
+                    componentId="contentblock">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container"/>

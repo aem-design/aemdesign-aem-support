@@ -187,11 +187,21 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - ogurl: {title: "Open Graph - Url", value: "og:url"}
       - ogdescription: {title: "Open Graph - Description", value: "og:description"}
 
+  html/video:
+    prefixes:
+      - allowfullscreen
+      - loop
+      - mozAllowFullScreen
+      - muted
+      - playsinline
+      - webkitallowfullscreen
+    title: '%%prefix_normalised%%'
+
   components/details/generic-details/variant:
     contents:
-      - default: {title: "Default", value: "default", valuealt: "displayoptions" }
-      - custom: {title: "Custom Layout", value: "custom", valuealt: "custom"}
-      - hidden: {title: "Hidden", value: "hidden"}
+      - default: { title: "Default", value: "default", valuealt: "displayoptions" }
+      - custom: { title: "Custom Layout", value: "custom", valuealt: "custom" }
+      - hidden: { title: "Hidden", value: "hidden" }
       - breadcrumbSubTitleTitleDescriptionAction: {
         title: "Breadcrumb, Subtitle, Title, Description and Action",
         templates: ["simple"],
@@ -206,7 +216,7 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
         templates: ["card"],
         fields: ["breadcrumb","subtitle","title","description","action"]
       }
-      
+
   components/details/generic-details/legacy:
     contents:
       - "cardActionIconDescription": {
@@ -456,7 +466,6 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - simple-icon: {title: "Icon", value: "simple-icon"}
       - simple-image: {title: "Image with Link", value: "simple-image"}
       - simple-metadata: {title: "Image with Link", value: "simple-metadata"}
-
 
   components/layout/contentblock/variant:
     contents:
