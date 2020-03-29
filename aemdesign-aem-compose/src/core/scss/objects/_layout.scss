@@ -9,7 +9,7 @@
  */
 
 .container {
-  @include iphone-x;
+  @include notch-awesome;
 
   &--full {
     max-width: 100%;

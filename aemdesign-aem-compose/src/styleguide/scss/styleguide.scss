@@ -152,6 +152,9 @@ body {
   }
 
   .page-details ~ div.contentblock {
+    // iPhone X support
+    @include notch-awesome;
+
     padding: $grid-gutter-width $grid-gutter-width / 2;
 
     > div > div > .text:not(:last-child),

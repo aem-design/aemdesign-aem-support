@@ -1,12 +1,13 @@
 // stylelint-disable selector-max-compound-selectors
 %components-list {
-  @include make-container(0);
+  @include make-container;
   @include make-container-max-widths;
   // iPhone X support
-  @include iphone-x;
+  @include notch-awesome;
 
   > .content {
-    > ul {
+    .list,
+    .owl-carousel:not(.owl-loaded) {
       display: flex;
       flex-wrap: wrap;
       width: 100%;
@@ -22,23 +23,19 @@
       }
     }
 
-    > ul > li {
+    .list > li,
+    .owl-carousel > .item {
       flex: 0 1 100%;
       position: relative;
       width: 100%;
     }
 
-    > ul {
+    .list {
       margin-bottom: -$list-item-margin;
+      padding-left: 0;
 
       > li {
         margin-bottom: $list-item-margin;
-        padding-left: 0;
-
-        // stylelint-disable-next-line
-        &::before {
-          display: none;
-        }
 
         @include media-breakpoint-up(md) {
           margin-bottom: $list-item-md-margin;

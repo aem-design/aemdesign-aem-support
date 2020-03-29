@@ -3,42 +3,8 @@ ul {
   list-style: none;
   margin-bottom: 0;
   padding-bottom: 0;
-  padding-left: 20px;
 
-  > li {
-    padding-bottom: $line-height-base / 2;
+  li {
     position: relative;
-
-    li {
-      padding-bottom: 0;
-      padding-top: $line-height-base / 2;
-    }
-
-    ol,
-    ul {
-      padding-left: 48px;
-    }
-
-    &::before {
-      display: inline-block;
-      font-size: $font-size-sm - 4px;
-      left: -20px;
-      position: absolute;
-      // width: 10px;
-    }
-  }
-}
-
-ul > li::before {
-  content: '●';
-}
-
-ol {
-  counter-reset: list-counter;
-
-  > li::before {
-    content: counter(list-counter);
-    counter-increment: list-counter;
-    font-size: $font-size-sm;
   }
 }
