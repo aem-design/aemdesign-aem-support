@@ -55,7 +55,7 @@ async function loadApp() {
   /**
    * Load the Font Awesome icons now as they are the heaviest payload overall.
    */
-  const fontAwesome = (await import(/* webpackChunkName: "vendor/fontawesome-pro" */ '@module/fontawesome')).default
+  const fontAwesome = (await import(/* webpackChunkName: "vd/fontawesome-pro" */ '@module/fontawesome')).default
 
   fontAwesome()
 

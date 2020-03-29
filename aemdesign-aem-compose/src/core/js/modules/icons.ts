@@ -1,14 +1,8 @@
 const icons: { [key: string]: string } = {
-  chevronRight   : 'chevron-right',
-  longArrowRight : 'long-arrow-right',
+  longArrowRight: 'long-arrow-right',
 }
 
 export const components: ComponentConfig = {
-  breadcrumb: {
-    icon      : buildIcon(icons.chevronRight),
-    selectors : ['.breadcrumb-item:not(:last-child)'],
-  },
-
   link: {
     icon      : buildIcon(icons.longArrowRight),
     selectors : ['.link.btn'],

@@ -57,6 +57,7 @@ const {
   currentPath,
   generateContent,
   getBreakpointInfix,
+  generateIconsFromConfig,
   loadTemplateForCategory,
   parseTitle,
   debug
@@ -72,6 +73,11 @@ try {
 
   if (!fs.existsSync(currentPath(tmpPath))) {
     mkdirp.sync(currentPath(tmpPath))
+  }
+
+  // If the project is 'core', generate the 'icons.yml' file
+  if (args.config.indexOf('core') !== -1) {
+    generateIconsFromConfig()
   }
 
   // Merge the YAML configurations together into a single readable file

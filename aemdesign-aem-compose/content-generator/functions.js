@@ -1,8 +1,11 @@
 /* eslint-disable */
 
-const argv   = require('yargs').argv
-const colors = require('colors')
-const mkdirp = require('mkdirp')
+const argv       = require('yargs').argv
+const colors     = require('colors')
+const mkdirp     = require('mkdirp')
+const { sortBy } = require('lodash')
+const yaml       = require('js-yaml')
+const json2yaml  = require('json2yaml')
 
 const {
   readFileSync,
@@ -10,6 +13,7 @@ const {
   lstatSync,
   readdirSync,
   writeFile,
+  writeFileSync,
 } = require('fs')
 
 const { join, resolve } = require('path')
@@ -434,12 +438,60 @@ function debug(text) {
   }
 }
 
+function generateIconsFromConfig() {
+  const icons      = yaml.safeLoad(readFileSync(currentPath('../support/config/icons.yml')))
+  const categories = {}
+
+  for (const icon of icons) {
+    if (icon.usable === false) {
+      continue
+    }
+
+    categories[icon.category] = categories[icon.category]
+      ? [...categories[icon.category], icon]
+      : (icon.flat ? icon : [icon])
+  }
+
+  // Sort the icons in each category
+  for (const category of Object.keys(categories)) {
+    const icons = categories[category]
+
+    categories[category] = Array.isArray(icons) ? sortBy(icons, ['name']) : icons
+  }
+
+  const iconsFormatted = {}
+
+  // Now bind the items to the correct structure
+  for (const category of Object.keys(categories).sort()) {
+    const icons = categories[category]
+
+    if (Array.isArray(icons)) {
+      iconsFormatted[category] = iconsFormatted[category] || {
+        prefixes    : icons.map((icon) => icon.class),
+        title       : '%%prefix_normalised%%',
+        valueFormat : `${icons[0].prefix} fa-%%prefix%%`,
+      }
+    } else {
+      iconsFormatted[category] = {
+        flat   : true,
+        prefix : `${icons.prefix} fa-${icons.class}`,
+        title  : icons.name,
+      }
+    }
+  }
+
+  writeFileSync(
+    currentPath('config/core/icons.yml'),
+    json2yaml.stringify(iconsFormatted).split('\n').slice(1).join('\n')
+  )
+}
 
 module.exports = {
   currentPath,
   formatSizeWithSuffix,
   generateContent,
   getBreakpointInfix,
+  generateIconsFromConfig,
   loadTemplateForCategory,
   mapBreakpointToName,
   normalisePrefix,

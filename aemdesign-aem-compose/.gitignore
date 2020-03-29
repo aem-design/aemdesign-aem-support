@@ -15,7 +15,7 @@ node/
 node_modules/
 
 # Content generator
-content-generator/config/sut/icons.yml
+content-generator/config/core/icons.yml
 content-generator/content/*
 content-generator/output/*
 
