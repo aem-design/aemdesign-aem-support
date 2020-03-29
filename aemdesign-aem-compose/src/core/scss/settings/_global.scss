@@ -23,8 +23,6 @@ $body-bg:                    $body-bg;
 $font-size-base:              16px;
 $font-size-sm:                12px;
 
-$font-weight-base:            $font-weight-light;
-
 $line-height-base:            24px;
 $line-height-sm:              18px;
 
@@ -37,31 +35,16 @@ $h6-font-size:                16px;
 
 $headings-margin-bottom:      $grid-gutter-width / 2;
 $headings-font-family:        'Noto Sans', $font-family-base;
-$headings-font-weight:        normal;
-$headings-line-height:        1.4;
+$headings-font-weight:        $font-weight-bolder;
 $headings-color:              inherit;
 
-$lead-font-size:              18px;
-$lead-font-weight:            normal;
+$lead-font-size:              $font-size-base + 4px;
+$lead-font-weight:            $font-weight-normal;
 
 // Options
 
 $enable-caret:              false;
 $enable-rounded:            true;
-
-// Icons
-/// @type Map
-
-$icon-sizes: (
-  smaller : 10px,
-  small   : 13px,
-  regular : 16px,
-  large   : 23px,
-);
-
-// Custom typography map for responsive headings and text
-
-@import 'typography';
 
 // Grid generic
 
@@ -94,6 +77,14 @@ $container-types: (
     xs: map-get($breakpoints, md),
   ),
 );
+
+// Icons
+
+@import 'icons';
+
+// Custom typography map for responsive headings and text
+
+@import 'typography';
 
 // Spacing
 

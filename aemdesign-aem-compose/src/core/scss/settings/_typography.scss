@@ -6,8 +6,6 @@ $typography: (
     h1: (
       xs: (
         font-size: 40px,
-        font-weight: 800,
-        line-height: 1,
         margin-bottom: $grid-gutter-width,
       ),
       lg: (
@@ -18,37 +16,28 @@ $typography: (
     h2: (
       xs: (
         font-size: 26px,
-        font-weight: 600,
-        line-height: 32px,
       ),
       lg: (
         font-size: $h2-font-size,
-        font-weight: 400,
-        line-height: 48px,
       ),
     ),
 
     h3: (
       xs: (
         font-size: 22px,
-        font-weight: 600,
-        line-height: 29px,
       ),
       lg: (
         font-size: $h3-font-size,
-        line-height: 36px,
       ),
     ),
 
     h4: (
       xs: (
         font-size: 18px,
-        font-weight: 600,
-        line-height: 26px,
+        font-weight: $font-weight-normal,
       ),
       lg: (
         font-size: $h4-font-size,
-        line-height: 30px,
         margin-bottom: 25px,
       ),
     ),
@@ -56,24 +45,21 @@ $typography: (
     h5: (
       xs: (
         font-size: 14px,
-        font-weight: 600,
-        line-height: 24px,
+        font-weight: $font-weight-normal,
       ),
       lg: (
         font-size: $h5-font-size,
-        line-height: 24px,
       ),
     ),
 
     h6: (
       xs: (
         font-size: 10px,
-        font-weight: 600,
-        line-height: 18px,
+        font-weight: $font-weight-normal,
       ),
       lg: (
         font-size: $h6-font-size,
-        line-height: 22px,
+        margin-bottom: $line-height-base / 2,
       ),
     ),
   ),
