@@ -3,8 +3,6 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefixes:
       - sr-only
       - sr-only-focusable
-      - text-hide
-      - visible
     title: '%%prefix_normalised%%'
 
   # Backgrounds
@@ -56,23 +54,21 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
   # Button Outlined
   button/outline:
     prefixes:
-      - outline-primary
-      - outline-secondary
     valueFormat: btn btn-%%prefix%%
     title: '%%prefix_normalised%%'
 
   # Button Size
   button/size:
     contents:
-      - block: { value: "btn-block", title: "Block (Full Width)" }
-      - lg: { value: "btn-lg", title: "Large Button" }
-      - sm: { value: "btn-sm", title: "Small Button" }
+      - block: { value: 'btn-block', title: 'Block (Full Width)' }
+      - lg: { value: 'btn-lg', title: 'Large Button' }
+      - sm: { value: 'btn-sm', title: 'Small Button' }
 
   # Button State
   button/state:
     contents:
-      - active: { value: "active", title: "Active" }
-      - disabled: { value: "disabled", title: "Disabled" }
+      - active: { value: 'active', title: 'Active' }
+      - disabled: { value: 'disabled', title: 'Disabled' }
 
   # Colours
   colour/primary:
@@ -100,7 +96,7 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
   # Cards
   card:
     prefixes:
-      - promoted
+      - highlighted
     valueFormat: card--%%prefix%%
     title: '%%prefix_normalised%%'
 
@@ -219,16 +215,6 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     valueFormat: 'flex%%infix%%-%%prefix%%'
     title: '%%prefix_normalised%% %%breakpoint%%'
 
-  # Font
-  font/weight:
-    prefixes:
-      - 300
-      - 400
-      - 600
-      - 700
-    valueFormat: 'fw-%%prefix%%'
-    title: '%%prefix_normalised%%'
-
   # Grid
   grid/container:
     flat: true
@@ -242,6 +228,11 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefixValue: container--
     title: '%%prefix_normalised%%'
 
+  grid/center:
+    flat: true
+    prefix: mx-auto
+    title: 'Center Horizontally'
+
   # Icons
   icon/size:
     prefixes:
@@ -252,32 +243,7 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefixValue: icon--
     title: '%%prefix_normalised%%'
 
-  # Margin center
-  margin/mx-auto:
-    flat: true
-    prefix: mx-auto
-    title: 'Center Horizontally'
-
-  # Text (Misc)
-  text/list/colors:
-    prefixes:
-      - list-dark
-    prefixValue: text-
-    title: ' %%prefix_normalised%%'
-
-  text/headings/style:
-    prefixes:
-      - heading-outlined
-    prefixValue: text-
-    title: 'No Underline'
-
-  text/style:
-    prefixes:
-      - underlined
-    prefixValue: text--
-    title: 'Underlined'
-
-  # Text Alignments
+  # Text
   text/alignment:
     breakpoints:
       - sm
@@ -290,7 +256,6 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
     prefixValue: text-
     title: '%%prefix_normalised%% %%breakpoint%%'
 
-  # Text transforms
   text/transform:
     prefixes:
       - capitalize
@@ -299,6 +264,16 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
       - uppercase
       - small
     prefixValue: text-
+    title: '%%prefix_normalised%%'
+
+  text/weight:
+    prefixes:
+      - lighter
+      - light
+      - normal
+      - bold
+      - bolder
+    valueFormat: 'font-weight-%%prefix%%'
     title: '%%prefix_normalised%%'
 
   # Spacing areas
@@ -316,7 +291,7 @@ content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
       - bottom
       - top
     valueFormat: 'spacing--%%prefix%%--%%size%%'
-    title: '%%prefix_normalised%%'
+    title: '%%prefix_normalised%% (%%size%%)'
 
   schema/widgets/onlinemedia:
     contents:

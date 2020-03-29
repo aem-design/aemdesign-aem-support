@@ -33,46 +33,17 @@ const rootPath = '../target/classes'
 const breakpoints = {
   sm: null,
   md: 'Tablet',
-  lg: 'Desktop',
-  xl: 'Desktop (Large)',
+  lg: 'Desktop (Large)',
+  xl: 'Desktop (Extra Large)',
 }
 
 const prefixes = {
-  // Font weights
-  '300': 'Light',
-  '400': 'Normal',
-  '600': 'SemiBold',
-  '700': 'Bold',
-
   // Screen Reader
-  'sr-only'           : 'Only (visually hidden)',
-  'sr-only-focusable' : 'Show when focused',
+  'sr-only'           : 'Screen Reader: only',
+  'sr-only-focusable' : 'Screen Reader: when focused',
 
-  // Hidden components (invisiblility)
-  'invisible'         : 'Always',
-  'invisible-lg-down' : 'Desktop - Down',
-  'invisible-lg-up'   : 'Desktop - Up',
-  'invisible-md-down' : 'Tablet - Down',
-  'invisible-md-up'   : 'Tablet - Up',
-  'invisible-sm-down' : 'Mobile (landscape) - Down',
-  'invisible-sm-up'   : 'Mobile (landscape) - Up',
-  'invisible-xl-down' : 'Desktop (large) - Down',
-  'invisible-xl-up'   : 'Desktop (large) - Up',
-  'invisible-xs-down' : 'Mobile - Down',
-  'invisible-xs-up'   : 'Mobile - Up',
-
-  // Some colours are vauge, define specifc labels here
-  'dark'         : 'Charcoal',
-  'blue-50'      : 'Blue (50% opacity)',
-  'green-50'     : 'Green (50% opacity)',
-  'purple-50'    : 'Purple (50% opacity)',
-  'red-50'       : 'Red (50% opacity)',
-  'turquoise-50' : 'Turquoise (50% opacity)',
-  'yellow-50'    : 'Yellow (50% opacity)',
-
-  // Add the word 'Square' to these icon
-  'facebook': 'Facebook - Square',
-  'linkedin': 'LinkedIn - Square',
+  // Spacing areas
+  'section-v' : 'Section - Vertical',
 
   // Misc styles
   'col'    : 'Columns',

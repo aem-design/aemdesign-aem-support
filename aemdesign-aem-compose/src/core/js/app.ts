@@ -1,7 +1,5 @@
 import '../scss/app.scss'
 
-import $ from 'jquery'
-
 import AEMFixes from '@module/aem'
 import Icons from '@module/icons'
 

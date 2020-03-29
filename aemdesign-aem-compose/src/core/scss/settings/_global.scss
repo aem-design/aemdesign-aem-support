@@ -52,13 +52,6 @@ $enable-rounded:            true;
 $aem-prefix:     'aem-Grid';
 $aem-prefix-col: 'aem-GridColumn';
 
-$aem-breakpoints: (
-  'small'   : 'sm',
-  'medium'  : 'md',
-  'large'   : 'lg',
-  'default' : 'xl',
-);
-
 // Grid breakpoints
 
 $grid-breakpoints: $breakpoints;

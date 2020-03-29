@@ -46,66 +46,6 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
     valueFormat: '.'
     title: '%%prefix_normalised%%'
 
-
-  # WARNING: Reference to these path is hardcoded into component dialogs
-  html/animation/name:
-    prefixes:
-      - fade
-      - fade-down
-      - fade-down-left
-      - fade-down-right
-      - fade-left
-      - fade-right
-      - fade-up
-      - fade-up-left
-      - fade-up-right
-      - flip-down
-      - flip-left
-      - flip-right
-      - flip-up
-      - slide-down
-      - slide-left
-      - slide-right
-      - slide-up
-      - zoom-in
-      - zoom-in-down
-      - zoom-in-left
-      - zoom-in-right
-      - zoom-in-up
-      - zoom-out
-      - zoom-out-down
-      - zoom-out-left
-      - zoom-out-right
-      - zoom-out-up
-    valueFormat: '%%prefix%%'
-    title: '%%prefix_normalised%%'
-
-# WARNING: Reference to these path is hardcoded into component dialogs
-  html/animation/easing:
-    prefixes:
-      - ease
-      - ease-in
-      - ease-in-back
-      - ease-in-cubic
-      - ease-in-out
-      - ease-in-out-back
-      - ease-in-out-cubic
-      - ease-in-out-quad
-      - ease-in-out-quart
-      - ease-in-out-sine
-      - ease-in-quad
-      - ease-in-quart
-      - ease-in-sine
-      - ease-out
-      - ease-out-back
-      - ease-out-cubic
-      - ease-out-quad
-      - ease-out-quart
-      - ease-out-sine
-      - linear
-    valueFormat: '%%prefix%%'
-    title: '%%prefix_normalised%%'
-
   # WARNING: Reference to these path is hardcoded into component dialogs
   html/direction:
     prefixes:
@@ -123,10 +63,6 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - h4
       - h5
       - h6
-      - lead
-      - p2
-      - p3
-      - p4
     valueFormat: '%%prefix%%'
     title: '%%prefix_normalised%%'
 
@@ -614,7 +550,6 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - optionsList: {title: "Options List", value: "optionsList"}
       - list: {title: "List", value: "list"}
 
-
   components/lists/langnav/searchlogic:
     contents:
       - showRoot: {title: "Show Root", value: "showRoot"}
@@ -634,128 +569,12 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
     contents:
       - figure: {title: "Figure", value: "figure"}
 
-
   components/lists/listnav/badge:
     contents:
       - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
       - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
       - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
       - default: {title: "Title", value: "default"}
-
-
-  # Social Share
-  vue-widgets/social-share:
-    contents:
-      json: true
-      jsonKey: social-share
-      config: ''
-      fields:
-        label:
-          title: 'Label'
-          value:
-            field: 'textfield'
-            order: 1
-            required: false
-            tooltip: 'Optional label'
-
-  # Search Input
-  vue-widgets/search-input:
-    contents:
-      json: true
-      jsonKey: search-input
-      config:
-        - funnelback-concierge-endpoint
-      fields:
-        input-label:
-          title: 'Input Label'
-          value:
-            field: 'textfield'
-            order: 1
-            required: false
-            tooltip: 'Label for the input field'
-        destination:
-          title: 'Destination Page'
-          value:
-            externalizer: true
-            field: 'pathbrowser'
-            order: 2
-            required: false
-            tooltip: 'Page to send the search query to. Query emitted via an in-page JavaScript event (if empty).'
-        default-collection:
-          title: 'Default Collection'
-          value:
-            field: 'select'
-            items:
-              - label: ''
-                value: ''
-              - label: 'Search'
-                value: 'search-default'
-              - label: 'Courses'
-                value: 'search-courses'
-              - label: 'News'
-                value: 'search-news'
-              - label: 'Events'
-                value: 'search-events'
-            order: 3
-            placeholder: 'Please choose a collection'
-            required: false
-            tooltip: 'Default collection to use when a user is making a search query.'
-        toggleable:
-          title: 'Visibility Toggle'
-          value:
-            field: 'checkbox'
-            order: 4
-            required: false
-            tooltip: 'Toggle the search input visibility by a click (i.e. global header)'
-        show-collections:
-          title: 'Show Collections'
-          value:
-            field: 'checkbox'
-            order: 5
-            required: false
-            tooltip: 'Toggle the search collection buttons'
-        show-concierge:
-          title: 'Show Concierge'
-          value:
-            field: 'checkbox'
-            order: 6
-            required: false
-            tooltip: 'Toggle the concierge'
-  # Search Results
-  vue-widgets/search-results:
-    contents:
-      json: true
-      jsonKey: search-results
-      config:
-        - funnelback-search-endpoint
-      fields:
-        no-results-message:
-          title: 'No Results Message'
-          value:
-            field: 'textarea'
-            order: 1
-            required: false
-            slot: no-results-message
-            tooltip: 'Message to show when no results are found.'
-        invalid-response-message:
-          title: 'Invalid Response Message'
-          value:
-            field: 'textarea'
-            order: 2
-            required: false
-            slot: invalid-message
-            tooltip: 'Message to show when an unexpected error occurs.'
-        pager-mode:
-          title: 'Pagination Mode'
-          value:
-            field: 'select'
-            items:
-              - label: 'Paged List'
-                value: 'pagination'
-              - label: 'Infinite list'
-                value: 'infinite'
-            order: 3
-
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-dialog: *component-dialog
