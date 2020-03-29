@@ -54,11 +54,10 @@ async function loadApp() {
 
   /**
    * Load the Font Awesome icons now as they are the heaviest payload overall.
-   *
-   * TODO: Add the ability to define only a subset of icons instead of everything.
    */
-  await import(/* webpackChunkName: "vd/fontawesome-brands" */ '@fortawesome/fontawesome-free/js/brands')
-  await import(/* webpackChunkName: "vd/fontawesome" */ '@fortawesome/fontawesome-free/js/fontawesome')
+  const fontAwesome = (await import(/* webpackChunkName: "vendor/fontawesome-pro" */ '@module/fontawesome')).default
+
+  fontAwesome()
 
   /**
    * IE11 fixes... ಥ﹏ಥ

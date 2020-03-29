@@ -1,4 +1,4 @@
-declare var require: {
+declare let require: {
   <T>(path: string): T;
   (paths: string[], callback: (...modules: any[]) => void): void;
   ensure: (
@@ -7,5 +7,6 @@ declare var require: {
   ) => void;
 }
 
-declare var __DEV__: boolean;
-declare var __PROD__: boolean;
+declare let __DEV__: boolean;
+declare let __PROD__: boolean;
+declare let __VERSION__: number;

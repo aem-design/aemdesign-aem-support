@@ -1,21 +1,21 @@
 {
   "extends": "@aem-design/compose-webpack/configs/tsconfig.json",
-  
+
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
 
     "paths": {
       "@components/*": [
-        "core/js/components/*"
+        "src/core/js/components/*"
       ],
       "@module/*": [
-        "core/js/modules/*"
+        "src/core/js/modules/*"
       ],
       "@type/*": [
-        "core/@types/*"
+        "src/core/@types/*"
       ],
       "@utility/*": [
-        "core/js/utilities/*"
+        "src/core/js/utilities/*"
       ]
     }
   },
@@ -26,10 +26,10 @@
   ],
 
   "include": [
-    "../@types/*.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.vue",
-    "**/*.scss"
+    "@types/*.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.scss"
   ]
 }

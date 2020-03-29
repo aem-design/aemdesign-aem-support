@@ -4,44 +4,7 @@
 // Colours
 /// @type Map
 
-$brand-colours: (
-  primary: (),
-
-  secondary: (),
-
-  greys: (
-    'grey-1': lighten($black, 90%),
-    'grey-2': lighten($black, 80%),
-    'grey-3': lighten($black, 70%),
-    'grey-4': lighten($black, 60%),
-    'grey-5': lighten($black, 50%),
-    'grey-6': lighten($black, 40%),
-    'grey-7': lighten($black, 30%),
-    'grey-8': lighten($black, 20%),
-    'grey-9': lighten($black, 10%),
-  ),
-
-  standard: (
-    'black' : $black,
-    'white' : $white,
-  ),
-);
-
-$colors: (
-  'white': map-deep-get($brand-colours, 'standard', 'white'),
-  'black': map-deep-get($brand-colours, 'standard', 'black'),
-
-  // Greys
-  'grey-1': map-deep-get($brand-colours, 'greys', 'grey-1'),
-  'grey-2': map-deep-get($brand-colours, 'greys', 'grey-2'),
-  'grey-3': map-deep-get($brand-colours, 'greys', 'grey-3'),
-  'grey-4': map-deep-get($brand-colours, 'greys', 'grey-4'),
-  'grey-5': map-deep-get($brand-colours, 'greys', 'grey-5'),
-  'grey-6': map-deep-get($brand-colours, 'greys', 'grey-6'),
-  'grey-7': map-deep-get($brand-colours, 'greys', 'grey-7'),
-  'grey-8': map-deep-get($brand-colours, 'greys', 'grey-8'),
-  'grey-9': map-deep-get($brand-colours, 'greys', 'grey-9'),
-);
+@import 'colours';
 
 $theme-colors: $colors;
 
