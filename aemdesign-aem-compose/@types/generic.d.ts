@@ -9,4 +9,5 @@ declare let require: {
 
 declare let __DEV__: boolean;
 declare let __PROD__: boolean;
+declare let __TESTING__: boolean;
 declare let __VERSION__: number;

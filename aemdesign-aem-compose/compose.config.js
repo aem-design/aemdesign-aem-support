@@ -1,5 +1,6 @@
 const { resolve } = require('path')
 const { configuration, registerHook } = require('@aem-design/compose-webpack')
+const { DefinePlugin } = require('webpack')
 
 const projectExtras = {
   core: {
@@ -72,5 +73,11 @@ module.exports = configuration({
         },
       },
     },
+
+    plugins: [
+      new DefinePlugin({
+        __TESTING__: false,
+      }),
+    ],
   }),
 })

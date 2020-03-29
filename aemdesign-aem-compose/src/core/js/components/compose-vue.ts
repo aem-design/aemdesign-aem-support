@@ -1,8 +1,12 @@
 import ErrorBoundary from '@components/error-boundary/ErrorBoundary.vue'
 
+// Internal
+let hasInitialised = false
+
 // Define the components we can use
 const components = {
   // <Component (kebab-case)>: loadView('component', 'Entry')
+  'hello-world': loadView('hello-world', 'HelloWorld'),
 }
 
 const validComponents = Object.keys(components)
@@ -16,28 +20,40 @@ const validComponents = Object.keys(components)
  */
 function loadView(folder: string, view: string): () => Promise<any> {
   return () => import(
-    /* webpackChunkName: "vc/[request]" */
+    /* webpackChunkName: "vue/c/[request]" */
     `./${folder}/${view}.vue`)
 }
 
-export default async (references: NodeListOf<Element>) => {
-  const Vue = (await import('vue')).default
-
-  Vue.config.devtools      = true
-  Vue.config.performance   = __DEV__
-  Vue.config.productionTip = __PROD__
-  Vue.config.silent        = __PROD__
+/**
+ * Sets up and binds the components needed for our Vue experiences.
+ *
+ * @param {VueConstructor} vue Vue.js constructor class
+ */
+function initialiseVue(vue: Vue.VueConstructor) {
+  vue.config.devtools      = true
+  vue.config.performance   = __DEV__
+  vue.config.productionTip = __PROD__
+  vue.config.silent        = __PROD__
 
   // Register the components
-  console.info('[Vue] %d ready to be created!', validComponents.length)
+  console.info('[Vue] %d components ready to be registered!', validComponents.length)
 
   for (const component of validComponents) {
     console.info('[Vue] Registering...', component)
-    Vue.component(component, components[component])
+    vue.component(component, components[component])
   }
 
-  // Register the error boundary component
-  Vue.component('error-boundary', ErrorBoundary)
+  vue.component('error-boundary', ErrorBoundary)
+}
+
+export default async (references: NodeListOf<Element>) => {
+  const { default: Vue } = await import('vue')
+
+  if (!hasInitialised) {
+    hasInitialised = true
+
+    initialiseVue(Vue)
+  }
 
   // Find any and all Vue component references in the DOM
   console.info('[Vue] Found %d reference elements!', references.length)
@@ -55,6 +71,9 @@ export default async (references: NodeListOf<Element>) => {
 
       const instance = new Vue({ el: reference })
       console.info('[Vue] Component initialized and ready to go!', instance)
+
+      // Ensure the component cannot be re-initalised
+      reference.setAttribute('js-set', 'true')
     }
   }
 }

@@ -1,12 +1,10 @@
 import '../scss/app.scss'
 
 import AEMFixes from '@module/aem'
+import { bindVueComponents } from '@module/binder'
 import Icons from '@module/icons'
 
 import { isAuthorMode } from '@utility/aem'
-
-// Internal
-const authorMode = isAuthorMode()
 
 async function loadApp() {
   console.log('app.js jQuery Version', $.fn.jquery)
@@ -17,13 +15,7 @@ async function loadApp() {
    * We typically want to load these as soon as possible to ensure our more feature-rich experiences
    * are available to the end-user as soon-as-possible.
    */
-  const vueComponents = document.querySelectorAll('[vue-component]')
-
-  if (!authorMode && vueComponents.length) {
-    const composeVue = (await import(/* webpackChunkName: "vue/compose" */ '@components/compose-vue')).default
-
-    composeVue(vueComponents)
-  }
+  await bindVueComponents()
 
   /**
    * Append icons elements to any elements that need them. This is done via JavaScript because
@@ -39,7 +31,7 @@ async function loadApp() {
   /**
    * Apply some fixes when we are in the AEM author 'edit' mode.
    */
-  if (authorMode) {
+  if (isAuthorMode()) {
     // Open all the 'collapse' elements on the page, by default they are closed and can't be updated
     // by an author which isn't what we want.
     $('.collapse[data-parent]').collapse('dispose')

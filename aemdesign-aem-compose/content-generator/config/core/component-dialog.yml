@@ -574,7 +574,21 @@ content/_cq_tags/aemdesign/component-dialog: &component-dialog
       - cardHorizontalIconTitleCategoryDescriptionAction: {title: "Horizontal Card with Icon, Title, Category, Description and Action", value: "cardHorizontalIconTitleCategoryDescriptionAction"}
       - cardIconTitleCategoryDescriptionAction: {title: "Card with Icon, Title, Category, Description and Action", value: "cardIconTitleCategoryDescriptionAction"}
       - cardImageTitleCategoryDescriptionAction: {title: "Card with Image, Title, Category, Description and Action", value: "cardImageTitleCategoryDescriptionAction"}
-      - default: {title: "Title", value: "default"}
+
+  # Vue widgets
+  vue-widgets/hello-world:
+    contents:
+      json: true
+      jsonKey: hello-world
+      config:
+        - googlemaps
+      fields:
+        name:
+          title: 'Name'
+          value:
+            field: 'textfield'
+            order: 1
+            required: false
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-dialog: *component-dialog

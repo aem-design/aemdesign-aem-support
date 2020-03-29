@@ -21,8 +21,10 @@ export default class BaseComponent extends Vue {
   }
 
   beforeMount() {
-    this.detectDocumentTargetFromId()
-    this.detectWindowTargetFromId()
+    if (__TESTING__) {
+      this.detectDocumentTargetFromId()
+      this.detectWindowTargetFromId()
+    }
   }
 
   protected log(type: LogLevel, ...args: any[]) {
