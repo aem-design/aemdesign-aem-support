@@ -152,10 +152,17 @@ body {
   }
 
   .page-details ~ div.contentblock {
-    // iPhone X support
-    @include notch-awesome;
+    > .contentblock {
+      // iPhone X support
+      @include notch-awesome;
 
-    padding: $grid-gutter-width $grid-gutter-width / 2;
+      padding: $grid-gutter-width $grid-gutter-width / 2;
+
+      @include media-breakpoint-up(lg) {
+        padding-left: $grid-gutter-width;
+        padding-right: $grid-gutter-width;
+      }
+    }
 
     > div > div > .text:not(:last-child),
     > div > div > .text ~ [component]:not(:last-child) {
@@ -170,11 +177,6 @@ body {
 
     &:not(:last-of-type) {
       margin-bottom: 0;
-    }
-
-    @include media-breakpoint-up(lg) {
-      padding-left: $grid-gutter-width;
-      padding-right: $grid-gutter-width;
     }
   }
 }
