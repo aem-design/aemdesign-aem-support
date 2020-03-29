@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-	<filter root="/apps/aemdesign/clientlibs/core" />
-	<filter root="/apps/aemdesign/clientlibs/styleguide" />
+	<filter root="/apps/aemdesign-compose/clientlibs/core" mode="replace" />
+	<filter root="/apps/aemdesign-compose/clientlibs/styleguide" mode="replace" />
 
 	<filter root="/content/cq:tags/aemdesign" mode="replace" />
 	<filter root="/content/cq:tags/aemdesign-showcase" mode="replace" />
