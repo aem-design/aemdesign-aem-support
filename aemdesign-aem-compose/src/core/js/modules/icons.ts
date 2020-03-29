@@ -1,10 +1,12 @@
-const icons: { [key: string]: string } = {
-  longArrowRight: 'long-arrow-right',
+import { IconPrefix } from '@type/enum'
+
+const icons: { [key: string]: Element } = {
+  longArrowRight: buildIcon('long-arrow-alt-right', IconPrefix.SOLID),
 }
 
 export const components: ComponentConfig = {
   link: {
-    icon      : buildIcon(icons.longArrowRight),
+    icon      : icons.longArrowRight,
     selectors : ['.link.btn'],
   },
 }
@@ -15,9 +17,9 @@ export const components: ComponentConfig = {
  * @param {string} iconClass CSS class needed for Font Awesome
  * @return {Element}
  */
-function buildIcon(iconClass: string): Element {
+function buildIcon(iconClass: string, prefix: IconPrefix): Element {
   const icon = document.createElement('i')
-  icon.setAttribute('class', `icon fa fa-${iconClass}`)
+  icon.setAttribute('class', `icon ${prefix} fa-${iconClass}`)
 
   return icon
 }
