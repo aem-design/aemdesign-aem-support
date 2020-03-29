@@ -25,6 +25,7 @@ $font-size-sm:                12px;
 
 $line-height-base:            24px;
 $line-height-sm:              18px;
+$line-height-lg:              $line-height-base + 4px;
 
 $h1-font-size:                60px;
 $h2-font-size:                48px;
@@ -74,7 +75,10 @@ $container-max-widths: (
 
 $container-types: (
   small: (
-    xs: map-get($breakpoints, md),
+    sm: 100%,
+    md: 542px,
+    lg: 658px,
+    xl: 880px,
   ),
 );
 
