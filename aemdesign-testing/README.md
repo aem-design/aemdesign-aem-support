@@ -73,7 +73,7 @@ All test should be done either on Showcase or respect unknown nature of target h
 - Clone Repo
 SSH Clone
 ```bash
-git clone git@gitlab.com:aem.design/aemdesign-testing.git
+git clone git@github.com:aem-design/aemdesign-testing.git
 ```
 - Test if project is runnable:
 ```bas
@@ -122,7 +122,7 @@ mvn clean test -Dgeb.env=dev -P screenshot-test
 
 ## Questions and issues
 
-Please ask questions and raise issues at [Testing Frameworks Issues](https://gitlab.com/aem.design/aemdesign-testing/issues).
+Please ask questions and raise issues at [Testing Frameworks Issues](https://github.com/aem-design/aemdesign-testing/issues).
 
 
 ## Showcase Site Information
