@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="cq:Page">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
@@ -24,42 +25,49 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
                     showParsys="false"
                     showToolbar="false"
                     textIsRich="true"/>
-                <contentblock
+                <contentblock_spacing
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
+                    componentId="contentblock_spacing">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
-                        <contentblock_1227356683
+                        <contentblock_spacing_heading
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_spacing_heading"
+                            text="&lt;h2 class=&quot;h4&quot;>Spacing&lt;/h2>&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_spacing_container
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_spacing_container"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/grid/container/size/small]"
+                            variant="container">
                             <par
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="aemdesign/components/layout/container">
-                                <text
+                                <contentblock_spacing_content
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;h1>Heading 1&lt;/h1>&#xd;&#xa;&lt;h2>Heading 2&lt;/h2>&#xd;&#xa;&lt;h3>Heading 3&lt;/h3>&#xd;&#xa;&lt;h4>Heading 4&lt;/h4>&#xd;&#xa;&lt;h5>Heading 5&lt;/h5>&#xd;&#xa;&lt;p>&lt;small>Small&lt;/small>&lt;/p>&#xd;&#xa;&lt;p>&lt;i>&lt;small>Emphasis&lt;/small>&lt;/i>&lt;/p>&#xd;&#xa;&lt;p>Paragraph&lt;/p>&#xd;&#xa;&lt;blockquote>Blockquote&lt;/blockquote>&#xd;&#xa;&lt;p>&lt;b>Bold&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b>&lt;i>Italic&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/i>&lt;u>Underline&lt;/u>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;sub>Subscript&amp;nbsp; &amp;nbsp; &lt;/sub>&lt;sup>Superscript&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/sup>&lt;a href=&quot;http://www.google.com.au&quot; target=&quot;_blank&quot;>Link&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>Special characters :&amp;nbsp;÷&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c4&quot;>Style Green&lt;/span>&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c1&quot;>Style Red&lt;/span>&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: left;&quot;>Left Aligned&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: center;&quot;>Center Text&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: right;&quot;>Right Aligned&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;&lt;p style=&quot;margin-left: 40.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 80.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 120.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p>No Indent&lt;/p>&#xd;&#xa;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot;>&#xd;&#xa;&lt;tbody>&lt;tr>&lt;th>Header&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row1&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row2&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                                    componentId="contentblock_spacing_content"
+                                    text="&lt;h2>Heading 2&lt;/h2>&#xd;&#xa;&lt;p class=&quot;lead&quot;>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tortor lorem, eleifend a tincidunt sit amet, tempus ac purus. Nunc congue non justo at euismod. Cras dictum facilisis velit, vitae suscipit ligula fringilla a. Maecenas eget felis commodo, elementum risus vitae, molestie ipsum. In feugiat accumsan purus ut tincidunt. Praesent placerat purus vitae urna interdum luctus. Curabitur non tellus a sem bibendum tempor. Nam in felis eu dolor venenatis efficitur. Fusce at ligula urna. Duis sed leo in odio malesuada scelerisque in sit amet mi. Duis laoreet auctor lacus, at pulvinar enim.&lt;/p>&#xd;&#xa;&lt;h3>Heading 3&lt;/h3>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet elit at dolor faucibus, non semper ligula mollis. Proin porttitor facilisis mi et condimentum. Nam bibendum commodo sodales. Fusce congue faucibus nisi ut imperdiet. Aenean at hendrerit odio. Morbi porta orci nisi, sit amet euismod quam mollis et. Aenean sollicitudin molestie odio et blandit. Maecenas in dui condimentum, scelerisque felis vel, maximus felis. Duis vitae ante maximus, sollicitudin sapien nec, dignissim diam. Mauris consectetur faucibus justo ut ullamcorper. Ut scelerisque blandit libero ac hendrerit.&lt;/p>&#xd;&#xa;&lt;p>Quisque accumsan justo nec ex fermentum fringilla id ut lectus. Pellentesque gravida facilisis consequat. Nam pharetra eu tortor eget hendrerit. Vivamus aliquam neque sit amet erat venenatis, quis ultricies turpis sodales. Donec vestibulum nunc velit, ac maximus ex interdum ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum rutrum et orci bibendum sagittis. Nullam vitae sapien facilisis erat interdum fermentum. Sed varius tristique mattis. Curabitur nec orci et mi egestas condimentum at tincidunt velit. Duis feugiat bibendum fermentum. Cras tempor, metus eu vestibulum consectetur, odio odio sollicitudin nulla, et tristique enim erat ac lacus. Maecenas commodo turpis libero, nec viverra ipsum congue eget. Nulla facilisi. Morbi at metus ipsum.&lt;/p>&#xd;&#xa;&lt;p>Cras nec odio a ipsum tempus eleifend. Morbi commodo, lectus sed fermentum porta, metus nulla vulputate dui, ut vestibulum elit turpis id ex. Quisque enim eros, condimentum sit amet purus vestibulum, egestas eleifend eros. Etiam elementum mi quis nulla luctus feugiat. In mollis ex tortor, vel faucibus justo sollicitudin ac. Curabitur scelerisque congue aliquet. Pellentesque fringilla vehicula est, sed consequat velit auctor a.&lt;/p>&#xd;&#xa;&lt;h4>Heading 4&lt;/h4>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut ligula ac ipsum auctor sodales. Ut tincidunt mi est, at cursus leo aliquet nec. Nulla id hendrerit nunc. Vivamus rutrum, libero ut consectetur viverra, elit nibh hendrerit lorem, ac malesuada nisi est in ante. Morbi faucibus ante commodo enim euismod, eu tristique enim viverra. Nunc maximus diam eu viverra placerat. Sed mollis risus ac turpis commodo, non vehicula tortor aliquet. Pellentesque tincidunt mattis mauris hendrerit commodo. Duis vitae tellus eget nisl pulvinar tincidunt sit amet vitae lorem. Praesent condimentum lorem ac arcu scelerisque elementum. Nulla auctor eu turpis in tincidunt.&lt;/p>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum. Dolor sit amet consectetur adipiscing elit ut aliquam purus. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Egestas dui id ornare arcu odio ut sem nulla pharetra. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Porttitor leo a diam sollicitudin tempor. Malesuada nunc vel risus commodo viverra maecenas accumsan lacus. In nibh mauris cursus mattis molestie. Sed odio morbi quis commodo odio aenean.&lt;/li>&#xd;&#xa;&lt;li>Ordered style list items&lt;/li>&#xd;&#xa;&lt;li>Ordered style list items&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
                                     textIsRich="true"/>
-                                <text_copy
+                                <contentblock_spacing_image
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/background/bg-dark]"
-                                    text="&lt;h1>Heading 1&lt;/h1>&#xd;&#xa;&lt;h2>Heading 2&lt;/h2>&#xd;&#xa;&lt;h3>Heading 3&lt;/h3>&#xd;&#xa;&lt;h4>Heading 4&lt;/h4>&#xd;&#xa;&lt;h5>Heading 5&lt;/h5>&#xd;&#xa;&lt;p>&lt;small>Small&lt;/small>&lt;/p>&#xd;&#xa;&lt;p>&lt;i>&lt;small>Emphasis&lt;/small>&lt;/i>&lt;/p>&#xd;&#xa;&lt;p>Paragraph&lt;/p>&#xd;&#xa;&lt;blockquote>Blockquote&lt;/blockquote>&#xd;&#xa;&lt;p>&lt;b>Bold&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b>&lt;i>Italic&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/i>&lt;u>Underline&lt;/u>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;sub>Subscript&amp;nbsp; &amp;nbsp; &lt;/sub>&lt;sup>Superscript&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/sup>&lt;a href=&quot;http://www.google.com.au&quot; target=&quot;_blank&quot;>Link&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>Special characters :&amp;nbsp;÷&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c4&quot;>Style Green&lt;/span>&lt;/p>&#xd;&#xa;&lt;p>&lt;span class=&quot;text-c1&quot;>Style Red&lt;/span>&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: left;&quot;>Left Aligned&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: center;&quot;>Center Text&lt;/p>&#xd;&#xa;&lt;p style=&quot;text-align: right;&quot;>Right Aligned&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>Item 1&lt;/li>&#xd;&#xa;&lt;li>Item 2&lt;/li>&#xd;&#xa;&lt;li>Item 3&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;&lt;p style=&quot;margin-left: 40.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 80.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p style=&quot;margin-left: 120.0px;&quot;>Indent&lt;/p>&#xd;&#xa;&lt;p>No Indent&lt;/p>&#xd;&#xa;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot;>&#xd;&#xa;&lt;tbody>&lt;tr>&lt;th>Header&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;th>Col1&lt;/th>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row1&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;td>○&lt;/td>&#xd;&#xa;&lt;/tr>&lt;tr>&lt;td>Row2&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>●&lt;/td>&#xd;&#xa;&lt;td>○&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;&lt;/td>&#xd;&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
+                                    sling:resourceType="aemdesign/components/media/image"
+                                    componentId="contentblock_spacing_image"
+                                    fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
                             </par>
-                        </contentblock_1227356683>
+                        </contentblock_spacing_container>
                     </par>
-                </contentblock>
+                </contentblock_spacing>
             </par>
         </article>
     </jcr:content>

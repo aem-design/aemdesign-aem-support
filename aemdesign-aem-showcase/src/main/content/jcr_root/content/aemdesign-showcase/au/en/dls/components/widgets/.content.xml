@@ -25,6 +25,7 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
+                    description="&lt;p>A nice mix between Vue.js and AEM driven components.&lt;/p>&#xd;&#xa;"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
