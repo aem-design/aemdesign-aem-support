@@ -2,8 +2,7 @@ vue-widgets/hello-world:
   contents:
     json: true
     jsonKey: hello-world
-    config:
-      - googlemaps
+    config: false
     fields:
       name:
         title: 'Name'
