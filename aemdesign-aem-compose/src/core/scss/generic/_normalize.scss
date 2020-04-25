@@ -5,13 +5,17 @@
 @import '~bootstrap/scss/reboot';
 
 /**
- * More sensible default box-sizing:
- * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
- */
+* Overrides
+*/
 
 html {
   box-sizing: border-box;
 }
+
+/**
+ * More sensible default box-sizing:
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
 
 * {
   &,
