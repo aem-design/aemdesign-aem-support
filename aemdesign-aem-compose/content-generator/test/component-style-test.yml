@@ -1,13 +1,11 @@
 content/_cq_tags/aemdesign/component-style-test:
-  
-  
   text/style:
     prefixes:
       - underlined
       - -underlined
     prefixValue: text--
     title: 'Underlined'
-  
+
   # Text transforms
   text/transform2:
     prefixes:
@@ -15,7 +13,7 @@ content/_cq_tags/aemdesign/component-style-test:
       - lowercase
     prefixValue: text-
     title: '%%prefix_normalised%%'
-  
+
   # Text transforms
   text/transform:
     prefixes:
@@ -23,11 +21,11 @@ content/_cq_tags/aemdesign/component-style-test:
       - lowercase
     valueFormatted: "text-%%prefix%%"
     title: '%%prefix_normalised%%'
-  
+
   height:
     contents:
       - banner: {title: "Banner H:200px", value: "height-banner"}
-  
+
   # Flexbox
   flex/align-items:
     breakpoints:
@@ -38,7 +36,7 @@ content/_cq_tags/aemdesign/component-style-test:
       - center
     valueFormat: 'align-items%%infix%%-%%prefix%%'
     title: '%%prefix_normalised%% %%breakpoint%%'
-  
+
   components/details/generic-details/legacy:
     contents:
       - "cardActionIconDescription": {

@@ -293,7 +293,7 @@ try {
                 valueFormatted : prefixValue
               })
             } else {
-                debug({PROCESSING: "normal"})
+                debug({PROCESSING: "normal", prefixValue: prefixValue})
                 let valueFormatted
                 if (valueFormat) {
                     valueFormatted = valueFormat
