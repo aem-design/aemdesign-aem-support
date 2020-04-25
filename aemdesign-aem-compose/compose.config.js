@@ -2,6 +2,11 @@ const { resolve } = require('path')
 const { configuration, registerHook } = require('@aem-design/compose-webpack')
 const { DefinePlugin } = require('webpack')
 
+// TODO: Create a way to extend default projects
+// "lazysizes",
+// "lazysizes/plugins/object-fit/ls.object-fit",
+// "lazysizes/plugins/parent-fit/ls.parent-fit",
+
 const projectExtras = {
   core: {
     generateColours : true,

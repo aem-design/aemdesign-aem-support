@@ -14,8 +14,8 @@
   width: 100%;
 
   &-img-top,
-  // `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
   .lazysizes-display-clone {
+    // `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
     display: block;
     height: 145px;
 
@@ -44,7 +44,7 @@
   }
 
   &-body {
-    background-color: color('white');
+    background-color: $white;
     display: flex;
     flex-direction: column;
 
@@ -70,31 +70,12 @@
     }
   }
 
-  &-date {
-    font-weight: 300;
-  }
-
-  &-taglist {
-    .taglist li::before {
-      display: none;
-    }
-
-    ul {
-      margin-bottom: 0;
-    }
-
-    li {
-      padding-left: 0;
-    }
+  &-taglist li {
+    padding-left: 0;
   }
 
   &-text {
     color: #808285;
-  }
-
-  &-action {
-    // Normally 40px, we take 16px from here because other elements are spaced that far apart
-    padding-top: 24px;
   }
 
   &-link {

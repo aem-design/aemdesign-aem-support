@@ -6,23 +6,19 @@ let hasInitialised = false
 /**
  * Generates the dynamic import logic needed for each async Vue component.
  *
- * @param {string} folder Name of the folder containing the Vue component
- * @param {string} view Name of the Vue component
+ * @param {string} component Name of the Vue component
  * @return {() => Promise<any>}
  */
-function loadView(folder: string, view: string): () => Promise<any> {
+function loadView(component: string): () => Promise<any> {
   return () => import(
     /* webpackChunkName: "vue/c/[request]" */
-    `./${folder}/${view}.vue`)
+    `./${component}/${component}.vue`)
 }
 
 // Define the components we can use
-const components = {
-  // <Component (kebab-case)>: loadView('component', 'entry')
-  'hello-world': loadView('hello-world', 'hello-world'),
-}
-
-const validComponents = Object.keys(components)
+const components = [
+  'hello-world',
+]
 
 /**
  * Sets up and binds the components needed for our Vue experiences.
@@ -30,17 +26,18 @@ const validComponents = Object.keys(components)
  * @param {VueConstructor} vue Vue.js constructor class
  */
 function initialiseVue(vue: Vue.VueConstructor) {
+  // TODO: Find a nice way to make devtools CI/CD configurable
   vue.config.devtools      = true
   vue.config.performance   = __DEV__
   vue.config.productionTip = __PROD__
   vue.config.silent        = __PROD__
 
   // Register the components
-  console.info('[Vue] %d components ready to be registered!', validComponents.length)
+  console.info('[Vue] %d components ready to be registered!', components.length)
 
-  for (const component of validComponents) {
+  for (const component of components) {
     console.info('[Vue] Registering...', component)
-    vue.component(component, components[component])
+    vue.component(component, loadView(component))
   }
 
   vue.component('error-boundary', ErrorBoundary)
@@ -62,8 +59,13 @@ export default async (references: NodeListOf<Element>) => {
     for (const reference of references) {
       const componentName = reference.getAttribute('vue-component')
 
-      if (!componentName || validComponents.indexOf(componentName) === -1) {
-        console.warn("[Vue] Component '%s' is invalid, valid components are:", componentName, validComponents.join(', '))
+      if (!componentName || components.indexOf(componentName) === -1) {
+        console.warn(
+          "[Vue] Component '%s' is invalid, valid components are:",
+          componentName,
+          components.join(', ')
+        )
+
         continue
       }
 
