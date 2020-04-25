@@ -52,7 +52,7 @@ export function matches(el: Element, selector: string): boolean {
 export function hasParent(
   parent: ParentNode | null,
   selector: string,
-  returnOnFound: boolean = false,
+  returnOnFound = false,
 ): ParentNode | boolean {
   let pn = parent
 

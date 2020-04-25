@@ -11,7 +11,7 @@ export default class ErrorBoundary extends Vue {
   public stopPropagation!: boolean
 
   public err: Error | false = false
-  public info: string = ''
+  public info = ''
   public vm: Vue | null = null
 
   errorCaptured(err: Error, vm: Vue, info: string) {

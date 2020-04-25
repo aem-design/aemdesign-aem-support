@@ -1,15 +1,7 @@
-import ErrorBoundary from '@components/error-boundary/ErrorBoundary.vue'
+import ErrorBoundary from '@components/error-boundary/error-boundary.vue'
 
 // Internal
 let hasInitialised = false
-
-// Define the components we can use
-const components = {
-  // <Component (kebab-case)>: loadView('component', 'Entry')
-  'hello-world': loadView('hello-world', 'HelloWorld'),
-}
-
-const validComponents = Object.keys(components)
 
 /**
  * Generates the dynamic import logic needed for each async Vue component.
@@ -23,6 +15,14 @@ function loadView(folder: string, view: string): () => Promise<any> {
     /* webpackChunkName: "vue/c/[request]" */
     `./${folder}/${view}.vue`)
 }
+
+// Define the components we can use
+const components = {
+  // <Component (kebab-case)>: loadView('component', 'entry')
+  'hello-world': loadView('hello-world', 'hello-world'),
+}
+
+const validComponents = Object.keys(components)
 
 /**
  * Sets up and binds the components needed for our Vue experiences.

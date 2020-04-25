@@ -61,8 +61,3 @@ The styleguide is its own project to remove any duplicate/irrelevant code from t
 
 ## Linting
 All code in the project is linted both in your IDE (where supported) and during compilation. This is to ensure that bugs and issues can be fixed before going out and ensures consistency between developers. ESLint is used across all projects.
-
-## Testing
-Cypress will be used for all front end testing. To run tests you can use the full filename or globbing for partial matching.
-
-`yarn test:cypress:run 'test*'`

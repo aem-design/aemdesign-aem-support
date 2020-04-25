@@ -3,6 +3,4 @@
  *
  * @return {boolean}
  */
-export const isAuthorMode = (): boolean => {
-  return window.parent.CQ?.wcm
-}
+export const isAuthorMode = (): boolean => window.parent.CQ?.wcm

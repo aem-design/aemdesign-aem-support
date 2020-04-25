@@ -2,22 +2,39 @@
   "root": true,
 
   "extends": [
-    "@chrisblossom/eslint-config",
+    "eslint:recommended",
     "plugin:vue/essential",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:promise/recommended",
     "@vue/typescript"
   ],
 
   "plugins": [
-    "cypress"
+    "@typescript-eslint",
+    "filenames",
+    "promise"
   ],
 
-  "rules": {
-    "arrow-body-style": ["error", "as-needed"],
-    "no-console": "off",
-    "no-use-before-define": ["error", { "functions": false, "classes": true }],
+  "parser": "vue-eslint-parser",
 
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "extraFileExtensions": [".vue"],
+    "parser": "@typescript-eslint/parser",
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "import/no-default-export": "off",
+
+    "promise/always-return": "off",
+    "promise/catch-or-return": "off",
+
+    "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/indent": [1, 2, {"SwitchCase": 1, "VariableDeclarator": 1}]
+    "@typescript-eslint/no-explicit-any": "off",
   }
 }

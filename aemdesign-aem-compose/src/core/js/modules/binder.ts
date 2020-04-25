@@ -6,7 +6,7 @@ import { isAuthorMode } from '@utility/aem'
  * @param {boolean} [force=false] Should the component be forced to load?
  * @return {Promoise<number>} Number of Vue components that exist
  */
-export async function bindVueComponents(force: boolean = false): Promise<number> {
+export async function bindVueComponents(force = false): Promise<number> {
   const vueElements = document.querySelectorAll('[vue-component]:not([js-set])')
 
   if ((force || !(force && isAuthorMode())) && vueElements.length) {

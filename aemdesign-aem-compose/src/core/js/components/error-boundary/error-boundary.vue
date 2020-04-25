@@ -14,6 +14,6 @@
   </div>
 </template>
 
-<script lang="ts" src="./ErrorBoundary.ts"></script>
+<script lang="ts" src="./error-boundary.ts"></script>
 
-<style lang="scss" src="./ErrorBoundary.scss"></style>
+<style lang="scss" src="./error-boundary.scss"></style>

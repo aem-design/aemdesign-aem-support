@@ -5,22 +5,18 @@ import { LogLevel } from '@type/enum'
 @Component
 export default class BaseComponent extends Vue {
   @Prop({ default: '', type: String })
-  public analyticsLocation!: string
+  public readonly analyticsLocation!: string
   @Prop({ default: '', type: String })
-  public analyticsName!: string
+  public readonly analyticsName!: string
   @Prop({ default: null, type: String })
-  public target!: string
+  public readonly target!: string
 
   protected _name!: string
 
   protected documentTarget: Document = document
   protected windowTarget: Window = window
 
-  constructor() {
-    super()
-  }
-
-  beforeMount() {
+  beforeMount(): void {
     if (__TESTING__) {
       this.detectDocumentTargetFromId()
       this.detectWindowTargetFromId()

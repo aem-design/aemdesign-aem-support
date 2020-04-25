@@ -22,6 +22,3 @@ content-generator/output/*
 # Projects
 src/**/js/**/fontawesome.ts
 src/**/scss/**/_colours.scss
-
-# Cypress
-cypress/reports/
