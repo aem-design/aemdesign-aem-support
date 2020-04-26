@@ -9,7 +9,7 @@
   <parent>
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.325</version>
+    <version>2.0.359</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -18,10 +18,10 @@
   <!-- ====================================================================== -->
 
   <artifactId>aemdesign-aem-compose</artifactId>
-  <version>2.0.325</version>
+  <version>2.0.359</version>
   <packaging>content-package</packaging>
   <name>AEM Design - Support - Compose</name>
-  <description>Showcase and Styleguide for AEM Design project</description>
+  <description>Composes the CSS and JavaScript required for visually appealing experiences in AEM.</description>
   <url>${parent.url}</url>
 
   <properties>
@@ -279,6 +279,22 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.day.jcr.vault</groupId>
+        <artifactId>content-package-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <verbose>false</verbose>
+          <failOnError>true</failOnError>
+          <group>${package.group}</group>
+          <properties>
+            <acHandling>merge_preserve</acHandling>
+            <created>${buildNumber}</created>
+            <createdBy>${package.createdBy}</createdBy>
+            <description>${project.description}</description>
+          </properties>
+        </configuration>
       </plugin>
     </plugins>
   </build>

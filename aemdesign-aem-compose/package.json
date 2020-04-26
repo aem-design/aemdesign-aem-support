@@ -24,7 +24,7 @@
   },
   "description": "Composes the CSS and JavaScript required for visually appealing experiences in AEM.",
   "devDependencies": {
-    "@aem-design/compose-webpack": "^2.0.0-beta.4",
+    "@aem-design/compose-webpack": "^2.0.0-beta.5",
     "@types/bootstrap": "^4.3.2",
     "@types/jquery": "^3.3.35",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
@@ -73,8 +73,8 @@
     "yaml-import": "^0.3.1"
   },
   "engines": {
-    "node": ">= 10.x",
-    "yarn": ">= 1.10.x"
+    "node": ">= 10.x < 12",
+    "yarn": ">= 1.10.x < 2"
   },
   "private": true,
   "name": "aemdesign-aem-compose",
@@ -86,5 +86,5 @@
     "serve:core": "aemdesign-compose -d --project=core --watch",
     "serve:sg": "aemdesign-compose -d --project=styleguide --watch"
   },
-  "version": "2.0.292"
+  "version": "2.0.0"
 }
