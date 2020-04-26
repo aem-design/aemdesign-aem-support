@@ -30,11 +30,10 @@ ul.navlist {
 
       &:hover {
         background-color: rgba(color('grey-1'), .5);
-        color: color('grey-6');
       }
 
       &.active {
-        color: color('grey-7');
+        color: color('grey-5');
         font-weight: 600;
       }
     }
@@ -42,9 +41,9 @@ ul.navlist {
 
   .nav-item.l-1 {
     > .dropdown-toggle {
-      color: color('grey-8');
+      color: color('grey-9');
       font-family: $headings-font-family;
-      font-weight: 600;
+      font-weight: 700;
       padding: 6px $gutter-half-width;
       pointer-events: none;
     }
