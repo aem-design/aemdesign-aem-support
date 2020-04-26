@@ -79,7 +79,7 @@ $button-colours: ();
 
   &:not(.btn-link) {
     > span {
-      margin-right: $gutter-gutter-width / 2;
+      margin-right: $grid-gutter-width / 2;
     }
   }
 
@@ -98,7 +98,7 @@ $button-colours: ();
     padding: 0;
 
     > .svg-inline--fa {
-      margin-left: $gutter-gutter-width;
+      margin-left: $grid-gutter-width;
     }
 
     &:focus,
