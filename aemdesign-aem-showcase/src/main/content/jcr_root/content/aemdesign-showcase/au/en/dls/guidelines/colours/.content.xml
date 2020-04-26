@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="cq:Page">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
@@ -30,27 +31,20 @@
                     showParsys="false"
                     showToolbar="false"
                     textIsRich="true"/>
-                <contentblock
+                <contentblock_colours
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
+                    componentId="contentblock_colours">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
-                        <contentblock_colours
+                        <contentblock_colours_component
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par jcr:primaryType="nt:unstructured">
-                                <embedsource
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/embedsource"
-                                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/colors]"
-                                    html=""/>
-                            </par>
-                        </contentblock_colours>
+                            sling:resourceType="aemdesign/components/content/embedsource"
+                            componentId="contentblock_colours_component"
+                            html="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."/>
                     </par>
-                </contentblock>
+                </contentblock_colours>
             </par>
         </article>
     </jcr:content>

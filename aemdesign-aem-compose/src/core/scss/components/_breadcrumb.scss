@@ -26,7 +26,7 @@
 
     &.active > a {
       color: inherit;
-      // Change the breadcrumbs component in common to not present a link here
+      // TODO: Change the breadcrumbs component in aemdesign-aem-common to not present a link here
       pointer-events: none;
     }
 

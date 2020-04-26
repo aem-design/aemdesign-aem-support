@@ -1,6 +1,6 @@
 const { existsSync, readFileSync, writeFileSync } = require('fs')
-const { resolve }  = require('path')
-const { safeLoad } = require('js-yaml')
+const { resolve }                                 = require('path')
+const { safeLoad }                                = require('js-yaml')
 
 const duplicateRefs = {}
 
@@ -54,7 +54,7 @@ function generateIconsList(icons, forImport = false) {
  * @throws {Error} When the icons file path is invalid
  */
 function buildIcons(filename) {
-  const iconsFilePath = resolve(__dirname, `../config/${filename}.yml`)
+  const iconsFilePath = resolve(__dirname, `../../config/${filename}.yml`)
 
   if (!existsSync(iconsFilePath)) {
     throw new Error("Icons configuration file doesn't exist!")
@@ -99,7 +99,7 @@ function saveIcons(path) {
     throw new Error(`Unable to save icons as 'path' is invalid: ${path}`)
   }
 
-  const stubbedOutput = readFileSync(resolve(__dirname, '../stubs/icons.ts')).toString()
+  const stubbedOutput = readFileSync(resolve(__dirname, '../../stubs/icons.ts')).toString()
     .replace('%%brands-import%%', generateIconsList(brandIcons, true))
     .replace('%%solid-import%%', generateIconsList(solidIcons, true))
     .replace('%%all-icons%%', [

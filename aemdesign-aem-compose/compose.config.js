@@ -25,13 +25,13 @@ registerHook('init:post', {
 
     // Do we need to generate any colours or icons for this project?
     if (extras.generateColours === true) {
-      const { buildAndSaveColours } = require('./support/scripts/generate-colours')
+      const { buildAndSaveColours } = require('./support/scripts/stub-generators/colours')
 
       buildAndSaveColours(resolve(env.paths.project.src, extras.coloursFilePath), extras.coloursConfigFilename)
     }
 
     if (extras.generateIcons === true) {
-      const { buildAndSaveIcons } = require('./support/scripts/generate-icons')
+      const { buildAndSaveIcons } = require('./support/scripts/stub-generators/icons')
 
       buildAndSaveIcons(resolve(env.paths.project.src, extras.iconsFilePath), extras.iconsConfigFilename)
     }

@@ -1,6 +1,6 @@
 const { existsSync, readFileSync, writeFileSync } = require('fs')
-const { resolve }  = require('path')
-const { safeLoad } = require('js-yaml')
+const { resolve }                                 = require('path')
+const { safeLoad }                                = require('js-yaml')
 
 let categories
 
@@ -43,7 +43,7 @@ function saveColours(path) {
     throw new Error(`Unable to save colours as 'path' is invalid!\n${path}`)
   }
 
-  const stubbedOutput = readFileSync(resolve(__dirname, '../stubs/colours.scss')).toString()
+  const stubbedOutput = readFileSync(resolve(__dirname, '../../stubs/colours.scss')).toString()
     .replace('%%colours%%', generateColours())
     .replace('%%colours-mapped%%', generateMappedColours())
 
@@ -58,7 +58,7 @@ function saveColours(path) {
  * @throws {Error} When the colours file path is invalid
  */
 function buildAndSaveColours(path = null, filename = 'colours') {
-  const coloursFilePath = resolve(__dirname, `../config/${filename}.yml`)
+  const coloursFilePath = resolve(__dirname, `../../config/${filename}.yml`)
 
   if (!existsSync(coloursFilePath)) {
     throw new Error(`Colours configuration file doesn't exist!\n${coloursFilePath}`)
