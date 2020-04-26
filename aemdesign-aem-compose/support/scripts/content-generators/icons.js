@@ -2,7 +2,7 @@ const { readFileSync } = require('fs')
 const { resolve }      = require('path')
 const { safeLoad }     = require('js-yaml')
 
-const icons = safeLoad(readFileSync(resolve(__dirname, '../../support/config/icons.yml')))
+const icons = safeLoad(readFileSync(resolve(__dirname, '../../config/icons.yml')))
 
 const {
   replaceHtmlContent,

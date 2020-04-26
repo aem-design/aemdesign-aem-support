@@ -81,7 +81,8 @@
   "scripts": {
     "aem:build": "aemdesign-compose -p",
     "aem:build:dev": "aemdesign-compose -d",
-    "aem:generatetags": "node content-generator/generator.js --no-color",
+    "aem:generate:content": "node support/scripts/content-generators/colours.js && node support/scripts/content-generators/icons.js",
+    "aem:generate:tags": "node content-generator/generator.js --no-color",
     "lint:core": "eslint --ext .js,.ts,.vue src/core/js",
     "serve:core": "aemdesign-compose -d --project=core --watch",
     "serve:sg": "aemdesign-compose -d --project=styleguide --watch"

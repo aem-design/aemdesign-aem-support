@@ -4,9 +4,9 @@ const { resolve }                     = require('path')
 const { JSDOM }                       = require('jsdom')
 const minify                          = require('html-minifier').minify
 
-const PATHS_BASE     = '../../../..'
-const PATHS_CONTENT  = 'content/aemdesign-showcase/en'
-const PATHS_SHOWCASE = `aemdesign-showcase/src/main/content/jcr_root/${PATHS_CONTENT}`
+const PATHS_BASE     = '..'
+const PATHS_CONTENT  = 'content/aemdesign-showcase/au/en'
+const PATHS_SHOWCASE = `aemdesign-aem-showcase/src/main/content/jcr_root/${PATHS_CONTENT}`
 
 /**
  * Escapes the input HTML to ensure it works correct in AEM.

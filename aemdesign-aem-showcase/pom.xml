@@ -18,13 +18,17 @@
     <artifactId>aemdesign-aem-showcase</artifactId>
     <packaging>content-package</packaging>
     <name>AEM Design - Support - Showcase</name>
-    <description>Showcase package for AEM Design Components. Used for functional test and regression test</description>
+    <description>Showcase package for AEM.Design Components. Used for functional test and regression test</description>
     <version>2.0.359</version>
 
     <developers>
         <developer>
             <email>max@aem.design</email>
             <name>Max Barrass</name>
+        </developer>
+        <developer>
+            <email>me@cshaw.xyz</email>
+            <name>Chris Shaw</name>
         </developer>
     </developers>
 

@@ -202,7 +202,19 @@
             </goals>
             <configuration>
               <arguments>- -stack_size=8192</arguments>
-              <arguments>run aem:generatetags --no-color --no-clean --no-console --config=overrides.yml</arguments>
+              <arguments>run aem:generate:tags --no-color --no-clean --no-console --config=overrides.yml</arguments>
+            </configuration>
+          </execution>
+
+          <!-- Content generation -->
+          <execution>
+            <id>exec-aem-generate-content-aemdesign</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>aem:generate:content</arguments>
             </configuration>
           </execution>
         </executions>

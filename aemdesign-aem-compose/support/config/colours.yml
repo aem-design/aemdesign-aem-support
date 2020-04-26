@@ -1,12 +1,12 @@
 primary-colours:
   label: 'Primary Colours'
 
-  colours:
+  colours: []
 
 secondary-colours:
   label: 'Secondary Colours'
 
-  colours:
+  colours: []
 
 grey-tones:
   label: 'Grey Tones'
