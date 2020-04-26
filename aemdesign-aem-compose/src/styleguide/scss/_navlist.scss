@@ -1,0 +1,61 @@
+// stylelint-disable declaration-no-important
+
+ul.navlist {
+  border-top: 1px solid color('grey-2');
+  margin-left: -$gutter-half-width;
+  margin-right: -$gutter-half-width;
+  padding-left: 0;
+  padding-top: $grid-gutter-width / 1.5;
+
+  li:not(:last-child) {
+    border-bottom: 1px solid color('grey-2');
+    margin-bottom: $grid-gutter-width / 1.5;
+    padding-bottom: $grid-gutter-width / 1.5;
+  }
+
+  .dropdown-menu {
+    background-color: transparent;
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    display: block;
+    float: none;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    position: static !important;
+    transform: none !important;
+
+    .nav-link {
+      padding-bottom: $nav-link-padding-y / 1.5;
+      padding-top: $nav-link-padding-y / 1.5;
+
+      &:hover {
+        background-color: rgba(color('grey-1'), .5);
+        color: color('grey-6');
+      }
+
+      &.active {
+        color: color('grey-7');
+        font-weight: 600;
+      }
+    }
+  }
+
+  .nav-item.l-1 {
+    > .dropdown-toggle {
+      color: color('grey-8');
+      font-weight: 600;
+      padding: 6px $gutter-half-width;
+      pointer-events: none;
+    }
+  }
+
+  .meta {
+    display: none;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-half-width;
+  }
+}

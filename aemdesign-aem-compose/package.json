@@ -85,7 +85,7 @@
     "aem:generate:tags": "node content-generator/generator.js --no-color",
     "lint:core": "eslint --ext .js,.ts,.vue src/core/js",
     "serve:core": "aemdesign-compose -d --project=core --watch",
-    "serve:sg": "aemdesign-compose -d --project=styleguide --watch"
+    "serve:dls": "aemdesign-compose -d --project=styleguide --watch"
   },
   "version": "2.0.0"
 }

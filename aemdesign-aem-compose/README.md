@@ -54,10 +54,10 @@ Visit http://localhost:4504 in your browser once `webpack-dev-server` has starte
 #### Core
 `yarn serve:core`
 
-#### DLS (Styleguide)
-The styleguide is its own project to remove any duplicate/irrelevant code from the final website builds. This allows us to have specific deployments for DLS while maintaining a clean codebase for other projects.
+#### DLS
+The DLS is its own project to remove any duplicate/irrelevant code from the final website builds. This allows us to have specific deployments for DLS while maintaining a clean codebase for other projects.
 
-`yarn serve:sg`
+`yarn serve:dls`
 
 ## Linting
 All code in the project is linted both in your IDE (where supported) and during compilation. This is to ensure that bugs and issues can be fixed before going out and ensures consistency between developers. ESLint is used across all projects.

@@ -20,17 +20,11 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
-                <dls_intro_heading
+                <dls_header
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/content/text"
-                    componentId="dls_intro_heading"
-                    text="&lt;p class=&quot;h6&quot;>AEM.Design&lt;/p>&#xd;&#xa;"
-                    textIsRich="true"/>
-                <dls_intro_tagline
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/content/text"
-                    componentId="dls_intro_tagline"
-                    text="&lt;p>Design Language System&lt;/p>&#xd;&#xa;"
+                    componentId="dls_header"
+                    text="&lt;p class=&quot;h6 strong&quot;>AEM.Design&lt;/p>&lt;p>Design Language System&lt;/p>&#xd;&#xa;"
                     textIsRich="true"/>
                 <dls_home_button
                     jcr:primaryType="nt:unstructured"

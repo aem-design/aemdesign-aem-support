@@ -17,7 +17,7 @@
   class: 'rss'
   flat: true
   name: 'RSS'
-  prefix: 'far'
+  prefix: 'fas'
 
 - category: 'general'
   class: 'bars'
@@ -121,7 +121,7 @@
 
 - category: 'social'
   class: 'youtube'
-  name: 'Youtube'
+  name: 'YouTube'
   prefix: 'fab'
 
 - category: 'social'

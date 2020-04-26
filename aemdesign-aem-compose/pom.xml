@@ -160,7 +160,7 @@
               <goal>yarn</goal>
             </goals>
             <configuration>
-              <arguments>${package.npmCommand} --project core --maven --no-color --no-eslint</arguments>
+              <arguments>${package.npmCommand} --project core --maven --no-color</arguments>
               <environmentVariables>
                 <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
               </environmentVariables>
@@ -186,7 +186,7 @@
               <goal>yarn</goal>
             </goals>
             <configuration>
-              <arguments>${package.npmCommand} --project styleguide --maven --no-color --no-eslint</arguments>
+              <arguments>${package.npmCommand} --project styleguide --maven --no-color</arguments>
               <environmentVariables>
                 <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
               </environmentVariables>

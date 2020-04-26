@@ -1,12 +1,26 @@
 primary-colours:
   label: 'Primary Colours'
 
-  colours: []
+  colours:
+    - class: 'blue'
+      hex: '00a4e4'
+      label: 'Blue'
+
+    - class: 'red'
+      hex: 'f00'
+      label: 'Red'
 
 secondary-colours:
   label: 'Secondary Colours'
 
-  colours: []
+  colours:
+    - class: 'orange'
+      hex: 'fbb034'
+      label: 'Orange'
+
+    - class: 'green'
+      hex: 'c1d82f'
+      label: 'Green'
 
 grey-tones:
   label: 'Grey Tones'
