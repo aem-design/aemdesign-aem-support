@@ -43,6 +43,7 @@ ul.navlist {
   .nav-item.l-1 {
     > .dropdown-toggle {
       color: color('grey-8');
+      font-family: $headings-font-family;
       font-weight: 600;
       padding: 6px $gutter-half-width;
       pointer-events: none;

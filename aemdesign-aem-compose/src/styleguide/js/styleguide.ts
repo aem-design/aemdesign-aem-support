@@ -51,6 +51,22 @@ async function loadApp() {
 
     header.appendChild(menuControl)
   }
+
+  // Menu overlay
+  const menuControls = document.querySelector('#dls-menu-controls')
+
+  if (menuControls) {
+    let menuOverlay  = document.querySelector('#dls-menu-controls-overlay')
+
+    if (menuOverlay) {
+      menuOverlay.parentNode?.removeChild(menuOverlay)
+    }
+
+    menuOverlay = document.createElement('div')
+    menuOverlay.setAttribute('id', 'dls-menu-controls-overlay')
+
+    menuControls.insertAdjacentElement('afterend', menuOverlay)
+  }
 }
 
 if (document.readyState === 'loading') {

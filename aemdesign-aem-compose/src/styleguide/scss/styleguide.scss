@@ -7,7 +7,10 @@ $sidebar-width: 280px;
 
 // Internals
 @import 'logo';
+
+// Base Sass (core)
 @import '../../core/scss/setup';
+@import '../../core/scss/generic/custom-fonts';
 
 $gutter-half-width: $grid-gutter-width / 2;
 
@@ -27,6 +30,8 @@ $gutter-half-width: $grid-gutter-width / 2;
   }
 
   #dls-header {
+    $gutter: $gutter-half-width + 60px;
+
     background-color: color('grey-8');
     color: color('white');
     display: flex;
@@ -34,7 +39,7 @@ $gutter-half-width: $grid-gutter-width / 2;
     height: $header-height;
     justify-content: center;
     left: 0;
-    padding-left: $gutter-half-width + 60px;
+    padding-left: $gutter;
     position: fixed;
     top: 0;
     width: 100vw;
@@ -77,33 +82,74 @@ $gutter-half-width: $grid-gutter-width / 2;
     @include media-breakpoint-up(md) {
       padding-left: $gutter-half-width + 70px;
     }
+
+    @include notch-awesome-query {
+      padding-left: $gutter + $grid-gutter-width;
+
+      &::before {
+        margin-left: $grid-gutter-width;
+      }
+    }
   }
 
-  #dls-menu-controls {
-    background-color: color('white');
-    border-right: 1px solid color('grey-2');
+  #dls-menu-controls,
+  #dls-menu-controls-overlay {
     height: 100%;
     left: 0;
+    min-height: 100vh;
+    // stylelint-disable-next-line
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
     opacity: 0;
-    overflow-y: auto;
-    padding: #{$header-height + $grid-gutter-width} $gutter-half-width $gutter-half-width;
     position: fixed;
     top: 0;
-    transform: translateX(-100%);
     transition-delay: 0s;
     transition-duration: 300ms;
     transition-property: opacity, transform;
     transition-timing-function: cubic-bezier(.5, 1, .89, 1);
+  }
+
+  #dls-menu-controls {
+    @include notch-awesome;
+
+    background-color: color('white');
+    border-right: 1px solid color('grey-2');
+    overflow-x: visible;
+    overflow-y: auto;
+    padding: #{$header-height + $grid-gutter-width} $gutter-half-width $gutter-half-width;
+    transform: translateX(-100%);
     width: $sidebar-width;
+    z-index: 1;
 
     &.visible {
       opacity: 1;
       transform: translateX(0);
+
+      + #dls-menu-controls-overlay {
+        opacity: 1;
+        pointer-events: all;
+      }
     }
 
     @include media-breakpoint-up(xl) {
       opacity: 1;
       transform: none;
+    }
+
+    @include notch-awesome-query {
+      width: $sidebar-width + 50px;
+    }
+  }
+
+  #dls-menu-controls-overlay {
+    background-color: rgba(color('black'), .5);
+    content: '';
+    display: block;
+    pointer-events: none;
+    width: 100vw;
+
+    @include media-breakpoint-up(xl) {
+      display: none;
     }
   }
 
@@ -128,7 +174,7 @@ $gutter-half-width: $grid-gutter-width / 2;
     margin-bottom: $grid-gutter-width;
   }
 
-  .page-details ~ div.contentblock {
+  article > div > div > div.contentblock {
     > .contentblock {
       // iPhone X support
       @include notch-awesome;
@@ -141,8 +187,8 @@ $gutter-half-width: $grid-gutter-width / 2;
       }
     }
 
-    > div > div > .text:not(:last-child),
-    > div > div > .text ~ [component]:not(:last-child) {
+    > div > .text:not(:last-child),
+    > div > .text ~ [component]:not(:last-child) {
       margin-bottom: 15px;
 
       @include media-breakpoint-up(md) {

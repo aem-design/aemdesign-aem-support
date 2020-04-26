@@ -85,7 +85,7 @@ function generateColourItems(colours, deprecated = false) {
     <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
       <div class="colour-panel__item bg-${colour.class} ${colour.deprecated ? 'colour-panel__item--deprecated' : ''}">
         <div class="colour-panel__details">
-          <h3 class="h6">${colour.label}</h3>
+          <p>${colour.label}</p>
 
           <code>
             <span class="icon-hex"><i class="fas fa-tint"></i></span>
