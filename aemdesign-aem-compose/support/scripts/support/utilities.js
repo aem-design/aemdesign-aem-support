@@ -37,8 +37,8 @@ function replaceHtmlContent(path, componentName, replacement) {
   const foundInput = escapeHtml(dom.window.document.querySelector(componentName).getAttribute('html'))
 
   let newHTML = `${replacement}`
-  newHTML = minify(replacement, { collapseWhitespace: true })
-  newHTML = escapeHtml(replacement)
+  newHTML = minify(newHTML, { collapseWhitespace: true })
+  newHTML = escapeHtml(newHTML)
 
   writeFileSync(contentFilePath, input.replace(
     new RegExp(`html="${foundInput.substr(0, 20)}.*${foundInput.substr(-20)}"`, 'g'),

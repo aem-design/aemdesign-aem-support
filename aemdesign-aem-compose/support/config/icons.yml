@@ -133,3 +133,15 @@
   class: 'tumblr'
   name: 'Tumblr'
   prefix: 'fab'
+
+- category: 'images'
+  class: 'tint'
+  name: 'Tint'
+  prefix: 'fas'
+  usable: false
+
+- category: 'brands'
+  class: 'sass'
+  name: 'Sass'
+  prefix: 'fab'
+  usable: false

@@ -88,7 +88,7 @@ function generateColourItems(colours, deprecated = false) {
           <h3 class="h6">${colour.label}</h3>
 
           <code>
-            <span class="icon-hex"><i class="fad fa-tint"></i></span>
+            <span class="icon-hex"><i class="fas fa-tint"></i></span>
             #${colour.hex}
           </code>
           ${!colour.background ? `<code>
