@@ -7,7 +7,7 @@ const { sortBy } = require('lodash')
  */
 function generateIcon(icon) {
   return `
-    <div class="icon-panel__item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <div class="icon-panel__item col-sm-12 col-md-4 col-xl-2">
         <div class="icon-panel__icon">
           <i class="${icon.prefix} fa-${icon.class}"></i>
         </div>

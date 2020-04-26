@@ -23,34 +23,44 @@
                 <dls_header
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/content/text"
-                    componentId="dls_header"
-                    text="&lt;p class=&quot;h6 strong&quot;>AEM.Design&lt;/p>&lt;p>Design Language System&lt;/p>&#xd;&#xa;"
+                    componentId="dls-header"
+                    text="&lt;p class=&quot;strong&quot;>AEM.Design&lt;/p>&lt;p>Design Language System&lt;/p>&#xd;&#xa;"
                     textIsRich="true"/>
-                <dls_home_button
+                <dls_menu_controls
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="dls_home_button">
+                    componentId="dls-menu-controls"
+                    variant="parsys">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
-                        <dls_home_button_link
+                        <dls_home_button
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/content/link"
-                            componentId="dls_home_button_link"
-                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/link]"
-                            label="DLS Homepage"
-                            linkUrl="/content/aemdesign-showcase/au/en/dls"/>
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="dls-home-button">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <dls_home_button_link
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="dls_home_button_link"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/link]"
+                                    label="DLS Homepage"
+                                    linkUrl="/content/aemdesign-showcase/au/en/dls"/>
+                            </par>
+                        </dls_home_button>
+                        <dls_nav
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/navlist"
+                            cancelInheritParent="true"
+                            componentId="dls_nav"
+                            depthFromRoot="1"
+                            listFrom="children"
+                            parentPage="/content/aemdesign-showcase/au/en/dls"
+                            variant="dropdown"/>
                     </par>
-                </dls_home_button>
-                <dls_nav
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/lists/navlist"
-                    cancelInheritParent="true"
-                    componentId="dls_nav"
-                    depthFromRoot="1"
-                    listFrom="children"
-                    parentPage="/content/aemdesign-showcase/au/en/dls"
-                    variant="dropdown"/>
+                </dls_menu_controls>
             </par>
         </aside>
         <article

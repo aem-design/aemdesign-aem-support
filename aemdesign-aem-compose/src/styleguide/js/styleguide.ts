@@ -1,7 +1,7 @@
 import '../scss/styleguide.scss'
 
 async function loadApp() {
-  console.log('Styleguide is here...')
+  console.log('DLS is rocking...')
 
   const queryParam = new URLSearchParams(window.location.search)
 
@@ -18,6 +18,38 @@ async function loadApp() {
         }
       }
     }
+  }
+
+  // Inject the collapse functionality to toggle the menu
+  const header = document.querySelector('#dls-header')
+
+  if (header) {
+    let menuControl = header.querySelector('.header-menu-control')
+
+    if (menuControl) {
+      menuControl.parentNode?.removeChild(menuControl)
+    }
+
+    menuControl = document.createElement('button')
+    menuControl.classList.add('header-menu-control')
+
+    const icon = document.createElement('i')
+    icon.classList.add('fas')
+    icon.classList.add('fa-bars')
+
+    menuControl.addEventListener('click', (event) => {
+      event.preventDefault()
+
+      const menu = document.querySelector('#dls-menu-controls')
+
+      if (menu) {
+        menu.classList.toggle('visible')
+      }
+    })
+
+    menuControl.appendChild(icon)
+
+    header.appendChild(menuControl)
   }
 }
 
