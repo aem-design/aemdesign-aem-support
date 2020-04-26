@@ -8,13 +8,14 @@ const { sortBy } = require('lodash')
 function generateIcon(icon) {
   return `
     <div class="icon-panel__item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-      <div class="card">
-        <div class="card-body">
-          <i class="icon-panel__icon ${icon.prefix} fa-${icon.class}"></i>
-          <p>${icon.name}</p>
-          <p class="text-uppercase small">${icon.category}</p>
+        <div class="icon-panel__icon">
+          <i class="${icon.prefix} fa-${icon.class}"></i>
         </div>
-      </div>
+
+        <div class="icon-panel__body">
+          <p>${icon.name}</p>
+          <p class="small">${icon.category}</p>
+        </div>
     </div>
   `
 }
