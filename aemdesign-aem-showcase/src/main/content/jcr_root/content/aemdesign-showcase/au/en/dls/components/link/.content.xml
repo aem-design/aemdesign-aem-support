@@ -140,7 +140,6 @@
                                     jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/secondary-charcoal]"
                                     label="label"/>
                             </par>
                         </contentblock_521654491>

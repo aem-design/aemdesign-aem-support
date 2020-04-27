@@ -14,10 +14,16 @@ function buildIcon(iconClass: string, prefix: IconPrefix): Element {
 }
 
 const icons: { [key: string]: Element } = {
-  longArrowRight: buildIcon('long-arrow-alt-right', IconPrefix.SOLID),
+  externalLinkAlt : buildIcon('external-link-alt', IconPrefix.SOLID),
+  longArrowRight  : buildIcon('long-arrow-alt-right', IconPrefix.SOLID),
 }
 
 export const components: ComponentConfig = {
+  anchorLink: {
+    icon      : icons.externalLinkAlt,
+    selectors : ['a[target="_blank"]:not(.link):not(.card-link)'],
+  },
+
   link: {
     icon      : icons.longArrowRight,
     selectors : ['.link.btn'],

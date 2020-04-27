@@ -1,5 +1,8 @@
 .icon-panel {
+  margin-bottom: $grid-gutter-width;
+
   &__item {
+    align-items: center;
     display: flex;
     margin-bottom: $grid-gutter-width;
 
@@ -19,6 +22,12 @@
     }
   }
 
+  &__heading {
+    @include make-col-ready;
+
+    width: 100%;
+  }
+
   &__icon {
     align-items: center;
     background-color: color('blue');
@@ -34,5 +43,9 @@
   &__body {
     padding-left: $gutter-half-width;
     padding-top: 5px;
+  }
+
+  &:last-child {
+    margin-bottom: -$grid-gutter-width;
   }
 }

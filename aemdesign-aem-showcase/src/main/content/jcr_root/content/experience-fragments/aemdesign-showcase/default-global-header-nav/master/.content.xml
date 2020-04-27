@@ -26,7 +26,6 @@
 						sling:resourceType="aemdesign/components/layout/footer"
 						cancelInheritParent="true"
 						componentId="footer"
-						componentModifiers="[aemdesign-showcase:component-style-modifier/color/standard/white,aemdesign-showcase:component-style-modifier/background/primary/bg-charcoal]"
 						componentTheme="[aemdesign-showcase:component-style-theme/layout/brand-footer]">
 						<par
 							jcr:primaryType="nt:unstructured"

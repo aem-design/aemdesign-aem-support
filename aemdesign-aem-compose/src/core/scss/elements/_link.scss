@@ -1,0 +1,9 @@
+a {
+  align-items: center;
+  display: inline-flex;
+
+  > .icon {
+    font-size: icon-size('small');
+    margin-left: 8px;
+  }
+}

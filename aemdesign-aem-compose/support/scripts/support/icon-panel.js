@@ -1,5 +1,43 @@
 const { sortBy } = require('lodash')
 
+const customLabels = {
+  'feed/rss': 'Feed / RSS',
+}
+
+/**
+ * Generate the icon panel for each category.
+ *
+ * @param {Array<{ category: string, class: string, name: string, prefix: string, usable: boolean }>} icons
+ */
+function generateIconsByCategory(icons) {
+  const iconsByCategory = {}
+
+  for (const icon of icons) {
+    iconsByCategory[icon.category] = iconsByCategory[icon.category] || []
+    iconsByCategory[icon.category].push(icon)
+  }
+
+  return Object.keys(iconsByCategory).sort().map((category) => (`
+    <div class="icon-panel row">
+      <h3 class="icon-panel__heading h5">${getCategoryLabel(category)}</h3>
+      ${iconsByCategory[category].map(generateIcon).join('')}
+    </div>
+  `)).join('')
+}
+
+/**
+ * Generate the label for the given category.
+ *
+ * @param {string} category Original label
+ */
+function getCategoryLabel(category) {
+  if (customLabels[category]) {
+    return customLabels[category]
+  }
+
+  return category.charAt(0).toUpperCase() + category.substr(1)
+}
+
 /**
  * Generate the single icon.
  *
@@ -14,7 +52,6 @@ function generateIcon(icon) {
 
         <div class="icon-panel__body">
           <p>${icon.name}</p>
-          <p class="small">${icon.category}</p>
         </div>
     </div>
   `
@@ -23,7 +60,7 @@ function generateIcon(icon) {
 /**
  * Generate the icon panel.
  *
- * @param {Array<{ class: string, name: string, prefix: string, usable: boolean }>} icons
+ * @param {Array<{ category: string, class: string, name: string, prefix: string, usable: boolean }>} icons
  */
 function generateIconPanel(icons) {
   try {
@@ -34,11 +71,7 @@ function generateIconPanel(icons) {
     icons = []
   }
 
-  return `
-    <div class="icon-panel row">
-      ${icons.map(generateIcon).join('')}
-    </div>
-  `
+  return generateIconsByCategory(icons)
 }
 
 module.exports = {

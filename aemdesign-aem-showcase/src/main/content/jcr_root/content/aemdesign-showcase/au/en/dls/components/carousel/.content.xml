@@ -27,8 +27,6 @@
 					jcr:primaryType="nt:unstructured"
 					sling:resourceType="aemdesign/components/details/page-details"
 					componentId="page_details"
-					componentModifiers="[aemdesign-showcase:component-style-modifier/background/primary/bg-yellow-pattern]"
-					componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
 					showBreadcrumb="false"
 					showPageDate="false"
 					showToolbar="false"
@@ -89,8 +87,7 @@
 				<contentblock_carousel_pagelist_yellow
 					jcr:primaryType="nt:unstructured"
 					sling:resourceType="aemdesign/components/layout/contentblock"
-					componentId="contentblock_carousel_pagelist_yellow"
-					componentModifiers="[aemdesign-showcase:component-style-modifier/background/primary/bg-yellow-pattern]">
+					componentId="contentblock_carousel_pagelist_yellow">
 					<par
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="aemdesign/components/layout/container">
@@ -173,8 +170,7 @@
 				<contentblock_carousel_newslist_yellow
 					jcr:primaryType="nt:unstructured"
 					sling:resourceType="aemdesign/components/layout/contentblock"
-					componentId="contentblock_carousel_newslist_yellow"
-					componentModifiers="[aemdesign-showcase:component-style-modifier/background/primary/bg-yellow-pattern]">
+					componentId="contentblock_carousel_newslist_yellow">
 					<par
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="aemdesign/components/layout/container">

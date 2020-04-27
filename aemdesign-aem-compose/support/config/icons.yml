@@ -55,6 +55,11 @@
   prefix: 'fas'
 
 - category: 'arrows'
+  class: 'external-link-alt'
+  name: 'External Link Alt'
+  prefix: 'fas'
+
+- category: 'arrows'
   class: 'long-arrow-alt-left'
   name: 'Long Arrow Alt Left'
   prefix: 'fas'
