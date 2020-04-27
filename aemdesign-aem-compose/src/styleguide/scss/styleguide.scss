@@ -188,8 +188,13 @@ $gutter-half-width: $grid-gutter-width / 2;
         max-width: 1920px;
       }
 
-      > div > .text ~ div:not(:last-child) {
+      > div > .text:first-child,
+      > div > .text ~ div:not(.text):not(:last-child) {
         margin-bottom: $grid-gutter-width;
+      }
+
+      > div > .text:first-child + .text {
+        padding-top: 0;
       }
 
       > div {
