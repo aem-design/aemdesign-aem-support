@@ -13,7 +13,6 @@ $sidebar-width: 280px;
 
 // Base Sass (core)
 @import '../../core/scss/setup';
-@import '../../core/scss/generic/custom-fonts';
 
 $gutter-half-width: $grid-gutter-width / 2;
 
@@ -189,18 +188,12 @@ $gutter-half-width: $grid-gutter-width / 2;
         max-width: 1920px;
       }
 
-      > div > .text:not(:last-child),
       > div > .text ~ div:not(:last-child) {
         margin-bottom: $grid-gutter-width;
-
-        @include media-breakpoint-up(md) {
-          padding-left: 0;
-          padding-right: 0;
-        }
       }
 
       > div {
-        > .text h2 {
+        > .text:first-child h2 {
           font-weight: $font-weight-bold;
           margin-bottom: $line-height-base / 3;
         }

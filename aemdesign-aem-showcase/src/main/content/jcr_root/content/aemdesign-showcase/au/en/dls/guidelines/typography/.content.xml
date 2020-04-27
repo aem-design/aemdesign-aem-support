@@ -110,13 +110,13 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="typography_lists_unordered_component"
-                            text="&lt;h3 class=&quot;h5&quot;>Unordered&lt;/h3>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>massa vitae tortor condimentum lacinia&lt;/li>&#xd;&#xa;&lt;li>massa id neque aliquam vestibulum&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
+                            text="&lt;h3 class=&quot;h6&quot;>Unordered&lt;/h3>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>massa vitae tortor condimentum lacinia&lt;/li>&#xd;&#xa;&lt;li>massa id neque aliquam vestibulum&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
                             textIsRich="true"/>
                         <typography_lists_ordered_component
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="typography_lists_ordered_component"
-                            text="&lt;h3 class=&quot;h5&quot;>Ordered&lt;/h3>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>lorem mollis aliquam ut porttitor&lt;/li>&#xd;&#xa;&lt;li>amet cursus sit amet dictum&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
+                            text="&lt;h3 class=&quot;h6&quot;>Ordered&lt;/h3>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>lorem mollis aliquam ut porttitor&lt;/li>&#xd;&#xa;&lt;li>amet cursus sit amet dictum&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
                             textIsRich="true"/>
                     </par>
                 </typography_lists>

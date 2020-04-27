@@ -1,35 +1,7 @@
 // stylelint-disable declaration-no-important
 
-// Columns
-
-> div.colctrl > .colctrl {
+> div.colctrl > .colctrl,
+> div.contentblock > div.contentblock.container {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-
-// // Non-specific
-
-// div.contentblock.accordion,
-// div.contentblock.advsection,
-// div.pagelist,
-// div.newslist,
-// div.eventlist {
-//   margin-left: -$spacing-offset;
-//   margin-right: -$spacing-offset;
-// }
-
-// // Lists
-
-// div.pagelist,
-// div.newslist,
-// div.eventlist {
-//   width: auto;
-// }
-
-// // Tabs
-
-// div.nav-tabs .contentblock.accordion,
-// div.nav-tabs .contentblock.advsection, {
-//   margin-left: 0;
-//   margin-right: 0;
-// }

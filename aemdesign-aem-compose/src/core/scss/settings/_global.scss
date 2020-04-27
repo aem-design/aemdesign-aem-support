@@ -35,11 +35,11 @@ $line-height-sm:              18px;
 $line-height-lg:              $line-height-base + 4px;
 
 $h1-font-size:                60px;
-$h2-font-size:                48px;
-$h3-font-size:                30px;
-$h4-font-size:                22px;
-$h5-font-size:                18px;
-$h6-font-size:                16px;
+$h2-font-size:                50px;
+$h3-font-size:                38px;
+$h4-font-size:                28px;
+$h5-font-size:                22px;
+$h6-font-size:                18px;
 
 $headings-margin-bottom:      $grid-gutter-width / 2;
 $headings-font-family:        'Noto Sans', $font-family-base;
@@ -66,19 +66,17 @@ $grid-breakpoints: $breakpoints;
 // Grid containers
 
 $container-max-widths: (
-  xs: 1290px,
+  xs: 1400px,
 );
 
 // Custom container variants
-//
-// ( <name>: ( <breakpoint>: <max width>px )
 
 $container-types: (
   small: (
     sm: 100%,
-    md: 542px,
-    lg: 658px,
-    xl: 880px,
+    md: 548px,
+    lg: 720px,
+    xl: 940px,
   ),
 );
 

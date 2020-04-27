@@ -15,10 +15,10 @@ h6,
   font-feature-settings: 'lnum' 1;
   font-variant-numeric: lining-nums;
   hyphens: none;
-  margin-bottom: 20px;
+  margin-bottom: $headings-margin-bottom * 1.5;
 
   @include media-breakpoint-up(lg) {
-    margin-bottom: 30px;
+    margin-bottom: $headings-margin-bottom * 2;
   }
 }
 
