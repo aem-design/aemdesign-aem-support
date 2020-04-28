@@ -24,7 +24,7 @@
                     jcr:mixinTypes="[cq:Taggable]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
-                    description="&lt;p>Breadcrumb enable users to quickly see their location within a path of navigation and navigate to a parent page if required.&lt;/p>&#xd;&#xa;&lt;p>Content is automatically generated using the site heirarchy in AEM.&lt;/p>&#xd;&#xa;"
+                    description="&lt;p>Breadcrumbs enable users to quickly see their current context/location within the content tree.&lt;/p>&#xd;&#xa;"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
@@ -42,7 +42,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="contentblock_breadcrumb_standard_heading"
-                            text="&lt;h2 class=&quot;h4&quot;>Standard&lt;/h2>&#xd;&#xa;"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Standard&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
                         <contentblock_breadcrumb_standard_component
                             jcr:primaryType="nt:unstructured"
@@ -61,7 +61,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="contentblock_breadcrumb_start_level_heading"
-                            text="&lt;h2 class=&quot;h4&quot;>Start at Level 3&lt;/h2>&#xd;&#xa;"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Start at Level 3&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
                         <contentblock_breadcrumb_start_level_component
                             jcr:primaryType="nt:unstructured"
@@ -81,7 +81,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="contentblock_breadcrumb_end_level_heading"
-                            text="&lt;h2 class=&quot;h4&quot;>Start at Level 3 and end at Level 5&lt;/h2>&#xd;&#xa;"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Start at Level 3 and end at Level 5&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
                         <contentblock_breadcrumb_end_level_component
                             jcr:primaryType="nt:unstructured"

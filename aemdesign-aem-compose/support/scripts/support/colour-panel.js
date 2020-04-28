@@ -56,7 +56,7 @@ function generateColourSection({ category, colours, label, summary }) {
     <section class="colour-panel__section" id="${category}">
       <div class="row">
         <div class="colour-panel__header col-12">
-          <h2 class="colour-panel__title h4">${label}</h2>
+          <h2 class="colour-panel__title h5 strong">${label}</h2>
           ${summary ? `<p>${summary}</p>` : ''}
         </div>
 

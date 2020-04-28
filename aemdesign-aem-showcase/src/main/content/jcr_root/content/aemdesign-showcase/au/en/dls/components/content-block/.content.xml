@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="cq:Page">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
@@ -24,29 +25,64 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
                     showParsys="false"
                     showToolbar="false"
                     textIsRich="true"/>
-                <contentblock
+                <contentblock_standard
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
-                    <par
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/layout/container">
-                        <reference_contentblock_advanced_with_title
+                    componentId="contentblock_standard">
+                    <par jcr:primaryType="nt:unstructured">
+                        <contentblock_standard_heading
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/content/reference"
-                            componentId="reference_contentblock_advanced_with_title"
-                            path="/content/aemdesign-showcase/au/en/component/layout/contentblock/jcr:content/article/par/contentblock7"/>
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_standard_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Standard (section spacing only)&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_standard_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_standard_component"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/greys/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]">
+                            <par jcr:primaryType="nt:unstructured">
+                                <contentblock_standard_component_text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_standard_component_text"
+                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </contentblock_standard_component>
                     </par>
-                </contentblock>
+                </contentblock_standard>
+                <contentblock_advanced_with_title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_advanced_with_title">
+                    <par jcr:primaryType="nt:unstructured">
+                        <contentblock_advanced_with_title_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_advanced_with_title_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Advanced Section with Title&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_advanced_with_title_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_advanced_with_title_component"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/greys/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]"
+                            hideInMenu="true"
+                            hideTopLink="true"
+                            title="Example Title"
+                            titleType="h3"
+                            variant="advsection"/>
+                    </par>
+                </contentblock_advanced_with_title>
             </par>
         </article>
     </jcr:content>
+    <content-block-menu/>
 </jcr:root>

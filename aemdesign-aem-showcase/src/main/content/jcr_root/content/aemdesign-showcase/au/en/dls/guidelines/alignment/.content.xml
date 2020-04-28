@@ -42,7 +42,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="contentblock_left_text_align_heading"
-                            text="&lt;h2 class=&quot;h4&quot;>Left Alignment (default)&lt;/h2>&#xd;&#xa;"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Left Alignment (default)&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
                         <contentblock_left_text_align_component
                             jcr:primaryType="nt:unstructured"
@@ -73,7 +73,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="contentblock_center_text_align_heading"
-                            text="&lt;h2 class=&quot;h4&quot;>Center Alignment&lt;/h2>&#xd;&#xa;"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Center Alignment&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
                         <contentblock_center_text_align_component
                             jcr:primaryType="nt:unstructured"
@@ -104,7 +104,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
                             componentId="contentblock_right_text_align_heading"
-                            text="&lt;h2 class=&quot;h4&quot;>Right Alignment&lt;/h2>&#xd;&#xa;"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Right Alignment&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
                         <contentblock_right_text_align_component
                             jcr:primaryType="nt:unstructured"

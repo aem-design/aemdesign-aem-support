@@ -5,7 +5,7 @@
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Guidelines"
+        jcr:title="Content Block Menu"
         sling:resourceType="aemdesign/components/template/styleguide">
         <aside
             jcr:primaryType="nt:unstructured"
@@ -31,30 +31,34 @@
                     showParsys="false"
                     showToolbar="false"
                     textIsRich="true"/>
-                <contentblock
+                <contentblock_standard
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/grid/container/size/small,aemdesign-showcase:component-style-modifier/spacing-area/section]"
-                    variant="container">
-                    <par
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/layout/container">
-                        <text
+                    componentId="contentblock_standard">
+                    <par jcr:primaryType="nt:unstructured">
+                        <contentblock_standard_heading
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
-                            componentId="text_BYZU9ZUJS"
-                            text="&lt;p class=&quot;lead&quot;>TBC&lt;/p>&#xd;&#xa;"
+                            componentId="contentblock_standard_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Standard (section spacing only)&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
+                        <contentblock_standard_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_standard_component"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/greys/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]">
+                            <par jcr:primaryType="nt:unstructured">
+                                <contentblock_standard_component_text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_standard_component_text"
+                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </contentblock_standard_component>
                     </par>
-                </contentblock>
+                </contentblock_standard>
             </par>
         </article>
     </jcr:content>
-    <alignment/>
-    <backgrounds/>
-    <colours/>
-    <grid/>
-    <icons/>
-    <typography/>
 </jcr:root>

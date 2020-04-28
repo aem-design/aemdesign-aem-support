@@ -19,7 +19,7 @@ function generateIconsByCategory(icons) {
 
   return Object.keys(iconsByCategory).sort().map((category) => (`
     <div class="icon-panel row">
-      <h3 class="icon-panel__heading h5">${getCategoryLabel(category)}</h3>
+      <h3 class="icon-panel__heading h6">${getCategoryLabel(category)}</h3>
       ${iconsByCategory[category].map(generateIcon).join('')}
     </div>
   `)).join('')

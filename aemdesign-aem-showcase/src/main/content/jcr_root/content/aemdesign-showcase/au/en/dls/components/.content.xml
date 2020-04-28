@@ -36,7 +36,6 @@
                     sling:resourceType="aemdesign/components/layout/contentblock"
                     componentId="contentblock"
                     componentModifiers="[aemdesign-showcase:component-style-modifier/grid/container/size/small,aemdesign-showcase:component-style-modifier/spacing-area/section]"
-                    showIcon="false"
                     variant="container">
                     <par
                         jcr:primaryType="nt:unstructured"

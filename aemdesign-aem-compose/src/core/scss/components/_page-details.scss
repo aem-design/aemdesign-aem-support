@@ -10,8 +10,12 @@
   z-index: 1;
 
   header {
-    > :only-child {
-      margin-bottom: 0;
+    .title {
+      margin-bottom: $headings-margin-bottom / 1.5;
+    }
+
+    .description {
+      max-width: 700px;
     }
 
     // Make sure the header and the AEM `.responsivegrid` container span the full width
@@ -23,6 +27,10 @@
     // Space the additional parsys away from the sibling element
     + .responsivegrid > .#{$aem-prefix}:not(.no-content) {
       padding-top: 30px;
+    }
+
+    > :only-child {
+      margin-bottom: 0;
     }
   }
 

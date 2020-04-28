@@ -1,26 +1,20 @@
 import '../scss/styleguide.scss'
 
-async function loadApp() {
-  console.log('DLS is rocking...')
+function fixLinksForEnvironment() {
+  const navLinks = document.querySelectorAll('aside .nav-link, #dls_home_button_link')
 
-  const queryParam = new URLSearchParams(window.location.search)
+  if (navLinks.length) {
+    for (const link of navLinks) {
+      const href = link.getAttribute('href')
 
-  if (queryParam.has('wcmmode')) {
-    // Change all links to have ?wcmmode=disabled to allow clean navigation experience
-    const navLinks = document.querySelectorAll('aside .nav-link, #dls_home_button_link')
-
-    if (navLinks.length) {
-      for (const link of navLinks) {
-        const href = link.getAttribute('href')
-
-        if (href && href.indexOf('wcmmode=disabled') === -1) {
-          link.setAttribute('href', `${link.getAttribute('href')}?wcmmode=disabled`)
-        }
+      if (href && href !== '#' && href.indexOf('wcmmode=disabled') === -1) {
+        link.setAttribute('href', `${link.getAttribute('href')}?wcmmode=disabled`)
       }
     }
   }
+}
 
-  // Inject the collapse functionality to toggle the menu
+function headerMenu() {
   const header = document.querySelector('#dls-header')
 
   if (header) {
@@ -67,6 +61,27 @@ async function loadApp() {
 
     menuControls.insertAdjacentElement('afterend', menuOverlay)
   }
+}
+
+async function loadApp() {
+  console.log('DLS is rocking...')
+
+  if (window.location.search.indexOf('wcmmode') !== -1) {
+    // Change all links to have ?wcmmode=disabled to allow clean navigation experience
+    fixLinksForEnvironment()
+  }
+
+  // Force open any active drop down menu
+  const activeDropDown = document.querySelector('.dropdown-submenu.depth-2.active > .nav-link')
+
+  if (activeDropDown) {
+    $(activeDropDown).dropdown('show')
+
+    activeDropDown.parentElement?.classList.add('keep-open')
+  }
+
+  // Inject the collapse functionality to toggle the menu
+  headerMenu()
 }
 
 if (document.readyState === 'loading') {

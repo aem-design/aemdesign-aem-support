@@ -55,7 +55,7 @@
                             sling:resourceType="aemdesign/components/lists/navlist"
                             cancelInheritParent="true"
                             componentId="dls_nav"
-                            depthFromRoot="1"
+                            depthFromRoot="2"
                             listFrom="children"
                             parentPage="/content/aemdesign-showcase/au/en/dls"
                             variant="dropdown"/>
@@ -87,7 +87,6 @@
                     sling:resourceType="aemdesign/components/layout/contentblock"
                     componentId="contentblock"
                     componentModifiers="[aemdesign-showcase:component-style-modifier/grid/container/size/small,aemdesign-showcase:component-style-modifier/spacing-area/section]"
-                    showIcon="false"
                     variant="container">
                     <par
                         jcr:primaryType="nt:unstructured"
