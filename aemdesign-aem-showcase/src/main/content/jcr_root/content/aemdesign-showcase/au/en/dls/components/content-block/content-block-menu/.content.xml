@@ -31,33 +31,64 @@
                     showParsys="false"
                     showToolbar="false"
                     textIsRich="true"/>
-                <contentblock_standard
+                <contentblock_menu
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                    componentId="contentblock_menu"/>
+                <contentblock_example_one
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock_standard">
+                    componentId="contentblock_example_one"
+                    title="Content Block - Example 1">
                     <par jcr:primaryType="nt:unstructured">
-                        <contentblock_standard_heading
+                        <contentblock_example_one_heading
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/content/text"
-                            componentId="contentblock_standard_heading"
-                            text="&lt;h2 class=&quot;h5 strong&quot;>Standard (section spacing only)&lt;/h2>&#xd;&#xa;"
+                            componentId="contentblock_example_one_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Content Block - Example 1&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
-                        <contentblock_standard_component
+                        <contentblock_example_one_component
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/layout/contentblock"
-                            componentId="contentblock_standard_component"
-                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/greys/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]">
+                            componentId="contentblock_example_one_component">
                             <par jcr:primaryType="nt:unstructured">
-                                <contentblock_standard_component_text
+                                <contentblock_example_one_component_text
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="aemdesign/components/content/text"
-                                    componentId="contentblock_standard_component_text"
-                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.&lt;/p>&#xd;&#xa;"
+                                    componentId="contentblock_example_one_component_text"
+                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xd;&#xa;"
                                     textIsRich="true"/>
                             </par>
-                        </contentblock_standard_component>
+                        </contentblock_example_one_component>
                     </par>
-                </contentblock_standard>
+                </contentblock_example_one>
+                <contentblock_example_two
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_example_two"
+                    title="Content Block - Example 2">
+                    <par jcr:primaryType="nt:unstructured">
+                        <contentblock_example_two_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_example_two_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Content Block - Example 2&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_example_two_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_example_two_component">
+                            <par jcr:primaryType="nt:unstructured">
+                                <contentblock_example_two_component_text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_example_two_component_text"
+                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </contentblock_example_two_component>
+                    </par>
+                </contentblock_example_two>
             </par>
         </article>
     </jcr:content>
