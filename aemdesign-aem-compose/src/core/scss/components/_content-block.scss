@@ -6,6 +6,10 @@
     margin-bottom: 10px;
   }
 
+  .title :only-child {
+    margin-bottom: 0;
+  }
+
   // Strip away the padding when a nested `.container` exists in a content block container
   &.container > .container {
     max-width: 100%;
