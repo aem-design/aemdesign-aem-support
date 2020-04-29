@@ -4,4 +4,4 @@
     allowProxy="{Boolean}true"
     jsProcessor="[default:none]"
     cssProcessor="[default:none]"
-    categories="[aemdesign.compose.header.styleguide]"/>
+    categories="[aemdesign.compose.header.dls]"/>

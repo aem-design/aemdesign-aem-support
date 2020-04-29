@@ -3,10 +3,10 @@
           xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
           jcr:primaryType="cq:Page">
     <jcr:content
-        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
         jcr:primaryType="cq:PageContent"
         jcr:title="Breadcrumb"
-        sling:resourceType="aemdesign/components/template/styleguide">
+        sling:resourceType="aemdesign/components/template/dls">
         <aside
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/aside">

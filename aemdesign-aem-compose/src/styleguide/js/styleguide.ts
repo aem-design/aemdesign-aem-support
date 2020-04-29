@@ -15,7 +15,7 @@ function fixLinksForEnvironment() {
 }
 
 function headerMenu() {
-  const header = document.querySelector('#dls-header')
+  const header = document.querySelector('div.header')
 
   if (header) {
     let menuControl = header.querySelector('.header-menu-control')
@@ -34,10 +34,10 @@ function headerMenu() {
     menuControl.addEventListener('click', (event) => {
       event.preventDefault()
 
-      const menu = document.querySelector('#dls-menu-controls')
+      const menuElements = document.querySelectorAll('div.aside, .menu-overlay')
 
-      if (menu) {
-        menu.classList.toggle('visible')
+      if (menuElements.length) {
+        menuElements.forEach((element) => element.classList.toggle('visible'))
       }
     })
 
@@ -47,20 +47,16 @@ function headerMenu() {
   }
 
   // Menu overlay
-  const menuControls = document.querySelector('#dls-menu-controls')
+  let menuOverlay  = document.querySelector('.menu-overlay')
 
-  if (menuControls) {
-    let menuOverlay  = document.querySelector('#dls-menu-controls-overlay')
-
-    if (menuOverlay) {
-      menuOverlay.parentNode?.removeChild(menuOverlay)
-    }
-
-    menuOverlay = document.createElement('div')
-    menuOverlay.setAttribute('id', 'dls-menu-controls-overlay')
-
-    menuControls.insertAdjacentElement('afterend', menuOverlay)
+  if (menuOverlay) {
+    menuOverlay.parentNode?.removeChild(menuOverlay)
   }
+
+  menuOverlay = document.createElement('div')
+  menuOverlay.setAttribute('class', 'menu-overlay')
+
+  document.body.appendChild(menuOverlay)
 }
 
 async function loadApp() {

@@ -1,0 +1,59 @@
+// stylelint-disable selector-max-id
+
+div.header {
+  align-items: center;
+  background-color: color('grey-8');
+  color: color('white');
+  display: flex;
+  grid-area: header;
+  height: $header-height;
+  justify-content: space-between;
+  padding-left: $gutter-half-width;
+  padding-right: $gutter-half-width;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $zindex-popover;
+
+  #header-brand-content > div,
+  #header-brand-content > div > .text {
+    align-self: center;
+    display: flex;
+  }
+
+  #header-logo {
+    margin-right: $gutter-half-width;
+    width: 50px;
+  }
+
+  p {
+    margin-bottom: 0;
+
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+    }
+  }
+
+  .header-menu-control {
+    background-color: transparent;
+    border: 1px solid currentColor;
+    border-radius: $border-radius;
+    color: color('grey-4');
+    height: 40px;
+    padding: 5px 12px;
+    width: 40px;
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+  }
+
+  // @include notch-awesome-query {
+  //   padding-left: $header-gutter + $grid-gutter-width;
+
+  //   &::before {
+  //     margin-left: $grid-gutter-width;
+  //   }
+  // }
+}

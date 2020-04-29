@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="cq:Page">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/styleguide"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="aemdesign/components/template/styleguide">
+        sling:resourceType="aemdesign/components/template/dls">
+        <header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/header"
+            editable="{Boolean}true">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"
+                editable="{Boolean}true"/>
+        </header>
         <aside
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/aside"
-            componentId="aside_72GJ44DPW"
             editable="{Boolean}true">
             <par
                 jcr:primaryType="nt:unstructured"
@@ -19,7 +28,6 @@
         <article
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/article"
-            componentId="article_W3JSSYS7W"
             editable="{Boolean}true">
             <par
                 jcr:primaryType="nt:unstructured"
@@ -28,30 +36,22 @@
         </article>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
-                <xs
-                    jcr:primaryType="nt:unstructured"
-                    title="XS - Phone"
-                    width="{Long}320"/>
                 <sm
                     jcr:primaryType="nt:unstructured"
                     title="SM - Phone"
-                    width="{Long}640"/>
+                    width="{Long}320"/>
                 <md
                     jcr:primaryType="nt:unstructured"
-                    title="MD - Tablet"
-                    width="{Long}1024"/>
+                    title="MD - Small Tablet"
+                    width="{Long}640"/>
                 <lg
                     jcr:primaryType="nt:unstructured"
-                    title="LG - Laptop"
+                    title="LG - Tablet (landscape), Small Laptop"
                     width="{Long}1024"/>
-                <xlg
+                <xl
                     jcr:primaryType="nt:unstructured"
-                    title="XLG - Desktop"
-                    width="{Long}1024"/>
-                <xxlg
-                    jcr:primaryType="nt:unstructured"
-                    title="XXLG - 4K"
-                    width="{Long}1024"/>
+                    title="XL - Large Laptop / Desktop PC"
+                    width="{Long}1366"/>
             </breakpoints>
         </cq:responsive>
     </jcr:content>

@@ -170,18 +170,16 @@
                         </policy_default>
                     </base>
                 </experience-fragments>
-                <styleguide jcr:primaryType="nt:unstructured">
+                <dls jcr:primaryType="nt:unstructured">
                     <policy_default
-                        jcr:lastModified="{Date}2019-08-19T18:16:57.702+10:00"
-                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM.Design Showcase"
+                        jcr:title="AEM.Design DLS"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[aemdesign.compose.header,aemdesign.compose.header.styleguide,aemdesign.compose.footer,aemdesign.compose.footer.styleguide]"
-                        clientlibsJsHead="[aemdesign.compose.header,aemdesign.compose.header.styleguide]">
+                        clientlibs="[aemdesign.compose.header,aemdesign.compose.header.dls,aemdesign.compose.footer,aemdesign.compose.footer.dls]"
+                        clientlibsJsHead="[aemdesign.compose.header,aemdesign.compose.header.dls]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_default>
-                </styleguide>
+                </dls>
             </template>
             <content
                 jcr:primaryType="nt:unstructured"
