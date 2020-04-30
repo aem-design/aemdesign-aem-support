@@ -1,5 +1,18 @@
 import '../scss/styleguide.scss'
 
+// Internal
+let scrollOffset: number
+
+function resetScrollOffset() {
+  scrollOffset = parseInt(getComputedStyle(document.body).top, 10)
+
+  document.body.classList.remove('no-scroll')
+  document.body.style.top = 'auto'
+
+  window.scrollTo(0, -scrollOffset)
+}
+
+
 function fixLinksForEnvironment() {
   const navLinks = document.querySelectorAll('aside .nav-link, #dls_home_button_link')
 
@@ -38,6 +51,17 @@ function headerMenu() {
 
       if (menuElements.length) {
         menuElements.forEach((element) => element.classList.toggle('visible'))
+
+        if (document.body.classList.contains('no-scroll')) {
+          resetScrollOffset()
+        } else {
+          scrollOffset = window.scrollY
+
+          // Prevent the scroll on the body of the page and set the top offset to the current
+          // scroll position so the user remains at the same offset.
+          document.body.classList.add('no-scroll')
+          document.body.style.top = `${-scrollOffset}px`
+        }
       }
     })
 

@@ -20,33 +20,8 @@ body.dls div.aside {
 @include not-aem-author('body.dls') {
   padding-top: $header-height;
 
-  > div.container {
-    @include media-breakpoint-up(xl) {
-      display: grid;
-      grid-template-areas:
-        'header header'
-        'sidebar content';
-      grid-template-columns: $sidebar-width 1fr;
-      grid-template-rows: $header-height 1fr;
-    }
-  }
-
   div.aside {
     display: block;
-  }
-
-  div.article {
-    @include media-breakpoint-up(xl) {
-      height: calc(100vh - #{$header-height});
-      overflow-y: auto;
-    }
-  }
-
-  @include media-breakpoint-up(xl) {
-    max-height: 100vh;
-    min-height: 100vh;
-    overflow-y: hidden;
-    padding-top: 0;
   }
 }
 

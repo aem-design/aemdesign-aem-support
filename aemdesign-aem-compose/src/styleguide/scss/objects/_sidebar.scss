@@ -1,20 +1,26 @@
 // stylelint-disable selector-max-id
 
 div.aside {
+  @include notch-awesome($gutter-half-width);
+
   background-color: color('white');
   border-right: 1px solid color('grey-2');
-  grid-area: sidebar;
-  height: calc(100vh - #{$header-height});
+  height: 100%;
   left: 0;
-  min-width: $sidebar-width;
+  min-height: 100vh;
+  // stylelint-disable-next-line
+  min-height: -webkit-fill-available;
+  min-height: fill-available;
   overflow-y: auto;
-  padding: $grid-gutter-width $gutter-half-width $gutter-half-width;
+  padding: #{$header-height + $grid-gutter-width} $gutter-half-width $gutter-half-width;
   position: fixed;
+  top: 0;
   transform: translateX(-100%);
   transition-delay: 0s;
   transition-duration: 300ms;
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(.5, 1, .89, 1);
+  width: $sidebar-width;
   z-index: $zindex-modal;
 
   &.visible {
@@ -22,8 +28,11 @@ div.aside {
     transform: translateX(0);
   }
 
+  @include notch-awesome-query {
+    width: $sidebar-width + 100px;
+  }
+
   @include media-breakpoint-up(xl) {
-    position: static;
     transform: translateX(0);
   }
 
@@ -33,12 +42,4 @@ div.aside {
 
   // Navigation
   @import '../components/navlist';
-
-  // #dls-menu-controls {
-  //   @include notch-awesome;
-
-  //   // @include notch-awesome-query {
-  //   //   width: $sidebar-width + 50px;
-  //   // }
-  // }
 }

@@ -1,12 +1,3 @@
-html {
-  // Ensure the page always fills at least the entire height of the viewport.
-  min-height: 100%;
-
-  // Force scrollbars to always be visible to prevent awkward ‘jumps’ when navigating between
-  // pages that do/do not have enough content to produce scrollbars naturally.
-  overflow-y: scroll;
-}
-
 body {
   // Remove the container styles from the main AEM wrapper
   > .container {

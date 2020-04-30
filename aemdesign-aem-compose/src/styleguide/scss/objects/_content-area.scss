@@ -1,3 +1,5 @@
 div.article {
-  grid-area: content;
+  @include media-breakpoint-up(xl) {
+    padding-left: $sidebar-width;
+  }
 }
