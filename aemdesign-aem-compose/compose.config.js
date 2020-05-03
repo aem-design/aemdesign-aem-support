@@ -1,49 +1,57 @@
-const { resolve } = require('path')
+const { resolve }                     = require('path')
 const { configuration, registerHook } = require('@aem-design/compose-webpack')
-const { DefinePlugin } = require('webpack')
-
-// TODO: Create a way to extend default projects
-// "lazysizes",
-// "lazysizes/plugins/object-fit/ls.object-fit",
-// "lazysizes/plugins/parent-fit/ls.parent-fit",
-
-const projectExtras = {
-  core: {
-    generateColours : true,
-    generateIcons   : true,
-
-    coloursConfigFilename : 'colours',
-    coloursFilePath       : 'scss/settings/_colours.scss',
-    iconsConfigFilename   : 'icons',
-    iconsFilePath         : 'js/modules/fontawesome.ts',
-  },
-}
+const { DefinePlugin }                = require('webpack')
 
 registerHook('init:post', {
-  before(env) {
-    const extras = projectExtras[env.project] || {}
-
+  before(env, project) {
     // Do we need to generate any colours or icons for this project?
-    if (extras.generateColours === true) {
+    if (project.generateColours === true) {
       const { buildAndSaveColours } = require('./support/scripts/stub-generators/colours')
 
-      buildAndSaveColours(resolve(env.paths.project.src, extras.coloursFilePath), extras.coloursConfigFilename)
+      buildAndSaveColours(
+        resolve(env.paths.project.src, project.coloursFilePath),
+        project.coloursConfigFilename
+      )
     }
 
-    if (extras.generateIcons === true) {
+    if (project.generateIcons === true) {
       const { buildAndSaveIcons } = require('./support/scripts/stub-generators/icons')
 
-      buildAndSaveIcons(resolve(env.paths.project.src, extras.iconsFilePath), extras.iconsConfigFilename)
+      buildAndSaveIcons(
+        resolve(env.paths.project.src, project.iconsFilePath),
+        project.iconsConfigFilename
+      )
     }
   },
 })
 
 module.exports = configuration({
-  features: ['typescript', 'vue'],
+  features: ['bootstrap', 'typescript', 'vue'],
 
   standard: {
     banner: {
       font: 'ANSI Shadow',
+    },
+
+    mergeProjects: true,
+
+    projects: {
+      core: {
+        additionalEntries: {
+          'vendorlib/common': [
+            'lazysizes',
+            'lazysizes/plugins/object-fit/ls.object-fit',
+            'lazysizes/plugins/parent-fit/ls.parent-fit',
+          ],
+        },
+
+        coloursConfigFilename : 'colours',
+        coloursFilePath       : 'scss/settings/_colours.scss',
+        generateColours       : true,
+        generateIcons         : true,
+        iconsConfigFilename   : 'icons',
+        iconsFilePath         : 'js/modules/fontawesome.ts',
+      },
     },
   },
 

@@ -24,7 +24,7 @@
   },
   "description": "Composes the CSS and JavaScript required for visually appealing experiences in AEM.",
   "devDependencies": {
-    "@aem-design/compose-webpack": "^2.0.0-beta.5",
+    "@aem-design/compose-webpack": "^2.0.0-beta.8",
     "@types/bootstrap": "^4.3.2",
     "@types/jquery": "^3.3.35",
     "@typescript-eslint/eslint-plugin": "^2.29.0",

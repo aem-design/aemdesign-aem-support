@@ -9,10 +9,10 @@
   dependencies:
     chalk "^3.0.0"
 
-"@aem-design/compose-webpack@^2.0.0-beta.5":
-  version "2.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@aem-design/compose-webpack/-/compose-webpack-2.0.0-beta.5.tgz#f18ebdcb5fab50193d9c34232da7b89e58e456ec"
-  integrity sha512-CUf81bvV6JmBSOY/872qyvYEcODO3gXYsBzRxmigka+vb0woUe8WVE8I1BS5ZiEbB/r7C6kfO3Ue/KVXzNruAg==
+"@aem-design/compose-webpack@^2.0.0-beta.8":
+  version "2.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@aem-design/compose-webpack/-/compose-webpack-2.0.0-beta.8.tgz#25ee5c9f4ea433d0ecb24a476e94c7eebd89527d"
+  integrity sha512-e9K/v8dMdtfM3yvyBweH9NXiDKNmJ9muszW7W0Ggf5AaoLjrdmpGLuKchzkLa+2i0DehUL438kHKfgVfjuTSCA==
   dependencies:
     "@aem-design/compose-support" "1.2.1"
     "@babel/code-frame" "^7.8.3"
