@@ -1,4 +1,4 @@
-import ErrorBoundary from '@components/error-boundary/error-boundary.vue'
+import ErrorBoundary from '@/core/components/error-boundary/error-boundary.vue'
 
 // Internal
 let hasInitialised = false

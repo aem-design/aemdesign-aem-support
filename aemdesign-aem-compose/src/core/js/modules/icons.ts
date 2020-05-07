@@ -1,4 +1,4 @@
-import { IconPrefix } from '@type/enum'
+import { IconPrefix } from '@/typings/enums'
 
 /**
  * Generates an HTML element for the given Font Awesome `iconClass`.

@@ -31,7 +31,7 @@
 				<contentblock_two_columns
 					jcr:primaryType="nt:unstructured"
 					sling:resourceType="aemdesign/components/layout/contentblock"
-					componentId="textIsRich">
+					componentId="contentblock_two_columns">
 					<par
 						jcr:primaryType="nt:unstructured"
 						sling:resourceType="aemdesign/components/layout/container">

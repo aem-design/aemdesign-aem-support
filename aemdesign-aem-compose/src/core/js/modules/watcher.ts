@@ -2,9 +2,9 @@ import _throttle from 'lodash/throttle'
 
 import {
   bindVueComponents,
-} from '@module/binder'
+} from '@/core/module/binder'
 
-import { components as iconComponents } from '@module/icons'
+import { components as iconComponents } from '@/core/module/icons'
 
 function handleIcons() {
   for (const component of Object.keys(iconComponents)) {

@@ -5,8 +5,8 @@ interface Window {
     [key: string]: any;
 
     event: {
-      push: (data: DigitalDataPush) => {},
-    },
+      push: (data: DigitalDataPush) => {};
+    };
   };
 
   CustomEvent: (event: string, params: any) => CustomEvent<any>;

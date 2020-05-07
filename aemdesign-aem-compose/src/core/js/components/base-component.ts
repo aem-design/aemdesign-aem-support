@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
-import { LogLevel } from '@type/enum'
+import { LogLevel } from '@/typings/enums'
 
 @Component
 export default class BaseComponent extends Vue {

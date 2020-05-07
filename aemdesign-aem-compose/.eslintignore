@@ -1,7 +1,7 @@
-**/config
-**/public
+**/@types/
+**/public/
 **/node_modules/
-**/packages
+**/packages/
 **/support/scripts/
 
 compose.config.js

@@ -1,3 +1,7 @@
+export enum CarouselType {
+  LIST = 'component.list',
+}
+
 export enum IconPrefix {
   BRANDS = 'fab',
   SOLID = 'fas',

@@ -1,10 +1,10 @@
 import '../scss/app.scss'
 
-import AEMFixes from '@module/aem'
-import { bindVueComponents } from '@module/binder'
-import Icons from '@module/icons'
+import AEMFixes from '@/core/module/aem'
+import { bindVueComponents } from '@/core/module/binder'
+import Icons from '@/core/module/icons'
 
-import { isAuthorMode } from '@utility/aem'
+import { isAuthorMode } from '@/core/utility/aem'
 
 async function loadApp() {
   console.log('app.js jQuery Version', $.fn.jquery)
@@ -16,6 +16,17 @@ async function loadApp() {
    * are available to the end-user as soon-as-possible.
    */
   await bindVueComponents()
+
+  /**
+   * Bind a carousel to every instance found on the page.
+   */
+  const carouselTargets = document.querySelectorAll<HTMLElement>('[data-modules*="carousel"]')
+
+  if (carouselTargets.length && !isAuthorMode()) {
+    const carousel = (await import(/* webpackChunkName: "md/a/carousel" */ '@/core/module/adaptive/carousel')).default
+
+    carousel(carouselTargets)
+  }
 
   /**
    * Append icons elements to any elements that need them. This is done via JavaScript because
@@ -37,7 +48,7 @@ async function loadApp() {
     $('.collapse[data-parent]').collapse('dispose')
 
     // DOM watch mode!
-    const watcher = (await import(/* webpackChunkName: "md/watcher" */ '@module/watcher')).default
+    const watcher = (await import(/* webpackChunkName: "md/watcher" */ '@/core/module/watcher')).default
 
     watcher()
   }
@@ -45,7 +56,7 @@ async function loadApp() {
   /**
    * Load the Font Awesome icons now as they are the heaviest payload overall.
    */
-  const fontAwesome = (await import(/* webpackChunkName: "md/fontawesome" */ '@module/fontawesome')).default
+  const fontAwesome = (await import(/* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome')).default
 
   fontAwesome()
 
@@ -53,7 +64,7 @@ async function loadApp() {
    * IE11 fixes... ಥ﹏ಥ
    */
   if ((!!window.MSInputMethodContext && !!document.documentMode)) {
-    const makeIE11Work = (await import(/* webpackChunkName: "ut/ie11-fixes" */ '@utility/ie11')).default
+    const makeIE11Work = (await import(/* webpackChunkName: "ut/ie11-fixes" */ '@/core/utility/ie11')).default
 
     makeIE11Work()
   }

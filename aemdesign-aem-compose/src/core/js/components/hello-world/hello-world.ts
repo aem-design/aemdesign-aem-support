@@ -1,6 +1,6 @@
 import { Component, Mixins, Prop } from 'vue-property-decorator'
 
-import BaseComponent from '@components/base-component'
+import BaseComponent from '@/core/components/base-component'
 
 @Component({
   name: 'hello-world',
