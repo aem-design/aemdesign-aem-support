@@ -16,6 +16,7 @@ node_modules/
 
 # Content generator
 content-generator/config/core/icons.yml
+content-generator/config/core/component-style-modifier/colours.yml
 content-generator/content/*
 content-generator/output/*
 

@@ -409,8 +409,36 @@ function debug(text) {
   }
 }
 
+function loadSupportConfig(filename) {
+  return yaml.safeLoad(readFileSync(currentPath(`../support/config/${filename}.yml`)))
+}
+
+function writeGeneratedConfigFile(filename, content) {
+  writeFileSync(
+    currentPath(`config/core/${filename}.yml`),
+    json2yaml.stringify(content).split('\n').slice(1).join('\n')
+  )
+}
+
+function generateColoursFromConfig() {
+  const colours          = loadSupportConfig('colours')
+  const coloursFormatted = {}
+
+  for (const [namespace, prefix] of [['background', 'bg-'], ['colour', 'text-']]) {
+    for (const category of Object.keys(colours)) {
+      coloursFormatted[`${namespace}/${category}`] = {
+        prefixes  : colours[category].colours.map((colour) => colour.class),
+        startWith : prefix,
+        title     : '%%prefix_normalised%%',
+      }
+    }
+  }
+
+  writeGeneratedConfigFile('component-style-modifier/colours', coloursFormatted)
+}
+
 function generateIconsFromConfig() {
-  const icons      = yaml.safeLoad(readFileSync(currentPath('../support/config/icons.yml')))
+  const icons      = loadSupportConfig('icons')
   const categories = {}
 
   for (const icon of icons) {
@@ -451,10 +479,7 @@ function generateIconsFromConfig() {
     }
   }
 
-  writeFileSync(
-    currentPath('config/core/icons.yml'),
-    json2yaml.stringify(iconsFormatted).split('\n').slice(1).join('\n')
-  )
+  writeGeneratedConfigFile('icons', iconsFormatted)
 }
 
 module.exports = {
@@ -462,6 +487,7 @@ module.exports = {
   formatSizeWithSuffix,
   generateContent,
   getBreakpointInfix,
+  generateColoursFromConfig,
   generateIconsFromConfig,
   loadTemplateForCategory,
   mapBreakpointToName,

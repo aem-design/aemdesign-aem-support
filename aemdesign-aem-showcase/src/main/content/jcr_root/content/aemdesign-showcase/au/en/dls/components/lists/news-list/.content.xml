@@ -24,7 +24,6 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
@@ -34,8 +33,7 @@
                 <contentblock
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock-1"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
+                    componentId="contentblock">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
@@ -60,12 +58,6 @@
                             </par>
                         </contentblock_1872776108>
                     </par>
-                    <bgimage
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/media/image"/>
-                    <bgvideo
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/media/image"/>
                 </contentblock>
             </par>
         </article>

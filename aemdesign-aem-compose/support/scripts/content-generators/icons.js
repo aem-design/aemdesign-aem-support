@@ -14,9 +14,9 @@ const { generateIconPanel } = require('../support/icon-panel')
 // Define the path to path in which we need to override
 const iconsContentPath = 'dls/guidelines/icons/.content.xml'
 
-// Define the background colours
+// Generate the DLS icons page
 replaceHtmlContent(iconsContentPath, 'contentblock_icons_all_component', generateIconPanel(icons))
 
-// Sync the pages...
+// Sync the page...
 // TODO: Try and work out why this doesn't work!
 // syncFileToAEM(iconsContentPath)

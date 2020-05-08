@@ -57,6 +57,7 @@ const {
   currentPath,
   generateContent,
   getBreakpointInfix,
+  generateColoursFromConfig,
   generateIconsFromConfig,
   loadTemplateForCategory,
   parseTitle,
@@ -75,8 +76,9 @@ try {
     mkdirp.sync(currentPath(tmpPath))
   }
 
-  // If the project is 'core', generate the 'icons.yml' file
+  // Generate some additional files for core using our support configuration
   if (args.config.indexOf('core') !== -1) {
+    generateColoursFromConfig()
     generateIconsFromConfig()
   }
 
@@ -100,6 +102,7 @@ try {
 
       for (const subcategory of Object.keys(children)) {
         const data = children[subcategory]
+
         let prefixes = data.prefixes
 
         if (prefixes === undefined && data.prefix !== undefined) {

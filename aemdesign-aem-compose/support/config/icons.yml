@@ -150,3 +150,9 @@
   name: 'Sass'
   prefix: 'fab'
   usable: false
+
+- category: 'design'
+  class: 'fill'
+  name: 'Fill'
+  prefix: 'fas'
+  usable: false

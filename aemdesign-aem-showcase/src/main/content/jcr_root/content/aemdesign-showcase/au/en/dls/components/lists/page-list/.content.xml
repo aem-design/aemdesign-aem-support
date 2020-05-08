@@ -23,7 +23,6 @@
                     jcr:mixinTypes="[cq:Taggable]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     showBreadcrumb="false"
                     showPageDate="false"
                     showToolbar="false"
@@ -31,8 +30,7 @@
                 <contentblock
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-md-30,aemdesign-showcase:component-style-modifier/padding/p-15]">
+                    componentId="contentblock">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
@@ -102,12 +100,6 @@
                             sling:resourceType="aemdesign/components/content/reference"
                             path="/content/aemdesign-showcase/au/en/component/lists/page-list/jcr:content/article/par/contentblock/par/pagelist"/>
                     </par>
-                    <bgimage
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/media/image"/>
-                    <bgvideo
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/media/image"/>
                 </contentblock_316914013>
             </par>
         </article>

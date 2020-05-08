@@ -12,14 +12,11 @@ const {
 const { generateColourPanel } = require('../support/colour-panel')
 
 // Define the path to path in which we need to override
-const backgroundContentPath = 'dls/guidelines/backgrounds/.content.xml'
-const coloursContentPath    = 'dls/guidelines/colours/.content.xml'
+const coloursContentPath = 'dls/guidelines/colours/.content.xml'
 
-// Define the background colours
-replaceHtmlContent(backgroundContentPath, 'contentblock_backgrounds_component', generateColourPanel(colours, true))
+// Generate the DLS colours page
 replaceHtmlContent(coloursContentPath, 'contentblock_colours_component', generateColourPanel(colours))
 
-// Sync the pages...
+// Sync the page...
 // TODO: Try and work out why this doesn't work!
-// syncFileToAEM(backgroundContentPath)
 // syncFileToAEM(coloursContentPath)

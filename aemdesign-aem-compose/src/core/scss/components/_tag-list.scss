@@ -1,10 +1,18 @@
-.taglist {
-  list-style-type: none;
-  padding-left: 0;
+// [1] Adds a comma after the item with an additional space character
 
-  &__item {
+.taglist {
+  @include list-unstyled;
+
+  > li {
     display: inline-block;
-    margin-right: 10px;
-    padding-left: 0;
+
+    &::after {
+      content: ',' '\00a0'; // [1]
+      display: inline-block;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
   }
 }

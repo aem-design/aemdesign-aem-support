@@ -1,0 +1,27 @@
+button:
+  prefixes:
+    - link
+  valueFormat: btn btn-%%prefix%%
+  title: '%%prefix_normalised%%'
+
+button/normal:
+  prefixes:
+    - link
+  valueFormat: btn btn-%%prefix%%
+  title: '%%prefix_normalised%%'
+
+button/outline:
+  prefixes: []
+  valueFormat: btn btn-%%prefix%%
+  title: '%%prefix_normalised%%'
+
+button/size:
+  contents:
+    - block: { value: 'btn-block', title: 'Block (Full Width)' }
+    - lg: { value: 'btn-lg', title: 'Large Button' }
+    - sm: { value: 'btn-sm', title: 'Small Button' }
+
+button/state:
+  contents:
+    - active: { value: 'active', title: 'Active' }
+    - disabled: { value: 'disabled', title: 'Disabled' }
