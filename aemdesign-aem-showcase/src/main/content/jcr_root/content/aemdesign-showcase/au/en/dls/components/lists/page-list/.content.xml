@@ -78,6 +78,31 @@
                             parentPage="/content/aemdesign-showcase/au/en/dls/components/lists/pages"/>
                     </par>
                 </contentblock_pagelist_images>
+                <contentblock_pagelist_cards_wtda
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_pagelist_cards_wtda">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contentblock_pagelist_cards_wtda_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_pagelist_cards_wtda_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Cards&lt;/h2>&#xd;&#xa;&lt;p>List of cards with a title, description and action.&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_pagelist_cards_wtda_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/pagelist"
+                            badgeTitleType="h4"
+                            componentId="contentblock_pagelist_cards_wtda_component"
+                            detailsBadge="cardTitleDescriptionAction"
+                            limit="3"
+                            listFrom="children"
+                            listType="list"
+                            parentPage="/content/aemdesign-showcase/au/en/dls/components/lists/pages"/>
+                    </par>
+                </contentblock_pagelist_cards_wtda>
                 <contentblock_pagelist_cards_witda
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"

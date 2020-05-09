@@ -1,5 +1,6 @@
 // stylelint-disable selector-max-compound-selectors
 %components-list {
+  @include fix-nested-component;
   @include make-container;
   @include make-container-max-widths;
   @include notch-awesome;

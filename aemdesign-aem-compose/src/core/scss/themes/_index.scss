@@ -8,6 +8,10 @@
     }
   }
 
+  &--taglist {
+    @import 'lists.tags';
+  }
+
   // Video
   &--video {
     @import 'video.background';
