@@ -5,7 +5,7 @@
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Page List Pages"
+        jcr:title="Page Details Pages"
         sling:resourceType="aemdesign/components/template/base"
         hideInNav="true">
         <article
@@ -32,4 +32,5 @@
     <page3/>
     <page4/>
     <page5/>
+    <page6/>
 </jcr:root>

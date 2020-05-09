@@ -6,7 +6,7 @@
         cq:allowedTemplates="[/conf/aemdesign-showcase/settings/wcm/templates/.*]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Generic Example Six"
+        jcr:title="Generic Example Two"
         sling:resourceType="aemdesign/components/template/base">
         <header
             jcr:primaryType="nt:unstructured"
@@ -24,15 +24,16 @@
                 <generic_details
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/generic-details"
-                    componentId="generic_details">
+                    componentId="generic_details"
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In hendrerit gravida rutrum quisque non tellus.">
                     <secondaryImage
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/media/image"
-                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"/>
                     <bgimage
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/media/image"
-                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
                 </generic_details>
             </par>
         </article>

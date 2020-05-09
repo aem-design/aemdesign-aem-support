@@ -58,7 +58,6 @@ getGitDir() {
   echo $(git rev-parse --git-dir | sed -e 's/\(.*\)\.git.*/\1/')
 }
 
-
 runTest() {
   local DRIVER=${1}
   local MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
@@ -164,7 +163,6 @@ openReports() {
     OPEN_REPORT=$(groovy -Dproject.buildDirectory=${ITEM_VALUE} openReport.groovy)
   done
 
-
   printSubSectionEnd "Open Reports"
 }
 
@@ -192,9 +190,7 @@ monitorTests() {
   fi
 }
 
-
-function stopContainers() {
-
+stopContainers() {
   printSectionLine "Stop Containers"
 
   printSectionLine "Stopping: $@"
@@ -202,8 +198,6 @@ function stopContainers() {
 
   printSectionLine "Removing: $@"
   ${DOCKER} rm $@
-
-
 }
 
 testServer() {
@@ -241,6 +235,7 @@ processArguments() {
   declare argv
   argv=$(getopt -o "hs:H:p:U:P:u:t:w:Lc:RDSM" --long "help,scheme:,host:,port:,username:,password:,url:,tests:,workspace:,login,config:,report,dispatcher,skip-convert,maven" -- "$@") || return
   eval "set -- ${argv}"
+
   declare a
   for a; do
     case ${a} in
@@ -312,7 +307,6 @@ processArguments() {
 }
 
 main() {
-
   processArguments $@
 
   # update selenium url if localhost and not passed
@@ -397,6 +391,5 @@ main() {
 
   set_term_title "Testing Finished"
 }
-
 
 [[ $BASH_SOURCE != "$0" ]] || main "$@"

@@ -31,8 +31,8 @@ export const components: ComponentConfig = {
   },
 
   link: {
-    icon      : icons.longArrowRight,
-    selectors : ['.link.btn'],
+    icon      : icons.chevronRight,
+    selectors : ['.link.btn-link'],
   },
 }
 

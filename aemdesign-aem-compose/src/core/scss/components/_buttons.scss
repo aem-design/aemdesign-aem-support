@@ -65,16 +65,8 @@ $button-colours: ();
   }
 
   > .svg-inline--fa {
-    font-size: icon-size('regular') - 2px;
     margin-left: auto;
-
-    @include media-breakpoint-up(md) {
-      font-size: icon-size('regular');
-    }
-
-    @include media-breakpoint-up(lg) {
-      font-size: icon-size('regular') + 2px;
-    }
+    transition: transform $btn-transition-length ease-in-out;
   }
 
   &:not(.btn-link) {
@@ -84,32 +76,22 @@ $button-colours: ();
   }
 
   @include hover {
-    &:not(.btn-link):not(:active) {
-      > span,
-      > .svg-inline--fa {
-        transform: translateY(-2px);
-      }
+    .svg-inline--fa {
+      transform: translateX(4px);
     }
   }
 
-  // Override the link button styles
   &-link {
     color: $link-color;
     padding: 0;
 
     > .svg-inline--fa {
-      margin-left: $grid-gutter-width;
+      margin-left: 10px;
     }
 
     &:focus,
     &.focus {
       text-decoration: none;
     }
-  }
-
-  &:focus,
-  &.focus {
-    outline: 1px dotted #212121;
-    outline: 5px auto -webkit-focus-ring-color;
   }
 }
