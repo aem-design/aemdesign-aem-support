@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page List Pages"
+        sling:resourceType="aemdesign/components/template/base"
+        hideInNav="true">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </article>
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside"
+            cancelInheritParent="true">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <image
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0"/>
+    </jcr:content>
+    <page1/>
+    <page2/>
+    <page3/>
+    <page4/>
+    <page5/>
+</jcr:root>

@@ -1,42 +1,7 @@
 .link {
-  > span {
-    align-items: center;
-    display: flex;
-    width: 100%;
-  }
+  @extend %link-base;
+}
 
-  .icon:not(.svg-inline--fa) {
-    width: icon-size(regular);
-
-    &:first-child {
-      margin-right: 10px;
-    }
-
-    &:last-child {
-      margin-left: 10px;
-    }
-  }
-
-  &:not(.btn) {
-    align-items: center;
-    display: inline-flex;
-    font-weight: 600;
-
-    // Icon
-    .svg-inline--fa {
-      font-size: icon-size(regular);
-
-      &:first-child {
-        margin-right: 10px;
-      }
-
-      &:last-child {
-        margin-left: 10px;
-      }
-    }
-
-    @include hover {
-      text-decoration: none;
-    }
-  }
+.link:not(.btn) {
+  @extend %link-button;
 }

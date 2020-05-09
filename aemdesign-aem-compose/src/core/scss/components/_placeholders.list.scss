@@ -2,7 +2,6 @@
 %components-list {
   @include make-container;
   @include make-container-max-widths;
-  // iPhone X support
   @include notch-awesome;
 
   > .content {
@@ -53,6 +52,15 @@
       @include media-breakpoint-up(lg) {
         margin-bottom: -$list-item-lg-margin;
       }
+    }
+  }
+
+  // Handle image only variants
+  .list a:not(.card-link) {
+    display: block;
+
+    > img {
+      width: 100%;
     }
   }
 

@@ -14,6 +14,7 @@ function buildIcon(iconClass: string, prefix: IconPrefix): Element {
 }
 
 const icons: { [key: string]: Element } = {
+  chevronRight    : buildIcon('chevron-right', IconPrefix.SOLID),
   externalLinkAlt : buildIcon('external-link-alt', IconPrefix.SOLID),
   longArrowRight  : buildIcon('long-arrow-alt-right', IconPrefix.SOLID),
 }
@@ -22,6 +23,11 @@ export const components: ComponentConfig = {
   anchorLink: {
     icon      : icons.externalLinkAlt,
     selectors : ['a[target="_blank"]:not(.link):not(.card-link)'],
+  },
+
+  cardAction: {
+    icon      : icons.chevronRight,
+    selectors : ['.card-link'],
   },
 
   link: {

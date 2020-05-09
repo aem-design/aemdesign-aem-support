@@ -1,0 +1,53 @@
+%link-base {
+  transition: $btn-transition;
+
+  > span {
+    align-items: center;
+    display: flex;
+    width: 100%;
+  }
+
+  .icon:not(.svg-inline--fa) {
+    width: icon-size('regular');
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+
+  &:not(.btn) {
+    align-items: center;
+    display: inline-flex;
+    font-weight: 600;
+
+    .svg-inline--fa {
+      transition: transform $btn-transition-length ease-in-out;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+
+    @include hover {
+      text-decoration: none;
+
+      .svg-inline--fa {
+        transform: translateX(8px);
+      }
+    }
+  }
+}
+
+%link-button {
+  font-size: $btn-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}

@@ -1,0 +1,30 @@
+$btn-padding-y:               13.5px;
+$btn-padding-x:               20px;
+$btn-font-size:               $font-size-base - 2px;
+$btn-line-height:             $line-height-base;
+
+$btn-padding-y-sm:            12.5px;
+$btn-padding-x-sm:            20px;
+$btn-font-size-sm:            10px;
+$btn-line-height-sm:          12px;
+
+$btn-padding-y-lg:            15.5;
+$btn-padding-x-lg:            20px;
+$btn-font-size-lg:            14px;
+$btn-line-height-lg:          $btn-line-height;
+
+$btn-border-width:            0;
+
+$btn-font-weight:             600;
+$btn-box-shadow:              none;
+$btn-focus-width:             null;
+$btn-focus-box-shadow:        null;
+$btn-disabled-opacity:        null;
+$btn-active-box-shadow:       null;
+
+$btn-border-radius:           3px;
+$btn-border-radius-lg:        $btn-border-radius;
+$btn-border-radius-sm:        $btn-border-radius;
+
+$btn-transition-length:       150ms;
+$btn-transition:              color $btn-transition-length ease-in-out, background-color $btn-transition-length ease-in-out, border-color $btn-transition-length ease-in-out;
