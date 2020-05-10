@@ -1,6 +1,4 @@
 %link-base {
-  transition: $btn-transition;
-
   > span {
     align-items: center;
     display: flex;
@@ -25,7 +23,7 @@
     font-weight: 600;
 
     .svg-inline--fa {
-      transition: transform $btn-transition-length ease-in-out;
+      transition: transform $link-transition-length ease-in-out;
 
       &:first-child {
         margin-right: 10px;

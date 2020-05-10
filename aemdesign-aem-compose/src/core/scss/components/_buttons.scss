@@ -66,7 +66,7 @@ $button-colours: ();
 
   > .svg-inline--fa {
     margin-left: auto;
-    transition: transform $btn-transition-length ease-in-out;
+    transition: transform $link-transition-length ease-in-out;
   }
 
   &:not(.btn-link) {

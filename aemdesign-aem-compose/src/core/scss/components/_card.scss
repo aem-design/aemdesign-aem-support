@@ -45,7 +45,8 @@
   }
 
   &-body {
-    background-color: $white;
+    background-color: $card-bg;
+    border-radius: $card-inner-border-radius;
     display: flex;
     flex-direction: column;
 
