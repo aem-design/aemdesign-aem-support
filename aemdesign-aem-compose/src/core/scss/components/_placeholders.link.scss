@@ -1,44 +1,40 @@
+// [1] Fix for IE 11 which doesn't correctly set the icon size based on width alone
+
 %link-base {
+  &:any-link {
+    color: $link-color;
+  }
+
   > span {
     align-items: center;
     display: flex;
     width: 100%;
   }
 
-  .icon:not(.svg-inline--fa) {
-    width: icon-size('regular');
+  .icon:not(.svg-inline--fa),
+  &:not(.btn) .svg-inline--fa {
+    min-width: $btn-icon-size;
+    transition: transform $link-transition-length ease-in-out;
+    width: $btn-icon-size;
 
     &:first-child {
-      margin-right: 10px;
+      margin-right: $btn-icon-spacing-x;
     }
 
     &:last-child {
-      margin-left: 10px;
+      margin-left: $btn-icon-spacing-x;
     }
   }
 
   &:not(.btn) {
     align-items: center;
     display: inline-flex;
-    font-weight: 600;
-
-    .svg-inline--fa {
-      transition: transform $link-transition-length ease-in-out;
-
-      &:first-child {
-        margin-right: 10px;
-      }
-
-      &:last-child {
-        margin-left: 10px;
-      }
-    }
 
     @include hover {
-      text-decoration: none;
+      text-decoration: $link-hover-decoration;
 
       .svg-inline--fa {
-        transform: translateX(4px);
+        transform: translateX($btn-icon-spacing-x / 2);
       }
     }
   }
@@ -46,6 +42,5 @@
 
 %link-button {
   font-size: $btn-font-size;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: $btn-font-weight;
 }

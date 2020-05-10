@@ -1,12 +1,12 @@
-package specs.dls.guidelines
+package specs.dls.guidelines.icons
 
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
 
 @Stepwise
-class DLSTypographyScreenshotSpec extends ComponentSpec {
-    String pathPage = "dls/guidelines/typography"
+class DLSIconsScreenshotSpec extends ComponentSpec {
+    String pathPage = "dls/guidelines/icons"
     String pathSite = "content/aemdesign-showcase"
     String language = "au/en"
     String componentPath = "jcr:content/article"
@@ -15,11 +15,11 @@ class DLSTypographyScreenshotSpec extends ComponentSpec {
         loginAsAdmin()
     }
 
-    @Unroll("Appearance of headings in #viewport.label")
-    def "Appearance of headings"() {
+    @Unroll("Appearance of icon sizes on #viewport.label")
+    def "Appearance of icon sizes"() {
         given: '>I am on the guidelines DLS page'
         and: '>the guidelines content is on the DLS page'
-        def selector = "#typography_headings_component"
+        def selector = "#colctrl_icon_sizes"
 
         when: 'I am on the guidelines DLS page'
         setWindowSize(viewport)
