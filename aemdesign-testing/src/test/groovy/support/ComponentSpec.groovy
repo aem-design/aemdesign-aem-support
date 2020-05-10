@@ -203,6 +203,8 @@ abstract class ComponentSpec extends FunctionalSpec {
     }
 
     def designRef(String selector) {
+        js.exec('document.querySelector(\'html\').classList.add(\'test-suite\')')
+
         return designRef(selector, "")
     }
 

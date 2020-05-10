@@ -30,6 +30,10 @@ div.header {
   p {
     margin-bottom: 0;
   }
+
+  .test-suite & {
+    position: absolute;
+  }
 }
 
 .header-menu-control {
