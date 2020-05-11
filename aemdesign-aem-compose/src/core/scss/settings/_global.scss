@@ -6,11 +6,11 @@
 @import 'colours';
 
 $primary:       map-get($colors, 'blue');
-$secondary:     map-get($colors, 'grey-5');
+$secondary:     map-get($colors, 'grey-6');
 $success:       map-get($colors, 'green');
 $warning:       map-get($colors, 'orange');
 $danger:        map-get($colors, 'red');
-$light:         map-get($colors, 'grey-2');
+$light:         map-get($colors, 'grey-1');
 $dark:          map-get($colors, 'grey-8');
 
 $theme-colors: (

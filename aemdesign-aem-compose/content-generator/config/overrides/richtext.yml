@@ -15,7 +15,6 @@ apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items
       - font_weight_normal: { cssName: 'font-weight-normal', text: "Weight: Normal" }
       - font_weight_bold: { cssName: 'font-weight-bold', text: "Weight: Bold" }
       - font_weight_bolder: { cssName: 'font-weight-bolder', text: "Weight: Bolder" }
-      - text_quote_suffix: { cssName: 'text__quote-suffix', text: "Style: Quote Suffix" }
       - text_style_lead: { cssName: 'lead', text: "Style: Lead" }
       - text_black: { cssName: 'text-black', text: "Colour: Black" }
       - text_white: { cssName: 'text-white', text: "Colour: White" }

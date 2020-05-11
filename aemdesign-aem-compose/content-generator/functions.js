@@ -38,6 +38,9 @@ const breakpoints = {
 }
 
 const prefixes = {
+  // Aria
+  'contentinfo': 'Content Info',
+
   // Screen Reader
   'sr-only'           : 'Screen Reader: only',
   'sr-only-focusable' : 'Screen Reader: when focused',
