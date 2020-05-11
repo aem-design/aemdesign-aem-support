@@ -2,11 +2,26 @@
 @import 'paths';
 
 // Colours
-/// @type Map
 
 @import 'colours';
 
-$theme-colors: $colors;
+$primary:       map-get($colors, 'blue');
+$secondary:     map-get($colors, 'grey-5');
+$success:       map-get($colors, 'green');
+$warning:       map-get($colors, 'orange');
+$danger:        map-get($colors, 'red');
+$light:         map-get($colors, 'grey-2');
+$dark:          map-get($colors, 'grey-8');
+
+$theme-colors: (
+  'primary'   : $primary,
+  'secondary' : $secondary,
+  'success'   : $success,
+  'warning'   : $warning,
+  'danger'    : $danger,
+  'light'     : $light,
+  'dark'      : $dark,
+);
 
 // Body
 
@@ -40,6 +55,7 @@ $paragraph-margin-bottom:   10px;
 
 $font-size-base:              16px;
 $font-size-sm:                12px;
+$font-size-lg:                20px;
 
 $line-height-base:            24px;
 $line-height-sm:              18px;

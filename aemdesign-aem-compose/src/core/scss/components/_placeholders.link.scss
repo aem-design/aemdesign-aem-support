@@ -1,10 +1,6 @@
 // [1] Fix for IE 11 which doesn't correctly set the icon size based on width alone
 
 %link-base {
-  &:any-link {
-    color: $link-color;
-  }
-
   > span {
     align-items: center;
     display: flex;

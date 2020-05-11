@@ -13,7 +13,7 @@
 /// @group aem
 /// @since 1.0.0
 @mixin aem-author-edit() {
-  html.aem-AuthorLayer-Edit {
+  html.aem-AuthorLayer-Edit & {
     @content;
   }
 }

@@ -6,7 +6,8 @@
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Design Language System - AEM.Design"
+        jcr:title="AEM.Design"
+        pageTitleSuffix="Design Language System"
         navTitle="DLS"
         sling:resourceType="aemdesign/components/template/dls">
         <header

@@ -12,24 +12,13 @@
 @import 'settings/dls';
 @import 'settings/logo';
 
-// Hide the sidebar in author mode to save some space
-body.dls div.aside {
-  display: none;
-}
-
-@include not-aem-author('body.dls') {
-  padding-top: $header-height;
-
-  div.aside {
-    display: block;
-  }
-}
-
 body.dls {
   @import 'objects/header';
   @import 'objects/sidebar';
   @import 'objects/content-area';
   @import 'objects/menu-overlay';
+
+  padding-top: $header-height;
 
   section.contentblock:not(:last-of-type) {
     margin-bottom: $grid-gutter-width;
@@ -73,6 +62,10 @@ body.dls {
     &:not(:last-of-type) {
       margin-bottom: 0;
     }
+  }
+
+  @include aem-author-edit {
+    padding-top: 0;
   }
 
   @import 'components/colour-panel';
