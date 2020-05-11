@@ -1,7 +1,10 @@
 package support
 
 import org.apache.commons.lang3.StringUtils
+import org.openqa.selenium.By
 import org.openqa.selenium.Dimension
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebElement
 import spock.lang.Shared
 import support.page.AEMPage
 import support.page.PublishPage
@@ -258,5 +261,46 @@ abstract class ComponentSpec extends FunctionalSpec {
 
     def compareInnerTextContains(selector, innerText) {
         return $("$selector").firstElement().getAttribute("innerText").contains("$innerText")
+    }
+
+    def substituteElementOnPage(String selector) {
+        WebElement element = driver.findElement(By.cssSelector(selector))
+        JavascriptExecutor jsd = (JavascriptExecutor) driver
+
+        String position = element.getCssValue("position")
+
+        String styles = """
+${selector} {
+  position: ${position == "static" ? "relative" : position};
+}
+${selector}::after {
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  content: '3rd-party';
+  display: flex;
+  font-size: 28px;
+  font-weight: 800;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+""".replace("\n", "").trim()
+
+        String script = """
+var style = document.createElement('style');
+style.type = 'text/css';
+
+style.appendChild(document.createTextNode(`\${arguments[1]}`));
+arguments[0].insertAdjacentElement('beforebegin', style);
+
+return true
+""".replace("\n", "").trim()
+
+        return jsd.executeScript(script, element, styles)
     }
 }
