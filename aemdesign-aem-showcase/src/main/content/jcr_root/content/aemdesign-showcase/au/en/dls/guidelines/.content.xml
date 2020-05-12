@@ -6,7 +6,8 @@
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
         jcr:primaryType="cq:PageContent"
         jcr:title="Guidelines"
-        sling:resourceType="aemdesign/components/template/dls">
+        sling:resourceType="aemdesign/components/template/dls"
+        pageTitleSuffix="Design Language System">
         <aside
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/aside">
