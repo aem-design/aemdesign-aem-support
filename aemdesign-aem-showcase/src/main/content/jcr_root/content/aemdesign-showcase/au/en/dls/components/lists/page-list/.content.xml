@@ -51,7 +51,7 @@
                             limit="3"
                             listFrom="children"
                             listType="list"
-                            parentPage="/content/aemdesign-showcase/au/en/dls/components/lists/support/page-details"/>
+                            parentPage="/content/aemdesign-showcase/au/en/support/page-details"/>
                     </par>
                 </contentblock_pagelist_basic>
                 <contentblock_pagelist_images
@@ -75,7 +75,7 @@
                             limit="3"
                             listFrom="children"
                             listType="list"
-                            parentPage="/content/aemdesign-showcase/au/en/dls/components/lists/support/page-details"/>
+                            parentPage="/content/aemdesign-showcase/au/en/support/page-details"/>
                     </par>
                 </contentblock_pagelist_images>
                 <contentblock_pagelist_cards_wtda
@@ -100,7 +100,7 @@
                             limit="3"
                             listFrom="children"
                             listType="list"
-                            parentPage="/content/aemdesign-showcase/au/en/dls/components/lists/support/page-details"/>
+                            parentPage="/content/aemdesign-showcase/au/en/support/page-details"/>
                     </par>
                 </contentblock_pagelist_cards_wtda>
                 <contentblock_pagelist_cards_witda
@@ -125,7 +125,7 @@
                             limit="3"
                             listFrom="children"
                             listType="list"
-                            parentPage="/content/aemdesign-showcase/au/en/dls/components/lists/support/page-details"/>
+                            parentPage="/content/aemdesign-showcase/au/en/support/page-details"/>
                     </par>
                 </contentblock_pagelist_cards_witda>
             </par>

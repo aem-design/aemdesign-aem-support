@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Example Article Four"
+        sling:resourceType="aemdesign/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <news-details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/news-details"
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum nisi quis eleifend quam."
+                    showBreadcrumb="false"
+                    showParsys="false"
+                    showToolbar="false">
+                    <secondaryImage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"
+                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                    <bgimage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"
+                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                </news-details>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/media/image"
+            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"/>
+    </jcr:content>
+</jcr:root>
