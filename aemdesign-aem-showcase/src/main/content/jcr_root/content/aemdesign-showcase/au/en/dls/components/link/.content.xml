@@ -283,27 +283,37 @@
                             componentId="link_button_sizes_heading"
                             text="&lt;h2 class=&quot;h5 strong&quot;>Button - Sizes&lt;/h2>&#xd;&#xa;"
                             textIsRich="true"/>
-                        <link_button_sizes_small_component
+                        <link_button_sizes_small_wrapper
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/content/link"
-                            componentId="link_button_sizes_small_component"
-                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary,aemdesign-showcase:component-style-modifier/button/size/sm]"
-                            label="Small button"
-                            linkUrl="#"/>
-                        <link_button_sizes_standard_component
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/content/link"
-                            componentId="link_button_sizes_standard_component"
-                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary]"
-                            label="Standard button"
-                            linkUrl="#"/>
-                        <link_button_sizes_large_component
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/content/link"
-                            componentId="link_button_sizes_large_component"
-                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary,aemdesign-showcase:component-style-modifier/button/size/lg]"
-                            label="Large button"
-                            linkUrl="#"/>
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="link_button_sizes_small_wrapper"
+                            variant="parsys">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/parsys">
+                                <link_button_sizes_small_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_sizes_small_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary,aemdesign-showcase:component-style-modifier/button/size/sm]"
+                                    label="Small button"
+                                    linkUrl="#"/>
+                                <link_button_sizes_standard_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_sizes_standard_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary]"
+                                    label="Standard button"
+                                    linkUrl="#"/>
+                                <link_button_sizes_large_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_sizes_large_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary,aemdesign-showcase:component-style-modifier/button/size/lg]"
+                                    label="Large button"
+                                    linkUrl="#"/>
+                            </par>
+                        </link_button_sizes_small_wrapper>
                     </par>
                 </link_button_sizes>
                 <link_button_disabled

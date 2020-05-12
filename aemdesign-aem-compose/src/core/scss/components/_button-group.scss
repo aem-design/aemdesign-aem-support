@@ -9,8 +9,29 @@
  */
 
 .btn-group {
-  // .btn:not(:first-child) {
-  //   // stylelint-disable-next-line
-  //   border-left-width: 0 !important;
-  // }
+  > div.link {
+    flex: 1 1 auto;
+    position: relative;
+
+    @include hover-focus {
+      z-index: 1;
+    }
+  }
+
+  // Prevent double borders when buttons are next to each other
+  > div.link > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-left: -$btn-border-width;
+  }
+
+  // Reset rounded corners
+  > div.link:not(:last-child) > .btn:not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > div.link > .btn {
+    @include border-right-radius(0);
+  }
+
+  > div.link:not(:first-child) > .btn,
+  > .btn-group:not(:first-child) > div.link > .btn {
+    @include border-left-radius(0);
+  }
 }
