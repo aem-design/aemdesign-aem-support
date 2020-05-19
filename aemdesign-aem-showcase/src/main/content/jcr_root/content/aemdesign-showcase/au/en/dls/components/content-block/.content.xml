@@ -65,8 +65,6 @@
                             sling:resourceType="aemdesign/components/layout/contentblock"
                             componentId="contentblock_advanced_with_title_component"
                             componentModifiers="[aemdesign-showcase:component-style-modifier/background/grey-tones/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]"
-                            hideInMenu="true"
-                            hideTopLink="true"
                             title="Example Title"
                             titleType="h3"
                             variant="advsection"/>

@@ -6,7 +6,7 @@
     margin-bottom: 10px;
   }
 
-  .title :only-child {
+  > header :only-child {
     margin-bottom: 0;
   }
 
@@ -21,15 +21,16 @@
     display: none;
   }
 
-  &.advsection > .content {
-    > .title {
+  &.advsection {
+    > header,
+    > .contents {
       @include make-container;
       @include make-container-max-widths;
     }
 
     // Fix any nested grids so they don't break outside of the container
     // stylelint-disable-next-line
-    > .contents > .responsivegrid > .aem-Grid > .colctrl > .row {
+    > .contents > .aem-Grid > .colctrl > .row {
       margin-left: 0;
       margin-right: 0;
     }
