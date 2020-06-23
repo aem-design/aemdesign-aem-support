@@ -3,6 +3,9 @@
 // Settings & Tooling
 @import 'setup';
 
+// Vendors
+@import 'vendor/tiny-slider';
+
 // Generics
 @import 'generic/custom-fonts';
 @import 'generic/normalize';
@@ -59,6 +62,3 @@
 // Themes
 // They don't really exist in ITCSS but they are a construct we need but can come back to.
 @import 'themes/index';
-
-// Vendors
-// @import 'vendor/';

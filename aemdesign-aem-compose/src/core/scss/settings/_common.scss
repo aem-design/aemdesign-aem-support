@@ -18,18 +18,23 @@ $list-item-md-margin:    20px;
 /// @type Number
 $list-item-lg-margin:    25px;
 
-// Export these values to Webpack for use via JavaScript.
+// Export these values to webpack for use via JavaScript.
 // @see js/utilities/config.ts
 /* stylelint-disable */
 
 :export {
 
   // Breakpoints
-  breakpoint-xs: map-get($breakpoints, xs);
-  breakpoint-sm: map-get($breakpoints, sm);
-  breakpoint-md: map-get($breakpoints, md);
-  breakpoint-lg: map-get($breakpoints, lg);
-  breakpoint-xl: map-get($breakpoints, xl);
+  breakpoint-xs:         map-get($breakpoints, xs);
+  breakpoint-sm:         map-get($breakpoints, sm);
+  breakpoint-md:         map-get($breakpoints, md);
+  breakpoint-lg:         map-get($breakpoints, lg);
+  breakpoint-xl:         map-get($breakpoints, xl);
+
+  // List margins
+  list-item-margin:      $list-item-margin;
+  list-item-md-margin:   $list-item-md-margin;
+  list-item-lg-margin:   $list-item-lg-margin;
 
 }
 
