@@ -7,3 +7,17 @@
 /**
  * Custom additions
  */
+
+.tns-outer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tns-controls,
+.tns-nav {
+  order: 1;
+}
+
+.tns-controls {
+  padding-top: $grid-gutter-width;
+}
