@@ -175,58 +175,51 @@ function getCarouselTargetByType(target: HTMLElement, carouselType: CarouselType
  *
  * @param {HTMLElement} target Target element
  * @param {HTMLElement} carouselTarget Target containing the carousel items
- * @param {CarouselConfiguration} config Configuration for the carousel
  */
-function handleCustomListCarouselBehaviours(
-  target: HTMLElement,
-  carouselTarget: HTMLElement,
-  config: CarouselConfiguration,
-) {
-  let cloneListItems = true
+function handleCustomListCarouselBehaviours(target: HTMLElement, carouselTarget: HTMLElement) {
+  let carouselElement = target.querySelector('.carousel-hook')
 
-  const carouselElement = document.createElement('div')
+  // Stop here when a hook already exists to prevent duplication
+  if (carouselElement) {
+    return
+  }
+
+  carouselElement = document.createElement('div')
   carouselElement.classList.add('carousel-hook')
 
-  // Check to see if the carousel is based on a split list and whether we need to handle
-  // some additional functional behaviours.
-  if (config.needsSplit) {
-    if (!target.querySelector('ul.mobile-carousel')) {
-      carouselElement.classList.add('mobile-carousel')
-    } else {
-      cloneListItems = false
+  const listItems = target.querySelectorAll('ul.list > li')
+
+  if (listItems.length) {
+    for (const item of listItems) {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+
+      item.childNodes.forEach((child) => itemElement.appendChild(child.cloneNode(true)))
+
+      carouselElement.appendChild(itemElement)
     }
   }
 
-  // Do we need to clone the list items?
-  if (cloneListItems) {
-    const listItems = target.querySelectorAll('ul.list > li')
+  // Wrap the carousel element in another element so we can target it correctly in CSS
+  const carouselWrapperElement = document.createElement('div')
+  carouselWrapperElement.classList.add('carousel-wrapper')
 
-    if (listItems.length) {
-      for (const item of listItems) {
-        const itemElement = document.createElement('div')
-        itemElement.classList.add('item')
+  carouselWrapperElement.appendChild(carouselElement)
 
-        item.childNodes.forEach((child) => itemElement.appendChild(child.cloneNode(true)))
-
-        carouselElement.appendChild(itemElement)
-      }
-    }
-  }
-
-  carouselTarget.insertAdjacentElement('beforebegin', carouselElement)
+  carouselTarget.insertAdjacentElement('beforebegin', carouselWrapperElement)
 }
 
 function getCarouselSettingsByConfig(carouselOptions: CarouselOptions): TinySliderSettings {
   return _omitBy<TinySliderSettings>({
-    autoWidth         : _get(carouselOptions, 'autoWidth', true),
     // @ts-expect-error
-    center            : _get(carouselOptions, 'center', false),
-    edgePadding       : _get(carouselOptions, 'edgePadding', 0),
-    gutter            : _get(carouselOptions, 'gutter', margins.mobile),
-    items             : _get(carouselOptions, 'items', 1),
-    loop              : _get(carouselOptions, 'loop', false),
-    mouseDrag         : _get(carouselOptions, 'mouseDrag', false),
-    slideBy           : _get(carouselOptions, 'slideBy', 1),
+    center      : _get(carouselOptions, 'center', false),
+    edgePadding : _get(carouselOptions, 'edgePadding', 0),
+    gutter      : _get(carouselOptions, 'gutter', margins.mobile),
+    items       : _get(carouselOptions, 'items', 1),
+    loop        : _get(carouselOptions, 'loop', false),
+    mouseDrag   : _get(carouselOptions, 'mouseDrag', false),
+    nav         : _get(carouselOptions, 'nav', false),
+    slideBy     : _get(carouselOptions, 'slideBy', 1),
 
     // Responsive overrides for each breakpoint
     // NOTE: Breakpoints are controlled via scss/settings/_common.scss
@@ -268,7 +261,7 @@ function attachCarouselToTarget(target: CarouselElement, config: CarouselConfigu
   const carouselTarget = getCarouselTargetByType(target, config.type)
 
   if (config.type === CarouselType.LIST) {
-    handleCustomListCarouselBehaviours(target, carouselTarget, config)
+    handleCustomListCarouselBehaviours(target, carouselTarget)
   } else {
     carouselTarget.classList.add('carousel-hook')
   }
@@ -284,6 +277,20 @@ function attachCarouselToTarget(target: CarouselElement, config: CarouselConfigu
       ...getCarouselSettingsByConfig(config.carouselOptions),
 
       container: carouselHookElement,
+
+      onInit() {
+        if (config.type === CarouselType.LIST) {
+          const carouselWrapperElement = target.querySelector('.carousel-wrapper')
+
+          if (carouselWrapperElement) {
+            // Check to see if the carousel is based on a split list and whether we need to handle
+            // some additional functional behaviours.
+            if (config.needsSplit) {
+              carouselWrapperElement.classList.add('carousel-wrapper--mobile')
+            }
+          }
+        }
+      }
     })
   }
 }

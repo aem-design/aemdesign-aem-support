@@ -6,36 +6,18 @@
   @include notch-awesome;
 
   > .content {
-    .list,
-    .owl-carousel:not(.owl-loaded) {
+    .list {
       display: flex;
       flex-wrap: wrap;
-      width: 100%;
-
-      @include media-breakpoint-up(md) {
-        margin-left: -($list-item-md-margin / 2);
-        width: calc(100% + #{$list-item-md-margin});
-      }
-
-      @include media-breakpoint-up(lg) {
-        margin-left: -($list-item-lg-margin / 2);
-        width: calc(100% + #{$list-item-lg-margin});
-      }
-    }
-
-    .list > li,
-    .owl-carousel > .item {
-      flex: 0 1 100%;
-      position: relative;
-      width: 100%;
-    }
-
-    .list {
       margin-bottom: -$list-item-margin;
       padding-left: 0;
+      width: 100%;
 
       > li {
+        flex: 0 1 100%;
         margin-bottom: $list-item-margin;
+        position: relative;
+        width: 100%;
 
         @include media-breakpoint-up(md) {
           margin-bottom: $list-item-md-margin;
@@ -48,10 +30,14 @@
 
       @include media-breakpoint-up(md) {
         margin-bottom: -$list-item-md-margin;
+        margin-left: -($list-item-md-margin / 2);
+        width: calc(100% + #{$list-item-md-margin});
       }
 
       @include media-breakpoint-up(lg) {
         margin-bottom: -$list-item-lg-margin;
+        margin-left: -($list-item-lg-margin / 2);
+        width: calc(100% + #{$list-item-lg-margin});
       }
     }
   }
@@ -71,7 +57,7 @@
   }
 
   // Create the default page list child variant sizes
-  @include pagelist-variant {
+  @include list-variant {
     flex: 0 1 100%;
 
     @include media-breakpoint-up(md) {
