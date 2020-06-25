@@ -13,6 +13,8 @@
   flex-direction: column;
 }
 
+// Move the navigation (control) elements so visual users see them below the stage whereas
+// keyboard (non-visual) users access them first so they understand there is a carousel.
 .tns-controls,
 .tns-nav {
   order: 1;

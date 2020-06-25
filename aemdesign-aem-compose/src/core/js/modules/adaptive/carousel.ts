@@ -309,7 +309,7 @@ function generateCarouselsFromTargets(targets: NodeListOf<CarouselElement>) {
     }
 
     if (carouselType !== false) {
-      console.log('[Carousel] Looks like every is valid for the target, the type is:', carouselType, target)
+      console.log('[Carousel] Looks like everything is valid for the target, the carousel type is:', carouselType, target)
 
       try {
         const config = getConfiguration(target, carouselType)
