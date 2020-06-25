@@ -22,4 +22,8 @@
 
 .tns-controls {
   padding-top: $grid-gutter-width;
+
+  button[data-controls] + button[data-controls] {
+    margin-left: $grid-gutter-width / 2;
+  }
 }

@@ -2,11 +2,13 @@
   @include media-breakpoint-up(md) {
     flex-basis: percentage(6 / $grid-columns);
     max-width: percentage(6 / $grid-columns);
+    min-width: percentage(6 / $grid-columns);
   }
 
   @include media-breakpoint-up(lg) {
     flex-basis: percentage(3 / $grid-columns);
     max-width: percentage(3 / $grid-columns);
+    min-width: percentage(3 / $grid-columns);
   }
 }
 
@@ -14,10 +16,12 @@
   @include media-breakpoint-up(md) {
     flex-basis: percentage(6 / $grid-columns);
     max-width: percentage(6 / $grid-columns);
+    min-width: percentage(6 / $grid-columns);
   }
 }
 
 @include list-variant(create-selector(&, '-fill')) {
   flex-basis: percentage(12 / $grid-columns);
   max-width: percentage(12 / $grid-columns);
+  min-width: percentage(12 / $grid-columns);
 }

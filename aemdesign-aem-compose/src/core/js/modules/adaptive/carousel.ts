@@ -1,13 +1,7 @@
 import _get from 'lodash/get'
-import _isNil from 'lodash/isNil'
-import _omitBy from 'lodash/omitBy'
 import _throttle from 'lodash/throttle'
 
-import {
-  tns,
-  TinySliderSettings,
-  CommonOptions,
-} from 'tiny-slider/src/tiny-slider'
+import { tns } from 'tiny-slider/src/tiny-slider'
 
 import { getWindowWidth } from '@/core/utility/dom'
 import { breakpoints, margins } from '@/core/utility/config'
@@ -16,6 +10,7 @@ import type {
   CarouselElement,
   CarouselConfiguration,
   CarouselOptions,
+  CarouselSettings,
 } from '@/typings/carousel'
 
 import { CarouselType } from '@/typings/enums'
@@ -28,6 +23,12 @@ const DEFAULT_OPTIONS: CarouselConfiguration = {
   type          : null,
 
   carouselOptions: {
+    breakpoints : {
+      [breakpoints.extraSmall] : {},
+      [breakpoints.tablet]     : {},
+      [breakpoints.desktop]    : {},
+    },
+
     responsive: false,
   },
 }
@@ -64,46 +65,53 @@ function getListConfiguration(target: HTMLElement, options: CarouselConfiguratio
   const orientation  = (screen.orientation && Math.abs(screen.orientation.angle)) || 0
   const splitEnabled = target.dataset.listSplitEnabled === 'true'
 
-  let autoWidth = true
-  let itemsRequired: number
   let resolutionRequired = 768
+  let slideItemsBy = 1
+  let totalItems: number
 
   switch (true) {
     // Quarter scenario (4 items)
     case target.classList.contains('theme--lists-quarter'):
-      itemsRequired = 4
+      slideItemsBy = 4
+      totalItems   = 4
       break
     // Equal scenario (2 items)
     case target.classList.contains('theme--lists-equal'):
-      itemsRequired = 2
+      slideItemsBy = 2
+      totalItems   = 2
       break
     // Full scenario (1 item)
     case target.classList.contains('theme--lists-fill'):
-      autoWidth          = false
-      itemsRequired      = 1
       resolutionRequired = breakpoints.tablet
+      totalItems         = 1
       break
+    // Default (3 items)
     default:
-      itemsRequired = 3
+      totalItems = 3
   }
 
   const windowWidth = getWindowWidth()
 
-  options.destroy     = !splitEnabled && windowWidth >= breakpoints.tablet && itemsTotal <= itemsRequired
+  options.destroy     = !splitEnabled && windowWidth >= breakpoints.tablet && itemsTotal <= totalItems
   options.needsSplit  = splitEnabled
   options.refreshOnly = isReady
 
-  options.carouselOptions.autoWidth  = autoWidth
   options.carouselOptions.responsive = !target.classList.contains('theme--lists-fill')
 
-  options.needsCarousel = (splitEnabled && itemsTotal >= itemsRequired) ||
+  options.carouselOptions.breakpoints[breakpoints.tablet].items   = totalItems
+  options.carouselOptions.breakpoints[breakpoints.tablet].slideBy = slideItemsBy
+
+  options.carouselOptions.breakpoints[breakpoints.desktop].items   = totalItems
+  options.carouselOptions.breakpoints[breakpoints.desktop].slideBy = slideItemsBy
+
+  options.needsCarousel = (splitEnabled && itemsTotal >= totalItems) ||
     (
       !isReady &&
       (
         (windowWidth <= breakpoints.tablet && itemsTotal >= 2 && orientation !== 90) ||
         (
           (windowWidth < resolutionRequired || windowWidth >= resolutionRequired) &&
-          itemsTotal > itemsRequired
+          itemsTotal > totalItems
         )
       )
     )
@@ -209,37 +217,49 @@ function handleCustomListCarouselBehaviours(target: HTMLElement, carouselTarget:
   carouselTarget.insertAdjacentElement('beforebegin', carouselWrapperElement)
 }
 
-function getCarouselSettingsByConfig(carouselOptions: CarouselOptions): TinySliderSettings {
-  return _omitBy<TinySliderSettings>({
-    // @ts-expect-error
-    center      : _get(carouselOptions, 'center', false),
-    edgePadding : _get(carouselOptions, 'edgePadding', 0),
-    gutter      : _get(carouselOptions, 'gutter', margins.mobile),
-    items       : _get(carouselOptions, 'items', 1),
-    loop        : _get(carouselOptions, 'loop', false),
-    mouseDrag   : _get(carouselOptions, 'mouseDrag', false),
-    nav         : _get(carouselOptions, 'nav', false),
-    slideBy     : _get(carouselOptions, 'slideBy', 1),
+/**
+ * Generate the configuration needed for `tiny-slider` to function correctly with our component.
+ *
+ * @param {CarouselOptions} carouselOptions Options that define the carousels behaviour
+ * @return {CarouselSettings}
+ */
+function getCarouselSettingsByConfig(carouselOptions: CarouselOptions): CarouselSettings {
+  return {
+    center       : _get(carouselOptions, 'center', false),
+    controlsText : _get(carouselOptions, 'controlsText', ['Previous', 'Next']),
+    edgePadding  : _get(carouselOptions, 'edgePadding', 0),
+    gutter       : _get(carouselOptions, 'gutter', margins.mobile),
+    items        : _get(carouselOptions, 'items', 1),
+    loop         : _get(carouselOptions, 'loop', false),
+    mouseDrag    : _get(carouselOptions, 'mouseDrag', false),
+    nav          : _get(carouselOptions, 'nav', false),
+    slideBy      : _get(carouselOptions, 'slideBy', 1),
 
     // Responsive overrides for each breakpoint
-    // NOTE: Breakpoints are controlled via scss/settings/_common.scss
+    // NOTE: Breakpoints + margins are controlled via scss/settings/_common.scss
     responsive: carouselOptions.responsive ? {
       // Mobile
-      [breakpoints.extraSmall]: _omitBy<CommonOptions>({}, _isNil),
+      [breakpoints.extraSmall]: {
+        ...carouselOptions.breakpoints[breakpoints.tablet],
+      },
 
       // Large mobiles (landscape) and tablets in portrait
-      [breakpoints.tablet]: _omitBy<CommonOptions>({
-        center : _get(carouselOptions, `breakpoint.${breakpoints.tablet}.center`, false),
-        items  : _get(carouselOptions, `breakpoint.${breakpoints.tablet}.items`, 3),
-        gutter : _get(carouselOptions, 'breakpoint.${breakpoints.tablet}.gutter', margins.tablet),
-      }, _isNil),
+      [breakpoints.tablet]: {
+        ...carouselOptions.breakpoints[breakpoints.tablet],
+
+        center : _get(carouselOptions, `breakpoints.${breakpoints.tablet}.center`, false),
+        items  : _get(carouselOptions, `breakpoints.${breakpoints.tablet}.items`, 3),
+        gutter : _get(carouselOptions, `breakpoints.${breakpoints.tablet}.gutter`, margins.tablet),
+      },
 
       // Tablets (landscape) and desktop browsers
-      [breakpoints.desktop]: _omitBy<CommonOptions>({
-        center : _get(carouselOptions, `breakpoint.${breakpoints.desktop}.center`, false),
-        items  : _get(carouselOptions, `breakpoint.${breakpoints.desktop}.items`, 3),
-        gutter : _get(carouselOptions, 'breakpoint.${breakpoints.tablet}.gutter', margins.desktop),
-      }, _isNil),
+      [breakpoints.desktop]: {
+        ...carouselOptions.breakpoints[breakpoints.desktop],
+
+        center : _get(carouselOptions, `breakpoints.${breakpoints.desktop}.center`, false),
+        items  : _get(carouselOptions, `breakpoints.${breakpoints.desktop}.items`, 3),
+        gutter : _get(carouselOptions, `breakpoints.${breakpoints.desktop}.gutter`, margins.desktop),
+      }
     } : false,
 
     // TODO: Find 'tiny-slider' replacements for these options
@@ -248,7 +268,7 @@ function getCarouselSettingsByConfig(carouselOptions: CarouselOptions): TinySlid
     // navClass          : _get(carouselOptions, 'navClass', ['owl-prev btn btn', 'owl-next btn']),
     // navContainerClass : _get(carouselOptions, 'navContainerClass', 'owl-nav btn-group'),
     // stageElement      : _get(carouselOptions, 'stageElement', null),
-  }, _isNil)
+  }
 }
 
 /**
@@ -288,6 +308,18 @@ function attachCarouselToTarget(target: CarouselElement, config: CarouselConfigu
             if (config.needsSplit) {
               carouselWrapperElement.classList.add('carousel-wrapper--mobile')
             }
+          }
+        }
+
+        // Make the navigation controls Bootstrap friendly
+        const controlsElement = target.querySelector('.tns-controls')
+
+        if (controlsElement) {
+          const controlElements = controlsElement.querySelectorAll('button[data-controls]')
+
+          for (const controlElement of controlElements) {
+            controlElement.classList.add('btn')
+            controlElement.classList.add('btn-primary')
           }
         }
       }
