@@ -96,7 +96,7 @@ module.exports = configuration({
         collections : true,
         paths       : true,
         shorthands  : true,
-      })
+      }),
     ],
   }),
 })

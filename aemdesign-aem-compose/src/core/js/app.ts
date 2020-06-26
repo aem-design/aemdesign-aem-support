@@ -1,4 +1,6 @@
 import '../scss/app.scss'
+// TODO: Find out why we need to load '_common.scss' here too!!
+import '../scss/settings/_common.scss'
 
 import AEMFixes from '@/core/module/aem'
 import { bindVueComponents } from '@/core/module/binder'
