@@ -30,7 +30,7 @@
     "jquery": "^3.4.1",
     "keyboardevent-key-polyfill": "^1.1.0",
     "lazysizes": "^5.1.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "owl.carousel": "^2.3.4",
     "picturefill": "^3.0.3",
     "popper.js": "^1.15.0",
