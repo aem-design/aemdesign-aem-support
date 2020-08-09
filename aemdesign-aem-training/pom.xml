@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <!-- ====================================================================== -->
     <!-- P A R E N T    P R O J E C T    D E S C R I P T I O N                  -->
     <!-- ====================================================================== -->
     <parent>
         <groupId>design.aem</groupId>
         <artifactId>aemdesign-aem-support</artifactId>
-        <version>2.0.380</version>
+        <version>3.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -20,12 +21,16 @@
     <packaging>content-package</packaging>
     <name>AEM Design - Support - AEM Training Content</name>
     <description>AEM package with a user training site</description>
-    <version>2.0.380</version>
+    <version>3.0.0-SNAPSHOT</version>
 
     <developers>
         <developer>
             <email>max@aem.design</email>
             <name>Max Barrass</name>
+        </developer>
+        <developer>
+            <email>me@cshaw.xyz</email>
+            <name>Chris Shaw</name>
         </developer>
     </developers>
 
@@ -34,7 +39,7 @@
     <!-- ====================================================================== -->
     <build>
         <resources>
-        <!-- define the resources that will go into the package -->
+            <!-- define the resources that will go into the package -->
             <resource>
                 <directory>src/main/content/jcr_root</directory>
                 <filtering>false</filtering>
@@ -55,12 +60,12 @@
         </resources>
 
         <plugins>
-        <!--
-            we want to keep some of the META-INF files and not configure
-            everything in the plugin (mainly the filters).
+            <!--
+                we want to keep some of the META-INF files and not configure
+                everything in the plugin (mainly the filters).
 
-            copy the resource explicitly instead of attaching it to the default resources
-            -->
+                copy the resource explicitly instead of attaching it to the default resources
+                -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -98,23 +103,12 @@
                     <group>${package.group}</group>
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <targetURL>${package.uploadProtocol}://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>
-
                     <properties>
                         <description>${project.description}</description>
                         <created>${buildNumber}</created>
                         <createdBy>${package.createdBy}</createdBy>
                         <acHandling>merge_preserve</acHandling>
                     </properties>
-
-                    <!-- embedded dependencies in the content package -->
-                    <embeddeds>
-                        <!--<embedded>-->
-                            <!--<groupId>${project.parent.groupId}</groupId>-->
-                            <!--<artifactId>aemdesign-aem-services</artifactId>-->
-                            <!--<target>/apps/aemdesign/install</target>-->
-                        <!--</embedded>-->
-                    </embeddeds>
-
                     <dependencies>
                         <dependency>
                             <group>${package.group}</group>
@@ -125,7 +119,6 @@
                 </configuration>
             </plugin>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -135,7 +128,6 @@
                     <attach>false</attach>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
@@ -161,14 +153,15 @@
                                     <goal>install</goal>
                                 </goals>
                                 <configuration>
-                                    <targetURL>${package.uploadProtocol}://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>
+                                    <targetURL>
+                                        ${package.uploadProtocol}://${crx.host}:${crx.port}/crx/packmgr/service.jsp
+                                    </targetURL>
                                     <userId>${crx.username}</userId>
                                     <password>${crx.password}</password>
                                 </configuration>
                             </execution>
                         </executions>
                     </plugin>
-
                 </plugins>
             </build>
         </profile>
@@ -205,7 +198,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=false</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -228,7 +223,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=false</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -270,7 +267,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=true</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -293,7 +292,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=true</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -302,6 +303,5 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 </project>

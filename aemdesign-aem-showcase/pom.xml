@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <!-- ====================================================================== -->
     <!-- P A R E N T    P R O J E C T    D E S C R I P T I O N                  -->
     <!-- ====================================================================== -->
     <parent>
         <groupId>design.aem</groupId>
         <artifactId>aemdesign-aem-support</artifactId>
-        <version>2.0.380</version>
+        <version>3.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -19,7 +21,7 @@
     <packaging>content-package</packaging>
     <name>AEM Design - Support - Showcase</name>
     <description>Showcase package for AEM.Design Components. Used for functional test and regression test</description>
-    <version>2.0.380</version>
+    <version>3.0.0-SNAPSHOT</version>
 
     <developers>
         <developer>
@@ -108,8 +110,6 @@
                         <createdBy>${package.createdBy}</createdBy>
                         <acHandling>merge_preserve</acHandling>
                     </properties>
-                    <!-- embedded dependencies in the content package -->
-                    <embeddeds></embeddeds>
                     <dependencies>
                         <dependency>
                             <group>${package.group}</group>
@@ -154,14 +154,15 @@
                                     <goal>install</goal>
                                 </goals>
                                 <configuration>
-                                    <targetURL>${package.uploadProtocol}://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>
+                                    <targetURL>
+                                        ${package.uploadProtocol}://${crx.host}:${crx.port}/crx/packmgr/service.jsp
+                                    </targetURL>
                                     <userId>${crx.username}</userId>
                                     <password>${crx.password}</password>
                                 </configuration>
                             </execution>
                         </executions>
                     </plugin>
-
                 </plugins>
             </build>
         </profile>
@@ -197,7 +198,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=false</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -220,7 +223,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=false</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -261,7 +266,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=true</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_create
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -284,7 +291,9 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=true</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
+                                        <argument>
+                                            ${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod
+                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>

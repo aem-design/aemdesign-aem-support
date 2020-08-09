@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <!-- ====================================================================== -->
     <!-- P A R E N T    P R O J E C T    D E S C R I P T I O N                  -->
     <!-- ====================================================================== -->
     <parent>
         <groupId>design.aem</groupId>
         <artifactId>aemdesign-aem-support</artifactId>
-        <version>2.0.380</version>
+        <version>3.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -16,7 +18,7 @@
     <!-- ====================================================================== -->
     <artifactId>aemdesign-testing</artifactId>
     <packaging>jar</packaging>
-    <version>2.0.380</version>
+    <version>3.0.0-SNAPSHOT</version>
     <name>AEM Design - Support - Integration Testing</name>
     <description>AEM Design Integration Tests for AEM</description>
 
@@ -24,6 +26,10 @@
         <developer>
             <email>max@aem.design</email>
             <name>Max Barrass</name>
+        </developer>
+        <developer>
+            <email>me@cshaw.xyz</email>
+            <name>Chris Shaw</name>
         </developer>
     </developers>
 
@@ -106,8 +112,11 @@
                     <systemPropertyVariables>
                         <geb.env>${geb.env}</geb.env>
                         <geb.build.reportsDir>${project.buildDirectory}/${geb.build.reportsDir}</geb.build.reportsDir>
-                        <com.athaydes.spockframework.report.outputDir>${project.buildDirectory}/spock-reports</com.athaydes.spockframework.report.outputDir>
-                        <com.athaydes.spockframework.report.aggregatedJsonReportDir>${project.buildDirectory}/spock-reports</com.athaydes.spockframework.report.aggregatedJsonReportDir>
+                        <com.athaydes.spockframework.report.outputDir>${project.buildDirectory}/spock-reports
+                        </com.athaydes.spockframework.report.outputDir>
+                        <com.athaydes.spockframework.report.aggregatedJsonReportDir>
+                            ${project.buildDirectory}/spock-reports
+                        </com.athaydes.spockframework.report.aggregatedJsonReportDir>
                     </systemPropertyVariables>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
@@ -131,8 +140,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
-
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
@@ -168,10 +175,7 @@
         </plugins>
     </build>
 
-
-
     <profiles>
-
         <profile>
             <id>authoring-test</id>
             <activation>
@@ -197,7 +201,6 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <id>functional-test</id>
             <activation>
@@ -245,12 +248,8 @@
                 </plugins>
             </build>
         </profile>
-
-
-
         <profile>
             <id>compile-reports-ruby</id>
-
             <build>
                 <plugins>
                     <plugin>
@@ -266,7 +265,9 @@
                                 </goals>
                                 <configuration>
                                     <executable>bash</executable>
-                                    <commandlineArgs>./asciidoctor-convert-reports -html -root ${project.buildDirectory}</commandlineArgs>
+                                    <commandlineArgs>./asciidoctor-convert-reports -html -root
+                                        ${project.buildDirectory}
+                                    </commandlineArgs>
                                 </configuration>
                             </execution>
                         </executions>
@@ -275,7 +276,6 @@
             </build>
         </profile>
     </profiles>
-
 
     <dependencyManagement>
         <dependencies>
@@ -440,14 +440,12 @@
             <artifactId>selenium-shutterbug</artifactId>
             <version>0.9</version>
         </dependency>
-
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>27.0.1-jre</version>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
