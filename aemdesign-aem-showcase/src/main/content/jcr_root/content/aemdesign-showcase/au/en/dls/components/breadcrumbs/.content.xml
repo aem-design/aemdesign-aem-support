@@ -5,7 +5,7 @@
     <jcr:content
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Breadcrumb"
+        jcr:title="Breadcrumbs"
         sling:resourceType="aemdesign/components/template/dls">
         <aside
             jcr:primaryType="nt:unstructured"
