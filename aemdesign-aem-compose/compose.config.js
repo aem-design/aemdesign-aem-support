@@ -60,18 +60,12 @@ module.exports = configuration({
     module: {
       rules: [
         {
-          test: require.resolve('jquery'),
+          loader : 'expose-loader',
+          test   : require.resolve('jquery'),
 
-          use: [
-            {
-              loader  : 'expose-loader',
-              options : 'jQuery',
-            },
-            {
-              loader  : 'expose-loader',
-              options : '$',
-            },
-          ],
+          options: {
+            exposes: ['$', 'jQuery'],
+          },
         },
       ],
     },
