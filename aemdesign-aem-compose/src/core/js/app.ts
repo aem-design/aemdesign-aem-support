@@ -61,15 +61,6 @@ async function loadApp() {
   const fontAwesome = (await import(/* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome')).default
 
   fontAwesome()
-
-  /**
-   * IE11 fixes... ಥ﹏ಥ
-   */
-  if ((!!window.MSInputMethodContext && !!document.documentMode)) {
-    const makeIE11Work = (await import(/* webpackChunkName: "ut/ie11-fixes" */ '@/core/utility/ie11')).default
-
-    makeIE11Work()
-  }
 }
 
 if (document.readyState === 'loading') {
