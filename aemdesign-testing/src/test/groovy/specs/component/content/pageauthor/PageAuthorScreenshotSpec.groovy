@@ -36,7 +36,7 @@ class PageAuthorScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -59,7 +59,7 @@ class PageAuthorScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -82,7 +82,7 @@ class PageAuthorScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -105,7 +105,7 @@ class PageAuthorScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 

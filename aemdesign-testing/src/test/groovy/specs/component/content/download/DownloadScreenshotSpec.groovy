@@ -36,7 +36,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Simple in #viewport.label")
@@ -59,7 +59,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Card in #viewport.label")
@@ -82,7 +82,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -106,7 +106,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Simple with Licensed Image  in #viewport.label")
@@ -129,7 +129,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Card with Licensed Image in #viewport.label")
@@ -152,7 +152,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -176,7 +176,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Simple with Title and Description in #viewport.label")
@@ -199,7 +199,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Card with Title and Description in #viewport.label")
@@ -222,7 +222,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Simple with Thumbnail Icon in #viewport.label")
@@ -248,7 +248,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Card with Thumbnail Icon in #viewport.label")
@@ -274,7 +274,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -298,7 +298,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -322,7 +322,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -346,7 +346,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -370,7 +370,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -394,7 +394,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -418,7 +418,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -442,7 +442,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -466,7 +466,7 @@ class DownloadScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

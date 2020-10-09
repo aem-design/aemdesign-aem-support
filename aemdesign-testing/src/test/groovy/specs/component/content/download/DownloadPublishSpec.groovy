@@ -41,7 +41,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert verifyAssetDownload($(selector).firstElement().getAttribute("href"))
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple in #viewport.label")
@@ -77,7 +77,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} div.info").text().contains("jpeg file")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card in #viewport.label")
@@ -116,7 +116,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .btn").text().toLowerCase() == "Download".toLowerCase()
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -144,7 +144,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple with Licensed Image in #viewport.label")
@@ -183,7 +183,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card with Licensed Image in #viewport.label")
@@ -225,7 +225,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default without Authored Content in #viewport.label")
@@ -248,7 +248,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector}[empty]").getAttribute("innerHTML").trim() == ""
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -273,10 +273,10 @@ class DownloadPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple with Title and Description in #viewport.label")
@@ -312,10 +312,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} div.info").text().contains("jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card with Title and Description in #viewport.label")
@@ -354,10 +354,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .btn").text().toLowerCase() == "Download".toLowerCase()
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -394,10 +394,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} div.info").text().contains("jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card with Thumbnail Icon in #viewport.label")
@@ -436,10 +436,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .btn").text().toLowerCase() == "Download".toLowerCase()
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple with Thumbnail using Asset DAM Rendition in #viewport.label")
@@ -475,10 +475,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} div.info").text().contains("jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card with Thumbnail using Asset DAM Rendition in #viewport.label")
@@ -517,10 +517,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .btn").text().toLowerCase() == "Download".toLowerCase()
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple with Thumbnail using Thumbnail DAM Rendition in #viewport.label")
@@ -559,10 +559,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} div.info").text().contains("jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card with Thumbnail using Thumbnail DAM Rendition in #viewport.label")
@@ -604,10 +604,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert compareInnerTextIgnoreCase("${selector} .btn","Download")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple with Custom Thumbnail Rendition in #viewport.label")
@@ -646,10 +646,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${selector} .info","jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card with Custom Thumbnail Rendition in #viewport.label")
@@ -694,10 +694,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert compareInnerTextIgnoreCase("${selector} .btn","Download")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -740,10 +740,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${selector} .info","jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple with Thumbnail using Asset DAM Rendition and Height Set in #viewport.label")
@@ -782,10 +782,10 @@ class DownloadPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${selector} .info","jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").isEmpty()
+        assert $("${selector} .license").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

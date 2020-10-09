@@ -34,7 +34,7 @@ class ContentBlockMenuScreenshotSpec extends ComponentSpec {
         designRef(selector, "page")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -57,7 +57,7 @@ class ContentBlockMenuScreenshotSpec extends ComponentSpec {
         designRef(selector, "pagepath")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }

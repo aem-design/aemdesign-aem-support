@@ -35,7 +35,7 @@ class FormPublishSpec extends ComponentSpec {
         assert $(selector).children().size() == 2
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

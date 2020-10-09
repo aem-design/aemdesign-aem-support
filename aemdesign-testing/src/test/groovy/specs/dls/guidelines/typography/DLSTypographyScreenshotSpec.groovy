@@ -32,7 +32,7 @@ class DLSTypographyScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of text on #viewport.label")
@@ -52,7 +52,7 @@ class DLSTypographyScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of link on #viewport.label")
@@ -72,7 +72,7 @@ class DLSTypographyScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of unordered list on #viewport.label")
@@ -92,7 +92,7 @@ class DLSTypographyScreenshotSpec extends ComponentSpec {
         designRef("${selector} ul")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of ordered list on #viewport.label")
@@ -112,6 +112,6 @@ class DLSTypographyScreenshotSpec extends ComponentSpec {
         designRef("${selector} ol")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

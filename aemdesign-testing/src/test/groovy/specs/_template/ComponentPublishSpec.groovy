@@ -37,12 +37,12 @@ class ComponentPublishSpec extends ComponentSpec {
         report("Should have sample rich text")
 
         and: "Has sample table content"
-        assert !$("${selector} table").isEmpty()
+        assert !$("${selector} table").empty
 
         and: "Has sample link"
-        assert !$("${selector} a").isEmpty()
+        assert !$("${selector} a").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

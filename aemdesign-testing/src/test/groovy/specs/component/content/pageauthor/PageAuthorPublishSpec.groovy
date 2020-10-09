@@ -38,7 +38,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple in #viewport.label")
@@ -62,7 +62,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default with Override in #viewport.label")
@@ -86,7 +86,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -111,7 +111,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

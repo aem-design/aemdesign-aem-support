@@ -32,7 +32,7 @@ class DLSAlignmentScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of text alignment center on #viewport.label")
@@ -52,7 +52,7 @@ class DLSAlignmentScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of text alignment right on #viewport.label")
@@ -72,6 +72,6 @@ class DLSAlignmentScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

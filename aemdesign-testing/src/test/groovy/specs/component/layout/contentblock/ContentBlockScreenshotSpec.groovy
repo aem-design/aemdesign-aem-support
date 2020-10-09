@@ -34,7 +34,7 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -57,7 +57,7 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -80,7 +80,7 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -103,7 +103,7 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }

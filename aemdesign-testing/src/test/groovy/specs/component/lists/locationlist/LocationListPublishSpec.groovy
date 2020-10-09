@@ -37,7 +37,7 @@ class LocationListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 6
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Location List: Map Data in #viewport.label")
@@ -63,7 +63,7 @@ class LocationListPublishSpec extends ComponentSpec {
         assert js.exec(" return AEMDESIGN.components.locationlist.googleMapsInstances[\$(\"#locationlist2\").data(\"map-index\")]?true:false;")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -103,7 +103,7 @@ class LocationListPublishSpec extends ComponentSpec {
         assert $("${selector} .card .card-action").size() == 6
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

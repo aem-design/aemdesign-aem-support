@@ -40,7 +40,7 @@ class ShareButtonScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -68,7 +68,7 @@ class ShareButtonScreenshotSpec extends ComponentSpec {
         designRef("#atftbx")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -96,7 +96,7 @@ class ShareButtonScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 }

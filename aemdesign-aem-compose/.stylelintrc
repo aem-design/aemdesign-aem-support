@@ -134,6 +134,7 @@
 
     "scss/at-mixin-argumentless-call-parentheses": "never",
     "scss/at-function-named-arguments": "never",
+    "scss/at-import-partial-extension": null,
     "scss/at-rule-no-unknown": [
       true,
       {

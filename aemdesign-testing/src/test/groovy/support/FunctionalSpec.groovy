@@ -370,8 +370,8 @@ abstract class FunctionalSpec extends GebReportingSpec {
                 Point location = element.getLocation()
                 Dimension size = element.getSize()
 
-                int width = size.getWidth()
-                int height = size.getHeight()
+                int width = size.width
+                int height = size.height
 
                 int left = location.getX()
                 def top = location.getY() - scrollTopValue

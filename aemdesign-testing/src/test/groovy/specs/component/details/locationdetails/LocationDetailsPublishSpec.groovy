@@ -47,7 +47,7 @@ class LocationDetailsPublishSpec extends ComponentSpec {
         assert $(selector).attr("data-pages") != ""
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -72,6 +72,6 @@ class LocationDetailsPublishSpec extends ComponentSpec {
         assert $("${selector}[hidden]").size() == 1
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

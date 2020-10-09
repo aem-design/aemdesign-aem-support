@@ -38,7 +38,7 @@ class PageTagsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample tags")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

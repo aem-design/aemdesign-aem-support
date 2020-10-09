@@ -1,5 +1,6 @@
 node_modules
 public
+support/stubs
 
 *.ts
 compose.config.js

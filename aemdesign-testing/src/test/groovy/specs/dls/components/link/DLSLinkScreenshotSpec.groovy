@@ -32,7 +32,7 @@ class DLSLinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of button link on #viewport.label")
@@ -52,7 +52,7 @@ class DLSLinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of buttons on #viewport.label")
@@ -72,7 +72,7 @@ class DLSLinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of outline buttons on #viewport.label")
@@ -92,7 +92,7 @@ class DLSLinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of button group on #viewport.label")
@@ -112,7 +112,7 @@ class DLSLinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of button sizes on #viewport.label")
@@ -132,7 +132,7 @@ class DLSLinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of disabled button on #viewport.label")
@@ -152,6 +152,6 @@ class DLSLinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

@@ -38,7 +38,7 @@ class PageTitlePublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample text")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component: Override Title in #viewport.label")
@@ -62,7 +62,7 @@ class PageTitlePublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample text")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
