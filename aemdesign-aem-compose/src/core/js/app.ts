@@ -1,6 +1,6 @@
 import '../scss/app.scss'
 // TODO: Find out why we need to load '_common.scss' here too!!
-import '../scss/settings/_common.scss'
+// import '../scss/settings/_common.scss'
 
 import AEMFixes from '@/core/module/aem'
 import { bindVueComponents } from '@/core/module/binder'
@@ -8,7 +8,7 @@ import Icons from '@/core/module/icons'
 
 import { isAuthorMode } from '@/core/utility/aem'
 
-async function loadApp() {
+async function run() {
   console.log('app.js jQuery Version', $.fn.jquery)
 
   /**
@@ -63,13 +63,9 @@ async function loadApp() {
   fontAwesome()
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadApp)
-} else {
-  loadApp()
-}
+run()
 
-// Hot module reloading support
+// Hot module replacement support
 if (module.hot) {
   module.hot.accept()
 }

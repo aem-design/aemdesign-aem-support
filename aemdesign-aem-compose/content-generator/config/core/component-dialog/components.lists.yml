@@ -424,13 +424,13 @@ components/lists/navlist/variant:
 
 components/lists/taglist/orderby:
   contents:
-    - bytitle: {
-      title: "By Title",
-      value: "@jcr:content/jcr:title"
-    }
     - byscore: {
       title: "By Score",
       value: "@jcr:score"
+    }
+    - bytitle: {
+      title: "By Title",
+      value: "@jcr:content/jcr:title"
     }
 
 components/lists/taglist/variant:

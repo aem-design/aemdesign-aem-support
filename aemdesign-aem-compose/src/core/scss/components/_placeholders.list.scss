@@ -51,11 +51,6 @@
     }
   }
 
-  // Hide the default AEM pagination
-  .pagination {
-    display: none;
-  }
-
   // Create the default page list child variant sizes
   @include list-variant {
     flex: 0 1 100%;
