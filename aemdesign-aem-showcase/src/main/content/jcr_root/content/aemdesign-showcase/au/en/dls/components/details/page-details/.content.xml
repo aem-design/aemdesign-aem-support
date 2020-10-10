@@ -1,88 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
-		  xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-		  jcr:primaryType="cq:Page">
-	<jcr:content
-		cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
-		jcr:primaryType="cq:PageContent"
-		jcr:title="Page Details"
-		sling:resourceType="aemdesign/components/template/dls">
-		<aside
-			jcr:primaryType="nt:unstructured"
-			sling:resourceType="aemdesign/components/layout/aside">
-			<par
-				jcr:primaryType="nt:unstructured"
-				sling:resourceType="aemdesign/components/layout/container"/>
-		</aside>
-		<article
-			jcr:primaryType="nt:unstructured"
-			sling:resourceType="aemdesign/components/layout/article">
-			<par
-				jcr:primaryType="nt:unstructured"
-				sling:resourceType="aemdesign/components/layout/container">
-				<page_details
-					jcr:mixinTypes="[cq:Taggable]"
-					jcr:primaryType="nt:unstructured"
-					sling:resourceType="aemdesign/components/details/page-details"
-					componentId="page_details"
-					showBreadcrumb="false"
-					showPageDate="false"
-					showToolbar="false"
-					textIsRich="true"/>
-				<page_details_default
-					jcr:primaryType="nt:unstructured"
-					sling:resourceType="aemdesign/components/layout/contentblock"
-					componentId="page_details_default">
-					<par
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/layout/container">
-						<page_details_default_heading
-							jcr:primaryType="nt:unstructured"
-							sling:resourceType="aemdesign/components/content/text"
-							componentId="page_details_default_heading"
-							text="&lt;h2 class=&quot;h5 strong&quot;>Title Only&lt;/h2>&#xd;&#xa;"
-							textIsRich="true"/>
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page Details"
+        sling:resourceType="aemdesign/components/template/dls">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"/>
+                <page_details_default
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="page_details_default">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <page_details_default_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="page_details_default_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Title Only&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
                         <page_details_default_component
-                            jcr:mixinTypes="[cq:Taggable]"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/details/page-details"
                             componentId="page_details_default_component"
-                            showBreadcrumb="false"
-                            showPageDate="false"
-                            showParsys="false"
-                            showToolbar="false"
-                            textIsRich="true"
                             title="Heading"/>
-					</par>
-				</page_details_default>
-				<page_details_with_description
-					jcr:primaryType="nt:unstructured"
-					sling:resourceType="aemdesign/components/layout/contentblock"
-					componentId="page_details_with_description">
-					<par
-						jcr:primaryType="nt:unstructured"
-						sling:resourceType="aemdesign/components/layout/container">
-						<page_details_with_description_heading
-							jcr:primaryType="nt:unstructured"
-							sling:resourceType="aemdesign/components/content/text"
-							componentId="page_details_with_description_heading"
-							text="&lt;h2 class=&quot;h5 strong&quot;>With a Description&lt;/h2>&#xd;&#xa;"
-							textIsRich="true"/>
+                    </par>
+                </page_details_default>
+                <page_details_with_description
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="page_details_with_description">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <page_details_with_description_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="page_details_with_description_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>With a Description&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
                         <page_details_with_description_component
-                            jcr:mixinTypes="[cq:Taggable]"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/details/page-details"
                             componentId="page_details_with_description_component"
                             description="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Mi sit amet mauris commodo quis.&lt;/p>&#xd;&#xa;"
-                            showBreadcrumb="false"
-                            showPageDate="false"
-                            showParsys="false"
-                            showToolbar="false"
                             textIsRich="true"
                             title="Heading"/>
-					</par>
-				</page_details_with_description>
-			</par>
-		</article>
-	</jcr:content>
+                    </par>
+                </page_details_with_description>
+                <page_details_with_breadcrumb
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="page_details_with_breadcrumb">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <page_details_with_breadcrumb_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="page_details_with_breadcrumb_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>With Breadcrumb&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <page_details_with_breadcrumb_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page_details_with_breadcrumb_component"
+                            showBreadcrumb="{Boolean}true"
+                            title="Heading"/>
+                    </par>
+                </page_details_with_breadcrumb>
+                <page_details_with_parsys
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="page_details_with_parsys">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <page_details_with_parsys_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="page_details_with_parsys_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>With Parsys Content&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <page_details_with_parsys_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page_details_with_parsys_component"
+                            showParsys="{Boolean}true"
+                            title="Heading">
+                            <par jcr:primaryType="nt:unstructured">
+                                <page_details_with_parsys_component_text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="page_details_with_parsys_component_text"
+                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum consectetur libero id faucibus nisl tincidunt eget.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </page_details_with_parsys_component>
+                    </par>
+                </page_details_with_parsys>
+                <page_details_without_container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="page_details_without_container">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <page_details_without_container_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="page_details_without_container_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Without Container&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <page_details_without_container_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/details/page-details"
+                            componentId="page_details_without_container_component"
+                            showBreadcrumb="{Boolean}true"
+                            title="Heading"
+                            useContainer="{Boolean}"/>
+                    </par>
+                </page_details_without_container>
+            </par>
+        </article>
+    </jcr:content>
 </jcr:root>

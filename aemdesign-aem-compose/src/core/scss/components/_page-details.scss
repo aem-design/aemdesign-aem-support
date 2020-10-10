@@ -32,11 +32,7 @@
     max-width: 700px;
   }
 
-  // IE11 fix to ensure flexbox and min-height work together
-  .ie-11 &::after {
-    content: '';
-    display: inline-block;
-    font-size: 0;
-    min-height: inherit;
+  &__breadcrumb {
+    margin-bottom: 10px;
   }
 }
