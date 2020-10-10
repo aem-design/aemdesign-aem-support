@@ -4,6 +4,14 @@
     "stylelint-config-twbs-bootstrap/scss"
   ],
 
+  "ignoreFiles": [
+    "node_modules/",
+    "public/",
+    "support/stubs/**/*",
+    "**/*.ts",
+    "compose.config.js"
+  ],
+
   "rules": {
     "at-rule-name-case": "lower",
     "at-rule-name-space-after": "always-single-line",
