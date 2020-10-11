@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "aemdesign-aem-support",
+  "version": "3.0.0-SNAPSHOT",
+  "workspaces": [
+    "aemdesign-aem-compose",
+    "aemdesign-testing"
+  ],
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/lodash": "^4.14.161",
+    "eslint": "^7.11.0",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.5.2",
+    "jest-environment-node": "^26.5.2",
+    "jest-image-snapshot": "^4.2.0",
+    "playwright": "^1.4.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

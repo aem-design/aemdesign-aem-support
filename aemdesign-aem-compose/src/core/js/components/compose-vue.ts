@@ -1,18 +1,21 @@
-import ErrorBoundary from '@/core/components/error-boundary/error-boundary.vue'
+import {
+  createApp,
+  defineAsyncComponent,
+} from 'vue'
 
-// Internal
-let hasInitialised = false
+import type {
+  Component,
+} from '@vue/runtime-core'
+
+import ErrorBoundary from '@/core/components/error-boundary/error-boundary.vue'
 
 /**
  * Generates the dynamic import logic needed for each async Vue component.
- *
- * @param {string} component Name of the Vue component
- * @return {() => Promise<any>}
  */
-function loadView(component: string): () => Promise<any> {
-  return () => import(
+function loadView(component: string): () => Promise<Component> {
+  return defineAsyncComponent(() => import(
     /* webpackChunkName: "vue/c/[request]" */
-    `./${component}/${component}.vue`)
+    `./${component}/${component}.vue`))
 }
 
 // Define the components we can use
@@ -22,37 +25,22 @@ const components = [
 
 /**
  * Sets up and binds the components needed for our Vue experiences.
- *
- * @param {VueConstructor} vue Vue.js constructor class
  */
-function initialiseVue(vue: Vue.VueConstructor) {
-  // TODO: Find a nice way to make devtools CI/CD configurable
-  vue.config.devtools      = true
-  vue.config.performance   = __DEV__
-  vue.config.productionTip = __PROD__
-  vue.config.silent        = __PROD__
+function initialiseVue(options: Component = {}) {
+  const app = createApp(options)
 
-  // Register the components
-  console.info('[Vue] %d components ready to be registered!', components.length)
+  app.config.performance = __DEV__
 
   for (const component of components) {
-    console.info('[Vue] Registering...', component)
-    vue.component(component, loadView(component))
+    app.component(component, loadView(component))
   }
 
-  vue.component('error-boundary', ErrorBoundary)
+  app.component('error-boundary', ErrorBoundary)
+
+  return app
 }
 
 export default async (references: NodeListOf<Element>) => {
-  const { default: Vue } = await import('vue')
-
-  if (!hasInitialised) {
-    hasInitialised = true
-
-    initialiseVue(Vue)
-  }
-
-  // Find any and all Vue component references in the DOM
   console.info('[Vue] Found %d reference elements!', references.length)
 
   if (references.length) {
@@ -69,13 +57,12 @@ export default async (references: NodeListOf<Element>) => {
         continue
       }
 
-      console.info('[Vue] Reference:', reference, componentName)
-
-      const instance = new Vue({ el: reference })
-      console.info('[Vue] Component initialized and ready to go!', instance)
-
-      // Ensure the component cannot be re-initalised
-      reference.setAttribute('js-set', 'true')
+      console.info(
+        '[Vue] Component initialized and ready to go!',
+        initialiseVue().mount(reference),
+        componentName,
+        reference,
+      )
     }
   }
 }

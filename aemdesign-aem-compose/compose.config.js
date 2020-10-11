@@ -1,6 +1,5 @@
 const { resolve }                     = require('path')
 const { configuration, registerHook } = require('@aem-design/compose-webpack')
-const LodashPlugin                    = require('lodash-webpack-plugin')
 const { DefinePlugin }                = require('webpack')
 
 registerHook('init:post', {
@@ -85,12 +84,16 @@ module.exports = configuration({
     plugins: [
       new DefinePlugin({
         __TESTING__: false,
-      }),
-      new LodashPlugin({
-        collections : true,
-        paths       : true,
-        shorthands  : true,
+
+        __VUE_OPTIONS_API__   : JSON.stringify(true),
+        __VUE_PROD_DEVTOOLS__ : JSON.stringify(env.prod !== false),
       }),
     ],
+
+    resolve: {
+      alias: {
+        'vue': env.prod === true ? 'vue/dist/vue.runtime.esm-browser.prod.js' : 'vue/dist/vue.esm-bundler.js',
+      },
+    },
   }),
 })

@@ -68,3 +68,6 @@ aemdesign-testing/local-*
 
 #github actions
 build/
+
+# Testing frameworks
+**/coverage

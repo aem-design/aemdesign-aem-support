@@ -5,7 +5,7 @@
       name="error"
       v-bind:err="err"
       v-bind:vm="vm"
-      v-bind:info="info"
+      v-bind:info="vinfo"
     >
       <h5 class="error-boundary__heading">{{ heading }}</h5>
       <p>{{ err }}</p>

@@ -134,7 +134,6 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/details/page-details"
                             componentId="page_details_without_container_component"
-                            showBreadcrumb="{Boolean}true"
                             title="Heading"
                             useContainer="{Boolean}"/>
                     </par>

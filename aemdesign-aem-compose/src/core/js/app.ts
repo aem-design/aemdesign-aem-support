@@ -1,6 +1,4 @@
 import '../scss/app.scss'
-// TODO: Find out why we need to load '_common.scss' here too!!
-// import '../scss/settings/_common.scss'
 
 import AEMFixes from '@/core/module/aem'
 import { bindVueComponents } from '@/core/module/binder'
@@ -25,9 +23,7 @@ async function run() {
   const carouselTargets = document.querySelectorAll<HTMLElement>('[data-modules*="carousel"]')
 
   if (carouselTargets.length && !isAuthorMode()) {
-    const carousel = (await import(/* webpackChunkName: "md/a/carousel" */ '@/core/module/adaptive/carousel')).default
-
-    carousel(carouselTargets)
+    (await import(/* webpackChunkName: "md/a/carousel" */ '@/core/module/adaptive/carousel')).default(carouselTargets)
   }
 
   /**
@@ -50,17 +46,13 @@ async function run() {
     $('.collapse[data-parent]').collapse('dispose')
 
     // DOM watch mode!
-    const watcher = (await import(/* webpackChunkName: "md/watcher" */ '@/core/module/watcher')).default
-
-    watcher()
+    ;(await import(/* webpackChunkName: "md/watcher" */ '@/core/module/watcher')).default()
   }
 
   /**
    * Load the Font Awesome icons now as they are the heaviest payload overall.
    */
-  const fontAwesome = (await import(/* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome')).default
-
-  fontAwesome()
+  (await import(/* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome')).default()
 }
 
 run()
