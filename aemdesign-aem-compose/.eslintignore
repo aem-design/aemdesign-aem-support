@@ -3,7 +3,7 @@
 **/node_modules/
 **/packages/
 **/support/scripts/
+**/src/**/*.scss
 
 compose.config.js
-
-**/src/**/*.scss
+jest.config.js
