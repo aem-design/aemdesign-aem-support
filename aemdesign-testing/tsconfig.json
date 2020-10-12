@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "sourceMap": false,
+    "target": "es5",
+  },
+
+  "exclude": [
+    "node_modules",
+  ],
+
+  "files": [
+    "../node_modules/jest-playwright-preset/types/global.d.ts",
+    "../node_modules/expect-playwright/global.d.ts"
+  ],
+
+  "include": [
+    "jest/**/*.ts",
+    "src/test/**/*.test.ts",
+  ],
+}

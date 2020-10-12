@@ -4,5 +4,8 @@
   "version": "3.0.0-SNAPSHOT",
   "scripts": {
     "test": "jest"
+  },
+  "devDependencies": {
+    "eslint-plugin-jest-playwright": "^0.2.1"
   }
 }
