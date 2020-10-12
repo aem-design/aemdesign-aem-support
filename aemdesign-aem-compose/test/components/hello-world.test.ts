@@ -1,21 +1,25 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 
 import HelloWorld from '@/core/components/hello-world/hello-world.vue'
 
-describe('hello world', () => {
-  test('can render component', () => {
-    const wrapper = mount(HelloWorld, {
+describe('Render <HelloWorld />', () => {
+  test('can render using defaults', () => {
+    const wrapper = shallowMount(HelloWorld)
+
+    expect(wrapper.text()).toStrictEqual('Hello, World!')
+
+    expect(wrapper.html()).toBe('<p class="lead">Hello, World!</p>')
+  })
+
+  test('can render component using a custom name prop', () => {
+    const wrapper = shallowMount(HelloWorld, {
       props: {
         name: 'Jest',
       },
     })
 
-    expect(wrapper.text()).toEqual('Hello, Jest!')
-  })
+    expect(wrapper.text()).toStrictEqual('Hello, Jest!')
 
-  test('has correct lead class', () => {
-    const wrapper = mount(HelloWorld)
-
-    expect(wrapper.element.classList.contains('lead')).toBeTruthy()
+    expect(wrapper.html()).toBe('<p class="lead">Hello, Jest!</p>')
   })
 })
