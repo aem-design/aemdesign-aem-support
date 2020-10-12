@@ -2,14 +2,32 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "module": "commonjs",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "importsNotUsedAsValues": "error",
+    "module": "ESNext",
     "moduleResolution": "Node",
+    "skipDefaultLibCheck": true,
     "sourceMap": false,
-    "target": "es5",
+    "strict": true,
+    "target": "ES5",
+
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2018"
+    ],
+
+    "paths": {
+      "@/support/*": [
+        "src/test/support/*"
+      ]
+    }
   },
 
   "exclude": [
-    "node_modules",
+    "node_modules"
   ],
 
   "files": [
@@ -18,7 +36,8 @@
   ],
 
   "include": [
+    "@types/**/*.ts",
     "jest/**/*.ts",
-    "src/test/**/*.test.ts",
-  ],
+    "src/test/**/*.ts"
+  ]
 }

@@ -1,4 +1,7 @@
-const { defaults: tsjPreset } = require('ts-jest/presets')
+const { defaults: tsjPreset }     = require('ts-jest/presets')
+const { pathsToModuleNameMapper } = require('ts-jest/utils')
+
+const { compilerOptions } = require('./tsconfig.json')
 
 /** @typedef {import('ts-jest')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
@@ -7,12 +10,12 @@ const config = {
 
   displayName: {
     color : 'yellow',
-    name  : '@aem-design/testing',
+    name  : '@aem-design/testing (e2e)',
   },
 
-  roots: [
-    '<rootDir>/src/test',
-  ],
+  moduleNameMapper: {
+    ...pathsToModuleNameMapper(compilerOptions.paths, { prefix : '<rootDir>/' }),
+  },
 
   setupFilesAfterEnv: [
     'expect-playwright',
