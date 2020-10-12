@@ -2,8 +2,9 @@
 **/public/
 **/node_modules/
 **/packages/
-**/support/scripts/
 **/src/**/*.scss
+**/support/scripts/
 
+babel.config.js
 compose.config.js
 jest.config.js

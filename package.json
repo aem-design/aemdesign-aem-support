@@ -2,16 +2,20 @@
   "private": true,
   "name": "aemdesign-aem-support",
   "version": "3.0.0-SNAPSHOT",
-  "workspaces": [
-    "aemdesign-aem-compose",
-    "aemdesign-testing"
-  ],
+  "workspaces": {
+    "packages": [
+      "aemdesign-aem-compose",
+      "aemdesign-testing"
+    ],
+    "nohoist": [
+      "**@aem-design/compose-webpack**"
+    ]
+  },
   "devDependencies": {
     "@types/jest": "^26.0.14",
-    "@types/lodash": "^4.14.161",
     "eslint": "^7.11.0",
     "eslint-plugin-import": "^2.22.1",
-    "jest": "^26.5.2",
+    "jest": "^26.5.3",
     "jest-environment-node": "^26.5.2",
     "jest-image-snapshot": "^4.2.0",
     "playwright": "^1.4.2",
