@@ -11104,58 +11104,10 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-playwright-chromium@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/playwright-chromium/-/playwright-chromium-1.4.2.tgz#23fe7510cbff338fd410232b0a3f74c7b0843e20"
-  integrity sha512-Yj4QKRL0TB1oZ1InAhqmqoVgu1MeeYnKgwCyaEnA1+tjhYYcieINq4HO8bMMgUDHa/ccMWyHA8qyP9WEdz8v0A==
-  dependencies:
-    debug "^4.1.1"
-    extract-zip "^2.0.1"
-    https-proxy-agent "^5.0.0"
-    jpeg-js "^0.4.2"
-    mime "^2.4.6"
-    pngjs "^5.0.0"
-    progress "^2.0.3"
-    proxy-from-env "^1.1.0"
-    rimraf "^3.0.2"
-    ws "^7.3.1"
-
 playwright-core@>=1.2.0, playwright-core@^1.2.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.4.2.tgz#e364c06d5fc4a0a4289a7a93ad994de723e0575f"
   integrity sha512-YXDhBti5hADm8daZ2Js4vmAIqhIW4fwXI6aXrY4JlbLy+OacdDInkcxqKc56RQxGNFH6hwylrwe7hdBifLp4MA==
-  dependencies:
-    debug "^4.1.1"
-    extract-zip "^2.0.1"
-    https-proxy-agent "^5.0.0"
-    jpeg-js "^0.4.2"
-    mime "^2.4.6"
-    pngjs "^5.0.0"
-    progress "^2.0.3"
-    proxy-from-env "^1.1.0"
-    rimraf "^3.0.2"
-    ws "^7.3.1"
-
-playwright-firefox@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/playwright-firefox/-/playwright-firefox-1.4.2.tgz#f7ce8244cc8214718e014db54673eb240bfd27f5"
-  integrity sha512-1yt749tEx6w2dxl0vyXnL8CeV/aIZfbkppNSrPykodsbLf7f8huymeMMhjQwAiiT8Hw47vrINn7MJkatc645+A==
-  dependencies:
-    debug "^4.1.1"
-    extract-zip "^2.0.1"
-    https-proxy-agent "^5.0.0"
-    jpeg-js "^0.4.2"
-    mime "^2.4.6"
-    pngjs "^5.0.0"
-    progress "^2.0.3"
-    proxy-from-env "^1.1.0"
-    rimraf "^3.0.2"
-    ws "^7.3.1"
-
-playwright-webkit@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/playwright-webkit/-/playwright-webkit-1.4.2.tgz#821fbc35de6836246e78ae741055294e361a96da"
-  integrity sha512-B5kBLxGgQNQ5ZmgWDIuu6nFMXJQoAcAc4Lnri1bv1OO3ZXc01qSuUoIor6o3Hsiod4bF54SubTV//lAmyVr4Yg==
   dependencies:
     debug "^4.1.1"
     extract-zip "^2.0.1"

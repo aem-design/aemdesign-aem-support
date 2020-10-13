@@ -6,7 +6,8 @@ const { compilerOptions } = require('./tsconfig.json')
 /** @typedef {import('ts-jest')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
-  preset: 'jest-playwright-preset',
+  preset  : 'jest-playwright-preset',
+  verbose : true,
 
   displayName: {
     color : 'yellow',

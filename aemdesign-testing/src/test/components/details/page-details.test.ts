@@ -10,7 +10,7 @@ describe('Page Details', () => {
   beforeAll(async () => {
     instance = await launchBrowser(
       __filename,
-      'http://localhost:4502/content/aemdesign-showcase/au/en/dls/components/details/page-details.html?wcmmode=disabled'
+      '/content/aemdesign-showcase/au/en/dls/components/details/page-details'
     )
   })
 

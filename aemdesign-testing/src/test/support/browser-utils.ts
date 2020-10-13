@@ -15,21 +15,33 @@ async function authenticateWithAEM(instance: BrowserInstance): Promise<void> {
 }
 
 /**
+ * Generates the URL to access pages in AEM.
+ */
+function generatePageUrl(path: string, needsAuth: boolean): string {
+  const host     = process.env.TEST_HOST     || 'localhost'
+  const port     = process.env.TEST_PORT     || '4502'
+  const protocol = process.env.TEST_PROTOCOL || 'http'
+
+  return `${protocol}://${host}:${port}${path}${needsAuth ? '.html?wcmmode=disabled' : ''}`
+}
+
+/**
  * Launch a browser session with the given `identifier` which automatically logs in when
  * needed and returns a new `BrowserInstance` object.
  */
-export async function launchBrowser(identifier: string, url: string): Promise<BrowserInstance> {
+export async function launchBrowser(identifier: string, path: string): Promise<BrowserInstance> {
   if (Object.keys(instances).includes(identifier)) {
     return instances[identifier]
   }
 
-  const browser  = await chromium.launch()
-  const page     = await browser.newPage()
-  const instance = instances[identifier] = { browser, page }
+  const browser   = await chromium.launch()
+  const page      = await browser.newPage()
+  const instance  = instances[identifier] = { browser, page }
+  const needsAuth = (!!process.env.TEST_NO_AUTH) === false
 
-  await page.goto(url)
+  await page.goto(generatePageUrl(path, needsAuth), { waitUntil: 'load' })
 
-  if ((!!process.env.NO_AUTH) === false) {
+  if (needsAuth) {
     await authenticateWithAEM(instance)
   }
 
