@@ -68,6 +68,35 @@ describe('Page Details', () => {
     })
   })
 
+  describe('parsys', () => {
+    it('should exist', async () => {
+      await expect(instance.page).toHaveSelector('#page_details_with_parsys_component')
+
+      expect(await takeScreenshot(await instance.page.$('#page_details_with_parsys_component')))
+        .toMatchImageSnapshot()
+    })
+
+    it('should have breadcrumbs', async () => {
+      await expect(instance.page).toHaveText(
+        '#page_details_with_parsys_component_text',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      )
+    })
+  })
+
+  describe('without container', () => {
+    it('should exist', async () => {
+      await expect(instance.page).toHaveSelector('#page_details_without_container_component')
+
+      expect(await takeScreenshot(await instance.page.$('#page_details_without_container_component')))
+        .toMatchImageSnapshot()
+    })
+
+    it('should not have a container', async () => {
+      expect(await instance.page.$('#page_details_without_container_component > .container')).toBeNull()
+    })
+  })
+
   afterAll(async () => {
     await closeBrowser(__filename)
   })
