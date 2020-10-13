@@ -19,6 +19,7 @@ const config = {
   },
 
   setupFilesAfterEnv: [
+    '<rootDir>/jest-setup.js',
     'expect-playwright',
   ],
 

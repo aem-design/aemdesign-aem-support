@@ -5,7 +5,9 @@ import type {
 } from 'playwright'
 
 declare global {
-  type PlayrightScreenshotOptions = Parameters<Pick<ElementHandle, 'screenshot'>['screenshot']>['0']
+  type PlaywrightElementScreenshotOptions =
+    & Parameters<ElementHandle['screenshot']>[0]
+    & { filename?: string }
 
   interface BrowserInstance {
     browser: Browser;

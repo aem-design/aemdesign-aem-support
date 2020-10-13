@@ -1717,7 +1717,16 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@26.x", "@types/jest@^26.0.14":
+"@types/jest-image-snapshot@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@types/jest-image-snapshot/-/jest-image-snapshot-4.1.1.tgz#96b7f9421b3db4eb48e335e1ad360e1f35a30b38"
+  integrity sha512-fUFPCO6CIKSd7bhN5BAnYLwpjJOvZ9i2w8WtnqiRBlDUrpkpLby5b/EiL5/obUCLTQLikknVXiO6NDZkOiV+9Q==
+  dependencies:
+    "@types/jest" "*"
+    "@types/pixelmatch" "*"
+    ssim.js "^3.1.0"
+
+"@types/jest@*", "@types/jest@26.x", "@types/jest@^26.0.14":
   version "26.0.14"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.14.tgz#078695f8f65cb55c5a98450d65083b2b73e5a3f3"
   integrity sha512-Hz5q8Vu0D288x3iWXePSn53W7hAjP0H7EQ6QvDO9c7t46mR0lNOLlfuwQ+JkVxuhygHzlzPX+0jKdA3ZgSh+Vg==
@@ -1790,6 +1799,13 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+
+"@types/pixelmatch@*":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@types/pixelmatch/-/pixelmatch-5.2.2.tgz#3403238d4b920bf2255fb6cbf9a098bef796ce62"
+  integrity sha512-ndpfW/H8+SAiI3wt+f8DlHGgB7OeBdgFgBJ6v/1l3SpJ0MCn9wtXFb4mUccMujN5S4DMmAh7MVy1O3WcXrHUKw==
+  dependencies:
+    "@types/node" "*"
 
 "@types/prettier@^2.0.0":
   version "2.1.2"
@@ -13032,6 +13048,11 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
+
+ssim.js@^3.1.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/ssim.js/-/ssim.js-3.5.0.tgz#d7276b9ee99b57a5ff0db34035f02f35197e62df"
+  integrity sha512-Aj6Jl2z6oDmgYFFbQqK7fght19bXdOxY7Tj03nF+03M9gCBAjeIiO8/PlEGMfKDwYpw4q6iBqVq2YuREorGg/g==
 
 ssim.js@^3.1.1:
   version "3.3.2"

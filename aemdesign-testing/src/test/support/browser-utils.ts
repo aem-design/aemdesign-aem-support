@@ -1,3 +1,4 @@
+import kebabCase from 'lodash/kebabCase'
 import path from 'path'
 import { chromium, ElementHandle, Page } from 'playwright'
 
@@ -39,7 +40,7 @@ export async function launchBrowser(identifier: string, path: string): Promise<B
   const instance  = instances[identifier] = { browser, page }
   const needsAuth = (!!process.env.TEST_NO_AUTH) === false
 
-  await page.goto(generatePageUrl(path, needsAuth), { waitUntil: 'load' })
+  await page.goto(generatePageUrl(path, needsAuth))
 
   if (needsAuth) {
     await authenticateWithAEM(instance)
@@ -60,28 +61,31 @@ export async function closeBrowser(identifier: string): Promise<void> {
 
 /**
  * Takes and stores a screenshot for the given `reference` object. By default all screenshots
- * are saved as JPEG but this can be overidden in `options`.
+ * are saved as PNG as they are the only file type supported by 'jest-image-snapshot'.
  */
 export async function takeScreenshot(
   reference: ElementHandle | Page | null,
-  filename: string,
-  context: string,
-  options: PlayrightScreenshotOptions = {},
-): Promise<void> {
-  const imageType = options.type ?? 'jpeg'
+  options: PlaywrightElementScreenshotOptions = {},
+): Promise<Buffer> {
+  const { currentTestName, testPath } = expect.getState()
+
+  if (reference === null) {
+    throw new Error(`Unable to take screenshot for '${currentTestName}' as reference is null`)
+  }
+
+  const resolvedBasePath = path.resolve(__dirname, '..')
+  const resolvedTestFile = path.relative(resolvedBasePath, testPath)
+  const filename         = kebabCase(options.filename || `${path.basename(resolvedTestFile)}-${currentTestName}`)
 
   const savePath = path.join(
-    __dirname,
-    '../screenshots/',
-    context,
-    `${filename}.${imageType}`,
+    path.resolve(resolvedBasePath, 'screenshots', path.dirname(resolvedTestFile)),
+    `${filename}.png`,
   )
 
-  await reference?.screenshot({
-    path    : savePath,
-    quality : 85,
-    type    : imageType,
-
-    ...options,
+  return await reference.screenshot({
+    omitBackground : options.omitBackground || false,
+    path           : savePath,
+    timeout        : options.timeout || 10000,
+    type           : 'png',
   })
 }

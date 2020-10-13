@@ -21,6 +21,9 @@ describe('Page Details', () => {
   describe('title only', () => {
     it('should exist', async () => {
       await expect(instance.page).toHaveSelector('#page_details_default_component')
+
+      expect(await takeScreenshot(await instance.page.$('#page_details_default_component')))
+        .toMatchImageSnapshot()
     })
 
     it('should have the correct title text', async () => {
@@ -31,6 +34,9 @@ describe('Page Details', () => {
   describe('title + description', () => {
     it('should exist', async () => {
       await expect(instance.page).toHaveSelector('#page_details_with_description_component')
+
+      expect(await takeScreenshot(await instance.page.$('#page_details_with_description_component')))
+        .toMatchImageSnapshot()
     })
 
     it('should have the correct title and body text', async () => {
@@ -50,11 +56,8 @@ describe('Page Details', () => {
     it('should exist', async () => {
       await expect(instance.page).toHaveSelector('#page_details_with_breadcrumb_component')
 
-      await takeScreenshot(
-        await instance.page.$('#page_details_with_breadcrumb_component'),
-        'details-with-breadcrumb',
-        'components/page-details',
-      )
+      expect(await takeScreenshot(await instance.page.$('#page_details_with_breadcrumb_component')))
+        .toMatchImageSnapshot()
     })
 
     it('should have breadcrumbs', async () => {
