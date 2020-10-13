@@ -1,6 +1,6 @@
 import kebabCase from 'lodash/kebabCase'
 import path from 'path'
-import { chromium, ElementHandle, Page } from 'playwright'
+import { chromium, Page } from 'playwright'
 
 const instances: Record<string, BrowserInstance> = {}
 
@@ -27,8 +27,8 @@ function generatePageUrl(path: string, needsAuth: boolean): string {
 }
 
 /**
- * Launch a browser session with the given `identifier` which automatically logs in when
- * needed and returns a new `BrowserInstance` object.
+ * Launch a browser session with the given `identifier` which automatically logs in when needed
+ * and returns a new `BrowserInstance` object.
  */
 export async function launchBrowser(identifier: string, path: string): Promise<BrowserInstance> {
   if (Object.keys(instances).includes(identifier)) {
@@ -60,12 +60,14 @@ export async function closeBrowser(identifier: string): Promise<void> {
 }
 
 /**
- * Takes and stores a screenshot for the given `reference` object. By default all screenshots
- * are saved as PNG as they are the only file type supported by 'jest-image-snapshot'.
+ * Takes and stores a screenshot for the given `reference` object. Screenshots can be taken for
+ * elements and pages and options will automatically refer to the type of `reference` object given.
+ *
+ * By default all screenshots are saved as PNG as they are the only file type supported by 'jest-image-snapshot'.
  */
-export async function takeScreenshot(
-  reference: ElementHandle | Page | null,
-  options: PlaywrightElementScreenshotOptions = {},
+export async function takeScreenshot<T extends PlaywrightScreenshotConstraints>(
+  reference: T | null,
+  options: PlaywrightScreenshotOptions<T> = {},
 ): Promise<Buffer> {
   const { currentTestName, testPath } = expect.getState()
 
@@ -82,7 +84,20 @@ export async function takeScreenshot(
     `${filename}.png`,
   )
 
+  let additionalOptions: PlaywrightScreenshotOptions<PlaywrightScreenshotConstraints> = {}
+
+  if (typeof (reference as Page).url === 'function') {
+    const pageOptions = options as PlaywrightScreenshotOptions<Page>
+
+    additionalOptions = {
+      clip     : pageOptions.clip,
+      fullPage : pageOptions.fullPage,
+    }
+  }
+
   return await reference.screenshot({
+    ...additionalOptions,
+
     omitBackground : options.omitBackground || false,
     path           : savePath,
     timeout        : options.timeout || 10000,

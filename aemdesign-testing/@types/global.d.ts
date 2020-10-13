@@ -5,8 +5,10 @@ import type {
 } from 'playwright'
 
 declare global {
-  type PlaywrightElementScreenshotOptions =
-    & Parameters<ElementHandle['screenshot']>[0]
+  type PlaywrightScreenshotConstraints = ElementHandle | Page
+
+  type PlaywrightScreenshotOptions<T extends PlaywrightScreenshotConstraints> =
+    & Parameters<T['screenshot']>[0]
     & { filename?: string }
 
   interface BrowserInstance {
