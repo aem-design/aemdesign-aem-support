@@ -1,10 +1,7 @@
 module.exports = {
-  browsers : ['chromium'],
-  devices  : [],
+  browsers: ['chromium', 'webkit'],
 
   contextOptions: {
-    ignoreHTTPSErrors: false,
-
     viewport: {
       width: 1920,
       height: 1080

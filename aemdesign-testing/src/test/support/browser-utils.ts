@@ -1,18 +1,66 @@
 import kebabCase from 'lodash/kebabCase'
 import path from 'path'
-import { chromium, Page } from 'playwright'
 
-const instances: Record<string, BrowserInstance> = {}
+import {
+  devices,
+
+  BrowserContext,
+  Page,
+} from 'playwright'
+
+const desktopDeviceDefaults = {
+  defaultBrowserType : 'chromium',
+  deviceScaleFactor  : 1,
+  hasTouch           : false,
+  isMobile           : false,
+  userAgent          : `Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${browser.version()} Safari/537.36`,
+} as PlaywrightDeviceDescriptor
+
+const availableDevices: Record<string, PlaywrightDeviceDescriptor> = {
+  'mobile'             : devices['iPhone SE'],
+  'mobile (landscape)' : devices['iPhone SE landscape'],
+  'tablet'             : devices['iPad (gen 6)'],
+  'tablet (landscape)' : devices['iPad (gen 6) landscape'],
+
+  'small desktop': {
+    ...desktopDeviceDefaults,
+
+    viewport: {
+      height : 1366,
+      width  : 1024,
+    },
+  },
+
+  'large desktop': {
+    ...desktopDeviceDefaults,
+
+    viewport: {
+      height : 1920,
+      width  : 1080,
+    },
+  },
+}
+
+const instances: Record<string, PlaywrightBrowserInstance> = {}
+
+export { BrowserContext, Page }
+
+/**
+ * Retrieve the unique device identifiers along with the browser they are being run in.
+ */
+export function getDeviceKeys(): [device: string, browserName: string][] {
+  return Object.keys(availableDevices).map(device => [device, browserName])
+}
 
 /**
  * Log into AEM and wait for the loading state of the page to change.
  */
-async function authenticateWithAEM(instance: BrowserInstance): Promise<void> {
-  await instance.page.fill('input[name="j_username"]', 'admin')
-  await instance.page.fill('input[name="j_password"]', 'admin')
-  await instance.page.click('#submit-button')
+async function authenticateWithAEM(page: Page): Promise<void> {
+  await page.fill('input[name="j_username"]', 'admin')
+  await page.fill('input[name="j_password"]', 'admin')
+  await page.click('#submit-button')
 
-  await instance.page.waitForLoadState('load')
+  await page.waitForLoadState('load')
 }
 
 /**
@@ -27,36 +75,42 @@ function generatePageUrl(path: string, needsAuth: boolean): string {
 }
 
 /**
- * Launch a browser session with the given `identifier` which automatically logs in when needed
- * and returns a new `BrowserInstance` object.
+ * Opens a new page with the given `BrowserContext` and `path`. Authentication is handled automatically
+ * by detecting if the `TEST_NO_AUTH` environment variable exists which skips authentication when found.
  */
-export async function launchBrowser(identifier: string, path: string): Promise<BrowserInstance> {
-  if (Object.keys(instances).includes(identifier)) {
-    return instances[identifier]
-  }
-
-  const browser   = await chromium.launch()
-  const page      = await browser.newPage()
-  const instance  = instances[identifier] = { browser, page }
+export async function openNewPageInContext(path: string, context: BrowserContext): Promise<Page> {
+  const page      = await context.newPage()
   const needsAuth = (!!process.env.TEST_NO_AUTH) === false
 
   await page.goto(generatePageUrl(path, needsAuth))
 
   if (needsAuth) {
-    await authenticateWithAEM(instance)
+    await authenticateWithAEM(page)
   }
 
-  return instance
+  return page
 }
 
 /**
- * Closes the active browser session for the given `identifier`.
+ * Launch a browser context for the given `device` which will attach a new context to the browser
+ * that is currently active. It then opens the given `path` in a new tab.
  */
-export async function closeBrowser(identifier: string): Promise<void> {
-  const instance = instances[identifier]
+export async function launchContextForDevice(device: string, path: string): Promise<PlaywrightBrowserInstance> {
+  const context = await browser.newContext(availableDevices[device])
+  const page    = await openNewPageInContext(path, context)
 
-  await instance.page.close()
-  await instance.browser.close()
+  return (instances[device] = { context, page })
+}
+
+/**
+ * Closes all of the active context instances.
+ */
+export async function closeContextForAllInstances(): Promise<void> {
+  for (const instance of Object.keys(instances)) {
+    await instances[instance].context.close()
+
+    delete instances[instance]
+  }
 }
 
 /**
@@ -77,11 +131,11 @@ export async function takeScreenshot<T extends PlaywrightScreenshotConstraints>(
 
   const resolvedBasePath = path.resolve(__dirname, '..')
   const resolvedTestFile = path.relative(resolvedBasePath, testPath)
-  const filename         = kebabCase(options.filename || `${path.basename(resolvedTestFile)}-${currentTestName}`)
+  const filename         = options.filename || `${path.basename(resolvedTestFile)}-${currentTestName}`
 
   const savePath = path.join(
     path.resolve(resolvedBasePath, 'screenshots', path.dirname(resolvedTestFile)),
-    `${filename}.png`,
+    `${kebabCase(filename)}.png`,
   )
 
   let additionalOptions: PlaywrightScreenshotOptions<PlaywrightScreenshotConstraints> = {}
