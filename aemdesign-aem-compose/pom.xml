@@ -26,9 +26,9 @@
 
   <properties>
     <sonar.sources>src,pom.xml</sonar.sources>
-    <nodeVersion>v10.19.0</nodeVersion>
-    <npmVersion>6.14.4</npmVersion>
-    <yarnVersion>v1.22.4</yarnVersion>
+    <nodeVersion>v12.19.0</nodeVersion>
+    <npmVersion>6.14.8</npmVersion>
+    <yarnVersion>v1.22.10</yarnVersion>
     <generated.content>content-generator/content</generated.content>
     <package.path.apps>apps</package.path.apps>
     <package.appsPath>aemdesign-compose</package.appsPath>

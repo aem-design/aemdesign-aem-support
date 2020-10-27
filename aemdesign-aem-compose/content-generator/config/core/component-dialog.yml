@@ -1,11 +1,10 @@
 content/_cq_tags/aemdesign/component-dialog: &component-dialog
-  !!import/merge [
-    'component-dialog/general.yml',
-    'component-dialog/html.yml',
-    'component-dialog/components.yml',
-    'component-dialog/components.lists.yml',
-    'component-dialog/vue.yml',
-  ]
+  !!import/sequence
+    - component-dialog/general.yml
+    - component-dialog/html.yml
+    - component-dialog/components.yml
+    - component-dialog/components.lists.yml
+    - component-dialog/vue.yml
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-dialog: *component-dialog

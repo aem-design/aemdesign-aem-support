@@ -26,7 +26,14 @@ registerHook('init:post', {
 })
 
 module.exports = configuration({
-  features: ['bootstrap', 'typescript', 'vue'],
+  features: {
+    bootstrap  : true,
+    typescript : true,
+
+    vue: {
+      version: 3,
+    },
+  },
 
   standard: {
     banner: {
@@ -84,16 +91,7 @@ module.exports = configuration({
     plugins: [
       new DefinePlugin({
         __TESTING__: false,
-
-        __VUE_OPTIONS_API__   : JSON.stringify(true),
-        __VUE_PROD_DEVTOOLS__ : JSON.stringify(env.prod !== false),
       }),
     ],
-
-    resolve: {
-      alias: {
-        'vue': env.prod === true ? 'vue/dist/vue.runtime.esm-browser.prod.js' : 'vue/dist/vue.esm-bundler.js',
-      },
-    },
   }),
 })

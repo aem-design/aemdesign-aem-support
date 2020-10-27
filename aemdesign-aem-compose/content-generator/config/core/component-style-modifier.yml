@@ -1,17 +1,16 @@
 content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
-  !!import/merge [
-    'component-style-modifier/accessibility.yml',
-    'component-style-modifier/button.yml',
-    'component-style-modifier/card.yml',
-    'component-style-modifier/colours.yml',
-    'component-style-modifier/embed.yml',
-    'component-style-modifier/flex.yml',
-    'component-style-modifier/grid.yml',
-    'component-style-modifier/icon.yml',
-    'component-style-modifier/schema.yml',
-    'component-style-modifier/spacing-area.yml',
-    'component-style-modifier/text.yml',
-  ]
+  !!import/merge
+    - component-style-modifier/accessibility.yml
+    - component-style-modifier/button.yml
+    - component-style-modifier/card.yml
+    - component-style-modifier/colours.yml
+    - component-style-modifier/embed.yml
+    - component-style-modifier/flex.yml
+    - component-style-modifier/grid.yml
+    - component-style-modifier/icon.yml
+    - component-style-modifier/schema.yml
+    - component-style-modifier/spacing-area.yml
+    - component-style-modifier/text.yml
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-style-modifier: *component-style-modifier

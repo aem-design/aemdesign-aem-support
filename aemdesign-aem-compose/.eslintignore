@@ -4,6 +4,7 @@
 **/packages/
 **/src/**/*.scss
 **/support/scripts/
+**/test/**/*.test.*
 
 babel.config.js
 compose.config.js
