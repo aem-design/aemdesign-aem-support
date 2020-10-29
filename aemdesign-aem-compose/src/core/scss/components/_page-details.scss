@@ -14,12 +14,8 @@
   z-index: 1;
 
   header {
-    > {
-      @extend %headings-underlined;
-
-      :only-child {
-        margin-bottom: 0;
-      }
+    > :only-child {
+      margin-bottom: 0;
     }
 
     &,

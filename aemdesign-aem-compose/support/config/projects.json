@@ -31,9 +31,9 @@
     }
   },
 
-  "styleguide": {
-    "entryFile": "styleguide.ts",
-    "outputName": "styleguide",
+  "dls": {
+    "entryFile": "dls.ts",
+    "outputName": "dls",
 
     "additionalEntries": {}
   }

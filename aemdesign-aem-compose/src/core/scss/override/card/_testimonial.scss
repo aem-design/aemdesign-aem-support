@@ -69,8 +69,6 @@
   }
 
   .card-text {
-    @include headings-underline(&, false, $parent-nesting: true);
-
     color: $black;
     font-size: 22px;
     line-height: 28px;

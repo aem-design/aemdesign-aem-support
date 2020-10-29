@@ -133,16 +133,9 @@
   @import 'card/background';
   @import 'card/common';
   @import 'card/notification';
-  @import 'card/promoted';
   @import 'card/taglist-share';
   @import 'card/column';
   @import 'card/columns';
   @import 'card/testimonial';
   @import 'card/tiles-narrow';
-
-  // Background variations
-  .bg-yellow &,
-  .bg-yellow-pattern & {
-    box-shadow: 0 2px 3px #f3c26d;
-  }
 }

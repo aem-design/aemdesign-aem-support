@@ -3,13 +3,21 @@ const { resolve } = require('path')
 /**
  * CSS/Sass loaders
  */
-const CSSLoaders = (env, options = {}) => ([
+const CSSLoaders = (env, options = {
+  sass: {},
+}) => ([
   {
     loader: 'css-loader',
 
     options: {
-      importLoaders : 1,
+      esModule      : false,
+      importLoaders : 2,
       sourceMap     : env.dev === true,
+      url           : false,
+
+      modules: {
+        compileType: 'icss',
+      },
     },
   },
   {
@@ -33,10 +41,16 @@ const CSSLoaders = (env, options = {}) => ([
 
     options: {
       implementation : require('sass'),
-      outputStyle    : env.dev === true ? 'expanded' : 'compressed',
-      precision      : 5,
       sourceMap      : env.dev === true,
-      ...(options.sassOptions || {}),
+
+      sassOptions: {
+        outputStyle : env.dev === true ? 'expanded' : 'compressed',
+        precision   : 5,
+
+        ...(options.sass.options || {}),
+      },
+
+      ...(options.sass.loader || {}),
     },
   },
 ])

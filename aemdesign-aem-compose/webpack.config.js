@@ -170,9 +170,14 @@ module.exports = env => {
               },
             },
             ...CSSLoaders(env, {
-              sassOptions: {
-                data         : `@import 'setup';`,
-                includePaths : [resolve(PROJECT_PATH, 'scss')],
+              sass: {
+                loader: {
+                  additionalData: `@import 'setup';`,
+                },
+
+                options: {
+                  includePaths: [resolve(PROJECT_PATH, 'scss')],
+                },
               },
             }),
           ],
@@ -193,6 +198,7 @@ module.exports = env => {
           use: [
             {
               loader: 'file-loader',
+
               options: {
                 context  : `src/${env.project}`,
                 emitFile : env.dev === true,

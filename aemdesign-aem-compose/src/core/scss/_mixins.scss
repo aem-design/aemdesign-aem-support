@@ -1,6 +1,3 @@
-@import 'mixins/forms';
-@import 'mixins/headings';
-
 // =============================================================================
 // Font Face
 // =============================================================================
@@ -222,8 +219,8 @@
     margin-right: -#{$gutter}px;
 
     > [class*='col-'] {
-      padding-left: #{$gutter}px;
-      padding-right: #{$gutter}px;
+      padding-left: $gutter * 1px;
+      padding-right: $gutter * 1px;
     }
   }
 }

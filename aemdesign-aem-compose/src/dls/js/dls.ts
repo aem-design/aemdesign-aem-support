@@ -1,4 +1,4 @@
-console.log('Styleguide is here...')
+console.log('DLS is here...')
 
 // Change all links to have ?wcmmode=disabled to allow clean navigation experience
 const navLinks = document.querySelectorAll('aside .nav-link')

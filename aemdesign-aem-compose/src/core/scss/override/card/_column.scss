@@ -28,8 +28,6 @@
   }
 
   .card-body {
-    @include headings-underline(h2 h3 h4, false);
-
     @include media-breakpoint-up(xl) {
       padding: 50px 60px;
     }

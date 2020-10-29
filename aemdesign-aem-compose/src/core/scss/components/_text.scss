@@ -7,21 +7,9 @@
 [component].text {
   @include clearfix;
 
-  &:not(.text-heading-outlined) {
-    @extend %headings-underlined;
-  }
-
   // Smaller text
   &-small {
     @extend small;
-  }
-
-  // Darker list
-  &-list-dark {
-    li::before,
-    li::before {
-      color: color('red');
-    }
   }
 
   p {

@@ -21,13 +21,13 @@
     <version>2.1.0-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>AEM Design - Support - Compose</name>
-    <description>Showcase and Styleguide for AEM Design project</description>
+    <description>Composes the CSS and JavaScript required for visually appealing experiences in AEM.</description>
 
     <properties>
         <sonar.sources>src,pom.xml</sonar.sources>
-        <nodeVersion>v8.15.0</nodeVersion>
-        <npmVersion>6.4.1</npmVersion>
-        <yarnVersion>v1.13.0</yarnVersion>
+        <nodeVersion>v12.19.0</nodeVersion>
+        <npmVersion>6.14.8</npmVersion>
+        <yarnVersion>v1.22.10</yarnVersion>
         <npmCommand>aem:build</npmCommand>
         <generated.content>content-generator/content</generated.content>
         <package.path.apps>apps</package.path.apps>

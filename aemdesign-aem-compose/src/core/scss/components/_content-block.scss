@@ -28,8 +28,6 @@
     > .title {
       @include make-container;
       @include make-container-max-widths;
-
-      @extend %headings-underlined;
     }
 
     // Fix any nested grids so they don't break outside of the container
