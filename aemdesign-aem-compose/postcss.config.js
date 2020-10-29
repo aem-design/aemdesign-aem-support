@@ -1,4 +1,3 @@
-/* eslint-disable */
 module.exports = ({ env }) => ({
   plugins: {
     'postcss-pxtorem': {

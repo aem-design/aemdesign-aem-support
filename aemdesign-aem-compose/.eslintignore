@@ -1,7 +1,4 @@
-**/cypress/plugins
-**/cypress/support
-**/cypress/*.js
-**/config
 **/public
 
+postcss.config.js
 webpack.config.js

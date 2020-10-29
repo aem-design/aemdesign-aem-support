@@ -10,16 +10,17 @@ module.exports = {
         version   : 3,
       },
     }],
-    '@babel/preset-typescript',
+
+    '@babel/typescript',
     'vue',
   ],
 
   plugins: [
-    '@babel/plugin-transform-runtime',
+    '@babel/transform-runtime',
     '@babel/proposal-class-properties',
     '@babel/proposal-object-rest-spread',
-    '@babel/plugin-syntax-dynamic-import',
-    ['@babel/plugin-transform-regenerator', {
+    '@babel/syntax-dynamic-import',
+    ['@babel/transform-regenerator', {
       'async'           : true,
       'asyncGenerators' : false,
       'generators'      : false,

@@ -8,8 +8,7 @@
   ],
 
   "plugins": [
-    "@typescript-eslint",
-    "cypress"
+    "@typescript-eslint"
   ],
 
   "parser": "vue-eslint-parser",
@@ -28,6 +27,9 @@
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/indent": [1, 2, {"SwitchCase": 1, "VariableDeclarator": 1}]
+    "@typescript-eslint/indent": [1, 2, {
+      "SwitchCase": 1,
+      "VariableDeclarator": 1
+      }]
   }
 }

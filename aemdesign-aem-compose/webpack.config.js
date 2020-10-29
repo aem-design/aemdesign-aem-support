@@ -13,7 +13,6 @@ const {
 const BundleAnalyzerPlugin    = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin')
 const CopyWebpackPlugin       = require('copy-webpack-plugin')
-const ImageminPlugin          = require('imagemin-webpack-plugin').default
 const LodashPlugin            = require('lodash-webpack-plugin')
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -28,7 +27,6 @@ const pomConfig = readFileSync(resolve(__dirname, './pom.xml'), 'utf-8')
 const parentPomConfig = readFileSync(resolve(__dirname, '../pom.xml'), 'utf-8')
 const xmlParser = new xml2js.Parser()
 
-
 let authorPort
 let appsPath
 let sharedAppsPath
@@ -37,20 +35,16 @@ let sharedAppsPath
 xmlParser.parseString(pomConfig, (_, { project }) => {
   const properties = project.properties[0]
 
-  appsPath            = properties['package.appsPath'][0]
-  sharedAppsPath      = properties['package.path.apps'][0]
+  appsPath        = properties['package.appsPath'][0]
+  sharedAppsPath  = properties['package.path.apps'][0]
 })
 
 //get config from parent pom
 xmlParser.parseString(parentPomConfig, (_, { project }) => {
   const properties = project.properties[0]
 
-  authorPort          = properties['crx.port'][0]
+  authorPort = properties['crx.port'][0]
 })
-
-console.log(`authorPort:  ${authorPort}`)
-console.log(`appsPath:  ${appsPath}`)
-console.log(`sharedAppsPath:  ${sharedAppsPath}`)
 
 if (!(authorPort || appsFolder)) {
   console.error('Unable to parse the parent maven configuration!')
@@ -58,14 +52,14 @@ if (!(authorPort || appsFolder)) {
 }
 
 // Load the CSS and JavaScript loaders
-const { CSSLoaders, JSLoaders } = require('./config/webpack.loaders')
+const { CSSLoaders, JSLoaders } = require('./support/webpack/loaders')
 
 // Load the projects configuration
-const projects = require('./config/projects.json')
+const projects = require('./support/config/projects.json')
 
 // Set the public and source paths for the project
 const PUBLIC_PATH = resolve(__dirname, 'public')
-const SOURCE_PATH = resolve(__dirname, 'source')
+const SOURCE_PATH = resolve(__dirname, 'src')
 
 module.exports = env => {
   const { ifDev, ifProd } = getIfUtils(env)
@@ -79,8 +73,6 @@ module.exports = env => {
   const project = projects[env.project]
 
   let clientLibsPath = `${sharedAppsPath}/${appsPath}/clientlibs/${env.project}/`
-  console.log(`clientLibsPath:  ${clientLibsPath}`)
-
 
   let entry = {}
 
@@ -89,7 +81,6 @@ module.exports = env => {
 
   // Define the public path to the assets
   let PUBLIC_PATH_AEM = `/etc.clientlibs/${appsPath}/clientlibs/${env.project}/`
-	console.log(`PUBLIC_PATH_AEM:  ${PUBLIC_PATH_AEM}`)
 
   if (env.hmr === true) {
     PUBLIC_PATH_AEM = '/'
@@ -113,21 +104,19 @@ module.exports = env => {
 
     entry = {
       [project.hmr.footer.outputName]: [
-        `./${env.project}/js/${project.entryFile.js}`,
-        `./${env.project}/scss/${project.entryFile.sass}`,
+        `./${env.project}/js/${project.entryFile}`,
         ...additionalEntries.footer,
       ],
 
       [project.hmr.header.outputName]: [
-        './hmr/empty.css',
+        '../support/hmr/empty.css',
         ...additionalEntries.header,
       ],
     }
   } else {
     entry = {
       [project.outputName]: [
-        `./${env.project}/js/${project.entryFile.js}`,
-        `./${env.project}/scss/${project.entryFile.sass}`,
+        `./${env.project}/js/${project.entryFile}`,
       ],
 
       ...project.additionalEntries,
@@ -205,7 +194,7 @@ module.exports = env => {
             {
               loader: 'file-loader',
               options: {
-                context  : `source/${env.project}`,
+                context  : `src/${env.project}`,
                 emitFile : env.dev === true,
                 name     : '[path][name].[ext]',
 
@@ -217,18 +206,12 @@ module.exports = env => {
           ],
         },
         {
-          test: require.resolve('jquery'),
+          test   : require.resolve('jquery'),
+          loader : 'expose-loader',
 
-          use: [
-            {
-              loader  : 'expose-loader',
-              options : 'jQuery',
-            },
-            {
-              loader  : 'expose-loader',
-              options : '$',
-            }
-          ],
+          options: {
+            exposes: ['$', 'jQuery'],
+          },
         },
         ...JSLoaders(env),
       ],
@@ -237,9 +220,6 @@ module.exports = env => {
     optimization: {
       minimizer: [
         new TerserPlugin({
-          cache     : true,
-          sourceMap : false,
-
           extractComments: {
             condition: true,
 
@@ -249,7 +229,7 @@ module.exports = env => {
           },
 
           terserOptions: {
-            ecma     : 6,
+            ecma     : 5,
             safari10 : true,
             warnings : false,
 
@@ -303,27 +283,35 @@ module.exports = env => {
       env.clean === true ? new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [resolve(PUBLIC_PATH, env.project, '**/*')],
       }) : undefined,
-      new CopyWebpackPlugin([
-        {
-          context : PROJECT_PATH,
-          from    : './*.ico',
-          to      : resolve(PUBLIC_PATH, env.project),
-        },
-        {
-          context : resolve(PROJECT_PATH, 'clientlibs-header/resources'),
-          from    : './**/*.*',
-          to      : resolve(PUBLIC_PATH, env.project, 'clientlibs-header/resources'),
-        },
-        {
-          context : resolve(PROJECT_PATH, 'clientlibs-header/css'),
-          from    : './*.css',
-          to      : resolve(PUBLIC_PATH, env.project, 'clientlibs-header/css'),
-        },
-      ]),
+
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            context          : PROJECT_PATH,
+            from             : '*.ico',
+            to               : resolve(PUBLIC_PATH, env.project),
+            noErrorOnMissing : true,
+          },
+          {
+            context          : PROJECT_PATH,
+            from             : 'resources',
+            to               : resolve(PUBLIC_PATH, env.project, 'clientlibs-header/resources'),
+            noErrorOnMissing : true,
+          },
+          {
+            context          : PROJECT_PATH,
+            from             : 'css/*.css',
+            to               : resolve(PUBLIC_PATH, env.project, 'clientlibs-header/css'),
+            noErrorOnMissing : true,
+          },
+        ],
+      }),
+
       new MiniCssExtractPlugin({
         filename      : `${outputFolder || 'clientlibs-header/css'}/[name].css`,
         chunkFilename : `${outputFolder || 'clientlibs-header/css'}/[id].css`,
       }),
+
       env.maven !== true ? new StyleLintPlugin({
         context     : resolve(PROJECT_PATH, 'scss'),
         emitErrors  : false,
@@ -331,15 +319,16 @@ module.exports = env => {
         files       : '**/*.scss',
         quiet       : false,
       }) : undefined,
-      ifProd(new ImageminPlugin({
-        test: /\.(jpe?g|png|gif|svg)$/i,
-      })),
+
       new HashedModuleIdsPlugin(),
+
       new LodashPlugin({
         collections : true,
         shorthands  : true,
       }),
+
       new VueLoaderPlugin(),
+
       new ProvidePlugin({
         PubSub: 'pubsub-js',
 
@@ -358,6 +347,7 @@ module.exports = env => {
         Tooltip   : 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
         Util      : 'exports-loader?Util!bootstrap/js/dist/util',
       }),
+
       new DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify(mode),
@@ -366,9 +356,11 @@ module.exports = env => {
         __DEV__  : env.dev === true,
         __PROD__ : env.prod === true,
       }),
+
       env.dev === true && env.maven !== true && env.deploy !== true ? new BundleAnalyzerPlugin({
         openAnalyzer: false,
       }) : undefined,
+
       ifProd(new LoaderOptionsPlugin({
         minimize: true,
       })),
@@ -376,7 +368,7 @@ module.exports = env => {
 
     resolve: {
       alias: {
-        vue$: env.dev === true ? 'vue/dist/vue.esm.js' : 'vue/dist/vue.min.js',
+        vue$: 'vue/dist/vue.esm.js',
       },
 
       extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
@@ -390,7 +382,7 @@ module.exports = env => {
       contentBase : resolve(PUBLIC_PATH, env.project),
       host        : '0.0.0.0',
       open        : false,
-      port        : 4504,
+      port        : env.port ? parseInt(env.port) : 4504,
 
       proxy: {
         context : () => true,

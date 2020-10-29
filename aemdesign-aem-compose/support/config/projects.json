@@ -1,0 +1,40 @@
+{
+  "core": {
+    "entryFile": "app.ts",
+    "outputName": "app",
+
+    "hmr": {
+      "footer": {
+        "mapToOutput": [],
+        "outputName": "clientlibs-footer"
+      },
+
+      "header": {
+        "mapToOutput": ["vendorlib/common"],
+        "outputName": "clientlibs-header"
+      }
+    },
+
+    "additionalEntries": {
+      "vendorlib/common": [
+        "./core/js/vendor.ts",
+        "es6-promise/auto",
+        "classlist.js",
+        "lazysizes",
+        "lazysizes/plugins/object-fit/ls.object-fit",
+        "lazysizes/plugins/parent-fit/ls.parent-fit",
+        "picturefill",
+        "bootstrap/js/dist/util",
+        "bootstrap/js/dist/collapse",
+        "bootstrap/js/dist/dropdown"
+      ]
+    }
+  },
+
+  "styleguide": {
+    "entryFile": "styleguide.ts",
+    "outputName": "styleguide",
+
+    "additionalEntries": {}
+  }
+}

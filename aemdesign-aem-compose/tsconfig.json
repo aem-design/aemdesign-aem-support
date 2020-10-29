@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -22,35 +22,34 @@
       "es2015",
       "es2016",
       "es2017",
-      "esnext",
-      "scripthost"
+      "esnext"
     ],
 
     "paths": {
-      "@global/*": [
-        "source/core/js/*"
+      "@/core/*": [
+        "src/core/js/*"
       ],
-      "@components/*": [
-        "source/core/js/components/*"
+      "@/core/components/*": [
+        "src/core/js/components/*"
       ],
-      "@module/*": [
-        "source/core/js/modules/*"
+      "@/core/modules/*": [
+        "src/core/js/modules/*"
       ],
-      "@type/*": [
-        "source/core/@types/*"
+      "@/core/types/*": [
+        "src/core/types/*"
       ],
-      "@utility/*": [
-        "source/core/js/utilities/*"
+      "@/core/utilities/*": [
+        "src/core/js/utilities/*"
       ]
     }
   },
 
   "include": [
     "@types/*.d.ts",
-    "source/**/*.ts",
-    "source/**/*.tsx",
-    "source/**/*.vue",
-    "source/**/*.scss",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.scss",
   ],
 
   "exclude": [
