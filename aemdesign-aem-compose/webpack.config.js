@@ -294,12 +294,6 @@ module.exports = env => {
         patterns: [
           {
             context          : PROJECT_PATH,
-            from             : '*.ico',
-            to               : resolve(PUBLIC_PATH, env.project),
-            noErrorOnMissing : true,
-          },
-          {
-            context          : PROJECT_PATH,
             from             : 'resources',
             to               : resolve(PUBLIC_PATH, env.project, 'clientlibs-header/resources'),
             noErrorOnMissing : true,

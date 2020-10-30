@@ -7,7 +7,7 @@
  */
 function loadView(folder: string, view: string): () => Promise<any> {
   return () => import(
-    /* webpackChunkName: "cmp/[request]" */
+    /* webpackChunkName: "cmp/vue/[request]" */
     `./${folder}/${view}.vue`)
 }
 

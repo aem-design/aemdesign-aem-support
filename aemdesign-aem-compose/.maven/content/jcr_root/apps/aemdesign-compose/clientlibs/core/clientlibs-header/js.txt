@@ -1,1 +1,1 @@
-
+../clientlibs-footer/js/vendorlib/common.js
