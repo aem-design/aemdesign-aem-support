@@ -1,3 +1,5 @@
+import '../scss/dls.scss'
+
 console.log('DLS is here...')
 
 // Change all links to have ?wcmmode=disabled to allow clean navigation experience
