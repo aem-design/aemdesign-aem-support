@@ -370,7 +370,7 @@ function generateCarouselsFromTargets(targets: NodeListOf<CarouselElement>) {
   }
 }
 
-export default async (targets: NodeListOf<CarouselElement>) => {
+export default async (targets: NodeListOf<CarouselElement>): Promise<void> => {
   console.log('[Carousel] Ready to adapt the following targets as carousels:', targets)
 
   lastWindowWidth = getWindowWidth()

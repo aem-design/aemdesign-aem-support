@@ -51,7 +51,7 @@ function handleRougeContent(target: Element | null = null) {
   console.info('[Rouge Content] Smashed %d paragraph elements!', totalSmashed)
 }
 
-export default () => {
+export default (): void => {
   console.info('[Watcher] Spinning up mutation observer for AEM author mode!')
 
   const mutationObserver = new MutationObserver(_throttle((mutations: MutationRecord[]) => {

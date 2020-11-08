@@ -40,7 +40,7 @@ function initialiseVue(options: Component = {}) {
   return app
 }
 
-export default async (references: NodeListOf<Element>) => {
+export default async (references: NodeListOf<Element>): Promise<void> => {
   console.info('[Vue] Found %d reference elements!', references.length)
 
   if (references.length) {

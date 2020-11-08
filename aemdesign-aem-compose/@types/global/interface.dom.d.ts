@@ -2,19 +2,18 @@ interface Window {
   CQ: any;
 
   digitalData: {
-    [key: string]: any;
+    [key: string]: unknown;
 
     event: {
       push: (data: DigitalDataPush) => {};
     };
   };
 
-  CustomEvent: (event: string, params: any) => CustomEvent<any>;
-  MSInputMethodContext: any;
+  MSInputMethodContext: unknown;
 }
 
 interface Document {
-  documentMode: any;
+  documentMode: unknown;
 }
 
 interface Element {

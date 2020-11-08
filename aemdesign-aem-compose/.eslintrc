@@ -7,7 +7,10 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:promise/recommended",
-    "@vue/typescript"
+    "@vue/typescript",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/vue"
   ],
 
   "plugins": [
@@ -28,14 +31,6 @@
 
   "rules": {
     "import/no-anonymous-default-export": "off",
-    "import/no-default-export": "off",
-
-    "promise/always-return": "off",
-    "promise/catch-or-return": "off",
-
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "import/no-default-export": "off"
   }
 }

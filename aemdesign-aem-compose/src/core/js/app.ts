@@ -1,6 +1,5 @@
 import '../scss/app.scss'
 
-import AEMFixes from '@/core/module/aem'
 import { bindVueComponents } from '@/core/module/binder'
 import Icons from '@/core/module/icons'
 
@@ -31,11 +30,6 @@ async function run() {
    * we don't want to waste paint performance using CSS which won't yield as good of a result.
    */
   Icons()
-
-  /**
-   * AEM comnponent level fixes.
-   */
-  AEMFixes()
 
   /**
    * Apply some fixes when we are in the AEM author 'edit' mode.
