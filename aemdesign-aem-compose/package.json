@@ -29,6 +29,7 @@
     "@testing-library/vue": "^6.0.0",
     "@types/bootstrap": "^4.5.1",
     "@types/jquery": "^3.5.4",
+    "@types/lodash": "^4.14.165",
     "@types/lodash-webpack-plugin": "^0.11.4",
     "@types/webpack-env": "^1.15.3",
     "@typescript-eslint/eslint-plugin": "4.6.1",
@@ -95,7 +96,9 @@
     "test": "jest"
   },
   "workspaces": {
-    "nohoist": ["@aem-design/compose-webpack"]
+    "nohoist": [
+      "@aem-design/compose-webpack"
+    ]
   },
   "version": "3.0.0-SNAPSHOT"
 }
