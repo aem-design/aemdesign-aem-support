@@ -57,9 +57,11 @@ export default async (references: NodeListOf<Element>) => {
         continue
       }
 
+      const instance = initialiseVue().mount(reference)
+
       console.info(
         '[Vue] Component initialized and ready to go!',
-        initialiseVue().mount(reference),
+        instance,
         componentName,
         reference,
       )
