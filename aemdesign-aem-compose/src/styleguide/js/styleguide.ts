@@ -12,16 +12,20 @@ function resetScrollOffset() {
   window.scrollTo(0, -scrollOffset)
 }
 
-
 function fixLinksForEnvironment() {
-  const navLinks = document.querySelectorAll('aside .nav-link, #dls_home_button_link')
+  const navLinks = document.querySelectorAll(
+    'aside .nav-link, #dls_home_button_link',
+  )
 
   if (navLinks.length) {
     for (const link of navLinks) {
       const href = link.getAttribute('href')
 
       if (href && href !== '#' && href.indexOf('wcmmode=disabled') === -1) {
-        link.setAttribute('href', `${link.getAttribute('href')}?wcmmode=disabled`)
+        link.setAttribute(
+          'href',
+          `${link.getAttribute('href')}?wcmmode=disabled`,
+        )
       }
     }
   }
@@ -71,7 +75,7 @@ function headerMenu() {
   }
 
   // Menu overlay
-  let menuOverlay  = document.querySelector('.menu-overlay')
+  let menuOverlay = document.querySelector('.menu-overlay')
 
   if (menuOverlay) {
     menuOverlay.parentNode?.removeChild(menuOverlay)
@@ -92,7 +96,9 @@ async function loadApp() {
   }
 
   // Force open any active drop down menu
-  const activeDropDown = document.querySelector('.dropdown-submenu.depth-2.active > .nav-link')
+  const activeDropDown = document.querySelector(
+    '.dropdown-submenu.depth-2.active > .nav-link',
+  )
 
   if (activeDropDown) {
     $(activeDropDown).dropdown('show')

@@ -68,6 +68,7 @@
     "prettier": "2.1.2",
     "rimraf": "^3.0.2",
     "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-twbs-bootstrap": "^2.1.0",
@@ -93,6 +94,8 @@
     "aem:generate:content": "node support/scripts/content-generators/colours.js && node support/scripts/content-generators/icons.js",
     "aem:generate:tags": "node content-generator/generator.js --no-color",
     "lint:core": "eslint --ext .js,.ts,.vue src/core/js",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "serve:core": "aemdesign-compose -d --project=core --watch",
     "serve:dls": "aemdesign-compose -d --project=styleguide --watch",
     "test": "jest"

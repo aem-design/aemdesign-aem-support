@@ -1,16 +1,18 @@
 module.exports = {
   presets: [
-    ['@babel/preset-env', {
-      loose       : true,
-      modules     : false,
-      useBuiltIns : 'entry',
+    [
+      '@babel/preset-env',
+      {
+        loose: true,
+        modules: false,
+        useBuiltIns: 'entry',
 
-      corejs : {
-        proposals : true,
-        version   : 3,
+        corejs: {
+          proposals: true,
+          version: 3,
+        },
       },
-    }],
-
+    ],
 
     '@babel/typescript',
     'vue',
@@ -23,11 +25,14 @@ module.exports = {
     '@babel/proposal-nullish-coalescing-operator',
     '@babel/syntax-dynamic-import',
 
-    ['@babel/transform-regenerator', {
-      'async'           : true,
-      'asyncGenerators' : false,
-      'generators'      : false,
-    }],
+    [
+      '@babel/transform-regenerator',
+      {
+        async: true,
+        asyncGenerators: false,
+        generators: false,
+      },
+    ],
 
     'lodash',
   ],

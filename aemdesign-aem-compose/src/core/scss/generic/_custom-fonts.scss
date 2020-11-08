@@ -9,16 +9,6 @@
  * );
  */
 
-@include font-face(
-  'Noto Sans',
-  'noto-sans/NotoSans-Regular',
-  400,
-  normal,
-);
+@include font-face('Noto Sans', 'noto-sans/NotoSans-Regular', 400, normal);
 
-@include font-face(
-  'Noto Sans',
-  'noto-sans/NotoSans-Bold',
-  700,
-  normal,
-);
+@include font-face('Noto Sans', 'noto-sans/NotoSans-Bold', 700, normal);

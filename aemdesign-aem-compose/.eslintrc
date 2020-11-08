@@ -13,11 +13,7 @@
     "prettier/vue"
   ],
 
-  "plugins": [
-    "@typescript-eslint",
-    "filenames",
-    "promise"
-  ],
+  "plugins": ["@typescript-eslint", "filenames", "promise"],
 
   "parser": "vue-eslint-parser",
 

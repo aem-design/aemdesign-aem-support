@@ -19,10 +19,16 @@ async function run() {
   /**
    * Bind a carousel to every instance found on the page.
    */
-  const carouselTargets = document.querySelectorAll<HTMLElement>('[data-modules*="carousel"]')
+  const carouselTargets = document.querySelectorAll<HTMLElement>(
+    '[data-modules*="carousel"]',
+  )
 
   if (carouselTargets.length && !isAuthorMode()) {
-    (await import(/* webpackChunkName: "md/a/carousel" */ '@/core/module/adaptive/carousel')).default(carouselTargets)
+    ;(
+      await import(
+        /* webpackChunkName: "md/a/carousel" */ '@/core/module/adaptive/carousel'
+      )
+    ).default(carouselTargets)
   }
 
   /**
@@ -40,13 +46,19 @@ async function run() {
     $('.collapse[data-parent]').collapse('dispose')
 
     // DOM watch mode!
-    ;(await import(/* webpackChunkName: "md/watcher" */ '@/core/module/watcher')).default()
+    ;(
+      await import(/* webpackChunkName: "md/watcher" */ '@/core/module/watcher')
+    ).default()
   }
 
   /**
    * Load the Font Awesome icons now as they are the heaviest payload overall.
    */
-  (await import(/* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome')).default()
+  ;(
+    await import(
+      /* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome'
+    )
+  ).default()
 }
 
 run()

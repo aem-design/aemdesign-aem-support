@@ -9,9 +9,12 @@ $__spacing-state-internal: true;
 
 @function get-spacing-area($area-name: null) {
   @if (
-    $area-name == null or
-    type-of($area-name) != 'string' or
-    spacing-area-valid($area-name) == false
+    $area-name ==
+      null or
+      type-of($area-name) !=
+      'string' or
+      spacing-area-valid($area-name) ==
+      false
   ) {
     @warn 'Area key given (#{$area-name}) is invalid, or is not a Sass map!';
     @return null;
@@ -32,12 +35,14 @@ $__spacing-state-internal: true;
   $has-internal: map-has-key($area, 'internal');
 
   @if (
-    $area != null and
-    (
-      not $has-internal or
-      ($has-internal and $__spacing-state-internal == true) or
-      ($has-internal and map-get($area, 'internal') == false)
-    )
+    $area !=
+      null and
+      (
+        not
+          $has-internal or
+          ($has-internal and $__spacing-state-internal == true) or
+          ($has-internal and map-get($area, 'internal') == false)
+      )
   ) {
     $state: __set-spacing-state(true);
 

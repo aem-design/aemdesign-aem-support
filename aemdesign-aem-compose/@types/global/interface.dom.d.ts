@@ -1,24 +1,24 @@
 interface Window {
-  CQ: any;
+  CQ: any
 
   digitalData: {
-    [key: string]: unknown;
+    [key: string]: unknown
 
     event: {
-      push: (data: DigitalDataPush) => {};
-    };
-  };
+      push: (data: DigitalDataPush) => {}
+    }
+  }
 
-  MSInputMethodContext: unknown;
+  MSInputMethodContext: unknown
 }
 
 interface Document {
-  documentMode: unknown;
+  documentMode: unknown
 }
 
 interface Element {
-  matchesSelector(selectors: string): boolean;
-  msMatchesSelector(selectors: string): boolean;
-  mozMatchesSelector(selectors: string): boolean;
-  oMatchesSelector(selectors: string): boolean;
+  matchesSelector(selectors: string): boolean
+  msMatchesSelector(selectors: string): boolean
+  mozMatchesSelector(selectors: string): boolean
+  oMatchesSelector(selectors: string): boolean
 }

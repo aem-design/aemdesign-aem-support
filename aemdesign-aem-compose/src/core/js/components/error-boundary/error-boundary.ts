@@ -1,12 +1,8 @@
-import {
-  defineComponent,
-  ref,
-  ComponentPublicInstance,
-} from 'vue'
+import { defineComponent, ref, ComponentPublicInstance } from 'vue'
 
-const err   = ref<Error | false>(false)
+const err = ref<Error | false>(false)
 const vinfo = ref('')
-const vm    = ref<ComponentPublicInstance | null>(null)
+const vm = ref<ComponentPublicInstance | null>(null)
 
 export default defineComponent({
   name: 'error-boundary',

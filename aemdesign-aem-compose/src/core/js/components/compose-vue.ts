@@ -1,11 +1,6 @@
-import {
-  createApp,
-  defineAsyncComponent,
-} from 'vue'
+import { createApp, defineAsyncComponent } from 'vue'
 
-import type {
-  Component,
-} from '@vue/runtime-core'
+import type { Component } from '@vue/runtime-core'
 
 import ErrorBoundary from '@/core/components/error-boundary/error-boundary.vue'
 
@@ -13,15 +8,17 @@ import ErrorBoundary from '@/core/components/error-boundary/error-boundary.vue'
  * Generates the dynamic import logic needed for each async Vue component.
  */
 function loadView(component: string): () => Promise<Component> {
-  return defineAsyncComponent(() => import(
-    /* webpackChunkName: "vue/c/[request]" */
-    `./${component}/${component}.vue`))
+  return defineAsyncComponent(
+    () =>
+      import(
+        /* webpackChunkName: "vue/c/[request]" */
+        `./${component}/${component}.vue`
+      ),
+  )
 }
 
 // Define the components we can use
-const components = [
-  'hello-world',
-]
+const components = ['hello-world']
 
 /**
  * Sets up and binds the components needed for our Vue experiences.
@@ -51,7 +48,7 @@ export default async (references: NodeListOf<Element>): Promise<void> => {
         console.warn(
           "[Vue] Component '%s' is invalid, valid components are:",
           componentName,
-          components.join(', ')
+          components.join(', '),
         )
 
         continue

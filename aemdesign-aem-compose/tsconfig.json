@@ -5,32 +5,17 @@
     "baseUrl": "./",
     "target": "ES2018",
 
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2018"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ES2018"],
 
     "paths": {
-      "@/core/components/*": [
-        "src/core/js/components/*"
-      ],
-      "@/core/module/*": [
-        "src/core/js/modules/*"
-      ],
-      "@/core/utility/*": [
-        "src/core/js/utilities/*"
-      ],
-      "@/typings/*": [
-        "@types/*"
-      ]
+      "@/core/components/*": ["src/core/js/components/*"],
+      "@/core/module/*": ["src/core/js/modules/*"],
+      "@/core/utility/*": ["src/core/js/utilities/*"],
+      "@/typings/*": ["@types/*"]
     }
   },
 
-  "exclude": [
-    "public",
-    "node_modules"
-  ],
+  "exclude": ["public", "node_modules"],
 
   "include": [
     "@types/**/*.ts",

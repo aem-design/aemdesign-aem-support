@@ -37,7 +37,7 @@
     }
 
     .tns-item:not(.tns-slide-active) {
-      opacity: .5;
+      opacity: 0.5;
       pointer-events: none;
       transition: $transition-fade;
     }

@@ -30,7 +30,7 @@ ul.navlist {
       padding-top: $nav-link-padding-y / 1.5;
 
       &:hover {
-        background-color: rgba(color('grey-1'), .5);
+        background-color: rgba(color('grey-1'), 0.5);
       }
 
       &.active {
