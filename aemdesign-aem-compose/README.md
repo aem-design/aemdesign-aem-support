@@ -20,19 +20,22 @@ The compose project is designed as the base for all AEM Design components, funct
 
 - Content generator - _for generating content for AEM using YAML_
 - ITCSS Sass structure
+- PostCSS
 - TypeScript driven JavaScript
 - Vue.js components as widgets
+- Tests using Jest
 
 ## Installation
 
 Getting going is pretty simple, you will, however, need to make sure you have the below installed first to ensure a smooth and consistent experience with other developers.
 
-- **Node >= 10** _(required)_
+- **Node >= 12** _(required)_
 - **Yarn >= 1.10.0** _(version required for hash compatibility)_
 - **TypeScript enabled IDE** _(VS Code or an IDE plugin)_
 - **ESLint** _(required)_
 - **Stylelint** _(required)_
 - **EditorConfig** _(required)_
+- **Prettier** _(required)_
 - _An AEM instance that has project installed_ **(required)**
 
 ### NPM Packages
@@ -70,4 +73,17 @@ The DLS is its own project to remove any duplicate/irrelevant code from the fina
 
 ## Linting
 
-All code in the project is linted both in your IDE (where supported) and during compilation. This is to ensure that bugs and issues can be fixed before going out and ensures consistency between developers. ESLint is used across all projects.
+All code in the project is linted both in your IDE (where supported) and during compilation. This is to ensure that bugs and issues can be fixed before going out and ensures consistency between developers.
+
+ESLint and Stylelint are used across all projects in conjuction with Prettier to ensure code is always written the same way by everyone. Both projects can be linted separately via the below commands.
+
+```sh
+yarn lint:core
+yarn lint:dls
+```
+
+## Testing
+
+All tests are conducted using Jest OOTB with the ability to use Playwright for e2e testing in the `aemdesign-testing` project. The aim of this structure is to ensure the codebase is concise and consistent and easy to follow.
+
+Running the tests is as simple as: `yarn test`.

@@ -8,12 +8,12 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:promise/recommended",
     "@vue/typescript",
-    "prettier",
+    "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
     "prettier/vue"
   ],
 
-  "plugins": ["@typescript-eslint", "filenames", "promise"],
+  "plugins": ["@typescript-eslint", "filenames", "promise", "prettier"],
 
   "parser": "vue-eslint-parser",
 
