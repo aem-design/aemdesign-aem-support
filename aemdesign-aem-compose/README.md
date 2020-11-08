@@ -2,7 +2,7 @@
 
 # AEM.Design Compose
 
-The compose project is designed as the base for all AEM Design components, functionality, and behaviour. It encapsulates static assets, JavaScript, CSS and a styleguide project within that controls the DLS (Design Language System).
+The compose project is designed as the base for all AEM.Design components, functionality, and behaviour. It encapsulates static assets, JavaScript, CSS and a styleguide project within that controls the DLS (Design Language System).
 
 ## Table of Contents
 
@@ -23,14 +23,14 @@ The compose project is designed as the base for all AEM Design components, funct
 - PostCSS
 - TypeScript driven JavaScript
 - Vue.js components as widgets
-- Tests using Jest
+- A solid testing structure
 
 ## Installation
 
 Getting going is pretty simple, you will, however, need to make sure you have the below installed first to ensure a smooth and consistent experience with other developers.
 
 - **Node >= 12** _(required)_
-- **Yarn >= 1.10.0** _(version required for hash compatibility)_
+- **Yarn >= 1.10.0** _(Yarn 2 is not currently supported)_
 - **TypeScript enabled IDE** _(VS Code or an IDE plugin)_
 - **ESLint** _(required)_
 - **Stylelint** _(required)_
