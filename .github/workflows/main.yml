@@ -1,14 +1,17 @@
 name: ci
 
-on: [push]
+on: [ push ]
 
 jobs:
   build:
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
+
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6]
+        python-version: [ 3.6 ]
+
     env:
       DOCKER_IMAGE: "aemdesign/centos-java-buildpack"
       SONAR_ORGANISATION: "aemdesign-github"
@@ -31,13 +34,12 @@ jobs:
       GPG_PUBID: "50A036956AAC64C13EF47B10D1E96A30ECFC7DFF"
       GPG_PUBID_KEYGRIP: "020E615868703482DC2CD110B98D2702B6ABF89C"
 
-      
-
     steps:
       - uses: actions/checkout@v1
         with:
           submodules: true
           lfs: true
+
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
@@ -45,10 +47,12 @@ jobs:
           scope: "@aem-design"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN_ADMIN }}
+
       - name: set up python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: get release notes
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
@@ -56,6 +60,7 @@ jobs:
           echo $GIT_RELEASE_NOTES
           echo "====END===="
           echo CURRENT_VERSION=$CURRENT_VERSION
+
       - name: set eval variables
         run: |
           echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
@@ -63,17 +68,21 @@ jobs:
           $DOCKER_COMMAND node -v
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USERNAME}"
+
       - name: setup gpg
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/setup-gpg.sh)
+
       - name: docker - mvn clean (cache .m2 in ./build/.m2/repository in repo dir)
         run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+
       - name: docker - mvn package
         run: $DOCKER_COMMAND mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
 
       - name: docker - sonar qube on master
         if: github.ref == 'refs/heads/master'
         run: mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
+
       - name: docker - sonar qube on master
         if: github.ref != 'refs/heads/master'
         run: mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
@@ -84,18 +93,6 @@ jobs:
           sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-#      - name: automation test
-#        id: automation_test
-#        run: ./automation-testing
-#
-#      - name: automation test release reports
-#        if: github.ref == 'refs/heads/master'
-#        run: ./automation-testing-release
-#        env:
-#          TEST_REPORT_OUTPUT: ${{ steps.automation_test.outputs.TEST_REPORT_OUTPUT }}
-#          TEST_REPORT_COMPARE_SOURCES: ${{ steps.automation_test.outputs.TEST_REPORT_COMPARE_SOURCES }}
-#          TEST_REPORT_GHPAGES_PATH: ${{ steps.automation_test.outputs.TEST_REPORT_GHPAGES_PATH }}
 
       - name: deploy to maven cental
         if: github.ref == 'refs/heads/master'
@@ -117,11 +114,10 @@ jobs:
             aemdesign-aem-training/target/aemdesign-aem-training-${{ env.GITHUB_TAG }}.zip
             aemdesign-aem-content/target/aemdesign-aem-content-${{ env.GITHUB_TAG }}.zip
             aemdesign-aem-config/target/aemdesign-aem-config-${{ env.GITHUB_TAG }}.zip
-        
+
       - name: automation test if failure
         run: |
           df
           docker ps -a
           docker logs -t service_aem_container_name
         if: failure()
-
