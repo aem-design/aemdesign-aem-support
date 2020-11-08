@@ -8,6 +8,10 @@
       "aemdesign-testing"
     ]
   },
+  "engines": {
+    "node": ">= 12",
+    "yarn": ">= 1.10.x < 2"
+  },
   "dependencies": {
     "@types/jest": "^26.0.15",
     "@types/jest-image-snapshot": "^4.1.2",
