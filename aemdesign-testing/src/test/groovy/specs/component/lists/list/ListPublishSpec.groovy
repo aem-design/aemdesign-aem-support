@@ -46,7 +46,7 @@ class ListPublishSpec extends ComponentSpec {
         assert $("${selector} li.item").size() == 3
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("List: Pages with no Details in #viewport.label")
@@ -69,7 +69,7 @@ class ListPublishSpec extends ComponentSpec {
         assert $("${selector} .page-missing-details").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("List: Pages search with By Tags in #viewport.label")
@@ -92,7 +92,7 @@ class ListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -115,7 +115,7 @@ class ListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 0
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -142,7 +142,7 @@ class ListPublishSpec extends ComponentSpec {
         assert compareInnerTextIgnoreCase("${selector} li .title","Page 5 Contact Details")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

@@ -37,7 +37,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Simple with Fixed List in #viewport.label")
@@ -60,7 +60,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Stacked with Fixed List in #viewport.label")
@@ -83,7 +83,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Simple with Children List in #viewport.label")
@@ -106,7 +106,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Stacked with Children List in #viewport.label")
@@ -129,7 +129,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -153,7 +153,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

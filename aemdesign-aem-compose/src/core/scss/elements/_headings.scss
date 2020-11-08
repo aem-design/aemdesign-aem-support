@@ -1,0 +1,32 @@
+// TODO: Make the heading classes utility classes
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: inherit;
+  font-feature-settings: 'lnum' 1;
+  font-variant-numeric: lining-nums;
+  hyphens: none;
+  margin-bottom: $headings-margin-bottom * 1.5;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $headings-margin-bottom * 2;
+  }
+}
+
+// Generates the responsive typography styles for each breakpoint defined in the `settings/global.scss`
+// configuration file.
+
+@each $type, $levels in $typography {
+  @each $level, $config in $levels {
+    @include typography-style($level, $config);
+  }
+}

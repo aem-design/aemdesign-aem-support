@@ -1,0 +1,18 @@
+// [1] Adds a comma after the item with an additional space character
+
+.taglist {
+  @include list-unstyled;
+
+  > li {
+    display: inline-block;
+
+    &::after {
+      content: ',' '\00a0'; // [1]
+      display: inline-block;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+}

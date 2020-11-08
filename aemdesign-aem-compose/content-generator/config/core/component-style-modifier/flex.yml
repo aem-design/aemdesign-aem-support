@@ -1,0 +1,87 @@
+flex/align-items:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - baseline
+    - center
+    - end
+    - start
+    - stretch
+  valueFormat: 'align-items%%infix%%-%%prefix%%'
+  title: '%%prefix_normalised%% %%breakpoint%%'
+
+flex/align-self:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - baseline
+    - center
+    - end
+    - start
+    - stretch
+  valueFormat: 'align-self%%infix%%-%%prefix%%'
+  title: '%%prefix_normalised%% %%breakpoint%%'
+
+flex/direction:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - row
+    - row-reverse
+    - column
+    - column-reverse
+  valueFormat: 'flex%%infix%%-%%prefix%%'
+  title: '%%prefix_normalised%% %%breakpoint%%'
+
+flex/justify-content:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - around
+    - between
+    - center
+    - end
+    - start
+  valueFormat: 'justify-content%%infix%%-%%prefix%%'
+  title: '%%prefix_normalised%% %%breakpoint%%'
+
+flex/order:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  sizes:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+  prefix: order
+  title: '%%sizeWithSuffix%% %%breakpoint%%'
+
+flex/wrap:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - nowrap
+    - wrap
+    - wrap-reverse
+  valueFormat: 'flex%%infix%%-%%prefix%%'
+  title: '%%prefix_normalised%% %%breakpoint%%'

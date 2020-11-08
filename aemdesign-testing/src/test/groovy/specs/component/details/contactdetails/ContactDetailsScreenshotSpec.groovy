@@ -34,7 +34,7 @@ class ContactDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -57,7 +57,7 @@ class ContactDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }

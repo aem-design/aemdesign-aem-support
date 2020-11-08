@@ -36,7 +36,7 @@ class ButtonPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content Submit")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Button in #viewport.label")
@@ -59,7 +59,7 @@ class ButtonPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content Button")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

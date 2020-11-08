@@ -35,16 +35,16 @@ class PageDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} .breadcrumb").isEmpty() == true
+        assert $("${selector} .breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -70,26 +70,26 @@ class PageDetailsPublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
 
         and: "Has Breadcrumb visible"
-        assert $("${selector} nav.breadcrumb").isEmpty() == false
+        assert !$("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar has sample content"
         assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
 
         and: "Has Toolbar visible"
-        assert $("${selector} .navbar").isEmpty() == false
+        assert !$("${selector} .navbar").empty
 
         and: "Has Toolbar has sample content"
         assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
 
         and: "Has Parsys visible"
-        assert $("${selector} .text").isEmpty() == false
+        assert !$("${selector} .text").empty
 
         and: "Has Parsys has sample content"
         assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Hidden Variant in #viewport.label")
@@ -109,16 +109,16 @@ class PageDetailsPublishSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} nav.breadcrumb").isEmpty() == true
+        assert $("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Background and Inherited Toolbar in #viewport.label")
@@ -143,19 +143,19 @@ class PageDetailsPublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
 
         and: "Has Breadcrumb visible"
-        assert $("${selector} nav.breadcrumb").isEmpty() == false
+        assert !$("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar has sample content"
         assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
 
         and: "Has Toolbar visible"
-        assert $("${selector} .navbar").isEmpty() == false
+        assert !$("${selector} .navbar").empty
 
         and: "Has Toolbar has sample content"
         assert $("${selector} #text_in_parent_toolbar").text().trim() == "Text in Parent Toolbar"
 
         and: "Has Parsys visible"
-        assert $("${selector} .text").isEmpty() == false
+        assert !$("${selector} .text").empty
 
         and: "Has Custom Title"
         assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
@@ -166,7 +166,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -188,22 +188,22 @@ class PageDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} nav.breadcrumb").isEmpty() == true
+        assert $("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         and: "Has Description hidden"
-        assert $("${selector} .description").isEmpty() == true
+        assert $("${selector} .description").empty
 
         and: "Has Title showing"
-        assert $("${selector} h1").isEmpty() == false
+        assert !$("${selector} h1").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page Details: Default without included components and hidden Title and Description in #viewport.label")
@@ -224,25 +224,25 @@ class PageDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} nav.breadcrumb").isEmpty() == true
+        assert $("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         and: "Has Description hidden"
-        assert $("${selector} .description").isEmpty() == true
+        assert $("${selector} .description").empty
 
         and: "Has Description hidden"
-        assert $("${selector} .description").isEmpty() == true
+        assert $("${selector} .description").empty
 
         and: "Has Title showing"
-        assert $("${selector} h1").isEmpty() == true
+        assert $("${selector} h1").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     def "Page Details: Default metadata added to page"() {

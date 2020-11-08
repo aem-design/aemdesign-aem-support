@@ -1,60 +1,27 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "jsx": "preserve",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "pretty": false,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es5",
+  "extends": "@aem-design/compose-webpack/configs/tsconfig.json",
 
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2015",
-      "es2016",
-      "es2017",
-      "esnext",
-      "scripthost"
-    ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ES2018",
+
+    "lib": ["DOM", "DOM.Iterable", "ES2018"],
 
     "paths": {
-      "@global/*": [
-        "source/core/js/*"
-      ],
-      "@components/*": [
-        "source/core/js/components/*"
-      ],
-      "@module/*": [
-        "source/core/js/modules/*"
-      ],
-      "@type/*": [
-        "source/core/@types/*"
-      ],
-      "@utility/*": [
-        "source/core/js/utilities/*"
-      ]
+      "@/core/components/*": ["src/core/js/components/*"],
+      "@/core/module/*": ["src/core/js/modules/*"],
+      "@/core/utility/*": ["src/core/js/utilities/*"],
+      "@/typings/*": ["@types/*"]
     }
   },
 
-  "include": [
-    "@types/*.d.ts",
-    "source/**/*.ts",
-    "source/**/*.tsx",
-    "source/**/*.vue",
-    "source/**/*.scss",
-  ],
+  "exclude": ["public", "node_modules"],
 
-  "exclude": [
-    "public",
-    "node_modules"
+  "include": [
+    "@types/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.scss"
   ]
 }

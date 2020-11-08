@@ -34,7 +34,7 @@ class ContentTemplateScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -56,7 +56,7 @@ class ContentTemplateScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 

@@ -35,7 +35,7 @@ class HiddenPublishSpec extends ComponentSpec {
         assert $(selector).value().equals("hidden")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

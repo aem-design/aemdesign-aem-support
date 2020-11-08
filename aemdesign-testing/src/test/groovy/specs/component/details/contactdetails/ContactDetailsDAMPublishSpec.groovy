@@ -34,13 +34,13 @@ class ContactDetailsDAMPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} .breadcrumb").isEmpty() == true
+        assert $("${selector} .breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         and: "Has Image with Alt Title"
         assert $("${selector} img").attr("alt").trim() == "97236996"
@@ -65,7 +65,7 @@ class ContactDetailsDAMPublishSpec extends ComponentSpec {
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

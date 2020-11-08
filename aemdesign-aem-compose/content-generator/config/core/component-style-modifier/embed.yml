@@ -1,0 +1,24 @@
+embed/default:
+  flat: true
+  prefix: embed-responsive embed-responsive-1by1
+  title: 'Default'
+
+embed/embed-responsive-1by1:
+  flat: true
+  prefix: embed-responsive embed-responsive-1by1
+  title: 'Responsive 1 by 1'
+
+embed/embed-responsive-4by3:
+  flat: true
+  prefix: embed-responsive embed-responsive-4by3
+  title: 'Responsive 4 by 3'
+
+embed/embed-responsive-16by9:
+  flat: true
+  prefix: embed-responsive embed-responsive-16by9
+  title: 'Responsive 16 by 9'
+
+embed/embed-responsive-21by9:
+  flat: true
+  prefix: embed-responsive embed-responsive-21by9
+  title: 'Responsive 21 by 9'

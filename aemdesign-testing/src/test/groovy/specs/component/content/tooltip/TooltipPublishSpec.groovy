@@ -41,7 +41,7 @@ class TooltipPublishSpec extends ComponentSpec {
         assert $("${selector}").attr("data-description").equals("Tool Tip Description")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

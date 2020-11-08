@@ -34,7 +34,7 @@ class StaticIncludePublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The page should have Static Include content")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

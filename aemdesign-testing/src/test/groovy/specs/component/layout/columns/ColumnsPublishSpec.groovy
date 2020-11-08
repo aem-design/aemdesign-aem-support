@@ -40,7 +40,7 @@ class ColumnsPublishSpec extends ComponentSpec {
         $("${selector} .row .col-sm [component].text").getAt(0).text().trim() == "Column 1"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default using 2 Column Layout in #viewport.label")
@@ -70,7 +70,7 @@ class ColumnsPublishSpec extends ComponentSpec {
         $("${selector} .row .col-sm [component].text").getAt(1).text().trim() == "Column 2"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -104,7 +104,7 @@ class ColumnsPublishSpec extends ComponentSpec {
         $("${selector} .row .col-sm [component].text").getAt(2).text().trim() == "Column 3"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -141,7 +141,7 @@ class ColumnsPublishSpec extends ComponentSpec {
         $("${selector} .row .col-sm [component].text").getAt(3).text().trim() == "Column 4"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default using 5 Column Layout in #viewport.label")
@@ -180,7 +180,7 @@ class ColumnsPublishSpec extends ComponentSpec {
         $("${selector} .row .col-sm [component].text").getAt(4).text().trim() == "Column 5"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default using 6 Column Layout in #viewport.label")
@@ -222,7 +222,7 @@ class ColumnsPublishSpec extends ComponentSpec {
         $("${selector} .row .col-sm [component].text").getAt(5).text().trim() == "Column 6"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -281,7 +281,7 @@ class ColumnsPublishSpec extends ComponentSpec {
         assert $("${selector} .row .col-sm").getAt(4).attr("class").contains("col-md-2")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of ColCtrl with 2 Column Multi Breakpoints MD and LG (3,9 and 9,3) in #viewport.label")
@@ -309,6 +309,6 @@ class ColumnsPublishSpec extends ComponentSpec {
         assert $(selector + " .parsys_column .col-sm").getAt(1).attr("class").contains("col-md-9 col-lg-3")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

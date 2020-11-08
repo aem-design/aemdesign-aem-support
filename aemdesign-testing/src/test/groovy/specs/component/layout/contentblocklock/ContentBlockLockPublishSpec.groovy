@@ -36,7 +36,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Section Locked"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -60,7 +60,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Container Unlocked"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Float Section in #viewport.label")
@@ -83,7 +83,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Description List Section in #viewport.label")
@@ -106,7 +106,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Field Set Section in #viewport.label")
@@ -132,7 +132,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -156,7 +156,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -180,7 +180,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Section with Background in #viewport.label")
@@ -206,7 +206,7 @@ class ContentBlockLockPublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").contains(".png")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

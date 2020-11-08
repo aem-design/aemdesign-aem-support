@@ -40,7 +40,7 @@ class ShareButtonPublishSpec extends ComponentSpec {
         assert js.exec("return window.addthis?true:false;")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Inline with Share Tool Box in #viewport.label")
@@ -63,7 +63,7 @@ class ShareButtonPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have embeded component")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -87,7 +87,7 @@ class ShareButtonPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have embeded component")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -111,7 +111,7 @@ class ShareButtonPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have embeded component")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Inline with Related Posts in #viewport.label")
@@ -133,7 +133,7 @@ class ShareButtonPublishSpec extends ComponentSpec {
         assert $(selector).size() > 0
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -157,7 +157,7 @@ class ShareButtonPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have embeded component")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

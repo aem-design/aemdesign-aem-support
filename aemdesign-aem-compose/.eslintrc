@@ -2,32 +2,31 @@
   "root": true,
 
   "extends": [
+    "eslint:recommended",
     "plugin:vue/essential",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "@vue/typescript"
+    "plugin:promise/recommended",
+    "@vue/typescript",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/vue"
   ],
 
-  "plugins": [
-    "@typescript-eslint",
-    "cypress"
-  ],
+  "plugins": ["@typescript-eslint", "filenames", "promise", "prettier"],
 
   "parser": "vue-eslint-parser",
 
-  "env": {
-    "node": true,
-    "builtin": true,
-    "es6": true
-  },
-
   "parserOptions": {
+    "ecmaVersion": 2017,
+    "extraFileExtensions": [".vue"],
     "parser": "@typescript-eslint/parser",
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "sourceType": "module"
   },
 
   "rules": {
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/indent": [1, 2, {"SwitchCase": 1, "VariableDeclarator": 1}]
+    "import/no-anonymous-default-export": "off",
+    "import/no-default-export": "off"
   }
 }

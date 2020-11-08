@@ -1,1 +1,3 @@
-
+#base=../clientlibs-footer/js/vendorlib
+jquery.js
+common.js

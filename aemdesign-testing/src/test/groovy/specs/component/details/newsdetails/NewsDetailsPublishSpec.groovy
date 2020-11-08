@@ -38,16 +38,16 @@ class NewsDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} .breadcrumb").isEmpty() == true
+        assert $("${selector} .breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -70,25 +70,25 @@ class NewsDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb visible"
-        assert $("${selector} nav.breadcrumb").isEmpty() == false
+        assert !$("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar has sample content"
         assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
 
         and: "Has Toolbar visible"
-        assert $("${selector} .navbar").isEmpty() == false
+        assert !$("${selector} .navbar").empty
 
         and: "Has Toolbar has sample content"
         assert $("${selector} #text_in_toolbar").text().trim() == "Text in Toolbar"
 
         and: "Has Parsys visible"
-        assert $("${selector} .text").isEmpty() == false
+        assert !$("${selector} .text").empty
 
         and: "Has Parsys has sample content"
         assert $("${selector} #text_in_parsys").text().trim() == "Text in Parsys"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of News Details Component with Background and Formatted Date in #viewport.label")
@@ -122,13 +122,13 @@ class NewsDetailsPublishSpec extends ComponentSpec {
         assert $("${selector}").css("background-image").contains("city2.jpg")
 
         and: "Has Breadcrumb visible"
-        assert $("${selector} nav.breadcrumb").isEmpty() == false
+        assert !$("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar has sample content"
         assert $("${selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

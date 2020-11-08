@@ -37,7 +37,7 @@ class SearchListPublishSpec extends ComponentSpec {
         assert $(selector).children().size() == 1 &&  $(selector).children().text().contains("Invalid query given!")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Search List Component Default with Query in #viewport.label")
@@ -74,6 +74,6 @@ class SearchListPublishSpec extends ComponentSpec {
         assert $(selector).find(".results").children().size() > 0
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

@@ -1,0 +1,10 @@
+.vscode
+content-generator/**/*.yml
+node
+public
+support
+target
+
+# These files are automatically generated
+_colours.scss
+fontawesome.ts

@@ -34,7 +34,7 @@ class TimingPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The page should have a Component Timing link")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

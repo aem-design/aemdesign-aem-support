@@ -39,7 +39,7 @@ class ContentFragmentPublishSpec extends ComponentSpec {
         assert compareInnerTextIgnoreCase("${selector} .cmp-contentfragment__element.cmp-contentfragment__element--text .cmp-contentfragment__element-label", "Text")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

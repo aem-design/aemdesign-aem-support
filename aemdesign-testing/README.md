@@ -54,7 +54,7 @@ mvn clean test -Dgeb.env=dev -Dtest=LoginSpec
 Test Login Page
 
 ```bash
-./testspec LoginSpec
+./test-spec-local 'LoginSpec'
 ```
 
 ##Screenshots

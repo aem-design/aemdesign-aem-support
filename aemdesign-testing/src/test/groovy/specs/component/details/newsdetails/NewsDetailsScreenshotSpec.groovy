@@ -34,7 +34,7 @@ class NewsDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -56,7 +56,7 @@ class NewsDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
     @Unroll("Appearance of News Details Component with Background and Formatted Date in #viewport.label")
@@ -77,7 +77,7 @@ class NewsDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 }

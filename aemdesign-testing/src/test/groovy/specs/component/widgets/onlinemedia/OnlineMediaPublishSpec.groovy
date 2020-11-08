@@ -39,7 +39,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
         assert $("${selector}").attr("data-mediaprovider").contains("default")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default with YouTube in #viewport.label")
@@ -65,7 +65,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
         assert $("${selector}").attr("data-mediaid").contains("tL46xeIV5mc")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Ignore
@@ -109,7 +109,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
         assert $("${selector}").attr("height").toInteger() == 850
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Ignore
@@ -143,7 +143,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
         assert $(selector).getAttribute("itemtype").equals("http://schema.org/VideoObject")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: IFrame with Vimeo Video in #viewport.label")
@@ -170,7 +170,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
         assert $(selector).hasClass("embed-responsive")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

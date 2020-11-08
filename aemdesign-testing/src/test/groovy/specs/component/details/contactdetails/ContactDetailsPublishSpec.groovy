@@ -35,13 +35,13 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} .breadcrumb").isEmpty() == true
+        assert $("${selector} .breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         and: "Has Image with Alt Title"
         assert $("${selector} img").attr("alt").trim() == "Author: Max Barrass"
@@ -66,7 +66,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -88,13 +88,13 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} .breadcrumb").isEmpty() == true
+        assert $("${selector} .breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         and: "Has Image with Alt Title"
         assert $("${selector} img").attr("alt").trim() == "Contact Details"
@@ -106,10 +106,10 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} div.title").text().trim() == "Contact Details"
 
         and: "Has Description should be empty"
-        assert $("${selector} div.description").text().isEmpty()
+        assert $("${selector} div.description").text().empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component variant Hidden in #viewport.label")
@@ -132,7 +132,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         assert $("${selector}").text() == ""
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     def "Contact Details: Default metadata added to page"() {

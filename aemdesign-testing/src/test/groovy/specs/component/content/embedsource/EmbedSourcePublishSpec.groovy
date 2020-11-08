@@ -44,7 +44,7 @@ class EmbedSourcePublishSpec extends ComponentSpec {
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

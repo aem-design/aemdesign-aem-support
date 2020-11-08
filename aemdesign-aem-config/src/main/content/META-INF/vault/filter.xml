@@ -6,13 +6,12 @@
     <!--<filter root="/content/api"/>-->
 
     <!-- configs -->
-    <filter root="/apps/aemdesign/config" mode="update"/>
-    <filter root="/apps/aemdesign/config.author" mode="update"/>
-    <filter root="/apps/aemdesign/config.publish" mode="update"/>
-    <filter root="/apps/aemdesign/config.ldap" mode="update"/>
-    <filter root="/apps/aemdesign/config.dev" mode="update"/>
-    <filter root="/apps/aemdesign/config.author.localdev" mode="update"/>
-    <filter root="/apps/aemdesign/config.publish.localdev" mode="update"/>
+    <filter root="/apps/aemdesign/config"/>
+    <filter root="/apps/aemdesign/config.author"/>
+    <filter root="/apps/aemdesign/config.publish"/>
+    <filter root="/apps/aemdesign/config.ldap"/>
+    <filter root="/apps/aemdesign/config.author.local"/>
+    <filter root="/apps/aemdesign/config.publish.local"/>
 
 
     <!-- cloud services -->

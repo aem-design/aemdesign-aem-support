@@ -1,0 +1,25 @@
+// stylelint-disable declaration-no-important
+
+/**
+ * Bootstrap visibility
+ */
+
+@import '~bootstrap/scss/utilities/visibility';
+
+/**
+ * Custom additions
+ */
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  .invisible-#{$breakpoint}-up {
+    @include media-breakpoint-up($breakpoint) {
+      display: none !important;
+    }
+  }
+
+  .invisible-#{$breakpoint}-down {
+    @include media-breakpoint-down($breakpoint) {
+      display: none !important;
+    }
+  }
+}

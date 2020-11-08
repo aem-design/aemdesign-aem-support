@@ -45,7 +45,7 @@ class VideoPublishSpec extends ComponentSpec {
         assert js.exec("return \$(\"${selector} video\")[0].paused == false;")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

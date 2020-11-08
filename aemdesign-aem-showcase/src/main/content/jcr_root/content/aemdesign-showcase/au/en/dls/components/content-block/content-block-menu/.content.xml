@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Content Block Menu"
+        sling:resourceType="aemdesign/components/template/dls">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"
+                    editable="{Boolean}false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"/>
+                <contentblock_menu
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                    componentId="contentblock_menu"/>
+                <contentblock_example_one
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_example_one"
+                    title="Content Block - Example 1">
+                    <par jcr:primaryType="nt:unstructured">
+                        <contentblock_example_one_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_example_one_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Content Block - Example 1&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_example_one_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_example_one_component">
+                            <par jcr:primaryType="nt:unstructured">
+                                <contentblock_example_one_component_text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_example_one_component_text"
+                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </contentblock_example_one_component>
+                    </par>
+                </contentblock_example_one>
+                <contentblock_example_two
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_example_two"
+                    title="Content Block - Example 2">
+                    <par jcr:primaryType="nt:unstructured">
+                        <contentblock_example_two_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_example_two_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Content Block - Example 2&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_example_two_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_example_two_component">
+                            <par jcr:primaryType="nt:unstructured">
+                                <contentblock_example_two_component_text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_example_two_component_text"
+                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </contentblock_example_two_component>
+                    </par>
+                </contentblock_example_two>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

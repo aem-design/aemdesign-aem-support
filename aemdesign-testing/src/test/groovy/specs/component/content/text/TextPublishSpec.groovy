@@ -38,16 +38,16 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample rich text")
 
         and: "Has sample table content"
-        assert $("${selector} table").isEmpty() == false
+        assert !$("${selector} table").empty
 
         and: "Has sample link"
-        assert $("${selector} a").isEmpty() == false
+        assert !$("${selector} a").empty
 
         and: "Should have simple BR element"
         assert $("$selector div br").size() > 0
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Simple in #viewport.label")
@@ -71,14 +71,14 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample rich text")
 
         and: "Has sample table content"
-        assert $("${selector} table").isEmpty() == false
+        assert !$("${selector} table").empty
 
         and: "Has sample link"
-        assert $("${selector} a").isEmpty() == false
+        assert !$("${selector} a").empty
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

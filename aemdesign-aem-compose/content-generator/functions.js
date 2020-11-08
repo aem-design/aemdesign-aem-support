@@ -1,8 +1,11 @@
 /* eslint-disable */
 
-const argv   = require('yargs').argv
+const argv = require('yargs').argv
 const colors = require('colors')
 const mkdirp = require('mkdirp')
+const { sortBy } = require('lodash')
+const yaml = require('js-yaml')
+const json2yaml = require('json2yaml')
 
 const {
   readFileSync,
@@ -10,69 +13,42 @@ const {
   lstatSync,
   readdirSync,
   writeFile,
+  writeFileSync,
 } = require('fs')
 
 const { join, resolve } = require('path')
 
-const isDebug = process.argv.find(function(value) { return value === "--debug"}) ? true : false
+const isDebug = process.argv.find(function (value) {
+  return value === '--debug'
+})
+  ? true
+  : false
 
-const {
-  each,
-  escape,
-  isArray,
-  isString,
-  size,
-} = require('lodash')
+const { each, escape, isArray, isString, size } = require('lodash')
 
 const rootPath = '../target/classes'
 
 const breakpoints = {
   sm: null,
   md: 'Tablet',
-  lg: 'Desktop',
-  xl: 'Desktop (Large)',
+  lg: 'Desktop (Large)',
+  xl: 'Desktop (Extra Large)',
 }
 
 const prefixes = {
-  // Font weights
-  '300': 'Light',
-  '400': 'Normal',
-  '600': 'SemiBold',
-  '700': 'Bold',
+  // Aria
+  contentinfo: 'Content Info',
 
   // Screen Reader
-  'sr-only'           : 'Only (visually hidden)',
-  'sr-only-focusable' : 'Show when focused',
+  'sr-only': 'Screen Reader: only',
+  'sr-only-focusable': 'Screen Reader: when focused',
 
-  // Hidden components (invisiblility)
-  'invisible'         : 'Always',
-  'invisible-lg-down' : 'Desktop - Down',
-  'invisible-lg-up'   : 'Desktop - Up',
-  'invisible-md-down' : 'Tablet - Down',
-  'invisible-md-up'   : 'Tablet - Up',
-  'invisible-sm-down' : 'Mobile (landscape) - Down',
-  'invisible-sm-up'   : 'Mobile (landscape) - Up',
-  'invisible-xl-down' : 'Desktop (large) - Down',
-  'invisible-xl-up'   : 'Desktop (large) - Up',
-  'invisible-xs-down' : 'Mobile - Down',
-  'invisible-xs-up'   : 'Mobile - Up',
-
-  // Some colours are vauge, define specifc labels here
-  'dark'         : 'Charcoal',
-  'blue-50'      : 'Blue (50% opacity)',
-  'green-50'     : 'Green (50% opacity)',
-  'purple-50'    : 'Purple (50% opacity)',
-  'red-50'       : 'Red (50% opacity)',
-  'turquoise-50' : 'Turquoise (50% opacity)',
-  'yellow-50'    : 'Yellow (50% opacity)',
-
-  // Add the word 'Square' to these icon
-  'facebook': 'Facebook - Square',
-  'linkedin': 'LinkedIn - Square',
+  // Spacing areas
+  'section-v': 'Section - Vertical',
 
   // Misc styles
-  'col'    : 'Columns',
-  'nowrap' : 'No Wrap',
+  col: 'Columns',
+  nowrap: 'No Wrap',
 }
 
 let templateCache = {}
@@ -81,8 +57,10 @@ function isDirectory(source) {
   return lstatSync(source).isDirectory()
 }
 
-function getDirectories (source) {
-  return readdirSync(source).map(name => join(source, name)).filter(isDirectory)
+function getDirectories(source) {
+  return readdirSync(source)
+    .map((name) => join(source, name))
+    .filter(isDirectory)
 }
 
 function currentPath(path) {
@@ -106,7 +84,10 @@ function loadTemplateForCategory(category = null) {
     return templateCache[category]
   }
 
-  templateCache[category] = readFileSync(currentPath(`./templates/${category}.xml`), 'utf-8').toString()
+  templateCache[category] = readFileSync(
+    currentPath(`./templates/${category}.xml`),
+    'utf-8',
+  ).toString()
   return templateCache[category]
 }
 
@@ -138,20 +119,28 @@ function fixTitle(title) {
 function escapeXml(unsafe) {
   return unsafe.replace(/[<>&'"]/g, function (c) {
     switch (c) {
-      case '<': return '&lt;';
-      case '>': return '&gt;';
-      case '&': return '&amp;';
-      case '\'': return '&apos;';
-      case '"': return '&quot;';
+      case '<':
+        return '&lt;'
+      case '>':
+        return '&gt;'
+      case '&':
+        return '&amp;'
+      case "'":
+        return '&apos;'
+      case '"':
+        return '&quot;'
     }
-  });
+  })
 }
 
 function titleCase(str) {
   try {
-    return str.toLowerCase().replace('-', ' ').split(' ').map(word => (
-      word.replace(word[0], word[0].toUpperCase())
-    )).join(' ')
+    return str
+      .toLowerCase()
+      .replace('-', ' ')
+      .split(' ')
+      .map((word) => word.replace(word[0], word[0].toUpperCase()))
+      .join(' ')
   } catch (ex) {
     logToConsole(colors.red(`Error: ${str}`), ex)
   }
@@ -159,9 +148,15 @@ function titleCase(str) {
   return str
 }
 
-function generateContent(categoryTemplate, categoryTemplateDefault, category, path, contentData) {
+function generateContent(
+  categoryTemplate,
+  categoryTemplateDefault,
+  category,
+  path,
+  contentData,
+) {
   let folderName = ''
-  let template   = categoryTemplate
+  let template = categoryTemplate
 
   if (contentData.template !== '') {
     template = loadTemplateForCategory(contentData.template)
@@ -171,14 +166,18 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
   let templatePatch = template
 
   if (contentData.type === 'tag') {
-    debug({type: "tag", contentData: contentData})
-    const value = contentData.valueFormatted !== '' ?
-      escape(contentData.valueFormatted):
-      escape(contentData.prefixValue + contentData.value)
+    debug({ type: 'tag', contentData: contentData })
+    const value =
+      contentData.valueFormatted !== ''
+        ? escape(contentData.valueFormatted)
+        : escape(contentData.prefixValue + contentData.value)
 
     // Replace the template vars
     templatePatch = templatePatch.replace('%%title%%', contentData.title)
-    templatePatch = templatePatch.replace('%%description%%', contentData.description)
+    templatePatch = templatePatch.replace(
+      '%%description%%',
+      contentData.description,
+    )
     templatePatch = templatePatch.replace('%%value%%', value)
 
     // Strip the folder name if the category is 'component-style-module'
@@ -196,78 +195,102 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     }
   } else {
     if (contentData.content !== undefined) {
-        debug({type: "content", contentData: contentData})
-        const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
+      debug({ type: 'content', contentData: contentData })
+      const templateHasAttributes = templatePatch.indexOf('%%attributes%%') > -1
 
-        //check if json being specified as contents
-        if (contentData.json) {
-            const content = contentData.content
+      //check if json being specified as contents
+      if (contentData.json) {
+        const content = contentData.content
 
-            templatePatch = templatePatch.replace('%%title%%', titleCase(contentData.jsonKey))
-            templatePatch = templatePatch.replace('%%value%%', contentData.jsonKey)
-            //remove attributes field is exist in template
-            templatePatch = templatePatch.replace('%%attributes%%', "")
+        templatePatch = templatePatch.replace(
+          '%%title%%',
+          titleCase(contentData.jsonKey),
+        )
+        templatePatch = templatePatch.replace('%%value%%', contentData.jsonKey)
+        //remove attributes field is exist in template
+        templatePatch = templatePatch.replace('%%attributes%%', '')
 
-            if (isArray(content) || isString(content)) {
-                let localPatch = template
+        if (isArray(content) || isString(content)) {
+          let localPatch = template
 
-                localPatch = localPatch.replace('%%title%%', titleCase(contentData.key))
-                localPatch = localPatch.replace('%%value%%', Buffer.from(JSON.stringify(content || [])).toString('base64'))
-                //remove attributes field is exist in template
-                localPatch = localPatch.replace('%%attributes%%', "")
+          localPatch = localPatch.replace(
+            '%%title%%',
+            titleCase(contentData.key),
+          )
+          localPatch = localPatch.replace(
+            '%%value%%',
+            Buffer.from(JSON.stringify(content || [])).toString('base64'),
+          )
+          //remove attributes field is exist in template
+          localPatch = localPatch.replace('%%attributes%%', '')
 
-                writeTemplate(`${rootPath}/${category}/${path}/${contentData.key}`, categoryTemplateDefault, localPatch)
-            } else {
-                each(content, (field, key) => {
-                    let localPatch = template
-
-                    localPatch = localPatch.replace('%%title%%', field.title)
-                    localPatch = localPatch.replace('%%value%%', Buffer.from(JSON.stringify(field || [])).toString('base64'))
-                    //remove attributes field is exist in template
-                    localPatch = localPatch.replace('%%attributes%%', "")
-
-                    writeTemplate(`${rootPath}/${category}/${path}/${contentData.key}/${key}`, categoryTemplateDefault, localPatch)
-                })
-            }
-
+          writeTemplate(
+            `${rootPath}/${category}/${path}/${contentData.key}`,
+            categoryTemplateDefault,
+            localPatch,
+          )
         } else {
-          debug({type: "other", contentData: contentData})
-          for (const field of Object.keys(contentData.content)) {
-            folderName = field
-            templatePatch = templatePatch.replace('%%node%%', field)
+          each(content, (field, key) => {
+            let localPatch = template
 
-            const fieldValues = contentData.content[field]
-            let fieldAttributes = ""
+            localPatch = localPatch.replace('%%title%%', field.title)
+            localPatch = localPatch.replace(
+              '%%value%%',
+              Buffer.from(JSON.stringify(field || [])).toString('base64'),
+            )
+            //remove attributes field is exist in template
+            localPatch = localPatch.replace('%%attributes%%', '')
 
-            //for all fields apart from json flag
-            for (const fieldName of Object.keys(fieldValues).filter(x => x !== 'json')) {
-              const value = fieldValues[fieldName]
-              //check if the field is explicitly mentioned in template
-              if (templatePatch.indexOf('%%' + fieldName + '%%')>-1) {
-                //replace field value
-                templatePatch = templatePatch.replace(
-                    '%%' + fieldName + '%%',
-                    fieldValues.json === true && fieldName === 'value' ? Buffer.from(JSON.stringify(value)).toString('base64') : value
-                )
-              } else if (templateHasAttributes) {
-                //if not array add to attributes collection
-                if (!Array.isArray(value)) {
-                  fieldAttributes += fieldName + '="' + value + '" '
-                } else {
-                  //if array join and add as array string
-                  fieldAttributes += fieldName + '="[' + Object.values(value).join(",") + ']" '
-                }
+            writeTemplate(
+              `${rootPath}/${category}/${path}/${contentData.key}/${key}`,
+              categoryTemplateDefault,
+              localPatch,
+            )
+          })
+        }
+      } else {
+        debug({ type: 'other', contentData: contentData })
+        for (const field of Object.keys(contentData.content)) {
+          folderName = field
+          templatePatch = templatePatch.replace('%%node%%', field)
+
+          const fieldValues = contentData.content[field]
+          let fieldAttributes = ''
+
+          //for all fields apart from json flag
+          for (const fieldName of Object.keys(fieldValues).filter(
+            (x) => x !== 'json',
+          )) {
+            const value = fieldValues[fieldName]
+            //check if the field is explicitly mentioned in template
+            if (templatePatch.indexOf('%%' + fieldName + '%%') > -1) {
+              //replace field value
+              templatePatch = templatePatch.replace(
+                '%%' + fieldName + '%%',
+                fieldValues.json === true && fieldName === 'value'
+                  ? Buffer.from(JSON.stringify(value)).toString('base64')
+                  : value,
+              )
+            } else if (templateHasAttributes) {
+              //if not array add to attributes collection
+              if (!Array.isArray(value)) {
+                fieldAttributes += fieldName + '="' + value + '" '
+              } else {
+                //if array join and add as array string
+                fieldAttributes +=
+                  fieldName + '="[' + Object.values(value).join(',') + ']" '
               }
             }
-            //replace attributes placeholder with collected fields
-            if (templateHasAttributes) {
-              templatePatch = templatePatch.replace('%%attributes%%', fieldAttributes)
-            }
           }
-
+          //replace attributes placeholder with collected fields
+          if (templateHasAttributes) {
+            templatePatch = templatePatch.replace(
+              '%%attributes%%',
+              fieldAttributes,
+            )
+          }
         }
-
-
+      }
     } else {
       logToConsole('Nothing to do with:', path)
       return
@@ -276,10 +299,14 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
   //remove attributes filed from template
   templatePatch = templatePatch.replace('%%attributes%%', '')
 
-  writeTemplate(`${rootPath}/${category}/${path}/${folderName}`, categoryTemplateDefault, templatePatch)
+  writeTemplate(
+    `${rootPath}/${category}/${path}/${folderName}`,
+    categoryTemplateDefault,
+    templatePatch,
+  )
 }
 
-function verifyTemplate(path,content) {
+function verifyTemplate(path, content) {
   try {
     libxmljs.parseXml(content)
   } catch (ex) {
@@ -291,7 +318,7 @@ function verifyTemplate(path,content) {
 }
 
 function writeTemplate(outputPath, templateDefault, template) {
-  createTemplate(outputPath, template).then(res => {
+  createTemplate(outputPath, template).then((res) => {
     consoleResult(...res)
 
     // Walk up the path and ensure parents have content.xml
@@ -303,12 +330,16 @@ function writeTemplate(outputPath, templateDefault, template) {
 
     if (paths.length > 0) {
       while (paths.length !== 0) {
-
-        let node  = paths[paths.length - 1] || ''
+        let node = paths[paths.length - 1] || ''
         let title = paths[paths.length - 1] || ''
 
         //skip generation of content for ../target
-        if ( title === ".." || ( paths.length === 2 && (paths[paths.length - 2] === ".." && title === "target")) ) {
+        if (
+          title === '..' ||
+          (paths.length === 2 &&
+            paths[paths.length - 2] === '..' &&
+            title === 'target')
+        ) {
           paths.pop()
           continue
         }
@@ -324,27 +355,37 @@ function writeTemplate(outputPath, templateDefault, template) {
         const workingDirectory = currentPath(currentDirectory)
 
         // Get all the child directories and list them in the parent template
-        const directories = getDirectories(workingDirectory).map(directory => {
-          let nodename = directory.replace(workingDirectory, '').substr(1);
-          //convert name of node to HEX if its not a-zA-Z
-          if (nodename.match(/^[^a-zA-Z]/)) {
-            let firstCharHex = nodename.substr(1, 1).charCodeAt(0).toString(16);
-            firstCharHex = ("000"+firstCharHex).slice(-4);
-            nodename = nodename.replace(/^[^a-zA-Z]/, "_x" + firstCharHex + "_");
-          }
-          return `<${nodename}/>`
-        })
+        const directories = getDirectories(workingDirectory).map(
+          (directory) => {
+            let nodename = directory.replace(workingDirectory, '').substr(1)
+            //convert name of node to HEX if its not a-zA-Z
+            if (nodename.match(/^[^a-zA-Z]/)) {
+              let firstCharHex = nodename
+                .substr(1, 1)
+                .charCodeAt(0)
+                .toString(16)
+              firstCharHex = ('000' + firstCharHex).slice(-4)
+              nodename = nodename.replace(
+                /^[^a-zA-Z]/,
+                '_x' + firstCharHex + '_',
+              )
+            }
+            return `<${nodename}/>`
+          },
+        )
 
-
-        templateDefaultPatch = templateDefaultPatch.replace('%%children%%', directories.join('\n    '))
+        templateDefaultPatch = templateDefaultPatch.replace(
+          '%%children%%',
+          directories.join('\n    '),
+        )
 
         promises.push(createTemplate(currentDirectory, templateDefaultPatch))
         paths.pop()
       }
     }
 
-    Promise.all(promises).then(walks => {
-      walks.forEach(walk => consoleResult(...walk))
+    Promise.all(promises).then((walks) => {
+      walks.forEach((walk) => consoleResult(...walk))
     })
   })
 }
@@ -352,9 +393,9 @@ function writeTemplate(outputPath, templateDefault, template) {
 function createTemplate(outputPath, template) {
   mkdirp.sync(currentPath(outputPath))
 
-  return new Promise(res => {
+  return new Promise((res) => {
     if (!existsSync(currentPath(`${outputPath}/.content.xml`))) {
-      writeFile(currentPath(`${outputPath}/.content.xml`), template, err => {
+      writeFile(currentPath(`${outputPath}/.content.xml`), template, (err) => {
         if (err) {
           res([false, outputPath, err])
         } else {
@@ -367,7 +408,12 @@ function createTemplate(outputPath, template) {
 
 function consoleResult(success, outputPath, err = null) {
   if (!success) {
-    logToConsole(colors.red('Unable to save content for:'), outputPath, '\n', err)
+    logToConsole(
+      colors.red('Unable to save content for:'),
+      outputPath,
+      '\n',
+      err,
+    )
   } else {
     logToConsole('Saved content for:', outputPath)
   }
@@ -417,8 +463,14 @@ function parseTitle(title, prefix, options = {}) {
   title = title
     .replace('%%breakpoint%%', breakpointName ? `- ${breakpointName} Up` : '')
     .replace('%%prefix_normalised%%', prefixNormalised)
-    .replace('%%size%%', (options.size !== undefined && options.size.toString()) || '')
-    .replace('%%sizeWithSuffix%%', options.size ? formatSizeWithSuffix(options.size) : '')
+    .replace(
+      '%%size%%',
+      (options.size !== undefined && options.size.toString()) || '',
+    )
+    .replace(
+      '%%sizeWithSuffix%%',
+      options.size ? formatSizeWithSuffix(options.size) : '',
+    )
 
   if (/^\s+?-/.test(title)) {
     title = title.replace(/^\s+?-/, '')
@@ -427,26 +479,108 @@ function parseTitle(title, prefix, options = {}) {
   return title.trim()
 }
 
-
 function debug(text) {
   if (isDebug) {
     console.log(colors.red('DEBUG:'), text)
   }
 }
 
+function loadSupportConfig(filename) {
+  return yaml.safeLoad(
+    readFileSync(currentPath(`../support/config/${filename}.yml`)),
+  )
+}
+
+function writeGeneratedConfigFile(filename, content) {
+  writeFileSync(
+    currentPath(`config/core/${filename}.yml`),
+    json2yaml.stringify(content).split('\n').slice(1).join('\n'),
+  )
+}
+
+function generateColoursFromConfig() {
+  const colours = loadSupportConfig('colours')
+  const coloursFormatted = {}
+
+  for (const [namespace, prefix] of [
+    ['background', 'bg-'],
+    ['colour', 'text-'],
+  ]) {
+    for (const category of Object.keys(colours)) {
+      coloursFormatted[`${namespace}/${category}`] = {
+        prefixes: colours[category].colours.map((colour) => colour.class),
+        startWith: prefix,
+        title: '%%prefix_normalised%%',
+      }
+    }
+  }
+
+  writeGeneratedConfigFile('component-style-modifier/colours', coloursFormatted)
+}
+
+function generateIconsFromConfig() {
+  const icons = loadSupportConfig('icons')
+  const categories = {}
+
+  for (const icon of icons) {
+    if (icon.usable === false) {
+      continue
+    }
+
+    categories[icon.category] = categories[icon.category]
+      ? [...categories[icon.category], icon]
+      : icon.flat
+      ? icon
+      : [icon]
+  }
+
+  // Sort the icons in each category
+  for (const category of Object.keys(categories)) {
+    const icons = categories[category]
+
+    categories[category] = Array.isArray(icons)
+      ? sortBy(icons, ['name'])
+      : icons
+  }
+
+  const iconsFormatted = {}
+
+  // Now bind the items to the correct structure
+  for (const category of Object.keys(categories).sort()) {
+    const icons = categories[category]
+
+    if (Array.isArray(icons)) {
+      iconsFormatted[category] = iconsFormatted[category] || {
+        prefixes: icons.map((icon) => icon.class),
+        title: '%%prefix_normalised%%',
+        valueFormat: `${icons[0].prefix} fa-%%prefix%%`,
+      }
+    } else {
+      iconsFormatted[category] = {
+        flat: true,
+        prefix: `${icons.prefix} fa-${icons.class}`,
+        title: icons.name,
+      }
+    }
+  }
+
+  writeGeneratedConfigFile('icons', iconsFormatted)
+}
 
 module.exports = {
   currentPath,
   formatSizeWithSuffix,
   generateContent,
   getBreakpointInfix,
+  generateColoursFromConfig,
+  generateIconsFromConfig,
   loadTemplateForCategory,
   mapBreakpointToName,
   normalisePrefix,
   parseTitle,
   getDirectories,
   isDirectory,
-  debug
+  debug,
 }
 
 /* eslint-enable */

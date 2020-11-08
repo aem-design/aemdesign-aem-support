@@ -1,0 +1,5 @@
+accessibility:
+  prefixes:
+    - sr-only
+    - sr-only-focusable
+  title: '%%prefix_normalised%%'

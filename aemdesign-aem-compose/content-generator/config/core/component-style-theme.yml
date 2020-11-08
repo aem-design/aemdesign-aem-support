@@ -326,8 +326,6 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     prefixValue: theme--contentblock-
     title: 'Content Block - %%prefix_normalised%%'
 
-
-
   layout/contentblock/constraints:
     breakpoints:
       - sm
@@ -426,21 +424,6 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     prefix: theme--lists-fill
     title: '100% Width Items'
 
-  lists/common/hide-fl:
-    flat: true
-    prefix: theme--lists-hide-fl
-    title: 'Hide First/Last Items (mobile only)'
-
-  lists/common/no-underline:
-    flat: true
-    prefix: theme--lists-no-underline
-    title: 'No Underline Links (on hover)'
-
-  lists/common/bottom-margin:
-    flat: true
-    prefix: theme--lists-bottom-margin
-    title: 'Item Margin (28px, 0px medium up)'
-
   lists/common/light:
     flat: true
     prefix: theme--lists-light
@@ -470,10 +453,10 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     title: '%%prefix_normalised%% %%breakpoint%%'
 
   # Tag List
-  taglist/common/simple:
+  taglist/buttons:
     flat: true
-    prefix: theme--taglist-simple
-    title: 'Simplified Tag List'
+    prefix: theme--taglist-buttons
+    title: 'Buttons'
 
   # Image
   media/image:

@@ -1,7 +1,16 @@
 {
   "extends": [
     "stylelint-config-recommended-scss",
-    "stylelint-config-twbs-bootstrap/scss"
+    "stylelint-config-twbs-bootstrap/scss",
+    "stylelint-config-prettier"
+  ],
+
+  "ignoreFiles": [
+    "node_modules/",
+    "public/",
+    "support/stubs/**/*",
+    "**/*.ts",
+    "compose.config.js"
   ],
 
   "rules": {
@@ -31,7 +40,7 @@
     "declaration-colon-newline-after": "always-multi-line",
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
-    "declaration-property-value-blacklist": {
+    "declaration-property-value-disallowed-list": {
       "/^transition/": ["/all/"],
       "/^background/": ["http:", "https:"],
       "/^border/": ["none"],
@@ -92,7 +101,7 @@
     "selector-combinator-space-before": "always",
     "selector-list-comma-newline-after": "always",
     "selector-list-comma-space-before": "never",
-    "selector-max-compound-selectors": 3,
+    "selector-max-compound-selectors": 4,
     "selector-max-empty-lines": 0,
     "selector-max-id": 0,
     "selector-max-type": [
@@ -134,6 +143,7 @@
 
     "scss/at-mixin-argumentless-call-parentheses": "never",
     "scss/at-function-named-arguments": "never",
+    "scss/at-import-partial-extension": null,
     "scss/at-rule-no-unknown": [
       true,
       {
@@ -147,6 +157,7 @@
       }
     ],
     "scss/dollar-variable-default": null,
+    "scss/dollar-variable-pattern": null,
     "scss/selector-no-redundant-nesting-selector": true
   }
 }

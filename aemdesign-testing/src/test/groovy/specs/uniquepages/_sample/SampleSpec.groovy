@@ -21,7 +21,7 @@ class SampleSpec extends GebReportingSpec {
         def selector = "body"
 
         expect: "body element should not be empty"
-        assert !$(selector).isEmpty()
+        assert !$(selector).empty
     }
 
 }

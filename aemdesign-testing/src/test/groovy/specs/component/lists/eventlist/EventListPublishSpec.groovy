@@ -38,7 +38,7 @@ class EventListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Event List: Default with ICS Feed Enabled in #viewport.label")
@@ -61,7 +61,7 @@ class EventListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

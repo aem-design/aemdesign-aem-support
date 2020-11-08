@@ -1,0 +1,31 @@
+text/alignment:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - center
+    - left
+    - right
+  prefixValue: text-
+  title: '%%prefix_normalised%% %%breakpoint%%'
+
+text/transform:
+  prefixes:
+    - capitalize
+    - lowercase
+    - none
+    - uppercase
+    - small
+  prefixValue: text-
+  title: '%%prefix_normalised%%'
+
+text/weight:
+  prefixes:
+    - lighter
+    - light
+    - normal
+    - bold
+    - bolder
+  valueFormat: 'font-weight-%%prefix%%'
+  title: '%%prefix_normalised%%'

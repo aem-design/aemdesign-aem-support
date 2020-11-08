@@ -1,0 +1,49 @@
+p {
+  hyphens: none;
+
+  // Lead body copy
+  &.lead {
+    line-height: $line-height-lg;
+  }
+
+  // Highlight to authors that there is an empty paragraph tag on the page that should exist!
+  &.is-empty {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    outline: solid 1px $red;
+
+    &::before {
+      color: $red;
+      content: 'Empty paragraph detected, please remove this if you are not intending to use it.';
+      font-weight: 600;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  // This selector removes the bottom margin from all paragraph tags on the page that are
+  // the last of their type in the parent container and are the last child overall. If this
+  // this condition isn't met, the paragraph will retain the existing margin.
+  &:last-of-type:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Bold text
+
+b,
+strong,
+.strong {
+  font-weight: 700;
+}
+
+// Small text
+
+small {
+  font-size: 10px;
+  line-height: 23px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 12px;
+  }
+}

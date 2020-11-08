@@ -43,7 +43,7 @@ class BreadcrumbPublishSpec extends ComponentSpec {
         $(selector + " li.active span", text: "Breadcrumb")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Changed Start Level in #viewport.label")
@@ -70,7 +70,7 @@ class BreadcrumbPublishSpec extends ComponentSpec {
         assert $("$selector li").getAt($("$selector li").size()-1).text().trim() == "Breadcrumb"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Changed Start Level and End Level in #viewport.label")
@@ -97,7 +97,7 @@ class BreadcrumbPublishSpec extends ComponentSpec {
         assert $("$selector li").getAt($("$selector li").size()-1).text().trim() == "Layout"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Show hidden in #viewport.label")
@@ -124,7 +124,7 @@ class BreadcrumbPublishSpec extends ComponentSpec {
         assert $("$selector li").getAt($("$selector li").size()-1).text().trim() == "Layout"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

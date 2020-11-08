@@ -43,7 +43,7 @@ class AssetListPublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("src").contains("_jcr_content")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and Static List with Image Option Rendition in #viewport.label")
@@ -73,7 +73,7 @@ class AssetListPublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and Static List with Image Option Adaptive in #viewport.label")
@@ -103,7 +103,7 @@ class AssetListPublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and Static List with Multiple Images in #viewport.label")
@@ -127,7 +127,7 @@ class AssetListPublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -152,7 +152,7 @@ class AssetListPublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and Descendants List in #viewport.label")
@@ -178,7 +178,7 @@ class AssetListPublishSpec extends ComponentSpec {
         assert $("${selector} video source").getAttribute("type") == "video/mp4"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and Static List with Multiple Asset Types in #viewport.label")
@@ -207,7 +207,7 @@ class AssetListPublishSpec extends ComponentSpec {
         assert $("${selector} audio source").getAttribute("type") == "audio/mpeg"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

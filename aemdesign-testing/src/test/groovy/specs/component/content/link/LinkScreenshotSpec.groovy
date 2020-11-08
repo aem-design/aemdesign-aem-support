@@ -33,7 +33,7 @@ class LinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -54,7 +54,7 @@ class LinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -75,7 +75,7 @@ class LinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -96,7 +96,7 @@ class LinkScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 

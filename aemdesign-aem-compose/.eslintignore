@@ -1,7 +1,11 @@
-**/cypress/plugins
-**/cypress/support
-**/cypress/*.js
-**/config
-**/public
+**/@types/
+**/public/
+**/node_modules/
+**/packages/
+**/src/**/*.scss
+**/support/scripts/
+**/test/**/*.test.*
 
-webpack.config.js
+babel.config.js
+compose.config.js
+jest.config.js

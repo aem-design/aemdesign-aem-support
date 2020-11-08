@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Grid"
+        sling:resourceType="aemdesign/components/template/dls">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"
+                    editable="{Boolean}false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

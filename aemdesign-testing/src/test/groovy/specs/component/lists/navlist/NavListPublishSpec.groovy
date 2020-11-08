@@ -45,7 +45,7 @@ class NavListPublishSpec extends ComponentSpec {
         assert $("${selector} li").lastElement().getAttribute("textContent").trim().contains("Page2")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Nav List: Simple with Fixed List in #viewport.label")
@@ -75,7 +75,7 @@ class NavListPublishSpec extends ComponentSpec {
         assert $("${selector} .menu a").lastElement().getAttribute("textContent").trim().contains("Page2")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Nav List: Stacked with Fixed List in #viewport.label")
@@ -111,7 +111,7 @@ class NavListPublishSpec extends ComponentSpec {
         assert $("${selector} li.dropdown").getAt(1).find("div.dropdown-menu a").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -142,7 +142,7 @@ class NavListPublishSpec extends ComponentSpec {
         assert $("${selector} .menu a").lastElement().getAttribute("textContent").trim().contains("Page5")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Nav List: Stacked with Children List in #viewport.label")
@@ -178,7 +178,7 @@ class NavListPublishSpec extends ComponentSpec {
         assert $("${selector} li.dropdown").getAt(4).find("div.dropdown-menu a").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Nav List: Stacked with Children List has correct current page marks #viewport.label")
@@ -213,7 +213,7 @@ class NavListPublishSpec extends ComponentSpec {
         assert $("${selector} li.nav-item.current").find("a.current").firstElement().getAttribute("textContent").trim() == "Page2"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -243,7 +243,7 @@ class NavListPublishSpec extends ComponentSpec {
         assert $("[aria-labelledby=navlist6_page1_page1] > .nav-item").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

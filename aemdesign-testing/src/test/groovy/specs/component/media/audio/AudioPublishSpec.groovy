@@ -45,7 +45,7 @@ class AudioPublishSpec extends ComponentSpec {
         assert js.exec("return \$(\"${selector} audio\")[0].paused == true;")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -77,7 +77,7 @@ class AudioPublishSpec extends ComponentSpec {
         assert js.exec("return \$(\"${selector} audio\")[0].paused == true;")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

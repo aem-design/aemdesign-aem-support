@@ -1,0 +1,40 @@
+button:
+  prefixes:
+    - link
+    - primary
+    - secondary
+    - success
+    - warning
+    - danger
+    - light
+    - dark
+  valueFormat: btn btn-%%prefix%%
+  title: '%%prefix_normalised%%'
+
+button/outline:
+  prefixes:
+    - primary
+    - secondary
+    - success
+    - warning
+    - danger
+    - light
+    - dark
+  valueFormat: btn btn-outline-%%prefix%%
+  title: '%%prefix_normalised%%'
+
+button/group:
+  flat: true
+  prefix: 'btn-group'
+  title: 'Button Group'
+
+button/size:
+  contents:
+    - block: { value: 'btn-block', title: 'Block (Full Width)' }
+    - lg: { value: 'btn-lg', title: 'Large Button' }
+    - sm: { value: 'btn-sm', title: 'Small Button' }
+
+button/state:
+  contents:
+    - active: { value: 'active', title: 'Active' }
+    - disabled: { value: 'disabled', title: 'Disabled' }

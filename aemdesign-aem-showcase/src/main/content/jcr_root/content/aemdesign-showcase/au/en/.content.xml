@@ -40,8 +40,9 @@
             </par>
         </footer>
     </jcr:content>
-    <pages/>
-    <templates/>
     <component/>
     <content/>
+    <dls/>
+    <pages/>
+    <templates/>
 </jcr:root>

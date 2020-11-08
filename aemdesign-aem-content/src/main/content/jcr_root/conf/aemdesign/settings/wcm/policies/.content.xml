@@ -177,7 +177,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="AEM.Design Showcase"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[aemdesign.common.components,aemdesign.common.body,aemdesign.compose.header,aemdesign.compose.header.styleguide,aemdesign.compose.footer,aemdesign.compose.footer.styleguide]"
+                        clientlibs="[aemdesign.compose.header,aemdesign.compose.header.styleguide,aemdesign.compose.footer,aemdesign.compose.footer.styleguide]"
                         clientlibsJsHead="[aemdesign.compose.header,aemdesign.compose.header.styleguide]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_default>

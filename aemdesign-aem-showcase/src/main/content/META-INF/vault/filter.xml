@@ -2,6 +2,7 @@
 <workspaceFilter version="1.0">
     <filter root="/content/aemdesign-showcase"/>
     <filter root="/content/dam/aemdesign-showcase"/>
+    <filter root="/content/aemdesign-showcase/au/en/styleguide" mode="replace"/>
 
     <filter root="/conf/aemdesign-showcase"/>
     <filter root="/content/experience-fragments/aemdesign-showcase" mode="update"/>

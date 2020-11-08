@@ -36,7 +36,7 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Textarea in #viewport.label")
@@ -59,7 +59,7 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Email in #viewport.label")
@@ -82,7 +82,7 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Telephone in #viewport.label")
@@ -105,7 +105,7 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -129,7 +129,7 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -154,7 +154,7 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -178,7 +178,7 @@ class TextPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

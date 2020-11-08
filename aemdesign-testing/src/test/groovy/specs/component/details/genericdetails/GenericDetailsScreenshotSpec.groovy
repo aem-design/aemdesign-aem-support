@@ -35,7 +35,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -58,7 +58,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -81,7 +81,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -105,7 +105,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -128,7 +128,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -152,7 +152,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -176,7 +176,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -200,7 +200,7 @@ class GenericDetailsScreenshotSpec extends ComponentSpec {
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }

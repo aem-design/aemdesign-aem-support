@@ -37,14 +37,14 @@ class TablePublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         and: "Has sample table content"
-        assert $("${selector} table").isEmpty() == false
+        assert !$("${selector} table").empty
 
         and: "Has sample link"
-        assert $("${selector} a").isEmpty() == false
+        assert !$("${selector} a").empty
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

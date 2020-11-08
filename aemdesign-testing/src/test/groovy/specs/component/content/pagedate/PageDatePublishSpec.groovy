@@ -39,7 +39,7 @@ class PageDatePublishSpec extends ComponentSpec {
         assert $(selector).attr("datetime").trim().equals("2018-02-21")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
