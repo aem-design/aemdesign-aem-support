@@ -300,9 +300,13 @@ Function Main
   $global:SELENIUMHUB_SCHEME=$(getParamOrDefault "${SELENIUMHUB_SCHEME}" "seleniumhubhost.scheme" "${POM_FILE}")
   $global:SELENIUMHUB_SERVICE=$(getParamOrDefault "${SELENIUMHUB_SERVICE}" "seleniumhubhost.service" "${POM_FILE}")
 
-  if ( $AEM_PORT -eq "localhost" )
+  if ( $AEM_HOST -eq "localhost" )
   {
     $global:AEM_HOST = $LOCAL_IP
+  }
+  if ( $SELENIUMHUB_HOST -eq "localhost" )
+  {
+    $global:SELENIUMHUB_HOST = $LOCAL_IP
   }
 
   if ( -not($SKIP_PRINT_CONFIG) )
