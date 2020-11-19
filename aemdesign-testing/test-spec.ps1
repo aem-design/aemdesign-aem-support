@@ -111,20 +111,19 @@ Function Do-RunTest
       # pass maven command location for .m2 dir
       # run bash with login to allow usage of RVM
       # auto-remove container after its done
-#      $DOCKER_COMMAND="docker run -d --user $(id -u):$(id -g) --rm --name ${DRIVER} -v ${PROJECT_ROOT_DIR}:/build/${PARENT_PROJECT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${PARENT_PROJECT_ROOT_NAME}/${PROJECT_NAME}"" ${TEST_IMAGE} bash -l -c '${MAVEN_COMMAND} -Dmaven.repo.local=/build/.m2/repository' "
       $DOCKER_COMMAND="docker run -d --user $(id -u):$(id -g) --rm --name ${DRIVER} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_WITH_GIT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PARENT_PROJECT_NAME}/${PROJECT_NAME}"" ${TEST_IMAGE} bash -l -c '${MAVEN_COMMAND} -Dmaven.repo.local=/build/.m2/repository' "
 
       debug "${DOCKER_COMMAND}"
 
       printSubSectionStart "Docker Command Execute"
 
-      #Invoke-Expression "${DOCKER_COMMAND}"
+      Invoke-Expression "${DOCKER_COMMAND}"
 
       printSubSectionEnd "Docker Command Execute"
     } else {
       printSubSectionStart "Direct Maven Command Execute"
       debug "${MAVEN_COMMAND}"
-      #Invoke-Expression "${MAVEN_COMMAND}"
+      Invoke-Expression "${MAVEN_COMMAND}"
       printSubSectionEnd "Direct Maven Command Execute"
     }
 
