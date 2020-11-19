@@ -172,13 +172,13 @@ monitorTests() {
 
   OPEN_REPORTS_LENGTH=${#OPEN_REPORTS[@]}
 
-  if [[ ! -d "dockerlogs" ]]; then
-    mkdir dockerlogs
+  if [[ ! -d "logs/docker" ]]; then
+    mkdir -p logs/docker
   fi
 
   printSubSectionStart "Watch Logs and Save to Log file"
 
-  local LOGFILE="dockerlogs/docker-log-stdout-$(date +%s).log"
+  local LOGFILE="logs/docker/docker-log-stdout-$(date +%s).log"
   printSectionLine "CONTAINERS: ${OPEN_REPORTS}"
   printSectionLine "LOGFILE: ${LOGFILE}"
   ${DOCKER} logs -f $@ | tee -ai ${LOGFILE}
