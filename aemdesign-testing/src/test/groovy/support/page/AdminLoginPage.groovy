@@ -8,7 +8,7 @@ class AdminLoginPage extends Page {
     static url = "/system/sling/logout.html"
 
     static at = {
-        waitFor(30) { title == "AEM Sign In" }
+        waitFor(30) { title.contains("AEM Sign In") }
     }
 
     static content = {
