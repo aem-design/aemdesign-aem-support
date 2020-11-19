@@ -18,7 +18,7 @@ maven-eclipse.xml
 #ignore testing remote driver exec files and restuls
 /remote-*
 /local-*
-dockerlogs/*
+logs/*
 
 #ignore bash things
 .bash_history
