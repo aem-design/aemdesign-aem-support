@@ -28,14 +28,14 @@
     </developers>
 
     <properties>
-        <geb.version>3.4.1</geb.version>
-        <selenium.version>3.141.59</selenium.version>
-        <groovy.version>3.0.6</groovy.version>
+        <geb.version>2.2</geb.version>
+        <selenium.version>3.141.5</selenium.version>
+        <groovy.version>2.4.14</groovy.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spock.version>2.0-M4-groovy-3.0</spock.version>
-        <spock.reports.version>2.0-RC2</spock.reports.version>
-        <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
+        <spock.version>1.1-groovy-2.4</spock.version>
+        <spock.reports.version>1.6.1</spock.reports.version>
+        <surefire.plugin.version>3.0.0-M3</surefire.plugin.version>
         <surefire.plugin.parallel>methods</surefire.plugin.parallel>
         <surefire.plugin.threadCount>4</surefire.plugin.threadCount>
         <surefire.plugin.forkCount>4</surefire.plugin.forkCount>
@@ -164,7 +164,6 @@
                         <groupId>org.codehaus.groovy</groupId>
                         <artifactId>groovy-all</artifactId>
                         <version>${groovy.version}</version>
-                        <type>pom</type>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -363,7 +362,6 @@
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>${groovy.version}</version>
-            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
