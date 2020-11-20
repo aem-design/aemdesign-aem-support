@@ -89,6 +89,12 @@ runTest() {
         MAVEN_DIR="$(fixPath "$MAVEN_DIR")"
       fi
 
+      # reuse users .m2 folder
+      local WSL_HOME="$(wslpath "$(wslvar USERPROFILE)")"
+      if [[ ! "${WSL_HOME}" == "" ]]; then
+          MAVEN_DIR="${WSL_HOME}/.m2"
+      fi
+
       printSectionLine "Project Root Directory: ${PROJECT_ROOT_DIR}"
       printSectionLine "Maven Directory: ${MAVEN_DIR}"
 
