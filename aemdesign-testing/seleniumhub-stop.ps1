@@ -11,16 +11,14 @@ Param(
 $LOG_FILENAME_DATE = "$(DateStamp)"
 $LOG_FILENAME = "${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
 
-Heading "Stopping Selenium Hub containers"
+printSectionBanner "Stopping Selenium Hub containers"
 
-Heading "Stop Selenium Chrome Node..."
-
+printSectionLine "Stop Selenium Chrome Node..."
 Invoke-Expression -Command "docker stop ${DOCKER_SELENIUMHUB_NODE_NAME}" | Tee-Object -Append -FilePath "${LOG_FILENAME}"
 
-Heading "Stop Selenium Hub..."
+printSectionLine "Stop Selenium Hub..."
 Invoke-Expression -Command "docker stop ${DOCKER_SELENIUMHUB_NAME}" | Tee-Object -Append -FilePath "${LOG_FILENAME}"
 
-Heading "Remove Selenium Network..."
-
+printSectionLine "Remove Selenium Network..."
 Invoke-Expression -Command "docker network rm ${DOCKER_NETWORK_NAME}" | Tee-Object -Append -FilePath "${LOG_FILENAME}"
 
