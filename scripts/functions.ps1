@@ -104,33 +104,6 @@ Function Get-EvalMaven
 
 }
 
-Function Get-MavenCommand
-{
-  [Cmdletbinding()]
-  [Alias("getMavenCommand")]
-  param
-  (
-    [Parameter(ValueFromPipeline)]
-    [string]$DISPATCHER = $args[0],
-    [string]$DRIVER = $args[1],
-    [string]$TEST_HOST = $args[2],
-    [string]$LOGIN = $args[3],
-    [string]$MAVEN_CONFIG = $args[4],
-    [string]$PASSWORD = $args[5],
-    [string]$PORT = $args[6],
-    [string]$SCHEME = $args[7],
-    [string]$SPECS = $args[8],
-    [string]$SELENIUM_URL = $args[9],
-    [string]$USERNAME = $args[10]
-  )
-
-  if ( -Not( $TEST_SKIP_CONVERT ) ) {
-    $MAVEN_EXTRAS = "-P compile-reports-ruby"
-  }
-
-  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""crx.scheme=${SCHEME}"" -D""crx.host=${TEST_HOST}"" -D""crx.port=${PORT}"" -D""crx.username=${USERNAME}"" -D""crx.password=${PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" ${MAVEN_CONFIG}"
-
-}
 Function Get-GitDir
 {
   [Cmdletbinding()]
