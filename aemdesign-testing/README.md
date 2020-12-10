@@ -1,148 +1,182 @@
-#AEM Design AEM Testing Framework
-This is a AEM Functional Testing Framework used to test AEM Sites.
-It is setup to use Firefox driver.
+# AEM Design - AEM Testing Framework
 
-##Getting Started
-- Install Maven [https://maven.apache.org/run-maven/index.html]
-- Test if Maven installed correctly
-```bash
-mvn --version
-```
-- Install ImageMagick [http://www.imagemagick.org/script/download.php]
-- Test if ImageMagick installed correctly
-```bash
-compare --version
-```
-- Install webdrivers
-```bash
-mvn verify -DskipTests=true
-```
-- Deploy related content projects from parent
-```bash
-mvn -PautoInstallPackage clean install -DskipTests=true
-```
-- Run sample test from parent
-```bash
-mvn -pl aemdesign-testing clean test -Dgeb.env=dev -Dtest=Text*
-```
-- Run full suit of test
-```bash
-mvn -pl aemdesign-testing clean test -Dgeb.env=dev -Dtest=Text*
-```
-- Pass parameters to test on other sites
-From Root:
-```bash
-mvn -pl aemdesign-testing clean test -Dgeb.env=dev -Dcrx.host=localhost -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
-```
-In Project Folder
-```bash
-mvn clean test -Dgeb.env=dev -Dcrx.host=localhost -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
-```
-- Quick test on clean instance
-Test Login Page from Root Project
+Automated Functional Testing Framework using Docker and Selenium Grid to test AEM Sites.
 
-```bash
-mvn -pl aemdesign-testing clean test -Dgeb.env=dev -Dtest=LoginSpec
-```
+This will test your specified instance of AEM using Docker container. 
 
-Test Login Page from Testing Project
+To check which parameters can be used check `test-spec.ps1` for Windows and you can run `./test-spec  --help` to check parameters for Linux/Bash execution.
 
-```bash
-mvn clean test -Dgeb.env=dev -Dtest=LoginSpec
+## Prerequisites
+
+You will need to have the following software installed to ensure you can contribute to development of this codebase:
+
+* [Update to Windows 10 20H2](#Update-to-Windows-10-1809) - this will give your windows updates to run WSL2 and install needed applications.
+* [Download and install Java 1.8](https://www.oracle.com/au/java/technologies/javase/javase-jdk8-downloads.html) - you will need this to ensure your code runs on AEM.
+* [Docker Desktop](https://www.docker.com/products/docker-desktop) - this will be used by scripts to run tests
+* [Powershell 7](https://github.com/PowerShell/PowerShell/releases) - this will make your windows terminal work check with `$PSVersionTable`
+* [Windows Terminal](https://github.com/microsoft/terminal/releases) - a wrapper for all terminal available on windows
+* [Windows 10 WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) - allow Windows, Docker and Powershell to work like one!
+* [Ubuntu 20 for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-manual) - this will allow you to do awesome Linux!
+* [Update your Ubuntu Mounts](#Update-your-Ubuntu-Mounts) - this will make your drive appear at root
+* [Enable Windows 10 Long Files Names](#Enable-Windows-10-Long-File-Names) - this will allow Windows to have long filenames.
+* [Install Git Bash](https://gitforwindows.org/) - this will allow you to run git in terminal
+* [Add Git Path Windows Path](#Add-Git-Path-Windows-Path) - this will allow you to run git and other helper functions in powershell and will make your powershell sing!
+* [Enable WSL2 on Windows 10](#Enable-WSL2) - this will allow you to run windows apps from Ubuntu sub-shell.
+* [Intellij Ultimate](https://www.jetbrains.com/idea/download) - this will be your primary IDE, please install following plugin as well.
+  * Plugin: [IntelliVault](https://plugins.jetbrains.com/plugin/7328-intellivault) - configure the plugin to use `vlt` in  
+
+You can now prepare your AEM and project for testing 
+
+* [Run AEM in Docker](#Run-AEM-in-Docker) - start a fresh copy of AEM running in Docker Container, wait for it to load and [http://localhost:4502](http://localhost:4502) and enter your license key.
+* [Deploy Project Content](#Deploy-Project-Content) - deploy project code and content your AEM for testing
+* [GPG using Kleopatra](https://tau.gr/posts/2018-06-29-how-to-set-up-signing-commits-with-git/) - will ensure your commits are from you!
+* [Add your normal user to Docker Users Group](#Add-your-normal-user-to-Docker-Users-Group) - this will allow your to run docker from your account. 
+
+All of this software is going to make your life awesome!
+
+### Deploy Project Content
+
+[Back to Prerequisites](#Prerequisites)
+
+To ensure you have the latest content for testing deploy parent project, run following command in the parent folder:
+
+```powershell
+mvn -DskipTests=true  -P autoInstallPackage -P autoInstallBundle clean install
 ```
 
-Test Login Page
+### Run AEM in Docker
 
-```bash
-./test-spec-local 'LoginSpec'
+[Back to Prerequisites](#Prerequisites)
+
+To start a fresh copy of AEM running in Docker Container run following commnad
+
+```powershell
+docker run --name author648 -e "TZ=Australia/Sydney" -e "AEM_RUNMODE=-Dsling.run.modes=author,crx3,crx3tar,forms,localdev" -e "AEM_JVM_OPTS=-server -Xms248m -Xmx1524m -XX:MaxDirectMemorySize=256M -XX:+CMSClassUnloadingEnabled -Djava.awt.headless=true -Dorg.apache.felix.http.host=0.0.0.0 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=58242,suspend=n" -p4502:8080 -p30303:58242 -d aemdesign/aem:6.4.8.0
 ```
 
-##Screenshots
+### Update your Ubuntu Mounts
 
-- Base screenshots
-These screenshots will be used as a base when comparing the screen from specs
-```
-src/test/screenshots
-```
-When running a test first time a new base image will be generated, when you are happy with test output commit this image to repository.
-This image then will be used by other build test processes.
-All test should be done either on Showcase or respect unknown nature of target host being tested.
+[Back to Prerequisites](#Prerequisites)
 
+https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly#ensure-volume-mounts-work
 
-##Technical Info
-- Clone Repo
-SSH Clone
-```bash
-git clone git@github.com:aem-design/aemdesign-testing.git
 ```
-- Test if project is runnable:
-```bas
-mvn clean
+sudo nano sudo nano /etc/wsl.conf
 ```
-- Run Tests:
-```bash
-mvn test
+
+Add this content into `/etc/wsl.conf`:
+
 ```
+[automount]
+root = /
+options = "metadata"
+```
+
+### Enable WSL2
+
+[Back to Prerequisites](#Prerequisites)
+
+To enable WSL2 on windows run the following command in an elevated powershell prompt:
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform", "Microsoft-Windows-Subsystem-Linux")
+```
+
+### Update to Windows 10 20H2
+
+[Back to Prerequisites](#Prerequisites)
+
+You will need to update your windows machine to at least version 20H2 preferred (1809 min), use Windows Update and click "Check for updates Available at Microsoft"
+
+### Add your normal user to Docker Users Group
+
+[Back to Prerequisites](#Prerequisites)
+
+Run the following command in an elevated powershell prompt:
+
+```powershell
+Add-LocalGroupMember -Group "docker-users" -Member "<YOUR USER NAME>"
+```
+
+### Enable Windows 10 Long File Names
+
+[Back to Prerequisites](#Prerequisites)
+
+To check if your registry entry value for long filenames support:
+
+```powershell
+reg query HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\FileSystem /v LongPathsEnabled
+```
+
+To enable Windows 10 long filename run following command and restart your computer:
+
+```powershell
+reg add HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\FileSystem /v LongPathsEnabled /t REG_DWORD /d 0x1 /f 
+```
+
+## Add Git Path Windows Path
+
+[Back to Prerequisites](#Prerequisites)
+
+You need to add following paths to your System Path environment variable:
+
+* C:\Program Files\Git\bin - this contains main git
+* C:\Program Files\Git\usr\bin - this contains helpers that are available on linux
+
+## Report Output
+
+Test execution will generate sub-directory in the project with test run results.
+This is done so that you can run multiple test cycles at the same time with different parameters.  
+
+* `remote-seleniumhub-chrome` - will be named as per driver name passed as parameter `TEST_DRIVER_NAME`
+  * `generated-docs` - as the Ascii docs output of the final report
+  * `spock-reports` - has the json and Markdown generated results after execution 
+  * `surefire-reports` - has the content for report run output
+  * `test-classes` - has the compiled tests
+  * `test-reports` - has the outputs of the component execution HTML and images
+
+## Base screenshots
+
+When executing Screenshot test they will be saved in `src/test/screenshots` first time the spec is ran. 
+You can commit these files to git, and they will be used as a reference source for next run.  
+
 
 ## Usage
 
-Just check it out and run:
-```bash
-mvn site
-```
-To run all tests:
-```bash
-mvn test
-```
-To run specific tests:
-```bash
-mvn test -Dtest=Link* -Dtest=Text*
-```
-To test screenshot failure run:
-```bash
-mvn test -Dtest=Text* -Dfailtest=true
-```
-To test against and environment:
-```bash
-mvn -Dgeb.env=dev test
-```
-Sample tests:
-```bash
-mvn -Dgeb.env=dev clean test -Dtest=Text*
-mvn -Dgeb.env=dev clean test -Dtest=Link*
-```
-Run All Functional Tests against a local environment
-```bash
-mvn clean test -Dgeb.env=dev -P functional-test
-```
-Run All Screenshot Tests against a local environment
-```bash
-mvn clean test -Dgeb.env=dev -P screenshot-test
+Start Selenium Hub and Node
+
+```powershell
+.\seleniumhub-start
 ```
 
-## Questions and issues
+Using Powershell 7 execute selected tests run following command:
 
-Please ask questions and raise issues at [Testing Frameworks Issues](https://github.com/aem-design/aemdesign-testing/issues).
-
-
-## Showcase Site Information
-
-Publish:
-```text
-http://localhost:4503/aemdesign-showcase/au/en.html
+```powershell
+.\test-spec.ps1 -TEST_PORT 4502 -TEST_HOST 10.0.0.12 -TEST_SELENIUM_URL http://10.0.0.12:32768/wd/hub -TEST_SPECS NotificationCardA*
 ```
 
-Author:
-```text
-http://localhost:4502/content/aemdesign-showcase/au/en.html
-```
-Accounts
-```text
-ro: showcase:showcase
-rw: showcaseadmin:showcaseadmin
+On Linux you can do following command:
+
+```bash
+./test-spec  --host 192.168.1.12 --url http://192.168.1.12:32768/wd/hub --tests NotificationCardA*
 ```
 
-## Component Documentation
+Above commands will only execute `NotificationCardAuthorSpec`.
+
+Update `test-list` with test you want to run without specifying parameters, this should be a complete list of test you want to run.
+
+```powershell
+.\test-spec.ps1 -TEST_PORT 4512 
+```
+
+Stop Selenium Hub and Node
+
+```powershell
+.\seleniumhub-stop
+```
+
+
+## Reference Documentation
 
 ### AEM Authoring Guides
 
