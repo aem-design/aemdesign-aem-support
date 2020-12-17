@@ -10,6 +10,8 @@
 [![github repo size](https://img.shields.io/github/repo-size/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
 [![github repo size](https://img.shields.io/github/languages/code-size/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
 [![github release](https://img.shields.io/github/release/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support)
+[![Visit AEM.Design](https://img.shields.io/badge/visit-aem.design-brightgreen)](https://aem.design/)
+[![Gitter](https://img.shields.io/gitter/room/aem-design/Lobby)](https://gitter.im/aem-design/Lobby)
 
 A set of content and support projects that should be deploy alongside [aemdesign-aem-support](https://github.com/aem-design/aemdesign-aem-support).
 
