@@ -1,8 +1,11 @@
-Param(
-  [string]$PARENT_PROJECT_PATH = "..",
-  [string]$DEFAULT_POM_FILE = "${PARENT_PROJECT_PATH}\pom.xml",
-  [string]$POM_FILE = "${DEFAULT_POM_FILE}"
-)
+# DEFAULTS set these before including this file
+$script:PARENT_PROJECT_PATH = (&{If($PARENT_PROJECT_PATH -eq $null) {".."} else {$PARENT_PROJECT_PATH}})
+$script:DEFAULT_POM_FILE = (&{If($DEFAULT_POM_FILE -eq $null) {"${PARENT_PROJECT_PATH}\pom.xml"} else {$DEFAULT_POM_FILE}})
+$script:POM_FILE = (&{If($POM_FILE -eq $null) {"${DEFAULT_POM_FILE}"} else {$POM_FILE}})
+$script:SKIP_PRINT_CONFIG = (&{If($SKIP_PRINT_CONFIG -eq $null) {$false} else {$SKIP_PRINT_CONFIG}})
+$script:SKIP_CONFIG = (&{If($SKIP_CONFIG -eq $null) {$false} else {$SKIP_CONFIG}})
+
+
 
 Function Get-DateStamp
 {
@@ -40,9 +43,26 @@ Function Get-LocalIP
   (
     [Parameter(ValueFromPipeline)]
     [string]$ITERFACE_NAME = "(Default Switch)",
-    [string]$CONFIG_NAME = "IPv4 Address"
+    [string]$CONFIG_NAME = "IPv4 Address",
+    [string]$IPCONFIG_COMMAND = "ipconfig",
+    [string]$IPCONFIG_COMMAND_OUTPUT = ".\logs\ipconfig.log"
   )
-  return "$(ipconfig | grep "${ITERFACE_NAME}" -A 6 | grep "${CONFIG_NAME}" | head -n1 | awk -F ": " '/1/ {print $2}')"
+  Invoke-Expression -Command ${IPCONFIG_COMMAND} | Set-Content ${IPCONFIG_COMMAND_OUTPUT}
+
+  # GET SECTION LINES
+  $RESULT_INTERFACE = (Get-Content "$IPCONFIG_COMMAND_OUTPUT") | Select-String -SimpleMatch -Pattern "$ITERFACE_NAME" -Context 0,6 | Set-Content ${IPCONFIG_COMMAND_OUTPUT}
+  # GET IP LINE
+  $RESULT_INTERFACE = (Get-Content "$IPCONFIG_COMMAND_OUTPUT") | Select-String -SimpleMatch -Pattern "$CONFIG_NAME" | Set-Content ${IPCONFIG_COMMAND_OUTPUT}
+  $IP_ADDRESS = (Get-Content "$IPCONFIG_COMMAND_OUTPUT").Split(":")[1].Trim()
+
+
+  if ( [string]::IsNullOrEmpty($IP_ADDRESS) )
+  {
+    printSectionLine "COULD NOT FIND CURRENT IP ADDRESS"
+    $IP_ADDRESS = "127.0.0.1"
+  }
+
+  return "$IP_ADDRESS"
 
 }
 
@@ -78,7 +98,7 @@ Function Get-ParamOrDefault
 
   if ( [string]::IsNullOrEmpty(${DEFAULT_VALUE}) )
   {
-    Heading "DEFAULT MISSING IN POM"
+    printSectionLine "DEFAULT MISSING IN POM: $PARAM_NAME"
   } else {
     if ( [string]::IsNullOrEmpty(${PARAM}) )
     {
@@ -109,7 +129,7 @@ Function Get-GitDir
   [Cmdletbinding()]
   [Alias("getGitDir")]
   param()
-  return $(git rev-parse --git-dir | sed -e 's/\(.*\)\.git.*/\1/')
+  return Resolve-Path (git rev-parse --git-dir) | Split-Path -Parent
 
 }
 
@@ -149,31 +169,33 @@ Function Do-Debug
     $TEXT_COLOR = "yellow"
   }
 
-  If ($MyInvocation.Line -like "* debug *")
+  If ($MyInvocation.Line -like "*debug*")
   {
     Write-Host "${TEXT}" -ForegroundColor $TEXT_COLOR
-  } elseif ($MyInvocation.Line -like "* printSectionLine *") {
+  } elseif ($MyInvocation.Line -like "*printSectionLine *") {
     Write-Host $TEXT -ForegroundColor $TEXT_COLOR
-  } elseif ($MyInvocation.Line -like "* printSectionStart *") {
+  } elseif ($MyInvocation.Line -like "*printSectionStart *") {
     Write-Host "$("=" * 100)" -ForegroundColor $TEXT_COLOR
     Write-Host $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}","||"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
     Write-Host "$("=" * 100)" -ForegroundColor $TEXT_COLOR
-  } elseif ($MyInvocation.Line -like "* printSectionEnd *") {
+  } elseif ($MyInvocation.Line -like "*printSectionEnd *") {
     Write-Host "$("^" * 100)" -ForegroundColor $TEXT_COLOR
     Write-Host $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}","||"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
     Write-Host "$("=" * 100)" -ForegroundColor $TEXT_COLOR
-  } elseif ($MyInvocation.Line -like "* printSectionBanner *") {
+  } elseif ($MyInvocation.Line -like "*printSectionBanner *") {
     Write-Host "$("@" * 100)" -ForegroundColor $TEXT_COLOR
     Write-Host $([string]::Format("{0}{1,15}{2,-75}{1,8}{0}","@"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
     Write-Host "$("@" * 100)" -ForegroundColor $TEXT_COLOR
-  } elseif ($MyInvocation.Line -like "* printSubSectionStart *") {
+  } elseif ($MyInvocation.Line -like "*printSubSectionStart *") {
     Write-Host "$("~" * 100)" -ForegroundColor $TEXT_COLOR
     Write-Host $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}"," ~"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
     Write-Host "$("~" * 100)" -ForegroundColor $TEXT_COLOR
-  } elseif ($MyInvocation.Line -like "* printSubSectionEnd *") {
+  } elseif ($MyInvocation.Line -like "*printSubSectionEnd *") {
     Write-Host "$("^" * 100)" -ForegroundColor $TEXT_COLOR
     Write-Host $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}"," ~"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
     Write-Host "$("~" * 100)" -ForegroundColor $TEXT_COLOR
+  } else {
+    Write-Host "${TEXT}" -ForegroundColor $TEXT_COLOR
   }
 
 }
@@ -184,7 +206,7 @@ Function Do-DebugOn
   [Cmdletbinding()]
   [Alias("debugOn")]
   param()
-  $global:DEBUG = $true
+  $script:DEBUG = $true
 
 }
 
@@ -194,7 +216,7 @@ Function Do-DebugOff
   [Cmdletbinding()]
   [Alias("debugOff")]
   param()
-  $global:DEBUG = $false
+  $script:DEBUG = $false
 
 }
 
@@ -226,7 +248,17 @@ Function Do-TestServer
   }
 }
 
-
+Function Do-CreateDir {
+  [Cmdletbinding()]
+  [Alias("createDir")]
+  param(
+    [string]$NAME = $args[0]
+  )
+  if (-not([string]::IsNullOrWhitespace($NAME)))
+  {
+    return $([System.IO.Directory]::CreateDirectory("${NAME}") )
+  }
+}
 
 Function Main
 {
@@ -239,66 +271,68 @@ Function Main
 #  printSubSectionStart "printSubSectionStart"
 #  printSubSectionEnd "printSubSectionEnd"
 
-  printSectionBanner "Config"
-
-
-  $LOG_PATH = $([System.IO.Directory]::CreateDirectory("${LOG_PATH}"))
-  $DOCKER_LOGS_FOLDER = $([System.IO.Directory]::CreateDirectory("${DOCKER_LOGS_FOLDER}"))
-  $DRIVER_FOLDER = $([System.IO.Directory]::CreateDirectory("${DRIVER_FOLDER}"))
+  $LOG_PATH = (createDir $LOG_PATH)
+  $DOCKER_LOGS_FOLDER = (createDir $DOCKER_LOGS_FOLDER)
+  $DRIVER_FOLDER = (createDir $DRIVER_FOLDER)
 
   # set logfile name
-  $global:LOG_FILENAME_DATE = "$(DateStamp)"
-  $global:LOG_FILENAME = "${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
+  $script:LOG_FILENAME_DATE = "$(DateStamp)"
+  $script:LOG_FILENAME = "${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
 
-  $global:LOCAL_IP = (Get-LocalIP)
+  $script:LOCAL_IP = (Get-LocalIP)
 
-  # load pom file
-  [xml]$POM_FILE_XML = (Get-Content $POM_FILE)
-
-  printSectionLine "AEM_USER: $AEM_USER"
-  printSectionLine "LOG_FILENAME: ${LOG_FILENAME}"
-  printSectionLine "PARENT_PROJECT_PATH: ${PARENT_PROJECT_PATH}"
-  printSectionLine "DEFAULT_POM_FILE: ${DEFAULT_POM_FILE}"
-  printSectionLine "POM_FILE: ${POM_FILE}"
-  printSectionLine "SCRIPT_PARAMS: ${SCRIPT_PARAMS}"
-
-  $global:AEM_USER=$(getParamOrDefault "${AEM_USER}" "crx.password" "${POM_FILE}")
-  $global:AEM_PASS=$(getParamOrDefault "${AEM_PASS}" "crx.username" "${POM_FILE}")
-  $global:AEM_SCHEME=$(getParamOrDefault "${AEM_SCHEME}" "crx.scheme" "${POM_FILE}")
-  $global:AEM_HOST=$(getParamOrDefault "${AEM_HOST}" "crx.host" "${POM_FILE}")
-  $global:AEM_PORT=$(getParamOrDefault "${AEM_PORT}" "crx.port" "${POM_FILE}")
-  $global:AEM_SCHEMA=$(getParamOrDefault "${AEM_SCHEMA}" "package.uploadProtocol" "${POM_FILE}")
-  $global:SELENIUMHUB_HOST=$(getParamOrDefault "${SELENIUMHUB_HOST}" "seleniumhubhost.host" "${POM_FILE}")
-  $global:SELENIUMHUB_PORT=$(getParamOrDefault "${SELENIUMHUB_PORT}" "seleniumhubhost.port" "${POM_FILE}")
-  $global:SELENIUMHUB_SCHEME=$(getParamOrDefault "${SELENIUMHUB_SCHEME}" "seleniumhubhost.scheme" "${POM_FILE}")
-  $global:SELENIUMHUB_SERVICE=$(getParamOrDefault "${SELENIUMHUB_SERVICE}" "seleniumhubhost.service" "${POM_FILE}")
-
-  if ( $AEM_HOST -eq "localhost" )
+  if (-not($SKIP_CONFIG))
   {
-    $global:AEM_HOST = $LOCAL_IP
-  }
-  if ( $SELENIUMHUB_HOST -eq "localhost" )
-  {
-    $global:SELENIUMHUB_HOST = $LOCAL_IP
-  }
+    printSectionBanner "Maven Config" "info"
 
-  if ( -not($SKIP_PRINT_CONFIG) )
-  {
+    # load pom file
+    [xml]$POM_FILE_XML = (Get-Content $POM_FILE)
 
-    printSectionLine "Params:     $SCRIPT_PARAMS"
-    printSectionLine " - POM_FILE:   ${POM_FILE}"
-    printSectionLine " - AEM_USER:   $AEM_USER"
-    printSectionLine " - AEM_PASS:   $( echo ${AEM_PASS} | sed "s/\w/*/g" )"
-    printSectionLine " - AEM_SCHEME: $AEM_SCHEME"
-    printSectionLine " - AEM_HOST:   $AEM_HOST"
-    printSectionLine " - AEM_PORT:   $AEM_PORT"
-    printSectionLine " - AEM_SCHEMA: $AEM_SCHEMA"
-    printSectionLine " - SELENIUMHUB_HOST: $SELENIUMHUB_HOST"
-    printSectionLine " - SELENIUMHUB_PORT: $SELENIUMHUB_PORT"
-    printSectionLine " - SELENIUMHUB_SCHEME: $SELENIUMHUB_SCHEME"
-    printSectionLine " - SELENIUMHUB_SERVICE: $SELENIUMHUB_SERVICE"
+    printSectionLine "LOG_FILENAME: ${LOG_FILENAME}"
+    printSectionLine "PARENT_PROJECT_PATH: ${PARENT_PROJECT_PATH}"
+    printSectionLine "DEFAULT_POM_FILE: ${DEFAULT_POM_FILE}"
+    printSectionLine "POM_FILE: ${POM_FILE}"
+    printSectionLine "SCRIPT_PARAMS: ${SCRIPT_PARAMS}"
 
-    $SKIP_PRINT_CONFIG = $false
+  $script:AEM_USER = $( getParamOrDefault "${AEM_USER}" "crx.password" "${POM_FILE}")
+  $script:AEM_PASS = $( getParamOrDefault "${AEM_PASS}" "crx.username" "${POM_FILE}")
+  $script:AEM_SCHEME = $( getParamOrDefault "${AEM_SCHEME}" "crx.scheme" "${POM_FILE}")
+  $script:AEM_HOST = $( getParamOrDefault "${AEM_HOST}" "crx.host" "${POM_FILE}")
+  $script:AEM_PORT = $( getParamOrDefault "${AEM_PORT}" "crx.port" "${POM_FILE}")
+  $script:AEM_SCHEMA = $( getParamOrDefault "${AEM_SCHEMA}" "package.uploadProtocol" "${POM_FILE}")
+  $script:SELENIUMHUB_HOST = $( getParamOrDefault "${SELENIUMHUB_HOST}" "seleniumhubhost.host" "${POM_FILE}")
+  $script:SELENIUMHUB_PORT = $( getParamOrDefault "${SELENIUMHUB_PORT}" "seleniumhubhost.port" "${POM_FILE}")
+  $script:SELENIUMHUB_SCHEME = $( getParamOrDefault "${SELENIUMHUB_SCHEME}" "seleniumhubhost.scheme" "${POM_FILE}")
+  $script:SELENIUMHUB_SERVICE = $( getParamOrDefault "${SELENIUMHUB_SERVICE}" "seleniumhubhost.service" "${POM_FILE}")
+
+    if ($AEM_HOST -eq "localhost")
+    {
+      $script:AEM_HOST = $LOCAL_IP
+    }
+    if ($SELENIUMHUB_HOST -eq "localhost")
+    {
+      $script:SELENIUMHUB_HOST = $LOCAL_IP
+    }
+
+    if (-not($SKIP_PRINT_CONFIG))
+    {
+
+      printSectionLine "Params:     $SCRIPT_PARAMS"
+      printSectionLine " - POM_FILE:   ${POM_FILE}"
+      printSectionLine " - AEM_USER:   $AEM_USER"
+      printSectionLine " - AEM_PASS:   $( "*" * $AEM_PASS.length )"
+      printSectionLine " - AEM_SCHEME: $AEM_SCHEME"
+      printSectionLine " - AEM_HOST:   $AEM_HOST"
+      printSectionLine " - AEM_PORT:   $AEM_PORT"
+      printSectionLine " - AEM_SCHEMA: $AEM_SCHEMA"
+      printSectionLine " - SELENIUMHUB_HOST: $SELENIUMHUB_HOST"
+      printSectionLine " - SELENIUMHUB_PORT: $SELENIUMHUB_PORT"
+      printSectionLine " - SELENIUMHUB_SCHEME: $SELENIUMHUB_SCHEME"
+      printSectionLine " - SELENIUMHUB_SERVICE: $SELENIUMHUB_SERVICE"
+
+      $script:SKIP_PRINT_CONFIG = $false
+    }
+
   }
 
 }
