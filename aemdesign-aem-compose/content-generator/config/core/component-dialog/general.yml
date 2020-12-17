@@ -6,6 +6,17 @@ asset/rendition/prefix:
   valueFormat: 'cq5dam.%%prefix%%.'
   title: 'OOTB %%prefix_normalised%%'
 
+asset/license/format:
+  contents:
+    - metadata: {
+      title: "Metadata: [Creator] [Contributor] [License] [Copyright Owner] [Expiry]",
+      value: '<span itemprop="creator" itemtype="https://schema.org/Person">${dc:creator}</span><span itemprop="contributor" itemtype="https://schema.org/Person">${dc:contributor}</span><span itemprop="license" itemtype="https://schema.org/CreativeWork">${dc:rights}</span><span itemprop="copyrightHolder" itemtype="https://schema.org/Person">${xmpRights:Owner}</span><span itemprop="copyrightHolder" itemtype="https://schema.org/CreativeWork">${prism:expirationDate}</span>'
+    }
+    - simple: {
+      title: "Text: [Expiry] [Creator] [Contributor] [License] [Copyright Owner]",
+      value: "${prism:expirationDate} ${dc:creator} ${dc:contributor} ${dc:rights} ${xmpRights:Owner}"
+    }
+
 # WARNING: Reference to these path is hardcoded into component dialogs
 css/mediaquery:
   contents:
