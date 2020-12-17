@@ -123,9 +123,14 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     prefix: '<span itemprop="jobTitle">${jobTitle}</span> for <span itemprop="employee" itemtype="http://schema.org/Organization">${employee}</span> <a href="mailto:${email}" itemprop="email">${email}</a>'
     title: 'Job Title At Employee with Email'
 
+  details/contact-details/format/description/jobTitleContactMobileEmail:
+    flat: true
+    prefix: '<div itemprop="jobTitle">${jobTitle}</div><div><a href="tel:${contactNumber}" itemprop="telephone" class="phone">${contactNumber}</a></div><div><a href="tel:${contactNumberMobile}" itemprop="telephone" class="mobile">${contactNumberMobile}</a></div><div><a href="mailto:${email}" itemprop="email" class="email">${email}</a></div>'
+    title: 'Job Title with Contact Numbers and Email'
+
   details/contact-details/format/title/default:
     flat: true
-    prefix: '${honorificPrefix} ${givenName} ${familyName}'
+    prefix: '<span itemprop="honorificPrefix">${honorificPrefix} </span><span itemprop="name">${givenName} ${familyName}</span>'
     title: 'Default format'
 
   details/contact-details/format/title/author:
@@ -805,6 +810,14 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     flat: true
     prefix: '1;col-md-,8;offset-md-,2;col-lg-,10;offset-lg-,1;col-xl-,6;offset-xl-,3'
     title: '1 Column (Medium - 8 + offset 2, Large - 10 + offset 1, XLarge - 6 + offset 3)'
+
+  # WARNING: Reference to these path is hardcoded into component dialogs
+  #ONLY ADD NEW LAYOUTS AS OLD ONES CAN'T BE CHANGED ONCE USED
+  layout/colctrl/layout/col4-3-3-3-3:
+    flat: true
+    prefix: '4;col-md-,3,3,3,3'
+    title: '4 Column - 3 | 3 | 3 | 3'
+
 
   # Widgets
   widgets/sharebutton:
