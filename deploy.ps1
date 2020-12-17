@@ -13,8 +13,8 @@ Param(
 
 . ".\scripts\functions.ps1"
 
-$global:LOG_PATH = $LOG_PATH
-$global:TEST_SELENIUM_URL = $TEST_SELENIUM_URL
+$script:LOG_PATH = $LOG_PATH
+$script:TEST_SELENIUM_URL = $TEST_SELENIUM_URL
 
 printSectionBanner "Deploying Monolith Package:" "warn"
 printSectionLine "mvn -Dvault.useProxy=false -DskipTests -e -U -P installdeploymentpackage clean install"
@@ -24,10 +24,10 @@ printSectionLine "mvn -Dvault.useProxy=false -DskipTests -e -U -P installdeploym
 if ( $TEST_HOST -eq "localhost" )
 {
   debug "Test host is set as localhost, updating to use local ip" "info"
-  $global:TEST_HOST="${LOCAL_IP}"
+  $script:TEST_HOST="${LOCAL_IP}"
 }
 
-$global:AEM_AVAILABLE=$(testServer "${AEM_SCHEME}://${AEM_HOST}:${AEM_PORT}")
+$script:AEM_AVAILABLE=$(testServer "${AEM_SCHEME}://${AEM_HOST}:${AEM_PORT}")
 
 printSectionLine "Is AEM at ${AEM_SCHEME}://${AEM_HOST}:${AEM_PORT} available? ${AEM_AVAILABLE}"
 
