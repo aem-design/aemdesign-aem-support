@@ -108,10 +108,16 @@ To check if your registry entry value for long filenames support:
 reg query HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\FileSystem /v LongPathsEnabled
 ```
 
-To enable Windows 10 long filename run following command and restart your computer:
+To enable Windows 10 long filename run following command in elevated powershell and restart your computer:
 
 ```powershell
 reg add HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\FileSystem /v LongPathsEnabled /t REG_DWORD /d 0x1 /f 
+```
+
+To enable git to use long filename run following command in elevated powershell and restart your computer:
+
+```powershell
+git config --system core.longpaths true
 ```
 
 ## Add Git Path Windows Path
