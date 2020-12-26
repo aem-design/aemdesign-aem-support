@@ -1,4 +1,4 @@
-# DEFAULTS set these before including this file
+ DEFAULTS set these before including this file
 $script:PARENT_PROJECT_PATH = (&{If($PARENT_PROJECT_PATH -eq $null) {".."} else {$PARENT_PROJECT_PATH}})
 $script:DEFAULT_POM_FILE = (&{If($DEFAULT_POM_FILE -eq $null) {"${PARENT_PROJECT_PATH}\pom.xml"} else {$DEFAULT_POM_FILE}})
 $script:POM_FILE = (&{If($POM_FILE -eq $null) {"${DEFAULT_POM_FILE}"} else {$POM_FILE}})
@@ -336,6 +336,136 @@ Function Main
   }
 
 }
+
+### SLING POST - WORKFLOW
+
+[HashTable]$script:BODY_SERVICE_TO_DISABLE = @{
+    "action"="stop"
+}
+[HashTable]$script:BODY_SERVICE_TO_DISABLE_ENABLE = @{
+    "action"="start"
+}
+[HashTable]$script:WORKFLOW_ASSET_ENABLE_UPDATE = @{
+    "jcr:primaryType"= "cq:WorkflowLauncher"
+    "description"= "Update Asset - Modification"
+    "enabled"= "true"
+    "conditions"= "jcr:content/jcr:mimeType!=video/.*"
+    "glob"= "/content/dam(/((?!/subassets).)*/)renditions/original"
+    "eventType"= "16"
+    "workflow"= "/var/workflow/models/dam/update_asset"
+    "runModes"= "author"
+    "nodetype"= "nt:file"
+    "excludeList"= "event-user-data:changedByWorkflowProcess"
+    "enabled@TypeHint"="Boolean"
+    "eventType@TypeHint"="Long"
+    "conditions@TypeHint"="String[]"
+}
+
+[HashTable]$script:WORKFLOW_ASSET_DISABLE_UPDATE = @{
+    "jcr:primaryType"= "cq:WorkflowLauncher"
+    "description"= "Update Asset - Modification"
+    "enabled"= "false"
+    "conditions"= "jcr:content/jcr:mimeType!=video/.*"
+    "glob"= "/content/dam(/((?!/subassets).)*/)renditions/original"
+    "eventType"= "16"
+    "workflow"= "/var/workflow/models/dam/update_asset"
+    "runModes"= "author"
+    "nodetype"= "nt:file"
+    "excludeList"= "event-user-data:changedByWorkflowProcess"
+    "enabled@TypeHint"="Boolean"
+    "eventType@TypeHint"="Long"
+    "conditions@TypeHint"="String[]"
+}
+
+[HashTable]$script:WORKFLOW_ASSET_ENABLE_CREATE = @{
+    "jcr:primaryType"= "cq:WorkflowLauncher"
+    "description"= "Update Asset - Create"
+    "enabled"= "true"
+    "conditions"= "jcr:content/jcr:mimeType!=video/.*"
+    "glob"= "/content/dam(/((?!/subassets).)*/)renditions/original"
+    "eventType"= "1"
+    "workflow"= "/var/workflow/models/dam/update_asset"
+    "runModes"= "author"
+    "nodetype"= "nt:file"
+    "excludeList"= "event-user-data:changedByWorkflowProcess"
+    "enabled@TypeHint"="Boolean"
+    "eventType@TypeHint"="Long"
+    "conditions@TypeHint"="String[]"
+}
+
+[HashTable]$script:WORKFLOW_ASSET_DISABLE_CREATE = @{
+    "jcr:primaryType"= "cq:WorkflowLauncher"
+    "description"= "Update Asset - Create"
+    "enabled"= "false"
+    "conditions"= "jcr:content/jcr:mimeType!=video/.*"
+    "glob"= "/content/dam(/((?!/subassets).)*/)renditions/original"
+    "eventType"= "16"
+    "workflow"= "/var/workflow/models/dam/update_asset"
+    "runModes"= "author"
+    "nodetype"= "nt:file"
+    "excludeList"= "event-user-data:changedByWorkflowProcess"
+    "enabled@TypeHint"="Boolean"
+    "eventType@TypeHint"="Long"
+    "conditions@TypeHint"="String[]"
+}
+
+
+function doSlingPost {
+    [CmdletBinding()]
+    Param (
+
+        [Parameter(Mandatory=$true)]
+        [string]$Url="http://localhost:4502",
+
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [ValidateSet('Post','Delete')]
+        [string]$Method,
+
+        [Parameter(Mandatory=$false)]
+        [HashTable]$Body,
+
+        [Parameter(Mandatory=$false,
+                HelpMessage="Provide Basic Auth Credentials in following format: <user>:<pass>")]
+        [string]$BasicAuthCreds="",
+
+        [Parameter(Mandatory=$false)]
+        [string]$UserAgent="",
+
+        [Parameter(Mandatory=$false)]
+        [string]$Referer="",
+
+        [Parameter(Mandatory=$false)]
+        [string]$Timeout="5"
+
+    )
+
+
+
+    $HEADERS = @{
+    }
+
+    if (-not([string]::IsNullOrEmpty($UserAgent))) {
+        $HEADERS.add("User-Agent",$UserAgent)
+    }
+
+    if (-not([string]::IsNullOrEmpty($Referer))) {
+        $HEADERS.add("Referer",$Referer)
+    }
+
+
+    if (-not([string]::IsNullOrEmpty($BasicAuthCreds))) {
+        $BASICAUTH = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($BasicAuthCreds))
+        $HEADERS.add("Authorization","Basic $BASICAUTH")
+    }
+
+
+    Write-Host "Performing action $Method on $Url."
+
+    $Response = Invoke-WebRequest -Method Post -Headers $HEADERS -TimeoutSec $Timeout -Uri "$Url" -Form $Body -ContentType "application/x-www-form-urlencoded"
+
+}
+
 
 #run main
 Main
