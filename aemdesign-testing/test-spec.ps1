@@ -60,7 +60,7 @@ Function Get-MavenCommand
     $MAVEN_EXTRAS = "-P compile-reports-ruby"
   }
 
-  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""crx.scheme=${SCHEME}"" -D""crx.host=${TEST_HOST}"" -D""crx.port=${PORT}"" -D""crx.username=${USERNAME}"" -D""crx.password=${PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" ${MAVEN_CONFIG}"
+  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""aem.scheme=${SCHEME}"" -D""aem.host=${TEST_HOST}"" -D""aem.port=${PORT}"" -D""aem.username=${USERNAME}"" -D""aem.password=${PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" ${MAVEN_CONFIG}"
 
 }
 

@@ -280,7 +280,7 @@
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=true</argument>
-                                        <argument>${package.uploadProtocol}://${crx.host}:${crx.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
+                                        <argument>${package.uploadProtocol}://${aem.host}:${aem.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
