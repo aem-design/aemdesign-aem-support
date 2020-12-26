@@ -1,4 +1,4 @@
- DEFAULTS set these before including this file
+# DEFAULTS set these before including this file
 $script:PARENT_PROJECT_PATH = (&{If($PARENT_PROJECT_PATH -eq $null) {".."} else {$PARENT_PROJECT_PATH}})
 $script:DEFAULT_POM_FILE = (&{If($DEFAULT_POM_FILE -eq $null) {"${PARENT_PROJECT_PATH}\pom.xml"} else {$DEFAULT_POM_FILE}})
 $script:POM_FILE = (&{If($POM_FILE -eq $null) {"${DEFAULT_POM_FILE}"} else {$POM_FILE}})
@@ -9,29 +9,29 @@ $script:SKIP_CONFIG = (&{If($SKIP_CONFIG -eq $null) {$false} else {$SKIP_CONFIG}
 
 Function Get-DateStamp
 {
-    [Cmdletbinding()]
-    [Alias("DateStamp")]
-    param
-    (
-        [Parameter(ValueFromPipeline)]
-        [string]$Text
-    )
+  [Cmdletbinding()]
+  [Alias("DateStamp")]
+  param
+  (
+    [Parameter(ValueFromPipeline)]
+    [string]$Text
+  )
 
-    return "{0:yyyyMMdd}-{0:HHmmss}" -f (Get-Date)
+  return "{0:yyyyMMdd}-{0:HHmmss}" -f (Get-Date)
 
 }
 
 Function Get-TimeStamp
 {
-    [Cmdletbinding()]
-    [Alias("TimeStamp")]
-    param
-    (
-        [Parameter(ValueFromPipeline)]
-        [string]$Text
-    )
+  [Cmdletbinding()]
+  [Alias("TimeStamp")]
+  param
+  (
+    [Parameter(ValueFromPipeline)]
+    [string]$Text
+  )
 
-    return "{0:MM/dd/yy} {0:HH:mm:ss}" -f (Get-Date)
+  return "{0:MM/dd/yy} {0:HH:mm:ss}" -f (Get-Date)
 
 }
 
@@ -44,9 +44,11 @@ Function Get-LocalIP
     [Parameter(ValueFromPipeline)]
     [string]$ITERFACE_NAME = "(Default Switch)",
     [string]$CONFIG_NAME = "IPv4 Address",
+    [string]$LOG_PATH = "${PWD}\logs",
     [string]$IPCONFIG_COMMAND = "ipconfig",
-    [string]$IPCONFIG_COMMAND_OUTPUT = ".\logs\ipconfig.log"
+    [string]$IPCONFIG_COMMAND_OUTPUT = "${LOG_PATH}\ipconfig.log"
   )
+
   Invoke-Expression -Command ${IPCONFIG_COMMAND} | Set-Content ${IPCONFIG_COMMAND_OUTPUT}
 
   # GET SECTION LINES
@@ -150,12 +152,16 @@ Function Do-Debug
     [string]$TYPE = $args[1]
   )
 
+  # Save previous colors
+  $previousForegroundColor = $host.UI.RawUI.ForegroundColor
+  $previousBackgroundColor = $host.UI.RawUI.BackgroundColor
+
   if ( -not ([string]::IsNullOrEmpty(${LOG_FILENAME})) )
   {
     Write-Output "${TEXT}" | Add-Content -Path "${LOG_FILENAME}"
   }
 
-  $TEXT_COLOR = (get-host).ui.rawui.ForegroundColor
+  $TEXT_COLOR = $host.ui.rawui.ForegroundColor
   If ($TYPE -eq "error")
   {
     $TEXT_COLOR = "red"
@@ -167,35 +173,39 @@ Function Do-Debug
   elseif ($TYPE -eq "warn")
   {
     $TEXT_COLOR = "yellow"
+  } else {
+    $TEXT_COLOR = "gray"
   }
+
+  $host.UI.RawUI.ForegroundColor = $TEXT_COLOR
 
   If ($MyInvocation.Line -like "*debug*")
   {
-    Write-Output "${TEXT}" -ForegroundColor $TEXT_COLOR
+    Write-Output "${TEXT}"
   } elseif ($MyInvocation.Line -like "*printSectionLine *") {
-    Write-Output $TEXT -ForegroundColor $TEXT_COLOR
+    Write-Output $TEXT
   } elseif ($MyInvocation.Line -like "*printSectionStart *") {
-    Write-Output "$("=" * 100)" -ForegroundColor $TEXT_COLOR
-    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}","||"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
-    Write-Output "$("=" * 100)" -ForegroundColor $TEXT_COLOR
+    Write-Output "$("=" * 100)"
+    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}","||"," ",$TEXT))
+    Write-Output "$("=" * 100)"
   } elseif ($MyInvocation.Line -like "*printSectionEnd *") {
-    Write-Output "$("^" * 100)" -ForegroundColor $TEXT_COLOR
-    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}","||"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
-    Write-Output "$("=" * 100)" -ForegroundColor $TEXT_COLOR
+    Write-Output "$("^" * 100)"
+    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}","||"," ",$TEXT))
+    Write-Output "$("=" * 100)"
   } elseif ($MyInvocation.Line -like "*printSectionBanner *") {
-    Write-Output "$("@" * 100)" -ForegroundColor $TEXT_COLOR
-    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,8}{0}","@"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
-    Write-Output "$("@" * 100)" -ForegroundColor $TEXT_COLOR
+    Write-Output "$("@" * 100)"
+    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,8}{0}","@"," ",$TEXT))
+    Write-Output "$("@" * 100)"
   } elseif ($MyInvocation.Line -like "*printSubSectionStart *") {
-    Write-Output "$("~" * 100)" -ForegroundColor $TEXT_COLOR
-    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}"," ~"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
-    Write-Output "$("~" * 100)" -ForegroundColor $TEXT_COLOR
+    Write-Output "$("~" * 100)"
+    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}"," ~"," ",$TEXT))
+    Write-Output "$("~" * 100)"
   } elseif ($MyInvocation.Line -like "*printSubSectionEnd *") {
-    Write-Output "$("^" * 100)" -ForegroundColor $TEXT_COLOR
-    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}"," ~"," ",$TEXT)) -ForegroundColor $TEXT_COLOR
-    Write-Output "$("~" * 100)" -ForegroundColor $TEXT_COLOR
+    Write-Output "$("^" * 100)"
+    Write-Output $([string]::Format("{0}{1,15}{2,-75}{1,6}{0}"," ~"," ",$TEXT))
+    Write-Output "$("~" * 100)"
   } else {
-    Write-Output "${TEXT}" -ForegroundColor $TEXT_COLOR
+    Write-Output "${TEXT}"
   }
 
 }
@@ -262,18 +272,23 @@ Function Do-CreateDir {
 
 Function Main
 {
-#  printSectionBanner "printSectionBanner" "error"
-#  printSectionLine "printSectionLine"
-#  debug "debug"
-#  debug "debug" "warn"
-#  printSectionStart "printSectionStart" "warn"
-#  printSectionEnd "printSectionEnd" "info"
-#  printSubSectionStart "printSubSectionStart"
-#  printSubSectionEnd "printSubSectionEnd"
+  #  printSectionBanner "printSectionBanner" "error"
+  #  printSectionLine "printSectionLine"
+  #  debug "debug"
+  #  debug "debug" "warn"
+  #  printSectionStart "printSectionStart" "warn"
+  #  printSectionEnd "printSectionEnd" "info"
+  #  printSubSectionStart "printSubSectionStart"
+  #  printSubSectionEnd "printSubSectionEnd"
 
-  $LOG_PATH = (createDir $LOG_PATH)
-  $DOCKER_LOGS_FOLDER = (createDir $DOCKER_LOGS_FOLDER)
-  $DRIVER_FOLDER = (createDir $DRIVER_FOLDER)
+  # ensure default log path
+  if ( [string]::IsNullOrEmpty(${LOG_PATH}) ) {
+   $script:LOG_PATH = "${PWD}\logs"
+  }
+
+  $script:LOG_PATH = (createDir $LOG_PATH)
+  $script:DOCKER_LOGS_FOLDER = (createDir $DOCKER_LOGS_FOLDER)
+  $script:DRIVER_FOLDER = (createDir $DRIVER_FOLDER)
 
   # set logfile name
   $script:LOG_FILENAME_DATE = "$(DateStamp)"
@@ -294,16 +309,16 @@ Function Main
     printSectionLine "POM_FILE: ${POM_FILE}"
     printSectionLine "SCRIPT_PARAMS: ${SCRIPT_PARAMS}"
 
-  $script:AEM_USER = $( getParamOrDefault "${AEM_USER}" "aem.password" "${POM_FILE}")
-  $script:AEM_PASS = $( getParamOrDefault "${AEM_PASS}" "aem.username" "${POM_FILE}")
-  $script:AEM_SCHEME = $( getParamOrDefault "${AEM_SCHEME}" "aem.scheme" "${POM_FILE}")
-  $script:AEM_HOST = $( getParamOrDefault "${AEM_HOST}" "aem.host" "${POM_FILE}")
-  $script:AEM_PORT = $( getParamOrDefault "${AEM_PORT}" "aem.port" "${POM_FILE}")
-  $script:AEM_SCHEMA = $( getParamOrDefault "${AEM_SCHEMA}" "package.uploadProtocol" "${POM_FILE}")
-  $script:SELENIUMHUB_HOST = $( getParamOrDefault "${SELENIUMHUB_HOST}" "seleniumhubhost.host" "${POM_FILE}")
-  $script:SELENIUMHUB_PORT = $( getParamOrDefault "${SELENIUMHUB_PORT}" "seleniumhubhost.port" "${POM_FILE}")
-  $script:SELENIUMHUB_SCHEME = $( getParamOrDefault "${SELENIUMHUB_SCHEME}" "seleniumhubhost.scheme" "${POM_FILE}")
-  $script:SELENIUMHUB_SERVICE = $( getParamOrDefault "${SELENIUMHUB_SERVICE}" "seleniumhubhost.service" "${POM_FILE}")
+    $script:AEM_USER = $( getParamOrDefault "${AEM_USER}" "aem.password" "${POM_FILE}" )
+    $script:AEM_PASS = $( getParamOrDefault "${AEM_PASS}" "aem.username" "${POM_FILE}" )
+    $script:AEM_SCHEME = $( getParamOrDefault "${AEM_SCHEME}" "aem.scheme" "${POM_FILE}" )
+    $script:AEM_HOST = $( getParamOrDefault "${AEM_HOST}" "aem.host" "${POM_FILE}" )
+    $script:AEM_PORT = $( getParamOrDefault "${AEM_PORT}" "aem.port" "${POM_FILE}" )
+    $script:AEM_SCHEMA = $( getParamOrDefault "${AEM_SCHEMA}" "package.uploadProtocol" "${POM_FILE}" )
+    $script:SELENIUMHUB_HOST = $( getParamOrDefault "${SELENIUMHUB_HOST}" "seleniumhubhost.host" "${POM_FILE}" )
+    $script:SELENIUMHUB_PORT = $( getParamOrDefault "${SELENIUMHUB_PORT}" "seleniumhubhost.port" "${POM_FILE}" )
+    $script:SELENIUMHUB_SCHEME = $( getParamOrDefault "${SELENIUMHUB_SCHEME}" "seleniumhubhost.scheme" "${POM_FILE}" )
+    $script:SELENIUMHUB_SERVICE = $( getParamOrDefault "${SELENIUMHUB_SERVICE}" "seleniumhubhost.service" "${POM_FILE}" )
 
     if ($AEM_HOST -eq "localhost")
     {
