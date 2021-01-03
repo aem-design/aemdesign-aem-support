@@ -455,9 +455,6 @@ class PageListPublishSpec extends ComponentSpec {
         and: "List Has three items"
         assert $("${selector} li").size() == 3
 
-        and: "First Items - Has image"
-        assert $("${selector} > div > ul > li.first > div > div.card-img-top > img").attr("alt") == "Page1"
-
         and: "First Items - Has title"
         assert $("${selector} > div > ul > li.first > div > div.card-body > h3").text() == "Page1"
 
@@ -468,7 +465,10 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} > div > ul > li.first > div > div.card-body > div > a").text().toUpperCase() == "READ MORE"
 
         and: "First Items - Has call to action with custom css"
-        assert $("${selector} > div > ul > li.first > div > div.card-body > div > a").getAttribute("class").contains("btn-primary-red")
+        assert $("${selector} > div > ul > li.first > div > div.card-body > div > a").getAttribute("class").contains("btn-primary")
+
+        and: "First Items - Has card with custom css"
+        assert $("${selector} > div > ul > li.first > div").getAttribute("class").contains("card bg-grey-1")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()
