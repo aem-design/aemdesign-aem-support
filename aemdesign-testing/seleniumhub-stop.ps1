@@ -1,15 +1,19 @@
 Param(
+    [string]$LOG_PATH = "${PWD}\logs",
     [string]$DOCKER_SELENIUMHUB_NODE_NAME = "selenium-hub-node-chrome",
     [string]$DOCKER_SELENIUMHUB_NAME = "selenium-hub",
     [string]$DOCKER_NETWORK_NAME = "selenium-grid",
-    [string]$LOG_PEFIX = ".\seleniumhub",
+    [string]$LOG_PEFIX = "seleniumhub",
     [string]$LOG_SUFFIX = ".log"
 )
+
+$PARENT_PROJECT_PATH = ".."
+$SKIP_PRINT_CONFIG = $true
 
 . "..\scripts\functions.ps1"
 
 $LOG_FILENAME_DATE = "$(DateStamp)"
-$LOG_FILENAME = "${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
+$LOG_FILENAME = "${LOG_PATH}\${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
 
 printSectionBanner "Stopping Selenium Hub containers"
 

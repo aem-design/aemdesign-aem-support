@@ -1,4 +1,5 @@
 Param(
+    [string]$LOG_PATH = "${PWD}\logs",
     [string]$DOCKER_SELENIUMHUB_NODE_NAME = "selenium-hub-node-chrome",
     [string]$DOCKER_SELENIUMHUB_NODE_IMAGE = "selenium/node-chrome",
     [string]$DOCKER_SELENIUMHUB_NODE_VERSION = "3.141.59",
@@ -7,14 +8,17 @@ Param(
     [string]$DOCKER_SELENIUMHUB_VERSION = "3.141.59",
     [string]$DOCKER_SELENIUMHUB_PORT = "32768",
     [string]$DOCKER_NETWORK_NAME = "selenium-grid",
-    [string]$LOG_PEFIX = ".\seleniumhub",
+    [string]$LOG_PEFIX = "seleniumhub",
     [string]$LOG_SUFFIX = ".log"
 )
+
+$PARENT_PROJECT_PATH = ".."
+$SKIP_PRINT_CONFIG = $true
 
 . "..\scripts\functions.ps1"
 
 $LOG_FILENAME_DATE = "$(DateStamp)"
-$LOG_FILENAME = "${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
+$LOG_FILENAME = "${LOG_PATH}\${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
 
 printSectionBanner "Starting Selenium Hub containers"
 

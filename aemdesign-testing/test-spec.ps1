@@ -18,11 +18,11 @@ Param(
   [switch]$TEST_OPEN_REPORT = $false,
   [string]$TEST_REPORT_PATH = "generated-docs/summary.html",
   [string]$TEST_DRIVER_NAME = "remote-seleniumhub-chrome",
-  [string]$TEST_SCHEME = "$AEM_SCHEME",
-  [string]$TEST_HOST = "$AEM_HOST",
-  [string]$TEST_PORT = "$AEM_PORT",
-  [string]$TEST_USERNAME = "$AEM_USER",
-  [string]$TEST_PASSWORD = "$AEM_PASS",
+  [string]$AEM_SCHEME = "http",
+  [string]$AEM_HOST = "localhost",
+  [string]$AEM_PORT = "4502",
+  [string]$AEM_USERNAME = "admin",
+  [string]$AEM_PASSWORD = "admin",
   [string]$TEST_SPECS = "$( (Get-Content ".\test-list") -join ",")",
   [string]$TEST_WORKSPACE = "",
   [switch]$TEST_LOGIN = $false,
@@ -35,6 +35,12 @@ Param(
 
 . "..\scripts\functions.ps1"
 
+$script:LOG_PATH = $LOG_PATH
+$script:TEST_SELENIUM_URL = $TEST_SELENIUM_URL
+$script:TEST_SELENIUMHUB_SCHEME = $SELENIUMHUB_SCHEME
+$script:TEST_SELENIUMHUB_PORT = $SELENIUMHUB_PORT
+$script:TEST_SELENIUMHUB_SERVICE = $SELENIUMHUB_SERVICE
+$script:TEST_SELENIUM_URL = "${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
 
 Function Get-MavenCommand
 {
@@ -45,22 +51,22 @@ Function Get-MavenCommand
     [Parameter(ValueFromPipeline)]
     [string]$DISPATCHER = $args[0],
     [string]$DRIVER = $args[1],
-    [string]$TEST_HOST = $args[2],
+    [string]$AEM_HOST = $args[2],
     [string]$LOGIN = $args[3],
     [string]$MAVEN_CONFIG = $args[4],
-    [string]$PASSWORD = $args[5],
-    [string]$PORT = $args[6],
-    [string]$SCHEME = $args[7],
+    [string]$AEM_PASSWORD = $args[5],
+    [string]$AEM_PORT = $args[6],
+    [string]$AEM_SCHEME = $args[7],
     [string]$SPECS = $args[8],
     [string]$SELENIUM_URL = $args[9],
-    [string]$USERNAME = $args[10]
+    [string]$AEM_USERNAME = $args[10]
   )
 
   if ( -Not( $TEST_SKIP_CONVERT ) ) {
-    $MAVEN_EXTRAS = "-P compile-reports-ruby"
+    $MAVEN_EXTRAS = ""
   }
 
-  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""aem.scheme=${SCHEME}"" -D""aem.host=${TEST_HOST}"" -D""aem.port=${PORT}"" -D""aem.username=${USERNAME}"" -D""aem.password=${PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" ${MAVEN_CONFIG}"
+  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""aem.scheme=${AEM_SCHEME}"" -D""aem.host=${AEM_HOST}"" -D""aem.port=${AEM_PORT}"" -D""aem.username=${AEM_USERNAME}"" -D""aem.password=${AEM_PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" ${MAVEN_CONFIG}"
 
 }
 
@@ -72,7 +78,7 @@ Function Do-RunTests
     [string[]]$TEST_DRIVER_NAME = $args[0]
   )
 
-  $global:DRIVERS_EXEC = $TEST_DRIVER_NAME
+  $script:DRIVERS_EXEC = $TEST_DRIVER_NAME
   $DRIVER_LENGTH = $TEST_DRIVER_NAME.Length
 
   $COUNT = 1
@@ -93,7 +99,7 @@ Function Do-RunTest
     [string]$DRIVER = $args[0]
   )
 
-  $MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
+  $MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${AEM_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${AEM_PASSWORD}" "${AEM_PORT}" "${AEM_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${AEM_USERNAME}")
 
   printSectionBanner "RUNNING TEST FOR DRIVER: ${DRIVER}"
   printSectionLine "Maven MAVEN_COMMAND:"
@@ -111,8 +117,8 @@ Function Do-RunTest
       printSectionLine "Removing container:"
       $(docker rm ${DRIVER})
     }
-    $PROJECT_ROOT_DIR="$( realpath ${PARENT_PROJECT_PATH} )"
-    $MAVEN_DIR="$(realpath ~/.m2)"
+    $PROJECT_ROOT_DIR="$( Resolve-Path ${PARENT_PROJECT_PATH} )"
+    $MAVEN_DIR="$(Resolve-Path ~/.m2)"
 
     printSectionLine "Project Root Directory: ${PROJECT_ROOT_DIR}"
     printSectionLine "Maven Directory: ${MAVEN_DIR}"
@@ -120,16 +126,16 @@ Function Do-RunTest
     if ( -Not( ${TEST_USING_MAVEN} ) )
     {
       $PARENT_PROJECT_WITH_GIT = $(getGitDir)
-      $PARENT_PROJECT_WITH_GIT = ( $PARENT_PROJECT_WITH_GIT -split ".git" )[0]
-      $PARENT_PROJECT_WITH_GIT_NAME = $( basename ${PARENT_PROJECT_WITH_GIT} )
-      $PARENT_PROJECT_LOCATION = $( realpath "${PWD}\.." )
-      $PARENT_PROJECT_NAME = $(basename "$PARENT_PROJECT_LOCATION")
-      $PROJECT_NAME = $(basename "${PWD}")
+      $PARENT_PROJECT_WITH_GIT = ( $PARENT_PROJECT_WITH_GIT -split "\.git" )[0]
+      $PARENT_PROJECT_WITH_GIT_NAME = $( Resolve-Path "${PARENT_PROJECT_WITH_GIT}" | Split-Path -Leaf )
+      $PARENT_PROJECT_LOCATION = $( Resolve-Path "${PWD}\.." )
+      $PARENT_PROJECT_NAME = $( Resolve-Path "$PARENT_PROJECT_LOCATION" | Split-Path -Leaf )
+      $PROJECT_NAME = $( Resolve-Path "${PWD}" | Split-Path -Leaf )
 
       printSectionLine "Parent Project with GIT Directory: ${PARENT_PROJECT_WITH_GIT}"
       printSectionLine "Parent Project with GIT Directory Name: ${PARENT_PROJECT_WITH_GIT_NAME}"
       printSectionLine "Parent Project Name: ${PARENT_PROJECT_NAME}"
-      printSectionLine "Curren Project Name: ${PROJECT_NAME}"
+      printSectionLine "Current Project Name: ${PROJECT_NAME}"
       printSectionLine "Testing Directory: ${CURRENT_PATH}"
       printSectionLine "Testing Sub Directory: ${PARENT_PROJECT_LOCATION}"
 
@@ -140,7 +146,7 @@ Function Do-RunTest
       # pass maven command location for .m2 dir
       # run bash with login to allow usage of RVM
       # auto-remove container after its done
-      $DOCKER_COMMAND="docker run -d --user $(id -u):$(id -g) --rm --name ${DRIVER} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_WITH_GIT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PARENT_PROJECT_NAME}/${PROJECT_NAME}"" ${TEST_IMAGE} bash -l -c '${MAVEN_COMMAND} -Dmaven.repo.local=/build/.m2/repository' "
+      $DOCKER_COMMAND="docker run -d --rm --name ${DRIVER} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_WITH_GIT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PARENT_PROJECT_NAME}/${PROJECT_NAME}"" ${TEST_IMAGE} bash -l -c '${MAVEN_COMMAND} -Dmaven.repo.local=/build/.m2/repository' "
 
       debug "${DOCKER_COMMAND}"
 
@@ -172,7 +178,7 @@ Function Do-MonitorTests
     [string]$TEST_DRIVER_NAME = $args[0]
   )
 
-  $global:OPEN_REPORTS = $TEST_DRIVER_NAME
+  $script:OPEN_REPORTS = $TEST_DRIVER_NAME
   $OPEN_REPORTS_LENGTH = $OPEN_REPORTS.Length
 
   if (Test-Path "${DOCKER_LOGS_FOLDER}" -PathType leaf)
@@ -209,7 +215,7 @@ Function Do-OpenReports
     [string[]]$TEST_DRIVER_NAME = $args[0]
   )
 
-  $global:OPEN_REPORTS = $TEST_DRIVER_NAME
+  $script:OPEN_REPORTS = $TEST_DRIVER_NAME
   $OPEN_REPORTS_LENGTH = $OPEN_REPORTS.Length
 
   printSubSectionStart "Open Reports"
@@ -244,46 +250,54 @@ Function Do-OpenReports
 
 }
 
-
-
-printSectionBanner "Starting Tests $(LocalIP)"
+$CURRENT_PATH = ${PWD}
 
 # update selenium url if localhost and not passed
-if ( $SELENIUMHUB_HOST -eq "localhost" -Or -not ([string]::IsNullOrEmpty(${TEST_SELENIUM_URL})) )
+if ( $SELENIUMHUB_HOST -eq "localhost" -Or ([string]::IsNullOrEmpty(${TEST_SELENIUM_URL})) )
 {
   debug "Selenium hub url not specified or set to localhost, updating to use local ip" "info"
-  $global:TEST_SELENIUM_URL="${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
+  $script:TEST_SELENIUM_URL="${TEST_SELENIUMHUB_SCHEME}://${LOCAL_IP}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
 }
 
 #update host
-if ( $TEST_HOST -eq "localhost" )
+if ( $AEM_HOST -eq "localhost" )
 {
   debug "Test host is set as localhost, updating to use local ip" "info"
-  $global:TEST_HOST="${LOCAL_IP}"
+  $script:AEM_HOST="${LOCAL_IP}"
 }
 
 printSectionBanner "Test Configuration:" "warn"
-printSectionLine "Scheme:                 ${TEST_SCHEME}"
-printSectionLine "Host:                   ${TEST_HOST}"
-printSectionLine "Port:                   ${TEST_PORT}"
-printSectionLine "Selenium URL:           ${TEST_SELENIUM_URL}"
-printSectionLine "Test Specs:             ${TEST_SPECS}"
-printSectionLine "Workspace:              ${TEST_WORKSPACE}"
-printSectionLine "Authenticate?           ${TEST_LOGIN}"
-printSectionLine "Custom Maven Config:    ${TEST_MAVEN_CONFIG}"
-printSectionLine "Run on Dispatcher?      ${TEST_DISPATCHER}"
-printSectionLine "Skip Report Conversion? ${TEST_SKIP_CONVERT}"
-printSectionLine "Run plain Maven?        ${TEST_USING_MAVEN}"
+printSectionLine "AEM_SCHEME:             ${AEM_SCHEME}"
+printSectionLine "AEM_HOST:               ${AEM_HOST}"
+printSectionLine "AEM_PORT:               ${AEM_PORT}"
+printSectionLine "TEST_SELENIUM_URL:      ${TEST_SELENIUM_URL}"
+printSectionLine "TEST_SPECS:             ${TEST_SPECS}"
+printSectionLine "TEST_WORKSPACE:         ${TEST_WORKSPACE}"
+printSectionLine "TEST_LOGIN?             ${TEST_LOGIN}"
+printSectionLine "TEST_MAVEN_CONFIG:      ${TEST_MAVEN_CONFIG}"
+printSectionLine "TEST_DISPATCHER?:       ${TEST_DISPATCHER}"
+printSectionLine "TEST_SKIP_CONVERT?:     ${TEST_SKIP_CONVERT}"
+printSectionLine "TEST_USING_MAVEN?:      ${TEST_USING_MAVEN}"
 
-$global:AEM_AVAILABLE=$(testServer "${TEST_SCHEME}://${TEST_HOST}:${TEST_PORT}")
-$global:HUB_AVAILABLE=$(testServer ("${TEST_SELENIUM_URL}").Replace("/wd/hub","") )
+$script:AEM_AVAILABLE=$(testServer "${AEM_SCHEME}://${AEM_HOST}:${AEM_PORT}")
+$script:HUB_AVAILABLE=$(testServer ("${TEST_SELENIUM_URL}").Replace("/wd/hub","") )
 
 printSectionLine "Is Selenium Hub at ${TEST_SELENIUM_URL} available? ${HUB_AVAILABLE}"
-printSectionLine "Is AEM at ${TEST_SCHEME}://${TEST_HOST}:${TEST_PORT} available? ${AEM_AVAILABLE}"
+printSectionLine "Is AEM at ${AEM_SCHEME}://${AEM_HOST}:${AEM_PORT} available? ${AEM_AVAILABLE}"
 
 if ( $HUB_AVAILABLE -And $AEM_AVAILABLE )
 {
   debug "Selenium Hub and AEM are both up and available!" "info"
+
+  $START = Read-Host -Prompt "Do you want to start testing with these settings? (y/n)"
+
+  if ($START -ne "y")
+  {
+      Write-Output "Quiting..."
+      Exit
+  }
+
+  printSectionBanner "Starting Tests on $(LocalIP)" "info"
 
   runTests ${TEST_DRIVER_NAME}
 
