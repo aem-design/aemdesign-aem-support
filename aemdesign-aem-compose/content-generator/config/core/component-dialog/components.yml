@@ -218,7 +218,7 @@ components/details/generic-details/legacy:
       fields: ["title", "description", "action"]
     }
     - cardTitleDescriptionFormatted: {
-      title: "Card with Title and Formatted Description",
+      title: "Card with Formatted Title and Description",
       value: "badge.cardTitleDescriptionFormatted",
       templates: ["default"],
       fields: ["titleformatted", "descriptionformatted"]
