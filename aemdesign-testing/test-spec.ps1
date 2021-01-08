@@ -10,6 +10,7 @@ Param(
   [switch]$LOGIN = $true,
   [switch]$REPORT = $true,
   [switch]$DEBUG = $false,
+  [switch]$SILENT = $false,
   [string]$TEST_SELENIUMHUB_SCHEME = $SELENIUMHUB_SCHEME,
   [string]$TEST_SELENIUMHUB_PORT = $SELENIUMHUB_PORT,
   [string]$TEST_SELENIUMHUB_SERVICE = $SELENIUMHUB_SERVICE,
@@ -289,12 +290,15 @@ if ( $HUB_AVAILABLE -And $AEM_AVAILABLE )
 {
   debug "Selenium Hub and AEM are both up and available!" "info"
 
-  $START = Read-Host -Prompt "Do you want to start testing with these settings? (y/n)"
-
-  if ($START -ne "y")
+  if ( -Not( $SILENT ) )
   {
+    $START = Read-Host -Prompt "Do you want to start testing with these settings? (y/n)"
+
+    if ($START -ne "y")
+    {
       Write-Output "Quiting..."
       Exit
+    }
   }
 
   printSectionBanner "Starting Tests on $(LocalIP)" "info"
