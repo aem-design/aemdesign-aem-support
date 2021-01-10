@@ -200,7 +200,7 @@ abstract class ComponentSpec extends FunctionalSpec {
     def designRefFull(String selector, String prefix = "") {
         def size = driver.manage().window().getSize()
 
-        String componentName = prefix + selector + "-" + size.getWidth().toString() + "_" + size.getHeight().toString() + "-" + "0"
+        String componentName = prefix + "-" + selector + "-" + size.getWidth().toString() + "_" + size.getHeight().toString() + "-" + "0"
 
         String[] screenshotName = compileComponentScreenshotFileNamePath2(
             componentName,
