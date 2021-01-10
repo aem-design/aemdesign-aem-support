@@ -55,6 +55,11 @@ abstract class FunctionalSpec extends GebReportingSpec {
             [label: "XXLG", width: 2560, height: 1440]
         ]
     }
+    def getDialogViewPort() {
+        return [
+            [label: "MD", width: 1024, height: 768],
+        ]
+    }
 
     def setWindowSizeXS() {
         setWindowSize(getListViewPorts("XS"))
@@ -190,7 +195,11 @@ abstract class FunctionalSpec extends GebReportingSpec {
     def fixFilePath(String filepath) {
         return filepath.replaceAll(/[^a-zA-Z0-9\.\-\/]/, "-").replaceAll("--", "-")
     }
-
+    /***
+     * validate screenshot with exisitng file
+     * @param filePath - generate String[] using {@link support.ComponentSpec#compileComponentScreenshotFileNamePath2
+     * @return
+     */
     def designReferenceFull(String[] filePath) {
         def fixedFilePath = "${DRIVER_TYPE}/${SCREENSHOTS_CURRENT_DIR}/${getWebDriverName()}/".concat(fixFilePath(filePath[0]))
         def fixedFileName = fixFilePath(filePath[1])
