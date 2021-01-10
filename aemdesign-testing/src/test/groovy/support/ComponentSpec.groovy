@@ -25,9 +25,11 @@ abstract class ComponentSpec extends FunctionalSpec {
     @Shared
     def String componentDocs
     @Shared
-    def String pageExtention = ".html"
+    def String pageExtension = ".html"
     @Shared
     def String pageSelectors = ""
+    @Shared
+    def String pageExtensionSuffix = ""
     @Shared
     def String pathPage
     @Shared
@@ -75,7 +77,7 @@ abstract class ComponentSpec extends FunctionalSpec {
             inLanguage = language
         }
 
-        def page = to ClassicUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention)
+        def page = to ClassicUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtension + pageExtensionSuffix)
         page.waitForSidekick()
 
         return page
@@ -101,7 +103,7 @@ abstract class ComponentSpec extends FunctionalSpec {
             inLanguage = language
         }
 
-        String url = page.AEMPage.toMode(page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention), AEMPage.WCMMODE.DISABLED)
+        String url = page.AEMPage.toMode(page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtension + pageExtensionSuffix), AEMPage.WCMMODE.DISABLED)
 
         printDebug("URL", [url, driver.manage().window().getSize()])
 
@@ -140,7 +142,7 @@ abstract class ComponentSpec extends FunctionalSpec {
         }
 
         String url = page.AEMPage.toMode(
-            page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageExtention),
+            page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageExtension + pageExtensionSuffix),
             AEMPage.WCMMODE.DISABLED)
 
         url = "$url$queryString"
@@ -195,14 +197,18 @@ abstract class ComponentSpec extends FunctionalSpec {
         }
     }
 
-    def designRefFull(selector, prefix) {
-        def size = getWindowViewPort()
+    def designRefFull(String selector, String prefix = "") {
+        def size = driver.manage().window().getSize()
 
-        return designReferenceFull(compileComponentScreenshotFileNamePath2(
-            prefix + selector + size + "-" + "0",
+        String componentName = prefix + selector + "-" + size.getWidth().toString() + "_" + size.getHeight().toString() + "-" + "0"
+
+        String[] screenshotName = compileComponentScreenshotFileNamePath2(
+            componentName,
             size.width,
             size.height,
-            ""))
+            "")
+
+        return designReferenceFull(screenshotName)
     }
 
     def designRef(String selector) {
