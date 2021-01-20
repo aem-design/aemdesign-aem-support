@@ -18,6 +18,11 @@
     <!-- P R O P E R T I E S                                                    -->
     <!-- ====================================================================== -->
     <properties>
+        <crx.scheme>http</crx.scheme>
+        <crx.host>localhost</crx.host>
+        <crx.port>4502</crx.port>
+        <crx.username>admin</crx.username>
+        <crx.password>admin</crx.password>
         <aem.scheme>http</aem.scheme>
         <aem.host>localhost</aem.host>
         <aem.port>4502</aem.port>
