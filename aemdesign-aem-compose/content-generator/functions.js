@@ -176,6 +176,7 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     if (contentData.content !== undefined) {
         debug({type: "content", contentData: contentData})
         const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
+        const templateHasValue = templatePatch.indexOf('%%value%%')>-1
 
         //check if json being specified as contents
         if (contentData.json) {
@@ -240,6 +241,10 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
             //replace attributes placeholder with collected fields
             if (templateHasAttributes) {
               templatePatch = templatePatch.replace('%%attributes%%', fieldAttributes)
+            }
+            //cleanup value attribute
+            if (templateHasValue) {
+              templatePatch = templatePatch.replace('%%value%%', "")
             }
           }
 
