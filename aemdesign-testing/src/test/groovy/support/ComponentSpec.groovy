@@ -92,7 +92,7 @@ abstract class ComponentSpec extends FunctionalSpec {
             inLanguage = language
         }
 
-        def page = to TouchUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention)
+        def page = to TouchUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtension)
         page.waitForPageContent()
 
         return page
