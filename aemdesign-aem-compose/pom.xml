@@ -37,6 +37,7 @@
     <package.tagNamespace.core>aemdesign</package.tagNamespace.core>
     <package.tagNamespace.showcase>aemdesign-showcase</package.tagNamespace.showcase>
     <package.npmCommand>aem:build</package.npmCommand>
+    <package.tagPath>/content/cq:tags</package.tagPath>
   </properties>
 
   <developers>
@@ -115,6 +116,21 @@
     </resources>
 
     <plugins>
+      <!-- Maven Clean Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <failOnError>false</failOnError>
+          <filesets>
+            <fileset>
+              <directory>logs</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+
       <plugin>
         <artifactId>frontend-maven-plugin</artifactId>
         <groupId>com.github.eirslett</groupId>
@@ -306,6 +322,46 @@
             <createdBy>${package.createdBy}</createdBy>
             <description>${project.description}</description>
           </properties>
+          <filters combine.children="append">
+            <!-- Apps -->
+            <filter>
+              <root>/${package.appFolder}/clientlibs/core</root>
+            </filter>
+            <filter>
+              <root>/${package.appFolder}/clientlibs/styleguide</root>
+            </filter>
+
+            <!-- Tags -->
+            <filter>
+              <root>${package.tagPath}/${package.tagNamespace.core}</root>
+              <mode>update</mode>
+            </filter>
+            <filter>
+              <root>${package.tagPath}/${package.tagNamespace.showcase}</root>
+              <mode>update</mode>
+            </filter>
+
+
+            <!-- AEM.Design overrides -->
+            <filter>
+              <root>
+                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars
+              </root>
+              <mode>update</mode>
+            </filter>
+            <filter>
+              <root>
+                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles
+              </root>
+              <mode>update</mode>
+            </filter>
+            <filter>
+              <root>
+                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats
+              </root>
+              <mode>update</mode>
+            </filter>
+          </filters>
         </configuration>
       </plugin>
     </plugins>
