@@ -21,6 +21,7 @@ You will need to have the following software installed to ensure you can contrib
 * [Enable Windows 10 Long Files Names](#Enable-Windows-10-Long-File-Names) - this will allow Windows to have long filenames.
 * [Install Git Bash](https://gitforwindows.org/) - this will allow you to run git in terminal
 * [Add Git Path Windows Path](#Add-Git-Path-Windows-Path) - this will allow you to run git and other helper functions in powershell and will make your powershell sing!
+* [Install Node Version Manager](https://github.com/coreybutler/nvm-windows/releases) - you will need this for Compose project as it uses older Node version
 * [Enable WSL2 on Windows 10](#Enable-WSL2) - this will allow you to run windows apps from Ubuntu sub-shell.
 * [Intellij Ultimate](https://www.jetbrains.com/idea/download) - this will be your primary IDE, please install following plugin as well.
   * Plugin: [IntelliVault](https://plugins.jetbrains.com/plugin/7328-intellivault) - configure the plugin to use `vlt` in  
