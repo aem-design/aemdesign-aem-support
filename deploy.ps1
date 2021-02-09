@@ -28,7 +28,8 @@ if ( $TEST_HOST -eq "localhost" )
   $script:TEST_HOST="${LOCAL_IP}"
 }
 
-$script:AEM_AVAILABLE=$(testServer "${AEM_SCHEME}://${AEM_HOST}:${AEM_PORT}")
+$script:ADDRESS="${AEM_SCHEMA}://${AEM_HOST}:${AEM_PORT}"
+$script:AEM_AVAILABLE=$(testServer "${ADDRESS}")
 
 printSectionLine "Is AEM at ${AEM_SCHEME}://${AEM_HOST}:${AEM_PORT} available? ${AEM_AVAILABLE}"
 
@@ -37,22 +38,22 @@ if ( $AEM_AVAILABLE )
   printSectionLine "AEM host is available!" "info"
 
   printSectionBanner "Disable Workflows" "warn"
-  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_DISABLE_UPDATE -Url "${ADDRESS}${WORKFLOW_ASSET_MODIFY}" -BasicAuthCreds ${SOURCE_AEM_USER}:${SOURCE_AEM_PASSWORD} -Timeout $TIMEOUT
-  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_DISABLE_CREATE -Url "${ADDRESS}${WORKFLOW_ASSET_CREATE}" -BasicAuthCreds ${SOURCE_AEM_USER}:${SOURCE_AEM_PASSWORD} -Timeout $TIMEOUT
+  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_DISABLE_UPDATE -Url "${ADDRESS}${WORKFLOW_ASSET_MODIFY}" -BasicAuthCreds ${AEM_USERNAME}:${AEM_PASSWORD} -Timeout $TIMEOUT
+  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_DISABLE_CREATE -Url "${ADDRESS}${WORKFLOW_ASSET_CREATE}" -BasicAuthCreds ${AEM_USERNAME}:${AEM_PASSWORD} -Timeout $TIMEOUT
 
 #   printSectionBanner "Disable aem mailer bundle" "warn"
-#   doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $BODY_SERVICE_TO_DISABLE -Url "${ADDRESS}${SERVICE_TO_DISABLE}" -BasicAuthCreds ${SOURCE_AEM_USER}:${SOURCE_AEM_PASSWORD} -Timeout $TIMEOUT
+#   doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $BODY_SERVICE_TO_DISABLE -Url "${ADDRESS}${SERVICE_TO_DISABLE}" -BasicAuthCreds ${AEM_USERNAME}:${AEM_PASSWORD} -Timeout $TIMEOUT
 
   printSectionLine "Deploying!" "info"
   Invoke-Expression -Command "$MVN_COMMAND" | Tee-Object -Append -FilePath "${LOG_FILENAME}"
 
 
   printSectionBanner "Enable Workflows" "warn"
-  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_ENABLE_UPDATE -Url "${ADDRESS}${WORKFLOW_ASSET_MODIFY}" -BasicAuthCreds ${SOURCE_AEM_USER}:${SOURCE_AEM_PASSWORD} -Timeout $TIMEOUT
-  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_ENABLE_CREATE -Url "${ADDRESS}${WORKFLOW_ASSET_CREATE}" -BasicAuthCreds ${SOURCE_AEM_USER}:${SOURCE_AEM_PASSWORD} -Timeout $TIMEOUT
+  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_ENABLE_UPDATE -Url "${ADDRESS}${WORKFLOW_ASSET_MODIFY}" -BasicAuthCreds ${AEM_USERNAME}:${AEM_PASSWORD} -Timeout $TIMEOUT
+  doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $WORKFLOW_ASSET_ENABLE_CREATE -Url "${ADDRESS}${WORKFLOW_ASSET_CREATE}" -BasicAuthCreds ${AEM_USERNAME}:${AEM_PASSWORD} -Timeout $TIMEOUT
 
 #   printSectionBanner "Enable aem mailer bundle" "info"
-#   doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $BODY_SERVICE_TO_DISABLE_ENABLE -Url "${ADDRESS}${SERVICE_TO_DISABLE}" -BasicAuthCreds ${SOURCE_AEM_USER}:${SOURCE_AEM_PASSWORD} -Timeout $TIMEOUT
+#   doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $BODY_SERVICE_TO_DISABLE_ENABLE -Url "${ADDRESS}${SERVICE_TO_DISABLE}" -BasicAuthCreds ${AEM_USERNAME}:${AEM_PASSWORD} -Timeout $TIMEOUT
 
 
 } else {
