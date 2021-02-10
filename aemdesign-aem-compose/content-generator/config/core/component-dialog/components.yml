@@ -1,7 +1,7 @@
 components/details/generic-details/variant:
   contents:
     - default: {
-      title: "Default",
+      title: "Legacy",
       value: "default",
       valuealt: "displayoptions"
     }
