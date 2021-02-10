@@ -276,6 +276,10 @@ components/details/generic-details/fields:
       title: "Start Date",
       value: "startdate"
     }
+    - starttime: {
+      title: "Start Time",
+      value: "starttime"
+    }
     - taglist: {
       title: "Tag List",
       value: "taglist"
