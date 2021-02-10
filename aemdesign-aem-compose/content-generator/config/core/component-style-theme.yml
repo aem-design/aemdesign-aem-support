@@ -107,7 +107,6 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     prefix: 'mailto:${email}'
     title: 'Email Link'
 
-  ## Contact Details
   details/contact-details/format/description/default:
     flat: true
     prefix: '${title}'
@@ -138,7 +137,35 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     prefix: 'Author: <span itemprop="name">${givenName} ${familyName}</span>'
     title: 'Author prefix with Name'
 
+  ## News Details
+  details/news-details/format/title/default:
+    flat: true
+    prefix: '${title}'
+    title: 'Default format'
+
+  details/news-details/format/description/default:
+    flat: true
+    prefix: '${description}'
+    title: 'Default format'
+
+  ## Location Details
+  details/location-details/format/title/default:
+    flat: true
+    prefix: '${title}'
+    title: 'Default format'
+
+  details/location-details/format/description/default:
+    flat: true
+    prefix: '${description}'
+    title: 'Default format'
+
+
   ## Event Details
+  details/event-details/format/description/default:
+    flat: true
+    prefix: '${description}'
+    title: 'Default format'
+
   details/event-details/format/title/default:
     flat: true
     prefix: '${title}'
@@ -265,6 +292,11 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     - search
     prefixValue: theme--page-details-
     title: '%%prefix_normalised%%'
+
+  details/page-details/format/description/default:
+    flat: true
+    prefix: '${description}'
+    title: 'Default format'
 
   details/page-details/format/title/default:
     flat: true
