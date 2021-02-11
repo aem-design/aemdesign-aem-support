@@ -7,7 +7,7 @@
     <parent>
         <groupId>design.aem</groupId>
         <artifactId>aemdesign-aem-support</artifactId>
-        <version>2.0.462</version>
+        <version>2.0.473</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -16,7 +16,7 @@
     <!-- ====================================================================== -->
     <artifactId>aemdesign-testing</artifactId>
     <packaging>jar</packaging>
-    <version>2.0.462</version>
+    <version>2.0.473</version>
     <name>AEM Design - Support - Integration Testing</name>
     <description>AEM Design Integration Tests for AEM</description>
 
