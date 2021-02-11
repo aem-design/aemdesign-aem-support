@@ -28,24 +28,29 @@ abstract class FunctionalSpec extends GebReportingSpec {
     private static final boolean GENEREATE_FIRST_RENDTITION = true
 
     def getListViewPorts(label) {
-        def config = getViewPorts()
+        return getListViewPorts(label, true)
+    }
 
-        String[] labels = getViewPorts()[0]
+    def getListViewPorts(label, boolean filter) {
+        def config = getViewPorts(filter)
 
-        for (int i = 0; i < labels.length; i++) {
-            if (label != "") {
-                if (config[i].label == label) {
-                    return config[i].label
-                }
-            }
-
-            labels[i] = config[i].label
+        config = config.find {
+            label.equals(it.label)
         }
 
-        return labels
+        //if found and it has properties return it otherwise return its name
+        if (config instanceof LinkedHashMap && config.size() > 0) {
+            return config
+        }
+
+        return label
     }
 
     def getViewPorts() {
+        return getViewPorts(true)
+    }
+
+    def getViewPorts(Boolean filter) {
         def viewports =  [
             [label: "XS", width: 320, height: 480],
             [label: "SM", width: 640, height: 480],
@@ -55,7 +60,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
             [label: "XXLG", width: 2560, height: 1440]
         ]
 
-        if (System.properties.getProperty("test.viewports", "") != "") {
+        if (filter && System.properties.getProperty("test.viewports", "") != "") {
             def requiredviewports = System.properties.getProperty("test.viewports", "").split(",")
 
             viewports = viewports.findAll {
@@ -73,27 +78,27 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def setWindowSizeXS() {
-        setWindowSize(getListViewPorts("XS"))
+        setWindowSize("XS", false)
     }
 
     def setWindowSizeSM() {
-        setWindowSize(getListViewPorts("SM"))
+        setWindowSize("SM", false)
     }
 
     def setWindowSizeMD() {
-        setWindowSize(getListViewPorts("MD"))
+        setWindowSize("MD", false)
     }
 
     def setWindowSizeLG() {
-        setWindowSize(getListViewPorts("LG"))
+        setWindowSize("LG", false)
     }
 
     def setWindowSizeXLG() {
-        setWindowSize(getListViewPorts("XLG"))
+        setWindowSize("XLG", false)
     }
 
     def setWindowSizeXXLG() {
-        setWindowSize(getListViewPorts("XXLG"))
+        setWindowSize("XXLG", false)
     }
 
     def setWindowsSize(int width, int height) {
@@ -103,23 +108,31 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def setWindowSize(Object viewport) {
+        setWindowSize(viewport, true)
+    }
+
+    def setWindowSize(Object viewport, boolean filter) {
         def viewportName
+
+        def viewPortWidth = 1200
+        def viewPortHeight = 900
 
         if (viewport instanceof LinkedHashMap) {
             viewportName = viewport.label
+            viewPortWidth = viewport.width
+            viewPortHeight = viewport.height
         } else {
             viewportName = viewport.toString()
+
+            def viewPorts = getViewPorts(filter)
+            def viewPort = viewPorts.find { value -> value.label == viewportName }
+
+            if (!viewPort) {
+                viewPort = viewPorts[3]
+            }
+            viewPortWidth = viewPort.width
+             viewPortHeight = viewPort.height
         }
-
-        def viewPorts = getViewPorts()
-        def viewPort = viewPorts.find { value -> value.label == viewportName }
-
-        if (!viewPort) {
-            viewPort = viewPorts[3]
-        }
-
-        def viewPortWidth = viewPort.width
-        def viewPortHeight = viewPort.height
 
         setWindowsSize(viewPortWidth, viewPortHeight)
 
@@ -156,7 +169,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def loginAsAdmin() {
-        //setWindowSizeMD()
+        setWindowSizeMD()
 
         def username = getAdminUsername()
         def password = getAdminPassword()
