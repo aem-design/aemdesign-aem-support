@@ -182,6 +182,13 @@ Stop Selenium Hub and Node
 .\seleniumhub-stop
 ```
 
+To only test specific viewports specify `TEST_VIEWPORTS` param
+
+```powershell
+.\test-spec -TEST_SPECS "PageList*" -AEM_PORT 4512 -TEST_VIEWPORTS "XLG,SM"
+```
+
+This will test only XLG and SM view ports
 
 ## Reference Documentation
 

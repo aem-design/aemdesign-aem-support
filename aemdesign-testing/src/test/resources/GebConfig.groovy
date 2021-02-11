@@ -56,6 +56,7 @@ String GLOBAL_URL = "${GLOBAL_SCHEME}://${GLOBAL_HOST}:${GLOBAL_PORT}"
 String GLOBAL_SELENIUMHUB_URL = System.properties.getProperty("selenium.huburl","http://$GLOBAL_HOST:32768/wd/hub")
 String GLOBAL_BUILD_DIR = System.properties.getProperty("project.buildDirectory", GLOBAL_ENV)
 String GLOBAL_LOGIN_REQUIRED = System.properties.getProperty("login.req", "true")
+String GLOBAL_TEST_VIEWPORTS = System.properties.getProperty("test.viewports", "")
 
 //save params if have not been defined
 System.properties.setProperty("aem.scheme", GLOBAL_SCHEME)
@@ -68,8 +69,10 @@ System.properties.setProperty("selenium.huburl", GLOBAL_SELENIUMHUB_URL)  //used
 System.properties.setProperty("geb.env", GLOBAL_ENV)  //used in report
 System.properties.setProperty("project.buildDirectory", GLOBAL_BUILD_DIR)  //used in report
 System.properties.setProperty("login.req", GLOBAL_LOGIN_REQUIRED) //set to no for aem publish instances
+System.properties.setProperty("test.viewports", GLOBAL_TEST_VIEWPORTS) //set to no for aem publish instances
 
 printDebug("GLOBAL_BUILD_DIR", GLOBAL_BUILD_DIR)
+printDebug("GLOBAL_TEST_VIEWPORTS", GLOBAL_TEST_VIEWPORTS)
 
 String GLOBAL_DRIVER_TYPE = findDriverExecutable("chromedriver").canonicalPath
 //remember which driver being used

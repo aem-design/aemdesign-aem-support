@@ -46,7 +46,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def getViewPorts() {
-        return [
+        def viewports =  [
             [label: "XS", width: 320, height: 480],
             [label: "SM", width: 640, height: 480],
             [label: "MD", width: 1024, height: 768],
@@ -54,6 +54,17 @@ abstract class FunctionalSpec extends GebReportingSpec {
             [label: "XLG", width: 1920, height: 1280],
             [label: "XXLG", width: 2560, height: 1440]
         ]
+
+        if (System.properties.getProperty("test.viewports", "") != "") {
+            def requiredviewports = System.properties.getProperty("test.viewports", "").split(",")
+
+            viewports = viewports.findAll {
+                requiredviewports.contains(it.label)
+            }
+
+        }
+
+        return viewports
     }
     def getDialogViewPort() {
         return [
@@ -145,7 +156,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def loginAsAdmin() {
-        setWindowSizeMD()
+        //setWindowSizeMD()
 
         def username = getAdminUsername()
         def password = getAdminPassword()

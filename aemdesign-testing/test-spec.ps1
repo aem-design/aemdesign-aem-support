@@ -30,7 +30,8 @@ Param(
   [string]$TEST_MAVEN_CONFIG = "",
   [switch]$TEST_DISPATCHER = $false,
   [switch]$TEST_SKIP_CONVERT = $false,
-  [switch]$TEST_USING_MAVEN = $false
+  [switch]$TEST_USING_MAVEN = $false,
+  [string]$TEST_VIEWPORTS = ""
 
 )
 
@@ -60,14 +61,15 @@ Function Get-MavenCommand
     [string]$AEM_SCHEME = $args[7],
     [string]$SPECS = $args[8],
     [string]$SELENIUM_URL = $args[9],
-    [string]$AEM_USERNAME = $args[10]
+    [string]$AEM_USERNAME = $args[10],
+    [string]$VIEWPORTS = $args[11]
   )
 
   if ( -Not( $TEST_SKIP_CONVERT ) ) {
     $MAVEN_EXTRAS = ""
   }
 
-  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""aem.scheme=${AEM_SCHEME}"" -D""aem.host=${AEM_HOST}"" -D""aem.port=${AEM_PORT}"" -D""aem.username=${AEM_USERNAME}"" -D""aem.password=${AEM_PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" ${MAVEN_CONFIG}"
+  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""aem.scheme=${AEM_SCHEME}"" -D""aem.host=${AEM_HOST}"" -D""aem.port=${AEM_PORT}"" -D""aem.username=${AEM_USERNAME}"" -D""aem.password=${AEM_PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" -D""test.viewports=${VIEWPORTS}"" ${MAVEN_CONFIG}"
 
 }
 
@@ -100,7 +102,7 @@ Function Do-RunTest
     [string]$DRIVER = $args[0]
   )
 
-  $MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${AEM_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${AEM_PASSWORD}" "${AEM_PORT}" "${AEM_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${AEM_USERNAME}")
+  $MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${AEM_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${AEM_PASSWORD}" "${AEM_PORT}" "${AEM_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${AEM_USERNAME}" "$([system.String]::Join(" ", $TEST_VIEWPORTS))")
 
   printSectionBanner "RUNNING TEST FOR DRIVER: ${DRIVER}"
   printSectionLine "Maven MAVEN_COMMAND:"
@@ -273,6 +275,7 @@ printSectionLine "AEM_HOST:               ${AEM_HOST}"
 printSectionLine "AEM_PORT:               ${AEM_PORT}"
 printSectionLine "TEST_SELENIUM_URL:      ${TEST_SELENIUM_URL}"
 printSectionLine "TEST_SPECS:             ${TEST_SPECS}"
+printSectionLine "TEST_VIEWPORTS:         ${TEST_VIEWPORTS}"
 printSectionLine "TEST_WORKSPACE:         ${TEST_WORKSPACE}"
 printSectionLine "TEST_LOGIN?             ${TEST_LOGIN}"
 printSectionLine "TEST_MAVEN_CONFIG:      ${TEST_MAVEN_CONFIG}"

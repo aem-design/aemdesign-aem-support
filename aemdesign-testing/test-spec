@@ -23,6 +23,7 @@ TEST_PORT="$AEM_PORT"
 TEST_USERNAME="$AEM_USER"
 TEST_PASSWORD="$AEM_PASS"
 TEST_SPECS="$(cat test-list | tr '\n' ',')"
+TEST_VIEWPORTS=""
 TEST_WORKSPACE=""
 TEST_LOGIN=false
 TEST_MAVEN_CONFIG=""
@@ -44,12 +45,13 @@ getMavenCommand() {
   local SPECS=${9}
   local SELENIUM_URL=${10}
   local USERNAME=${11}
+  local VIEWPORTS=${12}
 
   if [[ ${TEST_SKIP_CONVERT} == "false" ]]; then
     MAVEN_EXTRAS="-P compile-reports-ruby"
   fi
 
-  COMMAND="mvn clean test ${MAVEN_EXTRAS} -Dgeb.env="${DRIVER}" -Dproject.buildDirectory="${DRIVER}" -Daem.scheme="${SCHEME}" -Daem.host="${HOST}" -Daem.port="${PORT}" -Daem.username="${USERNAME}" -Daem.password="${PASSWORD}" -Dtest="${SPECS}" -Dselenium.huburl="${SELENIUM_URL}" -Dlogin.req="${LOGIN}" -Dtest.dispatcher="${DISPATCHER}" ${MAVEN_CONFIG}"
+  COMMAND="mvn clean test ${MAVEN_EXTRAS} -Dgeb.env="${DRIVER}" -Dproject.buildDirectory="${DRIVER}" -Daem.scheme="${SCHEME}" -Daem.host="${HOST}" -Daem.port="${PORT}" -Daem.username="${USERNAME}" -Daem.password="${PASSWORD}" -Dtest="${SPECS}" -Dselenium.huburl="${SELENIUM_URL}" -Dlogin.req="${LOGIN}" -Dtest.dispatcher="${DISPATCHER}" -Dtest.viewports="${VIEWPORTS}" ${MAVEN_CONFIG}"
 
   echo ${COMMAND}
 }
@@ -60,7 +62,7 @@ getGitDir() {
 
 runTest() {
   local DRIVER=${1}
-  local MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}")
+  local MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${TEST_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${TEST_PASSWORD}" "${TEST_PORT}" "${TEST_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${TEST_USERNAME}" "${TEST_VIEWPORTS}")
 
   printSectionBanner "RUNNING TEST FOR DRIVER: ${DRIVER}"
 
@@ -277,6 +279,10 @@ processArguments() {
         export TEST_SPECS=$2
         shift 2
         ;;
+      -v|--viewports)
+        export TEST_VIEWPORTS=$2
+        shift 2
+        ;;
       -w|--workspace)
         export TEST_WORKSPACE=$2
         shift 2
@@ -364,6 +370,7 @@ main() {
   printSectionLine "Port:                   ${TEST_PORT}"
   printSectionLine "Selenium URL:           ${TEST_SELENIUM_URL}"
   printSectionLine "Test Specs:             ${TEST_SPECS}"
+  printSectionLine "Test Viewports:             ${TEST_VIEWPORTS}"
   printSectionLine "Workspace:              ${TEST_WORKSPACE:-N/A}"
   printSectionLine "Authenticate?           ${TEST_LOGIN}"
   printSectionLine "Custom Maven Config:    ${TEST_MAVEN_CONFIG:-N/A}"
