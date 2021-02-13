@@ -486,6 +486,14 @@ components/lists/assetlist/variant:
       value: "figure"
     }
 
+
+components/lists/listnav/variant:
+  contents:
+    - default: {
+      title: "Default",
+      value: ""
+    }
+
 components/lists/listnav/badge:
   contents:
     - cardHorizontalIconTitleCategoryDescriptionAction: {
