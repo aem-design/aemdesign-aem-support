@@ -232,8 +232,8 @@ components/details/generic-details/legacy:
     - default: {
       title: "Default",
       value: "badge.default",
-      templates: ["default"],
-      fields: []
+      templates: ["simple"],
+      fields: ["action"]
     }
     - icon: {
       title: "Icon",
