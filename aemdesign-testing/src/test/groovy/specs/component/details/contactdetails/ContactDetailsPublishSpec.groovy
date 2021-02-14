@@ -53,16 +53,16 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
 
         and: "Has Description line with content"
-        assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+        assert $("${selector} div.description").text().trim() == "Founder for AEM.Design max.barrass@gmail.com"
 
         and: "Has Description has field jobTitle"
-        assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+        assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Founder"
 
         and: "Has Description has field employee"
-        assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+        assert $("${selector} div.description [itemprop=employee]").text().trim() == "AEM.Design"
 
         and: "Has Description has field email"
-        assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+        assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@gmail.com"
 
 
         where:

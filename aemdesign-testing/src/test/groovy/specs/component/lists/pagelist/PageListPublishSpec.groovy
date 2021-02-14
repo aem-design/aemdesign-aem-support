@@ -344,6 +344,7 @@ class PageListPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
+    @Unroll("Page List: Pages with Title and Description Trim in #viewport.label")
     def "Page List: Pages with Title and Description Trim"() {
 
         given: '>the page hierarchy is created as "Components" > "Lists" > "Page List"'
@@ -366,9 +367,12 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Page Description Should be trimmed"
         assert $("${selector} ul li .card-text").getAt(0).text().equals("Page with ..more")
 
+        where: "Browser size width: #viewport.width and height: #viewport.height"
+        viewport << getViewPorts()
+
     }
 
-    @Unroll("Page List: Pages with Analytics Track Only #viewport.label")
+    @Unroll("Page List: Pages with Analytics Track Only in #viewport.label")
     def "Page List: Pages with Analytics Track Only"() {
 
         given: '>the page hierarchy is created as "Components" > "Lists" > "Page List"'
