@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
+    <page-properties-description/>
     <jcr:content
 		onTime="{Date}2019-05-30T11:57:35.140+10:00"
         cq:tags="[aemdesign-showcase:content-type/page]"
@@ -46,9 +47,13 @@
                             componentId="page-details1"
                             description="Custom Description"
                             showBreadcrumb="false"
+                            showPageDate="true"
                             showParsys="false"
                             showToolbar="false"
-                            title="Page Title"/>
+                            textIsRich="true"
+                            title="Page Title"
+                            variant="default">
+                        </pagedetails>
                     </par>
                 </contentblock1>
                 <contentblock2
@@ -234,9 +239,13 @@
                             hideDescription="true"
                             hideTitle="true"
                             showBreadcrumb="false"
+                            showPageDate="false"
                             showParsys="false"
                             showToolbar="false"
-                            title="Page Title"/>
+                            textIsRich="true"
+                            title="Page Title"
+                            variant="default">
+                        </pagedetails>
                     </par>
                 </contentblock6>
             </par>

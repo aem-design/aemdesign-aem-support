@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:tags="[aemdesign-showcase:content-type/page,aemdesign-showcase:content-type/page/article]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:primaryType="cq:PageContent"
         jcr:title="Tab Page Content 3"
-        sling:resourceType="aemdesign/components/template/base">
+        sling:resourceType="aemdesign/components/template/base"
+        onTime="{Date}2019-08-14T11:57:35.140+10:00">
         <article
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemdesign/components/layout/article">
@@ -16,7 +17,8 @@
                 <page-details
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
-                    componentId="page-details"/>
+                    componentId="page-details"
+                    showPageDate="true"/>
                 <contentblock1
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
