@@ -36,6 +36,8 @@ class VideoPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert $("${selector} video source").attr("src").contains("/FishTank.mp4")
+        assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+        assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         and: "Should have sample content loaded"
