@@ -49,8 +49,9 @@ class ContentTabsPublishSpec extends ComponentSpec {
 
         when: "I select second tab"
         $(selector + " .nav-link").getAt(1).click()
+        waitFor(15, 0.1) { $(selector + " .tab-pane").getAt(1).hasClass("active") }
 
-        then: "Second tab content show be visible"
+        then: "Second tab content should be visible"
         assert $(selector + " .nav-link.active").text().trim() == "Tab Page Content 2"
         takeScreenshot($(selector).firstElement(), "Second tab content show be visible")
 
@@ -82,7 +83,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
         when: "I select second tab"
         $(selector + " .nav.nav-tabs").find("li").getAt(1).find("a").getAt(0).click()
 
-        then: "Second tab content show be visible"
+        then: "Second tab content should be visible"
         assert $(selector + " .nav-link.active").text().trim() == "Content Block Lock"
         takeScreenshot($(selector).firstElement(), "Second tab content show be visible")
 
