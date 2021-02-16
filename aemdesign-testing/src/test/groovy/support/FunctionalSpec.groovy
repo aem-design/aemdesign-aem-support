@@ -114,6 +114,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
     def setWindowSize(Object viewport, boolean filter) {
         def viewportName
 
+        //set default size
         def viewPortWidth = 1200
         def viewPortHeight = 900
 
@@ -121,7 +122,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
             viewportName = viewport.label
             viewPortWidth = viewport.width
             viewPortHeight = viewport.height
-        } else {
+        } else if (viewport) {
             viewportName = viewport.toString()
 
             def viewPorts = getViewPorts(filter)
