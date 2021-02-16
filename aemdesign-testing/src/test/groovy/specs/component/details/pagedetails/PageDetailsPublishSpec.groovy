@@ -253,7 +253,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
         def selector = "#page-details"
 
         when: "I am on the component showcase page"
-        setWindowSize(viewport)
+        setWindowSize("LG",false)
         waitForAuthorPreviewPage()
 
         then: "The component should be on the page"
