@@ -118,7 +118,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\FileSystem /v LongPathsE
 To enable git to use long filename run following command in elevated powershell and restart your computer:
 
 ```powershell
-git config --system core.longpaths true
+git config --global core.longpaths true
 ```
 
 ## Add Git Path Windows Path
