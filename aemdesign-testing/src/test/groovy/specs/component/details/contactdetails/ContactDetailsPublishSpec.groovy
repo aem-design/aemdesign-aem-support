@@ -50,19 +50,19 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("src").contains("/content/aemdesign-showcase/au/en/component/details/contact-details.thumb.319.319.png")
 
         and: "Has Title line with content"
-        assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+        assert $("${selector} .title").text().trim() == "Author: Max Barrass"
 
         and: "Has Description line with content"
-        assert $("${selector} div.description").text().trim() == "Founder for AEM.Design max.barrass@gmail.com"
+        assert $("${selector} .description").text().trim() == "Founder for AEM.Design max.barrass@gmail.com"
 
         and: "Has Description has field jobTitle"
-        assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Founder"
+        assert $("${selector} .description [itemprop=jobTitle]").text().trim() == "Founder"
 
         and: "Has Description has field employee"
-        assert $("${selector} div.description [itemprop=employee]").text().trim() == "AEM.Design"
+        assert $("${selector} .description [itemprop=employee]").text().trim() == "AEM.Design"
 
         and: "Has Description has field email"
-        assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@gmail.com"
+        assert $("${selector} .description [itemprop=email]").text().trim() == "max.barrass@gmail.com"
 
 
         where:
@@ -103,7 +103,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("src").contains("/content/aemdesign-showcase/au/en/component/details/contact-details.thumb.319.319.png")
 
         and: "Has Title line with content"
-        assert $("${selector} div.title").text().trim() == "Contact Details"
+        assert $("${selector} .title").text().trim() == "Contact Details"
 
         and: "Has Description should be empty"
         assert $("${selector} div.description").text().isEmpty()
