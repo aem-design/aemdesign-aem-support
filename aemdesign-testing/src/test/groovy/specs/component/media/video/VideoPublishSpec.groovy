@@ -44,7 +44,7 @@ class VideoPublishSpec extends ComponentSpec {
         assert $("${selector} video").firstElement().getAttribute("readyState") == "4"
 
         and: "Should have autoplay attribute"
-        assert js.exec( "return \$(\"$selector\").find(\"video\")[0]..hasAttribute(\"autoplay\");" )
+        assert js.exec( "return \$(\"$selector\").find(\"video\")[0].hasAttribute(\"autoplay\");" )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()

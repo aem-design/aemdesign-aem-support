@@ -235,7 +235,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").contains(".png")
 
         and: 'Section should have video tag with video rendition'
-        assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+        assert $("${selector} source").firstElement().getAttribute("src").contains(".video.")
 
         where:
         viewport << getViewPorts()
