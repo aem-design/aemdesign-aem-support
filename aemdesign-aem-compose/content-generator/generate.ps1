@@ -1,6 +1,6 @@
 Param(
     [string]$LOG_PATH = "${PWD}\..\logs",
-    [string]$LOG_PEFIX = "${LOG_PATH}\generate-content",
+    [string]$LOG_PEFIX = "generate-content",
     [string]$LOG_SUFFIX = ".log",
     [string]$DOCKER_LOGS_FOLDER = "${PWD}\..\logs\docker",
     [switch]$DEBUG = $false,

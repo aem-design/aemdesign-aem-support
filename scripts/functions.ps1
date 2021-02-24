@@ -288,7 +288,6 @@ Function Main
   $script:LOG_PATH = (createDir $LOG_PATH)
   $script:DOCKER_LOGS_FOLDER = (createDir $DOCKER_LOGS_FOLDER)
   $script:DRIVER_FOLDER = (createDir $DRIVER_FOLDER)
-
   # set logfile name
   $script:LOG_FILENAME_DATE = "$(DateStamp)"
   $script:LOG_FILENAME = "${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
