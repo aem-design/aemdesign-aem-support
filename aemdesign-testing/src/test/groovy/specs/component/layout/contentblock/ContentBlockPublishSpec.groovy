@@ -221,8 +221,8 @@ class ContentBlockPublishSpec extends ComponentSpec {
         when: "I am on the component showcase page"
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
-        assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
-        assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
+        assert js.exec( "\$(\"$selector video\")[0].pause(); return true;")
+        assert js.exec( "\$(\"$selector video\")[0].currentTime=2; return true;")
         takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
 
         then: "The component should be on the page"

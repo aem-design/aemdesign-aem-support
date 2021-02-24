@@ -77,6 +77,8 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         then: "It should match the #viewport.width by #viewport.height reference image."
+        assert js.exec( "\$(\"$selector video\")[0].pause(); return true;")
+        assert js.exec( "\$(\"$selector video\")[0].currentTime=2; return true;")
         designRef(selector)
 
         where:
