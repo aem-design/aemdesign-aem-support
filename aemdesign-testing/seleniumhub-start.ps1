@@ -17,8 +17,8 @@ $SKIP_PRINT_CONFIG = $true
 
 . "..\scripts\functions.ps1"
 
-$LOG_FILENAME_DATE = "$(DateStamp)"
-$LOG_FILENAME = "${LOG_PATH}\${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
+$script:LOG_FILENAME_DATE = "$(DateStamp)"
+$script:LOG_FILENAME = "${LOG_PATH}\${LOG_PEFIX}-${DOCKER_NETWORK_NAME}-${LOG_FILENAME_DATE}${LOG_SUFFIX}"
 
 printSectionBanner "Starting Selenium Hub containers"
 

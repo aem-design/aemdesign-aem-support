@@ -42,7 +42,7 @@ if ( $AEM_AVAILABLE )
 #   doSlingPost -Method Post -Referer $ADDRESS -UserAgent "curl" -Body $BODY_SERVICE_TO_DISABLE -Url "${ADDRESS}${SERVICE_TO_DISABLE}" -BasicAuthCreds ${AEM_USERNAME}:${AEM_PASSWORD} -Timeout $TIMEOUT
 
   printSectionLine "Deploying!" "info"
-  Invoke-Expression -Command "$MVN_COMMAND" | Tee-Object -Append -FilePath "${LOG_FILENAME}"
+  Invoke-Expression -Command "$MVN_COMMAND" | Tee-Object -Append -FilePath "${LOG_FILE}"
 
 
   printSectionBanner "Enable Workflows" "warn"
