@@ -79,7 +79,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${selector} #text_in_toolbar", "Text in Toolbar")
 
         and: "Has Page Date Value"
-        assert compareInnerTextContains("${selector} time.pagedate", "September 15, 2019")
+        assert compareInnerTextContains("${selector} .pagedate time", "September 15, 2019")
 
         and: "Has Title"
         assert compareInnerTextContains("${selector} header > h1", "Page Properties - Page Title")
@@ -151,7 +151,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${selector} #text_in_parent_toolbar", "Text in Parent Toolbar")
 
         and: "Has Page Date Value"
-        assert compareInnerTextContains("${selector} time.pagedate", "September 15, 2019")
+        assert compareInnerTextContains("${selector} .pagedate time", "September 15, 2019")
 
         and: "Has Title"
         assert compareInnerTextContains("${selector} header .card-title", "Page Properties - Page Title")
@@ -191,7 +191,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} .navbar").isEmpty() == true
 
         and: "Has Page Date visible"
-        assert $("${selector} time.pagedate").isEmpty() == false
+        assert $("${selector} .pagedate time").isEmpty() == false
 
         and: "Has Title showing"
         assert $("${selector} header .card-title").isEmpty() == false
@@ -230,7 +230,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} .navbar").isEmpty() == true
 
         and: "Has Page Date visible"
-        assert $("${selector} time.pagedate").isEmpty() == false
+        assert $("${selector} .pagedate time").isEmpty() == false
 
         and: "Has Title showing"
         assert $("${selector} h1").isEmpty() == true
@@ -335,7 +335,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} .navbar").isEmpty() == true
 
         and: "Has Page Date visible"
-        assert $("${selector} time.pagedate").isEmpty() == false
+        assert $("${selector} .pagedate time").isEmpty() == false
 
         and: "Has Title showing"
         assert $("${selector} .card-title").isEmpty() == false
