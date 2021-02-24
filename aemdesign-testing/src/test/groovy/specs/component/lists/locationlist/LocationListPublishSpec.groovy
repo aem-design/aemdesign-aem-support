@@ -94,7 +94,7 @@ class LocationListPublishSpec extends ComponentSpec {
         assert $("${selector} .card .card-title").size() == 6
 
         and: "With Category"
-        assert $("${selector} .card .tags").size() == 6
+        assert $("${selector} .card .card-taglist").size() == 6
 
         and: "With Description"
         assert $("${selector} .card .card-text").size() == 6
