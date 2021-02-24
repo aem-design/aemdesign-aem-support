@@ -10,4 +10,6 @@
 
     <filter root="/var/acs-commons/reports/sample-page-report/jcr:content/columns/componenttree" mode="update"/>
     <filter root="/var/acs-commons/reports/sample-page-report/jcr:content/columns/components" mode="update"/>
+
+    <filter root="/etc/cloudservices/addthisconnect/aemdesign-showcase" mode="update"/>
 </workspaceFilter>
