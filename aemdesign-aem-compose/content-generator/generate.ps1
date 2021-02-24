@@ -15,9 +15,6 @@ if ($DEBUG) {
     $script:COMMAND = "$COMMAND --debug"
 }
 
-$script:LOG_PATH = $LOG_PATH
-$script:TEST_SELENIUM_URL = $TEST_SELENIUM_URL
-
 printSectionBanner "Generating Tags"
 
 Invoke-Expression -Command "$COMMAND" | Tee-Object -Append -FilePath "${LOG_FILENAME}"

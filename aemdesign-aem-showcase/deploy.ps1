@@ -15,9 +15,6 @@ $script:PARENT_PROJECT_PATH = ".."
 
 . "..\scripts\functions.ps1"
 
-$script:LOG_PATH = $LOG_PATH
-$script:TEST_SELENIUM_URL = $TEST_SELENIUM_URL
-
 printSectionBanner "Deploying Monolith Package"
 printSectionLine ("$MVN_COMMAND" -replace "$AEM_PASSWORD", "***")
 
