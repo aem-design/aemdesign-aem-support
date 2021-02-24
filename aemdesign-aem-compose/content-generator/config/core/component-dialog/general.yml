@@ -59,14 +59,14 @@ common/true-false:
 
 # WARNING: Reference to these path is hardcoded into component dialogs
 honorific/prefix:
-  prefixes:
-    - dr
-    - lady
-    - miss
-    - mr
-    - mrs
-    - ms
-    - sir
+  contents:
+    - dr: { title: "Dr", value: "dr" }
+    - lady: { title: "Lady", value: "Lady" }
+    - miss: { title: "Miss", value: "Miss" }
+    - mr: { title: "Mr", value: "Mr" }
+    - mrs: { title: "Mrs", value: "Mrs" }
+    - ms: { title: "Ms", value: "Ms" }
+    - sir: { title: "Sir", value: "Sir" }
   valueFormat: '%%prefix%%'
   title: '%%prefix_normalised%%'
 
