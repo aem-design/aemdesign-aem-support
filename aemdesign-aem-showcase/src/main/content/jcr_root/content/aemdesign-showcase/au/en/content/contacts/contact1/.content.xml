@@ -30,8 +30,7 @@
                     jobTitle="Founder"
                     showBreadcrumb="false"
                     showParsys="false"
-                    showToolbar="false"
-                    titleFormat="aemdesign-showcase:component-style-theme/details/contact-details/format/title/author"/>
+                    showToolbar="false"/>
             </par>
         </article>
     </jcr:content>
