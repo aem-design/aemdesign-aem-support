@@ -2,24 +2,25 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:tags="[aemdesign-showcase:content-type/page]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:description="Page Description"
         jcr:primaryType="cq:PageContent"
         jcr:title="Contact Details"
-        cq:tags="[aemdesign-showcase:content-type/page]"
         sling:resourceType="aemdesign/components/template/base">
         <article
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="aemdesign/components/layout/article">
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_SUT8P9EI1">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
                 <page_details
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"
                     pageMetaProperty="og:type"
-                    pageMetaPropertyContent="article"
-                    componentId="page_details"/>
+                    pageMetaPropertyContent="article"/>
                 <contentblockmenu1
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblockmenu"
@@ -71,8 +72,7 @@
                             showBreadcrumb="false"
                             showParsys="false"
                             showToolbar="false"
-                            titleFormat="aemdesign-showcase:component-style-theme/details/contact-details/format/title/author">
-                        </contactdetails>
+                            titleFormat="aemdesign-showcase:component-style-theme/details/contact-details/format/title/author"/>
                     </par>
                 </contentblock1>
                 <contentblock2

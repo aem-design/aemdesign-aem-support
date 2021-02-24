@@ -31,8 +31,7 @@
                     showParsys="false"
                     showToolbar="false"
                     title="Page Title"
-                    titleFormat="aemdesign-showcase:component-style-theme/details/contact-details/format/title/author">
-                </contactdetails>
+                    titleFormat="aemdesign-showcase:component-style-theme/details/contact-details/format/title/author"/>
             </par>
         </article>
         <image/>
