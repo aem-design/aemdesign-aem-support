@@ -191,7 +191,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} .navbar").isEmpty() == true
 
         and: "Has Page Date visible"
-        assert $("${selector} .pagedate time").isEmpty() == false
+        assert $("${selector} .pagedate time").isEmpty() == true
 
         and: "Has Title showing"
         assert $("${selector} header .card-title").isEmpty() == false
