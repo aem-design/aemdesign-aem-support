@@ -265,7 +265,7 @@ components/details/generic-details/fields:
       value: "description"
     }
     - descriptionformatted: {
-      title: "Description",
+      title: "Description Formatted",
       value: "descriptionformatted"
     }
     - date: {

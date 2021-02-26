@@ -10,7 +10,12 @@ asset/license/format:
   contents:
     - metadata: {
       title: "Metadata: [Creator] [Contributor] [License] [Copyright Owner] [Expiry]",
-      value: '<span itemprop="creator" itemtype="https://schema.org/Person">${dc:creator}</span><span itemprop="contributor" itemtype="https://schema.org/Person">${dc:contributor}</span><span itemprop="license" itemtype="https://schema.org/CreativeWork">${dc:rights}</span><span itemprop="copyrightHolder" itemtype="https://schema.org/Person">${xmpRights:Owner}</span><span itemprop="expires" itemtype="https://schema.org/Date">${prism:expirationDate}</span>'
+      value: >
+        <span itemprop="creator" itemtype="https://schema.org/Person">${dc:creator}</span>
+        <span itemprop="contributor" itemtype="https://schema.org/Person">${dc:contributor}</span>
+        <span itemprop="license" itemtype="https://schema.org/CreativeWork">${dc:rights}</span>
+        <span itemprop="copyrightHolder" itemtype="https://schema.org/Person">${xmpRights:Owner}</span>
+        <span itemprop="expires" itemtype="https://schema.org/Date">${prism:expirationDate}</span>'
     }
     - simple: {
       title: "Text: [Expiry] [Creator] [Contributor] [License] [Copyright Owner]",
