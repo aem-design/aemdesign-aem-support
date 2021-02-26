@@ -264,9 +264,21 @@ components/details/generic-details/fields:
       title: "Description",
       value: "description"
     }
+    - descriptionformatted: {
+      title: "Description",
+      value: "descriptionformatted"
+    }
+    - date: {
+      title: "Date",
+      value: "date"
+    }
     - title: {
       title: "Title",
       value: "title"
+    }
+    - titleformatted: {
+      title: "Title Formatted",
+      value: "titleformatted"
     }
     - subtitle: {
       title: "Sub Title",
