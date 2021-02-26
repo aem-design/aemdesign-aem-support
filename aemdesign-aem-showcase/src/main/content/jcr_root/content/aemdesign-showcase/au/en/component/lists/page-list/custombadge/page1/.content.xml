@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2021-02-26T20:19:10.714+11:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
+        jcr:description="Page Properties - Description"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page1"
+        sling:resourceType="aemdesign/components/template/base"
+        navTitle="Page Properties - Navigation Title"
+        pageTitle="Page Properties - Page Title"
+        subtitle="Page Properties - Subtitle">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_SPCHRCFDG">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page-details
+                    jcr:lastModified="{Date}2021-02-26T20:19:10.698+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    badgeLinkText="Overridden text"
+                    componentId="page-details_PGKOZNMNF"
+                    description="Page with Licensed Page Image, with non-Licensed Secondary Image and with Background non-Licensed Image"
+                    descriptionFormat="aemdesign-showcase:component-style-theme/details/page-details/format/description/default"
+                    showBreadcrumb="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"
+                    title="Page1"
+                    titleFormat="aemdesign-showcase:component-style-theme/details/page-details/format/title/including-subtitle"
+                    titleType="h3">
+                    <secondaryImage
+                        jcr:lastModified="{Date}2021-02-26T20:19:10.698+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"
+                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg"/>
+                    <bgimage
+                        jcr:lastModified="{Date}2021-02-26T20:19:10.698+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"
+                        fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                    <thumbnail
+                        jcr:lastModified="{Date}2021-02-26T20:19:10.698+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                </page-details>
+            </par>
+        </article>
+        <image
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/media/image"
+            fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city1.jpg"/>
+    </jcr:content>
+</jcr:root>
