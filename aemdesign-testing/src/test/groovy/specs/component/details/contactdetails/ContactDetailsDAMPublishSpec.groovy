@@ -57,8 +57,8 @@ class ContactDetailsDAMPublishSpec extends ComponentSpec {
         and: "Has Description has field jobTitle"
         assert $("${selector} .description [itemprop=jobTitle]").text().trim() == "Founder"
 
-        and: "Has Description has field employee"
-        assert $("${selector} .description [itemprop=employee]").text().trim() == "AEM.Design"
+        and: "Has Description has field employer"
+        assert $("${selector} .description [itemprop=legalName]").text().trim() == "AEM.Design"
 
         and: "Has Description has field email"
         assert $("${selector} .description [itemprop=email]").text().trim() == "max.barrass@gmail.com"
