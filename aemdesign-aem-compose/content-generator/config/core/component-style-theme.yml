@@ -112,15 +112,15 @@ content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
     prefix: '${title}'
     title: 'Default format'
 
-  details/contact-details/format/description/jobTitleAtEmployee:
+  details/contact-details/format/description/jobTitleAtEmployer:
     flat: true
-    prefix: '<span itemprop="jobTitle">${jobTitle}</span> for <span itemprop="employee" itemtype="http://schema.org/Organization">${employee}</span>'
-    title: 'Job Title At Employee'
+    prefix: '<span itemprop="jobTitle">${jobTitle}</span> for <span itemprop="legalName" itemtype="http://schema.org/Organization">${employer}</span>'
+    title: 'Job Title At Employer'
 
-  details/contact-details/format/description/jobTitleAtEmployeeWithEmail:
+  details/contact-details/format/description/jobTitleAtEmployerWithEmail:
     flat: true
-    prefix: '<span itemprop="jobTitle">${jobTitle}</span> for <span itemprop="employee" itemtype="http://schema.org/Organization">${employee}</span> <a href="mailto:${email}" itemprop="email">${email}</a>'
-    title: 'Job Title At Employee with Email'
+    prefix: '<span itemprop="jobTitle">${jobTitle}</span> for <span itemprop="legalName" itemtype="http://schema.org/Organization">${employer}</span> <a href="mailto:${email}" itemprop="email">${email}</a>'
+    title: 'Job Title At Employer with Email'
 
   details/contact-details/format/description/jobTitleContactMobileEmail:
     flat: true
