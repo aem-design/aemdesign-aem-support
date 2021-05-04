@@ -275,3 +275,16 @@ For more information please see following reference site [https://www.browsersta
 | GEB_BROWSERSTACK_GEOLOCATION       | geb.browserstack.geoLocation       | browserstack.geoLocation     |
 | GEB_BROWSERSTACK_NETWORKSPEED      | geb.browserstack.customNetwork     | browserstack.customNetwork   |
 | GEB_BROWSERSTACK_DEVICEORIENTATION | geb.browserstack.deviceOrientation | deviceOrientation            |
+
+
+## Manual Command using Docker Container
+
+Package 
+
+```bash
+mvn package -Dmaven.repo.local=/build/.m2/repository
+```
+
+```bash
+mvn clean test -Dmaven.repo.local=/build/.m2/repository -D"geb.env=remote-seleniumhub-chrome" -D"project.buildDirectory=remote-seleniumhub-chrome" -D"aem.scheme=http" -D"aem.host=172.27.48.1" -D"aem.port=4512" -D"aem.username=admin" -D"aem.password=admin" -D"test=ImageA*" -D"selenium.huburl=http://172.27.48.1:32768/wd/hub" -D"login.req=true" -D"test.dispatcher=False"
+```
