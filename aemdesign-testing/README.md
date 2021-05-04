@@ -307,10 +307,10 @@ docker run -it --rm --name remote-seleniumhub-chrome -v `pwd`\..:/build/aemdesig
 mvn package -Dmaven.repo.local=/build/.m2/repository
 ```
 
-4. Run tests update `aem.port` and `test` params to match your config.
+4. Run tests update `aem.port`, `test.viewports` and `test` params to match your config.
 
 ```bash
-mvn clean test -Dmaven.repo.local=/build/.m2/repository -D"geb.env=remote-seleniumhub-chrome" -D"project.buildDirectory=remote-seleniumhub-chrome" -D"aem.scheme=http" -D"aem.host=172.27.48.1" -D"aem.port=4502" -D"aem.username=admin" -D"aem.password=admin" -D"selenium.huburl=http://172.27.48.1:32768/wd/hub" -D"login.req=true" -D"test.dispatcher=False" -D"test=ImageA*" 
+mvn clean test -Dmaven.repo.local=/build/.m2/repository -D"geb.env=remote-seleniumhub-chrome" -D"project.buildDirectory=remote-seleniumhub-chrome" -D"aem.scheme=http" -D"aem.host=172.27.48.1" -D"aem.port=4502" -D"aem.username=admin" -D"aem.password=admin" -D"selenium.huburl=http://172.27.48.1:32768/wd/hub" -D"login.req=true" -D"test.dispatcher=False"  -D"test.viewports=XLG" -D"test=ImageA*" 
 ```
 
 5. If you have existing reports in HTML and you want to convert them to PDF run the following
