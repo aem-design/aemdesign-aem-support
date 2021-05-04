@@ -279,12 +279,36 @@ For more information please see following reference site [https://www.browsersta
 
 ## Manual Command using Docker Container
 
-Package 
+Run following command to start a container with your project content. You will use this to run all maven tests.
+
+1. Start Selenium hub and grid
+
+```bash
+./seleniumhub-start
+```
+
+1. Start Container, this will map parent project folder into `/build/aemdesign-aem-support` and map your `.m2` into `/build/.m2` which you will use when building.
+
+Powershell:
+
+```powershell
+docker run -it --rm --name remote-seleniumhub-chrome2 -v ${PWD}/..:/build/aemdesign-aem-support -v ${HOME}\.m2:/build/.m2 -w "/build/aemdesign-aem-support" -e M2_HOME=/build/.m2/ aemdesign/centos-java-buildpack bash -l
+```
+
+Bash:
+
+```bash
+docker run -it --rm --name remote-seleniumhub-chrome -v `pwd`\..:/build/aemdesign-aem-support -v ${HOME}\.m2:/build/.m2 -w "/build/aemdesign-aem-support" -e M2_HOME=/build/.m2/ aemdesign/centos-java-buildpack bash -l
+```
+
+2. Run maven package, ensure everything is working.
 
 ```bash
 mvn package -Dmaven.repo.local=/build/.m2/repository
 ```
 
+3. Run tests update `aem.port` and `test` params to match your config.
+
 ```bash
-mvn clean test -Dmaven.repo.local=/build/.m2/repository -D"geb.env=remote-seleniumhub-chrome" -D"project.buildDirectory=remote-seleniumhub-chrome" -D"aem.scheme=http" -D"aem.host=172.27.48.1" -D"aem.port=4512" -D"aem.username=admin" -D"aem.password=admin" -D"test=ImageA*" -D"selenium.huburl=http://172.27.48.1:32768/wd/hub" -D"login.req=true" -D"test.dispatcher=False"
+mvn clean test -Dmaven.repo.local=/build/.m2/repository -D"geb.env=remote-seleniumhub-chrome" -D"project.buildDirectory=remote-seleniumhub-chrome" -D"aem.scheme=http" -D"aem.host=172.27.48.1" -D"aem.port=4502" -D"aem.username=admin" -D"aem.password=admin" -D"selenium.huburl=http://172.27.48.1:32768/wd/hub" -D"login.req=true" -D"test.dispatcher=False" -D"test=ImageA*" 
 ```
