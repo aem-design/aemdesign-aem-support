@@ -309,4 +309,17 @@ return true
 
         return jsd.executeScript(script, element, styles)
     }
+
+    def getShadowRoot(String selector) {
+        WebElement element = driver.findElement(By.cssSelector(selector))
+        return driver.executeScript("return arguments[0].shadowRoot", element)
+    }
+    def getShadowRootSelector(String selector, String shadowSelector) {
+        WebElement element = driver.findElement(By.cssSelector(selector))
+        return driver.executeScript("return arguments[0].shadowRoot.querySelector(arguments[1])", element, shadowSelector)
+    }
+    def getShadowRootSelectorEval(String selector, String shadowSelector, String shadowSelectorEval) {
+        WebElement element = driver.findElement(By.cssSelector(selector))
+        return driver.executeScript("return arguments[0].shadowRoot.querySelector(\"${shadowSelector}\")${shadowSelectorEval}", element)
+    }
 }

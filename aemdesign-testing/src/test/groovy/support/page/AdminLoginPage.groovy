@@ -5,7 +5,7 @@ import org.openqa.selenium.By
 
 class AdminLoginPage extends Page {
 
-    static url = "/system/sling/logout.html"
+    static url = "/libs/granite/core/content/login.html"
 
     static at = {
         waitFor(30) { title.contains("AEM Sign In") }

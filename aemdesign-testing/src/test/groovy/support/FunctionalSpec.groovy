@@ -13,6 +13,7 @@ import org.openqa.selenium.logging.LogEntries
 import org.openqa.selenium.logging.LogEntry
 import org.openqa.selenium.logging.LogType
 import support.page.AdminLoginPage
+import support.page.AdminLogoutPage
 
 import javax.imageio.ImageIO
 import java.awt.image.BufferedImage
@@ -149,24 +150,62 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def login(iUsername, iPassword, pageToWait = null) {
-        to AdminLoginPage
-        go()
+
+//        System.out.println("Base URL: " + browser.getBaseUrl() )
+
+        via AdminLogoutPage
         at AdminLoginPage
 
-        page.username.value(iUsername)
-        page.password.value(iPassword)
-        signIn.click()
+        if ( page.$("#submit-button-ims") ) {
+//            System.out.println("ADMIN TASK ONLY LOGIN PAGE: activating local login form: " + page.getPageUrl())
+            $("coral-accordion-item-label").click()
+//            System.out.println("Clicked label page:" + $("coral-accordion-item-label"))
+//            System.out.println("Waiting for:" + $("#login"))
+//            System.out.println("Waiting for:" + $("form"))
 
-        try {
-            // Go to the page, because it doesn't always land on the page you think it does
-            if (pageToWait) {
-                to pageToWait
-            }
+            waitFor(10) { $("form").displayed }
+//            System.out.println("Form is showing: " + $("form").displayed )
         }
-        catch (ex) {
-            report "afterLogin"
-            throw new RuntimeException("Error logging in! Please check target directory for afterLogin.[html,png] for more details", ex)
+
+//        System.out.println("Fill login form: " + page.getPageUrl() )
+
+        if ( page.$("form#login [name=j_username]") ) {
+//            System.out.println("Set value into j_username element: " + $("form#login [name=j_username]").getAttribute("outerHTML"))
+
+            $("form#login [name=j_username]").value(iUsername)
+
+//            System.out.println("Set value into j_username element: " + $("form#login [name=j_username]").getAttribute("value"))
+        } else {
+            throw new RuntimeException("Cant find j_username field on login page.", ex)
         }
+
+        if ( page.$("form#login [name=j_password]") ) {
+//            System.out.println("Set value into j_password element: " + $("form#login [name=j_password]").getAttribute("outerHTML") )
+
+            $("form#login [name=j_password]").value(iPassword)
+
+//            System.out.println("Set value into j_password element: " + $("form#login [name=j_password]").getAttribute("value") )
+        } else {
+            throw new RuntimeException("Can't find j_password field on login page.", ex)
+        }
+
+        if ( page.$("form#login [name=resource]") ) {
+//            System.out.println("Set value into resource element: " + $("form#login [name=resource]").getAttribute("outerHTML"))
+
+            js.exec("\$(\"form#login [name=resource]\").attr(\"value\",\"/content.xml\")")
+
+//            System.out.println("Set value into resource element: " + $("form#login [name=resource]").getAttribute("value"))
+        }
+
+//        System.out.println("Submit login form: " + page.getPageUrl() )
+//        System.out.println("Click submit: " + $("form#login [type=submit]").getAttribute("outerHTML") )
+
+        $("form#login [type=submit]").click()
+        // Go to the page, because it doesn't always land on the page you think it does
+        if (pageToWait) {
+            to pageToWait
+        }
+
     }
 
     def loginAsAdmin() {
