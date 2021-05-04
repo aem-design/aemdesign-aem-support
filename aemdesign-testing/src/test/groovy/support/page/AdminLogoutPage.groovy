@@ -9,8 +9,6 @@ class AdminLogoutPage extends Page {
 
     AdminLogoutPage() {
         super()
-
-        System.out.println("Logout page: " + getPageUrl() );
     }
 
 }
