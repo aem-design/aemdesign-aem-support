@@ -62,7 +62,7 @@ docker run --name author648 -e "TZ=Australia/Sydney" -e "AEM_RUNMODE=-Dsling.run
 https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly#ensure-volume-mounts-work
 
 ```
-sudo nano sudo nano /etc/wsl.conf
+sudo nano /etc/wsl.conf
 ```
 
 Add this content into `/etc/wsl.conf`:
