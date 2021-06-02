@@ -1,3 +1,14 @@
+components/lists/list/variant:
+  contents:
+    - default: {
+      title: "Default",
+      value: ""
+    }
+    - results: {
+      title: "Results",
+      value: "results"
+    }
+
 components/lists/list/listfrom:
   contents:
     - children: {
