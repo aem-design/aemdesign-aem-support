@@ -1,0 +1,159 @@
+
+# Lists
+lists/common:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - inline
+    - flush
+  valueFormat: 'theme--lists%%infix%%-%%prefix%%'
+  title: 'Inline List %%breakpoint%%'
+
+lists/common/direction:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - row
+    - row-reverse
+    - column
+    - column-reverse
+  valueFormat: 'theme--lists%%infix%%-%%prefix%%'
+  title: '%%prefix_normalised%% %%breakpoint%%'
+
+lists/common/coloured:
+  flat: true
+  prefix: theme--lists-coloured
+  title: 'Coloured Items'
+
+lists/common/equal:
+  flat: true
+  prefix: theme--lists-equal
+  title: 'Equal (50%-50%) Width Items'
+
+lists/common/two-thirds:
+  flat: true
+  prefix: theme--lists-two-thirds
+  title: 'Two-Third (75%) Width Items'
+
+lists/common/thirty:
+  flat: true
+  prefix: theme--lists-thirty
+  title: '30% Width Items'
+
+lists/common/260:
+  flat: true
+  prefix: theme--lists-260
+  title: '260px Width Items'
+
+lists/common/flat:
+  flat: true
+  prefix: theme--lists-flat
+  title: 'Flat (unstyled) Items'
+
+lists/common/large:
+  flat: true
+  prefix: theme--lists-large
+  title: 'Large (33.33%) Items'
+
+lists/common/fill:
+  flat: true
+  prefix: theme--lists-fill
+  title: '100% Width Items'
+
+lists/common/hide-fl:
+  flat: true
+  prefix: theme--lists-hide-fl
+  title: 'Hide First/Last Items (mobile only)'
+
+lists/common/no-underline:
+  flat: true
+  prefix: theme--lists-no-underline
+  title: 'No Underline Links (on hover)'
+
+lists/common/bottom-margin:
+  flat: true
+  prefix: theme--lists-bottom-margin
+  title: 'Item Margin (28px, 0px medium up)'
+
+lists/common/light:
+  flat: true
+  prefix: theme--lists-light
+  title: 'Lighter Colour Links'
+
+lists/common/bright:
+  flat: true
+  prefix: theme--lists-bright
+  title: 'Brighter Colour Links'
+
+lists/common/justify:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  prefixes:
+    - jc
+    - je
+    - js
+    - aic
+    - aie
+    - ais
+    - acc
+    - ace
+    - acs
+  valueFormat: 'theme--lists%%infix%%-%%prefix%%'
+  title: '%%prefix_normalised%% %%breakpoint%%'
+
+
+# Nav list
+lists/navlist/navbar/nav:
+  flat: true
+  prefix: navbar-nav
+  title: 'Navbar Nav'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+# Badge - menuColor
+lists/navlist/color:
+  prefixes:
+    - none
+  prefixValue: ' '
+  title: '%%prefix_normalised%%'
+
+# Navbar
+lists/navbar/headernav:
+  flat: true
+  prefix: navbar-expand-lg navbar-light bg-white
+  title: 'Header Nav'
+
+lists/navlist/links:
+  flat: true
+  prefix: theme--list-links
+  title: 'Links'
+
+lists/navlist/socialnav:
+  flat: true
+  prefix: theme--list-social
+  title: 'Social Nav'
+
+lists/cardslist/cardsnav:
+  flat: true
+  prefix: theme--list-card
+  title: 'Cards Nav'
+
+lists/cardslist/images:
+  flat: true
+  prefix: theme--list-images
+  title: 'Image List'
+
+lists/cardslist/media:
+  flat: true
+  prefix: theme--list-media
+  title: 'Media List'
+
+lists/cardslist/tiles:
+  flat: true
+  prefix: theme--list-tiles
+  title: 'Tiles List'

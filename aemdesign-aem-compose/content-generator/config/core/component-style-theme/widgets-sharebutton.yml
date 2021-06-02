@@ -1,0 +1,8 @@
+
+# Widgets
+widgets/sharebutton:
+  contents:
+    - inlinefollow: {title: "Follow Tool Box", value: "addthis_inline_follow_toolbox"}
+    - inlineshare: {title: "Share Tool Box", value: "addthis_inline_share_toolbox"}
+    - relatedposts: {title: "Related Posts", value: "addthis_relatedposts_inline"}
+    - tipjar: {title: "Tip Jar", value: "addthis_tipjar_inline"}

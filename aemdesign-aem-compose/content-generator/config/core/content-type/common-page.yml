@@ -1,0 +1,12 @@
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+content-type/page:
+  prefixes:
+    - article
+    - book
+    - contact: {title: "Contact Page"}
+    - event
+    - location: {title: "Location Page"}
+    - news: {title: "News Page"}
+    - profile
+  title: '%%prefix_normalised%%'

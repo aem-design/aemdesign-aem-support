@@ -1,0 +1,9 @@
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+content-type/asset:
+  prefixes:
+    - audio
+    - document
+    - image
+    - video
+  title: '%%prefix_normalised%%'
