@@ -260,6 +260,10 @@ components/details/generic-details/fields:
       title: "Action Link",
       value: "action"
     }
+    - timerequired: {
+      title: "Time Required / Time To Read",
+      value: "timerequired"
+    }
     - description: {
       title: "Description",
       value: "description"
