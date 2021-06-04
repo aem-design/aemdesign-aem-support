@@ -1,0 +1,13 @@
+details/news-details/format/date:
+  contents:
+    - default: {
+      title: "Default",
+      value: "yyyy-mm-dd"
+    }
+
+details/news-details/format/datedisplay:
+  contents:
+    - default: {
+      title: "Default",
+      value: "d MMMM YYYY"
+    }
