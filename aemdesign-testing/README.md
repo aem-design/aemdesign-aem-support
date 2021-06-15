@@ -318,3 +318,13 @@ mvn clean test -Dmaven.repo.local=/build/.m2/repository -D"geb.env=remote-seleni
 ```bash
 ./asciidoctor-convert-reports -root remote-seleniumhub-chrome -pdf
 ```
+
+## Running Tests using Maven
+
+You can test the execution of tests on your local system using following command. This will run tests using local selenium and AEM instances and will execute all tests listed in `test-list` with viewports listed in `test-viewports`:
+
+```powershell
+./test-spec -SILENT -TEST_USING_MAVEN true
+```
+
+This will use maven for main execution but will attempt to use Docker for ImageMagic and Asciidoc reports.
