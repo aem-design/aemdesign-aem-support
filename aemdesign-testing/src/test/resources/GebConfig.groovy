@@ -57,6 +57,9 @@ String GLOBAL_SELENIUMHUB_URL = System.properties.getProperty("selenium.huburl",
 String GLOBAL_BUILD_DIR = System.properties.getProperty("project.buildDirectory", GLOBAL_ENV)
 String GLOBAL_LOGIN_REQUIRED = System.properties.getProperty("login.req", "true")
 String GLOBAL_TEST_VIEWPORTS = System.properties.getProperty("test.viewports", "")
+String GLOBAL_PROJECT_ROOT_DIR = System.properties.getProperty("project.rootdir", "")
+String GLOBAL_PROJECT_ROOT_NAME = System.properties.getProperty("project.rootname", "")
+String GLOBAL_PROJECT_CURRENT_NAME = System.properties.getProperty("project.currentname", "")
 
 //save params if have not been defined
 System.properties.setProperty("aem.scheme", GLOBAL_SCHEME)
@@ -83,6 +86,10 @@ if (GLOBAL_ENV.startsWith("local-")) {
 }
 System.properties.setProperty("testingdriver", GLOBAL_DRIVER_TYPE)  //used in report
 
+System.properties.setProperty("HAS_DOCKER", checkCommand("docker -v", "Docker version"))
+System.properties.setProperty("HAS_COMPARE", checkCommand("compare -v", "ImageMagick"))
+
+
 printDebug("SETTINGS",[
         GLOBAL_HOST,
         GLOBAL_PORT,
@@ -93,7 +100,12 @@ printDebug("SETTINGS",[
         GLOBAL_URL,
         GLOBAL_ENV,
         GLOBAL_DRIVER_TYPE,
-        GLOBAL_LOGIN_REQUIRED
+        GLOBAL_LOGIN_REQUIRED,
+        "project.currentname:" + GLOBAL_PROJECT_CURRENT_NAME,
+        "project.rootdir:" + GLOBAL_PROJECT_ROOT_DIR,
+        "project.rootname:" + GLOBAL_PROJECT_ROOT_NAME,
+        "HAS_DOCKER:" + System.properties.getProperty("HAS_DOCKER", "false"),
+        "HAS_COMPARE:" + System.properties.getProperty("HAS_COMPARE", "false")
 ])
 
 //specific driver
@@ -544,3 +556,21 @@ static printDebug(String name, Object values) {
 
     System.out.println(json.toString())
 }
+
+static checkCommand(String commandToTest, String stringToFindInOutput) {
+
+    try {
+        def sout = new StringBuilder(), serr = new StringBuilder()
+        def proc = commandToTest.execute()
+        proc.consumeProcessOutput(sout, serr)
+        proc.waitForOrKill(1000)
+        //println "out> $sout\nerr> $serr"
+        if (sout.contains(stringToFindInOutput)) {
+            return "true"
+        }
+    } catch (ignored) {
+        //do nothing
+    }
+    return "false"
+}
+

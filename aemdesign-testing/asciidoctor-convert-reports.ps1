@@ -8,7 +8,7 @@ Param(
     [switch]$TEST_OPEN_REPORT = $false,
     [string]$TEST_REPORT_PATH = "generated-docs/summary.html",
     [string]$TEST_DRIVER_NAME = "remote-seleniumhub-chrome",
-    [string]$DOCKER_SCRIPT = "cd ${TEST_DRIVER_NAME}/spock-reports && cd - && ./asciidoctor-convert-reports  -images ${TEST_DRIVER_NAME}/generated-docs/pdf -root . -source coderay -base ./ -input ${TEST_DRIVER_NAME}/spock-reports -output ${TEST_DRIVER_NAME}/generated-docs -filter *.ad -html",
+    [string]$DOCKER_SCRIPT = "./asciidoctor-convert-reports -images ${TEST_DRIVER_NAME}/generated-docs/pdf -root . -source coderay -base ./ -input ${TEST_DRIVER_NAME}/spock-reports -output ${TEST_DRIVER_NAME}/generated-docs -filter *.ad -html",
     [string]$FUNCTIONS_URI = "https://github.com/aem-design/aemdesign-docker/releases/latest/download/functions.ps1"
 )
 
@@ -34,6 +34,9 @@ $PARENT_PROJECT_LOCATION = $( Resolve-Path "${PWD}\.." )
 $PARENT_PROJECT_NAME = $( Resolve-Path "$PARENT_PROJECT_LOCATION" | Split-Path -Leaf )
 $PROJECT_NAME = $( Resolve-Path "${PWD}" | Split-Path -Leaf )
 
+$REPORT_ROOT="/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PROJECT_NAME}"
+
+
 $DOCKER_COMMAND="docker run --rm --net=host --name ${TEST_DRIVER_NAME} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_WITH_GIT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PROJECT_NAME}"" ${TEST_IMAGE} bash -l -c '${DOCKER_SCRIPT} -Dmaven.repo.local=/build/.m2/repository' "
 
 
@@ -52,7 +55,7 @@ printSectionLine " ${DOCKER_COMMAND}"
 
 if ( -Not( $SILENT ) )
 {
-  $START = Read-Host -Prompt "Do you want to start testing with these settings? (y/n)"
+  $START = Read-Host -Prompt "Do you want to start converting reports with these settings? (y/n)"
 
   if ($START -ne "y")
   {
@@ -60,6 +63,20 @@ if ( -Not( $SILENT ) )
     Exit
   }
 }
+
+printSectionLine "Fixing report asset paths:"
+printSectionLine " - ${REPORT_ROOT}/${TEST_DRIVER_NAME}/test-screenshots/"
+printSectionLine " - ${REPORT_ROOT}/src/test/screenshots/${TEST_DRIVER_NAME}/RemoteWebDriver/"
+
+$SPOCK_REPORTS = Get-ChildItem "${TEST_DRIVER_NAME}" *.ad -rec
+foreach ($REPORT in $SPOCK_REPORTS)
+{
+    (Get-Content $REPORT.PSPath) |
+    Foreach-Object { $_ -replace "(?<=(link|image)\:).*\/${TEST_DRIVER_NAME}\/test-screenshots\/", "${REPORT_ROOT}/${TEST_DRIVER_NAME}/test-screenshots/" } |
+    Foreach-Object { $_ -replace "(?<=(link|image)\:).*\/${TEST_DRIVER_NAME}\/RemoteWebDriver\/", "${REPORT_ROOT}/src/test/screenshots/${TEST_DRIVER_NAME}/RemoteWebDriver/" } |
+    Set-Content $REPORT.PSPath
+}
+
 
 debug "${DOCKER_COMMAND}"
 

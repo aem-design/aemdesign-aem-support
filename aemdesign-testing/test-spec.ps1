@@ -59,14 +59,17 @@ Function Get-MavenCommand
     [string]$SPECS = $args[8],
     [string]$SELENIUM_URL = $args[9],
     [string]$AEM_USERNAME = $args[10],
-    [string]$VIEWPORTS = $args[11]
+    [string]$VIEWPORTS = $args[11],
+    [string]$PROJECT_ROOT_DIR = $args[12],
+    [string]$PARENT_PROJECT_NAME = $args[13],
+    [string]$CURRENT_PROJECT_NAME = $args[14]
   )
 
   if ( -Not( $TEST_SKIP_CONVERT ) ) {
     $MAVEN_EXTRAS = ""
   }
 
-  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""aem.scheme=${AEM_SCHEME}"" -D""aem.host=${AEM_HOST}"" -D""aem.port=${AEM_PORT}"" -D""aem.username=${AEM_USERNAME}"" -D""aem.password=${AEM_PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" -D""test.viewports=${VIEWPORTS}"" ${MAVEN_CONFIG}"
+  return "mvn clean test ${MAVEN_EXTRAS} -D""geb.env=${DRIVER}"" -D""project.buildDirectory=${DRIVER}"" -D""aem.scheme=${AEM_SCHEME}"" -D""aem.host=${AEM_HOST}"" -D""aem.port=${AEM_PORT}"" -D""aem.username=${AEM_USERNAME}"" -D""aem.password=${AEM_PASSWORD}"" -D""test=${SPECS}"" -D""selenium.huburl=${SELENIUM_URL}"" -D""login.req=${LOGIN}"" -D""test.dispatcher=${DISPATCHER}"" -D""test.viewports=${VIEWPORTS}"" -D""project.rootdir=${PROJECT_ROOT_DIR}"" -D""project.rootname=${PARENT_PROJECT_NAME}"" -D""project.currentname=${CURRENT_PROJECT_NAME}"" ${MAVEN_CONFIG}"
 
 }
 
@@ -99,8 +102,6 @@ Function Do-RunTest
     [string]$DRIVER = $args[0]
   )
 
-  $MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${AEM_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${AEM_PASSWORD}" "${AEM_PORT}" "${AEM_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${AEM_USERNAME}" "$([system.String]::Join(" ", $TEST_VIEWPORTS))")
-
   printSectionBanner "RUNNING TEST FOR DRIVER: ${DRIVER}"
   printSectionLine "Maven MAVEN_COMMAND:"
   printSectionLine "${MAVEN_COMMAND}"
@@ -123,21 +124,28 @@ Function Do-RunTest
     printSectionLine "Project Root Directory: ${PROJECT_ROOT_DIR}"
     printSectionLine "Maven Directory: ${MAVEN_DIR}"
 
+    $PARENT_PROJECT_WITH_GIT = $(getGitDir)
+    $PARENT_PROJECT_WITH_GIT = ( $PARENT_PROJECT_WITH_GIT -split "\.git" )[0]
+    $PARENT_PROJECT_WITH_GIT_NAME = $( Resolve-Path "${PARENT_PROJECT_WITH_GIT}" | Split-Path -Leaf )
+    $PARENT_PROJECT_LOCATION = $( Resolve-Path "${PWD}\.." )
+    $PARENT_PROJECT_NAME = $( Resolve-Path "$PARENT_PROJECT_LOCATION" | Split-Path -Leaf )
+    $PROJECT_NAME = $( Resolve-Path "${PWD}" | Split-Path -Leaf )
+
+    $CURRENT_PROJECT_LOCATION = "${PARENT_PROJECT_WITH_GIT_NAME}/${PROJECT_NAME}"
+
+    printSectionLine "Parent Project with GIT Directory: ${PARENT_PROJECT_WITH_GIT}"
+    printSectionLine "Parent Project with GIT Directory Name: ${PARENT_PROJECT_WITH_GIT_NAME}"
+    printSectionLine "Parent Project Name: ${PARENT_PROJECT_NAME}"
+    printSectionLine "Current Project Name: ${PROJECT_NAME}"
+    printSectionLine "Current Project Location: ${CURRENT_PROJECT_LOCATION}"
+    printSectionLine "Testing Directory: ${CURRENT_PATH}"
+    printSectionLine "Testing Sub Directory: ${PARENT_PROJECT_LOCATION}"
+
+    $MAVEN_COMMAND=$(getMavenCommand "${TEST_DISPATCHER}" "${DRIVER}" "${AEM_HOST}" "${TEST_LOGIN}" "${TEST_MAVEN_CONFIG}" "${AEM_PASSWORD}" "${AEM_PORT}" "${AEM_SCHEME}" "${TEST_SPECS}" "${TEST_SELENIUM_URL}" "${AEM_USERNAME}" "$([system.String]::Join(" ", $TEST_VIEWPORTS))" "${PROJECT_ROOT_DIR}" "${PARENT_PROJECT_NAME}" "${CURRENT_PROJECT_LOCATION}")
+
     if ( -Not( ${TEST_USING_MAVEN} ) )
     {
-      $PARENT_PROJECT_WITH_GIT = $(getGitDir)
-      $PARENT_PROJECT_WITH_GIT = ( $PARENT_PROJECT_WITH_GIT -split "\.git" )[0]
-      $PARENT_PROJECT_WITH_GIT_NAME = $( Resolve-Path "${PARENT_PROJECT_WITH_GIT}" | Split-Path -Leaf )
-      $PARENT_PROJECT_LOCATION = $( Resolve-Path "${PWD}\.." )
-      $PARENT_PROJECT_NAME = $( Resolve-Path "$PARENT_PROJECT_LOCATION" | Split-Path -Leaf )
-      $PROJECT_NAME = $( Resolve-Path "${PWD}" | Split-Path -Leaf )
 
-      printSectionLine "Parent Project with GIT Directory: ${PARENT_PROJECT_WITH_GIT}"
-      printSectionLine "Parent Project with GIT Directory Name: ${PARENT_PROJECT_WITH_GIT_NAME}"
-      printSectionLine "Parent Project Name: ${PARENT_PROJECT_NAME}"
-      printSectionLine "Current Project Name: ${PROJECT_NAME}"
-      printSectionLine "Testing Directory: ${CURRENT_PATH}"
-      printSectionLine "Testing Sub Directory: ${PARENT_PROJECT_LOCATION}"
 
       # run docker container as current use
       # set work directory to be current project
@@ -146,7 +154,7 @@ Function Do-RunTest
       # pass maven command location for .m2 dir
       # run bash with login to allow usage of RVM
       # auto-remove container after its done
-      $DOCKER_COMMAND="docker run -d --rm --name ${DRIVER} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_WITH_GIT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PARENT_PROJECT_NAME}/${PROJECT_NAME}"" ${TEST_IMAGE} bash -l -c '${MAVEN_COMMAND} -Dmaven.repo.local=/build/.m2/repository' "
+      $DOCKER_COMMAND="docker run -d --rm --net=host --name ${DRIVER} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_WITH_GIT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${CURRENT_PROJECT_LOCATION}"" ${TEST_IMAGE} bash -l -c '${MAVEN_COMMAND} -Dmaven.repo.local=/build/.m2/repository' "
 
       debug "${DOCKER_COMMAND}"
 
@@ -160,6 +168,10 @@ Function Do-RunTest
       debug "${MAVEN_COMMAND}"
       Invoke-Expression "${MAVEN_COMMAND}"
       printSubSectionEnd "Direct Maven Command Execute"
+
+      printSubSectionStart "Convert Reports"
+      Invoke-Expression ".\asciidoctor-convert-reports $(&{If($SILENT) {"-SILENT"}})"
+      printSubSectionEnd "Convert Reports"
     }
 
 

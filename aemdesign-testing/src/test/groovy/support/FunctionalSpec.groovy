@@ -516,17 +516,22 @@ abstract class FunctionalSpec extends GebReportingSpec {
     private def compare(String screenshotFilename, String referenceFilename, String differenceFilename) {
         def compareCmd = "compare -verbose -metric mae -fuzz 10% \"${screenshotFilename}\" \"${referenceFilename}\" \"${differenceFilename}\" 2>&1 || convert \"${screenshotFilename}\" \"${referenceFilename}\" -compose difference -composite +level-colors black,red \"${differenceFilename}\" 2>&1 | echo \"all: 1.0 (1.0)\""
 
-        ProcessBuilder processBuilder = new ProcessBuilder("/bin/bash", "-c", compareCmd)
+        def processErrorText = ""
 
-        processBuilder.redirectErrorStream(true)
-        Process process = processBuilder.start()
+        if (System.properties.getProperty("HAS_COMPARE", "false") == "false" && System.properties.getProperty("HAS_DOCKER", "false") == "false") {
+            printDebug("NO COMPARE", ["SKIPPING", System.properties.getProperty("HAS_COMPARE", false), System.properties.getProperty("HAS_DOCKER", false)])
+            return VERY_DIFFERENT
+        } else if ( System.properties.getProperty("HAS_DOCKER", "false") == "true" ) {
+            compareCmd = "compare.sh ${screenshotFilename} ${referenceFilename} ${differenceFilename}"
+//            printDebug("RUNNING COMPARE IN DOCKER", [compareCmd])
+            processErrorText = getRunDockerCommandOutput(compareCmd)
 
-        String output = loadStream(process.getInputStream())
-        String error = loadStream(process.getErrorStream())
+        } else {
+            processErrorText = getCommandOutput(compareCmd)
+        }
 
-        int rc = process.waitFor()
+//        printDebug("COMPARE OUTPUT", [processErrorText])
 
-        def processErrorText = output
         def res = processErrorText =~ /all: [\d\.]+ \((.+)\)/
 
         if (res) {
@@ -718,6 +723,35 @@ abstract class FunctionalSpec extends GebReportingSpec {
         actions.perform()
 
         return true
+    }
+
+
+    def getRunDockerCommandOutput(String commandToRun, int wait = 5000) {
+        String GLOBAL_PROJECT_ROOT_DIR = System.properties.getProperty("project.rootdir", "")
+        String GLOBAL_PROJECT_ROOT_NAME = System.properties.getProperty("project.rootname", "")
+        String GLOBAL_PROJECT_CURRENT_NAME = System.properties.getProperty("project.currentname", "")
+
+//        printDebug("RUNNING IN DOCKER", ["docker run --rm -v ${GLOBAL_PROJECT_ROOT_DIR}:/build/${GLOBAL_PROJECT_ROOT_NAME} -w \"/build/${GLOBAL_PROJECT_CURRENT_NAME}\" aemdesign/centos-java-buildpack bash -l -c '${commandToRun}'"])
+        return getCommandOutput("docker run --rm -v ${GLOBAL_PROJECT_ROOT_DIR}:/build/${GLOBAL_PROJECT_ROOT_NAME} -w \"/build/${GLOBAL_PROJECT_CURRENT_NAME}\" aemdesign/centos-java-buildpack bash -l ${commandToRun}")
+    }
+
+
+    def getCommandOutput(String commandToRun, int wait = 5000) {
+
+        try {
+
+            def sout = new StringBuilder(), serr = new StringBuilder()
+            def proc = commandToRun.execute()
+            proc.consumeProcessOutput(sout, serr)
+            proc.waitForOrKill(wait)
+//            printDebug("COMMAND", [sout,serr])
+            return sout
+
+        } catch (ignored) {
+//            printDebug("COMMAND ERROR", [ignored])
+            //do nothing
+        }
+        return ""
     }
 }
 
