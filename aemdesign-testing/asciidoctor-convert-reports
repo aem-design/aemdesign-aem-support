@@ -2,6 +2,12 @@
 
 #TESTING
 #./asciidoctor-convert-reports -images ./images -root ./root -source source1 -base base1 -input ./input -output ./output -filter *.files -pdf -html
+## Generate HTML
+#./asciidoctor-convert-reports  -images remote-seleniumhub-chrome/generated-docs/pdf -root . -source coderay -base . -input remote-seleniumhub-chrome/spock-reports -output remote-seleniumhub-chrome/generated-docs -filter *.ad -html
+## Generate PDF
+#./asciidoctor-convert-reports  -images remote-seleniumhub-chrome/generated-docs/pdf -root remote-seleniumhub-chrome -source coderay -base ./ -input remote-seleniumhub-chrome/spock-reports -output remote-seleniumhub-chrome/generated-docs -filter *.ad -pdf
+## Generate HTML and PDF
+#./asciidoctor-convert-reports  -images remote-seleniumhub-chrome/generated-docs/pdf -root remote-seleniumhub-chrome -source coderay -base ./ -input remote-seleniumhub-chrome/spock-reports -output remote-seleniumhub-chrome/generated-docs -filter *.ad -html -pdf
 
 PATH_PDF="pdf"
 PATH_HTML="html"

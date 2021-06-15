@@ -2,10 +2,10 @@ Param(
   [string]$DOCKER_SELENIUMHUB_NODE_NAME = "selenium-hub-node-chrome",
   [string]$DOCKER_SELENIUMHUB_NAME = "selenium-hub",
   [string]$DOCKER_NETWORK_NAME = "selenium-grid",
-  [string]$LOG_PATH = "${PWD}\logs\testspec",
-  [string]$LOG_PEFIX = "",
+  [string]$LOG_PATH = "..\logs",
+  [string]$LOG_PEFIX = "test-spec",
   [string]$LOG_SUFFIX = ".log",
-  [string]$DOCKER_LOGS_FOLDER = "${PWD}\logs\docker",
+  [string]$DOCKER_LOGS_FOLDER = "..\logs",
   [string]$DRIVER_FOLDER = "${PWD}\drivers",
   [switch]$LOGIN = $true,
   [switch]$REPORT = $true,
@@ -21,7 +21,7 @@ Param(
   [string]$TEST_REPORT_PATH = "generated-docs/summary.html",
   [string]$TEST_DRIVER_NAME = "remote-seleniumhub-chrome",
   [string]$AEM_SCHEME = "http",
-  [string]$AEM_HOST = "localhost",
+  [string]$AEM_HOST = "$( (Get-NetIPAddress | Where-Object {$_.AddressState -eq "Preferred" -and $_.ValidLifetime -lt "24:00:00"}).IPAddress)",
   [string]$AEM_PORT = "4502",
   [string]$AEM_USERNAME = "admin",
   [string]$AEM_PASSWORD = "admin",
@@ -32,17 +32,14 @@ Param(
   [switch]$TEST_DISPATCHER = $false,
   [switch]$TEST_SKIP_CONVERT = $false,
   [switch]$TEST_USING_MAVEN = $false,
-  [string]$TEST_VIEWPORTS = ""
-
+  [string]$FUNCTIONS_URI = "https://github.com/aem-design/aemdesign-docker/releases/latest/download/functions.ps1",
+  [string]$TEST_VIEWPORTS = "$( (Get-Content ".\test-viewports") -join ",")"
 )
 
-. "..\scripts\functions.ps1"
+$SKIP_CONFIG = $true
+$PARENT_PROJECT_PATH = ".."
 
-$script:TEST_SELENIUMHUB_SCHEME = $SELENIUMHUB_SCHEME
-$script:TEST_SELENIUMHUB_PORT = $SELENIUMHUB_PORT
-$script:TEST_SELENIUMHUB_SERVICE = $SELENIUMHUB_SERVICE
-$script:TEST_SELENIUMHUB_HOST = $SELENIUMHUB_HOST
-$script:TEST_SELENIUM_URL="${TEST_SELENIUMHUB_SCHEME}://${TEST_SELENIUMHUB_HOST}:${TEST_SELENIUMHUB_PORT}${TEST_SELENIUMHUB_SERVICE}"
+. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "${FUNCTIONS_URI}").Content))))
 
 Function Get-MavenCommand
 {
