@@ -66,6 +66,7 @@ if ( -Not( $SILENT ) )
 
 printSectionLine "Fixing report asset paths:"
 printSectionLine " - ${REPORT_ROOT}/${TEST_DRIVER_NAME}/test-screenshots/"
+printSectionLine " - ${REPORT_ROOT}/${TEST_DRIVER_NAME}/test-reports/"
 printSectionLine " - ${REPORT_ROOT}/src/test/screenshots/${TEST_DRIVER_NAME}/RemoteWebDriver/"
 
 $SPOCK_REPORTS = Get-ChildItem "${TEST_DRIVER_NAME}" *.ad -rec
@@ -73,6 +74,7 @@ foreach ($REPORT in $SPOCK_REPORTS)
 {
     (Get-Content $REPORT.PSPath) |
     Foreach-Object { $_ -replace "(?<=(link|image)\:).*\/${TEST_DRIVER_NAME}\/test-screenshots\/", "${REPORT_ROOT}/${TEST_DRIVER_NAME}/test-screenshots/" } |
+    Foreach-Object { $_ -replace "(?<=(link|image)\:).*\/${TEST_DRIVER_NAME}\/test-reports\/", "${REPORT_ROOT}/${TEST_DRIVER_NAME}/test-reports/" } |
     Foreach-Object { $_ -replace "(?<=(link|image)\:).*\/${TEST_DRIVER_NAME}\/RemoteWebDriver\/", "${REPORT_ROOT}/src/test/screenshots/${TEST_DRIVER_NAME}/RemoteWebDriver/" } |
     Set-Content $REPORT.PSPath
 }
