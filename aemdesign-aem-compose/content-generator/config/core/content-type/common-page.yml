@@ -1,6 +1,6 @@
 
 # WARNING: Reference to these path is hardcoded into component dialogs
-content-type/page:
+page:
   prefixes:
     - article
     - book
