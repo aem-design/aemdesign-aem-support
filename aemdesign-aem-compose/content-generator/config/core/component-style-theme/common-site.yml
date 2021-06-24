@@ -1,6 +1,6 @@
 
 # WARNING: Reference to these path is hardcoded into component dialogs
-# /apps/thehub/global/dialog/touch/sitetheme
+# /apps/aemdesign/global/dialog/touch/sitetheme
 common/site/themecategory:
   prefixes:
     - none
@@ -8,7 +8,7 @@ common/site/themecategory:
   title: '%%prefix_normalised%%'
 
 # WARNING: Reference to these path is hardcoded into component dialogs
-# /apps/thehub/global/dialog/touch/sitetheme
+# /apps/aemdesign/global/dialog/touch/sitetheme
 common/site/themecolor:
   prefixes:
     - none
@@ -16,7 +16,7 @@ common/site/themecolor:
   title: '%%prefix_normalised%%'
 
 # WARNING: Reference to these path is hardcoded into component dialogs
-# /apps/thehub/global/dialog/touch/sitetheme
+# /apps/aemdesign/global/dialog/touch/sitetheme
 common/site/tilecolor:
   prefixes:
     - none
