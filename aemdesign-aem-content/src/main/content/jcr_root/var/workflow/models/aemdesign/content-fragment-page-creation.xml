@@ -8,7 +8,7 @@
     title="AEM.Design Showcase - Content Fragment Page Creation">
     <metaData
         cq:generatingPage="/conf/global/settings/workflow/models/aemdesign/content-fragment-page-creation/jcr:content"
-        cq:lastModified="{Long}1574641634338"
+        cq:lastModified="{Long}1624498040215"
         cq:lastModifiedBy="admin"
         jcr:primaryType="nt:unstructured"/>
     <nodes jcr:primaryType="nt:unstructured">
@@ -25,11 +25,20 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                outputLocation="/content/aemdesign-showcase/au/en/content/content-fragment-pages"
+                contentFragmentRootPath="/content/dam/aemdesign-showcase/en/articles"
+                generateContentFragmentComponentPath="root/article/par/contentblock/par/contentfragment"
+                generateContentFragmentParagraphContent="true"
+                outputLocation="/content/aemdesign-showcase/au/en/content/news"
                 PROCESS="design.aem.workflow.process.ContentFragmentPageGenerator"
                 PROCESS_AUTO_ADVANCE="true"
-                templatePage="/conf/aemdesign/settings/wcm/templates/onecolumn"
-                throttle="true"/>
+                segmentationContentFragmentRootPath="/content/dam/aemdesign-showcase/en/articles"
+                segmentationTemplatePage="/conf/aemdesign-showcase/settings/wcm/templates/articles"
+                segmentationUsingPaths="true"
+                templatePage="/conf/aemdesign-showcase/settings/wcm/templates/article"
+                throttle="true"
+                updateComponentResourceType="[aemdesign/components/details/news-details,aemdesign/components/content/contentfragment]"
+                updateExistingComponent="true"
+                updateExistingRootPath="[root/article/par,root/article/par/contentblock/par]"/>
         </node1>
         <node2
             jcr:primaryType="cq:WorkflowNode"
