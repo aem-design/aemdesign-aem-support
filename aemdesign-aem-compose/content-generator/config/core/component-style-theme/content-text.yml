@@ -1,0 +1,8 @@
+
+# Content Text
+content/text:
+  prefixes:
+    - negative
+    - positive
+  valueFormat: 'theme-%%prefix%%'
+  title: '%%prefix_normalised%%'

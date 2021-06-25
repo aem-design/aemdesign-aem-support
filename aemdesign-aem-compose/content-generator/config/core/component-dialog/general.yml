@@ -1,0 +1,83 @@
+# WARNING: Reference to these path is hardcoded into component dialogs
+asset/rendition/prefix:
+  prefixes:
+    - thumbnail
+    - web
+  valueFormat: 'cq5dam.%%prefix%%.'
+  title: 'OOTB %%prefix_normalised%%'
+
+asset/license/format:
+  contents:
+    - metadata: {
+      title: "Metadata: [Creator] [Contributor] [License] [Copyright Owner] [Expiry]",
+      value: "
+        <span itemprop='creator' itemtype='https://schema.org/Person'>${dc:creator}</span>
+        <span itemprop='contributor' itemtype='https://schema.org/Person'>${dc:contributor}</span>
+        <span itemprop='license' itemtype='https://schema.org/CreativeWork'>${dc:rights}</span>
+        <span itemprop='copyrightHolder' itemtype='https://schema.org/Person'>${xmpRights:Owner}</span>
+        <span itemprop='expires' itemtype='https://schema.org/Date'>${prism:expirationDate}</span>"
+    }
+    - simple: {
+      title: "Text: [Expiry] [Creator] [Contributor] [License] [Copyright Owner]",
+      value: "${prism:expirationDate} ${dc:creator} ${dc:contributor} ${dc:rights} ${xmpRights:Owner}"
+    }
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+css/mediaquery:
+  contents:
+    - medium: {
+      title: "Medium",
+      value: "(min-width: 768px)"
+    }
+    - retina: {
+      title: "Retina",
+      value: "(-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx)"
+    }
+    - landscape-large: {
+      title: "Landscape Large",
+      value: "(min-width: 768px) and (orientation: landscape), screen and (min-width: 992px)"
+    }
+    - extra-large: {
+      title: "Extra Large",
+      value: "(min-width: 1200px)"
+    }
+    - retina-medium: {
+      title: "Retina Medium",
+      value: "(min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 768px) and (min-resolution: 1.5dppx)"
+    }
+    - retina-landscape-large: {
+      title: "Retina Landscape",
+      value: "(min-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 768px) and (orientation: landscape) and (min-resolution: 1.5dppx), only screen and (min-width: 992px) and (min-device-pixel-ratio: 2)"
+    }
+    - retina-extra-large: {
+      title: "Retina Extra Large",
+      value: "(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 1200px) and (min-resolution: 1.5dppx)"
+    }
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+common/true-false:
+  prefixes:
+    - 'false'
+    - 'true'
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+honorific/prefix:
+  contents:
+    - dr: { title: "Dr", value: "dr" }
+    - lady: { title: "Lady", value: "Lady" }
+    - miss: { title: "Miss", value: "Miss" }
+    - mr: { title: "Mr", value: "Mr" }
+    - mrs: { title: "Mrs", value: "Mrs" }
+    - ms: { title: "Ms", value: "Ms" }
+    - sir: { title: "Sir", value: "Sir" }
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+honorific/suffix:
+  prefixes:
+    - none
+  valueFormat: '.'
+  title: '%%prefix_normalised%%'

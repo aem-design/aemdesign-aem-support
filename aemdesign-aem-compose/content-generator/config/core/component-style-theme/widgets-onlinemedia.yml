@@ -1,0 +1,5 @@
+# Online Media
+widgets/onlinemedia/layout/variant:
+  contents:
+    - default: {title: "Default", value: "default"}
+    - iframe: {title: "iFrame", value: "iframe"}

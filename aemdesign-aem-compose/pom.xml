@@ -1,399 +1,402 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <!-- ====================================================================== -->
-    <!-- P A R E N T    P R O J E C T    D E S C R I P T I O N                  -->
-    <!-- ====================================================================== -->
-    <parent>
-        <groupId>design.aem</groupId>
-        <artifactId>aemdesign-aem-support</artifactId>
-        <version>2.0.292</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+  <!-- ====================================================================== -->
+  <!-- P A R E N T    P R O J E C T    D E S C R I P T I O N                  -->
+  <!-- ====================================================================== -->
+  <parent>
+    <groupId>design.aem</groupId>
+    <artifactId>aemdesign-aem-support</artifactId>
+    <version>2.0.572</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
 
-    <!-- ====================================================================== -->
-    <!-- P R O J E C T    D E S C R I P T I O N                                 -->
-    <!-- ====================================================================== -->
+  <!-- ====================================================================== -->
+  <!-- P R O J E C T    D E S C R I P T I O N                                 -->
+  <!-- ====================================================================== -->
 
-    <artifactId>aemdesign-aem-compose</artifactId>
-	<version>2.0.292</version>
-	<packaging>content-package</packaging>
-	<name>AEM Design - Support - Compose</name>
-	<description>Showcase and Styleguide for AEM Design project</description>
-	<url>${parent.url}</url>
+  <artifactId>aemdesign-aem-compose</artifactId>
+  <version>2.0.572</version>
+  <packaging>content-package</packaging>
+  <name>AEM Design - Support - Compose</name>
+  <description>Composes the CSS and JavaScript required for visually appealing experiences in AEM.</description>
+  <url>${parent.url}</url>
 
-    <properties>
-        <sonar.sources>source,pom.xml</sonar.sources>
-        <!--<sonar.skip>true</sonar.skip>-->
-        <nodeVersion>v8.15.0</nodeVersion>
-        <npmVersion>6.4.1</npmVersion>
-        <yarnVersion>v1.13.0</yarnVersion>
-        <npmCommand>aem:build</npmCommand>
-        <generated.content>content-generator/content</generated.content>
-        <package.path.apps>apps</package.path.apps>
-        <package.appsPath>aemdesign-compose</package.appsPath>
-        <package.appFolder>apps/aemdesign-compose</package.appFolder>
-        <package.tagNamespace.core>aemdesign</package.tagNamespace.core>
-        <package.tagNamespace.showcase>aemdesign-showcase</package.tagNamespace.showcase>
-        <package.npmCommand>aem:build</package.npmCommand>
-    </properties>
+  <properties>
+    <sonar.sources>src,pom.xml</sonar.sources>
+    <!--<sonar.skip>true</sonar.skip>-->
+    <nodeVersion>v10.19.0</nodeVersion>
+    <npmVersion>6.14.4</npmVersion>
+    <yarnVersion>v1.22.4</yarnVersion>
+    <generated.content>content-generator/content</generated.content>
+    <package.path.apps>apps</package.path.apps>
+    <package.appsPath>aemdesign-compose</package.appsPath>
+    <package.appFolder>apps/aemdesign-compose</package.appFolder>
+    <package.tagNamespace.core>aemdesign</package.tagNamespace.core>
+    <package.tagNamespace.showcase>aemdesign-showcase</package.tagNamespace.showcase>
+    <package.npmCommand>aem:build</package.npmCommand>
+    <package.tagPath>/content/cq:tags</package.tagPath>
+  </properties>
+
+  <developers>
+    <developer>
+      <email>max@aem.design</email>
+      <name>Max Barrass</name>
+    </developer>
+    <developer>
+      <email>me@cshaw.xyz</email>
+      <name>Chris Shaw</name>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/aem-design/aemdesign-aem-support.git</connection>
+    <url>https://github.com/aem-design/aemdesign-aem-support</url>
+  </scm>
+
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/aem-design/aemdesign-aem-support/issues</url>
+  </issueManagement>
+
+  <distributionManagement>
+    <site>
+      <id>api.wiki</id>
+      <url>https://github.com/aem-design/aemdesign-aem-support/wiki</url>
+    </site>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.github.eirslett</groupId>
+      <artifactId>frontend-maven-plugin</artifactId>
+      <version>1.8.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <!-- define the resources that will go into the package -->
+      <resource>
+        <directory>.maven/content/jcr_root</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <!-- exclude .vlt control files in the package -->
+          <exclude>**/.vlt</exclude>
+          <exclude>**/.vltignore</exclude>
+          <exclude>**/.gitignore</exclude>
+          <exclude>**/*.iml</exclude>
+          <exclude>**/.classpath</exclude>
+          <exclude>**/.project</exclude>
+          <exclude>**/.settings</exclude>
+          <exclude>**/.DS_Store</exclude>
+          <exclude>**/target/**</exclude>
+          <exclude>**/pom.xml</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <!-- Maven Clean Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <failOnError>false</failOnError>
+          <filesets>
+            <fileset>
+              <directory>logs</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <groupId>com.github.eirslett</groupId>
+        <version>1.6</version>
+        <configuration>
+          <nodeVersion>${nodeVersion}</nodeVersion>
+          <npmVersion>${npmVersion}</npmVersion>
+          <yarnVersion>${yarnVersion}</yarnVersion>
+        </configuration>
+        <executions>
+          <!-- Init -->
+          <execution>
+            <id>exec-install-node-and-npm</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>exec-install-node-and-yarn</id>
+            <phase>initialize</phase>
+
+            <goals>
+              <goal>install-node-and-yarn</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>exec-yarn-install</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+
+          <!-- Core -->
+          <execution>
+            <id>exec-aem-build-core</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>${package.npmCommand} --project core --maven --no-color</arguments>
+              <environmentVariables>
+                <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
+              </environmentVariables>
+            </configuration>
+          </execution>
+          <execution>
+            <id>exec-aem-generate-tags-core</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>- -stack_size=8192</arguments>
+              <arguments>aem:generate:tags --no-color --clean --no-console --config=core.yml</arguments>
+            </configuration>
+          </execution>
+
+          <!-- Styleguide -->
+          <execution>
+            <id>exec-aem-build-styleguide</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>${package.npmCommand} --project styleguide --maven --no-color</arguments>
+              <environmentVariables>
+                <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
+              </environmentVariables>
+            </configuration>
+          </execution>
+
+          <!-- AEM.Design overrides -->
+          <execution>
+            <id>exec-aem-generate-tags-aemdesign</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>- -stack_size=8192</arguments>
+              <arguments>run aem:generate:tags --no-color --no-clean --no-console --config=overrides.yml</arguments>
+            </configuration>
+          </execution>
+
+          <!-- Content generation -->
+          <execution>
+            <id>exec-aem-generate-content-aemdesign</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>aem:generate:content</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+
+        <configuration>
+          <includeEmptyDirs>true</includeEmptyDirs>
+        </configuration>
+
+        <executions>
+          <!-- Init -->
+          <execution>
+            <id>copy-metainf-vault-resources</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/vault-work/META-INF</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>.maven/content/META-INF</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <!-- Core -->
+          <execution>
+            <id>copy-vault-resources-core</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${basedir}/target/classes/${package.appFolder}/clientlibs/core
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/core</directory>
+                  <excludes>
+                    <exclude>**/*.LICENSE</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <!-- Styleguide -->
+          <execution>
+            <id>copy-vault-resources-styleguide</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${basedir}/target/classes/${package.appFolder}/clientlibs/styleguide
+              </outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/styleguide</directory>
+                  <excludes>
+                    <exclude>**/*.LICENSE</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.day.jcr.vault</groupId>
+        <artifactId>content-package-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <verbose>false</verbose>
+          <failOnError>true</failOnError>
+          <group>${package.group}</group>
+          <properties>
+            <acHandling>merge_preserve</acHandling>
+            <created>${buildNumber}</created>
+            <createdBy>${package.createdBy}</createdBy>
+            <description>${project.description}</description>
+          </properties>
+          <filters combine.children="append">
+            <!-- Apps -->
+            <filter>
+              <root>/${package.appFolder}/clientlibs/core</root>
+            </filter>
+            <filter>
+              <root>/${package.appFolder}/clientlibs/styleguide</root>
+            </filter>
+
+            <!-- Tags -->
+            <filter>
+              <root>${package.tagPath}/${package.tagNamespace.core}</root>
+              <mode>update</mode>
+            </filter>
+            <filter>
+              <root>${package.tagPath}/${package.tagNamespace.showcase}</root>
+              <mode>update</mode>
+            </filter>
 
 
-    <developers>
-        <developer>
-            <email>max@aem.design</email>
-            <name>Max Barrass</name>
-        </developer>
-    </developers>
+            <!-- AEM.Design overrides -->
+            <filter>
+              <root>
+                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars
+              </root>
+              <mode>update</mode>
+            </filter>
+            <filter>
+              <root>
+                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles
+              </root>
+              <mode>update</mode>
+            </filter>
+            <filter>
+              <root>
+                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats
+              </root>
+              <mode>update</mode>
+            </filter>
+          </filters>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-	<scm>
-		<connection>scm:git:https://github.com/aem-design/aemdesign-aem-support.git</connection>
-		<url>https://github.com/aem-design/aemdesign-aem-support</url>
-	</scm>
-
-	<issueManagement>
-		<system>Github</system>
-		<url>https://github.com/aem-design/aemdesign-aem-support/issues</url>
-	</issueManagement>
-
-	<distributionManagement>
-		<site>
-			<id>api.wiki</id>
-			<url>https://github.com/aem-design/aemdesign-aem-support/wiki</url>
-		</site>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
-
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.github.eirslett</groupId>
-			<artifactId>frontend-maven-plugin</artifactId>
-			<version>1.8.0</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
-
-    <build>
-        <resources>
-            <!-- define the resources that will go into the package -->
-            <resource>
-                <directory>.maven/content/jcr_root</directory>
-                <filtering>false</filtering>
-                <excludes>
-                    <!-- exclude .vlt control files in the package -->
-                    <exclude>**/.vlt</exclude>
-                    <exclude>**/.vltignore</exclude>
-                    <exclude>**/.gitignore</exclude>
-                    <exclude>**/*.iml</exclude>
-                    <exclude>**/.classpath</exclude>
-                    <exclude>**/.project</exclude>
-                    <exclude>**/.settings</exclude>
-                    <exclude>**/.DS_Store</exclude>
-                    <exclude>**/target/**</exclude>
-                    <exclude>**/pom.xml</exclude>
-                </excludes>
-            </resource>
-        </resources>
-
+  <profiles>
+    <profile>
+      <id>autoInstallPackage</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
         <plugins>
-
-            <plugin>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <groupId>com.github.eirslett</groupId>
-                <version>1.6</version>
+          <plugin>
+            <artifactId>content-package-maven-plugin</artifactId>
+            <groupId>com.day.jcr.vault</groupId>
+            <executions>
+              <execution>
+                <id>install-content-package</id>
+                <phase>install</phase>
+                <goals>
+                  <goal>install</goal>
+                </goals>
                 <configuration>
-                    <nodeVersion>${nodeVersion}</nodeVersion>
-                    <npmVersion>${npmVersion}</npmVersion>
-                    <yarnVersion>${yarnVersion}</yarnVersion>
+                  <targetURL>
+                    ${package.uploadProtocol}://${aem.host}:${aem.port}/crx/packmgr/service.jsp
+                  </targetURL>
+                  <userId>${aem.username}</userId>
+                  <password>${aem.password}</password>
                 </configuration>
-                <executions>
-                    <!-- Init -->
-                    <execution>
-                        <id>exec-install-node-and-npm</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>exec-install-node-and-yarn</id>
-                        <phase>initialize</phase>
-
-                        <goals>
-                            <goal>install-node-and-yarn</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>exec-yarn-install</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
-
-                    <!-- Core -->
-                    <execution>
-                        <id>exec-aem-build-core</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>${package.npmCommand} --env.project=core --env.maven --env.clean
-                            </arguments>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>exec-aem-generate-tags-core</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>- -stack_size=8192</arguments>
-                            <arguments>run aem:generatetags --no-clean --no-console --config=core.yml
-                            </arguments>
-                        </configuration>
-                    </execution>
-                    <!-- Styleguide -->
-                    <execution>
-                        <id>exec-aem-build-styleguide</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>${package.npmCommand} --env.project=styleguide --env.maven --env.clean
-                            </arguments>
-                        </configuration>
-                    </execution>
-
-                    <!-- AEM.Design overrides -->
-                    <execution>
-                        <id>exec-aem-generate-tags-aemdesign</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>- -stack_size=8192</arguments>
-                            <arguments>run aem:generatetags --no-clean --no-console --config=overrides.yml
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <!-- ensure that the empty directories are copied -->
-                <configuration>
-                    <includeEmptyDirs>true</includeEmptyDirs>
-                </configuration>
-                <executions>
-                    <!-- Init -->
-                    <execution>
-                        <id>copy-metainf-vault-resources</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/vault-work/META-INF</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>.maven/content/META-INF</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-
-                    <!-- Core -->
-                    <execution>
-                        <id>copy-header-vault-resources-core</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${basedir}/target/classes/${package.appFolder}/clientlibs/core/clientlibs-header
-                            </outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>public/core/clientlibs-header</directory>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-footer-vault-resources-core</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${basedir}/target/classes/${package.appFolder}/clientlibs/core/clientlibs-footer
-                            </outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>public/core/clientlibs-footer</directory>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <!-- Styleguide -->
-                    <execution>
-                        <id>copy-header-vault-resources-styleguide</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${basedir}/target/classes/${package.appFolder}/clientlibs/styleguide/clientlibs-header
-                            </outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>public/styleguide/clientlibs-header</directory>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-footer-resources-styleguide</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${basedir}/target/classes/${package.appFolder}/clientlibs/styleguide/clientlibs-footer
-                            </outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>public/styleguide/clientlibs-footer</directory>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.day.jcr.vault</groupId>
-                <artifactId>content-package-maven-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <verbose>false</verbose>
-                    <failOnError>true</failOnError>
-                    <group>${package.group}</group>
-                    <properties>
-                        <acHandling>merge_preserve</acHandling>
-                        <created>${buildNumber}</created>
-                        <createdBy>${package.createdBy}</createdBy>
-                        <description>${project.description}</description>
-                    </properties>
-                    <filters combine.children="append">
-                        <!-- Core -->
-                        <filter>
-                            <root>/${package.appFolder}/clientlibs/core</root>
-                        </filter>
-                        <filter>
-                            <root>${package.tagPath}/${package.tagNamespace.core}</root>
-                            <mode>update</mode>
-                        </filter>
-                        <filter>
-                            <root>${package.tagPath}/${package.tagNamespace.showcase}</root>
-                            <mode>update</mode>
-                        </filter>
-
-                        <!-- Styleguide -->
-                        <filter>
-                            <root>/${package.appFolder}/clientlibs/styleguide</root>
-                        </filter>
-
-                        <!-- AEM.Design overrides -->
-                        <filter>
-                            <root>
-                                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars
-                            </root>
-                            <mode>update</mode>
-                        </filter>
-                        <filter>
-                            <root>
-                                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles
-                            </root>
-                            <mode>update</mode>
-                        </filter>
-                        <filter>
-                            <root>
-                                /apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats
-                            </root>
-                            <mode>update</mode>
-                        </filter>
-                    </filters>
-
-                </configuration>
-            </plugin>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
-    </build>
-
-    <profiles>
-        <profile>
-            <id>autoInstallPackage</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>content-package-maven-plugin</artifactId>
-                        <groupId>com.day.jcr.vault</groupId>
-                        <executions>
-                            <execution>
-                                <id>install-content-package</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>install</goal>
-                                </goals>
-                                <configuration>
-                                    <targetURL>
-                                        ${package.uploadProtocol}://${crx.host}:${crx.port}/crx/packmgr/service.jsp
-                                    </targetURL>
-                                    <userId>${crx.username}</userId>
-                                    <password>${crx.password}</password>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-
-
-    </profiles>
-
+      </build>
+    </profile>
+  </profiles>
 </project>

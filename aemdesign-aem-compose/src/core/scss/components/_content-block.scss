@@ -1,0 +1,38 @@
+.contentblock {
+  @include clearfix;
+
+  > .icon {
+    font-size: icon-size(large);
+    margin-bottom: 10px;
+  }
+
+  > header :only-child {
+    margin-bottom: 0;
+  }
+
+  // Strip away the padding when a nested `.container` exists in a content block container
+  &.container > .container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .video:not(.playing) {
+    display: none;
+  }
+
+  &.advsection {
+    > header,
+    > .contents {
+      @include make-container;
+      @include make-container-max-widths;
+    }
+
+    // Fix any nested grids so they don't break outside of the container
+    // stylelint-disable-next-line
+    > .contents > .aem-Grid > .colctrl > .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

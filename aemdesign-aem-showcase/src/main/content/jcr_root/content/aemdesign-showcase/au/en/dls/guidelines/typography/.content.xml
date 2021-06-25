@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Typography"
+        sling:resourceType="aemdesign/components/template/dls">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    hideDescription="true"
+                    hideTitle="false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="true"
+                    showToolbar="false"
+                    textIsRich="true"/>
+                <typography_headings
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="typography_headings">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <typography_headings_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_headings_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Headings&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <typography_headings_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_headings_component"
+                            text="&lt;h1>Heading 1&lt;/h1>&#xd;&#xa;&lt;h2>Heading 2&lt;/h2>&#xd;&#xa;&lt;h3>Heading 3&lt;/h3>&#xd;&#xa;&lt;h4>Heading 4&lt;/h4>&#xd;&#xa;&lt;h5>Heading 5&lt;/h5>&#xd;&#xa;&lt;h6>Heading 6&lt;/h6>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </typography_headings>
+                <typography_text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="typography_text">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <typography_text_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_text_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Text&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <typography_text_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_text_component"
+                            text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>&#xd;&#xa;&lt;p>&lt;b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/b>&lt;/p>&#xd;&#xa;&lt;p>&lt;i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/i>&lt;/p>&#xd;&#xa;&lt;p>&lt;del>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/del>&lt;/p>&#xd;&#xa;&lt;p>&lt;small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/small>&lt;/p>&#xd;&#xa;&lt;p>&lt;small>&lt;b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/b>&lt;/small>&lt;/p>&#xd;&#xa;&lt;p>&lt;small>&lt;i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/i>&lt;/small>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </typography_text>
+                <typography_link
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="typography_link">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <typography_link_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_link_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Links&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <typography_link_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_link_component"
+                            text="&lt;p>&lt;a href=&quot;https://aem.design&quot;>AEM.Design is amazing&lt;/a>&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;https://aem.design&quot; target=&quot;_blank&quot;>AEM.Design is amazing (blank)&lt;/a>&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </typography_link>
+                <typography_lists
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="typography_lists">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <typography_lists_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_lists_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Lists&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <typography_lists_unordered_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_lists_unordered_component"
+                            text="&lt;h3 class=&quot;h6&quot;>Unordered&lt;/h3>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>massa vitae tortor condimentum lacinia&lt;/li>&#xd;&#xa;&lt;li>massa id neque aliquam vestibulum&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <typography_lists_ordered_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="typography_lists_ordered_component"
+                            text="&lt;h3 class=&quot;h6&quot;>Ordered&lt;/h3>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>lorem mollis aliquam ut porttitor&lt;/li>&#xd;&#xa;&lt;li>amet cursus sit amet dictum&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
+                            textIsRich="true"/>
+                    </par>
+                </typography_lists>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

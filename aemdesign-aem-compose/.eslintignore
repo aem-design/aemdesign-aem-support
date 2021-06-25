@@ -1,7 +1,9 @@
-**/cypress/plugins
-**/cypress/support
-**/cypress/*.js
-**/config
-**/public
+**/@types/
+**/public/
+**/node_modules/
+**/packages/
+**/support/scripts/
 
-webpack.config.js
+compose.config.js
+
+**/src/**/*.scss

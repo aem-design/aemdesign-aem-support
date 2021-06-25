@@ -47,12 +47,14 @@ class ContactListPaginationPublishSpec extends ComponentSpec {
         and: "Can select page 2"
         scrollIntoView($("${selector} .pagination").firstElement())
         $("${selector} .pagination .next a").click()
+        waitForDocumentReady()
         assert $("${selector} .pagination .current").text().trim() == "2"
         takeScreenshot($(selector).firstElement(), "The component should be on second page")
 
         and: "Can select page 3"
         scrollIntoView($("${selector} .pagination").firstElement())
         $("${selector} .pagination .next a").click()
+        waitForDocumentReady()
         assert $("${selector} .pagination .current").text().trim() == "3"
         takeScreenshot($(selector).firstElement(), "The component should be on third page")
 
@@ -64,6 +66,7 @@ class ContactListPaginationPublishSpec extends ComponentSpec {
         and: "Can select previous page"
         scrollIntoView($("${selector} .pagination").firstElement())
         $("${selector} .pagination .previous a").click()
+        waitForDocumentReady()
         assert $("${selector} .pagination .current").text().trim() == "2"
         takeScreenshot($(selector).firstElement(), "The component should be on forth page")
 

@@ -1,0 +1,90 @@
+
+# Content Block
+layout/contentblock/header/brand-top:
+  flat: true
+  prefix: brand-header__top container d-flex align-items-center justify-content-center justify-content-md-start
+  title: 'Brand Top'
+
+layout/contentblock/container:
+  flat: true
+  prefix: container
+  title: 'Container'
+
+layout/contentblock/container-flush:
+  flat: true
+  prefix: container-flush
+  title: 'Container Flush'
+
+layout/contentblock/collapse:
+  flat: true
+  prefix: theme--contentblock-collapse
+  title: 'Collapsable Accordion'
+
+layout/contentblock/split:
+  flat: true
+  prefix: theme--contentblock-split
+  title: 'Horizontal Split (line)'
+
+layout/contentblock/navbar/collapse:
+  flat: true
+  prefix: collapse navbar-collapse
+  title: 'Navbar Collapse'
+
+layout/contentblock/footer/top:
+  flat: true
+  prefix: brand-footer__top
+  title: 'Brand Footer - Top'
+
+layout/contentblock/footer/bottom:
+  flat: true
+  prefix: brand-footer__bottom
+  title: 'Brand Footer - Bottom'
+
+layout/contentblock/alert:
+  flat: true
+  prefix: brand-footer__bottom
+  title: 'Brand Footer - Bottom'
+
+layout/contentblock:
+  prefixes:
+    - banner
+    - carousel
+    - form
+    - article
+    - text
+    - accordion
+    - fluid
+    - media
+    - stickybanner
+    - alert
+    - bottom-border
+    - hero
+    - pull-quote
+    - search
+  prefixValue: theme--contentblock-
+  title: 'Content Block - %%prefix_normalised%%'
+
+
+
+layout/contentblock/constraints:
+  breakpoints:
+    - sm
+    - md
+    - lg
+  sizes:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+  prefix: theme--contentblock-constrain
+  valueFormat: '%%prefix%%%%infix%%-%%size%%'
+  title: '%%size%% columns %%breakpoint%%'
+

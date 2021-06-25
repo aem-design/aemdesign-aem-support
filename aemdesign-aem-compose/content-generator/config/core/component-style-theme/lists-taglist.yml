@@ -1,0 +1,6 @@
+
+# Tag List
+taglist/common/simple:
+  flat: true
+  prefix: theme--taglist-simple
+  title: 'Simplified Tag List'

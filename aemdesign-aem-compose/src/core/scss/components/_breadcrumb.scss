@@ -1,0 +1,55 @@
+/**
+ * Bootstrap breadcrumb
+ */
+
+@import '~bootstrap/scss/breadcrumb';
+
+/**
+* Overrides
+*/
+
+.breadcrumb {
+  background-color: transparent;
+  font-size: $font-size-sm;
+  padding: 0;
+  width: 100%;
+
+  &-item {
+    align-items: center;
+    display: inline-flex;
+    padding-bottom: 0;
+    padding-right: $breadcrumb-item-item-padding;
+
+    .icon {
+      margin-left: $breadcrumb-item-padding;
+    }
+
+    &.active > a {
+      color: inherit;
+      // TODO: Change the breadcrumbs component in aemdesign-aem-common to not present a link here
+      pointer-events: none;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:first-child::before {
+      display: none;
+    }
+  }
+
+  &-item + &-item::before {
+    padding-right: $breadcrumb-item-item-padding;
+  }
+}
+
+nav.breadcrumb {
+  background-color: $breadcrumb-bg;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+
+  // Inverted colours
+  &.bg-black .breadcrumb-item.active {
+    color: $white;
+  }
+}

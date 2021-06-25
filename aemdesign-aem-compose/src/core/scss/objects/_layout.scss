@@ -1,0 +1,73 @@
+/**
+ * Bootstrap grid
+ */
+
+@import '~bootstrap/scss/grid';
+
+/**
+ * Overrides
+ */
+
+.container {
+  @include notch-awesome;
+
+  &--full {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  @each $type in map-keys($container-types) {
+    &--#{$type} {
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @include media-breakpoint-up($breakpoint) {
+          max-width: map-deep-get($container-types, $type, $breakpoint);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * AEM responsive grid definition
+ */
+
+div[class*='colctrl']:not([class*='col-']) {
+  @include make-container;
+  @include make-container-max-widths;
+
+  .#{$aem-prefix} > & {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .col-sm-12:not(:last-child),
+    .col-sm:not(:last-child) {
+      padding-bottom: 30px;
+    }
+
+    .col-sm {
+      flex-basis: 100%;
+      width: 100%;
+    }
+  }
+}
+
+/**
+ * AEM author dialog fixes
+ */
+
+// stylelint-disable-next-line
+#CQ {
+  // stylelint-disable-next-line
+  .x-window *,
+  .x-window *::before,
+  .x-window *::after {
+    box-sizing: content-box;
+  }
+}
+
+.aem-Grid > .cq-Editable-dom:not(.new) {
+  // stylelint-disable-next-line
+  display: block !important;
+}

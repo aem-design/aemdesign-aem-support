@@ -41,16 +41,17 @@ class ContentTabsPublishSpec extends ComponentSpec {
         and: "Tab breadcrumb should match current page"
         assert $(selector + "_page1 .breadcrumb li.active").getAt(0).text().trim() == "Content Tabs"
 
-        and: "Tab contents page title should match current page"
-        assert $(selector + "_page1 .pagetitle")[0].getAttribute("innerText").trim() == "Content Tabs"
+        and: "Tab contents page title should match tab page"
+        assert $(selector + "_page1 .title")[0].getAttribute("innerText").trim() == "Tab Page Content 1"
 
         and: "Tab contents page tags should only have one tag"
         assert $(selector + "_page1 .pagetags li").size() == 1
 
         when: "I select second tab"
         $(selector + " .nav-link").getAt(1).click()
+        waitFor(15, 0.1) { $(selector + " .tab-pane").getAt(1).hasClass("active") }
 
-        then: "Second tab content show be visible"
+        then: "Second tab content should be visible"
         assert $(selector + " .nav-link.active").text().trim() == "Tab Page Content 2"
         takeScreenshot($(selector).firstElement(), "Second tab content show be visible")
 
@@ -82,7 +83,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
         when: "I select second tab"
         $(selector + " .nav.nav-tabs").find("li").getAt(1).find("a").getAt(0).click()
 
-        then: "Second tab content show be visible"
+        then: "Second tab content should be visible"
         assert $(selector + " .nav-link.active").text().trim() == "Content Block Lock"
         takeScreenshot($(selector).firstElement(), "Second tab content show be visible")
 

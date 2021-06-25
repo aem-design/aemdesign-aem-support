@@ -221,7 +221,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot($(selector).firstElement(), "The component should be on the page")
+        takeScreenshot($(selectorContainer).firstElement(), "The component should not be on the page")
 
         and: "Has Breadcrumb hidden"
         assert $("${selector} nav.breadcrumb").isEmpty() == true
@@ -253,7 +253,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
         def selector = "#page-details"
 
         when: "I am on the component showcase page"
-        setWindowSize(viewport)
+        setWindowSize("LG",false)
         waitForAuthorPreviewPage()
 
         then: "The component should be on the page"

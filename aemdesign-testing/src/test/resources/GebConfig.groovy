@@ -47,29 +47,35 @@ boolean is64bit = System.getProperty("sun.arch.data.model").contains("64")
 reportingListener = new ReportListener()
 
 String GLOBAL_ENV = System.getProperty("geb.env","local-chrome")
-String GLOBAL_SCHEME = System.properties.getProperty("crx.scheme","http")
-String GLOBAL_HOST = System.properties.getProperty("crx.host","localhost")
-String GLOBAL_PORT = System.properties.getProperty("crx.port","4502")
-String GLOBAL_USER = System.properties.getProperty("crx.user","admin")
-String GLOBAL_PASS = System.properties.getProperty("crx.password","admin")
+String GLOBAL_SCHEME = System.properties.getProperty("aem.scheme","http")
+String GLOBAL_HOST = System.properties.getProperty("aem.host","localhost")
+String GLOBAL_PORT = System.properties.getProperty("aem.port","4502")
+String GLOBAL_USER = System.properties.getProperty("aem.user","admin")
+String GLOBAL_PASS = System.properties.getProperty("aem.password","admin")
 String GLOBAL_URL = "${GLOBAL_SCHEME}://${GLOBAL_HOST}:${GLOBAL_PORT}"
 String GLOBAL_SELENIUMHUB_URL = System.properties.getProperty("selenium.huburl","http://$GLOBAL_HOST:32768/wd/hub")
 String GLOBAL_BUILD_DIR = System.properties.getProperty("project.buildDirectory", GLOBAL_ENV)
 String GLOBAL_LOGIN_REQUIRED = System.properties.getProperty("login.req", "true")
+String GLOBAL_TEST_VIEWPORTS = System.properties.getProperty("test.viewports", "")
+String GLOBAL_PROJECT_ROOT_DIR = System.properties.getProperty("project.rootdir", "")
+String GLOBAL_PROJECT_ROOT_NAME = System.properties.getProperty("project.rootname", "")
+String GLOBAL_PROJECT_CURRENT_NAME = System.properties.getProperty("project.currentname", "")
 
 //save params if have not been defined
-System.properties.setProperty("crx.scheme", GLOBAL_SCHEME)
-System.properties.setProperty("crx.host", GLOBAL_HOST)
-System.properties.setProperty("crx.port", GLOBAL_PORT)
-System.properties.setProperty("crx.password", GLOBAL_PASS)
-System.properties.setProperty("crx.user", GLOBAL_USER) //used in report
+System.properties.setProperty("aem.scheme", GLOBAL_SCHEME)
+System.properties.setProperty("aem.host", GLOBAL_HOST)
+System.properties.setProperty("aem.port", GLOBAL_PORT)
+System.properties.setProperty("aem.password", GLOBAL_PASS)
+System.properties.setProperty("aem.user", GLOBAL_USER) //used in report
 System.properties.setProperty("geb.build.baseUrl", GLOBAL_URL)  //used in report
 System.properties.setProperty("selenium.huburl", GLOBAL_SELENIUMHUB_URL)  //used in report
 System.properties.setProperty("geb.env", GLOBAL_ENV)  //used in report
 System.properties.setProperty("project.buildDirectory", GLOBAL_BUILD_DIR)  //used in report
 System.properties.setProperty("login.req", GLOBAL_LOGIN_REQUIRED) //set to no for aem publish instances
+System.properties.setProperty("test.viewports", GLOBAL_TEST_VIEWPORTS) //set to no for aem publish instances
 
 printDebug("GLOBAL_BUILD_DIR", GLOBAL_BUILD_DIR)
+printDebug("GLOBAL_TEST_VIEWPORTS", GLOBAL_TEST_VIEWPORTS)
 
 String GLOBAL_DRIVER_TYPE = findDriverExecutable("chromedriver").canonicalPath
 //remember which driver being used
@@ -79,6 +85,10 @@ if (GLOBAL_ENV.startsWith("local-")) {
     GLOBAL_DRIVER_TYPE =  GLOBAL_BUILD_DIR
 }
 System.properties.setProperty("testingdriver", GLOBAL_DRIVER_TYPE)  //used in report
+
+System.properties.setProperty("HAS_DOCKER", checkCommand("docker -v", "Docker version"))
+System.properties.setProperty("HAS_COMPARE", checkCommand("compare -v", "ImageMagick"))
+
 
 printDebug("SETTINGS",[
         GLOBAL_HOST,
@@ -90,7 +100,12 @@ printDebug("SETTINGS",[
         GLOBAL_URL,
         GLOBAL_ENV,
         GLOBAL_DRIVER_TYPE,
-        GLOBAL_LOGIN_REQUIRED
+        GLOBAL_LOGIN_REQUIRED,
+        "project.currentname:" + GLOBAL_PROJECT_CURRENT_NAME,
+        "project.rootdir:" + GLOBAL_PROJECT_ROOT_DIR,
+        "project.rootname:" + GLOBAL_PROJECT_ROOT_NAME,
+        "HAS_DOCKER:" + System.properties.getProperty("HAS_DOCKER", "false"),
+        "HAS_COMPARE:" + System.properties.getProperty("HAS_COMPARE", "false")
 ])
 
 //specific driver
@@ -541,3 +556,21 @@ static printDebug(String name, Object values) {
 
     System.out.println(json.toString())
 }
+
+static checkCommand(String commandToTest, String stringToFindInOutput) {
+
+    try {
+        def sout = new StringBuilder(), serr = new StringBuilder()
+        def proc = commandToTest.execute()
+        proc.consumeProcessOutput(sout, serr)
+        proc.waitForOrKill(1000)
+        //println "out> $sout\nerr> $serr"
+        if (sout.contains(stringToFindInOutput)) {
+            return "true"
+        }
+    } catch (ignored) {
+        //do nothing
+    }
+    return "false"
+}
+

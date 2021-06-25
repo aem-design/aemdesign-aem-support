@@ -1,0 +1,121 @@
+
+## Event Details
+details/event-details/format/title/default:
+  flat: true
+  prefix: '${title}'
+  title: 'Default format'
+
+details/event-details/format/title/italic:
+  flat: true
+  prefix: '<i>${title}</i>'
+  title: 'Italic Title'
+
+details/event-details/format/subtitle/default:
+  flat: true
+  prefix: '${eventStartDateText} to ${eventEndDateText}'
+  title: 'Default Start and End Date Formatted'
+
+details/event-details/format/subtitle/daterangewithlocation:
+  flat: true
+  prefix: '${eventStartDateText} to ${eventEndDateText}, ${eventLoc}'
+  title: 'Date Start and End Date with Location'
+
+details/event-details/format/subtitle/singledate:
+  flat: true
+  prefix: '${eventStartDateText}'
+  title: 'Event Start Date Formatted'
+
+details/event-details/format/subtitle/singleDateUppercase:
+  flat: true
+  prefix: '${eventStartDateUppercase}'
+  title: 'Event Start Date Formatted - UpperCase'
+
+details/event-details/format/subtitle/singleDateLowercase:
+  flat: true
+  prefix: '${eventStartDateLowercase}'
+  title: 'Event Start Date Formatted - LowerCase'
+
+details/event-details/format/subtitle/singledatetime:
+  flat: true
+  prefix: '${eventStartDateText}, ${eventStartTimeText}'
+  title: 'Event Start Date and Time Formatted'
+
+details/event-details/format/subtitle/singledatetimerange:
+  flat: true
+  prefix: '${eventStartDateText}, ${eventStartTimeText} to ${eventEndTimeText}'
+  title: 'Event Start Date and Time with End Time Formatted'
+
+details/event-details/format/subtitle/singledatewithlocation:
+  flat: true
+  prefix: '${eventLoc}, ${eventStartDateText}'
+  title: 'Event Location with Start Date Formatted'
+
+details/event-details/format/subtitle/emdash-separator-widthlocaltion:
+  flat: true
+  prefix: '${eventStartDateText} &#x2014; ${eventEndDateText} <br/>${eventLoc}'
+  title: 'EM Dash Separated Start and End Time formatted with location'
+
+details/event-details/format/subtitle/emdash-separator:
+  flat: true
+  prefix: '${eventStartDateText} &#x2014; ${eventEndDateText}'
+  title: 'EM Dash Separated Start and End Time formatted'
+
+details/event-details/format/subtitle/emdash-separator-widthlocaltion-uppercase:
+  flat: true
+  prefix: '${eventStartDateUppercase} &#x2014; ${eventEndDateUppercase} <br/>${eventLoc}'
+  title: 'EM Dash Separated Start and End Time formatted with location uppercase'
+
+details/event-details/format/subtitle/emdash-separator-uppercase:
+  flat: true
+  prefix: '${eventStartDateUppercase} &#x2014; ${eventEndDateUppercase}'
+  title: 'EM Dash Separated Start and End Time formatted uppercase'
+
+details/event-details/format/displaydate/default:
+  flat: true
+  prefix: '${eventStartDateText} to ${eventEndDateText}'
+  title: 'Default Start and End Date formatted'
+
+details/event-details/format/displaydate/hyphen-separator:
+  flat: true
+  prefix: '${eventStartDateText} - ${eventEndDateText}'
+  title: 'Hyphen Separated Start and End Date formatted'
+
+details/event-details/format/displaydate/emdash-separator:
+  flat: true
+  prefix: '${eventStartDateUppercase} &#x2014; ${eventEndDateTextUppercase}'
+  title: 'EM Dash Separated Start and End Date formatted - UpperCase'
+
+details/event-details/format/displaytime/default:
+  flat: true
+  prefix: '${eventStartTimeText} to ${eventEndTimeText}'
+  title: 'Default Start and End Time formatted'
+
+details/event-details/format/displaytime/hyphen-separator:
+  flat: true
+  prefix: '${eventStartTimeText} - ${eventEndTimeText}'
+  title: 'Hyphen Separated Start and End Time formatted'
+
+details/event-details/format/displaytime/emdash-separator:
+  flat: true
+  prefix: '${eventStartTimeText} &#x2014; ${eventEndTimeText}'
+  title: 'EM Dash Separated Start and End Time formatted'
+
+details/event-details/format/displaytime/emdash-separator-lower:
+  flat: true
+  prefix: '${eventStartTimeLowercase} &#x2014; ${eventEndTimeLowercase}'
+  title: 'EM Dash Separated Start and End Time formatted - LowerCase'
+
+details/event-details/format/displaytime/schema-separator:
+  flat: true
+  prefix: '<time itemprop="startDate" datetime="${eventStartDateISO}" content="${eventStartDateISO}">${eventStartTimeText}</time><span class="separator"></span><time itemprop="endDate" datetime="${eventEndDateISO}" content="${eventEndDateISO}">${eventEndTimeText}</time>'
+  title: 'Schema - Separated Start and End Time formatted'
+
+details/event-details/format/displaytime/schema-separator-lower:
+  flat: true
+  prefix: '<time itemprop="startDate" datetime="${eventStartDateISO}" content="${eventStartDateISO}">${eventStartTimeLowercase}</time><span class="separator"></span><time itemprop="endDate" datetime="${eventEndDateISO}" content="${eventEndDateISO}">${eventEndTimeLowercase}</time>'
+  title: 'Schema - Separated Start and End Time formatted - LowerCase'
+
+details/event-details/format/displaytime/not-displayed:
+  flat: true
+  prefix: '<span style="display:none">${eventStartTimeText} &#x2014; ${eventEndTimeText}</span>'
+  title: 'Start and End Time hidden'

@@ -2,19 +2,23 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2021-02-26T17:27:21.615+11:00"
+        cq:lastModifiedBy="admin"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/onecolumn"
         jcr:primaryType="cq:PageContent"
         jcr:title="Pagination - Pages for pagination tests"
         sling:resourceType="aemdesign/components/template/base">
         <article
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="aemdesign/components/layout/article">
+            sling:resourceType="aemdesign/components/layout/article"
+            componentId="article_WG8EJ51V2">
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemdesign/components/layout/container">
                 <page-details
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/details/page-details"/>
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page-details_1HEQGDVDK"/>
                 <contentblock1
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
@@ -27,6 +31,8 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
                         <pagelist
+                            jcr:lastModified="{Date}2021-02-26T17:26:06.088+11:00"
+                            jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/lists/pagelist"
                             componentId="pagelist1"
@@ -58,6 +64,38 @@
                             parentPage="/content/aemdesign-showcase/au/en/component/lists/page-list/pagination"/>
                     </par>
                 </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock3"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Variant: Default with Pagination type Pages"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagelist
+                            jcr:lastModified="{Date}2021-02-26T17:26:06.088+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/pagelist"
+                            componentId="pagelist3"
+                            listFrom="children"
+                            listType="list"
+                            pageMax="1"
+                            paginationType="pages"
+                            parentPage="/content/aemdesign-showcase/au/en/component/lists/page-list/pagination"
+                            sortOrder="asc"
+                            tagsMatch="any">
+                            <badgeThumbnail
+                                jcr:lastModified="{Date}2021-02-26T17:26:06.088+11:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"/>
+                        </pagelist>
+                    </par>
+                </contentblock3>
             </par>
         </article>
     </jcr:content>

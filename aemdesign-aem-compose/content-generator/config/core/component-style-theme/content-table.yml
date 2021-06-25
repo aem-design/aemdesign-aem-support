@@ -1,0 +1,12 @@
+
+# Content Table
+content/table:
+  prefixes:
+    - bordered
+    - hover
+    - inverse
+    - responsive
+    - striped
+    - sm
+  valueFormat: 'table-%%prefix%%'
+  title: '%%prefix_normalised%%'

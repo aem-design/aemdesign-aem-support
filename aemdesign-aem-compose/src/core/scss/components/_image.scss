@@ -1,0 +1,25 @@
+/**
+ * Bootstrap images
+ */
+
+@import '~bootstrap/scss/images';
+
+/**
+* Overrides
+*/
+
+/**
+* AEM image component
+*/
+
+.image {
+  position: relative;
+
+  figure {
+    margin: 0;
+  }
+
+  &[data-asset-licensed='true'] .license {
+    display: none;
+  }
+}

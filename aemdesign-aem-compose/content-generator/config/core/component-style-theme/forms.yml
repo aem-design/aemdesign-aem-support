@@ -1,0 +1,5 @@
+
+content/aem-forms:
+  flat: true
+  prefix: theme--brand-form
+  title: 'AEM Forms'

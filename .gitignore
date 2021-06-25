@@ -56,10 +56,12 @@ devops___*
 .stats
 .stats/*
 
+# Environment
+.env
+
 #ignore testing remote driver exec files and restuls
 aemdesign-testing/remote-*
 aemdesign-testing/local-*
-
 
 #ignore bash things
 .bash_history

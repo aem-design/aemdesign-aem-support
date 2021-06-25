@@ -1,0 +1,66 @@
+// TODO: Add more information about how to use this...
+/// @type Map
+
+$typography: (
+  headings: (
+    h1: (
+      xs: (
+        font-size: $h1-font-size - 18px,
+      ),
+      lg: (
+        font-size: $h1-font-size,
+      ),
+    ),
+
+    h2: (
+      xs: (
+        font-size: $h2-font-size - 12px,
+      ),
+      lg: (
+        font-size: $h2-font-size,
+      ),
+    ),
+
+    h3: (
+      xs: (
+        font-size: $h3-font-size - 4px,
+      ),
+      lg: (
+        font-size: $h3-font-size,
+      ),
+    ),
+
+    h4: (
+      xs: (
+        font-size: $h4-font-size - 2px,
+        font-weight: $font-weight-normal,
+      ),
+      lg: (
+        font-size: $h4-font-size,
+      ),
+    ),
+
+    h5: (
+      xs: (
+        font-size: $h5-font-size - 4px,
+        font-weight: $font-weight-normal,
+      ),
+      lg: (
+        font-size: $h5-font-size,
+      ),
+    ),
+
+    h6: (
+      xs: (
+        font-size: $h6-font-size - 2px,
+        font-weight: $font-weight-normal,
+      ),
+      lg: (
+        font-size: $h6-font-size,
+        margin-bottom: $line-height-base / 2,
+      ),
+    ),
+  ),
+
+  text: (),
+);

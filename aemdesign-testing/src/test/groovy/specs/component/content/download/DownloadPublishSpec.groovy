@@ -141,7 +141,7 @@ class DownloadPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         and: "Has license line"
-        assert $("${selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert $("${selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()
@@ -180,7 +180,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} div.info").text().contains("jpeg file")
 
         and: "Has license line"
-        assert $("${selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert $("${selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()
@@ -222,7 +222,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert $("${selector} .btn").text().toLowerCase() == "Download".toLowerCase()
 
         and: "Has license line"
-        assert $("${selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert $("${selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()

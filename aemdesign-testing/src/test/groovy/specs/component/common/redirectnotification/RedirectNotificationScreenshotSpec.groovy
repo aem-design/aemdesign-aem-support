@@ -27,7 +27,7 @@ class RedirectNotificationScreenshotSpec extends ComponentSpec {
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
 
-        then: "It should match the #viewport.width and height: #viewport.height reference image."
+        then: "It should match the #viewport.width by #viewport.height reference image."
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"

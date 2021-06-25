@@ -1,5 +1,10 @@
 #!/bin/bash
-
+TIMESTAMP=$(date +"%s")
 
 # Generate the AEM tags
-node generator.js --no-color --no-clean --no-console --config=core.yml
+if [[ $DEBUG ]]; then
+    node generator.js --debug --no-color --no-clean --no-console --config=core.yml>"output/generate.$TIMESTAMP.txt"
+    echo "DEBUG: ./output/generate.$TIMESTAMP.txt"
+else
+    node generator.js --no-color --no-clean --no-console --config=core.yml
+fi

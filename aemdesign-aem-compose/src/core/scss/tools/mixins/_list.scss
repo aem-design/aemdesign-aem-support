@@ -1,0 +1,13 @@
+/// List variant generator
+/// @group list
+/// @since 1.0.0
+@mixin list-variant($selector: false) {
+  $selector: if($selector != false, unquote($selector + ' '), '');
+  $selector: $selector + '> .content .list > li';
+  $selector-carousel: $selector + '.carousel-hook > .item:not(.tns-item)';
+
+  #{unquote($selector)},
+  #{unquote($selector-carousel)} {
+    @content;
+  }
+}

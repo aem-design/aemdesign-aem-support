@@ -10,54 +10,19 @@ apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items
   styles/styles: &global-dialog-text-rtePlugins-styles-styles
     template: 'text-rtePlugins-styles-styles'
     contents:
-      - textC1: { cssName: 'text-c1', text: "Colour C1" }
-      - textC2: { cssName: 'text-c2', text: "Colour C2" }
-      - textC3: { cssName: 'text-c3', text: "Colour C3" }
-      - textC4: { cssName: 'text-c4', text: "Colour C4" }
-      - textC5: { cssName: 'text-c5', text: "Colour C5" }
-      - textC6: { cssName: 'text-c6', text: "Colour C6" }
-      - textC7: { cssName: 'text-c7', text: "Colour C7" }
-      - textC8: { cssName: 'text-c8', text: "Colour C8" }
-      - textC9: { cssName: 'text-c9', text: "Colour C9" }
-      - textC13: { cssName: 'text-c10', text: "Colour C10" }
-      - textC14: { cssName: 'text-c11', text: "Colour C11" }
-      - textC8: { cssName: 'text-g1', text: "Colour Grey 1" }
-      - textC9: { cssName: 'text-g2', text: "Colour Grey 2" }
-      - textC10: { cssName: 'text-g3', text: "Colour Grey 3" }
-      - textC11: { cssName: 'text-g4', text: "Colour Grey 4" }
-      - textC12: { cssName: 'text-g5', text: "Colour Grey 5" }
-      - textRed: { cssName: 'text-red', text: "Text Colour Primary" }
-      - textBlack: { cssName: 'text-black', text: "Text Colour Secondary" }
-      - textWhite: { cssName: 'text-white', text: "Text Colour White" }
-      - textQuoteSuffix: { cssName: 'text-quote-suffix', text: "Quote Suffix" }
-      - fontWeight300: { cssName: 'fw-300', text: "Font Weight (Light)" }
-      - fontWeight400: { cssName: 'fw-400', text: "Font Weight (Normal)" }
-      - fontWeight600: { cssName: 'fw-600', text: "Font Weight (Bold)" }
-      - fontWeight700: { cssName: 'fw-700', text: "Font Weight (Bolder)" }
-      - fontSize12: { cssName: 'fs-12', text: "Font Size (12px)" }
-      - fontSize14: { cssName: 'fs-14', text: "Font Size (14px)" }
-      - fontSize16: { cssName: 'fs-16', text: "Font Size (16px)" }
-      - fontSize18: { cssName: 'fs-18', text: "Font Size (18px)" }
-      - fontSize20: { cssName: 'fs-20', text: "Font Size (20px)" }
-      - fontSize22: { cssName: 'fs-22', text: "Font Size (22px)" }
-      - fontSize24: { cssName: 'fs-24', text: "Font Size (24px)" }
-      - fontSize26: { cssName: 'fs-26', text: "Font Size (26px)" }
-      - fontSize28: { cssName: 'fs-28', text: "Font Size (28px)" }
-      - fontSize30: { cssName: 'fs-30', text: "Font Size (30px)" }
-      - fontSize32: { cssName: 'fs-32', text: "Font Size (32px)" }
-      - fontSize34: { cssName: 'fs-34', text: "Font Size (34px)" }
-      - fontSize36: { cssName: 'fs-36', text: "Font Size (36px)" }
-      - textStyleLead: { cssName: 'lead', text: "Text Style (Lead)" }
-      - textStyleP2: { cssName: 'p2', text: "Text Style (P2)" }
-      - textStyleP3: { cssName: 'p3', text: "Text Style (P3)" }
-      - textStyleP4: { cssName: 'p4', text: "Text Style (P4)" }
-      - fontFamillyOpenSans: { cssName : 'f-open-sans', text: 'Font Family (Open Sans)' }
-      - fontFamillyBrushUp: { cssName : 'f-brush-up', text: 'Font Family (Brush Up)' }
+      - font_weight_lighter: { cssName: 'font-weight-lighter', text: "Weight: Lighter" }
+      - font_weight_light: { cssName: 'font-weight-light', text: "Weight: Light" }
+      - font_weight_normal: { cssName: 'font-weight-normal', text: "Weight: Normal" }
+      - font_weight_bold: { cssName: 'font-weight-bold', text: "Weight: Bold" }
+      - font_weight_bolder: { cssName: 'font-weight-bolder', text: "Weight: Bolder" }
+      - text_style_lead: { cssName: 'lead', text: "Style: Lead" }
+      - text_black: { cssName: 'text-black', text: "Colour: Black" }
+      - text_white: { cssName: 'text-white', text: "Colour: White" }
 
   paraformat/formats: &global-dialog-text-rtePlugins-paraformat-formats
     template: 'text-rtePlugins-paraformat-formats'
     contents:
-      - default_blockquote: { description: 'BlockQuote', tag: "blockquote" }
+      - default_blockquote: { description: 'Block Quote', tag: "blockquote" }
       - default_emphasis: { description: 'Emphasis', tag: "em" }
       - default_h1: { description: 'Heading 1', tag: "h1" }
       - default_h2: { description: 'Heading 2', tag: "h2" }

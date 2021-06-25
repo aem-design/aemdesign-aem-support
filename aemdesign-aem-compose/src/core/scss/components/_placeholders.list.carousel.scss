@@ -1,0 +1,67 @@
+%components-list-carousel {
+  $grid-gutter: $grid-gutter-width / 2;
+
+  // Hide the original list once the emulated list has been generated
+  .carousel-wrapper:not(.carousel-wrapper--mobile) ~ .list {
+    display: none;
+  }
+
+  .carousel-wrapper {
+    @include make-container-max-widths;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    > .carousel-hook {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    .carousel-hook > .item:not(.tns-item) {
+      $mobile-width: 100%;
+
+      display: flex;
+      flex-basis: $mobile-width;
+      height: auto;
+      max-width: $mobile-width;
+      min-height: 100%;
+      min-width: $mobile-width;
+
+      @include media-breakpoint-up(md) {
+        flex-basis: percentage(4 / $grid-columns);
+        max-width: percentage(4 / $grid-columns);
+        min-width: percentage(4 / $grid-columns);
+      }
+    }
+
+    .tns-item:not(.tns-slide-active) {
+      opacity: .5;
+      pointer-events: none;
+      transition: $transition-fade;
+    }
+  }
+
+  .carousel-hook.tns-slider {
+    width: 100%;
+  }
+
+  @include not-aem-author {
+    &[data-list-split-enabled='true'] > .content {
+      // Hide the standard lists for mobile devides
+      @include media-breakpoint-down(md) {
+        > .list {
+          display: none;
+        }
+      }
+
+      // Hide the mobile carousel on larger devices
+      @include media-breakpoint-up(lg) {
+        .carousel-wrapper--mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}

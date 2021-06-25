@@ -6,4 +6,18 @@ This can also be run directly via mavens `frontend-maven-plugin` execution id. T
 
 From the root of module:
 
-`mvn clean frontend:yarn@exec-aem-generate-tags`
+`mvn clean frontend:yarn@exec-aem-generate-tags-core`
+
+## Debug
+To run debug generate for all content run:
+
+```bash
+DEBUG=1 ./generate
+```
+
+## Testing
+To run small subset of tests run:
+
+```bash
+./generate-test
+```

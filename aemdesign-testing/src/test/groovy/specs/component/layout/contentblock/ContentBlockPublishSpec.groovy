@@ -221,6 +221,8 @@ class ContentBlockPublishSpec extends ComponentSpec {
         when: "I am on the component showcase page"
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
+        assert js.exec( "\$(\"$selector video\")[0].pause(); return true;")
+        assert js.exec( "\$(\"$selector video\")[0].currentTime=2; return true;")
         takeScreenshot($(selector).firstElement(), "I am on the component showcase page")
 
         then: "The component should be on the page"
@@ -233,7 +235,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").contains(".png")
 
         and: 'Section should have video tag with video rendition'
-        assert $("${selector} source").firstElement().getAttribute("src").contains(".flv")
+        assert $("${selector} source").firstElement().getAttribute("src").contains(".video.")
 
         where:
         viewport << getViewPorts()

@@ -1,0 +1,6 @@
+/// Retrieve a heading level config for the given level
+/// @param {String} $level - Level to search for
+/// @return {Map} - Map for the level
+@function typography-heading($level) {
+  @return map-get(map-get($typography, headings), $level);
+}

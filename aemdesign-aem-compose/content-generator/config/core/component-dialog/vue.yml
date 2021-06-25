@@ -1,0 +1,12 @@
+vue-widgets/hello-world:
+  contents:
+    json: true
+    jsonKey: hello-world
+    config: false
+    fields:
+      name:
+        title: 'Name'
+        value:
+          field: 'textfield'
+          order: 1
+          required: false

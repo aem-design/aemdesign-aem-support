@@ -1,0 +1,5 @@
+card:
+  prefixes:
+    - highlighted
+  valueFormat: card--%%prefix%%
+  title: '%%prefix_normalised%%'

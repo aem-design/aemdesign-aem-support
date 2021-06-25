@@ -1,8 +1,11 @@
 /* eslint-disable */
 
-const argv   = require('yargs').argv
-const colors = require('colors')
-const mkdirp = require('mkdirp')
+const argv       = require('yargs').argv
+const colors     = require('colors')
+const mkdirp     = require('mkdirp')
+const { sortBy } = require('lodash')
+const yaml       = require('js-yaml')
+const json2yaml  = require('json2yaml')
 
 const {
   readFileSync,
@@ -10,6 +13,7 @@ const {
   lstatSync,
   readdirSync,
   writeFile,
+  writeFileSync,
 } = require('fs')
 
 const { join, resolve } = require('path')
@@ -29,46 +33,20 @@ const rootPath = '../target/classes'
 const breakpoints = {
   sm: null,
   md: 'Tablet',
-  lg: 'Desktop',
-  xl: 'Desktop (Large)',
+  lg: 'Desktop (Large)',
+  xl: 'Desktop (Extra Large)',
 }
 
 const prefixes = {
-  // Font weights
-  '300': 'Light',
-  '400': 'Normal',
-  '600': 'SemiBold',
-  '700': 'Bold',
+  // Aria
+  'contentinfo': 'Content Info',
 
   // Screen Reader
-  'sr-only'           : 'Only (visually hidden)',
-  'sr-only-focusable' : 'Show when focused',
+  'sr-only'           : 'Screen Reader: only',
+  'sr-only-focusable' : 'Screen Reader: when focused',
 
-  // Hidden components (invisiblility)
-  'invisible'         : 'Always',
-  'invisible-lg-down' : 'Desktop - Down',
-  'invisible-lg-up'   : 'Desktop - Up',
-  'invisible-md-down' : 'Tablet - Down',
-  'invisible-md-up'   : 'Tablet - Up',
-  'invisible-sm-down' : 'Mobile (landscape) - Down',
-  'invisible-sm-up'   : 'Mobile (landscape) - Up',
-  'invisible-xl-down' : 'Desktop (large) - Down',
-  'invisible-xl-up'   : 'Desktop (large) - Up',
-  'invisible-xs-down' : 'Mobile - Down',
-  'invisible-xs-up'   : 'Mobile - Up',
-
-  // Some colours are vauge, define specifc labels here
-  'dark'         : 'Charcoal',
-  'blue-50'      : 'Blue (50% opacity)',
-  'green-50'     : 'Green (50% opacity)',
-  'purple-50'    : 'Purple (50% opacity)',
-  'red-50'       : 'Red (50% opacity)',
-  'turquoise-50' : 'Turquoise (50% opacity)',
-  'yellow-50'    : 'Yellow (50% opacity)',
-
-  // Add the word 'Square' to these icon
-  'facebook': 'Facebook - Square',
-  'linkedin': 'LinkedIn - Square',
+  // Spacing areas
+  'section-v' : 'Section - Vertical',
 
   // Misc styles
   'col'    : 'Columns',
@@ -171,6 +149,7 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
   let templatePatch = template
 
   if (contentData.type === 'tag') {
+    debug({type: "tag", contentData: contentData})
     const value = contentData.valueFormatted !== '' ?
       escape(contentData.valueFormatted):
       escape(contentData.prefixValue + contentData.value)
@@ -195,7 +174,9 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     }
   } else {
     if (contentData.content !== undefined) {
+        debug({type: "content", contentData: contentData})
         const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
+        const templateHasValue = templatePatch.indexOf('%%value%%')>-1
 
         //check if json being specified as contents
         if (contentData.json) {
@@ -229,7 +210,7 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
             }
 
         } else {
-
+          debug({type: "other", contentData: contentData})
           for (const field of Object.keys(contentData.content)) {
             folderName = field
             templatePatch = templatePatch.replace('%%node%%', field)
@@ -260,6 +241,10 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
             //replace attributes placeholder with collected fields
             if (templateHasAttributes) {
               templatePatch = templatePatch.replace('%%attributes%%', fieldAttributes)
+            }
+            //cleanup value attribute
+            if (templateHasValue) {
+              templatePatch = templatePatch.replace('%%value%%', "")
             }
           }
 
@@ -432,12 +417,86 @@ function debug(text) {
   }
 }
 
+function loadSupportConfig(filename) {
+  return yaml.safeLoad(readFileSync(currentPath(`../support/config/${filename}.yml`)))
+}
+
+function writeGeneratedConfigFile(filename, content) {
+  writeFileSync(
+    currentPath(`config/core/${filename}.yml`),
+    json2yaml.stringify(content).split('\n').slice(1).join('\n')
+  )
+}
+
+function generateColoursFromConfig() {
+  const colours          = loadSupportConfig('colours')
+  const coloursFormatted = {}
+
+  for (const [namespace, prefix] of [['background', 'bg-'], ['colour', 'text-']]) {
+    for (const category of Object.keys(colours)) {
+      coloursFormatted[`${namespace}/${category}`] = {
+        prefixes  : colours[category].colours.map((colour) => colour.class),
+        startWith : prefix,
+        title     : '%%prefix_normalised%%',
+      }
+    }
+  }
+
+  writeGeneratedConfigFile('component-style-modifier/colours', coloursFormatted)
+}
+
+function generateIconsFromConfig() {
+  const icons      = loadSupportConfig('icons')
+  const categories = {}
+
+  for (const icon of icons) {
+    if (icon.usable === false) {
+      continue
+    }
+
+    categories[icon.category] = categories[icon.category]
+      ? [...categories[icon.category], icon]
+      : (icon.flat ? icon : [icon])
+  }
+
+  // Sort the icons in each category
+  for (const category of Object.keys(categories)) {
+    const icons = categories[category]
+
+    categories[category] = Array.isArray(icons) ? sortBy(icons, ['name']) : icons
+  }
+
+  const iconsFormatted = {}
+
+  // Now bind the items to the correct structure
+  for (const category of Object.keys(categories).sort()) {
+    const icons = categories[category]
+
+    if (Array.isArray(icons)) {
+      iconsFormatted[category] = iconsFormatted[category] || {
+        prefixes    : icons.map((icon) => icon.class),
+        title       : '%%prefix_normalised%%',
+        valueFormat : `${icons[0].prefix} fa-%%prefix%%`,
+      }
+    } else {
+      iconsFormatted[category] = {
+        flat   : true,
+        prefix : `${icons.prefix} fa-${icons.class}`,
+        title  : icons.name,
+      }
+    }
+  }
+
+  writeGeneratedConfigFile('icons', iconsFormatted)
+}
 
 module.exports = {
   currentPath,
   formatSizeWithSuffix,
   generateContent,
   getBreakpointInfix,
+  generateColoursFromConfig,
+  generateIconsFromConfig,
   loadTemplateForCategory,
   mapBreakpointToName,
   normalisePrefix,

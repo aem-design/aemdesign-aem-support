@@ -1,0 +1,6 @@
+
+# Video
+media/video/background:
+  flat: true
+  prefix: theme--video-background
+  title: 'Background Video'

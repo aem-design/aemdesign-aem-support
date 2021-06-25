@@ -36,13 +36,15 @@ class VideoPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert $("${selector} video source").attr("src").contains("/FishTank.mp4")
+        assert js.exec( "\$(\"$selector\").find(\"video\")[0].pause(); return true;")
+        assert js.exec( "\$(\"$selector\").find(\"video\")[0].currentTime=2; return true;")
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         and: "Should have sample content loaded"
         assert $("${selector} video").firstElement().getAttribute("readyState") == "4"
 
-        and: "Should have sample content playing"
-        assert js.exec("return \$(\"${selector} video\")[0].paused == false;")
+        and: "Should have autoplay attribute"
+        assert js.exec( "return \$(\"$selector\").find(\"video\")[0].hasAttribute(\"autoplay\");" )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()

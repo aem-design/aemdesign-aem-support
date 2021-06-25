@@ -1,0 +1,47 @@
+
+
+## Page Details
+details/page-details:
+  prefixes:
+  - search
+  prefixValue: theme--page-details-
+  title: '%%prefix_normalised%%'
+
+details/page-details/format/title/default:
+  flat: true
+  prefix: '${title}'
+  title: 'Default format'
+
+details/page-details/format/title/italic:
+  flat: true
+  prefix: '<i>${title}</i>'
+  title: 'Italic Title'
+
+details/page-details/format/title/including-subtitle:
+  flat: true
+  prefix: '${title}<span class="subtitle">${subtitle}</span>'
+  title: 'Including Subtitle'
+
+details/page-details/format/navTitle/default:
+  flat: true
+  prefix: '${pageNavTitle}'
+  title: 'Default format'
+
+details/page-details/format/navTitle/italic:
+  flat: true
+  prefix: '<i>${pageNavTitle}</i>'
+  title: 'Italic Title'
+
+details/page-details/format/navTitle/including-subtitle:
+  flat: true
+  prefix: '${pageNavTitle}<span class="subtitle">${subtitle}</span>'
+  title: 'Including Subtitle'
+
+
+layout/page-details:
+  prefixes:
+    - brand
+    - overlay
+    - overlay-dark
+  prefixValue: theme--pagedetail-
+  title: 'Page Details - %%prefix_normalised%%'

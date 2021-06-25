@@ -1,0 +1,158 @@
+# Example structure:
+#
+# The `usable` property is optional and can be set to either `true` or `false`. When set to `false`
+# it is omitted from the generated list of authorable icons.
+
+# Additionally, the `flat` property is also optional and is only used by the content generator. It
+# flags the icon a flat structure whereas without it, it would be grouped by its `category`.
+#
+# - category: 'status'
+#   class: 'plus-circle'
+#   flat: true
+#   name: 'Plus Circle'
+#   prefix: 'far'
+#   usable: false
+
+- category: 'feed/rss'
+  class: 'rss'
+  flat: true
+  name: 'RSS'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'bars'
+  name: 'Bars'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'code'
+  name: 'Code'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'chevron-left'
+  name: 'Chevron Left'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'chevron-right'
+  name: 'Chevron Right'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'envelope'
+  name: 'Envelope'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'globe'
+  name: 'Globe'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'link'
+  name: 'Link'
+  prefix: 'fas'
+
+- category: 'arrows'
+  class: 'external-link-alt'
+  name: 'External Link Alt'
+  prefix: 'fas'
+
+- category: 'arrows'
+  class: 'long-arrow-alt-left'
+  name: 'Long Arrow Alt Left'
+  prefix: 'fas'
+
+- category: 'arrows'
+  class: 'long-arrow-alt-right'
+  name: 'Long Arrow Alt Right'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'search'
+  name: 'Search'
+  prefix: 'fas'
+
+- category: 'general'
+  class: 'times'
+  name: 'Times'
+  prefix: 'fas'
+
+- category: 'spinner'
+  class: 'cog'
+  name: 'Cog'
+  prefix: 'fas'
+
+- category: 'spinner'
+  class: 'spinner'
+  name: 'Spinner'
+  prefix: 'fas'
+
+- category: 'social'
+  class: 'facebook-f'
+  name: 'Facebook F'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'facebook'
+  name: 'Facebook'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'instagram'
+  name: 'Instagram'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'twitter'
+  name: 'Twitter'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'pinterest-p'
+  name: 'Pinterest P'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'linkedin-in'
+  name: 'LinkedIn In'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'linkedin'
+  name: 'LinkedIn'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'youtube'
+  name: 'YouTube'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'tumblr-square'
+  name: 'Tumblr Square'
+  prefix: 'fab'
+
+- category: 'social'
+  class: 'tumblr'
+  name: 'Tumblr'
+  prefix: 'fab'
+
+- category: 'images'
+  class: 'tint'
+  name: 'Tint'
+  prefix: 'fas'
+  usable: false
+
+- category: 'brands'
+  class: 'sass'
+  name: 'Sass'
+  prefix: 'fab'
+  usable: false
+
+- category: 'design'
+  class: 'fill'
+  name: 'Fill'
+  prefix: 'fas'
+  usable: false

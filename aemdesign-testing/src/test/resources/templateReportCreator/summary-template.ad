@@ -19,7 +19,7 @@
 | Config            | Value
 | Exec Config       | ${System.properties['geb.env']}
 | Target Host       | ${System.properties['geb.build.baseUrl']}
-| Testing User      | ${System.properties['crx.user']}
+| Testing User      | ${System.properties['aem.user']}
 | Testing Host      | ${System.properties['selenumhuburl']}
 | Driver            | ${System.properties['testingdriver']}
 | Test Filter       | ${System.properties['test']}

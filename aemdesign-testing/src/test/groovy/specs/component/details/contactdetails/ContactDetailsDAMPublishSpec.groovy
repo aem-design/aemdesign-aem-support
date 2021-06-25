@@ -49,19 +49,19 @@ class ContactDetailsDAMPublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("src").contains("/content/dam/aemdesign-showcase/en/common/images/abstract.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png")
 
         and: "Has Title line with content"
-        assert $("${selector} div.title").text().trim() == "Author: Max Barrass"
+        assert $("${selector} .title").text().trim() == "Author: Max Barrass"
 
         and: "Has Description line with content"
-        assert $("${selector} div.description").text().trim() == "Adobe Practice lead for Isobar max.barrass@isobar.com"
+        assert $("${selector} .description").text().trim() == "Founder for AEM.Design max.barrass@gmail.com"
 
         and: "Has Description has field jobTitle"
-        assert $("${selector} div.description [itemprop=jobTitle]").text().trim() == "Adobe Practice lead"
+        assert $("${selector} .description [itemprop=jobTitle]").text().trim() == "Founder"
 
-        and: "Has Description has field employee"
-        assert $("${selector} div.description [itemprop=employee]").text().trim() == "Isobar"
+        and: "Has Description has field employer"
+        assert $("${selector} .description [itemprop=legalName]").text().trim() == "AEM.Design"
 
         and: "Has Description has field email"
-        assert $("${selector} div.description [itemprop=email]").text().trim() == "max.barrass@isobar.com"
+        assert $("${selector} .description [itemprop=email]").text().trim() == "max.barrass@gmail.com"
 
 
         where:
