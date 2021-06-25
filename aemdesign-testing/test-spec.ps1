@@ -131,7 +131,7 @@ Function Do-RunTest
     $PARENT_PROJECT_NAME = $( Resolve-Path "$PARENT_PROJECT_LOCATION" | Split-Path -Leaf )
     $PROJECT_NAME = $( Resolve-Path "${PWD}" | Split-Path -Leaf )
 
-    $CURRENT_PROJECT_LOCATION = "${PARENT_PROJECT_WITH_GIT_NAME}/${PROJECT_NAME}"
+    $CURRENT_PROJECT_LOCATION = "${PARENT_PROJECT_WITH_GIT_NAME}/${PARENT_PROJECT_NAME}/${PROJECT_NAME}"
 
     printSectionLine "Parent Project with GIT Directory: ${PARENT_PROJECT_WITH_GIT}"
     printSectionLine "Parent Project with GIT Directory Name: ${PARENT_PROJECT_WITH_GIT_NAME}"
