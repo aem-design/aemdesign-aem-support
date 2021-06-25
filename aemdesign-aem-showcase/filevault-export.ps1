@@ -15,12 +15,12 @@
     [string]$VLT_FLAGS = "--insecure -Xmx2g",
     [string]$VLT_CMD = "../tools/vault-cli/bin/vlt",
     # Root folder name for placing content
-    [string]$CONTENT_DESTINATION = ".\src\main\content",
+    [string]$CONTENT_DESTINATION = (Resolve-Path -Path ".\src\main\content" -Relative),
     [string]$FILTER_FILE = "${CONTENT_DESTINATION}\META-INF\vault\filter.xml",
     [string]$FILTER_FILE_LOCATION = "${CONTENT_DESTINATION}\META-INF",
     [string[]]$ROOT_PATHS,
     [switch]$Silent = $false,
-    [string]$LOG_PATH = (Resolve-Path -Path "..\logs" -Relative)
+    [string]$LOG_PATH = "..\logs"
 )
 
 Function Format-XMLIndent

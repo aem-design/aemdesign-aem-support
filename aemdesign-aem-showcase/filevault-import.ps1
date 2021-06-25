@@ -41,7 +41,7 @@
         "action"="start"
     },
     [switch]$Silent = $false,
-    [string]$LOG_PATH = (Resolve-Path -Path "..\logs" -Relative)
+    [string]$LOG_PATH = "..\logs"
 )
 
 
