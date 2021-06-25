@@ -115,7 +115,7 @@ then
   REPO="$VLT_HOME"/lib
 fi
 
-CLASSPATH=$CLASSPATH_PREFIX:"$REPO"/org.apache.jackrabbit.vault-3.2.6.jar:"$REPO"/vault-vlt-3.2.6.jar:"$REPO"/jackrabbit-jcr-commons-2.16.3.jar:"$REPO"/vault-diff-3.2.6.jar:"$REPO"/diffutils-1.2.1.jar:"$REPO"/commons-io-2.5.jar:"$REPO"/vault-sync-3.2.6.jar:"$REPO"/commons-jci-fam-1.0.jar:"$REPO"/commons-logging-api-1.1.jar:"$REPO"/org.apache.sling.jcr.api-2.0.6.jar:"$REPO"/org.apache.sling.commons.osgi-2.0.6.jar:"$REPO"/vault-davex-3.2.6.jar:"$REPO"/jackrabbit-jcr-client-2.16.3.jar:"$REPO"/jackrabbit-spi-commons-2.16.3.jar:"$REPO"/jackrabbit-spi-2.16.3.jar:"$REPO"/commons-collections-3.2.2.jar:"$REPO"/jackrabbit-jcr2spi-2.16.3.jar:"$REPO"/jackrabbit-api-2.16.3.jar:"$REPO"/annotations-16.0.2.jar:"$REPO"/jackrabbit-spi2dav-2.16.3.jar:"$REPO"/httpmime-4.5.3.jar:"$REPO"/jackrabbit-webdav-2.16.3.jar:"$REPO"/httpclient-4.5.3.jar:"$REPO"/httpcore-4.4.6.jar:"$REPO"/commons-logging-1.0.3.jar:"$REPO"/commons-codec-1.10.jar:"$REPO"/jcl-over-slf4j-1.7.25.jar:"$REPO"/commons-cli-2.0-mahout.jar:"$REPO"/jline-0.9.94.jar:"$REPO"/jcr-2.0.jar:"$REPO"/slf4j-api-1.7.6.jar:"$REPO"/slf4j-log4j12-1.7.6.jar:"$REPO"/log4j-1.2.12.jar:"$REPO"/vault-cli-3.2.6.jar
+CLASSPATH=$CLASSPATH_PREFIX:"$REPO"/org.apache.jackrabbit.vault-3.4.1-SNAPSHOT.jar:"$REPO"/vault-vlt-3.4.1-SNAPSHOT.jar:"$REPO"/jackrabbit-jcr-commons-2.19.6-SNAPSHOT.jar:"$REPO"/vault-diff-3.4.1-SNAPSHOT.jar:"$REPO"/diffutils-1.2.1.jar:"$REPO"/commons-io-2.5.jar:"$REPO"/vault-sync-3.4.1-SNAPSHOT.jar:"$REPO"/commons-jci-fam-1.0.jar:"$REPO"/commons-logging-api-1.1.jar:"$REPO"/org.apache.sling.jcr.api-2.0.6.jar:"$REPO"/org.apache.sling.commons.osgi-2.0.6.jar:"$REPO"/vault-davex-3.4.1-SNAPSHOT.jar:"$REPO"/jackrabbit-jcr-client-2.19.6-SNAPSHOT.jar:"$REPO"/jackrabbit-spi-2.19.6-SNAPSHOT.jar:"$REPO"/jackrabbit-spi-commons-2.19.6-SNAPSHOT.jar:"$REPO"/commons-collections-3.2.2.jar:"$REPO"/jackrabbit-jcr2spi-2.19.6-SNAPSHOT.jar:"$REPO"/oak-jackrabbit-api-1.18.0.jar:"$REPO"/jackrabbit-spi2dav-2.19.6-SNAPSHOT.jar:"$REPO"/httpmime-4.5.3.jar:"$REPO"/jackrabbit-webdav-2.19.6-SNAPSHOT.jar:"$REPO"/httpcore-4.4.12.jar:"$REPO"/httpclient-4.5.3.jar:"$REPO"/commons-logging-1.0.3.jar:"$REPO"/commons-codec-1.10.jar:"$REPO"/jcl-over-slf4j-1.7.26.jar:"$REPO"/commons-cli-2.0-mahout.jar:"$REPO"/jline-0.9.94.jar:"$REPO"/jcr-2.0.jar:"$REPO"/slf4j-api-1.7.6.jar:"$REPO"/slf4j-log4j12-1.7.6.jar:"$REPO"/log4j-1.2.12.jar:"$REPO"/vault-cli-3.4.1-SNAPSHOT.jar
 
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
@@ -139,12 +139,6 @@ fi
 
 if [ -n "$COLS" ]; then
     EXTRA_JVM_ARGUMENTS="$EXTRA_JVM_ARGUMENTS -Denv.term.width=${COLS}"
-fi
-
-JAVA_VER=$($JAVACMD -version 2>&1 | sed 's/.*version "\(.*\)\.\(.*\)\..*"/\1\2/; 1q')
-
-if [ "$JAVA_VER" -lt 18 ]; then
-    EXTRA_JVM_ARGUMENTS="$EXTRA_JVM_ARGUMENTS -XX:PermSize=128m -XX:-UseGCOverheadLimit"
 fi
 
 exec "$JAVACMD" $VLT_OPTS $EXTRA_JVM_ARGUMENTS \

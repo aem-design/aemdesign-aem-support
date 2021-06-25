@@ -139,7 +139,7 @@ class ListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 1
 
         and: "Has title line"
-        assert compareInnerTextIgnoreCase("${selector} li .title","Page 5 Contact Details")
+        assert compareInnerTextIgnoreCase("${selector} li","Page 5 Contact Details")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()

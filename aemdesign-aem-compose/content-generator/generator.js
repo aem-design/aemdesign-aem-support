@@ -57,10 +57,10 @@ const {
   currentPath,
   generateContent,
   getBreakpointInfix,
+  generateColoursFromConfig,
+  generateIconsFromConfig,
   loadTemplateForCategory,
   parseTitle,
-  getDirectories,
-  isDirectory,
   debug
 } = require('./functions')
 
@@ -74,6 +74,12 @@ try {
 
   if (!fs.existsSync(currentPath(tmpPath))) {
     mkdirp.sync(currentPath(tmpPath))
+  }
+
+  // Generate some additional files for core using our support configuration
+  if (args.config.indexOf('core') !== -1) {
+    generateColoursFromConfig()
+    generateIconsFromConfig()
   }
 
   // Merge the YAML configurations together into a single readable file
@@ -96,6 +102,7 @@ try {
 
       for (const subcategory of Object.keys(children)) {
         const data = children[subcategory]
+
         let prefixes = data.prefixes
 
         if (prefixes === undefined && data.prefix !== undefined) {
@@ -379,8 +386,10 @@ try {
   if (args.clean === false) {
     generator()
   } else {
-    rimraf(currentPath(rootPath), () => {
-      mkdirp.sync(currentPath(rootPath))
+    const tagsPath = currentPath(`${rootPath}/${pathPrefixTags}`)
+
+    rimraf(tagsPath, () => {
+      mkdirp.sync(tagsPath)
       generator()
     })
   }

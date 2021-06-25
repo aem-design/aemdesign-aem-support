@@ -1,5 +1,4 @@
 content/_cq_tags/aemdesign/component-style-test:
-
   text/style:
     prefixes:
       - underlined
@@ -20,7 +19,7 @@ content/_cq_tags/aemdesign/component-style-test:
     prefixes:
       - capitalize
       - lowercase
-    valueFormat: "text-%%prefix%%"
+    valueFormatted: "text-%%prefix%%"
     title: '%%prefix_normalised%%'
 
   height:

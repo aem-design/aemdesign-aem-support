@@ -9,11 +9,10 @@ import support.page.ui.touch.TouchUIEditor
 @IgnoreIf({ System.properties.getProperty("geb.env") != "template" })
 @Stepwise
 class ComponentAuthorSpec extends ComponentSpec {
-
     String pathPage = "component/content/text"
     String pathSite = "content/aemdesign-showcase"
     String language = "au/en"
-    String componentPath = "jcr:content/article/par/contentblock1/par/text"
+    String componentPath = "jcr:content/article"
 
     def setupSpec() {
         loginAsAdmin()
@@ -24,7 +23,6 @@ class ComponentAuthorSpec extends ComponentSpec {
     }
 
     def "Authoring of Component"() {
-
         given: "Component has already been inserted"
         def selector = "#default"
 
@@ -52,5 +50,4 @@ class ComponentAuthorSpec extends ComponentSpec {
         page.Editor.isDialogOpen(compileComponentPath()) == false
         report("I should be able to close component author dialog")
     }
-
 }

@@ -36,7 +36,7 @@ class ShareButtonScreenshotSpec extends ComponentSpec {
         and: "Should have add this loaded"
         assert js.exec("return window.addthis?true:false;")
 
-        then: "It should match the #viewport.width and height: #viewport.height reference image."
+        then: "It should match the #viewport.width by #viewport.height reference image."
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
@@ -64,7 +64,7 @@ class ShareButtonScreenshotSpec extends ComponentSpec {
         and: "Should have add this loaded"
         assert js.exec("return window.addthis?true:false;")
 
-        then: "It should match the #viewport.width and height: #viewport.height reference image."
+        then: "It should match the #viewport.width by #viewport.height reference image."
         designRef("#atftbx")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
@@ -92,7 +92,7 @@ class ShareButtonScreenshotSpec extends ComponentSpec {
         and: "Should have add this loaded"
         assert js.exec("return window.addthis?true:false;")
 
-        then: "It should match the #viewport.width and height: #viewport.height reference image."
+        then: "It should match the #viewport.width by #viewport.height reference image."
         designRef(selector)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"

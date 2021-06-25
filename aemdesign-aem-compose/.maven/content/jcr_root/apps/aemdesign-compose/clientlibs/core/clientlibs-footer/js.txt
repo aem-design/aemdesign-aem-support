@@ -1,3 +1,2 @@
-js/vendors.js
-js/app.js
-
+#base=js
+app.js

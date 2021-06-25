@@ -1,0 +1,21 @@
+
+# Content Link
+content/link/button-nav:
+  flat: true
+  prefix: 'navbar-toggler navbar-toggler-right invisible-lg-up'
+  title: 'Button Nav'
+
+content/link/navbar-brand:
+  flat: true
+  prefix: 'navbar-brand'
+  title: 'Navbar Brand'
+
+content/link/navbar-home:
+  flat: true
+  prefix: navbar-home
+  title: 'Navbar Home Button'
+
+content/link/navbar-toggler:
+  flat: true
+  prefix: navbar-toggler
+  title: 'Navbar Toggler (Hamburger)'

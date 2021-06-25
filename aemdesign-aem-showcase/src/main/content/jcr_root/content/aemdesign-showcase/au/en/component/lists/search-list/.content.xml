@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-09-18T10:58:43.949+10:00"
+        cq:lastModified="{Date}2021-02-18T12:22:50.740+11:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:primaryType="cq:PageContent"
@@ -69,6 +69,15 @@
                             textIsRich="true"/>
                     </par>
                 </contentblock2>
+                <embedsource
+                    jcr:created="{Date}2021-02-18T12:21:57.297+11:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-02-18T12:22:50.734+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/content/embedsource"
+                    componentId="embedsource_BVINGRUW1"
+                    html="&lt;style>&#xd;&#xa;.card-img-top img {&#xd;&#xa;width: 100%;&#xd;&#xa;}&#xd;&#xa;&lt;/style>"/>
             </par>
         </article>
     </jcr:content>

@@ -6,7 +6,7 @@
     generatorType="htmlparser"
     order="1"
     serializerType="htmlwriter"
-    transformerTypes="[linkchecker,versioned-clientlibs]">
+    transformerTypes="[linkchecker]">
     <transformer-mobile
         jcr:primaryType="nt:unstructured"
         component-optional="{Boolean}true"/>

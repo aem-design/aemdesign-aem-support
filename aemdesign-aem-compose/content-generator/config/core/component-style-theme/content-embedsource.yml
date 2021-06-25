@@ -1,0 +1,8 @@
+
+# EmbedSource
+content/embedsource:
+  prefixes:
+  - course-table
+  - countdown
+  valueFormat: 'theme--%%prefix%%'
+  title: '%%prefix_normalised%%'

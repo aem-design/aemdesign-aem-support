@@ -3,5 +3,5 @@
 if [[ "$#" -gt 0 ]]; then
   ./test-spec --login --report --tests "$@"
 else
-  ./test-spec --login --report
+  ./test-spec --login --report "$@"
 fi

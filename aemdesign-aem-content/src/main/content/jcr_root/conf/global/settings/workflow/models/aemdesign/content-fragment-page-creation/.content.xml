@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:designPath="/libs/settings/wcm/designs/default"
-        cq:lastModified="{Date}2019-11-25T11:27:13.105+11:00"
+        cq:lastModified="{Date}2021-06-24T11:27:17.682+10:00"
         cq:lastModifiedBy="admin"
         cq:template="/libs/cq/workflow/templates/model"
         jcr:primaryType="cq:PageContent"
@@ -16,18 +16,27 @@
                 jcr:created="{Date}2019-11-21T22:00:24.275+11:00"
                 jcr:createdBy="admin"
                 jcr:description="Generate Pages for Content Fragments"
-                jcr:lastModified="{Date}2019-11-25T11:25:40.181+11:00"
+                jcr:lastModified="{Date}2021-06-24T11:27:17.670+10:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Content Fragment Page Generation"
                 sling:resourceType="aemdesign/components/workflow/contentfragmentpagegen">
                 <metaData
                     jcr:primaryType="nt:unstructured"
-                    outputLocation="/content/aemdesign-showcase/au/en/content/content-fragment-pages"
+                    contentFragmentRootPath="/content/dam/aemdesign-showcase/en/articles"
+                    generateContentFragmentComponentPath="root/article/par/contentblock/par/contentfragment"
+                    generateContentFragmentParagraphContent="true"
+                    outputLocation="/content/aemdesign-showcase/au/en/content/news"
                     PROCESS="design.aem.workflow.process.ContentFragmentPageGenerator"
                     PROCESS_AUTO_ADVANCE="true"
-                    templatePage="/conf/aemdesign/settings/wcm/templates/onecolumn"
-                    throttle="true"/>
+                    segmentationContentFragmentRootPath="/content/dam/aemdesign-showcase/en/articles"
+                    segmentationTemplatePage="/conf/aemdesign-showcase/settings/wcm/templates/articles"
+                    segmentationUsingPaths="true"
+                    templatePage="/conf/aemdesign-showcase/settings/wcm/templates/article"
+                    throttle="true"
+                    updateComponentResourceType="[aemdesign/components/details/news-details,aemdesign/components/content/contentfragment]"
+                    updateExistingComponent="true"
+                    updateExistingRootPath="[root/article/par,root/article/par/contentblock/par]"/>
             </contentfragmentpageg>
         </flow>
         <image/>

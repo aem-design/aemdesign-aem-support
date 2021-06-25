@@ -1,0 +1,75 @@
+primary-colours:
+  label: 'Primary Colours'
+
+  colours:
+    - class: 'blue'
+      hex: '00a4e4'
+      label: 'Blue'
+
+    - class: 'red'
+      hex: 'f00'
+      label: 'Red'
+
+secondary-colours:
+  label: 'Secondary Colours'
+
+  colours:
+    - class: 'orange'
+      hex: 'fbb034'
+      label: 'Orange'
+
+    - class: 'green'
+      hex: 'c1d82f'
+      label: 'Green'
+
+grey-tones:
+  label: 'Grey Tones'
+
+  colours:
+    - class: 'grey-1'
+      hex: 'e6e6e6'
+      label: 'Grey 1'
+
+    - class: 'grey-2'
+      hex: 'ccc'
+      label: 'Grey 2'
+
+    - class: 'grey-3'
+      hex: 'b3b3b3'
+      label: 'Grey 3'
+
+    - class: 'grey-4'
+      hex: '999'
+      label: 'Grey 4'
+
+    - class: 'grey-5'
+      hex: '808080'
+      label: 'Grey 5'
+
+    - class: 'grey-6'
+      hex: '666'
+      label: 'Grey 6'
+
+    - class: 'grey-7'
+      hex: '4d4d4d'
+      label: 'Grey 7'
+
+    - class: 'grey-8'
+      hex: '333'
+      label: 'Grey 8'
+
+    - class: 'grey-9'
+      hex: '1a1a1a'
+      label: 'Grey 9'
+
+standard:
+  label: 'Standard'
+
+  colours:
+    - class: 'black'
+      hex: '000'
+      label: 'Black'
+
+    - class: 'white'
+      hex: 'fff'
+      label: 'White'

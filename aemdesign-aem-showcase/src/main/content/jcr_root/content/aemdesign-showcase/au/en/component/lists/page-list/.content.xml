@@ -2,6 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2021-02-26T20:11:19.544+11:00"
+        cq:lastModifiedBy="admin"
         cq:tags="[aemdesign-showcase:content-type/page]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:primaryType="cq:PageContent"
@@ -896,8 +898,7 @@
                             listType="list"
                             pages="[/content/aemdesign-showcase/au/en/component/details/page-details/page-with-thumbnail,/content/aemdesign-showcase/au/en/component/details/page-details/page-with-thumbnail-override,/content/aemdesign-showcase/au/en/component/details/page-details/page-with-thumbnail-override-secondaryimage]"
                             sortOrder="asc"
-                            tagsMatch="any">
-                        </pagelist>
+                            tagsMatch="any"/>
                     </par>
                 </contentblock38>
                 <contentblock39
@@ -912,9 +913,9 @@
                         <pagelist
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/lists/pagelist"
-                            badgeLinkStyle="[aemdesign-showcase:component-style-modifier/button/normal/link,aemdesign-showcase:component-style-modifier/button/primary-red]"
+                            badgeLinkStyle="[aemdesign-showcase:component-style-modifier/button/normal/link,aemdesign-showcase:component-style-modifier/button/primary]"
                             badgeLinkText="[READ MORE]"
-                            cardStyle="[aemdesign-showcase:component-style-modifier/card/promoted,aemdesign-showcase:component-style-modifier/background/bg-c3]"
+                            cardStyle="[aemdesign-showcase:component-style-modifier/card/promoted,aemdesign-showcase:component-style-modifier/background/grey-tones/bg-grey-1]"
                             componentId="pagelist39"
                             detailsBadge="cardTitleDescriptionAction"
                             limit="3"
@@ -923,6 +924,53 @@
                             parentPage="/content/aemdesign-showcase/au/en/component/lists/page-list/cards"/>
                     </par>
                 </contentblock39>
+                <contentblock40
+                    jcr:lastModified="{Date}2021-02-26T20:06:00.257+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock40"
+                    title="Custom Badge: Card Template and All Fields"
+                    variant="componentConfig">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagelist
+                            jcr:lastModified="{Date}2021-02-26T20:11:19.514+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/pagelist"
+                            badgeCustom="true"
+                            badgeFields="[title,description,pagedate,date,descriptionformatted,titleformatted,action]"
+                            badgeFieldsTemplate="card"
+                            badgeLinkStyle="[aemdesign-showcase:component-style-modifier/button/normal/link,aemdesign-showcase:component-style-modifier/button/primary]"
+                            badgeLinkText="[READ MORE]"
+                            cardStyle="[aemdesign-showcase:component-style-modifier/card/promoted,aemdesign-showcase:component-style-modifier/background/grey-tones/bg-grey-1]"
+                            componentId="pagelist40"
+                            limit="3"
+                            listFrom="children"
+                            listType="list"
+                            parentPage="/content/aemdesign-showcase/au/en/component/lists/page-list/custombadge"
+                            sortOrder="asc"
+                            tagsMatch="any">
+                            <badgeThumbnail
+                                jcr:lastModified="{Date}2021-02-26T20:11:19.514+11:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"/>
+                        </pagelist>
+                    </par>
+                    <bgimage
+                        jcr:lastModified="{Date}2021-02-26T20:06:00.257+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                    <bgvideo
+                        jcr:lastModified="{Date}2021-02-26T20:06:00.257+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/video"/>
+                </contentblock40>
             </par>
         </article>
     </jcr:content>
@@ -934,4 +982,5 @@
     <analytics/>
     <pageswithtags/>
     <nodetails/>
+    <custombadge/>
 </jcr:root>

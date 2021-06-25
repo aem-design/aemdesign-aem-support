@@ -1,9 +1,0 @@
-// PLEASE NOTE!!
-//
-// These styles directly affect AEM components, they should not introduce any new
-// behaviour that can be handled already by Bootstrap helper classes such as spacing
-// and other component level changes.
-
-[component].pagelist {
-  @extend %component-list;
-}

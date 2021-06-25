@@ -301,7 +301,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $("${selector} .card-text").text() == "Licensed Asset Description"
 
         and: "Has license line"
-        assert $("${selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert $("${selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
@@ -349,7 +349,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $("${selector} figure .description")[0].getAttribute("innerText").equals("Licensed Asset Description")
 
         and: "Has license line"
-        assert $("${selector} figure .license")[0].getAttribute("innerText").trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert $("${selector} figure .license")[0].getAttribute("innerText").trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"

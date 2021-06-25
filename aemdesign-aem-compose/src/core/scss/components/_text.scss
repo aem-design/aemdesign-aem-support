@@ -1,0 +1,74 @@
+.text {
+  $root: &;
+
+  @include clearfix;
+
+  &-small {
+    @extend small;
+  }
+
+  p {
+    margin-bottom: $grid-gutter-width / 2;
+  }
+
+  ol,
+  ul {
+    padding-left: 20px;
+
+    > li {
+      padding-bottom: $line-height-base / 3;
+
+      li {
+        padding-bottom: 0;
+        padding-top: $line-height-base / 3;
+      }
+
+      ol,
+      ul {
+        padding-left: 48px;
+      }
+
+      &::before {
+        display: inline-block;
+        font-size: $font-size-sm - 4px;
+        left: -20px;
+        position: absolute;
+      }
+    }
+  }
+
+  ul > li::before {
+    content: '●';
+  }
+
+  ol {
+    counter-reset: list-counter;
+
+    > li::before {
+      content: counter(list-counter);
+      counter-increment: list-counter;
+      font-size: $font-size-base - 2px;
+    }
+  }
+
+  // Push any heading directly after a paragraph tag further away
+  @for $heading-level from 1 through 6 {
+    p + h#{$heading-level} {
+      padding-top: $grid-gutter-width;
+    }
+  }
+
+  // Ensure the last child in the text component doesn't have a margin
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  // Space consecutive text, image components apart
+  &:not([class*='spacing-']) {
+    + #{$root},
+    + .image,
+    + .image + #{$root} {
+      padding-top: $grid-gutter-width;
+    }
+  }
+}

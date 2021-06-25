@@ -1,0 +1,15 @@
+spacing-area:
+  prefixes:
+    - section
+  valueFormat: 'spacing--%%prefix%%-v'
+  title: '%%prefix_normalised%%'
+
+spacing-area/axis:
+  prefixes:
+    - section-v
+  # Dirty hack until content generator is rebuilt
+  sizes:
+    - bottom
+    - top
+  valueFormat: 'spacing--%%prefix%%--%%size%%'
+  title: '%%prefix_normalised%% (%%size%%)'

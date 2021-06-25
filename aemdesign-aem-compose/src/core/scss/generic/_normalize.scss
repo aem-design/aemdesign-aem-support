@@ -1,0 +1,26 @@
+/**
+ * Bootstrap reset
+ */
+
+@import '~bootstrap/scss/reboot';
+
+/**
+* Overrides
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * More sensible default box-sizing:
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}

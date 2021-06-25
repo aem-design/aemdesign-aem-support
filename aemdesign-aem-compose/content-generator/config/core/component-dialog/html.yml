@@ -1,0 +1,101 @@
+# WARNING: Reference to these path is hardcoded into component dialogs
+html/direction:
+  prefixes:
+    - left
+    - right
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+html/heading:
+  prefixes:
+    - h1
+    - h2
+    - h3
+    - h4
+    - h5
+    - h6
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+html/linktarget:
+  prefixes:
+    - blank
+    - parent
+    - self
+    - top
+  valueFormat: '_%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+html/position:
+  prefixes:
+  - left
+  - right
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+html/toggle:
+  prefixes:
+    - button
+    - buttons
+    - collapse
+    - dropdown
+    - modal
+    - pill
+    - popover
+    - tab
+    - tooltip
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+html/type:
+  prefixes:
+    - button
+    - embed
+    - input
+    - link
+    - menu
+    - object
+    - script
+    - source
+    - style
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'
+
+# WARNING: Reference to these path is hardcoded into component dialogs
+html/metadata/properties:
+  prefixes:
+    - ogtitle: {
+      title: "Open Graph - Title",
+      value: "og:title"
+    }
+    - ogtype: {
+      title: "Open Graph - Type",
+      value: "og:type"
+    }
+    - ogimage: {
+      title: "Open Graph - Image",
+      value: "og:image"
+    }
+    - ogurl: {
+      title: "Open Graph - Url",
+      value: "og:url"
+    }
+    - ogdescription: {
+      title: "Open Graph - Description",
+      value: "og:description"
+    }
+
+html/video:
+  prefixes:
+    - allowfullscreen
+    - loop
+    - mozAllowFullScreen
+    - muted
+    - playsinline
+    - webkitallowfullscreen
+  title: '%%prefix_normalised%%'

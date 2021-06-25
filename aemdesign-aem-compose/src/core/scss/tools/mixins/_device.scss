@@ -1,0 +1,29 @@
+/// ...
+/// @group device
+/// @since 1.0.0
+@mixin notch-awesome($gutter-left: $grid-gutter-width / 2, $gutter-right: $grid-gutter-width / 2) {
+  @include notch-awesome-query {
+    @include notch-awesome-prop('padding-left', $gutter-left);
+    @include notch-awesome-prop('padding-right', $gutter-right);
+  }
+}
+
+/// ...
+/// @group device
+/// @since 1.0.0
+@mixin notch-awesome-prop($prop, $gutter) {
+  #{unquote($prop)}: #{'max(#{$gutter}, constant(safe-area-inset-left))'};
+  #{unquote($prop)}: #{'max(#{$gutter}, env(safe-area-inset-left))'};
+}
+
+/// ...
+/// @group device
+/// @since 1.0.0
+@mixin notch-awesome-query() {
+  @media screen and (orientation: landscape) and (max-width: 896px) {
+    // stylelint-disable-next-line
+    @supports (padding: max(0px)) {
+      @content;
+    }
+  }
+}

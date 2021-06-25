@@ -1,0 +1,24 @@
+/**
+ * Custom fonts are extremely easy to add, follow the below instructions.
+ *
+ * @include font-face(
+ *   'Open Sans',
+ *   'open-sans/open-sans-light',
+ *   300,
+ *   normal,
+ * );
+ */
+
+@include font-face(
+  'Noto Sans',
+  'noto-sans/NotoSans-Regular',
+  400,
+  normal,
+);
+
+@include font-face(
+  'Noto Sans',
+  'noto-sans/NotoSans-Bold',
+  700,
+  normal,
+);
