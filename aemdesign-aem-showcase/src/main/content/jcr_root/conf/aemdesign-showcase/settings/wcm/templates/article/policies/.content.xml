@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2021-06-21T12:05:58.876+10:00"
+        cq:lastModified="{Date}2021-06-28T16:17:44.304+10:00"
         cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2021-05-27T10:19:52.816+10:00"
         cq:lastReplicatedBy="admin"
@@ -11,7 +11,7 @@
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[cq:ReplicationStatus,mix:versionable]"
         jcr:primaryType="nt:unstructured"
-        jcr:uuid="0cbf51f1-9ec8-4e7a-8cea-b9499345f7c9"
+        jcr:uuid="1e2950cd-29c2-4e7c-bd59-891f291503a7"
         sling:resourceType="wcm/core/components/policies/mappings">
         <root
             cq:policy="aemdesign/components/layout/container/policy_container"

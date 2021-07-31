@@ -12,7 +12,7 @@
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:uuid="cc3e7024-66a1-4c83-9c58-d20a2f7a4c93"
+        jcr:uuid="0141a5ec-e05a-45d9-8d41-a7855363dd30"
         sling:resourceType="aemdesign/components/template/base">
         <root
             jcr:lastModified="{Date}2021-05-27T10:22:44.731+10:00"

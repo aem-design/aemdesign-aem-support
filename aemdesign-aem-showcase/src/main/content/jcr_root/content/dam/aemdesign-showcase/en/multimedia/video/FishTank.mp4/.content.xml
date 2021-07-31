@@ -4,25 +4,26 @@
     jcr:primaryType="dam:Asset"
     jcr:uuid="f2f41166-ebef-4b7b-993d-61554d9aa688">
     <jcr:content
-        dam:assetState="processing"
-        dam:relativePath="tets/FishTank.mp4"
-        jcr:lastModified="{Date}2019-09-12T17:17:06.148+10:00"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/multimedia/video/FishTank.mp4"
+        jcr:lastModified="{Date}2021-06-02T20:32:15.579+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
-            dam:extracted="{Date}2017-10-13T09:43:11.507+11:00"
+            dam:extracted="{Date}2021-06-02T20:31:02.785+10:00"
             dam:sha1="f88bcb95935d9199725068110ac9b7c8fe4e1669"
             dam:size="{Long}4122679"
             dc:extent="{Long}11026"
             dc:format="video/mp4"
             dc:modified="{Date}2019-09-12T17:17:06.148+10:00"
-            jcr:lastModified="{Date}2019-09-12T17:17:06.147+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:31:04.837+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}720"
             tiff:ImageWidth="{Long}1280"
+            tiff:Orientation="{Long}1"
             xmp:CreateDate="{Date}2016-08-01T03:47:56.000Z"
             xmp:ModifyDate="{Date}2016-08-01T03:47:56.000Z">
             <xmpDM:duration

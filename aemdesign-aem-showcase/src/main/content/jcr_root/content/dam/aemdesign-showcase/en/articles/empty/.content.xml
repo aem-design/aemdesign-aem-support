@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="755965cb-f9a0-4c1b-ae1a-6be69457c439">
+    <jcr:content
+        cq:name="empty"
+        cq:parentPath="/content/dam/aemdesign-showcase/en/articles"
+        jcr:description=""
+        jcr:lastModified="{Date}2021-06-28T16:11:45.824+10:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Empty"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2021-06-28T16:11:45.824+10:00">
+        <data
+            cq:model="/conf/aemdesign-showcase/settings/dam/cfm/models/news-article"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                authors_x0040_LastModified="{Date}2021-06-28T16:11:45.762+10:00"
+                authorscontentfragment_x0040_LastModified="{Date}2021-06-28T16:11:45.762+10:00"
+                description_x0040_ContentType="text/html"
+                description_x0040_LastModified="{Date}2021-06-28T16:11:45.761+10:00"
+                navTitle_x0040_LastModified="{Date}2021-06-28T16:11:45.760+10:00"
+                onTime_x0040_LastModified="{Date}2021-06-28T16:11:45.761+10:00"
+                pageImage_x0040_LastModified="{Date}2021-06-28T16:11:45.761+10:00"
+                relatedArticles_x0040_LastModified="{Date}2021-06-28T16:11:45.762+10:00"
+                tags_x0040_LastModified="{Date}2021-06-28T16:11:45.761+10:00"
+                text="&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                text__asset_x0040_LastModified="{Date}2021-06-28T16:11:45.762+10:00"
+                text__assetindex="{Long}[1]"
+                text__assetindex_x0040_LastModified="{Date}2021-06-28T16:11:45.761+10:00"
+                text__assettype_x0040_LastModified="{Date}2021-06-28T16:11:45.762+10:00"
+                text_x0040_ContentType="text/html"
+                text_x0040_LastModified="{Date}2021-06-28T16:11:45.761+10:00"
+                title_x0040_LastModified="{Date}2021-06-28T16:11:45.760+10:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

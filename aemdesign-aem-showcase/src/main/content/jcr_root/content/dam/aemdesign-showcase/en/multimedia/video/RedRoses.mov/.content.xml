@@ -4,25 +4,26 @@
     jcr:primaryType="dam:Asset"
     jcr:uuid="056967f4-843e-482e-98da-7ac7165883b1">
     <jcr:content
-        dam:assetState="processing"
+        dam:assetState="processed"
         dam:relativePath="tets/RedRoses.mov"
-        jcr:lastModified="{Date}2019-09-12T17:17:21.138+10:00"
+        jcr:lastModified="{Date}2021-06-02T20:34:01.795+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
-            dam:extracted="{Date}2017-10-13T09:43:11.508+11:00"
+            dam:extracted="{Date}2021-06-02T20:32:21.912+10:00"
             dam:sha1="fb1df12d9d62b3065c51684374d7472679f8f0d3"
             dam:size="{Long}26417455"
             dc:extent="{Long}10052"
             dc:format="video/quicktime"
             dc:modified="{Date}2019-09-12T17:17:21.138+10:00"
-            jcr:lastModified="{Date}2019-09-12T17:17:21.138+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:32:21.884+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}1080"
             tiff:ImageWidth="{Long}1920"
+            tiff:Orientation="{Long}1"
             xmp:CreateDate="{Date}2013-11-21T15:07:49.000Z"
             xmp:CreatorTool="Adobe Premiere Pro CS6 (Macintosh)"
             xmp:MetadataDate="{Date}2013-11-21T15:08:04.000Z"
@@ -59,6 +60,17 @@
                 jcr:primaryType="nt:unstructured"
                 xmpDM:scale="1/25"
                 xmpDM:value="{Long}263"
+                xmpNodeType="xmpStruct"/>
+            <creatorAtom:windowsAtom
+                creatorAtom:extension=".prproj"
+                creatorAtom:invocationFlags="/L"
+                jcr:primaryType="nt:unstructured"
+                xmpNodeType="xmpStruct"/>
+            <creatorAtom:macAtom
+                creatorAtom:applicationCode="{Long}1347449455"
+                creatorAtom:invocationAppleEvent="{Long}1129468018"
+                creatorAtom:posixProjectPath="/Users/Tom/Desktop/November Stock/Stock Grading.prproj"
+                jcr:primaryType="nt:unstructured"
                 xmpNodeType="xmpStruct"/>
             <xmpMM:Ingredients
                 jcr:primaryType="nt:unstructured"
@@ -116,17 +128,6 @@
                         xmpNodeType="xmpStruct"/>
                 </_x0031_>
             </xmpMM:Pantry>
-            <creatorAtom:windowsAtom
-                creatorAtom:extension=".prproj"
-                creatorAtom:invocationFlags="/L"
-                jcr:primaryType="nt:unstructured"
-                xmpNodeType="xmpStruct"/>
-            <creatorAtom:macAtom
-                creatorAtom:applicationCode="{Long}1347449455"
-                creatorAtom:invocationAppleEvent="{Long}1129468018"
-                creatorAtom:posixProjectPath="/Users/Tom/Desktop/November Stock/Stock Grading.prproj"
-                jcr:primaryType="nt:unstructured"
-                xmpNodeType="xmpStruct"/>
         </metadata>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>

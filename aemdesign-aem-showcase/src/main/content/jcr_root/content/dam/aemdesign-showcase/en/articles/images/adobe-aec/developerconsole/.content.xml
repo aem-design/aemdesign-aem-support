@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="developerconsole">
+        <folderThumbnail/>
+    </jcr:content>
+    <_x0031_2-developer-console-java-packages.png/>
+    <_x0031_2-developer-console-queries.png/>
+    <_x0031_2-developer-console-servlets.png/>
+    <_x0031_2-developer-console-status-download-logs.png/>
+</jcr:root>

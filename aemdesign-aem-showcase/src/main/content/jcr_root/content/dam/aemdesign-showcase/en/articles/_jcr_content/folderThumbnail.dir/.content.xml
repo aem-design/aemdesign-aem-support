@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:file">
+    <jcr:content
+        dam:folderThumbnailPaths="[/content/dam/aemdesign-showcase/en/articles/images/adobe-aec/4-aec-program-console.png,/content/dam/aemdesign-showcase/en/articles/images/adobe-aec/7-aec-program-non-prod-pipeline-done.png,/content/dam/aemdesign-showcase/en/articles/images/adobe-aec/2-adobe-experience-cloud-aem.png]"
+        jcr:primaryType="nt:unstructured"
+        bgcolor="{Long}-1"
+        height="{Long}240"
+        width="{Long}280"/>
+</jcr:root>

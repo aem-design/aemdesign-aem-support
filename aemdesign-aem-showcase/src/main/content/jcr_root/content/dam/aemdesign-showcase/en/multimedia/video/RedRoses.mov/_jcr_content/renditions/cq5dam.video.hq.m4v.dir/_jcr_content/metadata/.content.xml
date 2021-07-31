@@ -9,6 +9,7 @@
     extension="m4v"
     htmlType="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;"
     mimeType="video/x-m4v"
+    renditionSelector="hq"
     twoPass="true"
     videoBitrate="{Long}6144"
     videoBitrateTolerance="{Long}8192"

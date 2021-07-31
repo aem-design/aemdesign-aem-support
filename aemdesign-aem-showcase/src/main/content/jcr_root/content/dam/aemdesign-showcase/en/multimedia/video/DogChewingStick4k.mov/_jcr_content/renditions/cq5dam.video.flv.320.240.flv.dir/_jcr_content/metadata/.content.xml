@@ -8,6 +8,7 @@
     extension="flv"
     height="{Long}240"
     mimeType="video/x-flv"
+    renditionSelector="flv"
     videoBitrate="{Long}200"
     videoFrameRate="12"
     width="{Long}320"/>

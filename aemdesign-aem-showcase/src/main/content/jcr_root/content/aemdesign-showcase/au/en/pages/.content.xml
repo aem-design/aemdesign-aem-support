@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:designPath="/apps/settings/wcm/designs/aemdesign"
-        cq:tags="[aemdesign-showcase:content-type/page]"
+        cq:tags="[]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
@@ -37,7 +37,8 @@
                 sling:resourceType="aemdesign/components/layout/container">
                 <page-details
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/details/page-details"/>
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page-details_P52ZATBZV"/>
                 <text
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/content/text"
@@ -47,4 +48,5 @@
         </article>
     </jcr:content>
     <error-pages/>
+    <aem-saas-hands-on/>
 </jcr:root>

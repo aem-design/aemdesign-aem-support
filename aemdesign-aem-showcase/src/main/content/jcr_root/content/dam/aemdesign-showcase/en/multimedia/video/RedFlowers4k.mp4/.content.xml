@@ -4,25 +4,26 @@
     jcr:primaryType="dam:Asset"
     jcr:uuid="5275e517-6b5f-4353-ac90-d5c3dc253c4d">
     <jcr:content
-        dam:assetState="processing"
-        dam:relativePath="tets/RedFlowers4k.mp4"
-        jcr:lastModified="{Date}2019-09-12T17:17:12.781+10:00"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/multimedia/video/RedFlowers4k.mp4"
+        jcr:lastModified="{Date}2021-06-02T20:34:36.914+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
-            dam:extracted="{Date}2017-10-13T09:45:35.280+11:00"
+            dam:extracted="{Date}2021-06-02T20:31:14.784+10:00"
             dam:sha1="7752796d9cc9ac8a41b4719755bb845394eb00be"
             dam:size="{Long}79889077"
             dc:extent="{Long}8000"
             dc:format="video/mp4"
             dc:modified="{Date}2019-09-12T17:17:12.781+10:00"
-            jcr:lastModified="{Date}2019-09-12T17:17:12.781+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:31:08.740+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}2160"
             tiff:ImageWidth="{Long}4096"
+            tiff:Orientation="{Long}1"
             xmp:CreateDate="{Date}2015-12-29T05:11:50.000Z"
             xmp:CreatorTool="Adobe Premiere Pro CS6 (Macintosh)"
             xmp:MetadataDate="{Date}2015-12-28T23:11:59.000-06:00"
@@ -62,6 +63,17 @@
                 jcr:primaryType="nt:unstructured"
                 xmpDM:scale="1/90000"
                 xmpDM:value="{Long}720000"
+                xmpNodeType="xmpStruct"/>
+            <creatorAtom:windowsAtom
+                creatorAtom:extension=".prproj"
+                creatorAtom:invocationFlags="/L"
+                jcr:primaryType="nt:unstructured"
+                xmpNodeType="xmpStruct"/>
+            <creatorAtom:macAtom
+                creatorAtom:applicationCode="{Long}1347449455"
+                creatorAtom:invocationAppleEvent="{Long}1129468018"
+                creatorAtom:posixProjectPath="/Users/Alejandro/Documents/Adobe/Premiere Pro/6.0/nochebuenas 4k.prproj"
+                jcr:primaryType="nt:unstructured"
                 xmpNodeType="xmpStruct"/>
             <xmpMM:Ingredients
                 jcr:primaryType="nt:unstructured"
@@ -266,17 +278,6 @@
                         xmpNodeType="xmpStruct"/>
                 </_x0032_>
             </xmpMM:Pantry>
-            <creatorAtom:windowsAtom
-                creatorAtom:extension=".prproj"
-                creatorAtom:invocationFlags="/L"
-                jcr:primaryType="nt:unstructured"
-                xmpNodeType="xmpStruct"/>
-            <creatorAtom:macAtom
-                creatorAtom:applicationCode="{Long}1347449455"
-                creatorAtom:invocationAppleEvent="{Long}1129468018"
-                creatorAtom:posixProjectPath="/Users/Alejandro/Documents/Adobe/Premiere Pro/6.0/nochebuenas 4k.prproj"
-                jcr:primaryType="nt:unstructured"
-                xmpNodeType="xmpStruct"/>
         </metadata>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>
