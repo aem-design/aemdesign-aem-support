@@ -1,0 +1,34 @@
+---
+- name: Converge
+  hosts: instance
+  become: true
+  vars:
+    local_role_name: "ansible-role-aem-verify"
+    role_name: "{% if lookup('env','ROLE_NAME_FULL') %}{{ lookup('env','ROLE_NAME_FULL') }}{% else %}{{ local_role_name }}{% endif %}"
+
+  pre_tasks:
+    - name: get docker host ip
+      become: true
+      shell: |
+        set -o pipefail
+        /sbin/ip route | awk '/default/ { print $3 }'
+      args:
+        executable: /bin/bash
+      register: dockerhost_ip
+      changed_when: false
+
+  roles:
+    - {
+      role: "aem_design.aem_license",
+      aem_license_key: "{{ service_aem_license_key }}",
+      aem_license_name: "{{ service_aem_license_name }}",
+      aem_port: "5502",
+      aem_host: "{{ dockerhost_ip.stdout }}",
+      debug_hide: false
+    }
+    - {
+      role: "{{ role_name }}",
+      aem_port: "5502",
+      aem_host: "{{ dockerhost_ip.stdout }}",
+      debug_hide: false
+    }

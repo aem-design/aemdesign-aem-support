@@ -1,0 +1,137 @@
+---
+
+- name: set variables
+  set_fact:
+    console_bundles_url: "{{ aem_schema }}://{{ aem_host }}:{{ aem_port }}{{ url_bundles }}"
+    console_bundles_json_url: "{{ aem_schema }}://{{ aem_host }}:{{ aem_port }}{{ url_bundles_json }}"
+    console_packages_url: "{{ aem_schema }}://{{ aem_host }}:{{ aem_port }}{{ url_packages }}"
+    login_url: "{{ aem_schema }}://{{ aem_host }}:{{ aem_port }}{{ url_login }}"
+    role_comment: "( {{ role_comment | default('aem verify') }} )"
+  tags:
+    - aem-verify
+    - notest
+
+- name: wait for aem service {{ role_comment }}
+  wait_for:
+    host: "{{ aem_host }}"
+    port: "{{ aem_port }}"
+    delay: "{{ wait_delay | default(5) }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: console bundles url {{ role_comment }}
+  debug:
+    msg: "{{ console_bundles_url }}"
+  no_log: "{{ debug_hide }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: wait until system/console/bundles ready {{ role_comment }}
+  uri:
+    url: "{{ console_bundles_url }}"
+    force_basic_auth: true
+    user: "{{ aem_username }}"
+    password: "{{ aem_password }}"
+    timeout: 300
+    return_content: true
+    status_code: 200, 404, 500, 302
+  register: web_console
+  until: web_console.content.find("Configuration") != -1
+  retries: 180
+  delay: "{{ wait_delay | default(5) }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: system/console/bundles is ready {{ role_comment }}
+  debug:
+    msg: "{{ web_console }}"
+  no_log: "{{ debug_hide }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: console bundles json url {{ role_comment }}
+  debug:
+    msg: "{{ console_bundles_json_url }}"
+  no_log: "{{ debug_hide }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: wait for all bundles to load {{ role_comment }}
+  uri:
+    url: "{{ console_bundles_json_url }}"
+    force_basic_auth: true
+    user: "{{ aem_username }}"
+    password: "{{ aem_password }}"
+    timeout: 300
+    return_content: true
+    status_code: -1, 200, 403, 404, 500, 302
+  register: bundles_result
+  until: bundles_result.content.find("\"state\":\"Installed\"") == -1
+  retries: 600
+  delay: "{{ wait_delay | default(5) }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: system/console/bundles result {{ role_comment }}
+  debug:
+    msg: "{{ bundles_result }}"
+  no_log: "{{ debug_hide }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: console packages url {{ role_comment }}
+  debug:
+    msg: "{{ console_packages_url }}"
+  no_log: "{{ debug_hide }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: wait for package manager to load {{ role_comment }}
+  uri:
+    url: "{{ console_packages_url }}"
+    force_basic_auth: true
+    user: "{{ aem_username }}"
+    password: "{{ aem_password }}"
+    timeout: 300
+    return_content: true
+    status_code: 200, 404, 500, 302
+  register: package_manager
+  until: package_manager.content.find("ok") != -1
+  retries: 600
+  delay: "{{ wait_delay | default(5) }}"
+  tags:
+    - aem-verify
+    - notest
+
+- name: console login url {{ role_comment }}
+  debug:
+    msg: "{{ login_url }}"
+  no_log: "{{ debug_hide }}"
+  tags:
+    - aem-verify
+    - notest
+
+####
+#### Please note that if you have return_content: true for URL's and its content has "#" you will have pain
+#### this one does
+- name: ensure login page {{ role_comment }}
+  uri:
+    url: "{{ login_url }}"
+    timeout: 300
+    return_content: true
+    status_code: 200, 404, 500, 302
+  register: home_page
+  until: home_page.content.find("QUICKSTART_HOMEPAGE") != -1
+  retries: 600
+  delay: "{{ wait_delay | default(5) }}"
+  tags:
+    - aem-verify
+    - notest

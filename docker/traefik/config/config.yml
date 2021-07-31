@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /letsencrypt/mkcert.pem
+      keyFile: /letsencrypt/mkcert.key

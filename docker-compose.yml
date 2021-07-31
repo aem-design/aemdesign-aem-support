@@ -1,0 +1,152 @@
+version: "2.4"
+
+services:
+
+  nginx:
+    extends:
+      file: ./docker/nginx/docker-compose.yml
+      service: nginx
+    volumes:
+      - ./docker/nginx/content:/content
+      - ./docker/nginx/config/nginx.conf:/etc/nginx/nginx.conf
+
+  createcert:
+    extends:
+      file: ./docker/traefik/docker-compose.yml
+      service: createcert
+    volumes:
+      - ./docker/traefik/certs:/root/.local/share/mkcert
+
+  createcertpkcs12:
+    extends:
+      file: ./docker/traefik/docker-compose.yml
+      service: createcertpkcs12
+    depends_on:
+      - createcert
+    volumes:
+      - ./docker/traefik/certs:/export
+
+  traefik:
+    extends:
+      file: ./docker/traefik/docker-compose.yml
+      service: traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # Persist certificates, so we can restart as often as needed
+      - ./docker/traefik/certs:/letsencrypt
+      - ./docker/traefik/config/config.yml:/etc/traefik/dynamic_conf/conf.yml:ro
+    depends_on:
+      - createcert
+      - createcertpkcs12
+
+  seleniumhub:
+    extends:
+      file: ./docker/selenium/docker-compose.yml
+      service: seleniumhub
+    depends_on:
+      - traefik
+
+  selenium-node-chrome:
+    extends:
+      file: ./docker/selenium/docker-compose.yml
+      service: selenium-node-chrome
+    depends_on:
+      - seleniumhub
+
+  author:
+    extends:
+      file: ./docker/aem/docker-compose.yml
+      service: author
+
+  authordeploy:
+    extends:
+      file: ./docker/aem/docker-compose.yml
+      service: authordeploy
+    volumes:
+      - "./:/build/source"
+      - "~/.m2:/build/.m2"
+    profiles:
+      - dodeploy
+    depends_on:
+      - author
+
+  publish:
+    extends:
+      file: ./docker/aem/docker-compose.yml
+      service: publish
+    depends_on:
+      - author
+
+  publishdeploy:
+    extends:
+      file: ./docker/aem/docker-compose.yml
+      service: publishdeploy
+    volumes:
+      - "./:/build/source"
+      - "~/.m2:/build/.m2"
+    profiles:
+      - dodeploy
+    depends_on:
+      - author
+
+  dispatcher:
+    extends:
+      file: ./docker/aem/docker-compose.yml
+      service: dispatcher
+    depends_on:
+      - publish
+
+  testing:
+    extends:
+      file: ./docker/testing/docker-compose.yml
+      service: testing
+    profiles:
+      - dotest
+    working_dir: /build/geb-aem-testing/gebaemtesting-testing
+    volumes:
+      - "./:/build/geb-aem-testing"
+      - "~/.m2:/build/.m2"
+    depends_on:
+      - author
+      - seleniumhub
+      - testingprep
+
+  testingprep:
+    extends:
+      file: ./docker/testing/docker-compose.yml
+      service: testingprep
+    volumes:
+      - ./docker/testing/playbooks:/ansible/playbooks
+    profiles:
+      - dotest
+    depends_on:
+      - author
+      - seleniumhub
+
+  testingcheck:
+    extends:
+      file: ./docker/testing/docker-compose.yml
+      service: testingcheck
+    volumes:
+      - ./:/build
+    profiles:
+      - dotest
+    volumes:
+      - ./:/build
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./docker/testing/scripts/gettestresult.sh:/test.sh
+    depends_on:
+      - author
+      - seleniumhub
+
+networks:
+  seleniumgrid:
+  author-network:
+  publish-network:
+  dispatcher-network:
+  internal:
+
+volumes:
+  author-data:
+  publish-data:
+  dispatcher-data:
