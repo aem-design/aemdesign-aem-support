@@ -1,0 +1,19 @@
+---
+- name: testingprep
+  hosts: localhost
+  become: true
+  vars:
+    aem_port: "4502"
+    aem_host: "author"
+    aem_username: "admin"
+    aem_password: "admin"
+    debug_hide: false
+
+  tasks:
+    - name: verify aem is ready
+      include_role:
+        name: "aem_design.aem_verify"
+      vars:
+        aem_port: "{{ aem_port }}"
+        aem_host: "{{ aem_host }}"
+        debug_hide: false

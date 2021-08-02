@@ -19,10 +19,7 @@ A set of content and support projects that should be deploy alongside [aemdesign
 
 * [AEM.Design Blog](https://aem.design)
 * [AEM.Design SonarCloud](https://sonarcloud.io/project/issues?id=design.aem%3Aaemdesign-aem-support)
-
-## Development
-If you're curious about how the next generation of components looks like, a tech preview is made available in the
-[`development`](https://github.com/aem-design/aemdesign-aem-support/tree/development) branch.
+* [AEM.Design Components](https://sonarcloud.io/project/issues?id=design.aem%3Aaemdesign-aem-support)
 
 ## Contributing
 

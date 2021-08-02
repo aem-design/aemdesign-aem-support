@@ -1,0 +1,85 @@
+---
+- name: Converge
+  hosts: localhost
+  become: true
+  vars:
+    aem_port: "4502"
+    aem_username: "admin"
+    aem_password: "admin"
+    debug_hide: false
+
+
+  pre_tasks:
+    - name: get docker host ip
+      become: true
+      shell: |
+        set -o pipefail
+        /sbin/ip route | awk '/default/ { print $3 }'
+      args:
+        executable: /bin/bash
+      register: dockerhost_ip
+      changed_when: false
+
+  tasks:
+    - name: run aem author istance
+      include_role:
+        name: "aem_design.aem"
+      vars:
+        docker_published_ports: [
+            "4502:8080"
+        ]
+        docker_volumes: []
+        docker_image_tag: "6.4.8.4"
+        docker_host: "unix://var/run/docker.sock"
+    - name: set aem license
+      include_role:
+        name: "aem_design.aem_license"
+      vars:
+        aem_license_key: "{{ AEM_KEY }}"
+        aem_license_name: "{{ AEM_NAME }}"
+        aem_port: "{{ aem_port }}"
+        aem_host: "{{ dockerhost_ip.stdout }}"
+        wait_delay: 30
+        debug_hide: false
+    - name: verify aem is ready
+      include_role:
+        name: "aem_design.aem_verify"
+      vars:
+        aem_port: "{{ aem_port }}"
+        aem_host: "{{ dockerhost_ip.stdout }}"
+        debug_hide: false
+    - name: install aem packages
+      include_role:
+        name: aem_design.aem_package
+      vars:
+        aem_port: "{{ aem_port }}"
+        aem_host: "{{ dockerhost_ip.stdout }}"
+        maven_repository_url: "{{ item.maven_repository_url | default('') }}"
+        debug_hide: "{{ debug_hide }}"
+        simple_name: "{{ item.simple_name }}"
+        group_name: "{{ item.group_name }}"
+        package_version: "{{ item.package_version }}"
+        package_name: "{{ item.package_name }}"
+        package_url: "{{ item.package_url }}"
+        file_name: "{{ item.file_name }}"
+        file_url_username: "{{ item.file_url_username | default('') }}"
+        file_url_password: "{{ item.file_url_password | default('') }}"
+        install_package_ansible: "{{ item.install_package_ansible }}"
+        install_package_docker: "{{ item.install_package_docker }}"
+        docker_host: "{{ item.docker_host }}"
+      loop: [
+        {
+          debug_hide: "false",
+          simple_name: "gebaemtesting-showcase",
+          group_name: "gebaemtesting",
+          package_version: "1.1.12-SNAPSHOT",
+          package_name: "gebaemtesting-showcase",
+          package_url: "{{ DEPLOY_PACKAGE_URL }}",
+          url_username: "{{ GIT_PACKAGE_USERNAME }}",
+          url_password: "{{ GIT_PACKAGE_PASSWORD }}",
+          file_name: "{{ DEPLOY_PACKAGE_URL | basename }}",
+          install_package_ansible: true,
+          install_package_docker: false,
+          docker_host: "unix://var/run/docker.sock"
+        }
+      ]
