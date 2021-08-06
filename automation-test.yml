@@ -70,10 +70,10 @@
       loop: [
         {
           debug_hide: "false",
-          simple_name: "gebaemtesting-showcase",
-          group_name: "gebaemtesting",
-          package_version: "1.1.12-SNAPSHOT",
-          package_name: "gebaemtesting-showcase",
+          simple_name: "aemdesign-aem-support-deploy",
+          group_name: "aemdesign",
+          package_version: "2.0.583",
+          package_name: "aemdesign-aem-support-deploy",
           package_url: "{{ DEPLOY_PACKAGE_URL }}",
           url_username: "{{ GIT_PACKAGE_USERNAME }}",
           url_password: "{{ GIT_PACKAGE_PASSWORD }}",
