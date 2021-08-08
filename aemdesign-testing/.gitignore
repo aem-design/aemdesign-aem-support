@@ -2,6 +2,7 @@ target
 *iml
 drivers
 build
+bin
 
 # Ignore IDE and Operating System artifacts
 .idea
