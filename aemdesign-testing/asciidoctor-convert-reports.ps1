@@ -9,6 +9,7 @@ Param(
     [string]$TEST_REPORT_PATH = "generated-docs/summary.html",
     [string]$TEST_DRIVER_NAME = "remote-seleniumhub-chrome",
     [string]$DOCKER_SCRIPT = "./asciidoctor-convert-reports -images ${TEST_DRIVER_NAME}/generated-docs/pdf -root . -source coderay -base ./ -input ${TEST_DRIVER_NAME}/spock-reports -output ${TEST_DRIVER_NAME}/generated-docs -filter *.ad -html",
+    [string]$DOCKER_COMPOSE_COMMAND = "docker-compose --profile=dotest up testing",
     [string]$FUNCTIONS_URI = "https://github.com/aem-design/aemdesign-docker/releases/latest/download/functions.ps1"
 )
 
@@ -33,12 +34,9 @@ $PARENT_PROJECT_WITH_GIT_NAME = $( Resolve-Path "${PARENT_PROJECT_WITH_GIT}" | S
 $PARENT_PROJECT_LOCATION = $( Resolve-Path "${PWD}\.." )
 $PARENT_PROJECT_NAME = $( Resolve-Path "$PARENT_PROJECT_LOCATION" | Split-Path -Leaf )
 $PROJECT_NAME = $( Resolve-Path "${PWD}" | Split-Path -Leaf )
+$CURRENT_PROJECT_LOCATION = "${PARENT_PROJECT_WITH_GIT_NAME}/${PROJECT_NAME}"
 
 $REPORT_ROOT="/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PROJECT_NAME}"
-
-
-$DOCKER_COMMAND="docker run --rm --net=host --name ${TEST_DRIVER_NAME} -v ${PARENT_PROJECT_WITH_GIT}:/build/${PARENT_PROJECT_WITH_GIT_NAME} -v ${MAVEN_DIR}:/build/.m2 -w ""/build/${PARENT_PROJECT_WITH_GIT_NAME}/${PROJECT_NAME}"" ${TEST_IMAGE} bash -l -c '${DOCKER_SCRIPT} -Dmaven.repo.local=/build/.m2/repository' "
-
 
 printSectionLine "Project Root: ${PROJECT_ROOT_DIR}"
 printSectionLine "Maven Plugins Directory: ${MAVEN_DIR}"
@@ -46,12 +44,13 @@ printSectionLine "Parent Project with GIT Directory: ${PARENT_PROJECT_WITH_GIT}"
 printSectionLine "Parent Project with GIT Directory Name: ${PARENT_PROJECT_WITH_GIT_NAME}"
 printSectionLine "Parent Project Name: ${PARENT_PROJECT_NAME}"
 printSectionLine "Current Project Name: ${PROJECT_NAME}"
+printSectionLine "Current Project Location: ${CURRENT_PROJECT_LOCATION}"
 printSectionLine "Testing Directory: ${CURRENT_PATH}"
 printSectionLine "Testing Sub Directory: ${PARENT_PROJECT_LOCATION}"
 printSectionLine "Docker Script:"
 printSectionLine " ${DOCKER_SCRIPT}"
-printSectionLine "Docker Command:"
-printSectionLine " ${DOCKER_COMMAND}"
+printSectionLine "Docker Compose Command:"
+printSectionLine " ${DOCKER_COMPOSE_COMMAND}"
 
 if ( -Not( $SILENT ) )
 {
@@ -80,11 +79,16 @@ foreach ($REPORT in $SPOCK_REPORTS)
 }
 
 
-debug "${DOCKER_COMMAND}"
+printSubSectionStart "Docker Compose Execute"
 
-printSubSectionStart "Docker Command Execute"
+$Env:MAVEN_COMMAND = "${DOCKER_SCRIPT}"
+$Env:PARENT_PROJECT_WITH_GIT = "${PARENT_PROJECT_WITH_GIT}"
+$Env:PARENT_PROJECT_WITH_GIT_NAME = "${PARENT_PROJECT_WITH_GIT_NAME}"
+$Env:CURRENT_PROJECT_LOCATION = "${CURRENT_PROJECT_LOCATION}"
+$Env:MAVEN_DIR = "${MAVEN_DIR}"
 
-Invoke-Expression "${DOCKER_COMMAND}"
+
+Invoke-Expression "${DOCKER_COMPOSE_COMMAND}"
 
 
 
