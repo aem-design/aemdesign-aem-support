@@ -147,6 +147,19 @@ services:
       - author
       - seleniumhub
 
+  testingprepshowcase:
+    extends:
+      file: ./docker/testing/docker-compose.yml
+      service: testingprepshowcase
+    volumes:
+      - ./docker/testing/playbooks:/build/source
+      - "~/.m2:/build/.m2"
+    profiles:
+      - dotest
+    depends_on:
+      - author
+      - seleniumhub
+
   testingcheck:
     extends:
       file: ./docker/testing/docker-compose.yml

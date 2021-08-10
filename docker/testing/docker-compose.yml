@@ -46,6 +46,30 @@ services:
       - dispatcher-network
       - default
 
+  testingprepshowcase:
+    image: aemdesign/centos-java-buildpack:jdk11
+    hostname: testingprep
+    working_dir: "/build/source"
+    environment:
+      aem_port: 4502
+      aem_host: author
+      aem_username: admin
+      aem_password: admin
+    command:
+      - bash
+      - -l
+      - -c
+      - "ls -latr /build/.m2/repository && pwd && ls -l && ansible-galaxy install -r requirements.yml && ansible-playbook testingprep-showcase.yml --extra-vars debug_hide=true"
+    volumes:
+      - ./playbooks:/build/source
+      - "~/.m2:/build/.m2"
+    networks:
+      - seleniumgrid
+      - author-network
+      - publish-network
+      - dispatcher-network
+      - default
+
   testingcheck:
     image: docker
     hostname: testingcheck
