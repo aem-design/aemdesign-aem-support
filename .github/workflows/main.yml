@@ -20,7 +20,7 @@ jobs:
         python-version: [ 3.6 ]
 
     env:
-      DOCKER_IMAGE: "aemdesign/centos-java-buildpack"
+      DOCKER_IMAGE: "aemdesign/centos-java-buildpack:jdk11"
       SONAR_ORGANISATION: "aemdesign-github"
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_URL: "https://sonarcloud.io"
@@ -102,11 +102,36 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: docker - mvn clean (cache .m2 in ./build/.m2/repository in repo dir)
+      - name: Prepare to Package
         run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
 
-      - name: docker - mvn package
-        run: $DOCKER_COMMAND mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+      - name: Package project and install into local .m2 repository
+        run: $DOCKER_COMMAND mvn package install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+
+      - name: Start the stack
+        run: docker-compose up -d
+
+      - name: Wait for aem using ansible
+        run: |
+          docker-compose up automationtestprep
+
+      - name: Start automation tests using docker-compose
+        run: |
+          docker-compose up automationtest
+
+      - name: deploy docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          destination_dir: ${{ env.GIT_BRANCH }}
+          publish_dir: ./aemdesign-testing/remote-seleniumhub-chrome/generated-docs/html/
+
+      - name: Check for success
+        run: |
+          docker-compose up testingcheck
+
+      - name: Stop the stack
+        run: docker-compose down
 
 #      - name: docker - sonar qube on master
 #        if: github.ref == 'refs/heads/master'

@@ -126,14 +126,30 @@ services:
       service: testing
     profiles:
       - dotest
-    working_dir: /build/geb-aem-testing/gebaemtesting-testing
+    working_dir: /build/source/aemdesign-aem-support/aemdesign-testing
     volumes:
-      - "./:/build/geb-aem-testing"
+      - "../:/build/source"
       - "~/.m2:/build/.m2"
     depends_on:
       - author
       - seleniumhub
       - testingprep
+
+  automationtest:
+    extends:
+      file: ./docker/testing/docker-compose.yml
+      service: automationtest
+    profiles:
+      - dotest
+    working_dir: /build/source/aemdesign-testing
+    volumes:
+      - "./:/build/source"
+      - "~/.m2:/build/.m2"
+    depends_on:
+      - author
+      - seleniumhub
+      - testingprepshowcase
+
 
   testingprep:
     extends:
