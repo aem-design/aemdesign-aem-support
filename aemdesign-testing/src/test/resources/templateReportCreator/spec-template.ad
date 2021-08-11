@@ -47,7 +47,7 @@
 
     def gebTestResults
     gebTestResults = gebReport.specs.find {it?.class==data.info.description.className}?.tests
-//    println "REPORT: gebTestResults: ${gebTestResults}"
+    println "REPORT: gebTestResults: ${gebTestResults}"
 //    println "REPORT: classname for ${data.info.description.className}"
 %>
 
@@ -70,7 +70,10 @@
 <%
 //        println "REPORT: iteration for [${name}]"
         def gebArtefacts = gebTestResults?.find {it?.label==name}?.reports
-//        println "REPORT: iteration artefacts: ${gebArtefacts}"
+        println "REPORT: iteration artefacts: ${gebArtefacts}"
+        def gebReportUrls = gebTestResults?.find {it?.label==name}?.urls
+        println "REPORT: iteration artefacts: ${gebReportUrls}"
+
 //        println "REPORT: features - \n\tname: ${name},\n\tresult: ${result},\n\tblocks: ${blocks},\n\titerations: ${iterations},\n\tparms: ${params}"
         def iterationTimes = iterations.collect { it.time ?: 0L }
         def totalTime = fmt.toTimeDuration( iterationTimes.sum() )
@@ -78,6 +81,13 @@
 
 Result: **$result** [big]#<% if (result=="PASS") { %>icon:check-circle[role="green"]<% } else if (result=="IGNORED") { %>icon:eye-slash[role="gray"]<% } else { %>icon:exclamation-triangle[role="red"]<% } %>#
 Time: $totalTime
+
+URL: <%
+gebReportUrls.each {
+    %>$it<%
+}
+%>
+
 <%
         def num = 0
         for ( block in blocks ) {
