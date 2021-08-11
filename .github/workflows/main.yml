@@ -16,7 +16,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        java-version: [ 8 ]
+        java-version: [ 11 ]
         python-version: [ 3.6 ]
 
     env:
@@ -49,7 +49,7 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: set up jdk ${{ matrix.java-version }}
+      - name: Set up jdk ${{ matrix.java-version }}
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java-version }}
@@ -66,17 +66,17 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: get release notes
+      - name: Get release notes
         id: config
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
 
-      - name: release notes
+      - name: Output release notes
         run: |
           echo "${{ steps.config.outputs.GIT_RELEASE_NOTES }}"
           echo CURRENT_VERSION="${{ steps.config.outputs.CURRENT_VERSION }}"
 
-      - name: set eval variables
+      - name: Set eval variables
         run: |
           echo "DOCKER_COMMAND=docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}" >> $GITHUB_ENV
           $DOCKER_COMMAND java -version
@@ -84,18 +84,18 @@ jobs:
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USERNAME}"
 
-      - name: setup gpg
+      - name: Setup gpg
         run: |
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/setup-gpg.sh)
 
-      - name: cache sonarcloud packages
+      - name: Cache sonarcloud packages
         uses: actions/cache@v1
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: cache maven packages
+      - name: Cache maven packages
         uses: actions/cache@v1
         with:
           path: ~/.m2
@@ -119,16 +119,16 @@ jobs:
         run: |
           docker-compose up automationtest
 
-      - name: deploy docs
+      - name: Deploy docs
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           destination_dir: ${{ env.GIT_BRANCH }}
           publish_dir: ./aemdesign-testing/remote-seleniumhub-chrome/generated-docs/html/
 
-      - name: Check for success
-        run: |
-          docker-compose up testingcheck
+      # - name: Check for success
+      #   run: |
+      #     docker-compose up testingcheck
 
       - name: Stop the stack
         run: docker-compose down
@@ -140,30 +140,11 @@ jobs:
 #        if: github.ref != 'refs/heads/master'
 #        run: mvn sonar:sonar -P all-modules -q "-Dsonar.branch.name=${GITHUB_REF}" "-Dsonar.branch.target=master" "-Dsonar.host.url=${SONAR_URL}" "-Dsonar.login=${SONAR_TOKEN}" "-Dsonar.organization=${SONAR_ORGANISATION}"
 
-#      - name: install dependencies
-#        run: |
-#          sudo apt-get update --fix-missing
-#          sudo apt-get install ansible libcurl4-openssl-dev libssl-dev socat default-jdk
-#          python -m pip install --upgrade pip
-#          pip install -r requirements.txt
-
-#      - name: automation test
-#        id: automation_test
-#        run: ./automation-testing
-#
-#      - name: automation test release reports
-#        if: github.ref == 'refs/heads/master'
-#        run: ./automation-testing-release
-#        env:
-#          TEST_REPORT_OUTPUT: ${{ steps.automation_test.outputs.TEST_REPORT_OUTPUT }}
-#          TEST_REPORT_COMPARE_SOURCES: ${{ steps.automation_test.outputs.TEST_REPORT_COMPARE_SOURCES }}
-#          TEST_REPORT_GHPAGES_PATH: ${{ steps.automation_test.outputs.TEST_REPORT_GHPAGES_PATH }}
-
-      - name: deploy to maven cental
+      - name: Deploy to maven cental
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn deploy --settings default.xml -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests=true -B -P release
 
-      - name: create release ${{ env.GITHUB_TAG }}
+      - name: Create release ${{ env.GITHUB_TAG }}
         if: github.ref == 'refs/heads/master'
         id: create_release
         uses: actions/create-release@v1
@@ -176,7 +157,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: upload release asset - aemdesign-aem-support-${{ env.GITHUB_TAG }}.zip
+      - name: Upload release asset - aemdesign-aem-support-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-release-asset@v1.0.1
         env:
@@ -187,7 +168,7 @@ jobs:
           asset_name: ${{ format('aemdesign-aem-{0}-{1}.zip', 'support-deploy', env.GITHUB_TAG) }}
           asset_content_type: application/zip
 
-      - name: upload release asset - aemdesign-aem-compose-${{ env.GITHUB_TAG }}.zip
+      - name: Upload release asset - aemdesign-aem-compose-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-release-asset@v1.0.1
         env:
@@ -198,7 +179,7 @@ jobs:
           asset_name: ${{ format('aemdesign-aem-{0}-{1}.zip', 'compose', env.GITHUB_TAG) }}
           asset_content_type: application/zip
 
-      - name: upload release asset - aemdesign-aem-showcase-${{ env.GITHUB_TAG }}.zip
+      - name: Upload release asset - aemdesign-aem-showcase-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-release-asset@v1.0.1
         env:
@@ -209,7 +190,7 @@ jobs:
           asset_name: ${{ format('aemdesign-aem-{0}-{1}.zip', 'showcase', env.GITHUB_TAG) }}
           asset_content_type: application/zip
 
-      - name: upload release asset - aemdesign-aem-training-${{ env.GITHUB_TAG }}.zip
+      - name: Upload release asset - aemdesign-aem-training-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-release-asset@v1.0.1
         env:
@@ -220,7 +201,7 @@ jobs:
           asset_name: ${{ format('aemdesign-aem-{0}-{1}.zip', 'training', env.GITHUB_TAG) }}
           asset_content_type: application/zip
 
-      - name: upload release asset - aemdesign-aem-content-${{ env.GITHUB_TAG }}.zip
+      - name: Upload release asset - aemdesign-aem-content-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-release-asset@v1.0.1
         env:
@@ -231,7 +212,7 @@ jobs:
           asset_name: ${{ format('aemdesign-aem-{0}-{1}.zip', 'content', env.GITHUB_TAG) }}
           asset_content_type: application/zip
 
-      - name: upload release asset - aemdesign-aem-config-${{ env.GITHUB_TAG }}.zip
+      - name: Upload release asset - aemdesign-aem-config-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-release-asset@v1.0.1
         env:
@@ -242,10 +223,11 @@ jobs:
           asset_name: ${{ format('aemdesign-aem-{0}-{1}.zip', 'config', env.GITHUB_TAG) }}
           asset_content_type: application/zip
 
-      - name: automation test if failure
+      - name: Automation test if failure
         run: |
           df
           docker ps -a
           docker logs -t service_aem_container_name
+          docker-compose down
         if: failure()
 
