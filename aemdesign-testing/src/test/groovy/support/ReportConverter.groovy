@@ -24,6 +24,7 @@ class ReportConverter {
                 spec.tests << [
                         num    : reportLine.spec.test.num,
                         label  : reportLine.spec.test.label,
+                        urls   : [],
                         reports: []
                 ]
             }
@@ -37,6 +38,11 @@ class ReportConverter {
                         url  : reportLine.spec.test.report.url,
                         files: []
                 ]
+
+                //add url to list of urls if its not already there
+                if (test.urls.indexOf(reportLine.spec.test.report.url) == -1) {
+                    test.urls.add(reportLine.spec.test.report.url)
+                }
             } else {
             }
             def report = test.reports.find { report -> report.num == reportLine.spec.test.report.num }
