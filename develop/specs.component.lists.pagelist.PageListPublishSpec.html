@@ -1,0 +1,3814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>Report for specs.component.lists.pagelist.PageListPublishSpec</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+<!--header start-->
+<meta name="keywords" content="Generated Docs">
+<style>
+    /*custom header css*/
+    p.tableblock { word-break: break-all; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+    function specExpandToggle() {
+        $(".toggle").trigger("click");
+    }
+
+    function summaryToggleErrors() {
+        $("table.summary tbody tr td:nth-child(6n+2)").each(function(){
+            //check if Features is not 0
+            if( $(this).text() !== "0") {
+                if ($(this).parent().is(":visible")) {
+                    $(this).parent().hide();
+                } else {
+                    $(this).parent().show();
+                }
+            }
+        });
+
+        //output to console spec names
+        var specsNames = "";
+        $("table.summary tbody tr:visible td:nth-child(1)").each(function(){
+			var a = $(this).text();
+            specsNames += a.substr(a.lastIndexOf(".")+1).trim()+",";
+        });
+        console.log(specsNames);
+    }
+
+    $(document).ready(function () {
+        $(".sectionbody .sect2 > h3").each(function() {
+
+            $("<span class='right'><label class='switch'><input type='checkbox' class='toggle'><span class='slider round'></span></label></span>").insertBefore($(this).find(".big"));
+
+        });
+
+        $("#_specifications").each(function() {
+            $(this).html($(this).html() + "<span class='floatingtoggle right'><span class='label'>Errors Only:</span> <label class='switch'><input type='checkbox' class='summaryToggleErrors'><span class='slider round'></span></label></span>" )
+        });
+
+
+        $("#_features").each(function() {
+            $(this).html($(this).html() + "<span class='floatingtoggle right'><span class='label'>Expand All:</span> <label class='switch'><input type='checkbox' class='specExpandToggle'><span class='slider round'></span></label></span>" )
+        });
+
+
+
+
+        $(".toggle").click(function() {
+            var $testBlock = $(this).closest(".sect2").find(".exampleblock");
+            if ($testBlock.is(":visible")) {
+                $testBlock.hide();
+            } else {
+                $testBlock.show();
+            }
+
+
+        });
+
+        $(".summaryToggleErrors").click(function() {
+            summaryToggleErrors();
+        });
+
+        $(".specExpandToggle").click(function() {
+            specExpandToggle();
+        });
+
+
+        $(".toc2 a").click(function() {
+            var linkid = $(this).attr("href");
+            $(linkid).find(".toggle").trigger("click");
+        });
+
+
+
+    });
+</script>
+<style>
+    h1 {
+        word-break: break-all;
+    }
+
+    .right {
+        float: right;
+    }
+    .left {
+        float: right;
+    }
+    .exampleblock {
+        display: none;
+    }
+    .floatingtoggle {
+        vertical-align: middle;
+        align-content: center;
+    }
+
+    .floatingtoggle .label {
+        font-size: 1.0625rem;
+        float: left;
+        margin-right: 0.5em;
+        line-height: 2em;    }
+
+    .sect2 h3 strong {
+        display: none;
+    }
+
+    #toc strong {
+        display: none;
+    }
+
+    .sect2 h3 .big {
+        float: right;
+        padding-right: 0.5em;
+        line-height: 1em;
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>
+<!--header end-->
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Report for specs.component.lists.pagelist.PageListPublishSpec</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_summary">1. Summary</a></li>
+<li><a href="#_features">2. Features</a>
+<ul class="sectlevel2">
+<li><a href="#_page_list_default_variant_using_default_badge_in_lg_ignored">2.1. Page List: Default variant using Default badge in LG <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_default_variant_using_icon_badge_in_lg_failure">2.2. Page List: Default variant using Icon badge in LG <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span></a></li>
+<li><a href="#_page_list_default_variant_using_image_badge_ignored">2.3. Page List: Default variant using Image badge <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_default_variant_using_card_badge_ignored">2.4. Page List: Default variant using Card badge <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_default_variant_using_horizontal_badge_ignored">2.5. Page List: Default variant using Horizontal badge <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_default_empty_ignored">2.6. Page List: Default Empty <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_badge_card_with_image_title_description_and_action_ignored">2.7. Badge: Card with Image, Title, Description and Action <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_default_variant_using_card_badge_with_list_split_every_2_ignored">2.8. Page List: Default variant using Card badge with List Split every 2 <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_default_with_thumbnail_override_ignored">2.9. Page List: Default with Thumbnail Override <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_default_without_thumbnail_override_ignored">2.10. Page List: Default without Thumbnail Override <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_pages_with_analytics_ignored">2.11. Page List: Pages with Analytics <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_pages_with_title_and_description_trim_ignored">2.12. Page List: Pages with Title and Description Trim <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_pages_with_analytics_track_only_ignored">2.13. Page List: Pages with Analytics Track Only <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_page_list_pages_with_no_details_ignored">2.14. Page List: Pages with no Details <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_badge_card_with_title_description_and_action_with_override_for_card_style_and_link_style_ignored">2.15. Badge: Card with Title, Description and Action with override for Card Style and Link Style <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="small">created on Thu Aug 12 17:50:01 UTC 2021 by root</span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary">1. Summary</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Total Runs</th>
+<th class="tableblock halign-left valign-top">Success Rate</th>
+<th class="tableblock halign-left valign-top">Total time</th>
+<th class="tableblock halign-left valign-top">Failures</th>
+<th class="tableblock halign-left valign-top">Errors</th>
+<th class="tableblock halign-left valign-top">Skipped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100.0%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.509 seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features">2. Features</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_page_list_default_variant_using_default_badge_in_lg_ignored">2.1. Page List: Default variant using Default badge in LG <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 5.846 seconds</p>
+</div>
+<div class="paragraph">
+<p>URL: <a href="http://author:8080/content/aemdesign-showcase/au/en/component/lists/page-list.html?wcmmode=disabled" class="bare">http://author:8080/content/aemdesign-showcase/au/en/component/lists/page-list.html?wcmmode=disabled</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist1</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock1 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<div class="title">Current</div>
+<p><span class="image"><img src="data:image/png;base64,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" alt="Page List Default variant using Default badge in LG The component should be on the page" width="95%"></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has five list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">5</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li.first</span><span class="delimiter">&quot;</span></span>).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Page1</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has last item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li.last</span><span class="delimiter">&quot;</span></span>).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Page5</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has three plain items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li.item</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: 1366 and height: 1024</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_variant_using_icon_badge_in_lg_failure">2.2. Page List: Default variant using Icon badge in LG <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span>
+Time: 5.789 seconds</p>
+</div>
+<div class="paragraph">
+<p>URL: <a href="http://author:8080/content/aemdesign-showcase/au/en/component/lists/page-list.html?wcmmode=disabled" class="bare">http://author:8080/content/aemdesign-showcase/au/en/component/lists/page-list.html?wcmmode=disabled</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist2</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock2 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<div class="title">Current</div>
+<p><span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6IAAACgCAYAAAAW2NERAAA84UlEQVR4Xu3dh7cTVbsG8Puv3PsVO0W6gMKhHjoIigVBQBABFfUTVBAFAbEhYqOIgkgHRRSRKr0rooICHrpSFJCmYpn7PZu1h3e/mUkmyUw4nPP81tpLObNnMkkmWfNkt//xiIiIiIiIiArof/QfiIiIiIiIiJLEIEpEREREREQFxSBKREREREREBcUgSkRERERERAXFIEpEREREREQFxSBKREREREREBcUgSkRERERERAXFIFqK/Hz8uPe//7rKL2+9PUlXIaJSrGWbm/3P7113d9eby40ly5Y732Wff7FVVyEiIqJyjkG0FGEQJbq8MYhewCBKREREmZTrIHrF1RWcm6Wg8ttvv+ndEsMgSklCGNDXdz7l408W6oco9xhEL2AQJSIiokwYRANusGUpZBDFY02aPMUv27fv0FWIcsYgmjwG0QsYRImIiCgTBtGAG2xZChlEiZLEIJo8BtELGESJiIgok3IdRA8ePOQdOHDQKV269XBuoBhEqazQQXTw00NTrv9syrlz5/RDlHsMohcwiBIREVEm5TqIBunV534GUSqTdBB94aWXdRXKE4PoBQyiRERElAmDqMIgSmUVg2jyGEQvYBAlIiKiTBhElVyC6LGffvImTHzHu7t7T69OvQbetZWqmPGnNWrf6LVq294bNmKkt3HTZr1biiiz5v7yyy9OnTVr1/nb9uzd6z01dJjXoEkz76rrKnv/uuo6r1rNOt6dnbt6k959z/v111/FkfKD49pzePCh/+jNgfA62H3w+qTz+++/ex99vMAcu0mzll7FKjW8f155rXfFNRW96jfU9TrecZf30suveLt3f693jc233+30Xhw12mt/6+1ezTo3mce+usL1Xp2bGni33dnZG/PaG97effv0bik+XbTYec/+/PNPf9uGjZu8Pg885N1Qt755Ta68tpJX+8Yicx0uXrLU+/vvv8WR8lPoILpu/QZv0OAhXpv2t3pVqt9gXr9///c5Vq1R27v5ltvM9fDdzl16t4xOnznjTZk6zet6T0+vqFFT83nD64bX8N7efb2578/zzp8/r3cLhdd4ydJl3oDHB3qNmrYw15r57NSq6xW3bOMNHvKMt37DRr1bIBlEO3e9x//7jm+/854Z/qw53vXVa5n3uladeqbO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tFkfLidyHK4teEwsudO9530mRMiZTFHatu+YtnWrtAVR+Pa7nSnddHMpeG82bd6iD++IEkQB3dvlsfEDB7pqY8wujmElGUT1ercoeL8xnhbfCTJ0olsuArT8MSpoGSF8juXx0LtBtijj2F3v6Wmur6LGxSmP/+iAJ/QhiYiIiAIlHkRLi0IEUcBNJLqx6hu0oIKbukytB3EGUYj7/CQ5xhMFN8XoRppOh453pDwuxpjGCa2StlUoXUEYRzjGOcu/o1ttkFlz5gauExpWilu0jmX2V2nc+LfM2rD6sXTBDwrojho0QZFUGoMo4POK5WZ061uUgusdLdZRxkVHDaLoNaAfx5ZCBVHApF768XXB2rx2uSDZWyFojVC0oMt90Q0araS3d+qSclxd+j82MLHvVSIiIip7GEQTgvCCrnLo7olJahAE0PKGLoWP9H/MdGWNMoNr3EHUiuv8JCzZIF9jBNNM9D5otUoCumJidlNMMoSWInTXRZdjBBt0WZStnnje8pyWLF0mjuRCsEA32d59HzQ3/AgveC1xbIx1bd2ugxlTii6mUYJQLtAtdNyEiWbyJzy3K6+tZApawdA6+8qrr3t79+3TuwUqrUHUwucWszDj3NCSjzGjeK5ojcd/8fjosoprGO9Ltuu1Rg2isGjxEvNYeFz86ILeBHi95eRFSQdRQC8ThMCixsXmRwmcCz7TaMlEbwb5XSd/+EEXdK1kj/vYn61Yaf6Ozw/GNWOsMX6gwuOgdf+mosbmtY4yay8RERGRVG6CKBEREREREZUODKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyiREREREREVFAMokRERERERFRQDKJERERERERUUAyipdywESO9//3XVaZccXUFvdlo2eZmv85dd3fXm4noEvj4k4X+5xLlm+3bdRUiIiKicotBtJRjECW6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" alt="Page List Default variant using Icon badge in LG The component should be on the page" width="95%"></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has five list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has icon as contents</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li i</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: 1366 and height: 1024</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">The following problems occurred:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="label:LG"></a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Condition not satisfied:
+
+$("${selector} li i").size() == 3
+|   |                 |      |
+[]  #pagelist2        0      false</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_variant_using_image_badge_ignored">2.3. Page List: Default variant using Image badge <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist3</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock3 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has five list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">5</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has image as contents</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li img</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">5</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_variant_using_card_badge_ignored">2.4. Page List: Default variant using Card badge <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist4</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock4 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has five list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">5</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has card as contents</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li .card</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">5</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_variant_using_horizontal_badge_ignored">2.5. Page List: Default variant using Horizontal badge <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist5</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock5 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has five list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has card as contents</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li .card</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_empty_ignored">2.6. Page List: Default Empty <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist6</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock6 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has no content</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> .content &gt; child</span><span class="delimiter">&quot;</span></span>).isEmpty() == <span class="predefined-constant">true</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_badge_card_with_image_title_description_and_action_ignored">2.7. Badge: Card with Image, Title, Description and Action <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist29</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock29 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has two list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">2</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has image in first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-img-top &gt; img</span><span class="delimiter">&quot;</span></span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">alt</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">Page1</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has title in first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-body &gt; h3</span><span class="delimiter">&quot;</span></span>).text() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Page1</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has description in first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-body &gt; div.card-text</span><span class="delimiter">&quot;</span></span>).text() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Page with Licensed Page Image, with non-Licensed Secondary Image and with Background non-Licensed Image</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has call to action in first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-body &gt; div &gt; a</span><span class="delimiter">&quot;</span></span>).text().toUpperCase() == <span class="string"><span class="delimiter">&quot;</span><span class="content">BUTTON TEXT</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_variant_using_card_badge_with_list_split_every_2_ignored">2.8. Page List: Default variant using Card badge with List Split every 2 <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist30</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock30 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has three lists</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has five list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">5</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First list has two items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).find(<span class="string"><span class="delimiter">&quot;</span><span class="content">li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">2</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Second list has two items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">1</span>).find(<span class="string"><span class="delimiter">&quot;</span><span class="content">li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">2</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Third list has one items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">2</span>).find(<span class="string"><span class="delimiter">&quot;</span><span class="content">li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">1</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_with_thumbnail_override_ignored">2.9. Page List: Default with Thumbnail Override <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist31</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock31 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has two list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Last item should have thumbnail override from list</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li img</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>).contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">/cablecar.jpg/</span><span class="delimiter">&quot;</span></span>)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">Last item should have thumbnail override from list</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_default_without_thumbnail_override_ignored">2.10. Page List: Default without Thumbnail Override <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist32</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock32 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has two list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Last item should have thumbnail override from page details</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li img</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>).contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">/city2.jpg/</span><span class="delimiter">&quot;</span></span>)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">Last item should have thumbnail override from page details</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_pages_with_analytics_ignored">2.11. Page List: Pages with Analytics <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist33</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock33 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First page link should have attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First page link should have attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">link</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First page link should have attribute: data-layer-location</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-location</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">pagelist</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_pages_with_title_and_description_trim_ignored">2.12. Page List: Pages with Title and Description Trim <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist34</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock34 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Page Title Should be trimmed</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li .card-title</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).text().equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">Pag...</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Page Description Should be trimmed</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li .card-text</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).text().equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">Page with ..more</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_pages_with_analytics_track_only_ignored">2.13. Page List: Pages with Analytics Track Only <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist35</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First page link should have attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First page link should have attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">badge Link Description</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First page link should have attribute: data-layer-location</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">0</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-location</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Second page link should have attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">1</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Second page link should have attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">1</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">Badge Link</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Third page link should have attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">2</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Third page link should have attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> ul li a</span><span class="delimiter">&quot;</span></span>).getAt(<span class="integer">2</span>).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>).equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">Page3</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_list_pages_with_no_details_ignored">2.14. Page List: Pages with no Details <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist36</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has five items of page missing details</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> .page-missing-details</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">5</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_badge_card_with_title_description_and_action_with_override_for_card_style_and_link_style_ignored">2.15. Badge: Card with Title, Description and Action with override for Card Style and Link Style <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Page List"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#pagelist39</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> List Component Does not have attribute data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>).getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">0</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> List Has three items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">3</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First Items - Has title</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-body &gt; h3</span><span class="delimiter">&quot;</span></span>).text() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Page1</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First Items - Has description</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-body &gt; div.card-text</span><span class="delimiter">&quot;</span></span>).text() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Page with Licensed Page Image, with non-Licensed Secondary Image and with Background non-Licensed Image</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First Items - Has call to action with overridden text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-body &gt; div &gt; a</span><span class="delimiter">&quot;</span></span>).text().toUpperCase() == <span class="string"><span class="delimiter">&quot;</span><span class="content">READ MORE</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First Items - Has call to action with custom css</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div &gt; div.card-body &gt; div &gt; a</span><span class="delimiter">&quot;</span></span>).getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">class</span><span class="delimiter">&quot;</span></span>).contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">btn-primary</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> First Items - Has card with custom css</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> &gt; div &gt; ul &gt; li.first &gt; div</span><span class="delimiter">&quot;</span></span>).getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">class</span><span class="delimiter">&quot;</span></span>).contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">card bg-grey-1</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2021-08-12 17:50:01 UTC
+</div>
+</div>
+<!--footer start-->
+<!--footer end-->
+</body>
+</html>

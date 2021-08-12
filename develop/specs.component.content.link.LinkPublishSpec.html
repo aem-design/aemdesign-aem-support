@@ -1,0 +1,2406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>Report for specs.component.content.link.LinkPublishSpec</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+<!--header start-->
+<meta name="keywords" content="Generated Docs">
+<style>
+    /*custom header css*/
+    p.tableblock { word-break: break-all; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+    function specExpandToggle() {
+        $(".toggle").trigger("click");
+    }
+
+    function summaryToggleErrors() {
+        $("table.summary tbody tr td:nth-child(6n+2)").each(function(){
+            //check if Features is not 0
+            if( $(this).text() !== "0") {
+                if ($(this).parent().is(":visible")) {
+                    $(this).parent().hide();
+                } else {
+                    $(this).parent().show();
+                }
+            }
+        });
+
+        //output to console spec names
+        var specsNames = "";
+        $("table.summary tbody tr:visible td:nth-child(1)").each(function(){
+			var a = $(this).text();
+            specsNames += a.substr(a.lastIndexOf(".")+1).trim()+",";
+        });
+        console.log(specsNames);
+    }
+
+    $(document).ready(function () {
+        $(".sectionbody .sect2 > h3").each(function() {
+
+            $("<span class='right'><label class='switch'><input type='checkbox' class='toggle'><span class='slider round'></span></label></span>").insertBefore($(this).find(".big"));
+
+        });
+
+        $("#_specifications").each(function() {
+            $(this).html($(this).html() + "<span class='floatingtoggle right'><span class='label'>Errors Only:</span> <label class='switch'><input type='checkbox' class='summaryToggleErrors'><span class='slider round'></span></label></span>" )
+        });
+
+
+        $("#_features").each(function() {
+            $(this).html($(this).html() + "<span class='floatingtoggle right'><span class='label'>Expand All:</span> <label class='switch'><input type='checkbox' class='specExpandToggle'><span class='slider round'></span></label></span>" )
+        });
+
+
+
+
+        $(".toggle").click(function() {
+            var $testBlock = $(this).closest(".sect2").find(".exampleblock");
+            if ($testBlock.is(":visible")) {
+                $testBlock.hide();
+            } else {
+                $testBlock.show();
+            }
+
+
+        });
+
+        $(".summaryToggleErrors").click(function() {
+            summaryToggleErrors();
+        });
+
+        $(".specExpandToggle").click(function() {
+            specExpandToggle();
+        });
+
+
+        $(".toc2 a").click(function() {
+            var linkid = $(this).attr("href");
+            $(linkid).find(".toggle").trigger("click");
+        });
+
+
+
+    });
+</script>
+<style>
+    h1 {
+        word-break: break-all;
+    }
+
+    .right {
+        float: right;
+    }
+    .left {
+        float: right;
+    }
+    .exampleblock {
+        display: none;
+    }
+    .floatingtoggle {
+        vertical-align: middle;
+        align-content: center;
+    }
+
+    .floatingtoggle .label {
+        font-size: 1.0625rem;
+        float: left;
+        margin-right: 0.5em;
+        line-height: 2em;    }
+
+    .sect2 h3 strong {
+        display: none;
+    }
+
+    #toc strong {
+        display: none;
+    }
+
+    .sect2 h3 .big {
+        float: right;
+        padding-right: 0.5em;
+        line-height: 1em;
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>
+<!--header end-->
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Report for specs.component.content.link.LinkPublishSpec</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_summary">1. Summary</a></li>
+<li><a href="#_features">2. Features</a>
+<ul class="sectlevel2">
+<li><a href="#_functionality_of_component_variant_default_ignored">2.1. Functionality of Component Variant: Default <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_button_ignored">2.2. Functionality of Component Variant: Button <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_default_no_label_ignored">2.3. Functionality of Component Variant: Default no Label <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_default_with_analytics_in_lg_pass">2.4. Functionality of Component Variant: Default with Analytics in LG <strong>PASS</strong> <span class="big"><span class="icon green"><i class="fa fa-check-circle"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_button_with_analytics_ignored">2.5. Functionality of Component Variant: Button with Analytics <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_default_with_analytics_track_only_ignored">2.6. Functionality of Component Variant: Default with Analytics Track Only <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_button_with_analytics_track_only_ignored">2.7. Functionality of Component Variant: Button with Analytics Track Only <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_button_button_with_icon_left_ignored">2.8. Functionality of Component Variant: Button Button with Icon Left <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_functionality_of_component_variant_button_button_with_icon_right_ignored">2.9. Functionality of Component Variant: Button Button with Icon Right <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="small">created on Thu Aug 12 17:36:00 UTC 2021 by root</span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary">1. Summary</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Total Runs</th>
+<th class="tableblock halign-left valign-top">Success Rate</th>
+<th class="tableblock halign-left valign-top">Total time</th>
+<th class="tableblock halign-left valign-top">Failures</th>
+<th class="tableblock halign-left valign-top">Errors</th>
+<th class="tableblock halign-left valign-top">Skipped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100.0%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.467 seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features">2. Features</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_default_ignored">2.1. Functionality of Component Variant: Default <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link1</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link: Default</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have video-play module tag</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-modules</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">play-video</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_button_ignored">2.2. Functionality of Component Variant: Button <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link2</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link: Button</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_default_no_label_ignored">2.3. Functionality of Component Variant: Default no Label <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link3</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_default_with_analytics_in_lg_pass">2.4. Functionality of Component Variant: Default with Analytics in LG <strong>PASS</strong> <span class="big"><span class="icon green"><i class="fa fa-check-circle"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>PASS</strong> <span class="big"><span class="icon green"><i class="fa fa-check-circle"></i></span></span>
+Time: 2.124 seconds</p>
+</div>
+<div class="paragraph">
+<p>URL: <a href="http://author:8080/content/aemdesign-showcase/au/en/component/content/link.html?wcmmode=disabled" class="bare">http://author:8080/content/aemdesign-showcase/au/en/component/content/link.html?wcmmode=disabled</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link6</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="/build/source/aemdesign-testing/remote-seleniumhub-chrome/test-reports/geb/specs/component/content/link/LinkPublishSpec/001-001-Functionality%20of%20Component%20Variant_%20Default%20with%20Analytics%20in%20LG-Should%20have%20sample%20component%20text.html">source html</a>
+<span class="image"><img src="data:image/png;base64,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+dkXmvr7H9q2fYesVouaNW2iq668Qtddc7UMw8izXeVKlTR+7Gj98ONoTZ76u9atX6+NmzYrOjpabdu0Vu9ePXXdNVcVa6h6WNkyZTT6h1EaO268Jvw2SatXr9G27dvlcDhUv15dXdCxo24cMljVq1Ur9n3fctMQJSUladLkqUpOSVF8fJzq1A7OP9u9W1f9PmmCxoz9VX/9PV27didp7759slqtql6tmlqe10JXDrpcHc5vX+z9AgAAAAAAkCQjUJi7BgE4Ibt279YFXbpLkt575y1desnFJdwjAAAAAAAAFAfmWAUAAAAAAAAAkwhWAQAAAAAAAMAkglUAAAAAAAAAMIlgFQAAAAAAAABMIlgFAAAAAAAAAJOMQCAQKOlOAAAAAAAAAMCZhIpVAAAAAAAAADCJYBUAAAAAAAAATCJYBQAAAAAAAACTCFYBAAAAAAAAwCSCVQAAAAAAAAAwiWAVAAAAAAAAAEwiWAUAAAAAAAAAkwhWAQAAAAAAAMAkglUAAAAAAAAAMIlgFQAAAAAAAABMIlgFAAAAAAD/z959x9d4vnEc/2RLgiSE2KulRom9qVXaUlVarb1nVe3SpWpWadXeLar2JnZpkRCCmLFqJYKECLLD+f2R5JHICTla0v76fb9eXj157nGu5zkn/ePKfV+3iIhYSIlVEREREREREREREQspsSoiIiIiIiIiIiJiISVWRURERERERERERCykxKqIiIiIiIiIiIiIhZRYFREREREREREREbGQEqsiIiIiIiIiIiIiFlJiVURERERERERERMRCSqyKiIiIiIiIiIiIWMg2owMQAThz9hybvDbj7bOfwKAg7oTdwcrammxubhQt+jK1a9WkebN3cHV1yehQzVq4aDEA7du1yeBIUvsnxyYiIiIiIiIi8m9lZTKZTBkdhPx33Q4L48uvRrB567an9nV0dGRAv7506dThBUSWfrFxcZQuW5F8+fKyc6tXRoeTwj85NhERERERERGRfzOtWJUMc+nyZdp16ELQtWsAFMifnxbNm1G5UkXcs2fnoekhV64G4uW1hQ2bvIiKimL02G+5dOkyI0d8lcHRP3L6dABxcXEZHYZZ/+TYRERERERERET+zZRYlQwRFRVFz94fG0nVXj260a9vH+zs7FL0K/ryy9SvW4eP+/Sic9eeXLp8mcVLllK+fFnefadpRoSe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6k+Llq2Mn+3s7ChcqCBbNq03ri1bvpIvho8wVtN6eOTEzs6OGzduEpdY0qBC+XLMmz2DrFmzvtDYRERERERERETEcrYZHYD8t7m6uvDj9xPo1aM7Xpu3sM/bh6Br1wgLu4O1tTU5crhTulQpGjV6nTcaNTS2/5vTrUsnalavxs8Lf+GA70GuBiascM2XLy+VK1WkXZvWlCn96t9+D+XKejJyxFfMnjuf4ODrODk5USqxzEGSD1q+R+XKlfh5wUK89x8gOPg6sbGxuLq4UKpUSd5p2oSmTRpjbf33LiJPT2wiIiIiIiIiImI5rVgVERERERERERERsZBqrIqIiIiIiIiIiIhYSIlVEREREREREREREQspsSoiIiIiIiIiIiJiISVWRURERERERERERCykxKqIiIiIiIiIiIiIhZRYFREREREREREREbGQEqsiIiIiIiIiIiIiFlJiVURERERERERERMRCSqyKiIiIiIiIiIiIWEiJVRERERERERERERELKbEqIiIiIiIiIiIiYiElVkVEREREREREREQspMSqiIiIiIiIiIiIiIWUWBURERERERERERGxkBKrIiIiIiIiIiIiIhZSYlVERERERERERETEQkqsioiIiIiIiIiIiFhIiVURERERERERERERCymxKiIiIiIiIiIiImIhJVZFRERERERERERELKTEqoiIiIiIiIiIiIiFlFgVERERERERERERsZASqyIiIiIiIiIiIiIWUmJVRERERERERERExEJKrIo8o5Wr11CkWEmKFCvJ7bCwjA5HREREREREREReINuMDkD+m7p078mu3X+YbXN2dsIlqwsvv/wSZT3L0KTxm7z80ksvOML/X0nP3j17dnx99mR0OPIPYTKZ2PnbLrZt38mJkycJCrpGRGQktra2ZM2alcKFClK5UkXea/EuBQsUyOhwAYiIiGTOvPmULv0q9evWyehwRERERERE5D9GiVX5x4mIiCQiIpJrwcH8sWcvk6dOp0b1aoz6Zvg/JqEDUKVSJX78fgIAmTNnzuBoRJ5d0LVrfPRxP44dP5Hiur29PfHx8YSGhhIaGsrBQ37MmDWHgf0/oVePbhkU7SPHjh9n8tTptPqwpRKrIiIiIiIi8sIpsSoZKpubG5s3rjN+NplM3L9/nxs3b+J/7DjrN2wk4MxZ9nn78GaTZsyeMZWaNapnYMSP5M+fj/z582V0GCJ/SWxsLJ269OD8hQvY2NjQsX1b3mn6NsWKvoy9vT0mk4lrwcHs2v07k6dMJ/TWLb6b+AMF8uej8VtvZmjsx0+ceHonERERERERkedENVYlQ1lbW5Mjh7vxL2fOHBQpUphqVavQs3tXvDas5fsJ3+Ls7ER0dDQ9en9MQMCZjA5b5P/Glm3bOX/hAgCjR37N58M+5dVSJbG3twfAysqKvHny0LZ1K1YsW4yrqwsAU6fPzLCYkxw7psSqiIiIiIiIZBytWJV/vGZN38YjZ07ad+pKVFQUI0aNYckvC8z2PX/hAgsWLsbnwAGuXQvGZDKRI4c7lStVpE2rDylX1tPsuOjoaH5dupxt23dw7vx57t69h62tLbk8PKhYsTxtW7fCs0zpFGNWrl7DkKGfA3DowD6yubmlaL9+4wbTps/i9z17uHnjJlldXChfriw9u3ehrKcnAwcPZc269VSvVpVfFsw3xg397EuWr1xF3Tq1mTd7JmfPnWfW7Lkc9PPjxo2bODo6UvrVUnTr0onatWr+lUf7zPz9j7F4yTL8Dh8m+PoN4uLicHVxoUSJ4rRo3oymTRpjZWWVYkzw9evUqF0PgLWrllOqZAkWL1nG6jVruXT5CtFRUeTJk4f69erQt09vsmTJYva9jxz1Z868+RzyO8Ld8HBy5MxBvTqv0bNHN3LnykWN2vUIvn6dAf360qd3T2OcZ/nK3Lt/n66dO/LZ0CFm5x4+YiSLFi8hb5487Nm9I1V78PXrLFi4mH3e3ly+fIXIqCicnZwo8lIRGjaoT4d2bXBycjI7d0xMDHPn/8wmr81cvnIVW1tbihV9mXZtW9O0SWOWr1zF0M++xNramvMB5hOGe/d5s3TZCo4c9Sf01i0yOTiQK1cuXqtdk04d25M7Vy6z457k9OkA4/Vbb77xxL4FCxRg0IB+nDh5iuKvvEJ0dDSZMmWiVdsOHPA9SL58efl957ZUn31yjd5qyrnz56lYoTzLl/xiXN+8dRur16zj5MlT3L59m4cmE9mzZ+PVkiV5t1nTFLElfU5JlixdzpKlywGYOvkH3nqjkdEWGxfH2nXr2bjJi1OnArh77x5ZsmSmUMGCNGrYgHZtWuPo6Jgqzjr1G3Hl6lWGDRlEt66dWb5yFYt/XcrFi5ewtrGhWNGX6d61Mw3qJ3ynL166zIyZs/E5cICbN0NwcXGhdq0aDB7QHw+PnE98riIiIiIiIvLvpMSq/CtUq1qF999rztJlKzjgexB//2N4epZJ0WfJ0uUM/2YU8fHxAOTy8AAgMDCIwMAgVq9Zx8cf9aL/Jx+nGBcWdodWbdtz9tx5AOzt7Mjh7k5UdDSXr1zh8pUrrF6zjuFffk77tq3TFe/Zc+f5oHU7wsPDAXB1dcHJ0ZGdv+3it127mTB+LHfv3gXAwcE+xVg7Ozsgodbs/gO+dOnei6ioKNzcXLGzs+Pu3bvs8/Zhn7dPqiTSizB77jzGjZ9o/Ozq6kLmzJkJDQ1l7z5v9u7zZvuO35j8wwSsrR8tik+6L4B79+7R86O+7PxtFw4ODmR2duZefDyXLl9m3k8LOOB7kJXLl2CfbAzAmnXrGTRkGCaTCUj4jE0PTSxavITNW7bxy8KfuHsv8bnap3yuf5XP/gN07/URERGRQMIhazlz5CAkNBR//2P4+x9j9dp1LF28kOzZsqUYez8igtZtO3Di5CkAHB0dyZ4tG6dOB9BvwGD8/A6TP3/+hLgdHFK998OHDxn62ZesXL0GAFtbW/Lkzk343bucO3+ec+fPs3jJMqZM+p56dV+z6L6SJ0FjYmLI7Oz8xP6tP/wg1bUPWr7HAd+DBAYG4e2znxrVq5kde/ZcQqwA77V417jeb8Bg1m/cBCSsYs/m5gZWVty8GcLOG7vZuWs3b2/fwaSJ32FlZUW+fPnw9CzD6VOniY2LI3u2bORLLMvh5upqzBt66xbdevTG/9hxADJlykS+vHm5fuMGR476c+SoP4uXLOOXn+enKuthZ5/4exgZyZhx45k7/2ecnJwSypVERHDI7zCH/A4za/oU8ubNQ+t2nbh37x4uLlmJi4sjNDSU1WvWceTIUbw2rDX7uYqIiIiIiMi/m0oByL9G+zaPkpo7d+1O0bZ3nzdfDB9BfHw8b73RCJ89u/HeswvvPbvwO+DNB++3AGDKtBmsXb8hxdgp02Zw9tx5nJycmDltMiePHcZ7zy6OHPRh144tvNmoISaTiVFjxhEUdO2pcZpMJvoNHEx4eDiZMmVi5rTJ+B3wZvfOrfjs3c3r9evx2RfDuXTlCgA2Nin/vmFjawPAzZshfDJgEI3ffAOfPbvxO+DN8SMHWbzwJ2M158TvJ1n4FP+agDNnjaRq9WpV+X3nNg77+uDr/QdHDvrQonkzALw2b2HVmrUpxtomu88p02Zw7PhxZs+Yyomjhzi4fy9HDvrwbrOmAJw4eYotW7elGH/9xg2Gff4VJpOJwoUL4bVhLd57drH3951sWreabNncGDDoU6KjYwCwsf37/m4UHx/PJwMGExERSS4PD1YsXczxI4fw3rOL08ePMPyLzwC4cOFPxowbn2r8hO8nGUnVTz7+iCMHffht+2YO+3ozoF9fFi1ewiavzYnPySbV+B9+nGIkVQf068vRQ/vZvXMrRw76sNVrPRUrlCcqKoreH3/C5cTvVXpVqVzJeP3V8G+IioqyaDzAm40akjVrVgBWrFydZr8NicnTTJkyGStQt23fYSRVB/b/BH8/X3x99uDr/Qd+B7zp17cPVlZWbNjoZfTr1qUTa1YsJVfiCt2GDRuwZsVS1qxYSrWqVYCE38OPPu6H/7HjZM2alamTf+DE0UP8tn0zJ/39mDd7Jrlz5eLq1UA6d+9JXFxciliTPoc/9uxjxao1zJk5jeNHDnLS34+1q5YbK9QnT53OwMFDqVWzBvv3/s5hXx9OHTtM184dgYSVrF5btlr8TEVEREREROSfT4lV+dcoXvwV3NwSVqMlrUBLMmbceEwmExUrlGfypIkptt66ubkydvRIGr7eAIAJEycZKx4BfPbvB+Cdpk1o+HoDbJIltgoWKMCk77+jcqWK1KpZnaBrT0+s7j/ga9SBHTKoPw1fb2CsCnTPnp3JkyZS/JViXLjwp9nx1lYJv5aXLl+mQvlyjB832rgfKysrqlWtQueO7YGEpM2NGzefGtPfZdv2R9vjx48bnWKVn4uLC6NHjjC2o2/Y6JVirLX1o5WRh/wO89PcWTSoX8943lmzZmXUiOHGtmyf/QdSjF+ydDmxsbEATJ30PcVfKWa0lShRnIU/zeNqYCAPHjz4O241Bb/DRwgNDQVg8MD+VChfzmiztbWlQ/u2xkFOW7ZuT5Gki4qKYtnylQA0fL0Bn3z8kVG/1MHBgT69e9K9a5dU3+kkN2+GMGduQqmIXj260ad3zxTlBoq+/DI/z5tNLg8PYmNjmTxlukX39lrtWtStUxtI2I7/Wr2GfDNqLPsP+BIZGZmuORwcHGjWtEnC/W/bbqzGftzGTQnJ4zffaGisjPVO/JwLFy7ER7164Oz86N5cXV3o26c3bVt/SPVqVbl//36672vrth0cPOQHwJRJE3nrjUbGCmorKyvq1qnNnFnTgISE+Jp161OMt0rse9Tfn3GjR1K/Xl3j97hM6Vdp364NACdPnQZg0sTx5MjhDiQkjgcP7G/8AeSQ3+F0xy0iIiIiIiL/Hkqsyr+KR86EBOOtW7eNawEBZwg4cxaArp07pth+nlzSNv5rwcEcO566huXt27dTXYOELexLFy9k3uyZVK5U8akx7tm7D0jY0ty82Tup2m1sbFLU/nySXj26m72evN7r9evX0zXX36Fvn96cOHqIPbt2kCd37lTt9nZ2lE9MOl65cjXNeeq8VouSJUqkuu7o6Eixoi8DcP36jRRte/Z6A/BqqZKUKFE81dicOXPQ6oOW6b8ZC1SpXImAk/7s/X0nb71pvvRC1SoJKz+joqIIvXXLuH7wkB8xMQmraN9/r7nZsb16dDWSrY/z2rKF2Lg4rK2t6dq5k9k+Tk5Oxtb67Tt2WpxcnjF1Mu3atMLGxobQW7f4eeEiWrfrSJnylWnyTgu+HP4Nm7w2c+/evTTn+LDl+wDExsaybsOmVO3Hjp8wVtO+1/zdVO0RERFG4vxxI4Z/yS8L5tOm1YfpvqeklenFi79CrZo1zPYpWaIElSpWABIS4ubkzJmDhq/XT3U9eWK/5fstUvxBBhL+v5H0Xb75Av/4ISIiIiIiIi+OEqvyr5K0Ui8q6tFKOr8jR4zXpUu/muZYzzKParKeOHnSeF27di0gYYVb3/4DOervn2JFq6XOnU84Yb1A/vzG9ujH1aheLVX90MfZ29lRqmTq5COQ4mCn6MSk3Yvi5ORE3rx50mx3TvyMYmLTjqusp/lDxACyZMkMJBwoltz5xNqcpUqVTHOspfVFLWFvZ0ee3LnTrJWZfBVpTLLPJOn7APBqSfOxuyQebGaO3+GjAOTLm9dYsW1O0jO9HxHBpUuX0+xnjr29PSOGf8nuHVsZ0K8vZT09sbGx4eHDh5w6fZrFS5bycb+BVKhSg34DBhv1iJMrXvwVSr9aCoAVK1elat+4KWEFc968eahapbJx/bVaCb9/N2+G8P6Hbdix8zdiH9uW/ywOH074/0KZV9P+fwJA2cRazSdOnDTbXqpkCbOHcSX/HSxRPHWiP3mfF/07KiIiIiIiIi+GDq+Sf5U7iYdBubg8SjCFhIQar5NOnX+a4OBHqzz7ffwRJ0+ewttnPxs3bWbjps24ublSpXIlqlerSsMGDciZM0e6Y0xarZi0LdgcOzs7ChQowPkLF9LskyVLljRX3ya//leSwM8iIiKS5StXsmv371y5EkjorVvp3jKexNXVJc02q8RSCMnvKyYmhvsREQDkcE/7ub70UhGL4rDEw4cP2bJtO5s2bebMuXPcunXbOJzsSZJKCMCTvxMvv/QS+w/4proeEhICwJWrVylSLO2kcnLB168/07PImzcPfXr3pE/vnkRGRhoHPPkdPoLvwUNERUWxfuMmtm7fwYRvxxjlD5J80PI9jp84yYmTpwgIOEPx4q8ACZ/lJq8tALR4t1mKRGXdOrXp2b0rM2fP5fiJk3Tv1QcHBwcqlC9HtapVqF+vborVoenx8OFD4/dw+cpVLDeT6H1c6K1bxMXFpThkDSBL5ixm+ye/h+RJ1pR9Ev77on9HRURERERE5MVQYlX+NWJjYwkMDALAw+NRojP5YTs5c+Ywu7rsccm37To6OrLo53ns2v0Hixb/io/PfsLC7rBl63a2bN3O8BGjaPzWG3z52bAnJsaSxCSutHRwePKp9M6Zn3z6enru40W7eOkyHTp3NT4HZ2cnXipSGFdXV2wTD90KCDhL8FPKE1h6b8lXrz7pdPWnnWj/rGJiYujWszd79/kACd+fokVfplTJEsbnfP3GTU6fDkg1Nmm1oq2tbZqJciBFbdHkkr7ftra2ZM+eLV3x/h11Zp2cnKhRvRo1qlcDEj6DVWvWMv6777l3/z5Dhn1B2bKe5M3zaPVy07ebMHrseKKioli+cjVffTEMSKhRm/SdaPFus1TvNWTQAJo2acy8nxewY+cuwsPD8fbZj7fPfib+8CNlPT0Z/sUwPD3LpBprTvLvi5OTk7EKOj3jHk+spue7+g/8VRUREREREZEXQIlVscj+A76MHDOO06cDyJs3D7OmTzFbK/N58D14yKjBmPwk8+RbsNevXmnR6tIkVlZW1Kv7GvXqvkZkZCQHfA/h7ePDlm3bCQq6xsZNmzl8+CheG9akub0/SVKtzLi4+Cf2i36G09czWr8BgwgMDMLR0ZFvx4yiYcMGqUoaDP3sy3StELRE8vqj8fFpP9eoqOg029IjrYWF30+abCRV+/TuSZdOHXBxSbnqds269QwcPDTV2KTY4+PjMZlMaSbqoqLNx570/c6fLy87t21O1308D5kyZaJNqw8pkD8/HTp3IyoqilWr19K3T2+jT2ZnZ956sxGrVq9l3YYNfDZ0MLa2tkYZgKpVKqc48Cy54sVf4btxY3jw4AH+x47j7bOfnb/twv/YcY76+/NB63YsXvRzioPD0uLo6IiVlRUmk4mmbzdmzMgRf89DEBEREREREUlGNVbFIt+MHmusygsKusbgoZ+/sPeeO/9nICkJWse4nivxFHrgqSsl08PJyYm6dWrz+bBP+eO37Ywd9Q3W1tZcCw5mwaLFTx2flHC7fTsszT4PHjzgytXAvxzri3T+wgWOJ9ah7NO7J00av2m2TuztsLTv+1k5OjoaCcq0DhkDuHjpUtqTJCY0n7QtO+zOHbPXV69ZB0CtmjUY0K9vqqQqQFiY+bGuyfqmNT/AxYvmY8+d+P0Ofuwwr79TYGAQcemsa1qzRnVjVWdQ0LVU7R+8/x6Q8Dz2efsQHx/Pxk0JCWFzh1Y9zsbGhvLlytKnd0/WrFzGymW/4p49O7FxcXw/aXK6YrSysjIOunv8EDQRERERERGRv4sSq2KRgIAzKX42t/X5eVi1ei1/7NkLwDtvN6FA/vxGW7myjw5COnrU/4nzpLXaMa3DcqysrPig5XtUr1YVgJOnTj811sKFCgJw+cqVFIcYJXfwkF+KEgb/BsmTaMmfeXIJq30PPpf3L1SwAABnzp5Ls8/vf+xJsy2phMDdu+ZPtjeZTGa/PzExMdxKTOamdd8Au3b/bvZ6ocTvA8DZNGKPiIjE7/ARs21lE98zOjqagDNn03z/J63kTcuu3X9QrlI1atd7nfUbNqVrTHj4XSMJ6+KSevV2xQrljfquGzZ58fsfe7gdFoazsxNvNHrd7JxPOqyqfLmydOzQDkjf71+SpM/q+PETTyyN8CzPTURERERERASUWBULJa+nCBiH0zxPi5csZdgXXwHg7u7OkMEDUrQXK/oyJUoknMo9f8HCNA9S2rptBxWq1KDPJwOMGoz7vH2oXe91Klerxb175hNu8Khmo2OmTE+Nt3JimYLY2Fi2bNueqt1kMjF56vSnzvNP4+joaLwODb1lts+48RON55hUtuHvklT+we/wEbMrJW+HhfHL4iVpjs+dywOAY8ePm23fsMmLoGup57W1tTVq8qZ135u8NrPP28f4OTb2UaKwUsUKxvb/dRs2mh0/d/5PaX5v33qzkbFCdNqMWWb7AIweN56ar9Xnhx+npNnncWU9yxAfnxDrxB9+5OpTVlGbTCa++/4H4+fatWqa7dfyvRYAbN++k2UrEspCvPXGGynKdkDCqta33m5GqTLl8T14KM33NX7/HFP+/iXVrI02U0bhnaZNALh1+zZLl68wO298fDzN3/+Qxu80x2vL1jTfX0RERERERMQcJVbFIt99O8ZIpubNk4cJ3475S/OZTCZuh4Wl+Hfjxk1OnjrNwkWLafxOc74c/g3x8fG4uLgwe8YUcnl4pJpn2JDBAFy9Gkinrj24cOFPoy02NpZly1cyYPCnRtIvU2KC9NVSJQkPv8vdu3dp17ELh/wOp9gqfjssjAnfT+KQ32EA3mjU8Kn3VK/Oa7gnnlw/ctTYFCsRw8Lu0H/gEM6cPUuRIoUtfVx/qwcPHxAYGPTUf0lb+0uVLGkkV2fMnpPitPtrwcH0GzCYjV5edO/aBUi417S2tz+LlolbzB88eMDH/QZyLTjYaDt3/jztO3Y1VkqaU7VqFSBhxev3kyYbqyRjY2NZtmIVQz/7MkXt3iQ2NjZGXc+16zcY5RAA7kdEMH3mbPoP+pRPBw80rvslfl8A3LNnp369ugAsX7GKpctW8PDhw4T3jotj9tx5TJk2g4oVypuN2z17dnp0S3imm7w28+Xwb1KUHbh1+zZjxo1nwcJfuBYcnK4D1pK4ubny5ecJB0xdv3GDxk3fZez4CfgePETorVvExsYSFnaHc+fPs3rNOlq0bM2SpcsBqFf3NWrWqG523ubvvoOdnR337t9nx87fAHivReoyAG5urmTNmpUHDx7w0cf98Nq8JUVCPiYmhrXrNxhlQB7//Uuqp+zre4iQkITvY0REQoK6Qf16VK5UEYBvRo3ll1+XpJj73PnzdO3RmxMnT3H27DmKFCqU7ucmIiIiIiIiAjq8SixUtUplvNav+dvmu3X7NhWr1EjX+44fO5p8+fKaba9ZoxpjR33DF8NHcPCQH6+/2QQPj5zY2dlx48ZNY+tyhfLlGDPya2Oci4sLP0wYT59P+nPs+AlatmqLvb092bNlIyYmhrA7d4xEa9vWrWjUsMFTY82UKRPjRo+kR+8+3A4L4/0P2+DhkRNnZ2euXLmKnZ0ds6ZP4ccp09LziJ6bsLA71K5nfmt2cu+83YQfJo7H2dmJTz7uzbjxEzl9OoCadRpQuFBBoqNjuHzlCpmdnZk1YyrOzs7MnjsvYWzz9ylQoACLF85P1+nqT1KqZAl6du/KzNlzOervT606DSiQP7+RIC5YoADTp06iTv1GZsd37dSR1avXcuv2baZOn8msOfNwyZqV8LsJW9t7du9KjhzuHPA9SPyDlNvDBw3oR5v2nYiMjKRZi5YUKlgAW1s7Ll++TGxcHMOGDKJ9uzbMnjuPsLA7DP9mFL8sWcrQwQOpVbMGX30+jKP+xwgNDeWzL4cz7ruJ5MyRg+DrwURERDKw/ydER0cbCfzH9e3Tm5CQEJatWMXiJUtZunwFuXPnIi4ujps3Q4zvaPu2rWnT6kOLnmvL91pga2PLiJGjuXf/PnPmzmfO3Plp9reysuL9Fs0ZMfyLNPtkz5aNBvXqsnnrNgAKFihApYoVzPb9btwYWrfvSFDQNfp8MgAbGxuyZXPDysqK27fDjK365cp6MqBf3xRjX6tdC9+Dhwi6do0qNWpja2tLqw/eqRdc6QAAIABJREFUZ8TwL7G2tmbq5B/o1qM3/seO89XXIxkz7jtyeXgQfjfcSE7b29kxdszIF7L6XkRERERERP6/KLEq/zhWVla4urqQO1duqlSuxFtvNkrXSeAftHyPypUr8fOChXjvP0Bw8HViY2NxdXGhVKmSvNO0CU2bNDa2DyepV/c1tnltYNWatfy2azfB128QEhqKjY0NBfLnp1xZT95/rznVElc8pke9uq+xavkSps+cjZ/fYcJuh+Fg70Czpm/Tq0c3ChcuxKTJUwFSxfNP1r1rF3LmzMnCRb9y5uxZLl2+Qi4PD9q2bkWXzh0oWCChDuqQQQP4acFCwu+E89D0EBtbWx4+oc5leg0ZNIASxYuzeMlSTp8O4GZICPnz5aVP75506dQhxVZza+uUidwcOdxZs3IZP06dxr59PoTeusWDhw8oV9aTDu3b8majhixbvhKAqKiUW8srVijP8l8XMWX6DPwOHyUw6Bru2bNTp85rdO7Y3lgZ+cOE8YwYNYbAwCDu3r1rxJMvX142rVvN5KnT2f37H4SEhHD33l0qVaxI184dqV6tKhO+nwSAlZnvg62tLWNHj+TtJo1ZunwFhw8f5eaNm2BlRd68eahQrhytPmxpxGGp5u++w+sN6rFuw0b27PXm3Lnz3AwJITo6Gnt7e7JmzUKRwoWpWKE877zd5Ikrg5N80PI9I7HaonmzNPvlz58Prw1rWbd+A5u3bOPy5Svcun2bhw8fki2bGyVLlKDxm2/Q7J23jZIMSTp3bM+NGzfw2ryV8Lt3yZbNjZeKPIrNPXt2VixdzJp169mw0YvTpwO4GhiIvb09xYq+TI3q1enQvk2Kms0iIiIiIiIi6WVletIR2SLy3LzZ5B3OnD3Hu82aMnH8uIwO5//CnTvhlK9cDYBvx47i/RbNMzii9Pt65GgWLlpMnty52fv7zowO5y874HuQVm07YGtry55dO/DwyJnRIYmIiIiIiIj8rf49S+VE/mXuR0SkeSBRbFwcFy9dBiBfXvPlDcS80Fu3jBqljzt77pzx+p/2XGPj4rhzJzzN9rNnE2JPq9zFv82MWXMAaPzmG0qqioiIiIiIyP8lJVZF/mb3IyKoVacBZcpVSrOO6voNG42DdKpXq/oiw/vXOuB7kLIVq1K5Wi12/77HbJ/lKxNOoHd0dMSzTOkXGd4Tdev5ESVLl6Njl25m2y9dvozvwUMAFpWc+KfasfM3/tizF4DOnTpkcDQiIiIiIiIiz4cSqyJ/s8zOzpQuXQqAeT8tYNHiJcYJ9HFxcWzZup2Ro8YCUKb0q2ZPopfUypUrS6ZMDgAM/fxL9u7zNtruR0QwdfpMVq9ZB0DbNq1S1FvNaLVqVOfhw4ccO36Cz74czu2wMABMJhPHT5ykR6+PefjwIZmdnWn1QcsMjvbZxcXFsWbdevoNHAJAs6ZvU/rVUhkclYiIiIiIiMjzoRqrIs9BeHg4H7Zpz5nE7d22trZkz56N0NBbPEg8xCl//nws+nmeDs6xwImTp2jdtgP3IyKAhJWpmTM7ExISavSpVbMGc2ZOw97ePqPCTMVkMjFoyDDWrFsPJBzQ5u6enXv37hMdnXBQVqZMmZj64w/Uq/taRob6TMLC7tDgjbeIuB9h/BGhePFXWLZ4IVmyZMng6ERERERERESeDyVWRZ6TyMhIFi1ewtZtO7hw4QIRkZE4OzvzUpEivN6gHm1bf6ik0zMIunaN+T8tZM/efQQGBREXF4eriwulSpXknbeb0PTtxqlOj/8nMJlMbNjkxarVazl16jR3wsNxcHAgT+7c1KhRjU4d2v1rk+zh4eFUq1WX6OhoPDxy0uStN+n78UdkyZw5o0MTEREREREReW6UWBURERERERERERGxkGqsioiIiIiIiIiIiFhIiVURERERERERERERCymxKiIiIiIiIiIiImIhJVZFRERERERERERELKTEqoiIiIiIiIiIiIiFlFgVERERERERERERsZASqyIiIiIiIiIiIiIWUmJVRERERERERERExEJKrIqIiIiIiIiIiIhYSIlVEREREREREREREQspsSoiIiIiIiIiIiJiISVWRURERERERERERCykxKqIiIiIiIiIiIiIhZRYFREREREREREREbGQEqsiIiIiIiIiIiIiFlJiVURERERERERERMRCSqyKiIiIiIiIiIiIWEiJVRERERERERERERELKbEq8g9Vp34jihQryedffZ3RoYiIiIiIiIiIyGNsMzoA+W+Liopi7boN/L5nL2fPnuPGzZtER0eTKVMmsrm58fLLL1GrZg3eb/EuWbJkyehw/xNKeVYgKioqzXZbW1tcsmalWLGi1Kldi/ffa4Grq8sLjFBEREREREREJONZmUwmU0YHIf9NPvsP8MmAwYSGhqa4bm9vT2xsbIprLi4uTP5hArVq1niRIWaoOvUbceXqVVp92JLR37y4VatPS6w+LpubGz/+MIEa1as9x6hERERERERERP5ZtGJVMsSFC3/SpXsvoqOjyebmRu9ePahX9zUK5M+PtbU18fHxXPjzIhs2bmLWnHmEh4fT86O+bNm4jvz582V0+P8JDerXM5vQjY6O5mpgINu27+DXpcu5HRZGt54f4bVhDYUKFsyASEVEREREREREXjzVWJUMMe/nBURHR2Nra8uyXxfRuWN7ChUsiLV1wlfS1taWV4oVZdCAfkyb/AOQUDZg3k8/Z2TY/ykODg7kyOGe6l/+/PmoXq0qX3/1BdOnTAISkq2z5szL4IhFRERERERERF4crViVDHE64AwAxV8pxksvFXli34avN6BD+7bY2thQ1rOM2T7B16+zYOFi9nl7c/nyFSKjonB2cqLIS0Vo2KA+Hdq1wcnJKdW4pO32w4YMolvXzixfuYrFvy7l4sVLWNvYUKzoy3Tv2pkG9esBcPHSZWbMnI3PgQPcvBmCi4sLtWvVYPCA/nh45Ewxd5++/fHaspWaNaqz8Ke57D/gy5x58zl27AR3793Dzc2VKpUr0btnD14pVtTiZ3j+wgUWLFyMz4EDXLsWjMlkIkcOdypXqkibVh9SrqynxXNaqkH9epQoUZzTpwPYv9/XbB9//2MsXrIMv8OHCb5+g7i4OFxd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" alt="001 001 Functionality of Component Variant  Default with Analytics in LG Should have sample component text" width="95%"></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">link description</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-location</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-location</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">link page</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_button_with_analytics_ignored">2.5. Functionality of Component Variant: Button with Analytics <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link7</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">link description</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-location</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-location</span><span class="delimiter">&quot;</span></span>)  == <span class="string"><span class="delimiter">&quot;</span><span class="content">link page</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_default_with_analytics_track_only_ignored">2.6. Functionality of Component Variant: Default with Analytics Track Only <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link12</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-location</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-location</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_button_with_analytics_track_only_ignored">2.7. Functionality of Component Variant: Button with Analytics Track Only <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link13</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span>
+report(<span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-track</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-track</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-label</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-label</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have analytics attribute: data-layer-location</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).attr(<span class="string"><span class="delimiter">&quot;</span><span class="content">data-layer-location</span><span class="delimiter">&quot;</span></span>) == <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_button_button_with_icon_left_ignored">2.8. Functionality of Component Variant: Button Button with Icon Left <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link14</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span>
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have left icon first</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">$</span>selector</span><span class="content"> &gt; *</span><span class="delimiter">&quot;</span></span>).firstElement().getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">class</span><span class="delimiter">&quot;</span></span>).contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">icon</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functionality_of_component_variant_button_button_with_icon_right_ignored">2.9. Functionality of Component Variant: Button Button with Icon Right <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> The page hierarchy is created as "Components" &gt; "Content" &gt; "Link"</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#link15</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPage()</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have sample component text</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(selector).text().trim() == <span class="string"><span class="delimiter">&quot;</span><span class="content">Link</span><span class="delimiter">&quot;</span></span>
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">Should have sample component text</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Should have right icon last</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">$</span>selector</span><span class="content"> &gt; *</span><span class="delimiter">&quot;</span></span>).lastElement().getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">class</span><span class="delimiter">&quot;</span></span>).contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">icon</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2021-08-12 17:36:00 UTC
+</div>
+</div>
+<!--footer start-->
+<!--footer end-->
+</body>
+</html>
