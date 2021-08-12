@@ -227,7 +227,6 @@ jobs:
         run: |
           df
           docker ps -a
-          docker logs -t service_aem_container_name
           docker-compose down
         if: failure()
 

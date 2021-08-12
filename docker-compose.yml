@@ -151,6 +151,19 @@ services:
       - testingprepshowcase
 
 
+  automationtestprep:
+    extends:
+      file: ./docker/testing/docker-compose.yml
+      service: automationtestprep
+    volumes:
+      - ./docker/testing/playbooks:/ansible/playbooks
+      - "~/.m2:/build/.m2"
+    profiles:
+      - dotest
+    depends_on:
+      - author
+      - seleniumhub
+
   testingprep:
     extends:
       file: ./docker/testing/docker-compose.yml
