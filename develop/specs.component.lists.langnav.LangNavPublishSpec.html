@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Report for specs.component.media.audio.AudioScreenshotSpec</title>
+<title>Report for specs.component.lists.langnav.LangNavPublishSpec</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -718,14 +718,16 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Report for specs.component.media.audio.AudioScreenshotSpec</h1>
+<h1>Report for specs.component.lists.langnav.LangNavPublishSpec</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_summary">1. Summary</a></li>
 <li><a href="#_features">2. Features</a>
 <ul class="sectlevel2">
-<li><a href="#_appearance_of_component_variant_default_in_lg_failure">2.1. Appearance of Component Variant: Default in LG <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span></a></li>
+<li><a href="#_lang_nav_default_with_languages_available_in_lg_failure">2.1. Lang Nav: Default with Languages Available in LG <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span></a></li>
+<li><a href="#_lang_nav_default_with_languages_not_available_ignored">2.2. Lang Nav: Default with Languages Not Available <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
+<li><a href="#_lang_nav_default_with_languages_not_available_and_showing_language_root_ignored">2.3. Lang Nav: Default with Languages Not Available and Showing Language Root <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></a></li>
 </ul>
 </li>
 </ul>
@@ -735,7 +737,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="small">created on Thu Aug 12 18:03:57 UTC 2021 by root</span></p>
+<p><span class="small">created on Thu Aug 12 17:59:30 UTC 2021 by root</span></p>
 </div>
 </div>
 </div>
@@ -765,10 +767,10 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">100.0%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.754 seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.078 seconds</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
 </tr>
 </tbody>
 </table>
@@ -778,20 +780,20 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <h2 id="_features">2. Features</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_appearance_of_component_variant_default_in_lg_failure">2.1. Appearance of Component Variant: Default in LG <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span></h3>
+<h3 id="_lang_nav_default_with_languages_available_in_lg_failure">2.1. Lang Nav: Default with Languages Available in LG <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p>Result: <strong>FAILURE</strong> <span class="big"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></span>
-Time: 2.644 seconds</p>
+Time: 2.062 seconds</p>
 </div>
 <div class="paragraph">
-<p>URL: <a href="http://author:8080/content/aemdesign-showcase/au/en/component/media/audio.html?wcmmode=disabled" class="bare">http://author:8080/content/aemdesign-showcase/au/en/component/media/audio.html?wcmmode=disabled</a></p>
+<p>URL: <a href="http://author:8080/content/aemdesign-showcase/au/en/component/lists/language-navigation.html?wcmmode=disabled" class="bare">http://author:8080/content/aemdesign-showcase/au/en/component/lists/language-navigation.html?wcmmode=disabled</a></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Media" &gt; "Audio"</p>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Language Navigation"</p>
 </li>
 <li>
 <p><strong>And</strong> &gt;I am in the component showcase page</p>
@@ -812,10 +814,8 @@ Time: 2.644 seconds</p>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
-2
 </pre></td>
-  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#audio1</span><span class="delimiter">&quot;</span></span>
-<span class="keyword">def</span> selectorContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#contentblock1 .contents</span><span class="delimiter">&quot;</span></span></pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#langnav1</span><span class="delimiter">&quot;</span></span></pre></td>
 </tr></table></code></pre>
 </div>
 </div></div></td>
@@ -870,19 +870,24 @@ waitForAuthorPreviewPage()</pre></td>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
+2
 </pre></td>
-  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
 </tr></table></code></pre>
 </div>
 </div></div></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="/build/source/aemdesign-testing/remote-seleniumhub-chrome/test-reports/geb/specs/component/lists/langnav/LangNavPublishSpec/001-001-Lang%20Nav_%20Default%20with%20Languages%20Available%20in%20LG-failure.html">source html</a>
+<span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAMACAYAAAC6uhUNAAAAAXNSR0IArs4c6QAAEt9JREFUeJzt2MENwCAQwLCj++8MU6BKxJ4g76yZ2QMAAAA87fs7AAAAALjPAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIMAAAAAAgwAAAAACDAAAAAAIAAAwAAAAACDAAAAAAIMAAAAAAgwAAAAACAAAMAAAAAAgwAAAAACDAAAAAAIMAAAAAAgAADAAAAAAIOPV0G/69XQw0AAAAASUVORK5CYII=" alt="001 001 Lang Nav  Default with Languages Available in LG failure" width="95%"></span></p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Then</strong> It should match the 1366 by 1024 reference image.</p>
+<p><strong>And</strong> Has two list items</p>
 </li>
 </ul>
 </div>
@@ -898,24 +903,65 @@ waitForAuthorPreviewPage()</pre></td>
 <pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
-  <td class="code"><pre>designRef(selectorContainer)</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">2</span></pre></td>
 </tr></table></code></pre>
 </div>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<div class="title">Source</div>
-<p><span class="image"><img src="data:image/png;base64,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" alt="audio contentblock1 .contents LG 0" width="95%"></span></p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<div class="title">Current</div>
-<p><span class="image"><img src="data:image/png;base64,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" alt="audio contentblock1 .contents LG 0" width="95%"></span></p>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).firstElement().getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">textContent</span><span class="delimiter">&quot;</span></span>).trim().contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">EN</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<div class="title">Diff</div>
-<p><span class="image"><img src="data:image/png;base64," alt="audio contentblock1 .contents LG 0.diff" width="95%"></span></p>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has last item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).lastElement().getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">textContent</span><span class="delimiter">&quot;</span></span>).trim().contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">RU</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
 </div></div></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -945,10 +991,11 @@ waitForAuthorPreviewPage()</pre></td>
 <div class="content">
 <pre>Condition failed with Exception:
 
-designRef(selectorContainer)
-|         |
-|         #contentblock1 .contents
-java.lang.Error: Design reference does not match current layout.</pre>
+takeScreenshot($(selector).firstElement(), "The component should be on the page")
+|              | |         |
+|              | #langnav1 [[RemoteWebDriver: chrome on LINUX (13b7334604e2b6cfd3853f74d8158456)] -&gt; css selector: #langnav1]
+|              [[[RemoteWebDriver: chrome on LINUX (13b7334604e2b6cfd3853f74d8158456)] -&gt; css selector: #langnav1]]
+java.awt.image.RasterFormatException: negative or zero height</pre>
 </div>
 </div>
 </td>
@@ -958,12 +1005,371 @@ java.lang.Error: Design reference does not match current layout.</pre>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_lang_nav_default_with_languages_not_available_ignored">2.2. Lang Nav: Default with Languages Not Available <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Language Navigation" &gt; "One Language"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#langnav1</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPageUrl(<span class="string"><span class="delimiter">&quot;</span><span class="content">content/aemdesign-showcase/au/en/component/lists/language-navigation/one-language.html</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has two list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">1</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).firstElement().getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">textContent</span><span class="delimiter">&quot;</span></span>).trim().contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">EN</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lang_nav_default_with_languages_not_available_and_showing_language_root_ignored">2.3. Lang Nav: Default with Languages Not Available and Showing Language Root <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Result: <strong>IGNORED</strong> <span class="big"><span class="icon gray"><i class="fa fa-eye-slash"></i></span></span>
+Time: 0</p>
+</div>
+<div class="paragraph">
+<p>URL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Given:</strong> &gt;the page hierarchy is created as "Components" &gt; "Lists" &gt; "Language Navigation" &gt; "One Language"</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;I am in the component showcase page</p>
+</li>
+<li>
+<p><strong>And</strong> &gt;the component is on the showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> selector = <span class="string"><span class="delimiter">&quot;</span><span class="content">#langnav2</span><span class="delimiter">&quot;</span></span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>When</strong> I am on the component showcase page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>setWindowSize(viewport)
+waitForAuthorPreviewPageUrl(<span class="string"><span class="delimiter">&quot;</span><span class="content">content/aemdesign-showcase/au/en/component/lists/language-navigation/one-language.html</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Then</strong> The component should be on the page</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="keyword">def</span> component = waitForComponent(selector)
+takeScreenshot(<span class="error">$</span>(selector).firstElement(), <span class="string"><span class="delimiter">&quot;</span><span class="content">The component should be on the page</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has two list items</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).size() == <span class="integer">2</span></pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has first item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).firstElement().getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">textContent</span><span class="delimiter">&quot;</span></span>).trim().contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">EN</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>And</strong> Has last item</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">assert</span> <span class="error">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>selector<span class="inline-delimiter">}</span></span><span class="content"> li</span><span class="delimiter">&quot;</span></span>).lastElement().getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">textContent</span><span class="delimiter">&quot;</span></span>).trim().contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">Russian</span><span class="delimiter">&quot;</span></span>)</pre></td>
+</tr></table></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Where:</strong> Browser size width: #viewport.width and height: #viewport.height</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-12 18:03:57 UTC
+Last updated 2021-08-12 17:59:31 UTC
 </div>
 </div>
 <!--footer start-->
