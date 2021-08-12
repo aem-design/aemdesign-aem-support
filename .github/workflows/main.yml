@@ -103,16 +103,20 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Prepare to Package
-        run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+        run: $DOCKER_COMMAND mvn clean -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=/build/.m2/repository
 
       - name: Package project and install into local .m2 repository
-        run: $DOCKER_COMMAND mvn package install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=./build/.m2/repository
+        run: $DOCKER_COMMAND mvn package install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -P all-modules -Dmaven.repo.local=/build/.m2/repository
 
       - name: Start the stack
-        run: docker-compose up -d
+        run: |
+          docker-compose up -d
 
       - name: Wait for aem using ansible
         run: |
+          docker ps
+          ls ~/.m2
+          ls /home/runner/.m2
           docker-compose up automationtestprep
 
       - name: Start automation tests using docker-compose
