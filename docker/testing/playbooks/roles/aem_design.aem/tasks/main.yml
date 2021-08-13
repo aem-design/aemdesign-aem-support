@@ -1,0 +1,40 @@
+---
+
+- name: "set facts"
+  set_fact:
+    role_comment: "( {{ docker_container_name | default('aem') }} )"
+  tags:
+    - always
+
+- name: add debug start parameters to container {{ role_comment }}
+  set_fact:
+    aem_jvm_opts: "{{ aem_jvm_opts }} {{ aem_debug_opts }}"
+  when:
+    - aem_debug
+
+- name: start docker container with params {{ role_comment }}
+  debug:
+    msg:
+      - "name: {{ docker_container_name }}"
+      - "image: {{ docker_image }}:{{ docker_image_tag }}"
+      - "published_ports: {{ docker_published_ports }}"
+      - "volumes: {{ docker_volumes }}"
+      - "env.TZ: {{ docker_timezone }}"
+      - "env.AEM_JVM_OPTS: {{ aem_jvm_opts }}"
+      - "env.AEM_START_OPTS: {{ aem_start_opts }}"
+      - "env.AEM_RUNMODE: {{ aem_runmode }}"
+
+- name: ensure container is started {{ role_comment }}
+  docker_container:
+    name: "{{ docker_container_name }}"
+    image: "{{ docker_image }}{% if docker_image %}:{% endif %}{{ docker_image_tag }}"
+    published_ports: "{{ docker_published_ports }}"
+    volumes: "{{ docker_volumes }}"
+    docker_host: "{{ docker_host }}"
+    env:
+      TZ: "{{ docker_timezone }}"
+      AEM_JVM_OPTS: "{{ aem_jvm_opts }}"
+      AEM_START_OPTS: "{{ aem_start_opts }}"
+      AEM_RUNMODE: "{{ aem_runmode }}"
+  tags:
+    - docker-container

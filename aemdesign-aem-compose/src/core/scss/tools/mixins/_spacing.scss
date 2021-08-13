@@ -1,0 +1,81 @@
+// stylelint-disable declaration-no-important
+
+@mixin generate-spacing-area(
+  $area-name: null,
+  $skip-directional: false,
+  $static-axis: false,
+) {
+  $area: get-spacing-area($area-name);
+
+  @if ($area != null) {
+    @each $breakpoint in map-keys($breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        @include generate-spacing-area-bp(
+          $area-name,
+          $area,
+          $breakpoint,
+          $skip-directional,
+          $static-axis,
+        );
+      }
+    }
+  }
+}
+
+@mixin generate-spacing-area-bp(
+  $area-name,
+  $area,
+  $breakpoint,
+  $skip-directional: false,
+  $static-axis: false,
+) {
+  @if (type-of($area) != 'map') {
+    @error 'Unable to generate spacing area for #{$breakpoint} as `$area` is not a Sass map!';
+  }
+  @else {
+    @if ($static-axis != false) {
+      @include generate-spacing-properties($area-name, $area, $breakpoint, $static-axis, $skip-directional);
+    }
+    @else {
+      @each $axis in 'horizontal', 'vertical' {
+        $axis-key: str-slice($axis, 1, 1);
+
+        @if (map-has-key($area, $axis)) {
+          .spacing--#{$area-name}-#{$axis-key} {
+            @include generate-spacing-properties($area-name, $area, $breakpoint, $axis, false);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-spacing-properties($area-name, $area, $breakpoint, $axis, $skip-directional: false) {
+  $axis-key: str-slice($axis, 1, 1);
+  $breakpoint-map: map-get($area, 'config');
+
+  @if (map-has-key($breakpoint-map, $breakpoint)) {
+    $area-value: map-get($breakpoint-map, $breakpoint);
+
+    @if ($axis == 'vertical') {
+      padding-bottom: $area-value !important;
+      padding-top: $area-value !important;
+    }
+
+    @if ($axis == 'horizontal') {
+      padding-left: $area-value !important;
+      padding-right: $area-value !important;
+    }
+
+    // Directional based shifts
+    @if (not $skip-directional) {
+      $sides: if($axis == 'vertical', bottom top, left right);
+
+      @each $side in $sides {
+        &--#{$side} {
+          padding-#{$side}: $area-value !important;
+        }
+      }
+    }
+  }
+}

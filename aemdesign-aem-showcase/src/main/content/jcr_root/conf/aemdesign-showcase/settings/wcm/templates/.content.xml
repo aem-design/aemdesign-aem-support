@@ -2,11 +2,13 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
-    <experience-fragment/>
-    <styleguide/>
-    <rep:policy/>
+    <article/>
+    <articles/>
     <base/>
+    <dls/>
+    <experience-fragment/>
     <onecolumn/>
-    <twocolumn/>
     <threecolumn/>
+    <twocolumn/>
+    <rep:policy/>
 </jcr:root>

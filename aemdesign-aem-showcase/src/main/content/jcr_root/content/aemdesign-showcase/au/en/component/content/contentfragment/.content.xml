@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-12-03T11:48:59.676+11:00"
+        cq:lastModified="{Date}2021-03-19T14:15:03.104+11:00"
         cq:lastModifiedBy="admin"
         cq:tags="[aemdesign-showcase:content-type/page]"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/twocolumn"
@@ -21,12 +21,14 @@
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page-details_KJL3GTQX7"/>
                 <contentblock1
+                    jcr:lastModified="{Date}2021-03-19T14:13:59.027+11:00"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
                     componentId="contentblock1"
                     hideTitle="false"
                     hideTitleSeparator="true"
-                    title="Default Style"
+                    title="Default Style with all fields"
                     variant="advsection">
                     <par
                         jcr:primaryType="nt:unstructured"
@@ -38,7 +40,53 @@
                             displayMode="multi"
                             fragmentPath="/content/dam/aemdesign-showcase/en/content-fragments/all-field-types"/>
                     </par>
+                    <bgimage
+                        jcr:lastModified="{Date}2021-03-19T14:13:59.027+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                    <bgvideo
+                        jcr:lastModified="{Date}2021-03-19T14:13:59.027+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/video"/>
                 </contentblock1>
+                <contentblock2
+                    jcr:lastModified="{Date}2021-03-19T14:14:24.273+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Default Style with multiline rte with Paragraph control turned on"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contentfragment
+                            jcr:lastModified="{Date}2021-03-19T14:13:26.690+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/contentfragment"
+                            componentId="contentfragment1"
+                            displayMode="singleText"
+                            elementNames="multilinerichtext"
+                            fragmentPath="/content/dam/aemdesign-showcase/en/content-fragments/all-field-types"
+                            paragraphScope="all"
+                            variationName="master"/>
+                    </par>
+                    <bgimage
+                        jcr:lastModified="{Date}2021-03-19T14:14:24.273+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                    <bgvideo
+                        jcr:lastModified="{Date}2021-03-19T14:14:24.273+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/video"/>
+                </contentblock2>
             </par>
         </article>
     </jcr:content>

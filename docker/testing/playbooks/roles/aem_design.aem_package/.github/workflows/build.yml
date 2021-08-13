@@ -1,0 +1,88 @@
+---
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_REGISTRY: docker.io
+      DOCKER_REGISTRY_INDEX: index.docker.io/aemdesign
+      ORGANISATION_NAME: aemdesign
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      ANSIBLE_GALAXY_API_KEY: ${{ secrets.ANSIBLE_GALAXY_API_KEY }}
+      AEM_KEY: ${{ secrets.AEM_KEY }}
+      AEM_NAME: ${{ secrets.AEM_NAME }}
+      ADOBECLOUD_USERNAME: ${{ secrets.ADOBECLOUD_USERNAME }}
+      ADOBECLOUD_PASSWORD: ${{ secrets.ADOBECLOUD_PASSWORD }}
+      ROLE_META: "meta/main.yml"
+      PYTHON_VERSION: 3.6
+
+    steps:
+      - name: Experimental Status
+        run: |
+          docker version -f '{{.Server.Experimental}}'
+      - name: Docker
+        run: |
+          docker version -f '{{.Server.Experimental}}'
+          export DOCKER_CLI_EXPERIMENTAL=enabled
+          docker version -f '{{.Server.Experimental}}'
+          sudo service docker restart
+          docker version -f '{{.Server.Experimental}}'
+          sudo rm /etc/docker/daemon.json
+          echo $'{\n    "experimental": true\n}' | sudo tee /etc/docker/daemon.json
+          sudo service docker restart
+          docker version -f '{{.Server.Experimental}}'
+      - uses: actions/checkout@v2
+      - name: set up python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: set env variables
+        id: config
+        run: |
+          # Read role from meta.yml and replace '-' with '_' to be Ansible friendly
+          export ROLE_REPO_NAME=$(grep "role_name:" ${ROLE_META} | sed -e "s/.*role_name.* \(.*\)/\1/")
+          export ROLE_NAME=$(grep "role_name:" ${ROLE_META} | sed -e "s/.*role_name.* \(.*\)/\1/" | sed "s/-/_/g")
+          export ROLE_NAMESPACE=$(grep "company:" ${ROLE_META} | sed -e "s/.*company.* \(.*\)/\1/" | sed "s/\./_/g")
+          # Store Ansible friendly role name to use in molecule.yml
+          export ROLE_NAME_FULL="$ROLE_NAMESPACE.$ROLE_NAME"
+
+          echo "ROLE_REPO_NAME=${ROLE_REPO_NAME}" >> $GITHUB_ENV
+          echo "ROLE_NAME=${ROLE_NAME}" >> $GITHUB_ENV
+          echo "ROLE_NAMESPACE=${ROLE_NAMESPACE}" >> $GITHUB_ENV
+          echo "ROLE_NAME_FULL=${ROLE_NAME_FULL}" >> $GITHUB_ENV
+
+          source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/github_get_version.sh)
+
+      - name: install dependencies
+        run: |
+          sudo apt-get install -y python3 python3-pip python3-venv build-essential libssl-dev libffi-dev python3-dev libcurl4-openssl-dev curl
+          pip3 install --upgrade pip
+          pip3 install --ignore-installed PyYAML
+          pip3 install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          molecule test
+
+      - name: Push role to Ansible Galaxy
+        uses: robertdebock/galaxy-action@1.1.0
+        with:
+          galaxy_api_key: ${{ env.ANSIBLE_GALAXY_API_KEY }}
+
+      - name: create release ${{ env.GITHUB_TAG }}
+        if: github.ref == 'refs/heads/master'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.config.outputs.CURRENT_VERSION }}
+          release_name: ${{ steps.config.outputs.CURRENT_VERSION }}
+          body: ${{ steps.config.outputs.GIT_RELEASE_NOTES }}
+          draft: false
+          prerelease: false

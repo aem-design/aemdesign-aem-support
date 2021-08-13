@@ -1,0 +1,13 @@
+target/
+
+node_modules/
+
+.nodejs
+.project
+.classpath
+.settings
+.checkstyle
+.idea
+*.iml
+.DS_Store
+.temp/

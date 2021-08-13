@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./deploy -Dcrx.host=localhost -Dpackage.npmCommand=aem:build:dev "$@"
+./deploy -Daem.host=localhost -Dpackage.npmCommand=aem:build:dev "$@"

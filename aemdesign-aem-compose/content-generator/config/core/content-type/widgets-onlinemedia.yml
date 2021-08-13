@@ -1,0 +1,17 @@
+
+# Online Media
+widgets/onlinemedia/provider/default:
+  flat: true
+  prefix: default
+  title: 'Default'
+
+widgets/onlinemedia/provider/kaltura:
+  flat: true
+  prefix: kaltura
+  title: 'Kaltura'
+
+widgets/onlinemedia/provider/youtube:
+  flat: true
+  prefix: youtube
+  title: 'Youtube'
+

@@ -1,0 +1,44 @@
+.page-details {
+  @include fix-nested-component;
+  @include generate-spacing-area('banner', true, 'vertical');
+
+  align-items: center;
+  background-color: color('grey-1');
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+
+  header {
+    .title {
+      margin-bottom: $headings-margin-bottom / 1.5;
+    }
+
+    .description {
+      max-width: 700px;
+    }
+
+    // Make sure the header and the AEM `.responsivegrid` container span the full width
+    &,
+    + .responsivegrid {
+      width: 100%;
+    }
+
+    // Space the additional parsys away from the sibling element
+    + .responsivegrid > .#{$aem-prefix}:not(.no-content) {
+      padding-top: 30px;
+    }
+
+    > :only-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // IE11 fix to ensure flexbox and min-height work together
+  .ie-11 &::after {
+    content: '';
+    display: inline-block;
+    font-size: 0;
+    min-height: inherit;
+  }
+}

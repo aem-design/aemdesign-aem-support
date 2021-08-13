@@ -1,0 +1,1 @@
+docker run -it -v ${PWD}:/build/source -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /var/run/docker.sock:/var/run/docker.sock -v ${HOME}/.m2:/build/.m2 --net=host aemdesign/centos-java-buildpack:jdk8 /bin/bash --login

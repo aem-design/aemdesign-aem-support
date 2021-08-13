@@ -1,0 +1,82 @@
+// [1] `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
+
+/**
+ * Bootstrap card
+ */
+
+@import '~bootstrap/scss/card';
+
+/**
+* Overrides
+*/
+
+.card {
+  height: 100%;
+  margin-bottom: 0;
+  width: 100%;
+
+  &-img-top,
+  .lazysizes-display-clone { // [1]
+    display: block;
+    height: 145px;
+
+    @include media-breakpoint-up(md) {
+      height: 160px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      height: 210px;
+    }
+  }
+
+  &-img-top img {
+    @include object-fit(cover, center);
+
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-subtitle,
+  &-date,
+  &-taglist,
+  &-text {
+    margin-bottom: $card-spacer-y;
+  }
+
+  &-body {
+    background-color: $card-bg;
+    border-radius: $card-inner-border-radius;
+    display: flex;
+    flex-direction: column;
+
+    // Small workaround to ensure the last element is in the same location on all cards
+    > :nth-last-child(2):not(:first-child):not(:last-child) {
+      margin-bottom: auto;
+      padding-bottom: $grid-gutter-width;
+    }
+
+    > :only-child,
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding: $grid-gutter-width;
+    }
+  }
+
+  &-link {
+    @extend %link-base;
+
+    &:not(.btn),
+    &.btn.btn-link {
+      @extend %link-button;
+    }
+  }
+}

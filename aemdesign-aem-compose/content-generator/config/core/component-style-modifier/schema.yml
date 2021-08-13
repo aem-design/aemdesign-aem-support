@@ -1,0 +1,11 @@
+schema/widgets/onlinemedia:
+  contents:
+  - video: { value: "itemscope itemtype=&quot;http://schema.org/VideoObject&quot;", title: "Video Object" }
+
+schema/details/eventdetails:
+  contents:
+  - event: { value: "itemscope itemtype=&quot;http://schema.org/Event&quot;", title: "Event Object" }
+
+schema/details/contactdetails:
+  contents:
+  - person: { value: "itemscope itemtype=&quot;http://schema.org/Person&quot;", title: "Person Object" }

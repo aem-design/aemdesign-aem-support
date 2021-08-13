@@ -1,44 +1,7 @@
 
 # Content Type
 content/_cq_tags/aemdesign/content-type: &content-type
-  # WARNING: Reference to these path is hardcoded into component dialogs
-  asset:
-    prefixes:
-      - audio
-      - document
-      - image
-      - video
-    title: '%%prefix_normalised%%'
-
-  page:
-    prefixes:
-      - article
-      - book
-      - contact: {title: "Contact Page"}
-      - event
-      - location: {title: "Location Page"}
-      - news: {title: "News Page"}
-      - profile
-    title: '%%prefix_normalised%%'
-
-  # Online Media
-  widgets/onlinemedia/provider/default:
-    flat: true
-    prefix: default
-    title: 'Default'
-
-  widgets/onlinemedia/provider/kaltura:
-    flat: true
-    prefix: kaltura
-    title: 'Kaltura'
-
-  widgets/onlinemedia/provider/youtube:
-    flat: true
-    prefix: youtube
-    title: 'Youtube'
-
-
-
+  !!import/dirMerge content-type
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/content-type: *content-type

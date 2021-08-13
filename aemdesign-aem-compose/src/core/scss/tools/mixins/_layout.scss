@@ -1,0 +1,49 @@
+/// ...
+/// @group layout
+/// @since 1.0.0
+@mixin container-flush($pseudo: ':not(:last-child)') {
+  [class*='col']#{unquote($pseudo)} > div {
+    @content;
+  }
+}
+
+/// ...
+/// @group layout
+/// @since 1.0.0
+@mixin aspect-ratio(
+  $width: 16,
+  $height: 9,
+  $selector: '.content',
+  $needs-position: true
+) {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: aspect-ratio($width, $height);
+    width: 100%;
+  }
+
+  @if $needs-position == true {
+    > #{unquote($selector)} {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+/// ...
+/// @group layout
+/// @since 1.0.0
+@mixin fix-nested-component() {
+  @at-root {
+    &.#{$aem-prefix-col} {
+      all: unset;
+      box-sizing: inherit;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+a {
+  align-items: center;
+  display: inline-flex;
+  transition: $link-transition;
+
+  > .icon {
+    font-size: icon-size('small');
+    margin-left: 8px;
+  }
+
+  // Hide links without an `href` attribute from the screen
+  &:not([href]) {
+    @include sr-only;
+  }
+}

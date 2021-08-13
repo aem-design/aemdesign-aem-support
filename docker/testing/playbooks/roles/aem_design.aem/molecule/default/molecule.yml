@@ -1,0 +1,52 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
+provisioner:
+  name: ansible
+  log: true
+  options:
+    vvv: true
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
+  inventory:
+    group_vars:
+      all:
+        service_aem_license_key: "${AEM_KEY}"
+        service_aem_license_name: "${AEM_NAME}"
+        service_adobe_cloud_username: "${ADOBECLOUD_USERNAME}"
+        service_adobe_cloud_password: "${ADOBECLOUD_PASSWORD}"
+        role_name: "${ROLE_NAME_FULL}"
+platforms:
+  - name: instance
+    image: "aemdesign/ansible-playbook:centos7"
+    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/lib/systemd/systemd"}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /var/run/docker.sock:/tmp/docker.sock
+    privileged: true
+    pre_build_image: true
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - dependency
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    # - prepare
+    - converge
+    # - idempotence
+    - side_effect
+    - verify
+    - cleanup
+    - destroy
+verifier:
+  name: testinfra

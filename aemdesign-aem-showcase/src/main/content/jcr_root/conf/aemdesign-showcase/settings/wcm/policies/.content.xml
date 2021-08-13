@@ -140,8 +140,8 @@
                         jcr:title="default"
                         sling:resourceType="wcm/core/components/policy/policy"
                         appResourcesClientlib="aemdesign.core.resources"
-						clientlibs="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head,aemdesign.common.components,aemdesign.common.body]"
-						clientlibsJsHead="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head]">
+                        clientlibs="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head,aemdesign.common.components,aemdesign.common.body]"
+                        clientlibsJsHead="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_default>
                 </base>
@@ -170,24 +170,82 @@
                         </policy_default>
                     </base>
                 </experience-fragments>
-                <styleguide jcr:primaryType="nt:unstructured">
+                <dls jcr:primaryType="nt:unstructured">
                     <policy_default
-                        jcr:lastModified="{Date}2019-08-19T18:16:57.702+10:00"
-                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM.Design Showcase"
+                        jcr:title="AEM.Design DLS"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[aemdesign.common.components,aemdesign.common.body,aemdesign.compose.header,aemdesign.compose.header.styleguide,aemdesign.compose.footer,aemdesign.compose.footer.styleguide]"
-                        clientlibsJsHead="[aemdesign.compose.header,aemdesign.compose.header.styleguide]">
+                        clientlibs="[aemdesign.compose.header,aemdesign.compose.header.dls,aemdesign.compose.footer,aemdesign.compose.footer.dls]"
+                        clientlibsJsHead="[aemdesign.compose.header,aemdesign.compose.header.dls]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_default>
-                </styleguide>
+                </dls>
             </template>
             <content
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="nt:unstructured"/>
             <layout jcr:primaryType="nt:unstructured">
-                <article jcr:primaryType="nt:unstructured"/>
+                <container jcr:primaryType="nt:unstructured">
+                    <policy_container
+                        jcr:lastModified="{Date}2021-06-28T16:17:44.301+10:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM.Design Container Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:AEM.Design - Common,group:AEM.Design - Content,group:AEM.Design - Details,group:AEM.Design - Forms,group:AEM.Design - Layout,group:AEM.Design - Lists,group:AEM.Design - Media,group:AEM.Design - Widgets]">
+                        <jcr:content
+                            cq:lastReplicated="{Date}2021-06-09T06:36:41.141+10:00"
+                            cq:lastReplicatedBy="admin"
+                            cq:lastReplicationAction="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <image
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="aemdesign/components/media/image"
+                                    type="Images"/>
+                                <product
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="product"
+                                    droptarget="product-data-reference"
+                                    resourceType="commerce/components/product"
+                                    type="Products"/>
+                                <document
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
+                                    droptarget="file"
+                                    resourceType="aemdesign/components/content/download"
+                                    type="Images"/>
+                                <video
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="video/*"
+                                    droptarget="video"
+                                    resourceType="aemdesign/components/media/video"
+                                    type="Images"/>
+                                <fragment
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="text/html"
+                                    droptarget="fragment"
+                                    resourceType="aemdesign/components/content/contentfragment"
+                                    type="Content Fragment"/>
+                                <experiencefragment
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
+                                    droptarget="experiencefragment"
+                                    resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                                    type="experiencefragment"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
+                    </policy_container>
+                </container>
             </layout>
             <media jcr:primaryType="nt:unstructured">
                 <image jcr:primaryType="nt:unstructured">

@@ -1,0 +1,25 @@
+// Bootstrap internals
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+// Tools: Functions
+@import 'tools/functions/layout';
+@import 'tools/functions/map';
+@import 'tools/functions/selector';
+@import 'tools/functions/spacing';
+@import 'tools/functions/typography';
+
+// Settings
+@import 'settings/global';
+
+// Tools: Mixins
+@import 'tools/mixins/aem';
+@import 'tools/mixins/device';
+@import 'tools/mixins/layout';
+@import 'tools/mixins/list';
+@import 'tools/mixins/object-fit';
+@import 'tools/mixins/spacing';
+@import 'tools/mixins/typography';
+
+// Load Bootstraps mixins
+@import '~bootstrap/scss/mixins';

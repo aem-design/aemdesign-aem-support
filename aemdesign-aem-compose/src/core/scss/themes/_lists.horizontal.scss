@@ -1,0 +1,41 @@
+// stylelint-disable declaration-no-important
+// stylelint-disable selector-max-compound-selectors
+
+&-horizontal {
+  margin-right: 0 !important;
+
+  > .content {
+    margin: 0 !important;
+
+    .list {
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      > li {
+        flex-basis: auto;
+        margin-bottom: 7px !important;
+        max-width: inherit;
+        padding-left: 0;
+        padding-right: 0;
+        width: auto;
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+
+        @include media-breakpoint-up(lg) {
+          margin-bottom: 0 !important;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: auto !important;
+  }
+}

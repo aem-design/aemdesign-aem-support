@@ -1,0 +1,163 @@
+version: "2.4"
+
+services:
+
+  author:
+    image: aemdesign/aem:sdk-2021.3.5087
+    hostname: author
+    healthcheck:
+      test: curl -u admin:admin --header Referer:localhost --silent --connect-timeout 5 --max-time 5 localhost:8080//system/console/bundles.json | grep -q \"state\":\"Installed\" && exit 1 || exit 0
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 1s
+    ports:
+      - 4502:8080
+      - 30303:58242
+    environment:
+      - AEM_RUNMODE=-Dsling.run.modes=author,crx3,crx3tar,localdev
+      - AEM_JVM_OPTS=-server -Xms248m -Xmx1524m -XX:MaxDirectMemorySize=256M -XX:+CMSClassUnloadingEnabled -Djava.awt.headless=true -Dorg.apache.felix.http.host=0.0.0.0 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=58242,suspend=n
+    labels:
+      # note that you want this frontened to match the last. otherwise it will match login.${HOST_DOMAIN}"
+      traefik.frontend.priority: 1
+      traefik.enable: true
+      traefik.http.routers.author.rule: "Host(`author.localhost`)"
+      traefik.http.routers.author.entrypoints: web
+      traefik.http.routers.author_https.rule: "Host(`author.localhost`)"
+      traefik.http.routers.author_https.tls: true
+      traefik.http.routers.author_https.entrypoints: websecure
+      traefik.http.services.author.loadbalancer.passHostHeader: true
+    volumes:
+      - author-data:/aem/crx-quickstart/repository
+    networks:
+      - default
+      - author-network
+      - publish-network
+      - dispatcher-network
+
+  author-deploy-core:
+    image: aemdesign/centos-java-buildpack:jdk11
+    hostname: author-deploy-core
+    command:
+      - bash
+      - -l
+      - -c
+      - "cd /build/source/aemdesign-aem-core && mvn -DskipTests -e -U -P autoInstallPackage clean install -Daem.port=8080 -Daem.host=author -Dmaven.repo.local=/build/.m2/repository"
+    working_dir: "/build/source"
+    volumes:
+      - "./:/build/source"
+      - "~/.m2:/build/.m2"
+    networks:
+      - author-network
+
+  author-deploy-support:
+    image: aemdesign/centos-java-buildpack:jdk11
+    hostname: author-deploy-support
+    command:
+      - bash
+      - -l
+      - -c
+      - "cd /build/source/aemdesign-aem-support && mvn -DskipTests -e -U -P autoInstallPackage clean install -Daem.port=8080 -Daem.host=author -Dmaven.repo.local=/build/.m2/repository"
+    working_dir: "/build/source"
+    volumes:
+      - "./:/build/source"
+      - "~/.m2:/build/.m2"
+    networks:
+      - author-network
+
+  publish:
+    image: aemdesign/aem:sdk-2021.3.5087
+    hostname: publish
+    healthcheck:
+      test: curl -u admin:admin --header Referer:localhost --silent --connect-timeout 5 --max-time 5 localhost:8080//system/console/bundles.json | grep -q \"state\":\"Installed\" && exit 1 || exit 0
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    ports:
+      - 4503:8080
+      - 30304:58242
+    environment:
+      - AEM_RUNMODE=-Dsling.run.modes=publish,crx3,crx3tar,localdev
+      - AEM_JVM_OPTS=-server -Xms248m -Xmx1524m -XX:MaxDirectMemorySize=256M -XX:+CMSClassUnloadingEnabled -Djava.awt.headless=true -Dorg.apache.felix.http.host=0.0.0.0 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=58242,suspend=n
+    labels:
+      # note that you want this frontened to match the last. otherwise it will match login.${HOST_DOMAIN}"
+      traefik.frontend.priority: 1
+      traefik.enable: true
+      traefik.http.routers.publish.rule: "Host(`publish.localhost`)"
+      traefik.http.routers.publish.entrypoints: web
+      traefik.http.routers.publish_https.rule: "Host(`publish.localhost`)"
+      traefik.http.routers.publish_https.tls: true
+      traefik.http.routers.publish_https.entrypoints: websecure
+      traefik.http.services.publish.loadbalancer.passHostHeader: true
+    volumes:
+      - publish-data:/aem/crx-quickstart/repository
+    networks:
+    - default
+    - publish-network
+
+  publish-deploy-core:
+    image: aemdesign/centos-java-buildpack:jdk11
+    hostname: publishdeploy
+    command:
+      - bash
+      - -l
+      - -c
+      - "cd /build/source/aemdesign-aem-core && mvn -DskipTests -e -U -P autoInstallPackage clean install -Daem.port=8080 -Daem.host=publish -Dmaven.repo.local=/build/.m2/repository"
+    working_dir: "/build/source"
+    volumes:
+      - "./:/build/source"
+      - "~/.m2:/build/.m2"
+    networks:
+      - author-network
+
+  publish-deploy-support:
+    image: aemdesign/centos-java-buildpack:jdk11
+    hostname: publishdeploy
+    command:
+      - bash
+      - -l
+      - -c
+      - "cd /build/source/aemdesign-aem-support && mvn -DskipTests -e -U -P autoInstallPackage clean install -Daem.port=8080 -Daem.host=publish -Dmaven.repo.local=/build/.m2/repository"
+    working_dir: "/build/source"
+    volumes:
+      - "./:/build/source"
+      - "~/.m2:/build/.m2"
+    networks:
+      - author-network
+
+  dispatcher:
+    image: aemdesign/dispatcher
+    hostname: dispatcher
+    ports:
+      - 9080:8080
+      - 9433:8433
+    environment:
+      - RENDERER_PORT=4503
+      - RENDERER_HOST=publish
+      - DISPATCHER_CONFIG=publish
+    labels:
+      # note that you want this frontened to match the last. otherwise it will match login.${HOST_DOMAIN}"
+      traefik.frontend.priority: 1
+      traefik.enable: true
+      traefik.http.routers.dispatcher.rule: "Host(`dispatcher.localhost`)"
+      traefik.http.routers.dispatcher.entrypoints: web
+      traefik.http.routers.dispatcher_https.rule: "Host(`dispatcher.localhost`)"
+      traefik.http.routers.dispatcher_https.tls: true
+      traefik.http.routers.dispatcher_https.entrypoints: websecure
+      traefik.http.services.dispatcher.loadbalancer.passHostHeader: true
+    volumes:
+      - dispatcher-data:/data/httpd/cache
+    networks:
+    - default
+    - dispatcher-network
+
+networks:
+  author-network:
+  publish-network:
+  dispatcher-network:
+
+volumes:
+  author-data:
+  publish-data:
+  dispatcher-data:

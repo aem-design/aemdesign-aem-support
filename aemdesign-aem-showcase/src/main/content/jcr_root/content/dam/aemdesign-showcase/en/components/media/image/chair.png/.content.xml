@@ -3,20 +3,20 @@
     jcr:isCheckedOut="{Boolean}true"
     jcr:mixinTypes="[mix:referenceable,mix:versionable]"
     jcr:primaryType="dam:Asset"
-    jcr:uuid="264929b6-3a86-4cc7-842b-052395b3a182">
+    jcr:uuid="c66707c9-fd48-4ad8-9352-d74af5d92644">
     <jcr:content
         cq:name="chair.png"
         cq:parentPath="/content/dam/aemdesign-showcase/en/components/media/image"
         dam:assetState="processed"
         dam:relativePath="aemdesign-showcase/en/components/media/image/chair.png"
         dam:s7damType="Image"
-        jcr:lastModified="{Date}2019-09-12T17:17:09.420+10:00"
+        jcr:lastModified="{Date}2021-06-02T20:31:06.124+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:Bitsperpixel="{Long}24"
             dam:Comments="XML:com.adobe.xmp: &lt;?xpacket begin=&quot;﻿&quot; id=&quot;W5M0MpCehiHzreSzNTczkc9d&quot;?>&#xa;&lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;Adobe XMP Core 5.6-c148 79.163858, 2019/03/06-03:18:36        &quot;>&#xa; &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;>&#xa;  &lt;rdf:Description rdf:about=&quot;&quot;&#xa;    xmlns:dam=&quot;http://www.day.com/dam/1.0&quot;&#xa;    xmlns:tiff=&quot;http://ns.adobe.com/tiff/1.0/&quot;&#xa;    xmlns:xmp=&quot;http://ns.adobe.com/xap/1.0/&quot;&#xa;    xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;&#xa;    xmlns:xmpMM=&quot;http://ns.adobe.com/xap/1.0/mm/&quot;&#xa;    xmlns:stEvt=&quot;http://ns.adobe.com/xap/1.0/sType/ResourceEvent#&quot;&#xa;    xmlns:photoshop=&quot;http://ns.adobe.com/photoshop/1.0/&quot;&#xa;   dam:Physicalheightininches=&quot;6.999125003814697&quot;&#xa;   dam:Physicalwidthininches=&quot;7.4157395362854&quot;&#xa;   dam:Fileformat=&quot;PNG&quot;&#xa;   dam:Progressive=&quot;no&quot;&#xa;   dam:extracted=&quot;2019-06-04T15:48:05.438+10:00&quot;&#xa;   dam:Bitsperpixel=&quot;24&quot;&#xa;   dam:MIMEtype=&quot;image/png&quot;&#xa;   dam:Comments=&quot;XML:com.adobe.xmp: &amp;lt;?xpacket begin=&amp;quot;﻿&amp;quot; id=&amp;quot;W5M0MpCehiHzreSzNTczkc9d&amp;quot;?&amp;gt; &amp;lt;x:xmpmeta xmlns:x=&amp;quot;adobe:ns:meta/&amp;quot; x:xmptk=&amp;quot;Adobe XMP Core 5.6-c140 79.160451, 2017/05/06-01:08:21        &amp;quot;&amp;gt; &amp;lt;rdf:RDF xmlns:rdf=&amp;quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;quot;&amp;gt; &amp;lt;rdf:Description rdf:about=&amp;quot;&amp;quot; xmlns:xmp=&amp;quot;http://ns.adobe.com/xap/1.0/&amp;quot; xmlns:dc=&amp;quot;http://purl.org/dc/elements/1.1/&amp;quot; xmlns:photoshop=&amp;quot;http://ns.adobe.com/photoshop/1.0/&amp;quot; xmlns:xmpMM=&amp;quot;http://ns.adobe.com/xap/1.0/mm/&amp;quot; xmlns:stEvt=&amp;quot;http://ns.adobe.com/xap/1.0/sType/ResourceEvent#&amp;quot; xmp:CreatorTool=&amp;quot;Adobe Photoshop CC 2018 (Macintosh)&amp;quot; xmp:CreateDate=&amp;quot;2019-06-04T15:15:21+10:00&amp;quot; xmp:ModifyDate=&amp;quot;2019-06-04T15:47:49+10:00&amp;quot; xmp:MetadataDate=&amp;quot;2019-06-04T15:47:49+10:00&amp;quot; dc:format=&amp;quot;image/png&amp;quot; photoshop:ColorMode=&amp;quot;3&amp;quot; photoshop:ICCProfile=&amp;quot;sRGB IEC61966-2.1&amp;quot; xmpMM:InstanceID=&amp;quot;xmp.iid:832c769f-42df-4ce6-b5e9-f85af7c06130&amp;quot; xmpMM:DocumentID=&amp;quot;xmp.did:6f2fcdff-cc6a-41ef-a526-a5f7ed76e8e9&amp;quot; xmpMM:OriginalDocumentID=&amp;quot;xmp.did:6f2fcdff-cc6a-41ef-a526-a5f7ed76e8e9&amp;quot;&amp;gt; &amp;lt;xmpMM:History&amp;gt; &amp;lt;rdf:Seq&amp;gt; &amp;lt;rdf:li stEvt:action=&amp;quot;created&amp;quot; stEvt:instanceID=&amp;quot;xmp.iid:6f2fcdff-cc6a-41ef-a526-a5f7ed76e8e9&amp;quot; stEvt:when=&amp;quot;2019-06-04T15:15:21+10:00&amp;quot; stEvt:softwareAgent=&amp;quot;Adobe Photoshop CC 2018 (Macintosh)&amp;quot;/&amp;gt; &amp;lt;rdf:li stEvt:action=&amp;quot;saved&amp;quot; stEvt:instanceID=&amp;quot;xmp.iid:832c769f-42df-4ce6-b5e9-f85af7c06130&amp;quot; stEvt:when=&amp;quot;2019-06-04T15:47:49+10:00&amp;quot; stEvt:softwareAgent=&amp;quot;Adobe Photoshop CC 2018 (Macintosh)&amp;quot; stEvt:changed=&amp;quot;/&amp;quot;/&amp;gt; &amp;lt;/rdf:Seq&amp;gt; &amp;lt;/xmpMM:History&amp;gt; &amp;lt;/rdf:Description&amp;gt; &amp;lt;/rdf:RDF&amp;gt; &amp;lt;/x:xmpmeta&amp;gt; &amp;lt;?xpacket end=&amp;quot;r&amp;quot;?&amp;gt;&amp;#xA;&quot;&#xa;   dam:Physicalwidthindpi=&quot;72&quot;&#xa;   dam:Physicalheightindpi=&quot;72&quot;&#xa;   dam:Numberofimages=&quot;1&quot;&#xa;   dam:Numberoftextualcomments=&quot;1&quot;&#xa;   dam:sha1=&quot;c8fd16b50030a4595be82053b82094a28678b96e&quot;&#xa;   dam:size=&quot;84128&quot;&#xa;   tiff:ImageLength=&quot;504&quot;&#xa;   tiff:ImageWidth=&quot;534&quot;&#xa;   xmp:CreatorTool=&quot;Adobe Photoshop CC 2018 (Macintosh)&quot;&#xa;   xmp:MetadataDate=&quot;2019-06-04T15:47:49.000+10:00&quot;&#xa;   xmp:ModifyDate=&quot;2019-06-04T15:47:49.000+10:00&quot;&#xa;   xmp:CreateDate=&quot;2019-06-04T15:15:21.000+10:00&quot;&#xa;   dc:format=&quot;image/png&quot;&#xa;   dc:modified=&quot;2019-09-12T17:16:44.620+10:00&quot;&#xa;   xmpMM:DocumentID=&quot;xmp.did:6f2fcdff-cc6a-41ef-a526-a5f7ed76e8e9&quot;&#xa;   xmpMM:OriginalDocumentID=&quot;xmp.did:6f2fcdff-cc6a-41ef-a526-a5f7ed76e8e9&quot;&#xa;   xmpMM:InstanceID=&quot;xmp.iid:832c769f-42df-4ce6-b5e9-f85af7c06130&quot;&#xa;   photoshop:ICCProfile=&quot;sRGB IEC61966-2.1&quot;&#xa;   photoshop:ColorMode=&quot;3&quot;>&#xa;   &lt;xmpMM:History>&#xa;    &lt;rdf:Seq>&#xa;     &lt;rdf:li&#xa;      stEvt:action=&quot;created&quot;&#xa;      stEvt:softwareAgent=&quot;Adobe Photoshop CC 2018 (Macintosh)&quot;&#xa;      stEvt:when=&quot;2019-06-04T15:15:21.000+10:00&quot;&#xa;      stEvt:instanceID=&quot;xmp.iid:6f2fcdff-cc6a-41ef-a526-a5f7ed76e8e9&quot;/>&#xa;     &lt;rdf:li&#xa;      stEvt:action=&quot;saved&quot;&#xa;      stEvt:softwareAgent=&quot;Adobe Photoshop CC 2018 (Macintosh)&quot;&#xa;      stEvt:when=&quot;2019-06-04T15:47:49.000+10:00&quot;&#xa;      stEvt:changed=&quot;/&quot;&#xa;      stEvt:instanceID=&quot;xmp.iid:832c769f-42df-4ce6-b5e9-f85af7c06130&quot;/>&#xa;    &lt;/rdf:Seq>&#xa;   &lt;/xmpMM:History>&#xa;  &lt;/rdf:Description>&#xa; &lt;/rdf:RDF>&#xa;&lt;/x:xmpmeta>&#xa;&lt;?xpacket end=&quot;r&quot;?>&#xa;"
-            dam:extracted="{Date}2019-06-04T15:48:05.438+10:00"
+            dam:extracted="{Date}2021-06-02T20:31:03.522+10:00"
             dam:Fileformat="PNG"
             dam:MIMEtype="image/png"
             dam:Numberofimages="{Long}1"
@@ -26,11 +26,11 @@
             dam:Physicalwidthindpi="{Long}72"
             dam:Physicalwidthininches="{Decimal}7.4157395362854"
             dam:Progressive="no"
-            dam:sha1="c8fd16b50030a4595be82053b82094a28678b96e"
-            dam:size="{Long}84128"
+            dam:sha1="a2070e5dd54cf6e27faa4a3e3ff607202d393042"
+            dam:size="{Long}86853"
             dc:format="image/png"
             dc:modified="{Date}2019-09-12T17:16:44.620+10:00"
-            jcr:lastModified="{Date}2019-09-12T17:16:44.620+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:31:06.099+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"

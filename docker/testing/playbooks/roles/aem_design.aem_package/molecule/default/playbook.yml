@@ -1,0 +1,84 @@
+---
+- name: Converge
+  hosts: instance
+  gather_facts: true
+  become: true
+  vars:
+    local_role_name: "ansible-role-aem-package"
+    role_name: "{% if lookup('env','ROLE_NAME_FULL') %}{{ lookup('env','ROLE_NAME_FULL') }}{% else %}{{ local_role_name }}{% endif %}"
+    package_files: [
+      {
+        debug_hide: "false",
+        simple_name: "acs twitter using docker",
+        group_name: "day_internal/consulting",
+        package_version: "1.0.0",
+        package_name: "com.adobe.acs.bundles.twitter4j-content",
+        package_url: "https://github.com/Adobe-Consulting-Services/com.adobe.acs.bundles.twitter4j/\
+                    releases/download/com.adobe.acs.bundles.twitter4j-1.0.0/com.adobe.acs.bundles.twitter4j-content-1.0.0.zip",
+        file_name: "com.adobe.acs.bundles.twitter4j-content-1.0.0.zip",
+        install_package_ansible: true,
+        install_package_docker: false,
+        docker_host: "unix://tmp/docker.sock"
+      },
+      {
+        debug_hide: "false",
+        simple_name: "aemdesign-aem-core using ansible",
+        group_name: "design.aem",
+        package_version: "2.0.521",
+        package_name: "aemdesign-aem-core-deploy",
+        package_url: "https://github.com/aem-design/aemdesign-aem-core/releases/download/2.0.521/\
+                    aemdesign-aem-core-deploy-2.0.521.zip",
+        file_name: "aemdesign-aem-core-deploy-2.0.521.zip",
+        install_package_ansible: false,
+        install_package_docker: true,
+        docker_host: "unix://tmp/docker.sock"
+      }
+
+    ]
+
+  pre_tasks:
+    - name: get docker host ip
+      become: true
+      shell: |
+        set -o pipefail
+        /sbin/ip route | awk '/default/ { print $3 }'
+      args:
+        executable: /bin/bash
+      register: dockerhost_ip
+      changed_when: false
+
+  roles:
+    - role: "aem_design.aem_license"
+      vars:
+        aem_license_key: "{{ service_aem_license_key }}"
+        aem_license_name: "{{ service_aem_license_name }}"
+        aem_port: "5502"
+        aem_host: "{{ dockerhost_ip.stdout }}"
+        debug_hide: false
+    - role: "aem_design.aem_verify"
+      vars:
+        aem_port: "5502"
+        aem_host: "{{ dockerhost_ip.stdout }}"
+        debug_hide: false
+
+  post_tasks:
+    - name: install aem packages {{ role_comment }}
+      include_role:
+        name: "{{ role_name }}"
+      vars:
+        aem_port: "5502"
+        aem_host: "{{ dockerhost_ip.stdout }}"
+        maven_repository_url: "{{ item.maven_repository_url | default('') }}"
+        debug_hide: "{{ item.debug_hide }}"
+        simple_name: "{{ item.simple_name }}"
+        group_name: "{{ item.group_name }}"
+        package_version: "{{ item.package_version }}"
+        package_name: "{{ item.package_name }}"
+        package_url: "{{ item.package_url }}"
+        file_name: "{{ item.file_name }}"
+        file_url_username: "{{ item.file_url_username | default('') }}"
+        file_url_password: "{{ item.file_url_password | default('') }}"
+        install_package_ansible: "{{ item.install_package_ansible }}"
+        install_package_docker: "{{ item.install_package_docker }}"
+        docker_host: "{{ item.docker_host }}"
+      loop: "{{ package_files }}"

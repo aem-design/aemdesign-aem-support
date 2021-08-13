@@ -1,0 +1,31 @@
+
+  common/logo:
+    flat: true
+    prefix: 'theme--logo'
+    title: 'Logo'
+
+  # Cards
+  common/cards:
+    prefixes:
+      - promoted
+      - background
+      - column
+      - columns
+      - notification
+    valueFormat: cards-%%prefix%%
+    title: '%%prefix_normalised%%'
+
+
+  # Footer
+  layout/brand-footer:
+    flat: true
+    prefix: theme--footer-brand
+    title: 'Brand Footer'
+
+  # Header
+  layout/header/fixed-top:
+    flat: true
+    prefix: theme--header fixed-top
+    title: 'Brand Header Fixed Top'
+
+

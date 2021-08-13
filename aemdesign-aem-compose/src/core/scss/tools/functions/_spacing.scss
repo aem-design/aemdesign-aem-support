@@ -1,0 +1,48 @@
+$__spacing-state-internal: true;
+
+// stylelint-disable-next-line
+@function __set-spacing-state($state) {
+  $__spacing-state-internal: $state;
+
+  @return $state;
+}
+
+@function get-spacing-area($area-name: null) {
+  @if (
+    $area-name == null or
+    type-of($area-name) != 'string' or
+    spacing-area-valid($area-name) == false
+  ) {
+    @warn 'Area key given (#{$area-name}) is invalid, or is not a Sass map!';
+    @return null;
+  }
+
+  $area: map-get($spacing-areas, $area-name);
+
+  @if (not map-has-key($area, 'config')) {
+    @warn '#{$name} does not have a config map, this is required!';
+    @return null;
+  }
+
+  @return $area;
+}
+
+@function spacing-area-valid($area-name: null) {
+  $area: map-get($spacing-areas, $area-name);
+  $has-internal: map-has-key($area, 'internal');
+
+  @if (
+    $area != null and
+    (
+      not $has-internal or
+      ($has-internal and $__spacing-state-internal == true) or
+      ($has-internal and map-get($area, 'internal') == false)
+    )
+  ) {
+    $state: __set-spacing-state(true);
+
+    @return true;
+  }
+
+  @return false;
+}

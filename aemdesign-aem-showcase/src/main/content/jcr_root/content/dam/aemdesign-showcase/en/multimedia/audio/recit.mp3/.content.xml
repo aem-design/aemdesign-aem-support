@@ -5,12 +5,13 @@
     jcr:uuid="5165ee2e-8dc2-41a6-a488-eb363797c269">
     <jcr:content
         dam:assetState="processed"
-        jcr:lastModified="{Date}2019-09-12T17:17:13.828+10:00"
+        dam:relativePath="aemdesign-showcase/en/multimedia/audio/recit.mp3"
+        jcr:lastModified="{Date}2021-06-02T20:31:03.080+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:BitRate="{Long}320"
-            dam:extracted="{Date}2019-07-12T16:33:38.595+10:00"
+            dam:extracted="{Date}2021-06-02T20:31:03.024+10:00"
             dam:HasCopyRight="false"
             dam:Layer="{Long}3"
             dam:Length="{Long}9"
@@ -23,7 +24,7 @@
             dam:size="{Long}362579"
             dc:format="audio/mpeg"
             dc:modified="{Date}2015-12-05T20:32:06.698+08:00"
-            jcr:lastModified="{Date}2019-09-12T17:17:13.828+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:31:02.844+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"/>

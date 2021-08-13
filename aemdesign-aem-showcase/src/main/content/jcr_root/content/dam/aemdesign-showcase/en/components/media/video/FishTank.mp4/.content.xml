@@ -2,27 +2,28 @@
 <jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:mixinTypes="[mix:referenceable]"
     jcr:primaryType="dam:Asset"
-    jcr:uuid="c81f5f07-412d-4221-921d-2db2f1425255">
+    jcr:uuid="7730af54-d0ac-4424-85e0-bf67491c6309">
     <jcr:content
-        dam:assetState="processing"
-        dam:relativePath="tets/FishTank.mp4"
-        jcr:lastModified="{Date}2019-09-12T17:17:02.098+10:00"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/components/media/video/FishTank.mp4"
+        jcr:lastModified="{Date}2021-06-02T20:32:20.855+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
-            dam:extracted="{Date}2017-10-13T09:43:11.507+11:00"
+            dam:extracted="{Date}2021-06-02T20:31:06.553+10:00"
             dam:sha1="f88bcb95935d9199725068110ac9b7c8fe4e1669"
             dam:size="{Long}4122679"
             dc:extent="{Long}11026"
             dc:format="video/mp4"
             dc:modified="{Date}2019-09-12T17:17:02.098+10:00"
-            jcr:lastModified="{Date}2019-09-12T17:17:02.098+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:31:03.297+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}720"
             tiff:ImageWidth="{Long}1280"
+            tiff:Orientation="{Long}1"
             xmp:CreateDate="{Date}2016-08-01T03:47:56.000Z"
             xmp:ModifyDate="{Date}2016-08-01T03:47:56.000Z">
             <xmpDM:duration

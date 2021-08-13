@@ -1,0 +1,45 @@
+/**
+ * Bootstrap buttons
+ */
+
+@import '~bootstrap/scss/buttons';
+
+/**
+* Overrides
+*/
+
+.btn {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+
+  > .svg-inline--fa {
+    transition: transform $link-transition-length ease-in-out;
+  }
+
+  &:not(.btn-link) {
+    > span:not(:only-child) {
+      margin-right: $grid-gutter-width / 2;
+    }
+  }
+
+  @include hover {
+    .svg-inline--fa {
+      transform: translateX(4px);
+    }
+  }
+
+  &-link {
+    color: $link-color;
+    padding: 0;
+
+    > .svg-inline--fa {
+      margin-left: 10px;
+    }
+
+    &:focus,
+    &.focus {
+      text-decoration: none;
+    }
+  }
+}

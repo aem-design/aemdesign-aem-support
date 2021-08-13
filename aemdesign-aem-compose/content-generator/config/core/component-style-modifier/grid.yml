@@ -1,0 +1,16 @@
+grid/container:
+  flat: true
+  prefix: container
+  title: 'Container'
+
+grid/container/size:
+  prefixes:
+    - full-width
+    - small
+  prefixValue: container--
+  title: '%%prefix_normalised%%'
+
+grid/center:
+  flat: true
+  prefix: mx-auto
+  title: 'Center Horizontally'

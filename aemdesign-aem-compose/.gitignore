@@ -1,15 +1,25 @@
-node/
-node_modules/
 .DS_Store
-patternlab.json
-.sass-cache/*
-/sass-cache
 Thumbs.db
-.idea/
-public
+
+# Build-time folders
+public/
 target/
+
+# IDE's
+.idea/
 .vscode/
 *.iml
 
+# Node
+node/
+node_modules/
+
+# Content generator
+content-generator/config/core/icons.yml
+content-generator/config/core/component-style-modifier/colours.yml
 content-generator/content/*
 content-generator/output/*
+
+# Projects
+src/**/js/**/fontawesome.ts
+src/**/scss/**/_colours.scss

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Tag List"
+        sling:resourceType="aemdesign/components/template/dls">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"
+                    editable="{Boolean}false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"/>
+                <contentblock_taglist_basic
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_taglist_basic">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contentblock_taglist_basic_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_taglist_basic_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Basic&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_taglist_basic_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/taglist"
+                            componentId="contentblock_taglist_basic_component"
+                            listFrom="children"
+                            parentTag="/content/cq:tags/aemdesign-showcase"/>
+                    </par>
+                </contentblock_taglist_basic>
+                <contentblock_taglist_buttons
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_taglist_buttons">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contentblock_taglist_buttons_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="contentblock_taglist_buttons_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Buttons&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <contentblock_taglist_buttons_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/taglist"
+                            componentId="contentblock_taglist_buttons_component"
+                            componentTheme="[aemdesign-showcase:component-style-theme/taglist/buttons]"
+                            listFrom="children"
+                            parentTag="/content/cq:tags/aemdesign-showcase"/>
+                    </par>
+                </contentblock_taglist_buttons>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

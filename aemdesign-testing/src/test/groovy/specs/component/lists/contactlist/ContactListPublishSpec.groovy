@@ -38,10 +38,10 @@ class ContactListPublishSpec extends ComponentSpec {
         assert $("${selector} ul.list > li").size() == 6
 
         and: "Has first item"
-        assert $("${selector} li.first").text().trim() == "Contact1"
+        assert $("${selector} li.first").text().trim() == "Mr Max Barrass"
 
         and: "Has last item"
-        assert $("${selector} li.last").text().trim() == "Contact6"
+        assert $("${selector} li.last").text().trim() == "Author: Max Barrass"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()

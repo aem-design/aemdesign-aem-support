@@ -1,0 +1,74 @@
+// stylelint-disable declaration-no-important
+// stylelint-disable max-nesting-depth
+// stylelint-disable selector-max-class
+// stylelint-disable selector-max-compound-selectors
+// stylelint-disable selector-max-combinators
+// stylelint-disable selector-max-id
+
+// Base Sass (core)
+@import '../../core/scss/setup';
+
+// Internals
+@import 'settings/dls';
+@import 'settings/logo';
+
+body.dls {
+  @import 'objects/header';
+  @import 'objects/sidebar';
+  @import 'objects/content-area';
+  @import 'objects/menu-overlay';
+
+  padding-top: $header-height;
+
+  section.contentblock:not(:last-of-type) {
+    margin-bottom: $grid-gutter-width;
+  }
+
+  article > div > div > div.contentblock {
+    > .contentblock {
+      @include notch-awesome;
+
+      padding: $grid-gutter-width $gutter-half-width;
+
+      > * {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1920px;
+      }
+
+      > div > .text:first-child,
+      > div > .text ~ div:not(.text):not(:last-child) {
+        margin-bottom: $grid-gutter-width;
+      }
+
+      > div > .text:first-child + .text {
+        padding-top: 0;
+      }
+
+      > div {
+        > .text:first-child h2 {
+          margin-bottom: $line-height-base / 3;
+        }
+
+        @import 'components/component-fixes';
+      }
+
+      @include media-breakpoint-up(lg) {
+        padding-left: $grid-gutter-width;
+        padding-right: $grid-gutter-width;
+      }
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 0;
+    }
+  }
+
+  @include aem-author-edit {
+    padding-top: 0;
+  }
+
+  @import 'components/colour-panel';
+  @import 'components/icon-panel';
+  @import 'components/grid-panel';
+}

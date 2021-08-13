@@ -4,25 +4,26 @@
     jcr:primaryType="dam:Asset"
     jcr:uuid="d197aad2-2d5c-498f-920b-c2645445978e">
     <jcr:content
-        dam:assetState="processing"
-        dam:relativePath="tets/Clouds.mov"
-        jcr:lastModified="{Date}2019-09-12T17:17:22.095+10:00"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/multimedia/video/Clouds.mov"
+        jcr:lastModified="{Date}2021-06-02T20:34:54.249+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
-            dam:extracted="{Date}2017-10-13T09:44:20.363+11:00"
+            dam:extracted="{Date}2021-06-02T20:31:03.205+10:00"
             dam:sha1="fb085372325c251aa43936e38644540bed4f89bd"
             dam:size="{Long}63664724"
             dc:extent="{Long}12092"
             dc:format="video/quicktime"
             dc:modified="{Date}2019-09-12T17:17:22.095+10:00"
-            jcr:lastModified="{Date}2019-09-12T17:17:22.094+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:31:03.126+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}2160"
             tiff:ImageWidth="{Long}3840"
+            tiff:Orientation="{Long}1"
             xmp:CreateDate="{Date}2015-07-07T15:38:55.000Z"
             xmp:CreatorTool="Adobe Premiere Pro CC 2014 (Macintosh)"
             xmp:MetadataDate="{Date}2015-07-07T16:39:46.000+01:00"
@@ -62,6 +63,23 @@
                 jcr:primaryType="nt:unstructured"
                 xmpDM:scale="1/25"
                 xmpDM:value="{Long}323"
+                xmpNodeType="xmpStruct"/>
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="xmp.did:9c59dc5c-5fb6-43d4-900b-a3aa7393135e"
+                stRef:instanceID="xmp.iid:9c59dc5c-5fb6-43d4-900b-a3aa7393135e"
+                stRef:originalDocumentID="xmp.did:9c59dc5c-5fb6-43d4-900b-a3aa7393135e"
+                xmpNodeType="xmpStruct"/>
+            <creatorAtom:windowsAtom
+                creatorAtom:extension=".prproj"
+                creatorAtom:invocationFlags="/L"
+                jcr:primaryType="nt:unstructured"
+                xmpNodeType="xmpStruct"/>
+            <creatorAtom:macAtom
+                creatorAtom:applicationCode="{Long}1347449455"
+                creatorAtom:invocationAppleEvent="{Long}1129468018"
+                creatorAtom:posixProjectPath="/Volumes/VIDEVO G1 (A)/Stock Footage/Projects/OMS Stock/150701 - Clouds/Footage/Cloud TImelapse UHD.prproj"
+                jcr:primaryType="nt:unstructured"
                 xmpNodeType="xmpStruct"/>
             <xmpMM:History
                 jcr:primaryType="nt:unstructured"
@@ -145,23 +163,6 @@
                     </xmpMM:History>
                 </_x0031_>
             </xmpMM:Pantry>
-            <xmpMM:DerivedFrom
-                jcr:primaryType="nt:unstructured"
-                stRef:documentID="xmp.did:9c59dc5c-5fb6-43d4-900b-a3aa7393135e"
-                stRef:instanceID="xmp.iid:9c59dc5c-5fb6-43d4-900b-a3aa7393135e"
-                stRef:originalDocumentID="xmp.did:9c59dc5c-5fb6-43d4-900b-a3aa7393135e"
-                xmpNodeType="xmpStruct"/>
-            <creatorAtom:windowsAtom
-                creatorAtom:extension=".prproj"
-                creatorAtom:invocationFlags="/L"
-                jcr:primaryType="nt:unstructured"
-                xmpNodeType="xmpStruct"/>
-            <creatorAtom:macAtom
-                creatorAtom:applicationCode="{Long}1347449455"
-                creatorAtom:invocationAppleEvent="{Long}1129468018"
-                creatorAtom:posixProjectPath="/Volumes/VIDEVO G1 (A)/Stock Footage/Projects/OMS Stock/150701 - Clouds/Footage/Cloud TImelapse UHD.prproj"
-                jcr:primaryType="nt:unstructured"
-                xmpNodeType="xmpStruct"/>
         </metadata>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>

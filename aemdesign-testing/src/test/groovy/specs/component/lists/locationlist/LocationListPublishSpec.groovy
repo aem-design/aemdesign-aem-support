@@ -60,7 +60,7 @@ class LocationListPublishSpec extends ComponentSpec {
         assert js.exec(" return locationlist2.features.length == 6;")
 
         and: "Map has been created"
-        assert js.exec(" return AEMDESIGN.components.locationlist.googleMapInstances[\$(\"#locationlist2\").data(\"map-index\")]?true:false;")
+        assert js.exec(" return AEMDESIGN.components.locationlist.googleMapsInstances[\$(\"#locationlist2\").data(\"map-index\")]?true:false;")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
         viewport << getViewPorts()
@@ -94,7 +94,7 @@ class LocationListPublishSpec extends ComponentSpec {
         assert $("${selector} .card .card-title").size() == 6
 
         and: "With Category"
-        assert $("${selector} .card .tags").size() == 6
+        assert $("${selector} .card .card-taglist").size() == 6
 
         and: "With Description"
         assert $("${selector} .card .card-text").size() == 6

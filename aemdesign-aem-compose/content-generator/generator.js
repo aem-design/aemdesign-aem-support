@@ -57,10 +57,10 @@ const {
   currentPath,
   generateContent,
   getBreakpointInfix,
+  generateColoursFromConfig,
+  generateIconsFromConfig,
   loadTemplateForCategory,
   parseTitle,
-  getDirectories,
-  isDirectory,
   debug
 } = require('./functions')
 
@@ -74,6 +74,12 @@ try {
 
   if (!fs.existsSync(currentPath(tmpPath))) {
     mkdirp.sync(currentPath(tmpPath))
+  }
+
+  // Generate some additional files for core using our support configuration
+  if (args.config.indexOf('core') !== -1) {
+    generateColoursFromConfig()
+    generateIconsFromConfig()
   }
 
   // Merge the YAML configurations together into a single readable file
@@ -96,6 +102,7 @@ try {
 
       for (const subcategory of Object.keys(children)) {
         const data = children[subcategory]
+
         let prefixes = data.prefixes
 
         if (prefixes === undefined && data.prefix !== undefined) {
@@ -153,8 +160,9 @@ try {
               prefixValue = prefixConfig['value'] ? prefixConfig['value'] : prefix
               value = ""
             } else {
-              prefixTitle = prefix
+              prefixTitle = data['title'] ? data['title'] : prefix
               value = prefix
+              prefixValue = data['prefixValue'] ? data['prefixValue'] : ''
             }
 
             let emptyTitle      = data.emptyTitle || false
@@ -169,6 +177,7 @@ try {
 
             debug({
               "PROCESSING PREFIX": prefix,
+              isObject: typeof prefix === 'object',
               prefixIsAdvanced: prefixIsAdvanced,
               prefix: prefix,
               prefixConfig: prefixConfig,
@@ -195,9 +204,15 @@ try {
                   for (const size of data.sizes) {
                     const skipSize = (data.skipSizes || []).indexOf(size) !== -1
 
-                    let valueFormatted = valueFormat
-                      .replace(new RegExp('%%prefix%%', 'g'), prefix)
-                      .replace(new RegExp('%%infix%%', 'g'), infix ? `-${infix}` : '')
+
+                    let valueFormatted
+                    if (valueFormat) {
+                        valueFormatted = valueFormat
+                            .replace(new RegExp('%%prefix%%', 'g'), prefix)
+                            .replace(new RegExp('%%infix%%', 'g'), infix ? `-${infix}` : '')
+                    } else {
+                        valueFormatted = prefixValue ? prefixValue.concat(prefix) : value
+                    }
 
                     if (!skipSize) {
                       valueFormatted = valueFormatted.replace(new RegExp('%%size%%', 'g'), size)
@@ -217,9 +232,14 @@ try {
 
                   // Nup, no sizing here
                 } else {
-                  const valueFormatted = valueFormat
-                    .replace(new RegExp('%%prefix%%', 'g'), prefix)
-                    .replace(new RegExp('%%infix%%', 'g'), infix ? `-${infix}` : '')
+                    let valueFormatted
+                    if (valueFormat) {
+                        valueFormatted = valueFormat
+                            .replace(new RegExp('%%prefix%%', 'g'), prefix)
+                            .replace(new RegExp('%%infix%%', 'g'), infix ? `-${infix}` : '')
+                    } else {
+                        valueFormatted = prefixValue ? prefixValue.concat(prefix) : value
+                    }
 
                   categories[category][subcategory].content.push({
                     prefixToFolders,
@@ -239,7 +259,13 @@ try {
 
               for (const size of data.sizes) {
                 const skipSize = (data.skipSizes || []).indexOf(size) !== -1
-                let valueFormatted = valueFormat.replace(new RegExp('%%prefix%%', 'g'), prefix)
+                  let valueFormatted
+                  if (valueFormat) {
+                      valueFormatted = valueFormat
+                          .replace(new RegExp('%%prefix%%', 'g'), prefix)
+                  } else {
+                      valueFormatted = prefixValue ? prefixValue.concat(prefix) : value
+                  }
 
                 if (!skipSize) {
                   valueFormatted = valueFormatted.replace(new RegExp('%%size%%', 'g'), size)
@@ -270,7 +296,16 @@ try {
                 valueFormatted : prefixValue
               })
             } else {
-              debug({PROCESSING: "normal"})
+                debug({PROCESSING: "normal", prefixValue: prefixValue})
+                let valueFormatted
+                if (valueFormat) {
+                    valueFormatted = valueFormat
+                        .replace(new RegExp('%%prefix%%', 'g'), prefixIsAdvanced ? prefixValue : value)
+                } else {
+                    valueFormatted = prefixValue ? prefixValue.concat(prefix) : value
+                }
+                debug({valueFormatted: valueFormatted})
+
               categories[category][subcategory].content.push({
                 prefixToFolders,
                 flat           : data.flat || false,
@@ -279,7 +314,7 @@ try {
                 title          : prefixIsAdvanced ? prefixTitle : parseTitle(data.title, prefix.toString(), { emptyTitle }),
                 type           : 'tag',
                 value          : value,
-                valueFormatted : valueFormat.replace(new RegExp('%%prefix%%', 'g'), prefixIsAdvanced ? prefixValue : value)
+                valueFormatted : valueFormatted
               })
             }
           }
@@ -351,8 +386,10 @@ try {
   if (args.clean === false) {
     generator()
   } else {
-    rimraf(currentPath(rootPath), () => {
-      mkdirp.sync(currentPath(rootPath))
+    const tagsPath = currentPath(`${rootPath}/${pathPrefixTags}`)
+
+    rimraf(tagsPath, () => {
+      mkdirp.sync(tagsPath)
       generator()
     })
   }

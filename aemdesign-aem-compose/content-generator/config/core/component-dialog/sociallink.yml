@@ -1,0 +1,9 @@
+sociallink/type:
+  prefixes:
+    - linkedin
+    - facebook
+    - twitter
+    - github
+    - youtube
+  valueFormat: '%%prefix%%'
+  title: '%%prefix_normalised%%'

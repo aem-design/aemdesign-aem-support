@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Text"
+        sling:resourceType="aemdesign/components/template/dls">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemdesign/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemdesign/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/details/page-details"
+                    componentId="page_details"
+                    editable="{Boolean}false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"/>
+                <contentblock_content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock_content">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <contentblock_content_container
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="contentblock_content_container"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/grid/container/size/small]"
+                            variant="container">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/container">
+                                <contentblock_content_one
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_content_one"
+                                    text="&lt;h2>Heading 2&lt;/h2>&#xd;&#xa;&lt;p class=&quot;lead&quot;>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque. Ut enim blandit volutpat maecenas. Arcu odio ut sem nulla pharetra diam.&lt;/p>&#xd;&#xa;&lt;p class=&quot;lead&quot;>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa ultricies. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed. Convallis aenean et tortor at risus viverra adipiscing.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <contentblock_content_two
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_content_two"
+                                    text="&lt;h3>Heading 3&lt;/h3>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fames ac turpis egestas maecenas. Non curabitur gravida arcu ac. Neque viverra justo nec ultrices dui sapien eget. Sit amet dictum sit amet justo donec enim diam. Vitae ultricies leo integer malesuada nunc vel risus commodo.&lt;/p>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus ultricies tristique nulla aliquet enim. Eu lobortis elementum nibh tellus. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Ipsum faucibus vitae aliquet nec ullamcorper. Maecenas accumsan lacus vel facilisis.&lt;/p>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat maecenas volutpat blandit aliquam etiam erat velit. Id diam maecenas ultricies mi. Cras semper auctor neque vitae. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Vitae ultricies leo integer malesuada nunc. At volutpat diam ut venenatis tellus in.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <contentblock_content_three
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_content_three"
+                                    text="&lt;h4>Heading 4&lt;/h4>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi etiam dignissim diam quis. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Mattis ullamcorper velit sed ullamcorper. Posuere ac ut consequat semper viverra nam libero justo laoreet. Porta lorem mollis aliquam ut. Odio pellentesque diam volutpat commodo sed egestas egestas.&lt;/p>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna condimentum mattis pellentesque id nibh. Lobortis scelerisque fermentum dui faucibus in ornare. Pharetra magna ac placerat vestibulum lectus. Auctor augue mauris augue neque gravida in fermentum et. Pretium quam vulputate dignissim suspendisse in est ante. Ultrices eros in cursus turpis. Dignissim diam quis enim lobortis. Nunc faucibus a pellentesque sit amet porttitor.&lt;/p>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget arcu dictum varius duis at consectetur lorem.&lt;/li>&#xd;&#xa;&lt;li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa ultricies mi.&lt;/li>&#xd;&#xa;&lt;li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse in est ante in nibh.&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <contentblock_spacing_image
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/media/image"
+                                    componentId="contentblock_spacing_image"
+                                    fileReference="/content/dam/aemdesign-showcase/en/components/media/image/city3.jpg"/>
+                                <contentblock_content_four
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_content_four"
+                                    text="&lt;h5>Heading 5&lt;/h5>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi etiam dignissim diam quis. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Mattis ullamcorper velit sed ullamcorper. Posuere ac ut consequat semper viverra nam libero justo laoreet. Porta lorem mollis aliquam ut. Odio pellentesque diam volutpat commodo sed egestas egestas.&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque id diam vel quam elementum pulvinar.&lt;/li>&#xd;&#xa;&lt;li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae tortor condimentum lacinia quis vel. Tellus molestie nunc non blandit massa enim.&lt;/li>&#xd;&#xa;&lt;li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus sit amet est placerat in egestas.&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere ac ut consequat semper viverra nam. Ipsum dolor sit amet consectetur adipiscing elit pellentesque. Tristique magna sit amet purus gravida quis blandit turpis. Nulla malesuada pellentesque elit eget gravida cum. Lacus vel facilisis volutpat est velit egestas dui id.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <contentblock_content_five
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/text"
+                                    componentId="contentblock_content_five"
+                                    text="&lt;h6>Heading 6&lt;/h6>&#xd;&#xa;&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus proin nibh nisl condimentum id venenatis a. Varius duis at consectetur lorem donec massa sapien faucibus. Sed vulputate odio ut enim blandit volutpat maecenas. Morbi quis commodo odio aenean sed adipiscing diam donec adipiscing. In cursus turpis massa tincidunt dui ut. Morbi tristique senectus et netus et. Sit amet risus nullam eget felis eget. Dui nunc mattis enim ut tellus. Feugiat in fermentum posuere urna nec.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                        </contentblock_content_container>
+                    </par>
+                </contentblock_content>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

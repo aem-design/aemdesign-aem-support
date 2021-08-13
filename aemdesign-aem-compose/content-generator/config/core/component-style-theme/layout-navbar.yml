@@ -1,0 +1,11 @@
+
+# Navbar
+layout/navbar/headernav:
+  flat: true
+  prefix: 'navbar-expand-lg navbar-light bg-white'
+  title: 'Header Nav'
+
+layout/navbar/simple-inverse:
+  flat: true
+  prefix: 'navbar-toggleable-md navbar-inverse bg-inverse fixed-top'
+  title: 'Simple Inverse'

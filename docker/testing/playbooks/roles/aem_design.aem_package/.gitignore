@@ -1,0 +1,17 @@
+target/
+
+node_modules/
+
+.nodejs
+.project
+.classpath
+.settings
+.checkstyle
+.idea
+*.iml
+.DS_Store
+.temp/
+
+.cache/
+*.log
+__pycache__/

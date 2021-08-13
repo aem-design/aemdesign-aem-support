@@ -7,7 +7,7 @@ SCRIPT_PARAMS="$@"
 
 set_term_title "Sync Showcase"
 
-HOST="http://localhost:4502/crx/server/crx.default/jcr:root/"
+HOST="http://localhost:4502/crx/server/aem.default/jcr:root/"
 JCR_ROOT="$(realpath ./src/main/content/jcr_root/)"
 CREDENTIALS="$AEM_USER:$AEM_PASS"
 FILTER="./src/main/content/META-INF/vault/filter.xml"

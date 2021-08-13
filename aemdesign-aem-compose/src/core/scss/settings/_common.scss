@@ -1,0 +1,41 @@
+// Grid breakpoints
+
+/// @type Map
+$breakpoints: (
+  xs: 0,
+  sm: 320px,
+  md: 640px,
+  lg: 1024px,
+  xl: 1366px,
+);
+
+// Lists
+
+/// @type Number
+$list-item-margin:       15px;
+/// @type Number
+$list-item-md-margin:    20px;
+/// @type Number
+$list-item-lg-margin:    25px;
+
+// Export these values to webpack for use via JavaScript.
+// @see js/utilities/config.ts
+/* stylelint-disable */
+
+:export {
+
+  // Breakpoints
+  breakpoint-xs:         map-get($breakpoints, xs);
+  breakpoint-sm:         map-get($breakpoints, sm);
+  breakpoint-md:         map-get($breakpoints, md);
+  breakpoint-lg:         map-get($breakpoints, lg);
+  breakpoint-xl:         map-get($breakpoints, xl);
+
+  // List margins
+  list-item-margin:      $list-item-margin;
+  list-item-md-margin:   $list-item-md-margin;
+  list-item-lg-margin:   $list-item-lg-margin;
+
+}
+
+/* stylelint-enable */
