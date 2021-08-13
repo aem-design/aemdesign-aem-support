@@ -40,6 +40,7 @@ jobs:
       GPG_PRESET_EXECUTABLE: /usr/lib/gnupg/gpg-preset-passphrase
       GPG_PUBID: "50A036956AAC64C13EF47B10D1E96A30ECFC7DFF"
       GPG_PUBID_KEYGRIP: "020E615868703482DC2CD110B98D2702B6ABF89C"
+      PERSONAL_ADMIN_TOKEN: ${{ secrets.PERSONAL_ADMIN_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
@@ -126,7 +127,7 @@ jobs:
       - name: Deploy docs
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_ADMIN_TOKEN }}
           destination_dir: ${{ env.GIT_BRANCH }}
           publish_dir: ./aemdesign-testing/remote-seleniumhub-chrome/generated-docs/html/
           enable_jekyll: true
