@@ -15,4 +15,7 @@ PDF is used to upload to Confluence and Jira for tracking.
 * [PDF Summary](generated-docs/pdf/summary.pdf)
 * [PDF Page List Publish Spec](generated-docs/pdf/specs.component.lists.pagelist.PageListPublishSpec.pdf)
 
+Branch Reports:
+
+* [Develop](develop/summary.html)
 
