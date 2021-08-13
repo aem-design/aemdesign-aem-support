@@ -129,6 +129,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           destination_dir: ${{ env.GIT_BRANCH }}
           publish_dir: ./aemdesign-testing/remote-seleniumhub-chrome/generated-docs/html/
+          enable_jekyll: true
+          external_repository: aem-design/aemdesign-aem-support-output
 
       # - name: Check for success
       #   run: |
