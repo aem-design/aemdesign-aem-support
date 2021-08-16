@@ -521,7 +521,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
         if (System.properties.getProperty("HAS_COMPARE", "false") == "false" && System.properties.getProperty("HAS_DOCKER", "false") == "false") {
             printDebug("NO COMPARE", ["SKIPPING", System.properties.getProperty("HAS_COMPARE", false), System.properties.getProperty("HAS_DOCKER", false)])
             return VERY_DIFFERENT
-        } else if ( System.properties.getProperty("HAS_DOCKER", "false") == "true" ) {
+        } else if ( System.properties.getProperty("HAS_DOCKER", "false") == "true" && System.properties.getProperty("HAS_COMPARE", "false") == "false" ) {
             compareCmd = "compare.sh ${screenshotFilename} ${referenceFilename} ${differenceFilename}"
 //            printDebug("RUNNING COMPARE IN DOCKER", [compareCmd])
             processErrorText = getRunDockerCommandOutput(compareCmd)
