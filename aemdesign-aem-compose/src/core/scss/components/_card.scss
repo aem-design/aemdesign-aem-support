@@ -1,3 +1,5 @@
+// [1] `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
+
 /**
  * Bootstrap card
  */
@@ -14,8 +16,7 @@
   width: 100%;
 
   &-img-top,
-  .lazysizes-display-clone {
-    // `.lazysizes-display-clone` is used for cases when the browser doesn't support 'object-fit'
+  .lazysizes-display-clone { // [1]
     display: block;
     height: 145px;
 
@@ -44,17 +45,17 @@
   }
 
   &-body {
-    background-color: $white;
+    background-color: $card-bg;
+    border-radius: $card-inner-border-radius;
     display: flex;
     flex-direction: column;
 
-    // A small 'hack' (if you will) that ensures buttons remain aligned to the bottom of the
-    // card as sibling cards will be the same height as oneanother.
-    > :last-child:not(.card-title):not(.card-subtitle):not(.card-text) {
-      margin-top: auto;
+    // Small workaround to ensure the last element is in the same location on all cards
+    > :nth-last-child(2):not(:first-child):not(:last-child) {
+      margin-bottom: auto;
+      padding-bottom: $grid-gutter-width;
     }
 
-    // Remove the bottom margin if it's the only or last child in the body
     > :only-child,
     > :last-child {
       margin-bottom: 0;
@@ -66,21 +67,16 @@
     }
 
     @include media-breakpoint-up(xl) {
-      padding: $grid-gutter-width 40px;
+      padding: $grid-gutter-width;
     }
   }
 
-  &-taglist li {
-    padding-left: 0;
-  }
-
-  &-text {
-    color: #808285;
-  }
-
   &-link {
-    @extend .link;
+    @extend %link-base;
 
-    height: auto;
+    &:not(.btn),
+    &.btn.btn-link {
+      @extend %link-button;
+    }
   }
 }

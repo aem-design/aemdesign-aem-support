@@ -2,4 +2,8 @@ div.article {
   @include media-breakpoint-up(xl) {
     padding-left: $sidebar-width;
   }
+
+  @include aem-author-edit {
+    padding-left: 0;
+  }
 }

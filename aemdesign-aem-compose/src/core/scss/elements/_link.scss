@@ -1,6 +1,7 @@
 a {
   align-items: center;
   display: inline-flex;
+  transition: $link-transition;
 
   > .icon {
     font-size: icon-size('small');

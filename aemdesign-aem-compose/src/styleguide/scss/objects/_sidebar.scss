@@ -40,6 +40,10 @@ div.aside {
     margin-bottom: $grid-gutter-width;
   }
 
+  @include aem-author-edit {
+    display: none;
+  }
+
   // Navigation
   @import '../components/navlist';
 }

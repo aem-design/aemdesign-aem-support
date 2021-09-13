@@ -1,7 +1,8 @@
 // stylelint-disable declaration-no-important
 
 > div.colctrl > .colctrl,
-> div.contentblock > div.contentblock.container {
+> div.contentblock > div.contentblock.container,
+> div.list > [component] {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }

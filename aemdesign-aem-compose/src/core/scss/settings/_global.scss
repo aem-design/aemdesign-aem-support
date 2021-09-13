@@ -2,11 +2,29 @@
 @import 'paths';
 
 // Colours
-/// @type Map
 
 @import 'colours';
 
-$theme-colors: $colors;
+$primary:       map-get($colors, 'blue');
+$secondary:     map-get($colors, 'grey-6');
+$success:       map-get($colors, 'green');
+$warning:       map-get($colors, 'orange');
+$danger:        map-get($colors, 'red');
+$light:         map-get($colors, 'grey-1');
+$dark:          map-get($colors, 'grey-8');
+
+$theme-colors: map-merge(
+  (
+    'primary'   : $primary,
+    'secondary' : $secondary,
+    'success'   : $success,
+    'warning'   : $warning,
+    'danger'    : $danger,
+    'light'     : $light,
+    'dark'      : $dark,
+  ),
+  $colors
+);
 
 // Body
 
@@ -18,6 +36,13 @@ $body-bg:                    $body-bg;
 
 $link-color:                              color('blue');
 $link-hover-color:                        darken($link-color, 15%);
+$link-hover-decoration:                   none;
+
+$link-transition-length:                  150ms;
+
+$link-transition: color $link-transition-length ease-in-out,
+  background-color $link-transition-length ease-in-out,
+  border-color $link-transition-length ease-in-out;
 
 // Paragraphs
 
@@ -33,6 +58,7 @@ $paragraph-margin-bottom:   10px;
 
 $font-size-base:              16px;
 $font-size-sm:                12px;
+$font-size-lg:                20px;
 
 $line-height-base:            24px;
 $line-height-sm:              18px;
@@ -87,6 +113,10 @@ $container-types: (
 // Icons
 
 @import 'icons';
+
+// Buttons
+
+@import 'buttons';
 
 // Custom typography map for responsive headings and text
 

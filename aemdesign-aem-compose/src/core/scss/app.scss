@@ -3,10 +3,14 @@
 // Settings & Tooling
 @import 'setup';
 
+// Vendors
+@import 'vendor/tiny-slider';
+
 // Generics
 @import 'generic/custom-fonts';
 @import 'generic/normalize';
 @import 'generic/typography';
+@import 'generic/dialog-modal';
 
 // Elements
 @import 'elements/headings';
@@ -32,11 +36,13 @@
 @import 'components/event-list';
 @import 'components/image';
 @import 'components/link';
+@import 'components/list';
 @import 'components/nav';
 @import 'components/navbar';
 @import 'components/news-list';
 @import 'components/page-details';
 @import 'components/page-list';
+@import 'components/placeholders.link';
 @import 'components/placeholders.list';
 @import 'components/placeholders.list.carousel';
 @import 'components/tag-list';
@@ -57,6 +63,3 @@
 // Themes
 // They don't really exist in ITCSS but they are a construct we need but can come back to.
 @import 'themes/index';
-
-// Vendors
-// @import 'vendor/';
