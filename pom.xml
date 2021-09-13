@@ -7,7 +7,7 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.359</version>
+    <version>2.0.621</version>
     <packaging>pom</packaging>
 
     <name>AEM Design - Support Project</name>
@@ -23,13 +23,18 @@
         <crx.port>4502</crx.port>
         <crx.username>admin</crx.username>
         <crx.password>admin</crx.password>
-        <crx.package.path>/etc/packages</crx.package.path>
+        <aem.scheme>http</aem.scheme>
+        <aem.host>localhost</aem.host>
+        <aem.port>4502</aem.port>
+        <aem.username>admin</aem.username>
+        <aem.password>admin</aem.password>
+        <aem.package.path>/etc/packages</aem.package.path>
         <nexus.host>localhost</nexus.host>
         <nexus.port>8081</nexus.port>
-        <publish.crx.host>localhost</publish.crx.host>
-        <publish.crx.port>4503</publish.crx.port>
-        <publish.crx.username>admin</publish.crx.username>
-        <publish.crx.password>admin</publish.crx.password>
+        <publish.aem.host>localhost</publish.aem.host>
+        <publish.aem.port>4503</publish.aem.port>
+        <publish.aem.username>admin</publish.aem.username>
+        <publish.aem.password>admin</publish.aem.password>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <package.group>${project.parent.groupId}</package.group>
@@ -259,7 +264,7 @@
         </repository>
         <repository>
             <id>central maven</id>
-            <url>http://central.maven.org/maven2/</url>
+            <url>https://repo1.maven.org/maven2/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -285,7 +290,7 @@
         </pluginRepository>
         <pluginRepository>
             <id>central maven</id>
-            <url>http://central.maven.org/maven2/</url>
+            <url>https://repo1.maven.org/maven2/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -302,7 +307,7 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>4.0.3</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -333,6 +338,10 @@
                         <!--<match>__null__</match>-->
                         <!--<tags>true</tags>-->
                     </gitDescribe>
+                    <includeOnlyProperties>
+                        <includeOnlyProperty>^git.closest.tag.name$</includeOnlyProperty>
+                        <includeOnlyProperty>^git.closest.tag.commit.count$</includeOnlyProperty>
+                    </includeOnlyProperties>
                 </configuration>
             </plugin>
 
@@ -497,39 +506,6 @@
 
         <pluginManagement>
             <plugins>
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-enforcer-plugin</artifactId>-->
-                    <!--<version>1.4.1</version>-->
-                    <!--<executions>-->
-                        <!--<execution>-->
-                            <!--<id>enforce-java</id>-->
-                            <!--<goals>-->
-                                <!--<goal>enforce</goal>-->
-                            <!--</goals>-->
-                            <!--<configuration>-->
-                                <!--<rules>-->
-                                    <!--<requireJavaVersion>-->
-                                        <!--<version>1.8</version>-->
-                                    <!--</requireJavaVersion>-->
-                                <!--</rules>-->
-                            <!--</configuration>-->
-                        <!--</execution>-->
-                        <!--<execution>-->
-                            <!--<id>enforce-maven</id>-->
-                            <!--<goals>-->
-                                <!--<goal>enforce</goal>-->
-                            <!--</goals>-->
-                            <!--<configuration>-->
-                                <!--<rules>-->
-                                    <!--<requireMavenVersion>-->
-                                        <!--<version>3.3.9</version>-->
-                                    <!--</requireMavenVersion>-->
-                                <!--</rules>-->
-                            <!--</configuration>-->
-                        <!--</execution>-->
-                    <!--</executions>-->
-                <!--</plugin>-->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
@@ -590,8 +566,8 @@
                     <artifactId>maven-sling-plugin</artifactId>
                     <version>2.1.0</version>
                     <configuration>
-                        <user>${crx.username}</user>
-                        <password>${crx.password}</password>
+                        <user>${aem.username}</user>
+                        <password>${aem.password}</password>
                     </configuration>
                 </plugin>
                 <!-- Content Package Plugin -->
@@ -602,44 +578,11 @@
                     <extensions>true</extensions>
                     <configuration>
                         <failOnError>true</failOnError>
-                        <userId>${crx.username}</userId>
-                        <password>${crx.password}</password>
+                        <userId>${aem.username}</userId>
+                        <password>${aem.password}</password>
                     </configuration>
                 </plugin>
-                <!--This plugin's configuration is used to store Eclipse
-                    m2e settings only. It has no influence on the Maven build itself. -->
-                <!--<plugin>-->
-                    <!--<groupId>org.eclipse.m2e</groupId>-->
-                    <!--<artifactId>lifecycle-mapping</artifactId>-->
-                    <!--<version>1.0.0</version>-->
-                    <!--<configuration>-->
-                        <!--<lifecycleMappingMetadata>-->
-                            <!--<pluginExecutions>-->
-                                <!--<pluginExecution>-->
-                                    <!--<pluginExecutionFilter>-->
-                                        <!--<groupId>-->
-                                            <!--org.apache.felix-->
-                                        <!--</groupId>-->
-                                        <!--<artifactId>-->
-                                            <!--maven-scr-plugin-->
-                                        <!--</artifactId>-->
-                                        <!--<versionRange>-->
-                                            <!--[1.0.0,)-->
-                                        <!--</versionRange>-->
-                                        <!--<goals>-->
-                                            <!--<goal>scr</goal>-->
-                                        <!--</goals>-->
-                                    <!--</pluginExecutionFilter>-->
-                                    <!--<action>-->
-                                        <!--<ignore/>-->
-                                    <!--</action>-->
-                                <!--</pluginExecution>-->
-                            <!--</pluginExecutions>-->
-                        <!--</lifecycleMappingMetadata>-->
-                    <!--</configuration>-->
-                <!--</plugin>-->
-                <!-- This plugin's configuration is to
-                 access the parsed components of a project version. -->
+                <!-- This plugin's configuration is to access the parsed components of a project version. -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>

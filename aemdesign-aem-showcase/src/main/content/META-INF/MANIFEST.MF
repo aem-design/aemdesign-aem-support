@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Content-Package-Roots: /content/aemdesign-showcase/au/en/pages/content
+ /aemdesign-showcase/au/en/pages
+Content-Package-Type: content
+Content-Package-Id: :
+

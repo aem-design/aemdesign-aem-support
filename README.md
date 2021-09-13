@@ -10,6 +10,8 @@
 [![github repo size](https://img.shields.io/github/repo-size/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
 [![github repo size](https://img.shields.io/github/languages/code-size/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support) 
 [![github release](https://img.shields.io/github/release/aem-design/aemdesign-aem-support)](https://github.com/aem-design/aemdesign-aem-support)
+[![Visit AEM.Design](https://img.shields.io/badge/visit-aem.design-brightgreen)](https://aem.design/)
+[![Gitter](https://img.shields.io/gitter/room/aem-design/Lobby)](https://gitter.im/aem-design/Lobby)
 
 A set of content and support projects that should be deploy alongside [aemdesign-aem-support](https://github.com/aem-design/aemdesign-aem-support).
 
@@ -17,10 +19,7 @@ A set of content and support projects that should be deploy alongside [aemdesign
 
 * [AEM.Design Blog](https://aem.design)
 * [AEM.Design SonarCloud](https://sonarcloud.io/project/issues?id=design.aem%3Aaemdesign-aem-support)
-
-## Development
-If you're curious about how the next generation of components looks like, a tech preview is made available in the
-[`development`](https://github.com/aem-design/aemdesign-aem-support/tree/development) branch.
+* [AEM.Design Components](https://sonarcloud.io/project/issues?id=design.aem%3Aaemdesign-aem-support)
 
 ## Contributing
 

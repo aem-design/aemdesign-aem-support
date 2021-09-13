@@ -1,9 +1,0 @@
-#!/bin/bash
-
-echo "Installing Dependencies"
-
-#mvn clean verify -DskipTests=true
-
-gem install bundler
-
-bundle install
