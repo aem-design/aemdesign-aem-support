@@ -4,25 +4,26 @@
     jcr:primaryType="dam:Asset"
     jcr:uuid="fe3aad32-5149-44de-a285-1a5ab5c32c48">
     <jcr:content
-        dam:assetState="processing"
-        dam:relativePath="tets/EarthFromSpace.mov"
-        jcr:lastModified="{Date}2019-09-12T17:17:09.281+10:00"
+        dam:assetState="processed"
+        dam:relativePath="aemdesign-showcase/en/multimedia/video/EarthFromSpace.mov"
+        jcr:lastModified="{Date}2021-06-02T20:34:49.817+10:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         status="Error[No Encoding]">
         <metadata
-            dam:extracted="{Date}2017-10-13T09:43:12.795+11:00"
+            dam:extracted="{Date}2021-06-02T20:31:02.979+10:00"
             dam:sha1="5f0c63885e46657538a7b405557725a3628f8e68"
             dam:size="{Long}64623045"
             dc:extent="{Long}36068"
             dc:format="video/quicktime"
             dc:modified="{Date}2019-09-12T17:17:09.282+10:00"
-            jcr:lastModified="{Date}2019-09-12T17:17:09.281+10:00"
+            jcr:lastModified="{Date}2021-06-02T20:31:02.715+10:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}1080"
             tiff:ImageWidth="{Long}1920"
+            tiff:Orientation="{Long}1"
             xmp:CreateDate="{Date}2016-05-10T19:36:07.000Z"
             xmp:MetadataDate="{Date}2016-05-10T20:36:40.000+01:00"
             xmp:ModifyDate="{Date}2016-05-10T19:36:40.000Z"
@@ -54,6 +55,12 @@
                 jcr:primaryType="nt:unstructured"
                 xmpDM:scale="1/25"
                 xmpDM:value="{Long}917"
+                xmpNodeType="xmpStruct"/>
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="cc74570f-1861-9fcb-6212-483f00000045"
+                stRef:instanceID="10aef71b-2526-ee68-4c64-538500000072"
+                stRef:originalDocumentID="xmp.did:29de526e-15f9-4c21-a94e-468cde28b531"
                 xmpNodeType="xmpStruct"/>
             <xmpMM:History
                 jcr:primaryType="nt:unstructured"
@@ -93,12 +100,6 @@
                     stEvt:when="{Date}2016-05-10T20:36:40.000+01:00"
                     xmpNodeType="xmpStruct"/>
             </xmpMM:History>
-            <xmpMM:DerivedFrom
-                jcr:primaryType="nt:unstructured"
-                stRef:documentID="cc74570f-1861-9fcb-6212-483f00000045"
-                stRef:instanceID="10aef71b-2526-ee68-4c64-538500000072"
-                stRef:originalDocumentID="xmp.did:29de526e-15f9-4c21-a94e-468cde28b531"
-                xmpNodeType="xmpStruct"/>
         </metadata>
         <related jcr:primaryType="nt:unstructured"/>
     </jcr:content>
