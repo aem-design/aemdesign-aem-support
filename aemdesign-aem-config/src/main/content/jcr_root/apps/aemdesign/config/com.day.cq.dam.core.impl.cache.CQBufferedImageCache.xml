@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    cq.dam.image.cache.max.age="{Decimal}60000"
+    cq.dam.image.cache.max.dimension="10000x10000"
+    cq.dam.image.cache.max.memory="{Long}-1"/>
