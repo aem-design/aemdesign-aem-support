@@ -1,0 +1,129 @@
+---
+- name: testingprep-showcase
+  hosts: localhost
+  become: true
+  vars:
+    PORT: "8080"
+    HOST: "author"
+    USERNAME: "admin"
+    PASSWORD: "admin"
+    PACKAGE_VERISON_CORE: "2.1.320"
+    PACKAGE_VERISON_SHOWCASE: "2.0.597"
+    debug_hide: false
+
+
+
+  pre_tasks:
+    - name: get packages
+      shell: |
+        mvn dependency:copy -o -D"maven.repo.local=/build/.m2/repository" -D"artifact=design.aem:aemdesign-aem-core-deploy:LATEST:zip" -D"outputDirectory=./packages" -D"mdep.stripVersion=true"
+        mvn dependency:copy -o -D"maven.repo.local=/build/.m2/repository" -D"artifact=design.aem:aemdesign-aem-support-deploy:LATEST:zip" -D"outputDirectory=./packages" -D"mdep.stripVersion=true"
+      args:
+        executable: /bin/bash
+      environment:
+        PACKAGE_VERISON_CORE: "{{ PACKAGE_VERISON_CORE }}"
+        PACKAGE_VERISON_SHOWCASE: "{{ PACKAGE_VERISON_SHOWCASE }}"
+
+  tasks:
+    - name: verify aem is ready
+      include_role:
+        name: "aem_design.aem_verify"
+      vars:
+        aem_port: "{{ PORT }}"
+        aem_host: "{{ HOST }}"
+        aem_username: "{{ USERNAME }}"
+        aem_password: "{{ PASSWORD }}"
+        debug_hide: false
+
+    - name: install core package
+      command: "curl -u '{{ USERNAME }}:{{ PASSWORD }}' \
+        -X POST \
+        -F 'file=@./packages/aemdesign-aem-core-deploy.zip' \
+        -F 'name=aemdesign-aem-core-deploy.zip' \
+        -H User-Agent:curl \
+        -F force=true \
+        -F install=true \
+        'http://{{ HOST }}:{{ PORT }}/crx/packmgr/service.jsp'"
+
+    - name: verify aem is ready
+      include_role:
+        name: "aem_design.aem_verify"
+      vars:
+        aem_port: "{{ PORT }}"
+        aem_host: "{{ HOST }}"
+        aem_username: "{{ USERNAME }}"
+        aem_password: "{{ PASSWORD }}"
+        debug_hide: false
+
+    - name: install showcase package
+      command: "curl -u '{{ USERNAME }}:{{ PASSWORD }}' \
+        -X POST \
+        -F 'file=@./packages/aemdesign-aem-support-deploy.zip' \
+        -F 'name=aemdesign-aem-support-deploy.zip' \
+        -H User-Agent:curl \
+        -F force=true \
+        -F install=true \
+        'http://{{ HOST }}:{{ PORT }}/crx/packmgr/service.jsp'"
+
+    - name: verify aem is ready
+      include_role:
+        name: "aem_design.aem_verify"
+      vars:
+        aem_port: "{{ PORT }}"
+        aem_host: "{{ HOST }}"
+        aem_username: "{{ USERNAME }}"
+        aem_password: "{{ PASSWORD }}"
+        debug_hide: false
+
+
+    # - name: install aem packages
+    #   include_role:
+    #     name: aem_design.aem_package
+    #   vars:
+    #     aem_port: "{{ PORT }}"
+    #     aem_host: "{{ HOST }}"
+    #     aem_username: "{{ USERNAME }}"
+    #     aem_password: "{{ PASSWORD }}"
+    #     maven_repository_url: "{{ item.maven_repository_url | default('') }}"
+    #     debug_hide: "{{ debug_hide }}"
+    #     simple_name: "{{ item.simple_name }}"
+    #     group_name: "{{ item.group_name }}"
+    #     package_version: "{{ item.package_version }}"
+    #     package_name: "{{ item.package_name }}"
+    #     package_url: "{{ item.package_url }}"
+    #     file_name: "{{ item.file_name }}"
+    #     file_url_username: "{{ item.file_url_username | default('') }}"
+    #     file_url_password: "{{ item.file_url_password | default('') }}"
+    #     install_package_ansible: "{{ item.install_package_ansible }}"
+    #     install_package_docker: "{{ item.install_package_docker }}"
+    #     docker_host: "{{ item.docker_host }}"
+    #   loop: [
+    #     {
+    #       debug_hide: "false",
+    #       simple_name: "aemdesign-aem-core-deploy",
+    #       group_name: "aemdesign",
+    #       package_version: "{{ PACKAGE_VERISON_CORE }}",
+    #       package_name: "aemdesign-aem-core-deploy",
+    #       package_url: "",
+    #       url_username: "",
+    #       url_password: "",
+    #       file_name: "aemdesign-aem-support-deploy-{{ PACKAGE_VERISON_CORE }}.zip",
+    #       install_package_ansible: true,
+    #       install_package_docker: false,
+    #       docker_host: "unix://var/run/docker.sock"
+    #     },
+    #     {
+    #       debug_hide: "false",
+    #       simple_name: "aemdesign-aem-support-deploy",
+    #       group_name: "aemdesign",
+    #       package_version: "{{ PACKAGE_VERISON_SHOWCASE }}",
+    #       package_name: "aemdesign-aem-support-deploy",
+    #       package_url: "",
+    #       url_username: "",
+    #       url_password: "",
+    #       file_name: "aemdesign-aem-support-deploy-{{ PACKAGE_VERISON_SHOWCASE }}.zip",
+    #       install_package_ansible: true,
+    #       install_package_docker: false,
+    #       docker_host: "unix://var/run/docker.sock"
+    #     }
+    #   ]

@@ -1,0 +1,42 @@
+---
+
+docker_image_user: "aemdesign"
+docker_image_name: "aem"
+docker_image: "{{ docker_image_user }}/{{ docker_image_name }}"
+docker_image_tag: "6.5.0"
+docker_container_name: "author"
+docker_timezone: "Australia/Melbourne"
+
+# specific role param
+aem_port: "4502"                                                                    # if specified port to use to for access to with aem container
+aem_debug_port: "58242"
+aem_imageserver_port: "57345"
+aem_debug: false
+aem_debug_opts: "-Dcom.sun.management.jmxremote.port={{ aem_debug_port }} \
+  -Dcom.sun.management.jmxremote.ssl=false \
+  -Dcom.sun.management.jmxremote.authenticate=false"
+
+aem_runmode: "-Dsling.run.modes=author,crx3,crx3tar,nosamplecontent"
+aem_jvm_opts: "-server -Xms1024m -Xmx1024m \
+  -XX:MaxDirectMemorySize=256M \
+  -XX:+CMSClassUnloadingEnabled \
+  -Djava.awt.headless=true \
+  -Dorg.apache.felix.http.host=0.0.0.0\
+  {% if aem_debug %}{{ aem_debug_opts }}{% endif %}"
+aem_start_opts: "start -c /aem/crx-quickstart -i launchpad -p 8080 -a 0.0.0.0 \
+  -Dsling.properties=conf/sling.properties"
+
+# ImageServer 57345
+docker_published_ports: [
+  "0.0.0.0:{{ aem_port }}:8080/tcp",
+  "0.0.0.0:{{ aem_debug_port }}:58242/tcp",
+  "0.0.0.0:{{ aem_imageserver_port }}:57345/tcp"
+]
+
+docker_volumes: [
+  "author-repository:/aem/crx-quickstart/repository:z",
+  "author-logs:/aem/crx-quickstart/logs:z",
+  "author-backup:/aem/backup:z"
+]
+
+docker_host: "unix://var/run/docker.sock"    # host where to run the docker container

@@ -1,0 +1,4 @@
+---
+# from galaxy
+- src: aem_design.aem_license
+- src: aem_design.aem_verify
