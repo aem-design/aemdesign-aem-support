@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/default"
+        cq:lastModified="{Date}2021-08-06T12:25:42.568Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="AEM.Design Showcase - Asset Webp Rendition Generation"
+        sling:resourceType="cq/workflow/components/pages/model"
+        lastSynced="{Date}2021-08-06T12:25:43.667Z">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <webpimagegenerator
+                jcr:description="Generate Webp Rendition for Asset"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="WebP Image Generator - 512"
+                sling:resourceType="aemdesign/components/workflow/webpimagegenerator">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    height="512"
+                    lossless="true"
+                    PROCESS="design.aem.workflow.process.WebpImageGenerator"
+                    PROCESS_AUTO_ADVANCE="true"
+                    throttle="true"
+                    width="512"/>
+            </webpimagegenerator>
+        </flow>
+        <image/>
+    </jcr:content>
+</jcr:root>
