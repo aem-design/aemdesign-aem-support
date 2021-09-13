@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="cq:Page">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-02-13T16:23:25.318+11:00"
-        cq:lastModifiedBy="admin"
         cq:template="/conf/aemdesign-showcase/settings/wcm/templates/dls"
         jcr:primaryType="cq:PageContent"
         jcr:title="Link"
@@ -26,413 +25,319 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/details/page-details"
                     componentId="page_details"
-                    componentTheme="[aemdesign-showcase:component-style-theme/styleguide/page-details]"
                     editable="{Boolean}false"
                     showBreadcrumb="false"
                     showPageDate="false"
                     showParsys="false"
                     showToolbar="false"
                     textIsRich="true"/>
-                <contentblock
+                <link_default
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30]">
+                    componentId="link_default">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
-                        <contentblock_148734255
+                        <link_default_heading
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <link
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    label="Link default variant"
-                                    linkUrl="https://www.google.com.au"/>
-                            </par>
-                        </contentblock_148734255>
-                        <contentblock
-                            jcr:created="{Date}2019-02-13T10:51:46.701+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T10:51:46.701+11:00"
-                            jcr:lastModifiedBy="admin"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="link_default_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Default&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <link_default_component
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T10:52:12.248+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T10:53:45.877+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link : Variant default : Primary yellow&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T10:54:21.281+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T11:36:14.968+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/primary-yellow]"
-                                    label="Label"/>
-                            </par>
-                        </contentblock>
-                        <contentblock_1193128105
-                            jcr:created="{Date}2019-02-13T12:51:16.060+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T12:51:16.060+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T12:51:23.654+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T12:52:25.495+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant Default : disabled&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T12:52:48.582+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T12:53:54.609+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/state/disabled,aemdesign-showcase:component-style-modifier/button/normal/primary-yellow]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_1193128105>
-                        <contentblock_521654491
-                            jcr:created="{Date}2019-02-13T12:58:36.186+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T12:58:36.186+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T12:58:47.874+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T13:00:00.451+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: Secondary charcoal&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T13:00:11.813+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T13:21:25.701+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    label="label"/>
-                            </par>
-                        </contentblock_521654491>
-                        <contentblock_1481692248
-                            jcr:created="{Date}2019-02-13T14:44:46.932+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T14:44:46.932+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T14:45:00.881+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T14:46:20.858+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: Secondary outline&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T14:46:28.488+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T15:11:20.882+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/secondary-outline]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_1481692248>
-                        <contentblock_586921059
-                            jcr:created="{Date}2019-02-13T15:40:02.676+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T15:40:02.676+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T15:28:02.563+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T15:29:26.176+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: disabled outline&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T15:25:16.473+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T15:27:26.871+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/secondary-outline,aemdesign-showcase:component-style-modifier/button/state/disabled]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_586921059>
-                        <contentblock_1144678363
-                            jcr:created="{Date}2019-02-13T15:43:17.016+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T15:43:17.016+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par jcr:primaryType="nt:unstructured">
-                                <text
-                                    jcr:created="{Date}2019-02-13T15:40:16.368+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T15:41:13.123+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: Primary red&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T15:41:20.640+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T16:01:13.574+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/primary-red]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_1144678363>
+                            sling:resourceType="aemdesign/components/content/link"
+                            componentId="link_default_component"
+                            label="DLS Homepage"
+                            linkUrl="/content/aemdesign-showcase/au/en/dls"/>
                     </par>
-                </contentblock>
-                <contentblock_copy
-                    jcr:lastModified="{Date}2019-02-13T16:03:57.903+11:00"
-                    jcr:lastModifiedBy="admin"
+                </link_default>
+                <link_button_link
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemdesign/components/layout/contentblock"
-                    componentId="contentblock"
-                    componentModifiers="[aemdesign-showcase:component-style-modifier/padding/p-15,aemdesign-showcase:component-style-modifier/padding/p-md-30,aemdesign-showcase:component-style-modifier/background/bg-dark]">
+                    componentId="link_button_link">
                     <par
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemdesign/components/layout/container">
-                        <contentblock
-                            jcr:created="{Date}2019-02-13T10:51:46.701+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T10:51:46.701+11:00"
-                            jcr:lastModifiedBy="admin"
+                        <link_button_link_heading
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T10:52:12.248+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T10:53:45.877+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link : Variant default : Primary yellow&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T10:54:21.281+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T11:36:14.968+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/primary-yellow]"
-                                    label="Label"/>
-                            </par>
-                        </contentblock>
-                        <contentblock_1193128105
-                            jcr:created="{Date}2019-02-13T12:51:16.060+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T12:51:16.060+11:00"
-                            jcr:lastModifiedBy="admin"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="link_button_link_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Button - Link&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <link_button_link_component
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T12:51:23.654+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T12:52:25.495+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant Default : disabled&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T12:52:48.582+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T12:53:54.609+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/state/disabled,aemdesign-showcase:component-style-modifier/button/normal/primary-yellow]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_1193128105>
-                        <contentblock_521654491
-                            jcr:created="{Date}2019-02-13T12:58:36.186+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T12:58:36.186+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T12:58:47.874+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T16:16:46.152+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: Secondary white&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T13:00:11.813+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T16:17:26.474+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/secondary-white]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_521654491>
-                        <contentblock_1481692248
-                            jcr:created="{Date}2019-02-13T14:44:46.932+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T14:44:46.932+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T14:45:00.881+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T14:46:20.858+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: Secondary outline&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T14:46:28.488+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T16:23:25.311+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/secondary-outline]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_1481692248>
-                        <contentblock_586921059
-                            jcr:created="{Date}2019-02-13T15:40:02.676+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T15:40:02.676+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/layout/container">
-                                <text
-                                    jcr:created="{Date}2019-02-13T15:28:02.563+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T15:29:26.176+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: disabled outline&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T15:25:16.473+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T15:27:26.871+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/secondary-outline,aemdesign-showcase:component-style-modifier/button/state/disabled]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_586921059>
-                        <contentblock_1144678363
-                            jcr:created="{Date}2019-02-13T15:43:17.016+11:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2019-02-13T15:43:17.016+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/contentblock">
-                            <par jcr:primaryType="nt:unstructured">
-                                <text
-                                    jcr:created="{Date}2019-02-13T15:40:16.368+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T15:41:13.123+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    text="&lt;p>Link: Variant default: Primary red&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                                <link
-                                    jcr:created="{Date}2019-02-13T15:41:20.640+11:00"
-                                    jcr:createdBy="admin"
-                                    jcr:lastModified="{Date}2019-02-13T16:01:13.574+11:00"
-                                    jcr:lastModifiedBy="admin"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/link"
-                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/normal/primary-red]"
-                                    label="label"/>
-                            </par>
-                        </contentblock_1144678363>
+                            sling:resourceType="aemdesign/components/content/link"
+                            componentId="link_button_link_component"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/link]"
+                            label="DLS Homepage"
+                            linkUrl="/content/aemdesign-showcase/au/en/dls"/>
                     </par>
-                    <bgimage
-                        jcr:lastModified="{Date}2019-02-13T16:03:57.903+11:00"
-                        jcr:lastModifiedBy="admin"
+                </link_button_link>
+                <link_buttons
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="link_buttons">
+                    <par
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/media/image"/>
-                    <bgvideo
-                        jcr:lastModified="{Date}2019-02-13T16:03:57.903+11:00"
-                        jcr:lastModifiedBy="admin"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <link_buttons_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="link_buttons_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Buttons&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <link_buttons_wrapper
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="link_buttons_wrapper"
+                            variant="parsys">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/parsys">
+                                <link_buttons_primary_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_primary_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary]"
+                                    label="Primary"
+                                    linkUrl="#"/>
+                                <link_buttons_secondary_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_secondary_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/secondary]"
+                                    label="Secondary"
+                                    linkUrl="#"/>
+                                <link_buttons_success_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_success_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/success]"
+                                    label="Success"
+                                    linkUrl="#"/>
+                                <link_buttons_warning_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_warning_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/warning]"
+                                    label="Warning"
+                                    linkUrl="#"/>
+                                <link_buttons_danger_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_danger_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/danger]"
+                                    label="Danger"
+                                    linkUrl="#"/>
+                                <link_buttons_light_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_light_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/light]"
+                                    label="Light"
+                                    linkUrl="#"/>
+                                <link_buttons_dark_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_dark_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/dark]"
+                                    label="Dark"
+                                    linkUrl="#"/>
+                            </par>
+                        </link_buttons_wrapper>
+                    </par>
+                </link_buttons>
+                <link_buttons_outline
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="link_buttons_outline">
+                    <par
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/media/image"/>
-                </contentblock_copy>
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <link_buttons_outline_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="link_buttons_outline_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Buttons - Outline&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <link_buttons_outline_wrapper
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="link_buttons_outline_wrapper"
+                            variant="parsys">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/parsys">
+                                <link_buttons_outline_primary_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_outline_primary_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/outline/primary]"
+                                    label="Primary"
+                                    linkUrl="#"/>
+                                <link_buttons_outline_secondary_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_outline_secondary_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/outline/secondary]"
+                                    label="Secondary"
+                                    linkUrl="#"/>
+                                <link_buttons_outline_success_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_outline_success_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/outline/success]"
+                                    label="Success"
+                                    linkUrl="#"/>
+                                <link_buttons_outline_warning_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_outline_warning_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/outline/warning]"
+                                    label="Warning"
+                                    linkUrl="#"/>
+                                <link_buttons_outline_danger_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_outline_danger_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/outline/danger]"
+                                    label="Danger"
+                                    linkUrl="#"/>
+                                <link_buttons_outline_light_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_outline_light_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/outline/light]"
+                                    label="Light"
+                                    linkUrl="#"/>
+                                <link_buttons_outline_dark_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_buttons_outline_dark_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/outline/dark]"
+                                    label="Dark"
+                                    linkUrl="#"/>
+                            </par>
+                        </link_buttons_outline_wrapper>
+                    </par>
+                </link_buttons_outline>
+                <link_button_group
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    ariaRole="group"
+                    componentId="link_button_group">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <link_button_group_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="link_button_group_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Button - Group&lt;/h2>&#xd;&#xa;&lt;p>A Content Block is used as the parent element with a variant of &lt;strong>parsys&lt;/strong>. This is important to ensure the structure is minimal.&lt;/p>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <link_button_group_wrapper
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="link_button_group_wrapper"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/group]"
+                            variant="parsys">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/parsys">
+                                <link_button_group_component_one
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_group_component_one"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/secondary]"
+                                    label="Button one"
+                                    linkUrl="#"/>
+                                <link_button_group_component_two
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_group_component_two"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/secondary]"
+                                    label="Button two"
+                                    linkUrl="#"/>
+                                <link_button_group_component_three
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_group_component_three"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/secondary]"
+                                    label="Button three"
+                                    linkUrl="#"/>
+                            </par>
+                        </link_button_group_wrapper>
+                    </par>
+                </link_button_group>
+                <link_button_sizes
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="link_button_sizes">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <link_button_sizes_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="link_button_sizes_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Button - Sizes&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <link_button_sizes_small_wrapper
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/layout/contentblock"
+                            componentId="link_button_sizes_small_wrapper"
+                            variant="parsys">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/layout/parsys">
+                                <link_button_sizes_small_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_sizes_small_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary,aemdesign-showcase:component-style-modifier/button/size/sm]"
+                                    label="Small button"
+                                    linkUrl="#"/>
+                                <link_button_sizes_standard_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_sizes_standard_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary]"
+                                    label="Standard button"
+                                    linkUrl="#"/>
+                                <link_button_sizes_large_component
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="aemdesign/components/content/link"
+                                    componentId="link_button_sizes_large_component"
+                                    componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary,aemdesign-showcase:component-style-modifier/button/size/lg]"
+                                    label="Large button"
+                                    linkUrl="#"/>
+                            </par>
+                        </link_button_sizes_small_wrapper>
+                    </par>
+                </link_button_sizes>
+                <link_button_disabled
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="link_button_disabled">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <link_button_disabled_heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/text"
+                            componentId="link_button_disabled_heading"
+                            text="&lt;h2 class=&quot;h5 strong&quot;>Button - Disabled&lt;/h2>&#xd;&#xa;"
+                            textIsRich="true"/>
+                        <link_button_disabled_large_component
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/content/link"
+                            componentId="link_button_disabled_large_component"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/button/primary,aemdesign-showcase:component-style-modifier/button/state/disabled]"
+                            label="Disabled button"
+                            linkUrl="#"/>
+                    </par>
+                </link_button_disabled>
             </par>
         </article>
     </jcr:content>

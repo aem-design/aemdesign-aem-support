@@ -46,16 +46,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/layout/contentblock"
                             componentId="contentblock_standard_component"
-                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/greys/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]">
-                            <par jcr:primaryType="nt:unstructured">
-                                <contentblock_standard_component_text
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="aemdesign/components/content/text"
-                                    componentId="contentblock_standard_component_text"
-                                    text="&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.&lt;/p>&#xd;&#xa;"
-                                    textIsRich="true"/>
-                            </par>
-                        </contentblock_standard_component>
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/grey-tones/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]"/>
                     </par>
                 </contentblock_standard>
                 <contentblock_advanced_with_title
@@ -73,9 +64,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="aemdesign/components/layout/contentblock"
                             componentId="contentblock_advanced_with_title_component"
-                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/greys/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]"
-                            hideInMenu="true"
-                            hideTopLink="true"
+                            componentModifiers="[aemdesign-showcase:component-style-modifier/background/grey-tones/bg-grey-1,aemdesign-showcase:component-style-modifier/spacing-area/section]"
                             title="Example Title"
                             titleType="h3"
                             variant="advsection"/>

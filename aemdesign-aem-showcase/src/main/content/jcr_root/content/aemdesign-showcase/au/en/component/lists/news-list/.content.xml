@@ -119,29 +119,76 @@
                     </par>
                 </contentblock5>
                 <contentblock6
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/layout/contentblock"
-                        componentId="contentblock6"
-                        title="Badge: Card with Image, Title, Category, Action and Date with Order by Publish Date"
-                        variant="componentConfig">
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock6"
+                    title="Badge: Card with Image, Title, Category, Action and Date with Order by Publish Date"
+                    variant="componentConfig">
                     <par
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/container">
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
                         <newslist
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="aemdesign/components/lists/newslist"
-                                componentId="newslist6"
-                                detailsBadge="cardImageTitleCategoryActionDate"
-                                limit="10"
-                                listFrom="children"
-                                orderBy="@jcr:content/*/par/*/publishDate"
-                                parentPage="/content/aemdesign-showcase/au/en/content/news/2019/01"
-                                sortOrder="asc"
-                                tagsMatch="any">
-                        </newslist>
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/newslist"
+                            componentId="newslist6"
+                            detailsBadge="cardImageTitleCategoryActionDate"
+                            limit="10"
+                            listFrom="children"
+                            orderBy="@jcr:content/*/par/*/publishDate"
+                            parentPage="/content/aemdesign-showcase/au/en/content/news/2019/01"
+                            sortOrder="asc"
+                            tagsMatch="any"/>
                     </par>
                 </contentblock6>
+                <contentblock7
+                    jcr:lastModified="{Date}2021-02-26T20:06:00.257+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aemdesign/components/layout/contentblock"
+                    componentId="contentblock7"
+                    title="Custom Badge: Card Template and All Fields"
+                    variant="componentConfig">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/layout/container">
+                        <pagelist
+                            jcr:lastModified="{Date}2021-02-26T20:11:19.514+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="aemdesign/components/lists/newslist"
+                            badgeCustom="true"
+                            badgeFields="[title,description,pagedate,date,descriptionformatted,titleformatted,action]"
+                            badgeFieldsTemplate="card"
+                            badgeLinkStyle="[aemdesign-showcase:component-style-modifier/button/normal/link,aemdesign-showcase:component-style-modifier/button/primary]"
+                            badgeLinkText="[READ MORE]"
+                            cardStyle="[aemdesign-showcase:component-style-modifier/card/promoted,aemdesign-showcase:component-style-modifier/background/grey-tones/bg-grey-1]"
+                            componentId="pagelist40"
+                            limit="3"
+                            listFrom="children"
+                            listType="list"
+                            parentPage="/content/aemdesign-showcase/au/en/component/lists/news-list/custombadge"
+                            sortOrder="asc"
+                            tagsMatch="any">
+                            <badgeThumbnail
+                                jcr:lastModified="{Date}2021-02-26T20:11:19.514+11:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="aemdesign/components/media/image"/>
+                        </pagelist>
+                    </par>
+                    <bgimage
+                        jcr:lastModified="{Date}2021-02-26T20:06:00.257+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/image"/>
+                    <bgvideo
+                        jcr:lastModified="{Date}2021-02-26T20:06:00.257+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemdesign/components/media/video"/>
+                </contentblock7>
             </par>
         </article>
     </jcr:content>
+    <custombadge/>
 </jcr:root>
