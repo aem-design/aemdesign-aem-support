@@ -1,24 +1,30 @@
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { defineComponent, ref, ComponentPublicInstance } from 'vue'
 
-@Component({
+const err = ref<Error | false>(false)
+const vinfo = ref('')
+const vm = ref<ComponentPublicInstance | null>(null)
+
+export default defineComponent({
   name: 'error-boundary',
-})
-export default class ErrorBoundary extends Vue {
-  @Prop({ default: 'Something went wrong', type: String })
-  public heading!: boolean
 
-  @Prop({ type: Boolean })
-  public stopPropagation!: boolean
+  props: {
+    heading: {
+      default: 'Something went wrong',
+      type: String,
+    },
 
-  public err: Error | false = false
-  public info = ''
-  public vm: Vue | null = null
+    stopPropagation: Boolean,
+  },
 
-  errorCaptured(err: Error, vm: Vue, info: string) {
-    this.err  = err
-    this.vm   = vm
-    this.info = info
+  setup() {
+    return { err, vinfo, vm }
+  },
+
+  errorCaptured(error, instance, info) {
+    err.value = error as Error
+    vinfo.value = info
+    vm.value = instance
 
     return !this.stopPropagation
-  }
-}
+  },
+})

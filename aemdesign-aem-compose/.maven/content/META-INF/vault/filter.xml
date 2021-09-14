@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+	<filter root="/apps/aemdesign-compose/clientlibs/core" mode="replace" />
+	<filter root="/apps/aemdesign-compose/clientlibs/styleguide" mode="replace" />
+
+	<filter root="/content/cq:tags/aemdesign" mode="replace" />
+	<filter root="/content/cq:tags/aemdesign-showcase" mode="replace" />
+
+	<filter root="/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/misctools/specialCharsConfig/chars" mode="replace" />
+	<filter root="/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/styles/styles" mode="replace" />
+	<filter root="/apps/aemdesign/global/dialog/touch/text/content/items/textTab/items/column/items/text/rtePlugins/paraformat/formats" mode="replace" />
+</workspaceFilter>

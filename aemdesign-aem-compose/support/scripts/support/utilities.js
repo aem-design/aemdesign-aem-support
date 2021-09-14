@@ -50,7 +50,6 @@ function replaceHtmlContent(path, componentName, replacement) {
 /**
  * Sync the given `path` with AEM.
  * TODO: Work out why VLT is throwing itself around like a baby!
- * TODO: convert the path aemdesign-aem-compose to be a variable
  *
  * @param {string} path Something to sync to AEM
  */

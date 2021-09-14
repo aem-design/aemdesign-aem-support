@@ -1,5 +1,5 @@
 content/_cq_tags/aemdesign/component-style-icon: &component-style-icon
-  !!import/single ./icons.yml
+  !!import/single icons.yml
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-style-icon: *component-style-icon

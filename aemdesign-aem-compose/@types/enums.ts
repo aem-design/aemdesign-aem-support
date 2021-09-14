@@ -8,8 +8,8 @@ export enum IconPrefix {
 }
 
 export enum LogLevel {
-  LOG     = 'log',
-  INFO    = 'info',
+  LOG = 'log',
+  INFO = 'info',
   WARNING = 'warn',
-  ERROR   = 'error',
+  ERROR = 'error',
 }

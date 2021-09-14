@@ -1,54 +1,21 @@
 {
+  "extends": "@aem-design/compose-webpack/configs/tsconfig.json",
 
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "jsx": "preserve",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "pretty": false,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es5",
-
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2015",
-      "es2016",
-      "es2017",
-      "esnext",
-      "scripthost"
-    ],
-
     "baseUrl": "./",
+    "target": "ES2018",
+
+    "lib": ["DOM", "DOM.Iterable", "ES2018"],
 
     "paths": {
-      "@/core/components/*": [
-        "src/core/js/components/*"
-      ],
-      "@/core/module/*": [
-        "src/core/js/modules/*"
-      ],
-      "@/core/utility/*": [
-        "src/core/js/utilities/*"
-      ],
-      "@/typings/*": [
-        "@types/*"
-      ]
+      "@/core/components/*": ["src/core/js/components/*"],
+      "@/core/module/*": ["src/core/js/modules/*"],
+      "@/core/utility/*": ["src/core/js/utilities/*"],
+      "@/typings/*": ["@types/*"]
     }
   },
 
-  "exclude": [
-    "public/**/*",
-    "node_modules/**/*"
-  ],
+  "exclude": ["public", "node_modules"],
 
   "include": [
     "@types/**/*.ts",

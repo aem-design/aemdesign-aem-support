@@ -28,8 +28,8 @@
     <sonar.sources>src,pom.xml</sonar.sources>
     <!--<sonar.skip>true</sonar.skip>-->
     <nodeVersion>v14.17.6</nodeVersion>
-    <npmVersion>6.14.4</npmVersion>
-    <yarnVersion>v1.22.4</yarnVersion>
+    <npmVersion>6.14.8</npmVersion>
+    <yarnVersion>v1.22.10</yarnVersion>
     <generated.content>content-generator/content</generated.content>
     <package.path.apps>apps</package.path.apps>
     <package.appsPath>aemdesign-compose</package.appsPath>
@@ -167,6 +167,7 @@
               <arguments>install</arguments>
             </configuration>
           </execution>
+
           <!-- Core -->
           <execution>
             <id>exec-aem-build-core</id>
@@ -175,7 +176,7 @@
               <goal>yarn</goal>
             </goals>
             <configuration>
-              <arguments>${package.npmCommand} --project core --maven --no-color</arguments>
+              <arguments>${package.npmCommand} --aem.port ${crx.port} --project core --maven --no-color</arguments>
               <environmentVariables>
                 <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
               </environmentVariables>
@@ -201,7 +202,8 @@
               <goal>yarn</goal>
             </goals>
             <configuration>
-              <arguments>${package.npmCommand} --project styleguide --maven --no-color</arguments>
+              <arguments>${package.npmCommand} --aem.port ${crx.port} --project styleguide --maven --no-color
+              </arguments>
               <environmentVariables>
                 <COMPOSE_SIMPLE_LOG>true</COMPOSE_SIMPLE_LOG>
               </environmentVariables>

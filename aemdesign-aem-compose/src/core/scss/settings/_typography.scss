@@ -11,7 +11,6 @@ $typography: (
         font-size: $h1-font-size,
       ),
     ),
-
     h2: (
       xs: (
         font-size: $h2-font-size - 12px,
@@ -20,7 +19,6 @@ $typography: (
         font-size: $h2-font-size,
       ),
     ),
-
     h3: (
       xs: (
         font-size: $h3-font-size - 4px,
@@ -29,7 +27,6 @@ $typography: (
         font-size: $h3-font-size,
       ),
     ),
-
     h4: (
       xs: (
         font-size: $h4-font-size - 2px,
@@ -39,7 +36,6 @@ $typography: (
         font-size: $h4-font-size,
       ),
     ),
-
     h5: (
       xs: (
         font-size: $h5-font-size - 4px,
@@ -49,7 +45,6 @@ $typography: (
         font-size: $h5-font-size,
       ),
     ),
-
     h6: (
       xs: (
         font-size: $h6-font-size - 2px,
@@ -61,6 +56,5 @@ $typography: (
       ),
     ),
   ),
-
   text: (),
 );

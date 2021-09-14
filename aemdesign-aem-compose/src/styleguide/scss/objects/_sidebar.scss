@@ -19,7 +19,7 @@ div.aside {
   transition-delay: 0s;
   transition-duration: 300ms;
   transition-property: opacity, transform;
-  transition-timing-function: cubic-bezier(.5, 1, .89, 1);
+  transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
   width: $sidebar-width;
   z-index: $zindex-modal;
 
