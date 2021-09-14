@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "importsNotUsedAsValues": "error",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "skipDefaultLibCheck": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "ES5",
+
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2018"
+    ],
+
+    "paths": {
+      "@/support/*": [
+        "src/test/support/*"
+      ]
+    }
+  },
+
+  "exclude": [
+    "node_modules"
+  ],
+
+  "files": [
+    "../node_modules/jest-playwright-preset/types/global.d.ts",
+    "../node_modules/expect-playwright/global.d.ts"
+  ],
+
+  "include": [
+    "@types/**/*.ts",
+    "jest/**/*.ts",
+    "src/test/**/*.ts"
+  ]
+}
