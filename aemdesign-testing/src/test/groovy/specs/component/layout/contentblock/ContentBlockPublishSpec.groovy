@@ -37,7 +37,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Default"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -61,7 +61,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Default Container"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Float Section in #viewport.label")
@@ -84,7 +84,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Float Section"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Description List Section in #viewport.label")
@@ -107,7 +107,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Description List Section"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Field Set Section in #viewport.label")
@@ -133,7 +133,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Field Set Section"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -157,7 +157,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Plain Section"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -181,7 +181,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Advanced Section with Links"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Section with Background in #viewport.label")
@@ -207,7 +207,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").contains(".png")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Section with Background Video in #viewport.label")
@@ -238,7 +238,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $("${selector} source").firstElement().getAttribute("src").contains(".video.")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Parsys in #viewport.label")
@@ -261,7 +261,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $(selector + " .text[component]").text().trim() == "Variant: Parsys"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Child Section in #viewport.label")
@@ -293,7 +293,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Fist child section content should be expanded")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Section with Background using Image Option using Manual MediaQuery with Rendition in #viewport.label")
@@ -316,7 +316,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert $("#background-contentblock12").getAttribute("innerHTML").indexOf("aem-design-logo.png") > 0
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

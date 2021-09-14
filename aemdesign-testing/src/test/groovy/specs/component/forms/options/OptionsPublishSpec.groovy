@@ -36,7 +36,7 @@ class OptionsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Radio Buttons in #viewport.label")
@@ -59,7 +59,7 @@ class OptionsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -83,7 +83,7 @@ class OptionsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -107,7 +107,7 @@ class OptionsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

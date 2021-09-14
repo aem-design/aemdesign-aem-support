@@ -40,7 +40,7 @@ class ContentBlockMenuPublishSpec extends ComponentSpec {
         assert $("$selector a")[1].getAttribute("innerText") == "Container Unlocked"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -67,7 +67,7 @@ class ContentBlockMenuPublishSpec extends ComponentSpec {
         assert $("$selector a")[1].getAttribute("innerText") == "Container Unlocked Nested"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -95,7 +95,7 @@ class ContentBlockMenuPublishSpec extends ComponentSpec {
         assert $("$selector a")[1].getAttribute("innerText") == "Content Block Test 2"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

@@ -26,7 +26,7 @@ class LoginSpec extends FunctionalSpec {
         }
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
@@ -48,7 +48,7 @@ class LoginSpec extends FunctionalSpec {
         }
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Should log in with valid username and password in #viewport.label")
@@ -69,7 +69,7 @@ class LoginSpec extends FunctionalSpec {
         }
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

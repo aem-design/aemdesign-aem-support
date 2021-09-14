@@ -38,7 +38,7 @@ class PageDescriptionPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Override in #viewport.label")
@@ -62,7 +62,7 @@ class PageDescriptionPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
