@@ -1,0 +1,14 @@
+# https://github.com/browserslist/browserslist#readme
+
+defaults
+>= 1%
+last 1 major version
+not dead
+Chrome >= 60
+Firefox >= 50
+Edge >= 15
+iOS >= 10
+Safari >= 10
+Android >= 6
+Opera >= 30
+not IE > 0

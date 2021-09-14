@@ -1,5 +1,6 @@
 const { resolve }                     = require('path')
 const { configuration, registerHook } = require('@aem-design/compose-webpack')
+const LodashPlugin                    = require('lodash-webpack-plugin')
 const { DefinePlugin }                = require('webpack')
 
 registerHook('init:post', {
@@ -90,6 +91,11 @@ module.exports = configuration({
     plugins: [
       new DefinePlugin({
         __TESTING__: false,
+      }),
+      new LodashPlugin({
+        collections : true,
+        paths       : true,
+        shorthands  : true,
       }),
     ],
   }),
