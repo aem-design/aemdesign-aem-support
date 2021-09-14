@@ -1,0 +1,34 @@
+
+# Image
+media/image:
+  prefixes:
+    - banner
+    - figure
+  title: '%%prefix_normalised%%'
+
+media/image/caption:
+  flat: true
+  prefix: theme--image-caption
+  title: 'Captioned Image'
+
+media/image/headerlogo:
+  flat: true
+  prefix: theme--image-headerlogo
+  title: 'Header Logo'
+
+media/image/floating:
+  contents:
+    - left: { value: "float-left", title: "Left" }
+    - right: { value: "float-right", title: "Right" }
+
+media/image/pull:
+  prefixes:
+    - left
+    - right
+  sizes:
+    - 1
+    - 2
+    - 3
+    - 4
+  valueFormat: 'theme--image-pull-%%prefix%%-%%size%%'
+  title: 'Pull Image - %%prefix_normalised%% (%%size%% Columns)'

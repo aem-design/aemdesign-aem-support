@@ -1,19 +1,32 @@
 button:
   prefixes:
     - link
-  valueFormat: btn btn-%%prefix%%
-  title: '%%prefix_normalised%%'
-
-button/normal:
-  prefixes:
-    - link
+    - primary
+    - secondary
+    - success
+    - warning
+    - danger
+    - light
+    - dark
   valueFormat: btn btn-%%prefix%%
   title: '%%prefix_normalised%%'
 
 button/outline:
-  prefixes: []
-  valueFormat: btn btn-%%prefix%%
+  prefixes:
+    - primary
+    - secondary
+    - success
+    - warning
+    - danger
+    - light
+    - dark
+  valueFormat: btn btn-outline-%%prefix%%
   title: '%%prefix_normalised%%'
+
+button/group:
+  flat: true
+  prefix: 'btn-group'
+  title: 'Button Group'
 
 button/size:
   contents:

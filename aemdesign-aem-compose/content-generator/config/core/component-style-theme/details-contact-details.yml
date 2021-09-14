@@ -1,0 +1,43 @@
+
+# Details
+## Contact Details
+details/contact-details/format/action/default:
+  flat: true
+  prefix: '${pageUrl}'
+  title: 'Page Link'
+
+details/contact-details/format/action/email:
+  flat: true
+  prefix: 'mailto:${email}'
+  title: 'Email Link'
+
+## Contact Details
+details/contact-details/format/description/default:
+  flat: true
+  prefix: '${title}'
+  title: 'Default format'
+
+details/contact-details/format/description/jobTitleAtEmployee:
+  flat: true
+  prefix: '<span itemprop="jobTitle">${jobTitle}</span> for <span itemprop="employee" itemtype="http://schema.org/Organization">${employee}</span>'
+  title: 'Job Title At Employee'
+
+details/contact-details/format/description/jobTitleAtEmployeeWithEmail:
+  flat: true
+  prefix: '<span itemprop="jobTitle">${jobTitle}</span> for <span itemprop="employee" itemtype="http://schema.org/Organization">${employee}</span> <a href="mailto:${email}" itemprop="email">${email}</a>'
+  title: 'Job Title At Employee with Email'
+
+details/contact-details/format/description/jobTitleContactMobileEmail:
+  flat: true
+  prefix: '<div itemprop="jobTitle">${jobTitle}</div><div><a href="tel:${contactNumber}" itemprop="telephone" class="phone">${contactNumber}</a></div><div><a href="tel:${contactNumberMobile}" itemprop="telephone" class="mobile">${contactNumberMobile}</a></div><div><a href="mailto:${email}" itemprop="email" class="email">${email}</a></div>'
+  title: 'Job Title with Contact Numbers and Email'
+
+details/contact-details/format/title/default:
+  flat: true
+  prefix: '${honorificPrefix} ${givenName} ${familyName}'
+  title: 'Default format'
+
+details/contact-details/format/title/author:
+  flat: true
+  prefix: 'Author: <span itemprop="name">${givenName} ${familyName}</span>'
+  title: 'Author prefix with Name'

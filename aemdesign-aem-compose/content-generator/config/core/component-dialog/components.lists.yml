@@ -1,3 +1,41 @@
+components/lists/list/variant:
+  contents:
+    - default: {
+      title: "Default",
+      value: ""
+    }
+    - results: {
+      title: "Results",
+      value: "results"
+    }
+
+components/lists/list/listfrom:
+  contents:
+    - children: {
+      title: "Child pages",
+      value: "children"
+    }
+    - descendants: {
+      title: "Descendant pages",
+      value: "descendants"
+    }
+    - static: {
+      title: "Fixed list",
+      value: "static"
+    }
+    - search: {
+      title: "Search",
+      value: "search"
+    }
+    - querybuilder: {
+      title: "Advanced Search",
+      value: "querybuilder"
+    }
+    - tags: {
+      title: "Tags",
+      value: "tags"
+    }
+
 components/lists/list/orderby:
   contents:
     - bytitle: {
@@ -484,6 +522,14 @@ components/lists/assetlist/variant:
     - figure: {
       title: "Figure",
       value: "figure"
+    }
+
+
+components/lists/listnav/variant:
+  contents:
+    - default: {
+      title: "Default",
+      value: ""
     }
 
 components/lists/listnav/badge:

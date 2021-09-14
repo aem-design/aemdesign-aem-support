@@ -1,0 +1,13 @@
+components/workflow/contentfragmentpagegen/parcomponenttypes:
+  contents:
+    - default: {
+      title: "Default - Image",
+      fields: "[sling:resourceType,fileReference]",
+      fieldsValues: "[aemdesign/components/media/image,${asset}]",
+    }
+    - onlinemedia: {
+      title: "Component - Online Media",
+      fields: "[sling:resourceType,mediaProviderUrl,componentModifiers,variant]",
+      fieldsValues: "[aemdesign/components/widgets/onlinemedia,${asset},aemdesign-showcase:component-style-modifier/embed/embed-responsive-4by3,iframe]",
+    }
+

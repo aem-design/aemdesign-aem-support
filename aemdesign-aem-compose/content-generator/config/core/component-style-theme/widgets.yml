@@ -1,0 +1,9 @@
+
+
+# Generic
+generic/format/title/search-results:
+  flat: true
+  prefix: 'We found ${searchResultsTotal} results for <span class="query">${searchQuery}</span>'
+  title: 'Search Results'
+
+

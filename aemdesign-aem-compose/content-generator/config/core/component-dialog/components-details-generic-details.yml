@@ -1,7 +1,7 @@
 components/details/generic-details/variant:
   contents:
     - default: {
-      title: "Default",
+      title: "Legacy",
       value: "default",
       valuealt: "displayoptions"
     }
@@ -41,7 +41,7 @@ components/details/generic-details/legacy:
       title: "Clickable Card with Icon, Title, Category and Description",
       value: "badge.cardActionIconTitleCategoryDescription",
       templates: ["action-icon"],
-      fields: ["title", "category", "description"]
+      fields: ["title", "taglist", "description"]
     }
     - cardActionIconTitleDescription: {
       title: "Clickable Card with Icon, Title and Description",
@@ -59,7 +59,7 @@ components/details/generic-details/legacy:
       title: "Clickable Card with Image, Title, Category and Description",
       value: "badge.cardActionImageTitleCategoryDescription",
       templates: ["action-image"],
-      fields: ["title", "category", "description"]
+      fields: ["title", "taglist", "description"]
     }
     - cardActionImageTitleDescription: {
       title: "Clickable Card with Image, Title and Description",
@@ -71,7 +71,7 @@ components/details/generic-details/legacy:
       title: "Horizontal Card with Icon, Title, Category, Description and Action",
       value: "badge.cardHorizontalIconTitleCategoryDescriptionAction",
       templates: ["horizontal-icon"],
-      fields: ["title", "category", "description", "action"]
+      fields: ["title", "taglist", "description", "action"]
     }
     - cardIcon: {
       title: "Card with Icon",
@@ -101,13 +101,13 @@ components/details/generic-details/legacy:
       title: "Card with Icon, Title, Category and Description",
       value: "badge.cardIconTitleCategoryDescription",
       templates: ["card-icon"],
-      fields: ["title", "category", "description"]
+      fields: ["title", "taglist", "description"]
     }
     - cardIconTitleCategoryDescriptionAction: {
       title: "Card with Icon, Title, Category, Description and Action",
       value: "badge.cardIconTitleCategoryDescriptionAction",
       templates: ["card-icon"],
-      fields: ["title", "category", "description", "action"]
+      fields: ["title", "taglist", "description", "action"]
     }
     - cardIconTitleDateAction: {
       title: "Card with Icon, Title, Date and Action",
@@ -155,7 +155,7 @@ components/details/generic-details/legacy:
       title: "Card with Image, Subtitle, Title, Category, Description and Action",
       value: "badge.cardImageSubtitleTitleCategoryDescriptionAction",
       templates: ["card-image"],
-      fields: ["subtitle", "title", "category", "description", "action"]
+      fields: ["subtitle", "title", "taglist", "description", "action"]
     }
     - cardImageSubtitleTitleDescriptionAction: {
       title: "Card with Image, Subtitle, Title, Description and Action",
@@ -179,19 +179,19 @@ components/details/generic-details/legacy:
       title: "Card with Image, Title, Category, Action and Date",
       value: "badge.cardImageTitleCategoryActionDate",
       templates: ["card-image"],
-      fields: ["title", "category", "action", "date"]
+      fields: ["title", "taglist", "action", "date"]
     }
     - cardImageTitleCategoryDescription: {
       title: "Card with Image, Title, Category and Description",
       value: "badge.cardImageTitleCategoryDescription",
       templates: ["card-image"],
-      fields: ["title", "category", "description"]
+      fields: ["title", "taglist", "description"]
     }
     - cardImageTitleCategoryDescriptionAction: {
       title: "Card with Image, Title, Category, Description and Action",
       value: "badge.cardImageTitleCategoryDescriptionAction",
       templates: ["card-image"],
-      fields: ["title", "category", "description", "action"]
+      fields: ["title", "taglist", "description", "action"]
     }
     - cardImageTitleDescription: {
       title: "Card with Image, Title and Description",
@@ -217,6 +217,12 @@ components/details/generic-details/legacy:
       templates: ["card"],
       fields: ["title", "description", "action"]
     }
+    - cardTitleDescriptionFormatted: {
+      title: "Card with Formatted Title and Description",
+      value: "badge.cardTitleDescriptionFormatted",
+      templates: ["default"],
+      fields: ["titleformatted", "descriptionformatted"]
+    }
     - data: {
       title: "Output Data",
       value: "badge.data",
@@ -226,8 +232,8 @@ components/details/generic-details/legacy:
     - default: {
       title: "Default",
       value: "badge.default",
-      templates: ["default"],
-      fields: []
+      templates: ["simple"],
+      fields: ["action"]
     }
     - icon: {
       title: "Icon",
@@ -254,13 +260,33 @@ components/details/generic-details/fields:
       title: "Action Link",
       value: "action"
     }
+    - links: {
+      title: "Social Link",
+      value: "links"
+    }
+    - timerequired: {
+      title: "Time Required / Time To Read",
+      value: "timerequired"
+    }
     - description: {
       title: "Description",
       value: "description"
     }
+    - descriptionformatted: {
+      title: "Description Formatted",
+      value: "descriptionformatted"
+    }
+    - date: {
+      title: "Date",
+      value: "date"
+    }
     - title: {
       title: "Title",
       value: "title"
+    }
+    - titleformatted: {
+      title: "Title Formatted",
+      value: "titleformatted"
     }
     - subtitle: {
       title: "Sub Title",
@@ -269,6 +295,10 @@ components/details/generic-details/fields:
     - startdate: {
       title: "Start Date",
       value: "startdate"
+    }
+    - starttime: {
+      title: "Start Time",
+      value: "starttime"
     }
     - taglist: {
       title: "Tag List",
@@ -352,47 +382,4 @@ components/details/generic-details/templates:
     - simple-metadata: {
       title: "Image with Link",
       value: "simple-metadata"
-    }
-
-components/layout/contentblock/variant:
-  contents:
-    - container: {
-      title: "Container",
-      value: "container"
-    }
-    - containerVideo: {
-      title: "Container with Video Background",
-      value: "containerVideo"
-    }
-    - floating: {
-      title: "Floating Section",
-      value: "floating"
-    }
-    - advsection: {
-      title: "Advanced Section with Title",
-      value: "advsection"
-    }
-    - fieldset: {
-      title: "Field Set in Form",
-      value: "fieldset"
-    }
-    - descriptionlist: {
-      title: "Description List",
-      value: "descriptionlist"
-    }
-    - parsys: {
-      title: "Classic Parsys",
-      value: "parsys"
-    }
-    - childsection: {
-      title: "Child Section",
-      value: "childsection"
-    }
-    - componentConfig: {
-      title: "Section with Component Config Output",
-      value: "componentConfig"
-    }
-    - accordion: {
-      title: "Accordion",
-      value: "accordion"
     }

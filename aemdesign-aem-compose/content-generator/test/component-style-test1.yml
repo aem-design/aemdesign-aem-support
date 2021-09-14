@@ -36,18 +36,3 @@ content/_cq_tags/aemdesign/component-style-test:
       - center
     valueFormat: 'align-items%%infix%%-%%prefix%%'
     title: '%%prefix_normalised%% %%breakpoint%%'
-
-  components/details/generic-details/legacy:
-    contents:
-      - "cardActionIconDescription": {
-        title: "Clickable Card with Icon and Description",
-        value: "badge.cardActionIconDescription",
-        templates: ["action-icon"],
-        fields: ["description"]
-      }
-      - cardActionIconTitleCategoryDescription: {
-        title: "Clickable Card with Icon, Title, Category and Description",
-        value: "badge.cardActionIconTitleCategoryDescription",
-        templates: ["action-icon"],
-        fields: ["title", "category", "description"]
-      }
