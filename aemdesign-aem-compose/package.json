@@ -16,7 +16,7 @@
     "es6-promise": "^4.2.8",
     "jquery": "^3.5.1",
     "lazysizes": "^5.2.2",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.15",
     "picturefill": "^3.0.3",
     "popper.js": "^1.16.1",
     "tiny-slider": "^2.9.2",
@@ -50,7 +50,7 @@
     "expose-loader": "^0.7.5",
     "fast-glob": "^3.2.4",
     "html-minifier": "^4.0.0",
-    "js-yaml": "^3.14.1",
+    "js-yaml": "^3.14.0",
     "jsdom": "^16.2.2",
     "json2yaml": "^1.1.0",
     "lodash-webpack-plugin": "^0.11.5",
@@ -74,7 +74,7 @@
     "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
-    "yaml-import": "^2.0.0"
+    "yaml-import": "^0.3.1"
   },
   "engines": {
     "node": ">= 10.13.x",

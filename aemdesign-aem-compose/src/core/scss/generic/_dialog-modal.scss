@@ -15,25 +15,25 @@ $line-height-base:        1.428571429 !default; // 20/14
 // .modal-content   - actual modal w/ bg and corners and shit
 
 @mixin translate($x, $y) {
-  transform: translate($x, $y);
-  transform: translate($x, $y); // IE9 only
-  transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+  -ms-transform: translate($x, $y); // IE9 only
+  -o-transform: translate($x, $y);
   transform: translate($x, $y);
 }
 @mixin transition-transform($transition...) {
-  transition: -webkit-transform $transition;
-  transition: -moz-transform $transition;
-  transition: -o-transform $transition;
+  -webkit-transition: -webkit-transform $transition;
+  -moz-transition: -moz-transform $transition;
+  -o-transition: -o-transform $transition;
   transition: transform $transition;
 }
 
 @mixin clearfix() {
-  &::before,
-  &::after {
-    content: ' '; // 1
+  &:before,
+  &:after {
     display: table; // 2
+    content: " "; // 1
   }
-  &::after {
+  &:after {
     clear: both;
   }
 }
@@ -44,7 +44,7 @@ $line-height-base:        1.428571429 !default; // 20/14
 // supported browsers that have box shadow capabilities now support it.
 
 @mixin box-shadow($shadow...) {
-  box-shadow: $shadow; // iOS <4.3 & Android <4.1
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
   box-shadow: $shadow;
 }
 
@@ -107,6 +107,7 @@ $modal-lg:                    900px !default;
 $modal-md:                    600px !default;
 $modal-sm:                    300px !default;
 
+
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
@@ -145,6 +146,8 @@ $screen-xs-max:              ($screen-sm-min - 1) !default;
 $screen-sm-max:              ($screen-md-min - 1) !default;
 $screen-md-max:              ($screen-lg-min - 1) !default;
 
+
+
 // Kill the scroll on the body
 .modal-open {
   overflow: hidden;
@@ -152,24 +155,24 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 
 // Container that the modal scrolls within
 .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
   bottom: 0;
-  display: none;
   left: 0;
+  z-index: $zindex-modal;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 
   // Prevent Chrome on Windows from adding a focus outline. For details, see
   // https://github.com/twbs/bootstrap/pull/10951.
   outline: 0;
-  overflow: hidden;
-  -webkit-overflow-scrolling: touch;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: $zindex-modal;
 
   // When fading in the modal, animate it to slide down
   &.fade .modal-dialog {
     @include translate(0, -25%);
-    @include transition-transform(.3s ease-out);
+    @include transition-transform(0.3s ease-out);
   }
   &.in .modal-dialog { @include translate(0, 0); }
 }
@@ -180,32 +183,32 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 
 // Shell div to position the modal with bottom padding
 .modal-dialog {
-  margin: 10px;
   position: relative;
   width: auto;
+  margin: 10px;
 }
 
 // Actual modal
 .modal-content {
-  background-clip: padding-box;
+  position: relative;
   background-color: $modal-content-bg;
+  background-clip: padding-box;
   border: 1px solid $modal-content-border-color;
   border-radius: $border-radius-large;
+  @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
   // Remove focus outline from opened modal
   outline: 0;
-  position: relative;
-  @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
 }
 
 // Modal background
 .modal-backdrop {
-  background-color: $modal-backdrop-bg;
+  position: fixed;
+  top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
   z-index: $zindex-modal-background;
+  background-color: $modal-backdrop-bg;
   // Fade for backdrop
   &.fade { @include opacity(0); }
   &.in { @include opacity($modal-backdrop-opacity); }
@@ -214,8 +217,8 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
-  border-bottom: 1px solid $modal-header-border-color;
   padding: $modal-title-padding;
+  border-bottom: 1px solid $modal-header-border-color;
   @include clearfix;
 }
 // Close icon
@@ -225,22 +228,22 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 
 // Title text within header
 .modal-title {
-  line-height: $modal-title-line-height;
   margin: 0;
+  line-height: $modal-title-line-height;
 }
 
 // Modal body
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
-  padding: $modal-inner-padding;
   position: relative;
+  padding: $modal-inner-padding;
 }
 
 // Footer (for actions)
 .modal-footer {
-  border-top: 1px solid $modal-footer-border-color;
   padding: $modal-inner-padding;
   text-align: right; // right align buttons
+  border-top: 1px solid $modal-footer-border-color;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
@@ -260,19 +263,19 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 
 // Measure scrollbar width for padding body during modal show/hide
 .modal-scrollbar-measure {
-  height: 50px;
-  overflow: scroll;
   position: absolute;
   top: -9999px;
   width: 50px;
+  height: 50px;
+  overflow: scroll;
 }
 
 // Scale up the modal
 @media (min-width: $screen-sm-min) {
   // Automatically set modal's width for larger viewports
   .modal-dialog {
-    margin: 30px auto;
     width: $modal-md;
+    margin: 30px auto;
   }
   .modal-content {
     @include box-shadow(0 5px 15px rgba(0, 0, 0, .5));

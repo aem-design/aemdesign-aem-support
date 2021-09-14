@@ -3,7 +3,7 @@ version: "2.4"
 services:
 
   author:
-    image: aemdesign/aem:6.4.0
+    image: aemdesign/aem:sdk-2021.3.5087
     hostname: author
     healthcheck:
       test: curl -u admin:admin --header Referer:localhost --silent --connect-timeout 5 --max-time 5 localhost:8080//system/console/bundles.json | grep -q \"state\":\"Installed\" && exit 1 || exit 0
@@ -66,7 +66,7 @@ services:
       - author-network
 
   publish:
-    image: aemdesign/aem:6.4.0
+    image: aemdesign/aem:sdk-2021.3.5087
     hostname: publish
     healthcheck:
       test: curl -u admin:admin --header Referer:localhost --silent --connect-timeout 5 --max-time 5 localhost:8080//system/console/bundles.json | grep -q \"state\":\"Installed\" && exit 1 || exit 0
