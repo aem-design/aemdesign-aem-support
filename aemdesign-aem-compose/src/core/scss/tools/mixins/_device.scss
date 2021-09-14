@@ -2,8 +2,8 @@
 /// @group device
 /// @since 1.0.0
 @mixin notch-awesome(
-  $gutter-left: $grid-gutter-width / 2,
-  $gutter-right: $grid-gutter-width / 2
+  $gutter-left: math.div($grid-gutter-width, 2),
+  $gutter-right: math.div($grid-gutter-width, 2)
 ) {
   @include notch-awesome-query {
     @include notch-awesome-prop('padding-left', $gutter-left);

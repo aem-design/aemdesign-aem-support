@@ -71,7 +71,7 @@ $h4-font-size: 28px;
 $h5-font-size: 22px;
 $h6-font-size: 18px;
 
-$headings-margin-bottom: $grid-gutter-width / 2;
+$headings-margin-bottom: math.div($grid-gutter-width, 2);
 $headings-font-family: 'Noto Sans', $font-family-base;
 $headings-font-weight: $font-weight-bolder;
 $headings-color: inherit;

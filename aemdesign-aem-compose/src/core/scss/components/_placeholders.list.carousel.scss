@@ -1,5 +1,5 @@
 %components-list-carousel {
-  $grid-gutter: $grid-gutter-width / 2;
+  $grid-gutter: math.div($grid-gutter-width, 2);
 
   // Hide the original list once the emulated list has been generated
   .carousel-wrapper:not(.carousel-wrapper--mobile) ~ .list {

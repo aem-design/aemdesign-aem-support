@@ -30,7 +30,7 @@
       text-decoration: $link-hover-decoration;
 
       .svg-inline--fa {
-        transform: translateX($btn-icon-spacing-x / 2);
+        transform: translateX(math.div($btn-icon-spacing-x, 2));
       }
     }
   }

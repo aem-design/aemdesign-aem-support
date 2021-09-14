@@ -52,7 +52,7 @@ $typography: (
       ),
       lg: (
         font-size: $h6-font-size,
-        margin-bottom: $line-height-base / 2,
+        margin-bottom: math.div($line-height-base, 2),
       ),
     ),
   ),

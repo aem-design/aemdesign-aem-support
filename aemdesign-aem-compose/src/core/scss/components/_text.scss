@@ -8,7 +8,7 @@
   }
 
   p {
-    margin-bottom: $grid-gutter-width / 2;
+    margin-bottom: math.div($grid-gutter-width, 2);
   }
 
   ol,
@@ -16,11 +16,11 @@
     padding-left: 20px;
 
     > li {
-      padding-bottom: $line-height-base / 3;
+      padding-bottom: math.div($line-height-base, 3);
 
       li {
         padding-bottom: 0;
-        padding-top: $line-height-base / 3;
+        padding-top: math.div($line-height-base, 3);
       }
 
       ol,
