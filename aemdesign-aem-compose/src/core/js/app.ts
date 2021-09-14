@@ -62,14 +62,6 @@ async function loadApp() {
 
   fontAwesome()
 
-  /**
-   * IE11 fixes... ಥ﹏ಥ
-   */
-  if ((!!window.MSInputMethodContext && !!document.documentMode)) {
-    const makeIE11Work = (await import(/* webpackChunkName: "ut/ie11-fixes" */ '@/core/utility/ie11')).default
-
-    makeIE11Work()
-  }
 }
 
 if (document.readyState === 'loading') {
@@ -79,6 +71,8 @@ if (document.readyState === 'loading') {
 }
 
 // Hot module reloading support
+// @ts-ignore
 if (module.hot) {
+  // @ts-ignore
   module.hot.accept()
 }
