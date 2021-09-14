@@ -5,9 +5,10 @@ const { JSDOM }                       = require('jsdom')
 const minify                          = require('html-minifier').minify
 
 const PATHS_BASE     = '..'
-const PATHS_CONTENT  = 'content/aemdesign-showcase/au/en'
-const PATHS_SHOWCASE = `aemdesign-aem-showcase/src/main/content/jcr_root/${PATHS_CONTENT}`
-
+const PATHS_SHOWCASE_BASE  = 'aemdesign-showcase'
+const PATHS_CONTENT  = `content/${PATHS_SHOWCASE_BASE}/au/en`
+const PATHS_SHOWCASE = `${PATHS_SHOWCASE_BASE}/src/main/content/jcr_root/${PATHS_CONTENT}`
+const PATHS_COMPOSE  = 'aemdesign-aem-compose'
 /**
  * Escapes the input HTML to ensure it works correct in AEM.
  *
@@ -53,7 +54,7 @@ function replaceHtmlContent(path, componentName, replacement) {
  * @param {string} path Something to sync to AEM
  */
 function syncFileToAEM(path) {
-  const stdout = execSync(`./aemdesign-aem-compose/tools/vault-cli/bin/vlt --credentials admin:admin import http://localhost:4502/crx ${resolvePath(path, true)} /${PATHS_CONTENT}/${stripPathEnd(path)}`, {
+  const stdout = execSync(`./${PATHS_COMPOSE}/tools/vault-cli/bin/vlt --credentials admin:admin import http://localhost:4502/crx ${resolvePath(path, true)} /${PATHS_CONTENT}/${stripPathEnd(path)}`, {
     cwd      : resolve(process.cwd(), PATHS_BASE),
     encoding : 'utf8',
   })
