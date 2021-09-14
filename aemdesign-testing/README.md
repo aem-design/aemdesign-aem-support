@@ -150,11 +150,7 @@ You can commit these files to git, and they will be used as a reference source f
 
 ## Usage
 
-Start Selenium Hub and Node
-
-```powershell
-.\seleniumhub-start
-```
+You should have already started the AEM stack in Showcase repo and deployed your repos.
 
 Using Powershell 7 execute selected tests run following command:
 
@@ -174,12 +170,6 @@ Update `test-list` with test you want to run without specifying parameters, this
 
 ```powershell
 .\test-spec.ps1 -TEST_PORT 4512 
-```
-
-Stop Selenium Hub and Node
-
-```powershell
-.\seleniumhub-stop
 ```
 
 To only test specific viewports specify `TEST_VIEWPORTS` param
