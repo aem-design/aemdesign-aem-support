@@ -28,7 +28,7 @@
     </developers>
 
     <properties>
-        <geb.version>2.2</geb.version>
+        <geb.version>5.0</geb.version>
         <selenium.version>3.141.5</selenium.version>
         <groovy.version>2.4.14</groovy.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -223,7 +223,7 @@
                             <dependency>
                                 <groupId>junit</groupId>
                                 <artifactId>junit</artifactId>
-                                <version>4.12</version>
+                                <version>4.13.2</version>
                                 <scope>runtime</scope>
                             </dependency>
                         </dependencies>
@@ -317,7 +317,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
         </dependency>
         <dependency>
             <groupId>org.spockframework</groupId>
