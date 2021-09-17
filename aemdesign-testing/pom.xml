@@ -29,7 +29,7 @@
 
     <properties>
         <geb.version>2.2</geb.version>
-        <selenium.version>3.141.5</selenium.version>
+        <selenium.version>3.141.59</selenium.version>
         <groovy.version>2.4.14</groovy.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -199,7 +199,7 @@
                     <plugin>
                         <groupId>org.codehaus.gmavenplus</groupId>
                         <artifactId>gmavenplus-plugin</artifactId>
-                        <version>1.7.1</version>
+                        <version>1.12.1</version>
                         <executions>
                             <execution>
                                 <phase>site</phase>
@@ -432,14 +432,14 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>27.0.1-jre</version>
+            <version>30.1.1-jre</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>4.1.2</version>
+            <version>7.5.1</version>
         </dependency>
     </dependencies>
 </project>
