@@ -535,7 +535,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.2</version>
+                    <version>3.0-r1585899</version>
                     <configuration>
                         <tagNameFormat>@{project.version}</tagNameFormat>
                     </configuration>
