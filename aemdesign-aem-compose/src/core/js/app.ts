@@ -8,7 +8,7 @@ import Icons from '@/core/module/icons'
 
 import { isAuthorMode } from '@/core/utility/aem'
 
-async function loadApp() {
+async function loadApp(): Promise<any> {
   console.log('app.js jQuery Version', $.fn.jquery)
 
   /**
@@ -22,10 +22,16 @@ async function loadApp() {
   /**
    * Bind a carousel to every instance found on the page.
    */
-  const carouselTargets = document.querySelectorAll<HTMLElement>('[data-modules*="carousel"]')
+  const carouselTargets = document.querySelectorAll<HTMLElement>(
+    '[data-modules*="carousel"]',
+  )
 
   if (carouselTargets.length && !isAuthorMode()) {
-    const carousel = (await import(/* webpackChunkName: "md/a/carousel" */ '@/core/module/adaptive/carousel')).default
+    const carousel = (
+      await import(
+        /* webpackChunkName: "md/a/carousel" */ '@/core/module/adaptive/carousel'
+      )
+    ).default
 
     carousel(carouselTargets)
   }
@@ -50,7 +56,9 @@ async function loadApp() {
     $('.collapse[data-parent]').collapse('dispose')
 
     // DOM watch mode!
-    const watcher = (await import(/* webpackChunkName: "md/watcher" */ '@/core/module/watcher')).default
+    const watcher = (
+      await import(/* webpackChunkName: "md/watcher" */ '@/core/module/watcher')
+    ).default
 
     watcher()
   }
@@ -58,10 +66,13 @@ async function loadApp() {
   /**
    * Load the Font Awesome icons now as they are the heaviest payload overall.
    */
-  const fontAwesome = (await import(/* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome')).default
+  const fontAwesome = (
+    await import(
+      /* webpackChunkName: "md/fontawesome" */ '@/core/module/fontawesome'
+    )
+  ).default
 
   fontAwesome()
-
 }
 
 if (document.readyState === 'loading') {
@@ -71,8 +82,6 @@ if (document.readyState === 'loading') {
 }
 
 // Hot module reloading support
-// @ts-ignore
 if (module.hot) {
-  // @ts-ignore
   module.hot.accept()
 }

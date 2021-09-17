@@ -3,7 +3,7 @@ import '../scss/styleguide.scss'
 // Internal
 let scrollOffset: number
 
-function resetScrollOffset() {
+function resetScrollOffset(): void {
   scrollOffset = parseInt(getComputedStyle(document.body).top, 10)
 
   document.body.classList.remove('no-scroll')
@@ -12,7 +12,7 @@ function resetScrollOffset() {
   window.scrollTo(0, -scrollOffset)
 }
 
-function fixLinksForEnvironment() {
+function fixLinksForEnvironment(): void {
   const navLinks = document.querySelectorAll(
     'aside .nav-link, #dls_home_button_link',
   )
@@ -31,7 +31,7 @@ function fixLinksForEnvironment() {
   }
 }
 
-function headerMenu() {
+function headerMenu(): void {
   const header = document.querySelector('div.header')
 
   if (header) {
@@ -87,7 +87,7 @@ function headerMenu() {
   document.body.appendChild(menuOverlay)
 }
 
-async function loadApp() {
+async function loadApp(): Promise<any> {
   console.log('DLS is rocking...')
 
   if (window.location.search.indexOf('wcmmode') !== -1) {

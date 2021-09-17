@@ -1,5 +1,5 @@
 .menu-overlay {
-  background-color: rgba(color('black'), 0.5);
+  background-color: rgba(map-get($colors, 'black'), 0.5);
   content: '';
   display: block;
   height: 100vh;

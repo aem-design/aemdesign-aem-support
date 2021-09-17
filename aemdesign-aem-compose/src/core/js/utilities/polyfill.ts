@@ -1,21 +1,20 @@
-export function customEventPolyfill() {
-  if (typeof window.CustomEvent === 'function') {
-    return false
-  }
+// export function customEventPolyfill() {
+//   if (typeof window.CustomEvent === 'function') {
+//     return false
+//   }
 
-  function CustomEvent(event: string, params: any) {
-    params = params || {
-      bubbles    : false,
-      cancelable : false,
-      detail     : null,
-    }
+//   function CustomEvent(event: string, params: any) {
+//     params = params || {
+//       bubbles: false,
+//       cancelable: false,
+//       detail: null,
+//     }
 
-    const evt = document.createEvent('CustomEvent')
-    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail)
+//     const evt = document.createEvent('CustomEvent')
+//     evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail)
 
-    return evt
-  }
+//     return evt
+//   }
 
-  // @ts-ignore
-  window.CustomEvent = CustomEvent;
-}
+//   window.CustomEvent = CustomEvent
+// }

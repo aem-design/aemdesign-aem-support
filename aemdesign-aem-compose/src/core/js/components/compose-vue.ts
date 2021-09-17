@@ -23,7 +23,7 @@ const components = ['hello-world']
 /**
  * Sets up and binds the components needed for our Vue experiences.
  */
-function initialiseVue(options: Component = {}) {
+function initialiseVue(options: Component = {}): any {
   const app = createApp(options)
 
   app.config.performance = __DEV__

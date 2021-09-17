@@ -6,7 +6,7 @@
   margin-bottom: -5px;
 
   li {
-    border: 1px solid color('grey-2');
+    border: 1px solid map-get($colors, 'grey-2');
     border-radius: 3px;
     margin-bottom: 5px;
     padding-left: 5px;

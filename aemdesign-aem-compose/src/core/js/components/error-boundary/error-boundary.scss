@@ -1,6 +1,6 @@
 .error-boundary {
   &__heading {
-    color: color('red');
+    color: map-get($colors, 'red');
     margin-bottom: 0;
   }
 }

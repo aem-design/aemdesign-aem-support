@@ -26,7 +26,7 @@
 
   &__item {
     background-image: none;
-    border: 1px solid color('grey-1');
+    border: 1px solid map-get($colors, 'grey-1');
     border-radius: 3px;
     color: $body-color;
     overflow: hidden;
@@ -44,7 +44,7 @@
 
   &__details {
     background-color: $white;
-    border-left: 1px solid color('grey-1');
+    border-left: 1px solid map-get($colors, 'grey-1');
     padding: 15px;
 
     p {

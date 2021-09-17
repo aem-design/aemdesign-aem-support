@@ -34,7 +34,7 @@ $body-bg: $body-bg;
 //
 // Style anchor elements.
 
-$link-color: color('blue');
+$link-color: map-get($colors, 'blue');
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: none;
 

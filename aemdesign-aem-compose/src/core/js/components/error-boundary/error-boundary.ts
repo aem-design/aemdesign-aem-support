@@ -1,4 +1,5 @@
-import { defineComponent, ref, ComponentPublicInstance } from 'vue'
+import { defineComponent, ComponentPublicInstance } from '@vue/runtime-core'
+import { ref } from '@vue/reactivity'
 
 const err = ref<Error | false>(false)
 const vinfo = ref('')

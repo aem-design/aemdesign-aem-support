@@ -3,8 +3,8 @@
 div.aside {
   @include notch-awesome($gutter-half-width);
 
-  background-color: color('white');
-  border-right: 1px solid color('grey-2');
+  background-color: map-get($colors, 'white');
+  border-right: 1px solid map-get($colors, 'grey-2');
   height: 100%;
   left: 0;
   min-height: 100vh;
@@ -29,7 +29,7 @@ div.aside {
   }
 
   @include notch-awesome-query {
-    width: $sidebar-width + 100px;
+    width: $sidebar-width + 6rem;
   }
 
   @include media-breakpoint-up(xl) {

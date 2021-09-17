@@ -7,6 +7,7 @@
   }
 
   .carousel-wrapper {
+    @include make-container;
     @include make-container-max-widths;
 
     margin-left: auto;
@@ -30,9 +31,9 @@
       min-width: $mobile-width;
 
       @include media-breakpoint-up(md) {
-        flex-basis: percentage(4 / $grid-columns);
-        max-width: percentage(4 / $grid-columns);
-        min-width: percentage(4 / $grid-columns);
+        flex-basis: percentage(math.div(4, $grid-columns));
+        max-width: percentage(math.div(4, $grid-columns));
+        min-width: percentage(math.div(4, $grid-columns));
       }
     }
 
