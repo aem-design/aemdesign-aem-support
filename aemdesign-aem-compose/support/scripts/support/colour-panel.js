@@ -93,7 +93,7 @@ function generateColourItems(colours, deprecated = false) {
           </code>
           ${!colour.background ? `<code>
             <span class="icon-sass"><i class="fab fa-sass"></i></span>
-            color('${colour.class}')
+            map-get($colors, '${colour.class}')
           </code>` : ''}
         </div>
       </div>
