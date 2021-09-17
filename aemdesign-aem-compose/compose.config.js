@@ -44,15 +44,25 @@ module.exports = configuration({
       font: 'ANSI Shadow',
     },
 
-    mergeProjects: true,
+    mergeProjects: false,
 
     projects: {
       core: {
+        entryFile: 'app.ts',
+        outputName: 'app',
+
+        fileMap: {
+          header: [
+            'vendorlib/common',
+          ],
+        },
+
         additionalEntries: {
           'vendorlib/common': [
-            'lazysizes',
-            'lazysizes/plugins/object-fit/ls.object-fit',
-            'lazysizes/plugins/parent-fit/ls.parent-fit',
+            './core/js/vendor.ts',
+            'es6-promise/auto',
+            'classlist.js',
+            'picturefill',
           ],
         },
 
@@ -62,6 +72,10 @@ module.exports = configuration({
         generateIcons: true,
         iconsConfigFilename: 'icons',
         iconsFilePath: 'js/modules/fontawesome.ts',
+      },
+      styleguide: {
+        entryFile: 'styleguide.ts',
+        outputName: 'styleguide',
       },
     },
   },
