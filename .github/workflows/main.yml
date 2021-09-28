@@ -55,7 +55,7 @@ jobs:
         with:
           java-version: ${{ matrix.java-version }}
 
-      - uses: actions/setup-node@v2.4.0
+      - uses: actions/setup-node@v2.4.1
         with:
           node-version: '10.x'
           registry-url: https://npm.pkg.github.com/
