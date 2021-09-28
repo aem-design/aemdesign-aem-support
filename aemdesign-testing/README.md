@@ -271,10 +271,10 @@ For more information please see following reference site [https://www.browsersta
 
 Run following command to start a container with your project content. You will use this to run all maven tests.
 
-1. Start Selenium hub and grid
+1. Start the stack
 
 ```bash
-./seleniumhub-start
+docker-compose up
 ```
 
 2. Start Container, this will map parent project folder into `/build/aemdesign-aem-support` and map your `.m2` into `/build/.m2` which you will use when building.
