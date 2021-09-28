@@ -63,7 +63,7 @@ services:
       file: ./docker/aem/docker-compose.yml
       service: author-deploy-core
     volumes:
-      - "./:/build/source"
+      - "../:/build/source"
       - "~/.m2:/build/.m2"
     profiles:
       - dodeploy
@@ -86,6 +86,8 @@ services:
     extends:
       file: ./docker/aem/docker-compose.yml
       service: publish
+    profiles:
+      - publish
     depends_on:
       - author
 
@@ -117,6 +119,8 @@ services:
     extends:
       file: ./docker/aem/docker-compose.yml
       service: dispatcher
+    profiles:
+      - dispatcher
     depends_on:
       - publish
 
