@@ -53,6 +53,7 @@ jobs:
       - name: Set up jdk ${{ matrix.java-version }}
         uses: actions/setup-java@v2.3.0
         with:
+          distribution: 'adopt'
           java-version: ${{ matrix.java-version }}
 
       - uses: actions/setup-node@v2.4.0
