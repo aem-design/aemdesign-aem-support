@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@use 'sass:math';
+
 // Settings & Tooling
 @import 'setup';
 
@@ -20,6 +22,7 @@
 @import 'elements/text';
 
 // Objects
+@import 'objects/hover';
 @import 'objects/icon';
 @import 'objects/layout';
 @import 'objects/list';

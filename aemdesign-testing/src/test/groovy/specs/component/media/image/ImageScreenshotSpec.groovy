@@ -33,11 +33,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -57,11 +57,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Card in #viewport.label")
@@ -80,11 +80,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Image Title and Description in #viewport.label")
@@ -103,11 +103,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -127,11 +127,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Image Only with Licensed Image in #viewport.label")
@@ -150,11 +150,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Card with Licensed Image in #viewport.label")
@@ -173,11 +173,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -197,11 +197,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     //#image9 has no visual
@@ -222,11 +222,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -246,11 +246,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -270,11 +270,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Appearance of Component Variant: Image Title and Description with Overrides in #viewport.label")
@@ -293,11 +293,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     //#image14 has no visual
@@ -322,11 +322,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -346,11 +346,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -370,11 +370,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -394,11 +394,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -418,11 +418,11 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -442,10 +442,10 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

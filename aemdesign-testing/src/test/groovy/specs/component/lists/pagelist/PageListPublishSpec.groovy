@@ -47,7 +47,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} li.item").size() == 3
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Default variant using Icon badge in #viewport.label")
@@ -74,7 +74,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} li i").size() == 3
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Default variant using Image badge in #viewport.label")
@@ -101,7 +101,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} li img").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Default variant using Card badge in #viewport.label")
@@ -128,7 +128,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} li .card").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -156,7 +156,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} li .card").size() == 3
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -177,10 +177,10 @@ class PageListPublishSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         and: "Has no content"
-        assert $("${selector} .content > child").isEmpty() == true
+        assert $("${selector} .content > child").empty
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -217,7 +217,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} > div > ul > li.first > div > div.card-body > div > a").text().toUpperCase() == "BUTTON TEXT"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Default variant using Card badge with List Split every 2 in #viewport.label")
@@ -253,7 +253,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} ul").getAt(2).find("li").size() == 1
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Default with Thumbnail Override in #viewport.label")
@@ -281,7 +281,7 @@ class PageListPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Last item should have thumbnail override from list")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Default without Thumbnail Override in #viewport.label")
@@ -310,7 +310,7 @@ class PageListPublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Pages with Analytics #viewport.label")
@@ -341,7 +341,7 @@ class PageListPublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Pages with Title and Description Trim in #viewport.label")
@@ -368,11 +368,11 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} ul li .card-text").getAt(0).text().equals("Page with ..more")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 
-    @Unroll("Page List: Pages with Analytics Track Only in #viewport.label")
+    @Unroll("Page List: Pages with Analytics Track Only #viewport.label")
     def "Page List: Pages with Analytics Track Only"() {
 
         given: '>the page hierarchy is created as "Components" > "Lists" > "Page List"'
@@ -410,7 +410,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} ul li a").getAt(2).attr("data-layer-label").equals("Page3")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page List: Pages with no Details in #viewport.label")
@@ -433,7 +433,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} .page-missing-details").size() == 5
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -475,7 +475,7 @@ class PageListPublishSpec extends ComponentSpec {
         assert $("${selector} > div > ul > li.first > div").getAttribute("class").contains("card bg-grey-1")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

@@ -36,7 +36,7 @@ class AsidePublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample rich text")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Background in #viewport.label")
@@ -62,7 +62,7 @@ class AsidePublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").contains(".png")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

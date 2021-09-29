@@ -7,7 +7,7 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-aem-support</artifactId>
-    <version>2.0.595</version>
+    <version>2.0.720</version>
     <packaging>pom</packaging>
 
     <name>AEM Design - Support Project</name>
@@ -70,6 +70,10 @@
             <email>max@aem.design</email>
             <name>Max Barrass</name>
         </developer>
+        <developer>
+            <email>me@cshaw.xyz</email>
+            <name>Chris Shaw</name>
+        </developer>
     </developers>
 
     <scm>
@@ -110,7 +114,6 @@
     <!-- ====================================================================== -->
     <dependencyManagement>
         <dependencies>
-
             <!-- Servlet API -->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -126,7 +129,6 @@
                 <scope>provided</scope>
             </dependency>
             <!-- JSTL Dependencies -->
-
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
@@ -243,7 +245,6 @@
         </dependencies>
     </dependencyManagement>
 
-
     <!--
         Inclusion of repositories in POMs is controversial, to say the least.
         It would be best if you proxied the Adobe repository using a Maven
@@ -264,7 +265,7 @@
         </repository>
         <repository>
             <id>central maven</id>
-            <url>https://repo1.maven.org/maven2/</url>
+            <url>http://central.maven.org/maven2/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -290,7 +291,7 @@
         </pluginRepository>
         <pluginRepository>
             <id>central maven</id>
-            <url>https://repo1.maven.org/maven2/</url>
+            <url>http://central.maven.org/maven2/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -612,7 +613,6 @@
     </build>
 
     <profiles>
-
         <profile>
             <id>testing</id>
             <modules>
@@ -693,7 +693,8 @@
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <stagingProfileId>c4011210992a35</stagingProfileId>
-                            <stagingDescription>travis pipeline https://travis-ci.org/aem-design/aemdesign-aem-core</stagingDescription>
+                            <stagingDescription>travis pipeline https://travis-ci.org/aem-design/aemdesign-aem-core
+                            </stagingDescription>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                             <autoDropAfterRelease>true</autoDropAfterRelease>
                         </configuration>
@@ -725,9 +726,7 @@
                             </execution>
                         </executions>
                     </plugin>
-
                 </plugins>
-
             </build>
         </profile>
     </profiles>

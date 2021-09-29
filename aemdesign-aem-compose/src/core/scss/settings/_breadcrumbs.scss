@@ -1,6 +1,6 @@
-$breadcrumb-item-padding:           0;
-$breadcrumb-item-item-padding:      $line-height-base / 2;
+$breadcrumb-item-padding: 0;
+$breadcrumb-item-item-padding: math.div($line-height-base, 2);
 
-$breadcrumb-margin-bottom:          null;
+$breadcrumb-margin-bottom: null;
 
-$breadcrumb-divider:                quote('/');
+$breadcrumb-divider: quote('/');

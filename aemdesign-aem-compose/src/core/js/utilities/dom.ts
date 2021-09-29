@@ -74,7 +74,10 @@ export function hasParent(
  * @param {string} selector String to test elements against
  * @return {Element | null}
  */
-export function getParent(currentNode: Element, selector: string): Element | null {
+export function getParent(
+  currentNode: Element,
+  selector: string,
+): Element | null {
   const parent = hasParent(currentNode.parentNode, selector, true)
 
   if (parent !== false) {

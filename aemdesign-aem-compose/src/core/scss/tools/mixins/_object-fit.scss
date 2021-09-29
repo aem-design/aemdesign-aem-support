@@ -16,8 +16,7 @@
   @if $position {
     font-family: 'object-fit: #{$fit}; object-position: #{$position}';
     object-position: $position;
-  }
-  @else {
+  } @else {
     font-family: 'object-fit: #{$fit}';
   }
 }

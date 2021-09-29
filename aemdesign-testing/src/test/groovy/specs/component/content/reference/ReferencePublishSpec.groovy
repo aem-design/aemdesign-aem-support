@@ -36,7 +36,7 @@ class ReferencePublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

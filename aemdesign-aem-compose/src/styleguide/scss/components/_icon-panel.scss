@@ -30,9 +30,9 @@
 
   &__icon {
     align-items: center;
-    background-color: color('blue');
+    background-color: map-get($colors, 'blue');
     border-radius: 100%;
-    color: color('white');
+    color: map-get($colors, 'white');
     display: flex;
     font-size: icon-size('large');
     height: 50px;

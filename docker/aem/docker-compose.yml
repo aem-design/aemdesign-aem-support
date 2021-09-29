@@ -3,6 +3,9 @@ version: "2.4"
 services:
 
   author:
+    extends:
+      file: ../common/config-tz.yml
+      service: config
     image: aemdesign/aem:sdk-2021.3.5087
     hostname: author
     healthcheck:
@@ -36,6 +39,9 @@ services:
       - dispatcher-network
 
   author-deploy-core:
+    extends:
+      file: ../common/config-tz.yml
+      service: config
     image: aemdesign/centos-java-buildpack:jdk11
     hostname: author-deploy-core
     command:
@@ -51,6 +57,9 @@ services:
       - author-network
 
   author-deploy-support:
+    extends:
+      file: ../common/config-tz.yml
+      service: config
     image: aemdesign/centos-java-buildpack:jdk11
     hostname: author-deploy-support
     command:
@@ -66,6 +75,9 @@ services:
       - author-network
 
   publish:
+    extends:
+      file: ../common/config-tz.yml
+      service: config
     image: aemdesign/aem:sdk-2021.3.5087
     hostname: publish
     healthcheck:
@@ -97,6 +109,9 @@ services:
     - publish-network
 
   publish-deploy-core:
+    extends:
+      file: ../common/config-tz.yml
+      service: config
     image: aemdesign/centos-java-buildpack:jdk11
     hostname: publishdeploy
     command:
@@ -112,6 +127,9 @@ services:
       - author-network
 
   publish-deploy-support:
+    extends:
+      file: ../common/config-tz.yml
+      service: config
     image: aemdesign/centos-java-buildpack:jdk11
     hostname: publishdeploy
     command:
@@ -127,6 +145,9 @@ services:
       - author-network
 
   dispatcher:
+    extends:
+      file: ../common/config-tz.yml
+      service: config
     image: aemdesign/dispatcher
     hostname: dispatcher
     ports:

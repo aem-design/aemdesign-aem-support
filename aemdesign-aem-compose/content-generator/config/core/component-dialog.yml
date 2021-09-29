@@ -1,5 +1,6 @@
 content/_cq_tags/aemdesign/component-dialog: &component-dialog
-  !!import/dirMerge component-dialog
+  !!import/merge
+    - component-dialog
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-dialog: *component-dialog

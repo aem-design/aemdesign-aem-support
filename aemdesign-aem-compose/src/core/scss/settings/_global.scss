@@ -5,40 +5,40 @@
 
 @import 'colours';
 
-$primary:       map-get($colors, 'blue');
-$secondary:     map-get($colors, 'grey-6');
-$success:       map-get($colors, 'green');
-$warning:       map-get($colors, 'orange');
-$danger:        map-get($colors, 'red');
-$light:         map-get($colors, 'grey-1');
-$dark:          map-get($colors, 'grey-8');
+$primary: map-get($colors, 'blue');
+$secondary: map-get($colors, 'grey-6');
+$success: map-get($colors, 'green');
+$warning: map-get($colors, 'orange');
+$danger: map-get($colors, 'red');
+$light: map-get($colors, 'grey-1');
+$dark: map-get($colors, 'grey-8');
 
 $theme-colors: map-merge(
   (
-    'primary'   : $primary,
-    'secondary' : $secondary,
-    'success'   : $success,
-    'warning'   : $warning,
-    'danger'    : $danger,
-    'light'     : $light,
-    'dark'      : $dark,
+    'primary': $primary,
+    'secondary': $secondary,
+    'success': $success,
+    'warning': $warning,
+    'danger': $danger,
+    'light': $light,
+    'dark': $dark,
   ),
   $colors
 );
 
 // Body
 
-$body-bg:                    $body-bg;
+$body-bg: $body-bg;
 
 // Links
 //
 // Style anchor elements.
 
-$link-color:                              color('blue');
-$link-hover-color:                        darken($link-color, 15%);
-$link-hover-decoration:                   none;
+$link-color: map-get($colors, 'blue');
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: none;
 
-$link-transition-length:                  150ms;
+$link-transition-length: 150ms;
 
 $link-transition: color $link-transition-length ease-in-out,
   background-color $link-transition-length ease-in-out,
@@ -46,7 +46,7 @@ $link-transition: color $link-transition-length ease-in-out,
 
 // Paragraphs
 
-$paragraph-margin-bottom:   10px;
+$paragraph-margin-bottom: 10px;
 
 // Components
 //
@@ -56,37 +56,37 @@ $paragraph-margin-bottom:   10px;
 
 // Fonts
 
-$font-size-base:              16px;
-$font-size-sm:                12px;
-$font-size-lg:                20px;
+$font-size-base: 16px;
+$font-size-sm: 12px;
+$font-size-lg: 20px;
 
-$line-height-base:            24px;
-$line-height-sm:              18px;
-$line-height-lg:              $line-height-base + 4px;
+$line-height-base: 24px;
+$line-height-sm: 18px;
+$line-height-lg: $line-height-base + 4px;
 
-$h1-font-size:                60px;
-$h2-font-size:                50px;
-$h3-font-size:                38px;
-$h4-font-size:                28px;
-$h5-font-size:                22px;
-$h6-font-size:                18px;
+$h1-font-size: 60px;
+$h2-font-size: 50px;
+$h3-font-size: 38px;
+$h4-font-size: 28px;
+$h5-font-size: 22px;
+$h6-font-size: 18px;
 
-$headings-margin-bottom:      $grid-gutter-width / 2;
-$headings-font-family:        'Noto Sans', $font-family-base;
-$headings-font-weight:        $font-weight-bolder;
-$headings-color:              inherit;
+$headings-margin-bottom: math.div($grid-gutter-width, 2);
+$headings-font-family: 'Noto Sans', $font-family-base;
+$headings-font-weight: $font-weight-bolder;
+$headings-color: inherit;
 
-$lead-font-size:              $font-size-base + 4px;
-$lead-font-weight:            $font-weight-normal;
+$lead-font-size: $font-size-base + 4px;
+$lead-font-weight: $font-weight-normal;
 
 // Options
 
-$enable-caret:              false;
-$enable-rounded:            true;
+$enable-caret: false;
+$enable-rounded: true;
 
 // Grid generic
 
-$aem-prefix:     'aem-Grid';
+$aem-prefix: 'aem-Grid';
 $aem-prefix-col: 'aem-GridColumn';
 
 // Grid breakpoints

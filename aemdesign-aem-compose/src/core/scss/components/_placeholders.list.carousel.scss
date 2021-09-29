@@ -1,5 +1,5 @@
 %components-list-carousel {
-  $grid-gutter: $grid-gutter-width / 2;
+  $grid-gutter: math.div($grid-gutter-width, 2);
 
   // Hide the original list once the emulated list has been generated
   .carousel-wrapper:not(.carousel-wrapper--mobile) ~ .list {
@@ -7,6 +7,7 @@
   }
 
   .carousel-wrapper {
+    @include make-container;
     @include make-container-max-widths;
 
     margin-left: auto;
@@ -30,14 +31,14 @@
       min-width: $mobile-width;
 
       @include media-breakpoint-up(md) {
-        flex-basis: percentage(4 / $grid-columns);
-        max-width: percentage(4 / $grid-columns);
-        min-width: percentage(4 / $grid-columns);
+        flex-basis: percentage(math.div(4, $grid-columns));
+        max-width: percentage(math.div(4, $grid-columns));
+        min-width: percentage(math.div(4, $grid-columns));
       }
     }
 
     .tns-item:not(.tns-slide-active) {
-      opacity: .5;
+      opacity: 0.5;
       pointer-events: none;
       transition: $transition-fade;
     }

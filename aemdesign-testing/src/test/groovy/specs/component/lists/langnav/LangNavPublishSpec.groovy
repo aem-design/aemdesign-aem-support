@@ -44,7 +44,7 @@ class LangNavPublishSpec extends ComponentSpec {
         assert $("${selector} li").lastElement().getAttribute("textContent").trim().contains("RU")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Lang Nav: Default with Languages Not Available in #viewport.label")
@@ -70,7 +70,7 @@ class LangNavPublishSpec extends ComponentSpec {
         assert $("${selector} li").firstElement().getAttribute("textContent").trim().contains("EN")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -101,7 +101,7 @@ class LangNavPublishSpec extends ComponentSpec {
         assert $("${selector} li").lastElement().getAttribute("textContent").trim().contains("Russian")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
 
     }
 

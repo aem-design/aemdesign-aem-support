@@ -1,6 +1,7 @@
 # Themes
 content/_cq_tags/aemdesign/component-style-theme: &component-style-theme
-  !!import/dirMerge component-style-theme
+  !!import/merge
+    - component-style-theme
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-style-theme: *component-style-theme

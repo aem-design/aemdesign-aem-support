@@ -2,16 +2,16 @@
 // stylelint-disable selector-max-class
 
 ul.navlist {
-  border-top: 1px solid color('grey-2');
+  border-top: 1px solid map-get($colors, 'grey-2');
   margin-left: -$gutter-half-width;
   margin-right: -$gutter-half-width;
   padding-left: 0;
-  padding-top: $grid-gutter-width / 1.5;
+  padding-top: math.div($grid-gutter-width, 1.5);
 
   li:not(:last-child) {
-    border-bottom: 1px solid color('grey-2');
-    margin-bottom: $grid-gutter-width / 1.5;
-    padding-bottom: $grid-gutter-width / 1.5;
+    border-bottom: 1px solid map-get($colors, 'grey-2');
+    margin-bottom: math.div($grid-gutter-width, 1.5);
+    padding-bottom: math.div($grid-gutter-width, 1.5);
   }
 
   .dropdown-menu {
@@ -26,15 +26,15 @@ ul.navlist {
     transform: none !important;
 
     .nav-link {
-      padding-bottom: $nav-link-padding-y / 1.5;
-      padding-top: $nav-link-padding-y / 1.5;
+      padding-bottom: math.div($nav-link-padding-y, 1.5);
+      padding-top: math.div($nav-link-padding-y, 1.5);
 
       &:hover {
-        background-color: rgba(color('grey-1'), .5);
+        background-color: rgba(map-get($colors, 'grey-1'), 0.5);
       }
 
       &.active {
-        color: color('grey-5');
+        color: map-get($colors, 'grey-5');
         font-weight: 600;
       }
     }
@@ -42,7 +42,7 @@ ul.navlist {
 
   .nav-item.depth-1 {
     > .dropdown-toggle {
-      color: color('grey-9');
+      color: map-get($colors, 'grey-9');
       font-family: $headings-font-family;
       font-weight: 700;
       padding: 6px $gutter-half-width;
@@ -69,13 +69,13 @@ ul.navlist {
     }
 
     > .dropdown-menu {
-      border-left: 1px solid color('grey-2');
+      border-left: 1px solid map-get($colors, 'grey-2');
       margin-left: $gutter-half-width;
     }
 
     &.dropdown-submenu.active > .dropdown-toggle,
     &.dropdown-submenu.show > .dropdown-toggle {
-      color: color('gray-7');
+      color: map-get($colors, 'gray-7');
 
       &::after {
         content: '-';
@@ -101,12 +101,12 @@ ul.navlist {
       margin-left: -1px;
 
       &:not(.active):hover {
-        border-left-color: color('grey-4');
+        border-left-color: map-get($colors, 'grey-4');
         color: $link-hover-color;
       }
 
       &.active {
-        border-left-color: color('grey-7');
+        border-left-color: map-get($colors, 'grey-7');
       }
     }
   }

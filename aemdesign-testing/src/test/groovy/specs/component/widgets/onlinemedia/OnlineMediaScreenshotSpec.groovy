@@ -35,11 +35,11 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Ignore //#onlinemedia2 has no visual as it does not have module to load content
@@ -59,11 +59,11 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Ignore //#onlinemedia3 has no visual as it does not have module to load content
@@ -83,11 +83,11 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Online Media: Appearance of Component Variant: IFrame with Youtube Video in #viewport.label")
@@ -106,11 +106,11 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Online Media: Appearance of Component Variant: IFrame with Vimeo Video in #viewport.label")
@@ -129,10 +129,10 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

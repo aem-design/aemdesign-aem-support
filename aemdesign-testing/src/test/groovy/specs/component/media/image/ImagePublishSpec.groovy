@@ -54,7 +54,7 @@ class ImagePublishSpec extends ComponentSpec {
         )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Image Only in #viewport.label")
@@ -94,7 +94,7 @@ class ImagePublishSpec extends ComponentSpec {
         )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card in #viewport.label")
@@ -134,7 +134,7 @@ class ImagePublishSpec extends ComponentSpec {
         )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Image Title and Description in #viewport.label")
@@ -174,7 +174,7 @@ class ImagePublishSpec extends ComponentSpec {
         )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -215,7 +215,7 @@ class ImagePublishSpec extends ComponentSpec {
         )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Image Only with Licensed Image in #viewport.label")
@@ -255,7 +255,7 @@ class ImagePublishSpec extends ComponentSpec {
         )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Card with Licensed Image in #viewport.label")
@@ -305,7 +305,7 @@ class ImagePublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Image Title and Description with Licensed Image in #viewport.label")
@@ -353,7 +353,7 @@ class ImagePublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -380,7 +380,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $(selector + "[empty]").size() == 1
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -426,7 +426,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("alt") == "Can override Image Headline"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -472,7 +472,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("alt") == "Can override Image Headline"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -524,7 +524,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("alt") == "Can override Image Headline"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Image Title and Description with Overrides in #viewport.label")
@@ -575,7 +575,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $("${selector} img").attr("alt") == "Can override Image Headline"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Image Only Empty in #viewport.label")
@@ -601,7 +601,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $(selector + "[empty]").size() == 1
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -628,7 +628,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $(selector + "[empty]").size() == 1
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -655,7 +655,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert $(selector + "[empty]").size() == 1
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -696,7 +696,7 @@ class ImagePublishSpec extends ComponentSpec {
         )
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -746,7 +746,7 @@ class ImagePublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Image Title and Description with Adaptive Image in #viewport.label")
@@ -798,7 +798,7 @@ class ImagePublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default with Generated Image in #viewport.label")
@@ -822,7 +822,7 @@ class ImagePublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have sample content")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Adaptive Image Sizing in #viewport.label")
@@ -856,7 +856,7 @@ class ImagePublishSpec extends ComponentSpec {
 //         assert expectSizes.get(viewport.label) ==  getImageWidth(imgUrl).toString()
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Default Variant with Image Option - Manual MediaQuery with Rendition in #viewport.label")
@@ -890,7 +890,7 @@ class ImagePublishSpec extends ComponentSpec {
 //         assert expectSizes.get(viewport.label) ==  getImageWidth(imgUrl).toString()
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

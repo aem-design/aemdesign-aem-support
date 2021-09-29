@@ -1,1 +1,2 @@
-!!import/dirMerge core
+!!import/merge
+  - core

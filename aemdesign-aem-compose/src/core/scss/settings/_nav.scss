@@ -1,2 +1,2 @@
-$nav-link-padding-y:                .5rem;
-$nav-link-padding-x:                $grid-gutter-width / 2;
+$nav-link-padding-y: 0.5rem;
+$nav-link-padding-x: math.div($grid-gutter-width, 2);

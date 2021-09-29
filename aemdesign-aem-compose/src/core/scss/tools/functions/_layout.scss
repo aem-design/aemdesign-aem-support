@@ -3,7 +3,7 @@
 /// @param {Number} $height - Y axis
 /// @return {Number} - A percentage number representing the aspect ratio
 @function aspect-ratio($width: 16, $height: 9) {
-  @return ($height / $width) * 100%;
+  @return math.div($height, $width) * 100%;
 }
 
 /// Returns an icon size for the given size name
@@ -15,8 +15,7 @@
   @if not map-has-key($icon-sizes, $for) {
     @error 'The icon size "#{$for}" does not appear to exist, please check the name is correct!';
     @return false;
-  }
-  @else {
+  } @else {
     @return map-get($icon-sizes, $for);
   }
 }

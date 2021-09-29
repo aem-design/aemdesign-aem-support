@@ -2,13 +2,11 @@
 module.exports = ({ env }) => ({
   plugins: {
     'postcss-pxtorem': {
-      replace       : true,
-      rootValue     : 16,
-      unitPrecision : 5,
+      replace: true,
+      rootValue: 16,
+      unitPrecision: 5,
 
-      selectorBlackList: [
-        'html'
-      ],
+      selectorBlackList: ['html'],
 
       propList: [
         'bottom',
@@ -40,4 +38,4 @@ module.exports = ({ env }) => ({
   },
 
   sourceMap: true,
-});
+})

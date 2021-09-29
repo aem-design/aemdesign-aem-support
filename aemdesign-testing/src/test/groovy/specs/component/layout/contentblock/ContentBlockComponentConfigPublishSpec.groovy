@@ -41,7 +41,7 @@ class ContentBlockComponentConfigPublishSpec extends ComponentSpec {
         takeScreenshot($("${selector} .firstComponentConfig").firstElement(), "I am on the component showcase page")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

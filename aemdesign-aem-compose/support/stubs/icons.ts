@@ -13,7 +13,7 @@ config.showMissingIcons     = true
 
 const icons = [%%all-icons%%]
 
-export default () => {
+export default (): void => {
   console.log('[Font Awesome] Loading up our badass icons!')
   console.log('[Font Awesome] Icons to add: %d', icons.length)
   library.add(...icons)

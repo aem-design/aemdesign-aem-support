@@ -56,7 +56,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Second tab content show be visible")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -88,7 +88,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Second tab content show be visible")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Empty in #viewport.label")
@@ -112,7 +112,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
         assert $(selector + " .nav-link.active").text().trim() == "Empty"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 }

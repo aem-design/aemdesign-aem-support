@@ -1,11 +1,12 @@
-import { Component, Mixins, Prop } from 'vue-property-decorator'
+import { defineComponent } from 'vue'
 
-import BaseComponent from '@/core/components/base-component'
-
-@Component({
+export default defineComponent({
   name: 'hello-world',
+
+  props: {
+    name: {
+      default: 'World',
+      type: String,
+    },
+  },
 })
-export default class HelloWorld extends Mixins(BaseComponent) {
-  @Prop({ default: 'World', type: String })
-  public readonly name!: string
-}

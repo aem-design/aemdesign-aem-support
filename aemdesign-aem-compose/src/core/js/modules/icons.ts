@@ -14,25 +14,25 @@ function buildIcon(iconClass: string, prefix: IconPrefix): Element {
 }
 
 const icons: { [key: string]: Element } = {
-  chevronRight    : buildIcon('chevron-right', IconPrefix.SOLID),
-  externalLinkAlt : buildIcon('external-link-alt', IconPrefix.SOLID),
-  longArrowRight  : buildIcon('long-arrow-alt-right', IconPrefix.SOLID),
+  chevronRight: buildIcon('chevron-right', IconPrefix.SOLID),
+  externalLinkAlt: buildIcon('external-link-alt', IconPrefix.SOLID),
+  longArrowRight: buildIcon('long-arrow-alt-right', IconPrefix.SOLID),
 }
 
 export const components: ComponentConfig = {
   anchorLink: {
-    icon      : icons.externalLinkAlt,
-    selectors : ['a[target="_blank"]:not(.link):not(.card-link)'],
+    icon: icons.externalLinkAlt,
+    selectors: ['a[target="_blank"]:not(.link):not(.card-link)'],
   },
 
   cardAction: {
-    icon      : icons.chevronRight,
-    selectors : ['.card-link'],
+    icon: icons.chevronRight,
+    selectors: ['.card-link'],
   },
 
   link: {
-    icon      : icons.chevronRight,
-    selectors : ['.link.btn-link'],
+    icon: icons.chevronRight,
+    selectors: ['.link.btn-link'],
   },
 }
 
@@ -41,11 +41,15 @@ export default (): void => {
 
   // Apply icons to all components on the page by default
   for (const component of Object.keys(components)) {
-    const config   = components[component]
+    const config = components[component]
     const elements = document.querySelectorAll(config.selectors.join(','))
 
     if (elements.length > 0) {
-      console.info('[Icons] Found %d elements for:', elements.length, config.selectors)
+      console.info(
+        '[Icons] Found %d elements for:',
+        elements.length,
+        config.selectors,
+      )
 
       for (const element of elements) {
         if (element.querySelector('.icon') === null) {

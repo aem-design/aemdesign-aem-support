@@ -1,5 +1,6 @@
 content/_cq_tags/aemdesign/component-style-modifier: &component-style-modifier
-  !!import/merge component-style-modifier
+  !!import/merge
+    - component-style-modifier
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/component-style-modifier: *component-style-modifier

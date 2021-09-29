@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-function loadVendor() {
+function loadVendor(): void {
   console.log('vendor.js jQuery Version', $.fn.jquery)
 }
 

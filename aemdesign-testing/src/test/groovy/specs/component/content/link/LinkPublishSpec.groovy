@@ -39,7 +39,7 @@ class LinkPublishSpec extends ComponentSpec {
         report("Should have sample component text")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Button in #viewport.label")
@@ -60,7 +60,7 @@ class LinkPublishSpec extends ComponentSpec {
         report("Should have sample component text")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Default no Label in #viewport.label")
@@ -81,7 +81,7 @@ class LinkPublishSpec extends ComponentSpec {
         report("Should have sample component text")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @IgnoreRest
@@ -112,7 +112,7 @@ class LinkPublishSpec extends ComponentSpec {
         assert $(selector).attr("data-layer-location") == "link page"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Button with Analytics in #viewport.label")
@@ -142,7 +142,7 @@ class LinkPublishSpec extends ComponentSpec {
         assert $(selector).attr("data-layer-location")  == "link page"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -173,7 +173,7 @@ class LinkPublishSpec extends ComponentSpec {
         assert $(selector).attr("data-layer-location") == ""
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Button with Analytics Track Only in #viewport.label")
@@ -203,7 +203,7 @@ class LinkPublishSpec extends ComponentSpec {
         assert $(selector).attr("data-layer-location") == ""
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Button Button with Icon Left in #viewport.label")
@@ -227,7 +227,7 @@ class LinkPublishSpec extends ComponentSpec {
         assert $("$selector > *").firstElement().getAttribute("class").contains("icon")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Button Button with Icon Right in #viewport.label")
@@ -251,7 +251,7 @@ class LinkPublishSpec extends ComponentSpec {
         assert $("$selector > *").lastElement().getAttribute("class").contains("icon")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

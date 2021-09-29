@@ -10,6 +10,6 @@ a {
 
   // Hide links without an `href` attribute from the screen
   &:not([href]) {
-    @include sr-only;
+    @include visually-hidden;
   }
 }
