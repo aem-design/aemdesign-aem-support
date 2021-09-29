@@ -35,7 +35,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spock.version>1.1-groovy-2.4</spock.version>
         <spock.reports.version>1.6.1</spock.reports.version>
-        <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
+        <surefire.plugin.version>2.22.2</surefire.plugin.version>
         <surefire.plugin.parallel>methods</surefire.plugin.parallel>
         <surefire.plugin.threadCount>4</surefire.plugin.threadCount>
         <surefire.plugin.forkCount>4</surefire.plugin.forkCount>
