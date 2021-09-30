@@ -59,7 +59,7 @@
         <seleniumhubhost.service>/wd/hub</seleniumhubhost.service>
         <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
         <exclude.content></exclude.content>
-        <aem.uberjar.version>6.4.0</aem.uberjar.version>
+        <aem.uberjar.version>6.5.5</aem.uberjar.version>
         <gitClosestTagName>${git.closest.tag.name}</gitClosestTagName>
         <gitClosestTagCommitCount>${git.closest.tag.commit.count}</gitClosestTagCommitCount>
         <test.dispatcher>false</test.dispatcher>
