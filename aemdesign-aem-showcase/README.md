@@ -15,15 +15,7 @@ You will need to do this couple of time. At very least please remove Account and
 # Replace all identifier attributes these with ""
 
 ```
-^.+(cq|jcr)\:(createdBy|lastReplicatedBy|lastModifiedBy|lastReplicated|lastReplicationAction|uuid)\=\".+\"\n
-^.+(cq|jcr)\:(createdBy|lastReplicatedBy|lastModifiedBy|lastReplicated|lastReplicationAction|uuid)\=\".+\"\>
-```
-
-# Remove all system generated attributes
-
-```
-^.+(cq|jcr)\:(created|lastReplicated|lastModified|lastReplicationAction|uuid)\=\".+\"\n
-^.+(cq|jcr)\:(created|lastReplicated|lastModified|lastReplicationAction|uuid)\=\".+\"\>
+\n.+(cq|jcr)\:(createdBy|lastReplicatedBy|lastModifiedBy|created|lastReplicated|lastModified|lastReplicationAction|uuid)\=\".+\"
 ```
 
 # Remove all generated `componentId` instances
