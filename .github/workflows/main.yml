@@ -43,7 +43,7 @@ jobs:
       PERSONAL_ADMIN_TOKEN: ${{ secrets.PERSONAL_ADMIN_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
           lfs: true
