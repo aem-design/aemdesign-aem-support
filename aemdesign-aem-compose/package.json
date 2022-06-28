@@ -16,7 +16,7 @@
     "es6-promise": "^4.2.8",
     "jquery": "^3.5.1",
     "lazysizes": "^5.2.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "picturefill": "^3.0.3",
     "popper.js": "^1.16.1",
     "tiny-slider": "^2.9.2",
