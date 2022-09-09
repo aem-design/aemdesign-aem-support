@@ -29,7 +29,7 @@
 
     <properties>
         <geb.version>2.2</geb.version>
-        <selenium.version>3.141.59</selenium.version>
+        <selenium.version>4.4.0</selenium.version>
         <groovy.version>2.4.14</groovy.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
