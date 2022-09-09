@@ -57,7 +57,7 @@ devops___*
 .stats/*
 
 # Environment
-.env
+#.env
 
 #ignore testing remote driver exec files and restuls
 aemdesign-testing/remote-*
