@@ -59,7 +59,7 @@
         <seleniumhubhost.service>/wd/hub</seleniumhubhost.service>
         <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
         <exclude.content></exclude.content>
-        <aem.uberjar.version>6.4.0</aem.uberjar.version>
+        <aem.uberjar.version>6.5.5</aem.uberjar.version>
         <gitClosestTagName>${git.closest.tag.name}</gitClosestTagName>
         <gitClosestTagCommitCount>${git.closest.tag.commit.count}</gitClosestTagCommitCount>
         <test.dispatcher>false</test.dispatcher>
@@ -397,7 +397,7 @@
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
-                <version>1.12.1</version>
+                <version>1.13.1</version>
                 <executions>
                     <execution>
                         <id>change-version</id>
@@ -600,7 +600,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.2.0</version>
                     <configuration>
                         <configLocation>google_checks.xml</configLocation>
                         <violationSeverity>warning</violationSeverity>
@@ -703,7 +703,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
