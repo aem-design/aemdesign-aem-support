@@ -4,7 +4,7 @@ services:
 
   # this meant to run when there is a aemdesign-parent repo, so when you are developing localy
   testing:
-    image: aemdesign/centos-java-buildpack:jdk11
+    image: aemdesign/java-buildpack:jdk11
     hostname: testing
     environment:
       # maven
@@ -19,15 +19,11 @@ services:
       - ../../../:/build/source
       - ~/.m2:/build/.m2
     networks:
-      - default
-      - seleniumgrid
-      - author-network
-      - publish-network
-      - dispatcher-network
+      - internal
 
   # this meant to run in aemdesign-aem-support repo pipeline,
   automationtest:
-    image: aemdesign/centos-java-buildpack:jdk11
+    image: aemdesign/java-buildpack:jdk11
     hostname: automationtest
     environment:
       # maven
@@ -42,15 +38,11 @@ services:
       - ../../:/build/source
       - ~/.m2:/build/.m2
     networks:
-      - default
-      - seleniumgrid
-      - author-network
-      - publish-network
-      - dispatcher-network
+      - internal
 
   # this meant to run in aemdesign-aem-support repo pipeline, will download latest core and install local support packages
   automationtestprep:
-    image: aemdesign/centos-java-buildpack:jdk11
+    image: aemdesign/java-buildpack:jdk11
     hostname: automationtestprep
     working_dir: "/build/source"
     environment:
@@ -67,11 +59,7 @@ services:
       - ./playbooks:/build/source
       - "~/.m2:/build/.m2"
     networks:
-      - seleniumgrid
-      - author-network
-      - publish-network
-      - dispatcher-network
-      - default
+      - internal
 
 
   testingprep:
@@ -90,14 +78,10 @@ services:
     volumes:
       - ./playbooks:/ansible/playbooks
     networks:
-      - seleniumgrid
-      - author-network
-      - publish-network
-      - dispatcher-network
-      - default
+      - internal
 
   testingprepshowcase:
-    image: aemdesign/centos-java-buildpack:jdk11
+    image: aemdesign/java-buildpack:jdk11
     hostname: testingprep
     working_dir: "/build/source"
     environment:
@@ -114,11 +98,7 @@ services:
       - ./playbooks:/build/source
       - "~/.m2:/build/.m2"
     networks:
-      - seleniumgrid
-      - author-network
-      - publish-network
-      - dispatcher-network
-      - default
+      - internal
 
   testingcheck:
     image: docker
@@ -133,7 +113,4 @@ services:
       - /test.sh
 
 networks:
-  seleniumgrid:
-  author-network:
-  publish-network:
-  dispatcher-network:
+  internal:

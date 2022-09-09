@@ -68,7 +68,7 @@ services:
       internal:
         aliases:
           - ${TRAEFIK_SUBDOMAIN_NAME}
-          - ${TRAEFIK_SUBDOMAIN_NAME}.${DOMAIN_NAME}
+          - ${TRAEFIK_HOST}
 
   # will only do this when files are not there
   createcert:
