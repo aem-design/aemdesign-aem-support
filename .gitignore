@@ -68,5 +68,3 @@ aemdesign-testing/local-*
 
 #github actions
 build/
-docker/testing/playbooks/roles/*
-docker/testing/playbooks/packages/*
