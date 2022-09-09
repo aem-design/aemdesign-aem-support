@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+
+  seleniumhub:
+    image: selenium/hub:latest
+    hostname: seleniumhub
+    environment:
+      - GRID_TIMEOUT=10
+      - GRID_DEBUG=true
+    ports:
+      - 32768:4444
+    labels:
+      # note that you want this frontened to match the last. otherwise it will match login.${HOST_DOMAIN}"
+      traefik.frontend.priority: 1
+      traefik.enable: true
+      traefik.http.routers.hub.rule: "Host(`seleniumhub.localhost`)"
+      traefik.http.routers.hub.entrypoints: web
+      traefik.http.routers.hub_https.rule: "Host(`seleniumhub.localhost`)"
+      traefik.http.routers.hub_https.tls: true
+      traefik.http.routers.hub_https.entrypoints: websecure
+      traefik.http.services.hub.loadbalancer.passHostHeader: true
+    networks:
+    - default
+    - seleniumgrid
+    - author-network
+    - publish-network
+    - dispatcher-network
+
+  selenium-node-chrome:
+    image: selenium/node-chrome:3.141.59
+    hostname: selenium-node-chrome
+    environment:
+      - GRID_TIMEOUT=10
+      - HUB_HOST=seleniumhub
+    shm_size: '1g'
+    networks:
+      - default
+      - seleniumgrid
+      - author-network
+      - publish-network
+      - dispatcher-network
+
+networks:
+  seleniumgrid:
+  author-network:
+  publish-network:
+  dispatcher-network:

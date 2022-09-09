@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+
+  jekyllbuild:
+    image: jekyll/builder
+    environment:
+      - JEKYLL_ENV=production
+      - DOMAIN_URL=${DOMAIN_URL}
+      - GIT_REPO=${GIT_REPO}
+      - TRAEFIK_URL=${TRAEFIK_URL}
+      - PUBLIC_URL=${PUBLIC_URL}
+      - SITE_TITLE=${SITE_TITLE}
+      - SITE_DESCRIPTION=${SITE_DESCRIPTION}
+      - GIT_USER=${GIT_USER}
+      - EMAIL=${EMAIL}
+      - AUTHOR_URL=${AUTHOR_URL}
+      - PUBLISH_URL=${PUBLISH_URL}
+      - DISPATCHER_URL=${DISPATCHER_URL}
+      - SELENIUMHUB_URL=${SELENIUMHUB_URL}
+      - GIT_ORG_URL=${GIT_ORG_URL}
+    command: bash -c "envsubst < _config.txt > _configenv.yml && npm install -g sass && bundle update && bundler install && jekyll build --config _config.yml,_configenv.yml --watch --force-polling --force_polling --incremental --future"
+    volumes:
+      - "${NGINX_CONTENT_PATH}:/srv/jekyll"
+
+  nginx:
+    image: nginx
+    restart: always
+    working_dir: /content
+    hostname: "nginx"
+    depends_on:
+      - jekyllbuild
+    labels:
+      traefik.frontend.priority: 1
+      traefik.enable: true
+      # traefik.backend: nginx
+      traefik.http.routers.nginx.rule: "PathPrefix(`/`)"
+      traefik.http.routers.nginx.entrypoints: websecure
+      traefik.http.routers.nginx.tls: true
+      # traefik.http.routers.nginx_https.service: nginx
+      # traefik.http.routers.nginx_https.rule: "PathPrefix(`/`)"
+      # traefik.http.routers.nginx_https.tls: true
+      # traefik.http.routers.nginx_https.entrypoints: websecure
+      # traefik.http.routers.nginx_https.service: nginx
+    volumes:
+      - ${NGINX_CONTENT_PATH}/_site:/content
+      - ${NGINX_CONFIG_FILE}:/etc/nginx/nginx.conf
+    environment:
+      - TZ=${GLOBAL_TZ}
+    networks:
+      - internal
+
+networks:
+  internal:

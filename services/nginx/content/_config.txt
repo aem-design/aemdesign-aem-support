@@ -1,0 +1,5 @@
+title: ${SITE_TITLE}
+email: ${EMAIL}
+description: > # this means to ignore newlines until next attribute
+  ${SITE_DESCRIPTION}
+github_username:  ${GIT_USER}
