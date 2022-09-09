@@ -6,8 +6,8 @@ services:
     image: selenium/hub:latest
     hostname: seleniumhub
     healthcheck:
-      test: curl -u admin:admin --header Referer:localhost --silent --connect-timeout 5 --max-time 5 localhost:${SELENIUMHUB_PORT_INTERNAL}/ui | grep -q "Selenium Grid" && exit 1 || exit 0
-      interval: 10s
+      test: curl http://localhost:${SELENIUMHUB_PORT_INTERNAL}/ui | grep -q Selenium && exit 1 || exit 0
+      interval: 1s
       timeout: 10s
       retries: 20
       start_period: 1s

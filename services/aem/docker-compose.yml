@@ -10,7 +10,7 @@ services:
       interval: 10s
       timeout: 10s
       retries: 20
-      start_period: 1s
+      start_period: 30s
     ports:
       - ${AUTHOR_PORT}:${AUTHOR_PORT_INTERNAL}
       - ${AUTHOR_PORT_DEBUG}:${AUTHOR_PORT_INTERNAL_DEBUG}
