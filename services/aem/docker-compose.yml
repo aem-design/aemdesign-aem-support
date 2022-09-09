@@ -22,12 +22,13 @@ services:
       # note that you want this frontened to match the last. otherwise it will match login.${HOST_DOMAIN}"
       traefik.frontend.priority: 1
       traefik.enable: true
-      traefik.http.routers.author.rule: "Host(`author.localhost`)"
+      traefik.http.routers.author.rule: "Host(`${AUTHOR_HOST}`)"
       traefik.http.routers.author.entrypoints: web
-      traefik.http.routers.author_https.rule: "Host(`author.localhost`)"
+      traefik.http.routers.author_https.rule: "Host(`${AUTHOR_HOST}`)"
       traefik.http.routers.author_https.tls: true
       traefik.http.routers.author_https.entrypoints: websecure
       traefik.http.services.author.loadbalancer.passHostHeader: true
+      traefik.http.services.author.loadbalancer.server.port: 8080
     volumes:
       - author-data:/aem/crx-quickstart/repository
     networks:
@@ -86,12 +87,13 @@ services:
       # note that you want this frontened to match the last. otherwise it will match login.${HOST_DOMAIN}"
       traefik.frontend.priority: 1
       traefik.enable: true
-      traefik.http.routers.publish.rule: "Host(`publish.localhost`)"
+      traefik.http.routers.publish.rule: "Host(`${PUBLISH_HOST}`)"
       traefik.http.routers.publish.entrypoints: web
-      traefik.http.routers.publish_https.rule: "Host(`publish.localhost`)"
+      traefik.http.routers.publish_https.rule: "Host(`${PUBLISH_HOST}`)"
       traefik.http.routers.publish_https.tls: true
       traefik.http.routers.publish_https.entrypoints: websecure
       traefik.http.services.publish.loadbalancer.passHostHeader: true
+      traefik.http.services.publish.loadbalancer.server.port: 8080
     volumes:
       - publish-data:/aem/crx-quickstart/repository
     networks:

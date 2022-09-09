@@ -20,6 +20,7 @@ services:
       traefik.http.routers.hub_https.tls: true
       traefik.http.routers.hub_https.entrypoints: websecure
       traefik.http.services.hub.loadbalancer.passHostHeader: true
+      traefik.http.services.hub.loadbalancer.server.port: 4444
     networks:
     - default
     - seleniumgrid
