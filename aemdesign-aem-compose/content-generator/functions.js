@@ -6,6 +6,7 @@ const mkdirp = require('mkdirp')
 const { sortBy } = require('lodash')
 const yaml = require('js-yaml')
 const json2yaml = require('json2yaml')
+const entities = require('entities')
 
 const {
   readFileSync,
@@ -148,6 +149,13 @@ function titleCase(str) {
   return str
 }
 
+function encodeXML(text) {
+  if (text && text !== "") {
+    return entities.encodeXML(text)
+  }
+  return ""
+}
+
 function generateContent(
   categoryTemplate,
   categoryTemplateDefault,
@@ -173,12 +181,12 @@ function generateContent(
         : escape(contentData.prefixValue + contentData.value)
 
     // Replace the template vars
-    templatePatch = templatePatch.replace('%%title%%', contentData.title)
+    templatePatch = templatePatch.replace('%%title%%', encodeXML(contentData.title))
     templatePatch = templatePatch.replace(
       '%%description%%',
-      contentData.description,
+      encodeXML(contentData.description),
     )
-    templatePatch = templatePatch.replace('%%value%%', value)
+    templatePatch = templatePatch.replace('%%value%%', encodeXML(value))
 
     // Strip the folder name if the category is 'component-style-module'
     if (!contentData.flat) {
@@ -270,7 +278,7 @@ function generateContent(
                 '%%' + fieldName + '%%',
                 fieldValues.json === true && fieldName === 'value'
                   ? Buffer.from(JSON.stringify(value)).toString('base64')
-                  : value,
+                  : encodeXML(value),
               )
             } else if (templateHasAttributes) {
               //if not array add to attributes collection
