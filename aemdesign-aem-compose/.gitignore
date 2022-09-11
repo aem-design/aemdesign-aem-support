@@ -10,6 +10,8 @@ target/
 .vscode/
 *.iml
 
+!.vscode/settings.json
+
 # Node
 node/
 node_modules/

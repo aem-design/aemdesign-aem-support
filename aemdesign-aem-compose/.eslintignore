@@ -2,8 +2,10 @@
 **/public/
 **/node_modules/
 **/packages/
-**/support/scripts/
-
-compose.config.js
-
 **/src/**/*.scss
+**/support/scripts/
+**/test/**/*.test.*
+
+babel.config.js
+compose.config.js
+jest.config.js

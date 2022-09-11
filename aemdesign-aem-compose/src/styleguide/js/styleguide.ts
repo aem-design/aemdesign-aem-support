@@ -3,7 +3,7 @@ import '../scss/styleguide.scss'
 // Internal
 let scrollOffset: number
 
-function resetScrollOffset() {
+function resetScrollOffset(): void {
   scrollOffset = parseInt(getComputedStyle(document.body).top, 10)
 
   document.body.classList.remove('no-scroll')
@@ -12,22 +12,26 @@ function resetScrollOffset() {
   window.scrollTo(0, -scrollOffset)
 }
 
-
-function fixLinksForEnvironment() {
-  const navLinks = document.querySelectorAll('aside .nav-link, #dls_home_button_link')
+function fixLinksForEnvironment(): void {
+  const navLinks = document.querySelectorAll(
+    'aside .nav-link, #dls_home_button_link',
+  )
 
   if (navLinks.length) {
     for (const link of navLinks) {
       const href = link.getAttribute('href')
 
       if (href && href !== '#' && href.indexOf('wcmmode=disabled') === -1) {
-        link.setAttribute('href', `${link.getAttribute('href')}?wcmmode=disabled`)
+        link.setAttribute(
+          'href',
+          `${link.getAttribute('href')}?wcmmode=disabled`,
+        )
       }
     }
   }
 }
 
-function headerMenu() {
+function headerMenu(): void {
   const header = document.querySelector('div.header')
 
   if (header) {
@@ -71,7 +75,7 @@ function headerMenu() {
   }
 
   // Menu overlay
-  let menuOverlay  = document.querySelector('.menu-overlay')
+  let menuOverlay = document.querySelector('.menu-overlay')
 
   if (menuOverlay) {
     menuOverlay.parentNode?.removeChild(menuOverlay)
@@ -83,7 +87,7 @@ function headerMenu() {
   document.body.appendChild(menuOverlay)
 }
 
-async function loadApp() {
+async function loadApp(): Promise<any> {
   console.log('DLS is rocking...')
 
   if (window.location.search.indexOf('wcmmode') !== -1) {
@@ -92,7 +96,9 @@ async function loadApp() {
   }
 
   // Force open any active drop down menu
-  const activeDropDown = document.querySelector('.dropdown-submenu.depth-2.active > .nav-link')
+  const activeDropDown = document.querySelector(
+    '.dropdown-submenu.depth-2.active > .nav-link',
+  )
 
   if (activeDropDown) {
     $(activeDropDown).dropdown('show')

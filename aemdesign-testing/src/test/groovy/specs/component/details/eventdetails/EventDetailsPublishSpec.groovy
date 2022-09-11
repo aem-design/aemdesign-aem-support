@@ -47,7 +47,7 @@ class EventDetailsPublishSpec extends ComponentSpec {
         assert $("${selector} div.card-date").text().trim() == "9:20 AM to 9:20 AM"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Hidden in #viewport.label")
@@ -71,7 +71,7 @@ class EventDetailsPublishSpec extends ComponentSpec {
         assert $("${selector}[hidden]").size() == 1
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -112,7 +112,7 @@ class EventDetailsPublishSpec extends ComponentSpec {
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

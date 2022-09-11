@@ -52,7 +52,7 @@ class ExternalPublishSpec extends ComponentSpec {
         assert $(selector).attr("scrolling") == "false"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -85,7 +85,7 @@ class ExternalPublishSpec extends ComponentSpec {
         $(selector).attr("scrolling") == "yes"
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: SSI Include in #viewport.label")
@@ -107,7 +107,7 @@ class ExternalPublishSpec extends ComponentSpec {
         assert $(selector).getAttribute("innerHTML").contains("#include")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component Variant: Server Import in #viewport.label")
@@ -130,7 +130,7 @@ class ExternalPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "Should have imported content")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

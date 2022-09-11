@@ -57,7 +57,7 @@ devops___*
 .stats/*
 
 # Environment
-.env
+#.env
 
 #ignore testing remote driver exec files and restuls
 aemdesign-testing/remote-*
@@ -68,5 +68,3 @@ aemdesign-testing/local-*
 
 #github actions
 build/
-docker/testing/playbooks/roles/*
-docker/testing/playbooks/packages/*

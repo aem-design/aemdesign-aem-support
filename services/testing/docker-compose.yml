@@ -1,0 +1,116 @@
+version: "2.4"
+
+services:
+
+  # this meant to run when there is a aemdesign-parent repo, so when you are developing localy
+  testing:
+    image: aemdesign/java-buildpack:jdk11
+    hostname: testing
+    environment:
+      # maven
+      - MAVEN_COMMAND=bash ./test-spec --host author --port 8080 --url http://seleniumhub:4444 --maven
+      # docker
+      - PARENT_PROJECT_WITH_GIT=.
+      - PARENT_PROJECT_WITH_GIT_NAME=aemdesign-parent
+      - CURRENT_PROJECT_LOCATION=source/aemdesign-aem-support/aemdesign-testing
+    command: "bash -c -l 'cd /build/$${CURRENT_PROJECT_LOCATION}; $${MAVEN_COMMAND}'"
+    working_dir: /build/source/aemdesign-aem-support/aemdesign-testing"
+    volumes:
+      - ../../../:/build/source
+      - ~/.m2:/build/.m2
+    networks:
+      - internal
+
+  # this meant to run in aemdesign-aem-support repo pipeline,
+  automationtest:
+    image: aemdesign/java-buildpack:jdk11
+    hostname: automationtest
+    environment:
+      # maven
+      - MAVEN_COMMAND=bash ./test-spec --host author --port 8080 --url http://seleniumhub:4444 --maven
+      # docker
+      - PARENT_PROJECT_WITH_GIT=.
+      - PARENT_PROJECT_WITH_GIT_NAME=aemdesign-aem-support
+      - CURRENT_PROJECT_LOCATION=source/aemdesign-testing
+    command: "bash -c -l 'cd /build/$${CURRENT_PROJECT_LOCATION}; $${MAVEN_COMMAND}'"
+    working_dir: /build/source/aemdesign-testing"
+    volumes:
+      - ../../:/build/source
+      - ~/.m2:/build/.m2
+    networks:
+      - internal
+
+  # this meant to run in aemdesign-aem-support repo pipeline, will download latest core and install local support packages
+  automationtestprep:
+    image: aemdesign/java-buildpack:jdk11
+    hostname: automationtestprep
+    working_dir: "/build/source"
+    environment:
+      aem_port: 4502
+      aem_host: author
+      aem_username: admin
+      aem_password: admin
+    command:
+      - bash
+      - -l
+      - -c
+      - "ls -latr /build/.m2/repository && pwd && ls -l && ansible-galaxy install -r requirements.yml && ansible-playbook testingprep-automationtest.yml --extra-vars debug_hide=true"
+    volumes:
+      - ./playbooks:/build/source
+      - "~/.m2:/build/.m2"
+    networks:
+      - internal
+
+
+  testingprep:
+    image: aemdesign/ansible-playbook
+    hostname: testingprep
+    environment:
+      aem_port: 4502
+      aem_host: author
+      aem_username: admin
+      aem_password: admin
+    command:
+      - bash
+      - -l
+      - -c
+      - "pwd && ls -l && ansible-galaxy install -r requirements.yml && ansible-playbook testingprep.yml --extra-vars debug_hide=true"
+    volumes:
+      - ./playbooks:/ansible/playbooks
+    networks:
+      - internal
+
+  testingprepshowcase:
+    image: aemdesign/java-buildpack:jdk11
+    hostname: testingprep
+    working_dir: "/build/source"
+    environment:
+      aem_port: 4502
+      aem_host: author
+      aem_username: admin
+      aem_password: admin
+    command:
+      - bash
+      - -l
+      - -c
+      - "ls -latr /build/.m2/repository && pwd && ls -l && ansible-galaxy install -r requirements.yml && ansible-playbook testingprep-showcase.yml --extra-vars debug_hide=true"
+    volumes:
+      - ./playbooks:/build/source
+      - "~/.m2:/build/.m2"
+    networks:
+      - internal
+
+  testingcheck:
+    image: docker
+    hostname: testingcheck
+    working_dir: "/build"
+    volumes:
+      - ../../:/build
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./scripts/gettestresult.sh:/test.sh
+    command:
+      - sh
+      - /test.sh
+
+networks:
+  internal:

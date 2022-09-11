@@ -36,7 +36,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector}").children().size() == 0
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and List of Children in #viewport.label")
@@ -59,7 +59,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 10
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and List of Descendants in #viewport.label")
@@ -82,7 +82,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 19
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Default variant and Fixed List in #viewport.label")
@@ -105,7 +105,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector} li").size() == 3
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -129,7 +129,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector}").children().size() == 1
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Options List variant and List of Children in #viewport.label")
@@ -152,7 +152,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector} option").size() == 11
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Options List variant and List of Descendants in #viewport.label")
@@ -175,7 +175,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector} option").size() == 20
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Options List variant and Fixed List in #viewport.label")
@@ -198,7 +198,7 @@ class TagListPublishSpec extends ComponentSpec {
         assert $("${selector} option").size() == 4
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

@@ -44,7 +44,7 @@ class ContactListPublishSpec extends ComponentSpec {
         assert $("${selector} li.last").text().trim() == "Author: Max Barrass"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Card Action with Icon, Title, Category and Description in #viewport.label")
@@ -76,7 +76,7 @@ class ContactListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-text").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Card Action with Image, Title, Category and Description in #viewport.label")
@@ -111,7 +111,7 @@ class ContactListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-text").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Card with Icon, Title, Category, Description and Action in #viewport.label")
@@ -143,7 +143,7 @@ class ContactListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-text").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -179,7 +179,7 @@ class ContactListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-text").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     //#contactlist6 is in ContactListPaginationPublishSpec
@@ -204,7 +204,7 @@ class ContactListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-link").getAt(0).getAttribute("href").contains("mailto:")
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

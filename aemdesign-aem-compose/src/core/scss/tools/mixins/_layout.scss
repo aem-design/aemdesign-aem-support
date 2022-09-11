@@ -44,6 +44,9 @@
     &.#{$aem-prefix-col} {
       all: unset;
       box-sizing: inherit;
+      // Correct the colour of text/links so they inherit correctly as unsetting styles breaks Safari
+      // stylelint-disable-next-line
+      -webkit-text-fill-color: initial;
     }
   }
 }

@@ -72,6 +72,6 @@ class ContactListPaginationPublishSpec extends ComponentSpec {
 
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 }

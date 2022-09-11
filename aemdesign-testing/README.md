@@ -150,11 +150,7 @@ You can commit these files to git, and they will be used as a reference source f
 
 ## Usage
 
-Start Selenium Hub and Node
-
-```powershell
-.\seleniumhub-start
-```
+You should have already started the AEM stack in Showcase repo and deployed your repos.
 
 Using Powershell 7 execute selected tests run following command:
 
@@ -174,12 +170,6 @@ Update `test-list` with test you want to run without specifying parameters, this
 
 ```powershell
 .\test-spec.ps1 -TEST_PORT 4512 
-```
-
-Stop Selenium Hub and Node
-
-```powershell
-.\seleniumhub-stop
 ```
 
 To only test specific viewports specify `TEST_VIEWPORTS` param
@@ -281,10 +271,10 @@ For more information please see following reference site [https://www.browsersta
 
 Run following command to start a container with your project content. You will use this to run all maven tests.
 
-1. Start Selenium hub and grid
+1. Start the stack
 
 ```bash
-./seleniumhub-start
+docker-compose up
 ```
 
 2. Start Container, this will map parent project folder into `/build/aemdesign-aem-support` and map your `.m2` into `/build/.m2` which you will use when building.

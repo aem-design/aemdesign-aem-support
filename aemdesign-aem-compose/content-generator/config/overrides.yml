@@ -1,1 +1,2 @@
-!!import/dirMerge overrides
+!!import/merge
+  - overrides

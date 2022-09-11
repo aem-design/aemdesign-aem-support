@@ -30,11 +30,11 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -53,11 +53,11 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -76,13 +76,13 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         assert js.exec( "\$(\"$selector video\")[0].pause(); return true;")
         assert js.exec( "\$(\"$selector video\")[0].currentTime=2; return true;")
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }
@@ -101,11 +101,11 @@ class ContentBlockScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: "It should match the #viewport.width by #viewport.height reference image."
+        then: "It should match the #viewport.width and height: #viewport.height reference image."
         designRef(selector)
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
 
 
     }

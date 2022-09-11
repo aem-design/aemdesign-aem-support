@@ -7,7 +7,7 @@
     <parent>
         <groupId>design.aem</groupId>
         <artifactId>aemdesign-aem-support</artifactId>
-        <version>2.0.595</version>
+        <version>2.0.777</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -29,13 +29,13 @@
 
     <properties>
         <geb.version>2.2</geb.version>
-        <selenium.version>3.141.5</selenium.version>
+        <selenium.version>4.4.0</selenium.version>
         <groovy.version>2.4.14</groovy.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spock.version>1.1-groovy-2.4</spock.version>
         <spock.reports.version>1.6.1</spock.reports.version>
-        <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
+        <surefire.plugin.version>2.22.2</surefire.plugin.version>
         <surefire.plugin.parallel>methods</surefire.plugin.parallel>
         <surefire.plugin.threadCount>4</surefire.plugin.threadCount>
         <surefire.plugin.forkCount>4</surefire.plugin.forkCount>
@@ -199,7 +199,7 @@
                     <plugin>
                         <groupId>org.codehaus.gmavenplus</groupId>
                         <artifactId>gmavenplus-plugin</artifactId>
-                        <version>1.7.1</version>
+                        <version>1.13.1</version>
                         <executions>
                             <execution>
                                 <phase>site</phase>
@@ -223,7 +223,7 @@
                             <dependency>
                                 <groupId>junit</groupId>
                                 <artifactId>junit</artifactId>
-                                <version>4.12</version>
+                                <version>4.13.2</version>
                                 <scope>runtime</scope>
                             </dependency>
                         </dependencies>
@@ -274,12 +274,12 @@
             <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib-nodep</artifactId>
-                <version>3.2.5</version>
+                <version>3.3.0</version>
             </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-core</artifactId>
-                <version>1.3</version>
+                <version>2.2</version>
             </dependency>
             <dependency>
                 <groupId>com.opera</groupId>
@@ -317,7 +317,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
         </dependency>
         <dependency>
             <groupId>org.spockframework</groupId>
@@ -379,12 +379,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>phantomjsdriver</artifactId>
-            <version>1.4.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>com.opera</groupId>
             <artifactId>operadriver</artifactId>
             <scope>test</scope>
@@ -415,13 +409,13 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>1.7.32</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.30</version>
+            <version>2.0.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -438,14 +432,14 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>27.0.1-jre</version>
+            <version>31.0.1-jre</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>4.1.2</version>
+            <version>7.5.1</version>
         </dependency>
     </dependencies>
 </project>

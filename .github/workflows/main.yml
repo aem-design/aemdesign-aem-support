@@ -43,7 +43,7 @@ jobs:
       PERSONAL_ADMIN_TOKEN: ${{ secrets.PERSONAL_ADMIN_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
           lfs: true
@@ -51,11 +51,12 @@ jobs:
           fetch-depth: 0
 
       - name: Set up jdk ${{ matrix.java-version }}
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3.4.1
         with:
+          distribution: 'adopt'
           java-version: ${{ matrix.java-version }}
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3.4.1
         with:
           node-version: '10.x'
           registry-url: https://npm.pkg.github.com/
@@ -63,7 +64,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN_ADMIN }}
       - name: set up python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v4.2.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -79,7 +80,7 @@ jobs:
 
       - name: Set eval variables
         run: |
-          echo "DOCKER_COMMAND=docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build -v /home/runner/.m2:/build/.m2 ${DOCKER_IMAGE}" >> $GITHUB_ENV
+          echo "DOCKER_COMMAND=docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build/source -w /build/source -v /home/runner/.m2:/build/.m2 ${DOCKER_IMAGE}" >> $GITHUB_ENV
           $DOCKER_COMMAND java -version
           $DOCKER_COMMAND node -v
           git config --global user.email "${GITHUB_EMAIL}"
@@ -90,14 +91,14 @@ jobs:
           source <(curl -sL https://github.com/aem-design/aemdesign-docker/releases/latest/download/setup-gpg.sh)
 
       - name: Cache sonarcloud packages
-        uses: actions/cache@v1
+        uses: actions/cache@v3.0.8
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
       - name: Cache maven packages
-        uses: actions/cache@v1
+        uses: actions/cache@v3.0.8
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -166,7 +167,7 @@ jobs:
 
       - name: Upload release asset - aemdesign-aem-support-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -177,7 +178,7 @@ jobs:
 
       - name: Upload release asset - aemdesign-aem-compose-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -188,7 +189,7 @@ jobs:
 
       - name: Upload release asset - aemdesign-aem-showcase-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -199,7 +200,7 @@ jobs:
 
       - name: Upload release asset - aemdesign-aem-training-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -210,7 +211,7 @@ jobs:
 
       - name: Upload release asset - aemdesign-aem-content-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -221,7 +222,7 @@ jobs:
 
       - name: Upload release asset - aemdesign-aem-config-${{ env.GITHUB_TAG }}.zip
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

@@ -4,8 +4,8 @@ div.header {
   @include notch-awesome;
 
   align-items: center;
-  background-color: color('grey-8');
-  color: color('white');
+  background-color: map-get($colors, 'grey-8');
+  color: map-get($colors, 'white');
   display: flex;
   height: $header-height;
   justify-content: space-between;
@@ -44,7 +44,7 @@ div.header {
   background-color: transparent;
   border: 1px solid currentColor;
   border-radius: $border-radius;
-  color: color('grey-4');
+  color: map-get($colors, 'grey-4');
   height: 40px;
   padding: 5px 12px;
   width: 40px;

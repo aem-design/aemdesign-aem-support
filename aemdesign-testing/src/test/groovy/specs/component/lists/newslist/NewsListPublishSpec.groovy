@@ -44,7 +44,7 @@ class NewsListPublishSpec extends ComponentSpec {
         assert $("${selector} li.last").text().trim() == "News Title 3"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Card with Image Title Category Description and Action in #viewport.label")
@@ -73,7 +73,7 @@ class NewsListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-text").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Card with Image Title Subtitle Description and Action in #viewport.label")
@@ -99,7 +99,7 @@ class NewsListPublishSpec extends ComponentSpec {
         assert $("${selector} img").size() == 2
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -135,7 +135,7 @@ class NewsListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-date time").firstElement().getAttribute("innerText") == "Tuesday 01 January 2019"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Card with Image Title Subtitle Action and Date with Order by Publish Date in #viewport.label")
@@ -167,7 +167,7 @@ class NewsListPublishSpec extends ComponentSpec {
         assert $("${selector} .card-title").getAt(2).getAttribute("innerText") == "News Title 3"
 
         where: "Browser size width: #viewport.width and height: #viewport.height"
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

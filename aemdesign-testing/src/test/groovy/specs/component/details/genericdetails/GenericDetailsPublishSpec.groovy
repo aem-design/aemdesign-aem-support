@@ -34,16 +34,16 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} .breadcrumb").isEmpty() == true
+        assert $("${selector} .breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Default with included components in #viewport.label")
@@ -67,7 +67,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert $(selector).css("background-image").indexOf("/content/dam/aemdesign-showcase/en/components/media/image/city2.jpg") > 0
 
         and: "Has Breadcrumb visible"
-        assert $("${selector} nav.breadcrumb").isEmpty() == false
+        assert !$("${selector} nav.breadcrumb").empty
 
         and: "Has Breadcrumb has sample content"
         assert $("${selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
@@ -92,7 +92,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Hidden Variant in #viewport.label")
@@ -117,7 +117,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert $("[hidden]${selector}").size() == 1
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Functionality of Component with Background and Inherited Toolbar in #viewport.label")
@@ -164,7 +164,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
 
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 
@@ -185,25 +185,25 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} nav.breadcrumb").isEmpty() == true
+        assert $("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Page Date visible"
-        assert $("${selector} .pagedate time").isEmpty() == true
+        assert !$("${selector} .pagedate time").empty
 
         and: "Has Title showing"
-        assert $("${selector} header .card-title").isEmpty() == false
+        assert !$("${selector} header .card-title").empty
 
         and: "Has Description hidden"
-        assert $("${selector} header .card-text").isEmpty() == true
+        assert $("${selector} header .card-text").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Page Details: Default without included components and hidden Title and Description in #viewport.label")
@@ -224,25 +224,25 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} nav.breadcrumb").isEmpty() == true
+        assert $("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Page Date visible"
-        assert $("${selector} .pagedate time").isEmpty() == false
+        assert !$("${selector} .pagedate time").empty
 
         and: "Has Title showing"
-        assert $("${selector} h1").isEmpty() == true
+        assert $("${selector} h1").empty
 
         and: "Has Description hidden"
-        assert $("${selector} .description").isEmpty() == true
+        assert $("${selector} .description").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Custom Variant using Field Template Card with selected Fields Subtitle, Title, Description and Action in #viewport.label")
@@ -274,7 +274,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${selector} .card-action", "Page Properties - Navigation Title")
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Variant Template with Breadcrumb, SubTitle, Title, Description and Action in #viewport.label")
@@ -294,22 +294,22 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Sub Title visible"
-        assert $("${selector} .breadcrumb").isEmpty() == false
+        assert !$("${selector} .breadcrumb").empty
 
         and: "Has Title visible"
-        assert $("${selector} .card-subtitle").isEmpty() == false
+        assert !$("${selector} .card-subtitle").empty
 
         and: "Has Title visible"
-        assert $("${selector} .card-title").isEmpty() == false
+        assert !$("${selector} .card-title").empty
 
         and: "Has Description visible"
-        assert $("${selector} .card-text").isEmpty() == false
+        assert !$("${selector} .card-text").empty
 
         and: "Has Action visible"
-        assert $("${selector} .card-action").isEmpty() == false
+        assert !$("${selector} .card-action").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
     @Unroll("Default without included components and Page Date, Custom Title and Description in #viewport.label")
@@ -329,25 +329,25 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         takeScreenshot($(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
-        assert $("${selector} nav.breadcrumb").isEmpty() == true
+        assert $("${selector} nav.breadcrumb").empty
 
         and: "Has Toolbar hidden"
-        assert $("${selector} .navbar").isEmpty() == true
+        assert $("${selector} .navbar").empty
 
         and: "Has Page Date visible"
-        assert $("${selector} .pagedate time").isEmpty() == false
+        assert !$("${selector} .pagedate time").empty
 
         and: "Has Title showing"
-        assert $("${selector} .card-title").isEmpty() == false
+        assert !$("${selector} .card-title").empty
 
         and: "Has Description hidden"
-        assert $("${selector} .card-text").isEmpty() == false
+        assert !$("${selector} .card-text").empty
 
         and: "Has Parsys hidden"
-        assert $("${selector} .text").isEmpty() == true
+        assert $("${selector} .text").empty
 
         where:
-        viewport << getViewPorts()
+        viewport << viewPorts
     }
 
 

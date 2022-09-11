@@ -1,0 +1,99 @@
+version: "3.8"
+
+services:
+
+  seleniumhub:
+    image: selenium/hub:latest
+    hostname: seleniumhub
+    healthcheck:
+      test: curl http://localhost:${SELENIUMHUB_PORT_INTERNAL}/ui | grep -q Selenium && exit 1 || exit 0
+      interval: 1s
+      timeout: 10s
+      retries: 20
+      start_period: 1s
+    environment:
+      - GRID_TIMEOUT=10
+      - GRID_DEBUG=true
+    ports:
+      - ${SELENIUMHUB_PORT}:${SELENIUMHUB_PORT_INTERNAL}
+      - ${SELENIUMHUB_PORT_PUBLISH_PORT}:${SELENIUMHUB_PORT_INTERNAL_PUBLISH_PORT}
+      - ${SELENIUMHUB_PORT_SUBSCRIBE_PORT}:${SELENIUMHUB_PORT_INTERNAL_SUBSCRIBE_PORT}
+    labels:
+      # note that you want this frontened to match the last. otherwise it will match login.${HOST_DOMAIN}"
+      traefik.frontend.priority: 1
+      traefik.enable: true
+      traefik.http.routers.hub.rule: "Host(`${SELENIUMHUB_HOST}`)"
+      traefik.http.routers.hub.entrypoints: web
+      traefik.http.routers.hub_https.rule: "Host(`${SELENIUMHUB_HOST}`)"
+      traefik.http.routers.hub_https.tls: true
+      traefik.http.routers.hub_https.entrypoints: websecure
+      traefik.http.services.hub.loadbalancer.passHostHeader: true
+      traefik.http.services.hub.loadbalancer.server.port: ${SELENIUMHUB_PORT_INTERNAL}
+    networks:
+      internal:
+        aliases:
+          - ${SELENIUMHUB_SUBDOMAIN_NAME}
+          - ${SELENIUMHUB_HOST}
+
+  selenium-node-chrome:
+    image: selenium/node-chrome:latest
+    hostname: selenium-node-chrome
+    environment:
+      - GRID_TIMEOUT=10
+      - SE_EVENT_BUS_HOST=${SELENIUMHUB_SUBDOMAIN_NAME}
+      - SE_EVENT_BUS_PUBLISH_PORT=${SELENIUMHUB_PORT_INTERNAL_PUBLISH_PORT}
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=${SELENIUMHUB_PORT_INTERNAL_SUBSCRIBE_PORT}
+    shm_size: '2g'
+    depends_on:
+      - seleniumhub
+    networks:
+      - internal
+
+  selenium-node-firefox:
+    image: selenium/node-firefox:latest
+    hostname: selenium-node-firefox
+    environment:
+      - GRID_TIMEOUT=10
+      - HUB_HOST=${SELENIUMHUB_SUBDOMAIN_NAME}
+      - HUB_PORT=${SELENIUMHUB_PORT_INTERNAL}
+    shm_size: '2g'
+    profiles:
+      - firefox
+    depends_on:
+      - seleniumhub
+    networks:
+      - internal
+
+  selenium-node-opera:
+    image: selenium/node-opera:latest
+    hostname: selenium-node-opera
+    environment:
+      - GRID_TIMEOUT=10
+      - HUB_HOST=${SELENIUMHUB_SUBDOMAIN_NAME}
+      - HUB_PORT=${SELENIUMHUB_PORT_INTERNAL}
+    shm_size: '2g'
+    profiles:
+      - opera
+    depends_on:
+      - seleniumhub
+    networks:
+      - internal
+
+  selenium-node-edge:
+    image: selenium/node-edge:latest
+    hostname: selenium-node-edge
+    environment:
+      - GRID_TIMEOUT=10
+      - HUB_HOST=${SELENIUMHUB_SUBDOMAIN_NAME}
+      - HUB_PORT=${SELENIUMHUB_PORT_INTERNAL}
+    shm_size: '2g'
+    profiles:
+      - edge
+    depends_on:
+      - seleniumhub
+    networks:
+      - internal
+
+networks:
+  internal:
+

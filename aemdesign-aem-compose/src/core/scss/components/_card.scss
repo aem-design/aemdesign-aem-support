@@ -4,7 +4,7 @@
  * Bootstrap card
  */
 
-@import '~bootstrap/scss/card';
+//@import '~bootstrap/scss/card';
 
 /**
 * Overrides
@@ -16,7 +16,8 @@
   width: 100%;
 
   &-img-top,
-  .lazysizes-display-clone { // [1]
+  .lazysizes-display-clone {
+    // [1]
     display: block;
     height: 145px;
 

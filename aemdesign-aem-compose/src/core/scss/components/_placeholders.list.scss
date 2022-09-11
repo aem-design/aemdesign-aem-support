@@ -30,13 +30,13 @@
 
       @include media-breakpoint-up(md) {
         margin-bottom: -$list-item-md-margin;
-        margin-left: -($list-item-md-margin / 2);
+        margin-left: -(math.div($list-item-md-margin, 2));
         width: calc(100% + #{$list-item-md-margin});
       }
 
       @include media-breakpoint-up(lg) {
         margin-bottom: -$list-item-lg-margin;
-        margin-left: -($list-item-lg-margin / 2);
+        margin-left: -(math.div($list-item-lg-margin,2 ));
         width: calc(100% + #{$list-item-lg-margin});
       }
     }
@@ -51,25 +51,20 @@
     }
   }
 
-  // Hide the default AEM pagination
-  .pagination {
-    display: none;
-  }
-
   // Create the default page list child variant sizes
   @include list-variant {
     flex: 0 1 100%;
 
     @include media-breakpoint-up(md) {
-      flex-basis: percentage(4 / $grid-columns);
-      max-width: percentage(4 / $grid-columns);
-      padding-left: $list-item-md-margin / 2;
-      padding-right: $list-item-md-margin / 2;
+      flex-basis: percentage(math.div(4, $grid-columns));
+      max-width: percentage(math.div(4, $grid-columns));
+      padding-left: math.div($list-item-md-margin, 2);
+      padding-right: math.div($list-item-md-margin, 2);
     }
 
     @include media-breakpoint-up(lg) {
-      padding-left: $list-item-lg-margin / 2;
-      padding-right: $list-item-lg-margin / 2;
+      padding-left: math.div($list-item-lg-margin, 2);
+      padding-right: math.div($list-item-lg-margin, 2);
     }
   }
 }

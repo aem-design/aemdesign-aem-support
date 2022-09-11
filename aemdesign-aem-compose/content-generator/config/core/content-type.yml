@@ -1,7 +1,8 @@
 
 # Content Type
 content/_cq_tags/aemdesign/content-type: &content-type
-  !!import/dirMerge content-type
+  !!import/merge
+    - content-type
 
 # Showcase Copy
 content/_cq_tags/aemdesign-showcase/content-type: *content-type

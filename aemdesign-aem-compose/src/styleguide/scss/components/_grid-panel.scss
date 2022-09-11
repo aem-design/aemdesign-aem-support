@@ -4,13 +4,13 @@
 
     &::before,
     &::after {
-      // background-color: color('charcoal-10');
+      // background-color: map-get($colors, 'charcoal-10');
       content: '';
       display: block;
       height: 100%;
       position: absolute;
       top: 0;
-      width: $grid-gutter-width / 2;
+      width: math.div($grid-gutter-width, 2);
     }
 
     &::before {
@@ -22,7 +22,7 @@
     }
 
     @include media-breakpoint-only(sm) {
-      // border-bottom: 1px solid color('charcoal-10');
+      // border-bottom: 1px solid map-get($colors, 'charcoal-10');
     }
   }
 }

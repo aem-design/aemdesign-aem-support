@@ -1,7 +1,16 @@
 {
   "extends": [
     "stylelint-config-recommended-scss",
-    "stylelint-config-twbs-bootstrap/scss"
+    "stylelint-config-twbs-bootstrap/scss",
+    "stylelint-config-prettier"
+  ],
+
+  "ignoreFiles": [
+    "node_modules/",
+    "public/",
+    "support/stubs/**/*",
+    "**/*.ts",
+    "compose.config.js"
   ],
 
   "rules": {
@@ -31,7 +40,7 @@
     "declaration-colon-newline-after": "always-multi-line",
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
-    "declaration-property-value-blacklist": {
+    "declaration-property-value-disallowed-list": {
       "/^transition/": ["/all/"],
       "/^background/": ["http:", "https:"],
       "/^border/": ["none"],
@@ -134,6 +143,7 @@
 
     "scss/at-mixin-argumentless-call-parentheses": "never",
     "scss/at-function-named-arguments": "never",
+    "scss/at-import-partial-extension": null,
     "scss/at-rule-no-unknown": [
       true,
       {
